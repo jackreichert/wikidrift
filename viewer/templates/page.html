@@ -1,13 +1,63 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{root}style.css"></head><body>
-<header class="site"><a href="{root}index.html" class="wordmark">WikiDrift</a>
-<nav class="nav"><a href="{root}index.html">Findings</a><a href="{root}about.html">About</a>
-<a href="{root}methodology.html">Methodology</a><a href="{root}glossary.html">Glossary</a></nav></header>
-<main>{body}</main>
-<footer><p class="muted">A compilation of findings from the WikiDrift tool. Every result is a
-<b>lead for a researcher, never a published verdict</b>: a change-and-disagreement detector, not a bias
-oracle. Editor-agnostic, from public data only.</p></footer></body></html>
+<meta name="description" content="{description}">
+<meta name="author" content="encyclopediae.org">
+<link rel="canonical" href="{canonical}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WikiDrift · encyclopediae.org">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{description}">
+<meta property="og:url" content="{canonical}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{title}">
+<meta name="twitter:description" content="{description}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;600;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{root}style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <nav class="top" aria-label="Main">
+    <div class="brand">
+      <a class="wordmark" href="{root}index.html">WikiDrift</a>
+    </div>
+    <button type="button" class="nav-burger" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="site-nav">
+      <a href="{root}index.html"{nav_findings}>Findings</a>
+      <a href="{root}about.html"{nav_about}>About</a>
+      <a href="{root}methodology.html"{nav_methodology}>Methodology</a>
+      <a href="{root}glossary.html"{nav_glossary}>Glossary</a>
+    </div>
+  </nav>
+</header>
+<main id="main">{body}</main>
+<footer class="site">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="https://encyclopediae.org">encyclopediae.org</a>
+      <p>Diagnostic tool in the encyclopediae family: measure Wikipedia change and cross-edition disagreement from public data.</p>
+    </div>
+    <div class="footer-links">
+      <a href="{root}index.html">Findings</a>
+      <a href="{root}about.html">About</a>
+      <a href="{root}methodology.html">Methodology</a>
+      <a href="{root}glossary.html">Glossary</a>
+      <a href="https://encyclopediae.org">encyclopediae.org</a>
+      <a href="https://encyclopediae.org/mission.html">Our Mission</a>
+    </div>
+  </div>
+  <div class="footer-base">
+    <p>Static findings from WikiDrift. Public data only. Each page is a <b>candidate to inspect</b> — change and cross-edition disagreement, not a bias label.</p>
+  </div>
+</footer>
+<script src="{root}site.js"></script>
+</body>
+</html>

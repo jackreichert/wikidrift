@@ -1,41 +1,97 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About — WikiDrift</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css"></head><body>
-<header class="site"><a href="index.html" class="wordmark">WikiDrift</a>
-<nav class="nav"><a href="index.html">Findings</a><a href="about.html">About</a>
-<a href="methodology.html">Methodology</a><a href="glossary.html">Glossary</a></nav></header>
-<main><div class="prose"><h1>About WikiDrift</h1>
-<p class="summary">A change-and-disagreement detector for Wikipedia. It surfaces where an article's story
-shifted, or where language editions tell different stories, so a person can take a closer look.</p>
-<p class="disclaimer">A lead for a researcher, not a verdict.</p>
-<h2>What this is</h2>
-<p>Wikipedia is written and rewritten by volunteers, an extraordinary effort begun in good faith. But it
-is also human, self-governed, and subject to bad actors: its editorial disputes are settled by consensus
-among whoever shows up, and its governance is contested. So an article's story can quietly shift: text that stood for years gets
-rewritten, or the different language editions of the same topic tell noticeably different stories.
-<b>WikiDrift</b> surfaces those shifts and disagreements so a person can investigate.</p>
-<h2>What it does, and does not, claim</h2>
-<p>It is a change-and-disagreement detector, <b>not a bias detector</b>. Finding that an article changed a
-lot, or that editions disagree, is a <a href="glossary.html#lead">lead</a>, never a conclusion that anyone
-did something wrong. Big, legitimate rewrites happen all the time. We never accuse individual editors.</p>
-<h2>How it reads an article</h2>
+<meta name="description" content="About — WikiDrift, a diagnostic tool from encyclopediae.org.">
+<meta name="author" content="encyclopediae.org">
+<link rel="canonical" href="https://wikidrift.encyclopediae.org/about.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WikiDrift · encyclopediae.org">
+<meta property="og:title" content="About — WikiDrift">
+<meta property="og:description" content="About — WikiDrift, a diagnostic tool from encyclopediae.org.">
+<meta property="og:url" content="https://wikidrift.encyclopediae.org/about.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="About — WikiDrift">
+<meta name="twitter:description" content="About — WikiDrift, a diagnostic tool from encyclopediae.org.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;600;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <nav class="top" aria-label="Main">
+    <div class="brand">
+      <a class="wordmark" href="index.html">WikiDrift</a>
+    </div>
+    <button type="button" class="nav-burger" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="site-nav">
+      <a href="index.html">Findings</a>
+      <a href="about.html" class="active" aria-current="page">About</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="glossary.html">Glossary</a>
+    </div>
+  </nav>
+</header>
+<main id="main"><div class="prose"><h1>About WikiDrift</h1>
+<p class="summary">Measures how a Wikipedia article changed over time, and how language editions of the
+same topic differ. Public data, revision IDs, reproducible diffs. Part of the
+<a href="https://encyclopediae.org">encyclopediae.org</a> family — the diagnostic arm beside the
+constructive project of encyclopedias from academic institutions.</p>
+
+<p class="disclaimer">Candidates only — not conclusions.</p>
+
+<h2>What it measures</h2>
+<p>WikiDrift runs on public MediaWiki and WikiWho data. For each article it can report:</p>
 <ul>
-<li><b>Its own history:</b> the moments an article was most heavily rewritten (its
-<a href="glossary.html#pivot">pivots</a>), shown as a before / after.</li>
-<li><b>Other language editions:</b> how the English and, say, Hebrew / Arabic or Polish / German editions
-<a href="glossary.html#framing">frame</a> the subject, and whether they
-<a href="glossary.html#fact-divergence">agree on the facts</a>.</li>
-<li><b>Who wrote what:</b> <a href="glossary.html#blame">blame</a> shows which editor introduced each part.</li>
+<li><strong>History:</strong> when long-stable text was dismantled (<a href="glossary.html#pivot">pivots</a>), with before/after
+  diffs and which accounts removed or wrote the text
+  (<a href="glossary.html#pwr">persistence-weighted</a> displacement).</li>
+<li><strong>Other editions:</strong> how English compares with editions such as Hebrew, Arabic, Polish, or German on
+  <a href="glossary.html#framing">framing</a> and <a href="glossary.html#fact-divergence">load-bearing facts</a> — including
+  whether English moved at the pivot, not only whether editions differ today.</li>
+<li><strong>Citations:</strong> how the article's own source mix shifted across a rewrite
+  (<a href="glossary.html#source-change">from → to</a>), without reliability ratings on domains.</li>
 </ul>
-<h2>Why "make disagreement legible"</h2>
-<p>There is rarely a single neutral truth. Rather than declare one, WikiDrift shows where independent
-sources disagree, with the <a href="glossary.html#receipts">receipts</a>, and lets you judge. It uses only
-public data and is open-source.</p>
-<p>For how the detection actually works, the layers involved, and the discipline that keeps every result a
-lead rather than an accusation, see the <a href="methodology.html">Methodology</a>.</p></div></main>
-<footer><p class="muted">A compilation of findings from the WikiDrift tool. Every result is a
-<b>lead for a researcher, never a published verdict</b>: a change-and-disagreement detector, not a bias
-oracle. Editor-agnostic, from public data only.</p></footer></body></html>
+<h2>How findings are produced</h2>
+<p>Articles are selected and scored from <strong>content trajectory</strong>, not from a roster of suspect editors.
+Optional named lists can sit on top as overlays; they are not the foundation. A metadata pre-ranker
+(byte displacement, no full text) decides what deserves a full token-level pass and routes addition- or
+<a href="glossary.html#churn">churn</a>-heavy cases to framing analysis when removal alone would miss them.</p>
+<p>A large rewrite is a <em>change</em> signal. Base-rate runs show legitimate overhauls can out-pivot contested
+topics. Direction is a separate layer (stance + cross-edition checks). Every page here is a
+<a href="glossary.html#lead">lead</a> with links back to underlying revisions.</p>
+<h2>Limits in brief</h2>
+<p>Internal history cannot see bias that was there from the start with no rewrite to contrast
+(<a href="glossary.html#born-framed">born-framed</a> / long-standing consensus). Those cases need external
+reference — other language editions and related instruments. Attribution reports public actions only.</p>
+<h2>How to use it</h2>
+<p>Open a finding, read the tabs, follow the <a href="glossary.html#receipts">receipts</a>. For layers,
+validation lessons, principles, and citations, see <a href="methodology.html">Methodology</a>.</p></div></main>
+<footer class="site">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="https://encyclopediae.org">encyclopediae.org</a>
+      <p>Diagnostic tool in the encyclopediae family: measure Wikipedia change and cross-edition disagreement from public data.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Findings</a>
+      <a href="about.html">About</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="https://encyclopediae.org">encyclopediae.org</a>
+      <a href="https://encyclopediae.org/mission.html">Our Mission</a>
+    </div>
+  </div>
+  <div class="footer-base">
+    <p>Static findings from WikiDrift. Public data only. Each page is a <b>candidate to inspect</b> — change and cross-edition disagreement, not a bias label.</p>
+  </div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>

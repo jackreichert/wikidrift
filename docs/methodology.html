@@ -1,202 +1,254 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Methodology — WikiDrift</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css"></head><body>
-<header class="site"><a href="index.html" class="wordmark">WikiDrift</a>
-<nav class="nav"><a href="index.html">Findings</a><a href="about.html">About</a>
-<a href="methodology.html">Methodology</a><a href="glossary.html">Glossary</a></nav></header>
-<main><div class="prose"><h1>Methodology</h1>
-<p class="summary">How WikiDrift decides what to surface, and the discipline that keeps it a lead to
-investigate rather than an accusation. Everything here runs on public data and is reproducible.</p>
-<p class="disclaimer">A lead for a researcher, not a verdict.</p>
+<meta name="description" content="Methodology — WikiDrift, a diagnostic tool from encyclopediae.org.">
+<meta name="author" content="encyclopediae.org">
+<link rel="canonical" href="https://wikidrift.encyclopediae.org/methodology.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WikiDrift · encyclopediae.org">
+<meta property="og:title" content="Methodology — WikiDrift">
+<meta property="og:description" content="Methodology — WikiDrift, a diagnostic tool from encyclopediae.org.">
+<meta property="og:url" content="https://wikidrift.encyclopediae.org/methodology.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Methodology — WikiDrift">
+<meta name="twitter:description" content="Methodology — WikiDrift, a diagnostic tool from encyclopediae.org.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;600;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <nav class="top" aria-label="Main">
+    <div class="brand">
+      <a class="wordmark" href="index.html">WikiDrift</a>
+    </div>
+    <button type="button" class="nav-burger" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="site-nav">
+      <a href="index.html">Findings</a>
+      <a href="about.html">About</a>
+      <a href="methodology.html" class="active" aria-current="page">Methodology</a>
+      <a href="glossary.html">Glossary</a>
+    </div>
+  </nav>
+</header>
+<main id="main"><div class="prose"><h1>Methodology</h1>
+<p class="summary">How the detector works, how it was built, and what it does not claim.
+Public data only; same inputs → same outputs.</p>
 
-<h2>The problem, and why it needs two tools</h2>
-<p>Billions of people meet a topic through a single Wikipedia article, shaped by a relatively small number
-of editors. It was begun in good faith, an extraordinary volunteer effort. But it is also human,
-self-governed, and subject to bad actors, its disputes settled by consensus among whoever shows up, and an
-article can end up skewed in two very different ways that cannot be found the same way:</p>
+<p class="disclaimer">Candidates only — not conclusions.</p>
+
+<h2>Starting point</h2>
+<p>The project began as a token-level Wikipedia filter-mirror (show who wrote what; optionally
+highlight contributions from a sourced list). Git looked like a natural substrate but was a poor fit:
+line-level blame and no native "drop author X" model. <strong>WikiWho-class token provenance into a columnar
+store</strong> became the engine; git/GitHub stayed useful for transparency and static hosting, not for blame.</p>
+<p>Scope then narrowed around a concrete problem: coordinated point-of-view editing on contested topics.
+A bounded topic slice is tractable. The decisive design choice was not which list to hard-code, but
+<strong>not to start from a list at all</strong>.</p>
+<h2>Content trajectory first</h2>
+<p>Some efforts begin with named editors and treat co-editing or aligned voting as evidence of
+coordination. On contested topics, clustering is expected even without collusion, so that path is
+circular. WikiDrift instead measures each article's <strong>own edit history</strong>. Named lists, if used, are
+optional sourced overlays — never the foundation of a flag.</p>
+<p>The structural signal of interest is <strong>stable-then-retrofit</strong>: long-surviving text is dismantled and
+the replacement sticks. That is a <a href="glossary.html#lead">necessary condition</a> for further review,
+not proof of bias. Semantic direction and intent are separate questions.</p>
+<h2>Two failure modes</h2>
+<p>Skew can arrive in different ways; they need different instruments:</p>
 <ul>
-<li><b><a href="glossary.html#capture">Capture by change</a></b>, where an article was rewritten over time
-to shift its story. WikiDrift is built to catch this, by reading an article against its own past.</li>
-<li><b>Capture by origin</b>, where an article carried a point of view from the very start, or a like-minded
-majority kept it that way. There is no earlier, cleaner version to compare against, so reading the article's
-own history tells you nothing. This needs an <a href="glossary.html#external-reference">external
-reference</a>, and it is the hard limit we describe below.</li>
+<li><strong><a href="glossary.html#capture">By change</a></strong> — durable text was replaced and the change persisted.
+  Read the article against its own past (L1–L2, then L5 for direction).</li>
+<li><strong>By origin / consensus</strong> — framed from creation, or held steady by a quiet majority, with no useful
+  earlier contrast. Internal history alone is blind. Needs an
+  <a href="glossary.html#external-reference">external reference</a> (other language editions, facts across
+  editions, citation mix).</li>
 </ul>
-
-<h2>The founding choice: judge the text, not the editors</h2>
-<p>The obvious approach, taken by some prior efforts, is to start from a list of suspect editors and flag
-whatever they touch. We deliberately do not. Editors who work the same contested topic naturally cluster,
-edit near each other, and vote alike, whether or not anything coordinated is going on, so "they cluster"
-proves nothing on its own. Building on such a list bakes in that circular reasoning and makes the tool just
-another partisan actor.</p>
-<p>Instead, WikiDrift flags an article <b>only by its own trajectory</b>. A named list, if used at all, is an
-optional, <a href="glossary.html#blame">sourced</a>, swappable overlay laid on top, never the foundation. The
-mechanism works identically whatever a list contains, and that neutrality of mechanism is the point.</p>
-
-<h2>What we measure: the layers</h2>
-<p>The engine is built in layers, each answering a narrower question than the last. The lower layers work on
-any article from public data alone; the upper layers add language and meaning.</p>
-<div class="tablewrap"><table><thead><tr><th scope="col">Layer</th><th scope="col">Question it answers</th>
-<th scope="col">How</th></tr></thead><tbody>
-<tr><td><b>L1 — Drift &amp; pivots</b></td><td>When was the article most heavily rewritten?</td>
-<td>Weighs each word by how long it survived (<a href="glossary.html#pwr">persistence-weighted loss</a>),
-finds the moments long-stable text collapsed (<a href="glossary.html#pivot">pivots</a>), then binary-searches
-the exact revision.</td></tr>
-<tr><td><b>Attribution</b></td><td>Who removed the old text, and who wrote the new?</td>
-<td>Names the editors of the removed and added words, from public revision data. Action, not intent.</td></tr>
-<tr><td><b>L2 — Framing</b></td><td>Did the meaning shift, not just the words?</td>
-<td>Rates <a href="glossary.html#stance">stance</a> on a neutrality scale (not sentiment) over time, so a
-reframing shows up whether it was done by adding slanted text or removing critical text.</td></tr>
-<tr><td><b>L5 #1 — Cross-lingual</b></td><td>Do other language editions frame it differently?</td>
-<td>Runs the same framing read across editions (<a href="glossary.html#cross-lingual">natively, no
-translation</a>), both as they stand now and before vs. after a pivot.</td></tr>
-<tr><td><b>L5 #2 — Facts</b></td><td>Do the editions actually disagree on the facts?</td>
-<td>Compares answers to load-bearing factual questions across editions, with an as-of date, to catch
-<a href="glossary.html#fact-divergence">numerical or categorical contradictions</a>.</td></tr>
-<tr><td><b>L5 #3b — Sources</b></td><td>What kinds of sources does it cite, and how did that change?</td>
-<td>Reads the article's own citations and shows <a href="glossary.html#source-change">what the sourcing
-changed from &rarr; to</a> across a pivot &mdash; which source-domains were added or dropped, and the shift in
-citation types. It <b>rates no source</b>; it shows the change and lets you judge.</td></tr>
+<p>A third pattern sits between pure removal and pure addition: <strong>reframe-by-churn</strong> (article net-grows
+while shedding unusual amounts of older text). L1 may read HEALTHY; metadata pre-rank routes those as
+<a href="glossary.html#churn">churn → L2</a> leads.</p>
+<h2>Layers</h2>
+<p>Each layer answers a narrower question. Lower layers use public data only; upper layers add framing and
+cross-edition comparison.</p>
+<div class="tablewrap"><table><thead><tr><th scope="col">Layer</th><th scope="col">Question</th>
+<th scope="col">Method</th></tr></thead><tbody>
+<tr><td><b>L1 — Drift &amp; pivots</b></td><td>When was durable text dismantled?</td>
+<td><a href="glossary.html#pwr">Persistence-weighted loss</a> on the stable spine; coarse grid, then
+binary-search for the pivot revision. Multi-episode; ranked by absolute PWR-mass.</td></tr>
+<tr><td><b>Attribution</b></td><td>Who removed the old text / wrote the new?</td>
+<td>Public revision and token-authorship data. Action only — not intent.</td></tr>
+<tr><td><b>Pre-rank</b></td><td>Which articles deserve a full pass?</td>
+<td>Metadata only (size / time / actor): rolling-median byte displacement; routes
+removal → PWR, addition → L2, churn → L2.</td></tr>
+<tr><td><b>L2 — Framing</b></td><td>Did stance on key entities shift?</td>
+<td><a href="glossary.html#stance">NPOV-axis</a> ratings over time (not generic sentiment). Prefer
+sampling the L1 pivot window.</td></tr>
+<tr><td><b>L4 — Discovery</b></td><td>Where else should L1 look?</td>
+<td>Seed from destroyers of a confirmed pivot; expand only via large removals elsewhere; re-test each
+candidate on its own content. Graph never flags.</td></tr>
+<tr><td><b>L5 #1 — Cross-lingual</b></td><td>Do other editions frame it differently?</td>
+<td>Same stance read across editions, static and relative to the L1 pivot
+(<a href="glossary.html#cross-lingual">native, no translation</a>).</td></tr>
+<tr><td><b>L5 #2 — Facts</b></td><td>Do editions disagree on load-bearing facts?</td>
+<td>Fixed questions, as-of dated answers, adjudicated for
+<a href="glossary.html#fact-divergence">agree / differ / contradict</a>.</td></tr>
+<tr><td><b>L5 #3b — Sources</b></td><td>How did the citation mix change across the pivot?</td>
+<td>Cite-template types and domains (archive links unwrapped). Composition only —
+<a href="glossary.html#source-change">no reliability ratings</a>.</td></tr>
 </tbody></table></div>
-<p>A further signal, a <a href="glossary.html#conflict">controversy measure</a> (how much an article was
-edit-warred), is used only as context. On its own it cannot separate a genuinely contested topic from a
-captured one, so a <i>low</i> controversy score on an otherwise flagged article is itself informative: the
-change was made quietly, without a fight.</p>
 
-<h2>The single most important idea</h2>
-<p>Text that survived years of readers and editors has earned a <a href="glossary.html#stability-prior">
-stability prior</a>. A passage stable for a decade that is then reversed <b>and kept</b> against attempts to
-restore it is hard to explain innocently. But no single signal is proof. A finding is only strong on the
-<a href="glossary.html#conjunction">conjunction</a>: long-stable, reversed, previously-sourced text removed,
-persisting despite reverts, by a narrow set of editors. Any one factor alone is noise.</p>
+<p>Edit-war intensity (<a href="glossary.html#conflict">M-score</a>) is context only. High controversy is
+not capture; near-zero controversy on a large rewrite means the change was not fought over (route toward L5
+when other signals fire).</p>
+<h2>Stability prior and PWR</h2>
+<p>Text that survived years of editing has a <a href="glossary.html#stability-prior">stability prior</a>.
+A large, lasting collapse of that spine is unusual enough to inspect. The L1 metric is
+<a href="glossary.html#pwr">persistence-weighted content loss</a> (Halfaker et al.; Adler–de Alfaro): each
+token is weighted by how long it survived; classification uses the weighted loss ratio, ranking uses
+absolute PWR-mass. Coarse passes run offline from cached snapshots.</p>
+<p>One factor is not enough. Stronger cases stack signals (<a href="glossary.html#conjunction">conjunction</a>):
+long-stable, removed, meaning shift, persistence against reverts, concentrated authorship on the change.</p>
+<h2>What validation taught</h2>
+<p>Early metrics broke in predictable ways; the fixes define the current method.</p>
+<div class="tablewrap"><table><thead><tr><th scope="col">Issue</th><th scope="col">Adjustment</th></tr></thead><tbody>
+<tr><td>Raw churn higher on controls</td><td>Dropped standalone churn; age-confounded on surviving tokens</td></tr>
+<tr><td>Spurious "pivots" from blanking</td><td>Snapshots on persistent revisions (size ≈ local median)</td></tr>
+<tr><td>Blips labeled as pivots</td><td>Magnitude floor + binary-search confirmation</td></tr>
+<tr><td>Percentage favored tiny old cohorts</td><td>Multi-episode ranking by absolute PWR-mass</td></tr>
+<tr><td>Hosted API gaps / load</td><td>Retry/backoff; local <code>wikiwho_rs</code> for coverage</td></tr>
+<tr><td>Medium reframe-by-churn missed</td><td>Relative-anomaly pre-rank lead → L2</td></tr>
+</tbody></table></div>
 
-<h2>What keeps it honest</h2>
-<p>These are not polish. Each one is a lesson from something that broke during development.</p>
+<p><strong>Base rate:</strong> contested articles and some benign rewrites (e.g. Climate change quality overhauls) both
+trigger pivots. L1 identifies <em>change</em>; L2 and L5 discriminate further. Real but tiny old rewrites on
+clean articles are kept and demoted by mass — no suppression gate to make controls look perfect.</p>
+<p><strong>Addition-side example (Nakba):</strong> removal-based L1 can read HEALTHY when most of the article is new
+growth. Byte growth can be citation-heavy while prose grows modestly; L2 can still show framing shift.
+Those cases route to L5 rather than a clean bill of health.</p>
+<h2>Principles</h2>
+<ol>
+<li>Article trajectory is primary; lists are optional overlays.</li>
+<li>Outputs are leads for review, not final verdicts.</li>
+<li>Separate necessary conditions (text replaced) from sufficient claims (meaning reversed; intent).</li>
+<li>Validate on controls before trusting positives.</li>
+<li>Require base-rate checks on designed control sets.</li>
+<li>Cover removal, addition, and churn vectors.</li>
+<li>Attribute public actions; do not infer intent.</li>
+<li>Use the social graph only downstream of content evidence (L4 search prior).</li>
+<li>Reproducibility from public data is part of the product.</li>
+</ol>
+<h2>Key decisions</h2>
 <ul>
-<li><b>Change is not bias.</b> The largest single rewrite across our whole test slate was a completely benign
-restructuring of the Climate change article, bigger than anything on Zionism. So the raw change signal is a
-<i>change</i> detector, not a bias detector. That is precisely why the framing and cross-lingual layers
-exist: to tell a legitimate rewrite from a capture.</li>
-<li><b>Prove it on a control first.</b> Every metric is checked against a neutral topic
-(<a href="article/Photosynthesis.html">Photosynthesis</a>) before any positive result is believed. Early
-versions mistook a vandalism blip, and a control's normal early growth, for "pivots"; the fixes (snapshotting
-on stable revisions, requiring the change to actually stick) came from catching those false alarms.</li>
-<li><b>Do not suppress an honest signal.</b> When the method surfaced a real but trivial old rewrite on a
-clean article, we did not re-tune it to hide it. A change detector should report change; the judgment of
-whether it <i>matters</i> happens in the layers above.</li>
-<li><b>Age never demotes a finding.</b> A distortion that stood for fifteen years is not "stale", it is a
-prime target. We rank findings by how much stable content was displaced, not by how recent they are.</li>
+<li>Git rejected as blame/reconstruction engine (line-level mismatch).</li>
+<li>Hard-coded editor lists rejected as foundation.</li>
+<li>Default view highlights provenance; removal is a toggle, not the default.</li>
+<li>Hosted WikiWho for analysis; local <code>wikiwho_rs</code> for scale (parser parity certified).</li>
+<li>Rank by absolute PWR-mass; recency describes, it does not demote.</li>
+<li>L2 = NPOV-axis LLM stance (provider-agnostic); sentiment classifiers dropped.</li>
+<li>M-score = contextual corroborator only.</li>
+<li>L5 #3 = citation composition change, not a scholarly-consensus oracle (no source ratings).</li>
+<li>L4 discovery subtracts a <strong>fixed</strong> base-rate roster, never the growing cache.</li>
 </ul>
+<h2>Established and open</h2>
+<p><strong>Established:</strong> provenance pipeline; PWR metric; multi-pivot detection with persistent snapshots;
+attribution; metadata pre-ranking; L2 stance; L5 framing + facts + sources; L4 first probe; local engine
+parity with hosted on neutral articles; benchmark on adjudicated must-flag set (removal-oriented cases and
+controls).</p>
+<p><strong>Open / partial:</strong> fuller L3 visualization across all articles; scaled L4 snowball; denser L2
+shift-localization (where in time the stance moves); cross-encyclopedia external reference beyond
+language editions; more benign-rewrite controls.</p>
+<h2>Limits</h2>
+<p>Blind to bias with no historical contrast unless L5 has coverage. Direction is underdetermined from L1
+alone (correction vs capture). Attribution names accounts and actions; a same-day "dominant drop" can be a
+restructure — diffs should be read. Quiet editions and thin non-English coverage make some cross-lingual
+results inconclusive (reported as such).</p>
+<h2>Reproducibility</h2>
+<p>Findings point at public revisions under <a href="glossary.html#receipts">receipts</a>. Provenance from
+WikiWho; timelines from the Action API; edition links from Wikidata. Framing and claim adjudication use a
+language model with fixed JSON schemas (thinking disabled on classification calls so structured output is
+reliable). Open-source tooling.</p>
+<h2>What is novel</h2>
+<p class="lead">Components already exist in the literature. The contribution is the join:</p>
 
-<h2>The known limit, and the answer</h2>
-<p>Because WikiDrift reads an article against its own history, it is <b>blind by design</b> to bias that was
-there from the start: an article born with a point of view, a distortion held in place by a like-minded
-majority, or one that simply stood unchallenged for years. To that kind of tool, those all look perfectly
-healthy. There is also a direction ambiguity: it can see that stable text was removed and the change stuck,
-but not whether that change <i>injected</i> bias or <i>corrected</i> it.</p>
-<p>Resolving either requires looking <b>outside</b> the article, which is what the cross-lingual and fact
-layers begin to do, and what a plurality of independent encyclopedias would do fully. The aim is never to
-declare a single neutral truth. It is to make <b>disagreement legible</b>: show where independent authorities
-diverge, with the <a href="glossary.html#receipts">receipts</a>, and let the reader judge.</p>
+<ul>
+<li><strong>Pivot + attribution.</strong> Discover when the stable core collapsed from content displacement (not a known
+  tag date or activity burst alone), then name who removed and who replaced at that revision.</li>
+<li><strong>Change vs origin.</strong> Separate those modes; external reference is the answer to the internal blind
+  spot, not a footnote.</li>
+<li><strong>Pivot-relative cross-lingual.</strong> Not only "do editions differ today," but whether English moved
+  relative to others <em>at the detected pivot</em>.</li>
+</ul>
+<h2>Prior work</h2>
+<p class="lead">Composition of established work, not a new authorship algorithm. Project notes live in
+<code>sources/</code> in the repository.</p>
 
-<h2>Why you can check it</h2>
-<p>Every finding traces to specific public Wikipedia revisions, listed as <a href="glossary.html#receipts">
-receipts</a> on each article page. The tool uses only public data (token authorship from WikiWho, the
-Wikipedia API, and Wikidata to match articles across languages; a language model reads framing and factual
-claims). It is open-source, and the change-detection layer has been checked against a set of independently
-adjudicated cases: it caught 5 of 6 known content-removal cases, and the local engine reproduced the
-reference results on all 8.</p>
-
-<h2>What's new here</h2>
-<p class="lead">Nearly every part of the machinery below already existed. WikiDrift's contribution is the
-<b>combination</b>, and a way of framing the problem, not a new algorithm. As far as we can tell, no prior
-tool or paper puts these together:</p>
+<h3>Token authorship</h3>
 <ul>
-<li><b>It finds the moment <i>and</i> the hands.</b> Earlier work either detects that an article changed
-(from activity spikes, or a date a human tagged it) or traces who wrote a given word. WikiDrift discovers
-<i>when</i> an article's long-stable core was dismantled from the text itself, with no tag and no activity
-proxy, and then names who removed the old words and who wrote the new ones at
-<a href="glossary.html#pivot">that exact pivot</a>. Joining unsupervised discovery to
-<a href="glossary.html#blame">attribution</a> is the gap nobody else occupies.</li>
-<li><b>Two kinds of capture, told apart.</b> We separate bias introduced
-<a href="glossary.html#capture">by change</a> from bias present
-<a href="glossary.html#external-reference">from the start</a>, and we say plainly that a tool reading an
-article against its own past <i>cannot</i> see a distortion that was always there. Naming that blind spot,
-and building the external-reference layer as its answer, is part of the design rather than a caveat buried
-at the end.</li>
-<li><b>Divergence anchored to the moment of change.</b> Comparing how language editions portray a topic is an
-old idea. Asking whether the English edition <a href="glossary.html#cross-lingual">peeled away</a> from the
-others <i>at the very pivot</i> the engine found, instead of merely noting that they differ today, turns a
-static comparison into a test that can tell a capture from a legitimate real-world event.</li>
+<li>Fabian Flöck &amp; Maribel Acosta, <em>WikiWho</em> (WWW 2014); <em>TokTrack</em>
+  (<a href="https://arxiv.org/abs/1703.08244">ICWSM 2017</a>).</li>
+<li><a href="https://github.com/Schuwi/wikiwho_rs">wikiwho_rs</a> (this project contributed a dump-parser fix).</li>
 </ul>
-<p>And a quieter difference. In a field crowded with efforts that name suspect editors and present the result
-as proof, the disciplined refusal to do that is the real distinction:
-<a href="glossary.html#capture">judge the text, not the editors</a>; report a lead, never a verdict; and
-demonstrate, on a neutral control, that <b>change is not bias</b>. The honesty is the feature. The shoulders
-it stands on are below.</p>
-
-<h2>Sources &amp; prior work</h2>
-<p class="lead">WikiDrift does not reinvent the science. It composes established, peer-reviewed work, and its
-originality is the combination. These are the shoulders it stands on, and the findings that keep it honest.</p>
-<h3>Token authorship — the engine</h3>
+<h3>Content survival</h3>
 <ul>
-<li>Fabian Fl&ouml;ck &amp; Maribel Acosta, <i>WikiWho: Precise and Efficient Attribution of Authorship of
-Revisioned Content</i> (WWW 2014), and <i>TokTrack</i> (<a href="https://arxiv.org/abs/1703.08244"
-target="_blank" rel="noopener">ICWSM 2017</a>) — per-token provenance across an article's whole history.</li>
-<li>The open-source <a href="https://github.com/Schuwi/wikiwho_rs" target="_blank" rel="noopener">wikiwho_rs</a>
-engine, to which this project contributed a dump-parser fix.</li>
+<li>Adler &amp; de Alfaro, WikiTrust (WWW 2007).</li>
+<li>Halfaker et al., persistent-word-revisions (WikiSym 2009) — basis for <a href="glossary.html#pwr">PWR</a>.</li>
 </ul>
-<h3>Measuring a rewrite — content survival</h3>
+<h3>Framing / NPOV measurement</h3>
 <ul>
-<li>B. Thomas Adler &amp; Luca de Alfaro, <i>A Content-Driven Reputation System for Wikipedia</i> (WWW 2007,
-WikiTrust).</li>
-<li>Aaron Halfaker et al., persistent-word-revisions (WikiSym 2009) — the basis for our
-<a href="glossary.html#pwr">persistence-weighted</a> measure of how much durable text a rewrite displaced.</li>
+<li>Pavalanathan, Han &amp; Eisenstein, <em>Mind Your POV</em>
+  (<a href="https://arxiv.org/abs/1809.06951">CSCW 2018</a>) — framing over time; change-point typically known a priori.</li>
+<li>Isaac Johnson et al., <em>Recommended Practices for NPOV Research on Wikipedia</em>
+  (<a href="https://arxiv.org/abs/2510.21526">2025</a>) — stance axis, not sentiment.</li>
 </ul>
-<h3>Framing over time, and the caution we took to heart</h3>
+<h3>Controversy</h3>
 <ul>
-<li>Umashanthi Pavalanathan, Xiaochuang Han &amp; Jacob Eisenstein, <i>Mind Your POV</i>
-(<a href="https://arxiv.org/abs/1809.06951" target="_blank" rel="noopener">CSCW 2018</a>) — article framing
-measured over time.</li>
-<li>Isaac Johnson, <i>Recommended Practices for NPOV Research on Wikipedia</i>
-(<a href="https://arxiv.org/abs/2510.21526" target="_blank" rel="noopener">2025</a>) — why we rate
-<a href="glossary.html#stance">stance</a> on a neutrality axis rather than sentiment, which conflates tone
-with viewpoint balance.</li>
+<li>Sumi / Yasseri et al., edit-war detection and mutual-revert measures
+  (<a href="https://arxiv.org/abs/1107.3689">arXiv:1107.3689</a>; PLOS ONE line).</li>
 </ul>
-<h3>Controversy signal</h3>
+<h3>Cross-lingual comparison</h3>
 <ul>
-<li>Taha Yasseri et al., the mutual-revert controversy measure
-(<a href="https://arxiv.org/abs/1107.3689" target="_blank" rel="noopener">PLOS ONE 2012</a>) — our
-contextual <a href="glossary.html#conflict">controversy</a> corroborator.</li>
+<li>Bao, Hecht et al., <em>Omnipedia</em> (CHI 2012); Massa &amp; Scrinzi, <em>Manypedia</em> — snapshot
+  external-reference prototypes.</li>
 </ul>
-<h3>Cross-lingual comparison — the external-reference layer</h3>
+<h3>Empirical cautions and cases</h3>
 <ul>
-<li>Patti Bao, Brent Hecht et al., <i>Omnipedia</i> (CHI 2012), and <i>Manypedia</i> (Massa &amp; Scrinzi) —
-comparing how different language editions portray the same topic, the idea behind our cross-lingual layer.</li>
+<li>Greenstein &amp; Zhu (AER 2012; MISQ 2018): article slant rarely shifts via revision — do not treat every
+  rewrite as capture.</li>
+<li>Yang &amp; Colavizza (2024): news-source composition as a measurable signal.</li>
+<li>Grabowski &amp; Klein (2023) on Holocaust-history distortion — long-standing factual error as a target
+  for the external-reference layer (see Warsaw concentration camp here).</li>
 </ul>
-<h3>Findings that keep us honest</h3>
-<ul>
-<li>Shane Greenstein &amp; Feng Zhu (AER 2012; MIS Quarterly 2018) found an article's slant <i>rarely</i>
-shifts through revision — a direct caution against reading every rewrite as capture.</li>
-<li>Independent work comparing Wikipedia with Britannica found it no more biased on the topics studied — a
-counter-finding we build into the framing rather than ignore.</li>
-<li>Jan Grabowski &amp; Shira Klein, on documented distortion of Holocaust history on Wikipedia (2023) — the
-peer-reviewed case behind the "Warsaw concentration camp" example here, showing a long-standing distortion
-can stand unchallenged for years. Exactly what the <a href="glossary.html#external-reference">external
-reference</a> layer targets.</li>
-</ul>
-<h3>What we deliberately did not build on</h3>
-<p>Several advocacy efforts, across the political spectrum, take a "name the suspect editors" approach:
-start from a list and treat who-edits-with-whom as proof of coordination. We reject that as circular and
-unfair, and built the opposite, <a href="glossary.html#capture">judging the text, not the editors</a>. Such
-reports are contested and are, at most, motivating context, never an input to a finding.</p>
-
-<h2>What it will not do</h2>
-<p>It will not accuse an individual editor of bad faith, it will not declare a neutral truth, and it will not
-call any article "biased". It points you somewhere to look, and shows its work.</p></div></main>
-<footer><p class="muted">A compilation of findings from the WikiDrift tool. Every result is a
-<b>lead for a researcher, never a published verdict</b>: a change-and-disagreement detector, not a bias
-oracle. Editor-agnostic, from public data only.</p></footer></body></html>
+<h3>Not used as input</h3>
+<p>Advocacy reports that name editor clusters and treat co-editing as proof of coordination are not inputs
+to any finding. They may be motivating context for topic choice; the detector does not consume their lists.</p>
+<h2>Out of scope</h2>
+<p>No intent claims about accounts. No single "neutral truth" oracle. No automated "this article is biased"
+label. The site shows where to look and how the numbers were computed.</p></div></main>
+<footer class="site">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="https://encyclopediae.org">encyclopediae.org</a>
+      <p>Diagnostic tool in the encyclopediae family: measure Wikipedia change and cross-edition disagreement from public data.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Findings</a>
+      <a href="about.html">About</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="https://encyclopediae.org">encyclopediae.org</a>
+      <a href="https://encyclopediae.org/mission.html">Our Mission</a>
+    </div>
+  </div>
+  <div class="footer-base">
+    <p>Static findings from WikiDrift. Public data only. Each page is a <b>candidate to inspect</b> — change and cross-edition disagreement, not a bias label.</p>
+  </div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>

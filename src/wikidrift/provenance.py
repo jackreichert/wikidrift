@@ -67,31 +67,44 @@ def ensure_indexes(con):
 
 # --- Action API: timeline + sizes -------------------------------------------
 def ensure_sizes(con, article):
-    """Populate BOTH the revision timeline (rev_id->ts/user) and per-rev size in one Action-API sweep."""
+    """Populate the revision timeline (rev_id->ts/user) and per-rev size. Commits per page so
+    an interrupted run can resume: re-entry continues from the last stored revision instead of
+    re-downloading the entire history."""
     ensure_schema(con)
-    have_rev = con.execute("SELECT count(*) FROM revisions WHERE article=?", [article]).fetchone()[0]
-    have_sz = con.execute("SELECT count(*) FROM rev_size WHERE article=?", [article]).fetchone()[0]
-    if have_rev and have_sz:
-        return
+    latest = con.execute("SELECT max(rev_id) FROM revisions WHERE article=?", [article]).fetchone()[0]
+
     params = {"action": "query", "format": "json", "formatversion": "2", "prop": "revisions",
               "titles": article, "rvprop": "ids|timestamp|user|size", "rvlimit": "max", "rvdir": "newer", "maxlag": "5"}
-    revrows, szrows = [], []
+    if latest:
+        params["rvstartid"] = latest   # resume from last known rev (inclusive — deduped below)
+
+    # Load existing IDs only when resuming so we can skip the boundary rev returned by rvstartid
+    seen = ({r[0] for r in con.execute("SELECT rev_id FROM revisions WHERE article=?", [article]).fetchall()}
+            if latest else set())
+    total = len(seen)
+
     while True:
         d = config.get_json_retrying(_S, config.ACTION, params=params)   # network/Action-API can be flaky
+        revrows, szrows = [], []
         for pg in d.get("query", {}).get("pages", []):
             for rv in pg.get("revisions", []):
                 rid = int(rv["revid"])
+                if rid in seen:
+                    continue
+                seen.add(rid)
                 revrows.append((article, rid, rv["timestamp"], rv.get("user", "<hidden>")))
                 szrows.append((article, rid, int(rv.get("size", 0))))
+        if revrows:
+            con.executemany("INSERT INTO revisions VALUES (?,?,?,?)", revrows)
+            con.executemany("INSERT INTO rev_size VALUES (?,?,?)", szrows)
+            total += len(revrows)
+        print(f"\r  history: {total:,} revisions…", end="", flush=True)
         if "continue" in d:
+            params.pop("rvstartid", None)   # rvcontinue supersedes rvstartid
             params["rvcontinue"] = d["continue"]["rvcontinue"]
         else:
             break
-    if not have_rev:
-        con.executemany("INSERT INTO revisions VALUES (?,?,?,?)", revrows)
-    if not have_sz:
-        con.executemany("INSERT INTO rev_size VALUES (?,?,?)", szrows)
-    print(f"  history: {len(revrows):,} revisions", flush=True)
+    print(f"\r  history: {total:,} revisions" + " " * 10, flush=True)
 
 
 # --- WikiWho: per-revision tokens -------------------------------------------
@@ -157,12 +170,22 @@ def snapshot_picks(con, article):
     return picks
 
 
+def _pbar(done, total, width=20):
+    filled = int(width * done / total) if total else width
+    return "█" * filled + "░" * (width - filled)
+
+
 def build_snapshots(con, article):
     """Build persistent-revision snapshots into rsnap from the HOSTED WikiWho API (polite)."""
     ensure_schema(con)
+    picks = snapshot_picks(con, article)
+    n = len(picks)
     snaps = []
-    for d, rev_id in snapshot_picks(con, article):
-        if not con.execute("SELECT 1 FROM rsnap WHERE article=? AND snap_rev=?", [article, rev_id]).fetchone():
+    for i, (d, rev_id) in enumerate(picks, 1):
+        cached = bool(con.execute("SELECT 1 FROM rsnap WHERE article=? AND snap_rev=?", [article, rev_id]).fetchone())
+        label = "cached " if cached else "fetch  "
+        print(f"\r  snapshots [{_pbar(i, n)}] {i}/{n}  {d}  {label}", end="", flush=True)
+        if not cached:
             toks = tokens_at(article, rev_id)
             if not toks:
                 continue                            # WikiWho couldn't serve this revision — skip snapshot
@@ -170,4 +193,6 @@ def build_snapshots(con, article):
                             [(article, d, rev_id, t["token_id"], t["o_rev_id"]) for t in toks])
             time.sleep(0.3)                         # be polite to the WikiWho API
         snaps.append((d, rev_id))
+    if n:
+        print(f"\r  snapshots [{_pbar(n, n)}] {len(snaps)}/{n} loaded" + " " * 20, flush=True)
     return snaps

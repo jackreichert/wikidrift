@@ -1,41 +1,42 @@
 """viewer/build.py — static findings-site generator for GitHub Pages.
 
-Reads the FROZEN findings JSON emitted by the wikidrift spikes (no tool, no API, no keys) and
-renders a static site (stdlib only, vanilla HTML/CSS + tiny inline JS, no framework, no external
-assets) into `docs/` at the repo root. This is a COMPILATION OF FINDINGS, not the tool. Every page
-states the contract: a lead for a researcher, never a published verdict.
-
-Design: product register (see viewer/UX-REVIEW.md) — professional, restrained, tuned; not a generic
-UI toolkit. OKLCH tinted neutrals + a chrome layer + one slate-indigo accent; a separate AA-compliant
-data-color scale for stance/verdict; system fonts, tight fixed scale.
+Reads frozen findings JSON (no tool, no API, no keys) and renders a static site into `docs/`.
+Family chrome matches encyclopediae.org (Source Sans, light header, dark footer).
 
 Run:    python viewer/build.py
-Deploy: monorepo — GitHub Pages serves `/docs` from this repo (Settings → Pages → Branch: main, /docs).
-        CNAME (drift.encyclopediae.org) + .nojekyll are emitted into docs/ by the build.
+Deploy: GitHub Pages serves `/docs`; CNAME = wikidrift.encyclopediae.org
 """
 import difflib
 import html
 import json
 import pathlib
 import re
+import urllib.parse
 from collections import Counter
 from dataclasses import dataclass, field
 
-ROOT = pathlib.Path(__file__).resolve().parents[1]
-SP = ROOT / ".planning" / "spikes"
-FIND = ROOT / ".planning" / "spikes" / "data" / "findings"    # canonical findings from the promoted tool
-DATA = pathlib.Path(__file__).resolve().parent / "data"       # L3 diff/blame export (input)
-SITE = ROOT / "docs"                                          # GitHub Pages serves /docs from this repo
-CUSTOM_DOMAIN = "drift.encyclopediae.org"                      # GitHub Pages CNAME
+import markdown as _md
 
-# Static content lives beside this script as editable files, not Python string literals:
-#   templates/*.html (page shell + prose pages), style.css, index.js. build.py holds only rendering logic.
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+FIND = ROOT / ".planning" / "spikes" / "data" / "findings"
+DATA = pathlib.Path(__file__).resolve().parent / "data"
+SITE = ROOT / "docs"
+CUSTOM_DOMAIN = "wikidrift.encyclopediae.org"
+SITE_ORIGIN = f"https://{CUSTOM_DOMAIN}"
+EXCLUDE_ARTICLES = {"Demo Topic"}  # test fixtures — never ship
+
 VIEWER = pathlib.Path(__file__).resolve().parent
 
 
 def _asset(rel):
     """Read a static template/asset (HTML/CSS/JS) that lives beside build.py, verbatim."""
     return (VIEWER / rel).read_text(encoding="utf-8")
+
+
+def _md_asset(stem):
+    """Compile a Markdown template to HTML. Raw HTML blocks pass through unchanged."""
+    text = (VIEWER / f"templates/{stem}.md").read_text(encoding="utf-8")
+    return _md.markdown(text, extensions=["extra"])
 
 # Editor tints for the (opt-in) blame overlay — light backgrounds, dark text (AA-safe).
 BLAME_PALETTE = ["#f6dede", "#dde6f4", "#dfeede", "#f4eccf", "#e7ddf2", "#d5ecec",
@@ -46,18 +47,18 @@ VCLASS = {"contradict": "c", "differ": "d", "agree": "a", "insufficient": "i"}
 
 # Plain-language "what am I looking at?" leads per tab (links resolve from an article page: root "../").
 WHAT = {
-    "framing": 'How the different language editions <a href="../glossary.html#framing">frame</a> the same '
-               'subject, leaning critical, neutral, or sympathetic. Wide gaps between editions are a '
-               '<a href="../glossary.html#lead">lead</a> worth a look, not proof of anything.',
-    "facts": 'Do the editions actually <a href="../glossary.html#fact-divergence">agree on the facts</a> '
-             '(numbers, categories)? A contradiction, especially one that later gets corrected, is a lead.',
-    "diff": 'A side-by-side <a href="../glossary.html#pivot">before / after</a> of the English article '
-            'around the moments it was most heavily rewritten.',
-    "blame": 'Who wrote the current opening: each colored patch is one editor\'s contribution '
-             '(this is "<a href="../glossary.html#blame">blame</a>", like on GitHub).',
-    "sources": 'What the article\'s own citations <a href="../glossary.html#source-change">changed from '
-               '&rarr; to</a> across its major rewrite &mdash; which sources it added or dropped. Shown '
-               'as-is; <b>no source is rated</b> reliable or biased. A lead, not a verdict.',
+    "framing": 'How language editions <a href="../glossary.html#framing">frame</a> the same subject '
+               '(critical / neutral / sympathetic). Gaps are a <a href="../glossary.html#lead">signal</a> '
+               'to inspect, not a conclusion.',
+    "facts": 'Whether editions <a href="../glossary.html#fact-divergence">agree on load-bearing facts</a> '
+             '(counts, categories). Contradictions — especially ones later corrected — are worth checking.',
+    "diff": 'Side-by-side <a href="../glossary.html#pivot">before / after</a> of the English article around '
+            'its heaviest rewrite windows.',
+    "blame": 'Who introduced the current opening: each color is one account '
+             '(<a href="../glossary.html#blame">blame</a>, VCS-style).',
+    "sources": 'How the article\'s own citations <a href="../glossary.html#source-change">changed from '
+               '&rarr; to</a> across the rewrite — domains added or dropped. Composition only; '
+               '<b>no source is rated</b>.',
 }
 # Topic grouping for the index filter.
 CATEGORY = {
@@ -114,45 +115,73 @@ class Findings:
     sources: dict = field(default_factory=dict)
     profiles: dict = field(default_factory=dict)
 
+    l4: dict = field(default_factory=dict)  # article -> discovery meta (optional)
+
     def articles(self):
-        """Every article that has any renderable finding (union across receipts/stances/static/factchecks)."""
-        return sorted(set(self.receipts) | set(self.stances)
-                      | set(self.diver.get("static", {})) | set(self.factchecks))
+        """Every public article with a renderable finding (excludes test fixtures)."""
+        names = set(self.receipts) | set(self.stances) | set(self.diver.get("static", {})) | set(self.factchecks)
+        return sorted(a for a in names if a not in EXCLUDE_ARTICLES)
 
 
 def gather():
-    # Canonical findings dir only (the tool's output). The original-four articles' findings were migrated
-    # here from the frozen spike out/ dirs (Session 08), so the viewer no longer depends on .planning/spikes/
-    # — the spikes remain the frozen experimental record, but the site builds from findings/ alone.
     receipts, stances, factchecks, sources, profiles = {}, {}, {}, {}, {}
     diver = {"static": {}, "pivot_relative": {}}
-    mscore = {}
+    mscore, l4map = {}, {}
     if FIND.exists():
         for f in FIND.glob("*.receipts.json"):
             d = load(f)
-            if d:
+            if d and d.get("article") not in EXCLUDE_ARTICLES:
                 receipts[d["article"]] = d
         for f in FIND.glob("*.stance.json"):
             d = load(f)
-            if d:
+            if d and d.get("article") not in EXCLUDE_ARTICLES:
                 stances[d["article"]] = d
         for f in FIND.glob("*.factcheck.json"):
             d = load(f)
-            if d:
+            if d and d.get("article") not in EXCLUDE_ARTICLES:
                 label = "now" if not d.get("asof") else d["asof"][:10]
                 factchecks.setdefault(d["article"], {})[label] = d
         for f in FIND.glob("*.sources.json"):
             d = load(f)
-            if d:
+            if d and d.get("article") not in EXCLUDE_ARTICLES:
                 sources[d["article"]] = d
         for f in FIND.glob("*.profile.json"):
             d = load(f)
-            if d:
+            if d and d.get("article") not in EXCLUDE_ARTICLES:
                 profiles[d["article"]] = d
         fdiv = load(FIND / "divergence.json") or {}
-        diver["static"].update(fdiv.get("static", {}))
-        diver["pivot_relative"].update(fdiv.get("pivot_relative", {}))
-        mscore.update(load(FIND / "mscore.json") or {})
+        for k, v in (fdiv.get("static") or {}).items():
+            if k not in EXCLUDE_ARTICLES:
+                diver["static"][k] = v
+        for k, v in (fdiv.get("pivot_relative") or {}).items():
+            if k not in EXCLUDE_ARTICLES:
+                diver["pivot_relative"][k] = v
+        raw_m = load(FIND / "mscore.json") or {}
+        mscore.update({k: v for k, v in raw_m.items() if k not in EXCLUDE_ARTICLES})
+        l4raw = load(FIND / "l4_discovery.json") or {}
+        seed = l4raw.get("seed")
+
+        def _l4_title(item):
+            if isinstance(x, str):
+                return x
+            if isinstance(x, dict):
+                return x.get("article") or x.get("title") or x.get("candidate")
+            return None
+
+        for x in l4raw.get("retrofit_leads") or []:
+            t = _l4_title(x)
+            if t and t not in EXCLUDE_ARTICLES:
+                l4map[t] = {"seed": seed, "class": "retrofit lead"}
+        for x in l4raw.get("born_in_contested") or []:
+            t = _l4_title(x)
+            if t and t not in EXCLUDE_ARTICLES:
+                l4map.setdefault(t, {"seed": seed, "class": "born-in-contested"})
+        for row in l4raw.get("retest") or []:
+            if not isinstance(row, dict):
+                continue
+            t = _l4_title(row)
+            if t and t not in EXCLUDE_ARTICLES:
+                l4map.setdefault(t, {"seed": seed, "class": row.get("class") or row.get("label") or "L4 candidate"})
     diffs, blames, pivots = {}, {}, {}
     if DATA.exists():
         for f in DATA.glob("*.diff.json"):
@@ -168,7 +197,7 @@ def gather():
             if d:
                 pivots[d["article"]] = d
     return Findings(receipts=receipts, stances=stances, factchecks=factchecks, diver=diver, mscore=mscore,
-                    diffs=diffs, blames=blames, pivots=pivots, sources=sources, profiles=profiles)
+                    diffs=diffs, blames=blames, pivots=pivots, sources=sources, profiles=profiles, l4=l4map)
 
 
 # ---- shared fragments -------------------------------------------------------
@@ -200,20 +229,34 @@ def stance_grid(st):
     langs, ents = st["langs"], st["entities"]
     head = "".join(f'<th scope="col">{esc(l)}</th>' for l in langs)
     rows = []
+    eid = 0
     for e in ents:
         cells = []
+        ev_rows = []
         for l in langs:
             r = st["editions"][l]["lead"].get(e) or {}
             s = r.get("stance", "absent")
             npov = "!" if r.get("npov_departure") else ""
-            cells.append(f'<td class="cell sc-{SCLASS.get(s,"a")}" title="{esc(r.get("evidence",""))}">'
-                         f'{esc(s)}{npov}</td>')
+            quote = (r.get("evidence") or "").strip()
+            eid += 1
+            cid = f"ev{eid}"
+            if quote:
+                cells.append(
+                    f'<td class="sc-{SCLASS.get(s,"a")}" style="padding:0">'
+                    f'<button type="button" class="cell-ev sc-{SCLASS.get(s,"a")}" '
+                    f'aria-expanded="false" aria-controls="{cid}">{esc(s)}{npov}</button></td>')
+                ev_rows.append(
+                    f'<tr class="ev-row" id="{cid}" hidden><td colspan="{len(langs)+1}" class="ev-panel">'
+                    f'<b>{esc(l)} · {esc(e)}</b> — {esc(quote)}</td></tr>')
+            else:
+                cells.append(f'<td class="cell sc-{SCLASS.get(s,"a")}">{esc(s)}{npov}</td>')
         rows.append(f'<tr><th scope="row">{esc(e)}</th>{"".join(cells)}</tr>')
+        rows.extend(ev_rows)
     legend = ('<span class="chip sc-c">critical</span><span class="chip sc-n">neutral</span>'
               '<span class="chip sc-s">sympathetic</span><span class="chip sc-a">absent</span>')
     return (f'<div class="tablewrap"><table class="grid"><thead><tr><th></th>{head}</tr></thead>'
             f'<tbody>{"".join(rows)}</tbody></table></div>'
-            f'<p class="legend">{legend} <span class="muted">! = departs from neutral · hover a cell for the quote</span></p>')
+            f'<p class="legend">{legend} <span class="muted">! = departs from neutral · click a cell for the evidence quote</span></p>')
 
 
 def framing_section(article, st, diver):
@@ -274,12 +317,12 @@ def mscore_section(article, mscore):
     rpr = m.get("refined_per_rev", 0)
     contested = rpr >= 5
     cls = "warn" if contested else "ok"
-    read = ("This article was actively fought over (edit-wars)."
-            if contested else "This article was not fought over — the changes were consensual or quiet.")
-    return (f'<h2>How much was it fought over?</h2>'
-            f'<p><span class="pill {cls}">{("contested" if contested else "not contested")}</span> '
+    read = ("High mutual-revert activity (edit-wars)."
+            if contested else "Low mutual-revert activity — changes were not heavily fought.")
+    return (f'<h2>Edit-war intensity</h2>'
+            f'<p><span class="pill {cls}">{("high" if contested else "low")}</span> '
             f'<span class="muted">{m["refined"]["M"]:,} conflict weight over {m["raw"]["revs"]:,} revisions.</span></p>'
-            f'<p class="muted">{esc(read)} High conflict means contested, <b>not</b> biased — a corroborator, never a flag.</p>')
+            f'<p class="muted">{esc(read)} Context only — contested ≠ biased.</p>')
 
 
 # ---- diff (compact, authored) ----------------------------------------------
@@ -382,14 +425,22 @@ def render_pivots(pv, slug):
 
 def pivot_page(article, p, i):
     slug = slugify(article)
-    body = (f'<p class="kicker"><a href="{slug}.html">← {esc(article)}</a></p>'
-            f'<h1>Rewrite · {esc(p["start"])} → {esc(p["end"])}</h1>'
-            f'<p class="summary">About {p["peak_pct"]:.0f}% of the article changed in this window. Below is the '
-            f'before → after as tracked changes: <del>struck red</del> = removed, <ins>highlighted</ins> = added '
-            f'(colored by who added it).</p>'
-            f'<p class="disclaimer">A lead for a researcher, not a verdict.</p>'
-            + redline(p["before_text"], p["after_text"], p.get("authors_after"), p.get("authors_before")))
-    return PAGE.format(title=f"{esc(article)} rewrite {esc(p['start'])} — WikiDrift", root="../", body=body)
+    body = (
+        f'<div class="page-intro"><p class="kicker"><a href="{slug}.html">← {esc(article)}</a></p>'
+        f'<h1>Rewrite · {esc(p["start"])} → {esc(p["end"])}</h1>'
+        f'<p class="summary">About {p["peak_pct"]:.0f}% of the article changed in this window. Below is the '
+        f'before → after as tracked changes: <del>struck red</del> = removed, <ins>highlighted</ins> = added '
+        f'(colored by who added it).</p>'
+        f'<p class="disclaimer">Candidate only — not a conclusion.</p></div>'
+        f'<div class="workspace">'
+        + redline(p["before_text"], p["after_text"], p.get("authors_after"), p.get("authors_before"))
+        + '</div>')
+    return render_page(
+        title=f"{article} rewrite {p['start']} — WikiDrift",
+        body=body, root="../", path=f"article/{slug}.p{i}.html",
+        description=f"Before/after redline for {article} ({p['start']} → {p['end']}).",
+        active="findings",
+    )
 
 
 def blame_section(blame):
@@ -442,23 +493,82 @@ def headline(article, st, diver, fcs, mscore):
 # ---- pages ------------------------------------------------------------------
 PAGE = _asset("templates/page.html")
 
-TAB_JS = ("<script>document.querySelectorAll('.tabbar .tab').forEach(function(b){b.onclick=function(){"
-          "var t=b.dataset.t,r=b.closest('.tabs');"
-          "r.querySelectorAll('.tab').forEach(function(x){var on=x.dataset.t===t;"
-          "x.classList.toggle('active',on);x.setAttribute('aria-selected',on);});"
-          "r.querySelectorAll('.panel').forEach(function(x){x.classList.toggle('active',x.dataset.p===t)})}});</script>")
+NAV_KEYS = ("findings", "about", "methodology", "glossary")
+
+
+def render_page(*, title, body, root="", path="index.html", description=None, active=None):
+    """Fill the family page shell (meta, nav, footer)."""
+    desc = description or (
+        "WikiDrift measures Wikipedia article change and cross-edition disagreement from public data. "
+        "A diagnostic tool from encyclopediae.org.")
+    canon = f"{SITE_ORIGIN}/{path.lstrip('/')}" if path != "index.html" else f"{SITE_ORIGIN}/"
+    nav = {k: ' class="active" aria-current="page"' if k == active else "" for k in NAV_KEYS}
+    return PAGE.format(
+        title=title, description=esc(desc), canonical=canon, root=root, body=body,
+        nav_findings=nav["findings"], nav_about=nav["about"],
+        nav_methodology=nav["methodology"], nav_glossary=nav["glossary"],
+    )
 
 
 def tabs(panels):
+    """panels: list of (label, html, slug). First is active by default (Overview)."""
     bar = "".join(
-        f'<button class="tab{" active" if i == 0 else ""}" role="tab" id="tab{i}" data-t="{i}" '
-        f'aria-controls="panel{i}" aria-selected="{"true" if i == 0 else "false"}">{esc(l)}</button>'
-        for i, (l, _) in enumerate(panels))
+        f'<button class="tab{" active" if i == 0 else ""}" role="tab" id="tab-{slug}" '
+        f'data-t="{i}" data-slug="{slug}" aria-controls="panel-{slug}" '
+        f'tabindex="{"0" if i == 0 else "-1"}" '
+        f'aria-selected="{"true" if i == 0 else "false"}">{esc(label)}</button>'
+        for i, (label, _, slug) in enumerate(panels))
     pans = "".join(
-        f'<section class="panel{" active" if i == 0 else ""}" role="tabpanel" id="panel{i}" '
-        f'aria-labelledby="tab{i}" data-p="{i}">{h}</section>'
-        for i, (l, h) in enumerate(panels))
-    return f'<div class="tabs"><div class="tabbar" role="tablist">{bar}</div>{pans}{TAB_JS}</div>'
+        f'<section class="panel{" active" if i == 0 else ""}" role="tabpanel" id="panel-{slug}" '
+        f'aria-labelledby="tab-{slug}" data-p="{i}" data-slug="{slug}">{html}</section>'
+        for i, (_, html, slug) in enumerate(panels))
+    return f'<div class="tabs"><div class="tabbar" role="tablist" aria-label="Article findings">{bar}</div>{pans}</div>'
+
+
+def wiki_en_url(article):
+    return "https://en.wikipedia.org/wiki/" + urllib.parse.quote(article.replace(" ", "_"))
+
+
+def overview_section(article, f, lead, layers):
+    """Plain first tab: summary, layers present/missing, Wikipedia link, optional L4 note."""
+    parts = [
+        f'<h2>Overview</h2>',
+        f'<p class="lead">{esc(lead)}</p>',
+        f'<a class="wiki-link" href="{esc(wiki_en_url(article))}" target="_blank" rel="noopener">'
+        f'Open current English Wikipedia article ↗</a>',
+    ]
+    chips = []
+    for name, have, note in layers:
+        cls = "have" if have else "miss"
+        label = name if have else f"{name} — {note}"
+        chips.append(f'<li class="{cls}">{esc(label)}</li>')
+    parts.append('<p class="muted" style="margin-bottom:.35rem">Layers on this page</p>'
+                 f'<ul class="layer-list">{"".join(chips)}</ul>')
+    l4 = f.l4.get(article)
+    if l4:
+        seed = esc(l4.get("seed") or "a seed article")
+        parts.append(
+            f'<div class="callout"><b>Discovery path.</b> Surfaced via L4 graph-guided discovery seeded from '
+            f'{seed} (search prior only — this article was re-tested on its own content). '
+            f'Class: {esc(l4.get("class") or "lead")}.</div>')
+    ms = mscore_section(article, f.mscore)
+    if ms:
+        parts.append(ms)
+    parts.append(profile_line(f.profiles.get(article)))
+    parts.append(
+        '<p class="muted">Use the tabs for framing grids, fact tables, diffs, citation change, and revision receipts. '
+        'Deep-link with <code>#framing</code>, <code>#facts</code>, <code>#diff</code>, <code>#sources</code>, '
+        '<code>#receipts</code>.</p>')
+    return "".join(p for p in parts if p)
+
+
+def missing_diff_section():
+    return (
+        '<h2>What changed, and when</h2>'
+        '<p class="missing-note">No pivot redline has been exported for this article yet. '
+        'Other layers (framing, facts, sources) may still apply. Diffs are generated offline from public '
+        'WikiWho snapshots for selected articles; Zionism and Warsaw concentration camp are the current examples.</p>'
+    )
 
 
 def sources_section(article, src):
@@ -485,8 +595,8 @@ def sources_section(article, src):
         '<div class="tablewrap"><table><thead><tr><th scope="col">source dropped / reduced</th>'
         f'<th scope="col">from → to</th></tr></thead><tbody>{rows(src["dropped"])}</tbody></table></div>'
         '</div>'
-        '<p class="muted">Domains are counted from the article\'s citation markup (archive links unwrapped '
-        'to their original source). A lead, not a verdict.</p>')
+        '<p class="muted">Domains counted from citation markup (archive links unwrapped to the original '
+        'source).</p>')
 
 
 def profile_line(prof):
@@ -497,82 +607,150 @@ def profile_line(prof):
             f'<b>{prof["median_age_yrs"]} yr</b> · <b>{prof["pct_recent"]}%</b> authored in the last '
             f'{prof["recent_years"]:.0f} years · top-10 <a href="../glossary.html#concentration">editors</a> '
             f'wrote <b>{prof["top10_editor_share"]}%</b> of it ({prof["distinct_editors"]} distinct editors). '
-            '<span class="muted">Descriptive context, not a verdict.</span></p>')
+            '<span class="muted">Descriptive context only.</span></p>')
+
+
+def _layer_flags(article, f):
+    has_framing = article in f.stances or article in f.diver.get("static", {})
+    has_facts = bool(f.factchecks.get(article))
+    has_diff = article in f.pivots or article in f.diffs
+    has_src = article in f.sources
+    has_rec = article in f.receipts
+    return [
+        ("Framing", has_framing, "not run"),
+        ("Facts", has_facts, "not run"),
+        ("Diff", has_diff, "not exported"),
+        ("Sources", has_src, "not run"),
+        ("Receipts", has_rec, "not run"),
+    ]
 
 
 def article_page(article, f):
-    rec, st, diver, mscore = f.receipts.get(article), f.stances.get(article), f.diver, f.mscore
+    rec, st, diver = f.receipts.get(article), f.stances.get(article), f.diver
     fcs = f.factchecks.get(article, {})
     diff, pv = f.diffs.get(article), f.pivots.get(article)
-    src, prof = f.sources.get(article), f.profiles.get(article)
-    lead = headline(article, st, diver, fcs, mscore)
-    panels = [("Framing", framing_section(article, st, diver) + mscore_section(article, mscore))]
+    src = f.sources.get(article)
+    lead = headline(article, st, diver, fcs, f.mscore)
+    layers = _layer_flags(article, f)
+    panels = [("Overview", overview_section(article, f, lead, layers), "overview")]
+    # Framing (mscore already on overview when present)
+    if st or article in diver.get("static", {}):
+        panels.append(("Framing", framing_section(article, st, diver), "framing"))
     if fcs:
-        panels.append(("Facts", fact_section(article, fcs)))
+        panels.append(("Facts", fact_section(article, fcs), "facts"))
     if pv:
-        panels.append(("Diff", render_pivots(pv, slugify(article))))
+        panels.append(("Diff", render_pivots(pv, slugify(article)), "diff"))
     elif diff:
-        panels.append(("Diff", diff_section(diff)))
+        panels.append(("Diff", diff_section(diff), "diff"))
+    else:
+        panels.append(("Diff", missing_diff_section(), "diff"))
     if src:
-        panels.append(("Sources", sources_section(article, src)))
+        panels.append(("Sources", sources_section(article, src), "sources"))
     if rec:
-        panels.append(("Receipts", receipts_section(rec)))
+        panels.append(("Receipts", receipts_section(rec), "receipts"))
     cat = CATEGORY.get(article, "Other")
-    body = (f'<p class="kicker">{esc(cat)}</p><h1>{esc(article)}</h1>'
-            f'<p class="summary">{esc(lead)}</p>'
-            '<p class="disclaimer">A lead for a researcher, not a verdict.</p>'
-            + profile_line(prof) + tabs(panels))
-    return PAGE.format(title=f"{esc(article)} — WikiDrift", root="../", body=body)
+    body = (
+        f'<div class="page-intro"><p class="kicker">{esc(cat)}</p><h1>{esc(article)}</h1>'
+        f'<p class="summary">{esc(lead)}</p>'
+        '<p class="disclaimer">Candidate only — not a conclusion.</p></div>'
+        f'<div class="workspace">{tabs(panels)}</div>')
+    return render_page(
+        title=f"{article} — WikiDrift",
+        body=body, root="../", path=f"article/{slugify(article)}.html",
+        description=lead, active="findings",
+    )
 
 
 INDEX_JS = _asset("index.js")
 
 
+def signal_badges(article, f, score):
+    """Severity cues for the index list."""
+    badges = []
+    pr = f.diver.get("pivot_relative", {}).get(article)
+    if pr and pr.get("read") == "PEELED AWAY":
+        badges.append('<span class="sig peel">peeled</span>')
+    fcs = f.factchecks.get(article, {})
+    if fcs and any(a["verdict"] == "contradict" for t in fcs for a in fcs[t]["claim"]["adjudication"]):
+        badges.append('<span class="sig fact">fact gap</span>')
+    if score is not None and score >= 1.2:
+        badges.append('<span class="sig high">high framing gap</span>')
+    elif score is not None and score >= 0.4:
+        badges.append('<span class="sig med">framing gap</span>')
+    if article in f.pivots or article in f.diffs:
+        badges.append('<span class="sig">diff</span>')
+    if article in f.l4:
+        badges.append('<span class="sig">L4</span>')
+    return "".join(badges)
+
+
 def index_page(articles, f):
     cats = sorted({CATEGORY.get(a, "Other") for a in articles})
-    chips = ('<button class="fchip active" data-cat="all" aria-pressed="true">All</button>'
-             + "".join(f'<button class="fchip" data-cat="{esc(c)}" aria-pressed="false">{esc(c)}</button>' for c in cats))
+    chips = ('<button type="button" class="fchip active" data-cat="all" aria-pressed="true">All</button>'
+             + "".join(f'<button type="button" class="fchip" data-cat="{esc(c)}" aria-pressed="false">{esc(c)}</button>'
+                       for c in cats))
     rows = []
     for a in articles:
         h = headline(a, f.stances.get(a), f.diver, f.factchecks.get(a, {}), f.mscore)
         cat = CATEGORY.get(a, "Other")
         stat = f.diver.get("static", {}).get(a)
         score = stat["variants"]["lead"]["divergence"] if stat else 0
-        rows.append(f'<a class="finding" href="article/{slugify(a)}.html" data-cat="{esc(cat)}" '
-                    f'data-title="{esc(a.lower())}" data-score="{score if score is not None else 0}" '
-                    f'data-text="{esc((a + " " + h + " " + cat).lower())}">'
-                    f'<div class="f-head"><span class="kicker">{esc(cat)}</span>'
-                    f'<h3>{esc(a)}</h3></div><p>{esc(h)}</p><span class="f-go" aria-hidden="true">→</span></a>')
-    intro = ('<h1>WikiDrift findings</h1>'
-             '<p class="summary">Each article is compared with its other-language editions and its own '
-             'history to make <b>disagreement legible</b>: where editions '
-             '<a href="glossary.html#framing">frame</a> a subject differently, where they '
-             '<a href="glossary.html#fact-divergence">disagree on facts</a>, and how it was rewritten. '
-             'New here? Start with <a href="about.html">About</a>, see how it works in the '
-             '<a href="methodology.html">Methodology</a>, or the <a href="glossary.html">Glossary</a>.</p>'
-             '<p class="disclaimer">A lead for a researcher, not a verdict.</p>')
-    controls = ('<div class="controls"><input id="q" class="search" type="search" '
-                'placeholder="Search findings…" aria-label="Search findings">'
-                f'<div class="filters" role="group" aria-label="Filter by topic">{chips}</div>'
-                '<label class="sortlab">Sort <select id="sort" class="sortsel" aria-label="Sort findings">'
-                '<option value="az">A–Z</option>'
-                '<option value="div">Framing divergence</option>'
-                '<option value="cat">Topic</option></select></label>'
-                '<span id="count" class="count"></span></div>')
-    return PAGE.format(title="WikiDrift findings", root="",
-                       body=intro + controls + f'<div class="findings">{"".join(rows)}</div>'
-                       + '<nav class="pager" id="pager" aria-label="Findings pages"></nav>' + INDEX_JS)
+        sc = score if score is not None else 0
+        badges = signal_badges(a, f, score)
+        meta = f'<div class="f-meta">{badges}</div>' if badges else ""
+        # grid: title | summary | badges | arrow  (CSS rearranges on narrow screens)
+        rows.append(
+            f'<a class="finding" href="article/{slugify(a)}.html" data-cat="{esc(cat)}" '
+            f'data-title="{esc(a.lower())}" data-score="{sc}" '
+            f'data-text="{esc((a + " " + h + " " + cat).lower())}">'
+            f'<div class="f-head"><span class="kicker">{esc(cat)}</span>'
+            f'<h3>{esc(a)}</h3></div>'
+            f'<p>{esc(h)}</p>'
+            f'{meta or "<div class=\"f-meta\"></div>"}'
+            f'<span class="f-go" aria-hidden="true">→</span></a>')
+    intro = (
+        '<div class="page-intro"><h1>WikiDrift findings</h1>'
+        '<p class="summary">Each article against its own history and against other-language editions: '
+        '<a href="glossary.html#framing">framing</a> gaps, '
+        '<a href="glossary.html#fact-divergence">fact</a> disagreements, and major rewrites. '
+        'A diagnostic tool from <a href="https://encyclopediae.org">encyclopediae.org</a>.</p>'
+        '<p class="disclaimer">Candidates only — not conclusions.</p></div>')
+    controls = (
+        '<div class="controls"><input id="q" class="search" type="search" '
+        'placeholder="Search findings…" aria-label="Search findings">'
+        f'<div class="filters" role="group" aria-label="Filter by topic">{chips}</div>'
+        '<label class="sortlab">Sort <select id="sort" class="sortsel" aria-label="Sort findings">'
+        '<option value="div" selected>Framing divergence</option>'
+        '<option value="az">A–Z</option>'
+        '<option value="cat">Topic</option></select></label>'
+        '<span id="count" class="count" role="status" aria-live="polite"></span></div>')
+    body = (intro + '<div class="workspace">' + controls
+            + f'<div class="findings">{"".join(rows)}</div>'
+            + '<p id="empty" hidden>No findings match this filter.</p>'
+            + '<nav class="pager" id="pager" aria-label="Findings pages"></nav></div>' + INDEX_JS)
+    return render_page(
+        title="WikiDrift findings",
+        body=body, path="index.html",
+        description="Findings from WikiDrift: Wikipedia change and cross-edition disagreement, from public data.",
+        active="findings",
+    )
 
 
-def simple_page(title, body):
-    return PAGE.format(title=f"{esc(title)} — WikiDrift", root="", body=f'<div class="prose">{body}</div>')
+def simple_page(title, body, active):
+    return render_page(
+        title=f"{title} — WikiDrift",
+        body=f'<div class="prose">{body}</div>',
+        path=f"{active}.html" if active != "findings" else "index.html",
+        description=f"{title} — WikiDrift, a diagnostic tool from encyclopediae.org.",
+        active=active,
+    )
 
 
-ABOUT_BODY = _asset("templates/about.html")
+ABOUT_BODY = _md_asset("about")
 
-GLOSSARY_BODY = _asset("templates/glossary.html")
+GLOSSARY_BODY = _md_asset("glossary")
 
-METHODOLOGY_BODY = _asset("templates/methodology.html")
+METHODOLOGY_BODY = _md_asset("methodology")
 
 
 CSS = _asset("style.css")
@@ -583,24 +761,26 @@ def main():
     articles = f.articles()
     SITE.mkdir(parents=True, exist_ok=True)
     (SITE / "article").mkdir(exist_ok=True)
-    for stale in (SITE / "article").glob("*.html"):    # prune removed articles so no stale page is served
+    for stale in (SITE / "article").glob("*.html"):
         stale.unlink()
     (SITE / "style.css").write_text(CSS, encoding="utf-8")
-    # Deploy artifacts: custom domain + disable Jekyll (plain static site).
+    (SITE / "site.js").write_text(_asset("site.js"), encoding="utf-8")
     (SITE / "CNAME").write_text(CUSTOM_DOMAIN + "\n", encoding="utf-8")
     (SITE / ".nojekyll").write_text("", encoding="utf-8")
     (SITE / "index.html").write_text(index_page(articles, f), encoding="utf-8")
-    (SITE / "about.html").write_text(simple_page("About", ABOUT_BODY), encoding="utf-8")
-    (SITE / "methodology.html").write_text(simple_page("Methodology", METHODOLOGY_BODY), encoding="utf-8")
-    (SITE / "glossary.html").write_text(simple_page("Glossary", GLOSSARY_BODY), encoding="utf-8")
+    (SITE / "about.html").write_text(simple_page("About", ABOUT_BODY, "about"), encoding="utf-8")
+    (SITE / "methodology.html").write_text(simple_page("Methodology", METHODOLOGY_BODY, "methodology"), encoding="utf-8")
+    (SITE / "glossary.html").write_text(simple_page("Glossary", GLOSSARY_BODY, "glossary"), encoding="utf-8")
     for a in articles:
         (SITE / "article" / f"{slugify(a)}.html").write_text(article_page(a, f), encoding="utf-8")
         if a in f.pivots:
             for i, p in enumerate(f.pivots[a]["pivots"]):
                 (SITE / "article" / f"{slugify(a)}.p{i}.html").write_text(pivot_page(a, p, i), encoding="utf-8")
     print(f"built {len(articles)} article pages + index/about/methodology/glossary -> {SITE}")
+    print(f"CNAME {CUSTOM_DOMAIN}")
     for a in articles:
-        extras = "".join(t for t, has in (("P", a in f.pivots), ("D", a in f.diffs), ("B", a in f.blames)) if has)
+        extras = "".join(t for t, has in (("P", a in f.pivots), ("D", a in f.diffs), ("B", a in f.blames),
+                                           ("4", a in f.l4)) if has)
         print(f"  - {a}{' [' + extras + ']' if extras else ''}")
 
 

@@ -1,67 +1,112 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Glossary — WikiDrift</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css"></head><body>
-<header class="site"><a href="index.html" class="wordmark">WikiDrift</a>
-<nav class="nav"><a href="index.html">Findings</a><a href="about.html">About</a>
-<a href="methodology.html">Methodology</a><a href="glossary.html">Glossary</a></nav></header>
-<main><div class="prose"><h1>Glossary</h1>
-<p class="summary">Plain-language definitions. These terms are linked throughout the article pages.</p>
+<meta name="description" content="Glossary — WikiDrift, a diagnostic tool from encyclopediae.org.">
+<meta name="author" content="encyclopediae.org">
+<link rel="canonical" href="https://wikidrift.encyclopediae.org/glossary.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WikiDrift · encyclopediae.org">
+<meta property="og:title" content="Glossary — WikiDrift">
+<meta property="og:description" content="Glossary — WikiDrift, a diagnostic tool from encyclopediae.org.">
+<meta property="og:url" content="https://wikidrift.encyclopediae.org/glossary.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Glossary — WikiDrift">
+<meta name="twitter:description" content="Glossary — WikiDrift, a diagnostic tool from encyclopediae.org.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;600;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <nav class="top" aria-label="Main">
+    <div class="brand">
+      <a class="wordmark" href="index.html">WikiDrift</a>
+    </div>
+    <button type="button" class="nav-burger" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="site-nav">
+      <a href="index.html">Findings</a>
+      <a href="about.html">About</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="glossary.html" class="active" aria-current="page">Glossary</a>
+    </div>
+  </nav>
+</header>
+<main id="main"><div class="prose"><h1>Glossary</h1>
+<p class="summary">Terms used on article pages and in the methodology.</p>
+
 <dl class="glossary">
-<dt id="lead">Lead (not a verdict)</dt><dd>Every result here points you somewhere to look. It is never proof
-that an article is biased or that anyone acted in bad faith.</dd>
-<dt id="drift">Drift</dt><dd>When an article's narrative shifts over time as it is edited.</dd>
-<dt id="pivot">Pivot</dt><dd>A specific moment when an article was heavily rewritten, with a lot of
-long-standing text replaced at once. Pivots appear on the timeline in the Diff tab.</dd>
-<dt id="framing">Framing</dt><dd>How a subject is portrayed, leaning critical, neutral, or sympathetic,
-beyond the plain facts. Different editions can frame the same topic differently.</dd>
-<dt id="stance">Stance / neutral point of view</dt><dd>We rate framing on a neutrality scale
-(critical, neutral, sympathetic), not "positive / negative sentiment", which can mislead.</dd>
-<dt id="cross-lingual">Cross-lingual comparison</dt><dd>Comparing the same article across languages. When
-independent editions disagree, that disagreement is informative.</dd>
-<dt id="fact-divergence">Fact divergence</dt><dd>When editions state incompatible facts (for example, very
-different numbers). Distinct from framing: editions can agree on facts yet frame them differently.</dd>
-<dt id="source-change">Citation-source change</dt><dd>What an article's own citations changed <i>from &rarr; to</i>
-across a major rewrite &mdash; which source-domains it added or dropped, and the shift in citation types
-(journal, news, book, web). We deliberately do <b>not</b> label any source reliable or biased: that judgment
-is itself contested and would make the tool dismissible. We show the composition and its change as-is, and
-you judge.</dd>
-<dt id="blame">Blame</dt><dd>Like a version-control "blame": for each piece of text, which editor
-introduced it.</dd>
-<dt id="concentration">Editor concentration</dt><dd>How much of the article's <i>current</i> text a small
-number of editors wrote — e.g. the top-10 editors' share, alongside the total count of distinct editors.
-A high share with few distinct editors means fewer independent eyes on the text (low authorship diversity),
-which is one context signal among several — descriptive, not a verdict.</dd>
-<dt id="born-framed">Born-framed</dt><dd>An article written with a strong point of view from the start, so
-there is no earlier version to compare against. The disagreement is inborn, not introduced at a pivot.</dd>
-<dt id="control">Control</dt><dd>A neutral topic (for example, Photosynthesis) we expect to show little
-disagreement, a sanity check that the tool is not crying wolf.</dd>
-<dt id="conflict">Conflict weight</dt><dd>A measure of how much an article was fought over (edit-wars). High
-means contested; it does <i>not</i> mean biased.</dd>
-<dt id="receipts">Receipts</dt><dd>The exact Wikipedia revisions (with dates) each finding was computed
-from, so anyone can verify.</dd>
-<dt id="stability-prior">Stability prior</dt><dd>The idea that text which survived years of readers and
-editors has earned trust. When a long-stable passage is suddenly removed or reversed and the change
-sticks, that breaks the prior, which is what makes it worth a look.</dd>
-<dt id="pwr">Persistence-weighted loss (PWR)</dt><dd>How we measure a rewrite: each word counts for how long
-it had survived, so deleting 20-year-old text weighs far more than churning last month's. Grounded in
-published Wikipedia content-survival research, not an arbitrary rule.</dd>
-<dt id="capture">Capture by change vs. by origin</dt><dd>Two ways an article can end up skewed. <i>By
-change</i>: it was rewritten over time (this tool catches that). <i>By origin</i>: it was written with a
-point of view from the start, or a like-minded majority kept it that way, so there is no earlier version to
-compare against, which needs an external reference.</dd>
-<dt id="base-rate">Base rate</dt><dd>Big rewrites are common and usually legitimate. Before calling any
-single change meaningful, you have to know how often change happens anyway. The largest rewrite in our test
-set was a perfectly benign one.</dd>
-<dt id="external-reference">External reference</dt><dd>Something outside the article's own history to
-compare against, such as other language editions or independent encyclopedias. The only way to judge bias
-that was there from the start.</dd>
-<dt id="conjunction">Conjunction</dt><dd>No single signal is proof. A finding is only strong when several
-stack together, for example: long-stable text, removed, reversed in meaning, and kept despite others trying
-to revert it.</dd>
+<dt id="lead">Lead</dt><dd>A candidate worth inspecting. Not proof of bias or bad faith.</dd>
+<dt id="drift">Drift</dt><dd>Narrative or content shift over successive edits.</dd>
+<dt id="pivot">Pivot</dt><dd>A window where a large share of long-standing text was replaced at once.
+Discovered from content displacement (not only from edit bursts or a known tag date). Shown on the Diff
+tab timeline.</dd>
+<dt id="retrofit">Stable-then-retrofit</dt><dd>Long-surviving text dismantled and the replacement sticks.
+Structural signal for L1; still not proof of bias.</dd>
+<dt id="framing">Framing</dt><dd>How a subject is portrayed (critical / neutral / sympathetic) beyond
+bare facts. Editions can frame the same topic differently.</dd>
+<dt id="stance">Stance / NPOV axis</dt><dd>Framing scored critical–neutral–sympathetic. Not positive /
+negative sentiment (tone ≠ viewpoint balance).</dd>
+<dt id="cross-lingual">Cross-lingual comparison</dt><dd>Same topic across language editions. Can be
+static (today) or <i>pivot-relative</i> (before vs after a detected rewrite). Disagreement is a signal with
+more than one possible cause.</dd>
+<dt id="fact-divergence">Fact divergence</dt><dd>Incompatible load-bearing claims across editions (e.g.
+different counts). Separate from framing: facts can agree while frames differ.</dd>
+<dt id="source-change">Citation-source change</dt><dd>How an article's own citations shifted
+<i>from &rarr; to</i> across a major rewrite: domains added/dropped and mix of journal / news / book /
+web. No reliability labels on sources — composition only.</dd>
+<dt id="blame">Blame</dt><dd>Per-span authorship: which account introduced which text (like VCS blame).</dd>
+<dt id="concentration">Editor concentration</dt><dd>Share of current text written by a small set of
+accounts (e.g. top-10), plus distinct-editor count. Context only.</dd>
+<dt id="born-framed">Born-framed</dt><dd>Strong framing from creation, so there is no earlier baseline
+to compare. Needs an external reference, not a change detector alone.</dd>
+<dt id="churn">Reframe-by-churn</dt><dd>Article net-grows while shedding unusual amounts of older text
+relative to its own baseline. May look HEALTHY to pure removal-ratio L1; routed to L2 via pre-rank.</dd>
+<dt id="control">Control</dt><dd>A neutral topic (e.g. Photosynthesis) used as a sanity check.</dd>
+<dt id="conflict">Conflict weight / M-score</dt><dd>How hard the article was edit-warred (mutual-revert
+style measures). Contested ≠ biased. Low score on a large change means the rewrite was not fought over.</dd>
+<dt id="receipts">Receipts</dt><dd>Exact revision IDs and dates behind a finding.</dd>
+<dt id="stability-prior">Stability prior</dt><dd>Long-surviving text is treated as sticky by default;
+a lasting collapse of that text is the anomaly the L1 layer targets.</dd>
+<dt id="pwr">Persistence-weighted loss (PWR)</dt><dd>Rewrite magnitude: each token weighted by how long
+it had survived. Deleting old text counts more than churning recent text. Based on published content-survival
+metrics (Halfaker; Adler–de Alfaro). Ratio classifies; absolute mass ranks.</dd>
+<dt id="capture">Change vs origin</dt><dd><i>By change:</i> rewritten over time (this tool's L1 core).
+<i>By origin:</i> framed from the start or held steady without a rewrite — needs an external reference.</dd>
+<dt id="base-rate">Base rate</dt><dd>Large rewrites are common and often legitimate. One rewrite in
+isolation is not diagnostic; compare against controls and other layers.</dd>
+<dt id="external-reference">External reference</dt><dd>Something outside the article's own history —
+other language editions, other encyclopedias — used when internal history has no contrast.</dd>
+<dt id="conjunction">Conjunction</dt><dd>Multiple stacked signals (stable → removed → meaning shift →
+persisted → concentrated authorship). Single factors are weak.</dd>
+<dt id="l4">L4 discovery</dt><dd>Use destroyers of a confirmed pivot only as a search prior; re-test each
+candidate article on its own content. Graph membership never flags an article.</dd>
 </dl></div></main>
-<footer><p class="muted">A compilation of findings from the WikiDrift tool. Every result is a
-<b>lead for a researcher, never a published verdict</b>: a change-and-disagreement detector, not a bias
-oracle. Editor-agnostic, from public data only.</p></footer></body></html>
+<footer class="site">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="https://encyclopediae.org">encyclopediae.org</a>
+      <p>Diagnostic tool in the encyclopediae family: measure Wikipedia change and cross-edition disagreement from public data.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Findings</a>
+      <a href="about.html">About</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="https://encyclopediae.org">encyclopediae.org</a>
+      <a href="https://encyclopediae.org/mission.html">Our Mission</a>
+    </div>
+  </div>
+  <div class="footer-base">
+    <p>Static findings from WikiDrift. Public data only. Each page is a <b>candidate to inspect</b> — change and cross-edition disagreement, not a bias label.</p>
+  </div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>
