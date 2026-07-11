@@ -1,0 +1,42 @@
+{
+  "article": "Racial conceptions of Jewish identity in Zionism",
+  "langs": [
+    "en"
+  ],
+  "entities": [
+    "Zionism",
+    "Jews"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "the first decades of Zionism bear out an affinity with some of the more unsavoury 'regenerative' discourses of the late nineteenth century, particularly Social Darwinism, eugenics, nationalism, and colonialism"
+        },
+        "Jews": {
+          "entity": "Jews",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Zionist and non-Zionist Jews vigorously debated aspects of this proposition in terms of the merits or otherwise of diaspora life"
+        }
+      },
+      "lead": {
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "\"the first decades of Zionism bear out an affinity with some of the more unsavoury 'regenerative' discourses of the late nineteenth century, particularly Social Darwinism, eugenics, nationalism, and colonialism\""
+        },
+        "Jews": {
+          "entity": "Jews",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "\"themes of 'blood logic' or 'race' have nevertheless been described as a recurrent feature of modern Jewish thought in both scholarship and popular belief\""
+        }
+      }
+    }
+  }
+}

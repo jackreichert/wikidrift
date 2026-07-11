@@ -1,0 +1,979 @@
+{
+  "static": {
+    "Jedwabne pogrom": {
+      "variants": {
+        "lead": {
+          "divergence": 0.33,
+          "spreads": {
+            "Poland": 1,
+            "Germany": 0,
+            "Jews": 0
+          }
+        },
+        "focal": {
+          "divergence": 1.33,
+          "spreads": {
+            "Poland": 2,
+            "Germany": 2,
+            "Jews": 0
+          }
+        }
+      }
+    },
+    "Hamas": {
+      "variants": {
+        "lead": {
+          "divergence": 1.5,
+          "spreads": {
+            "Hamas": 2,
+            "Israel": 1
+          }
+        },
+        "focal": {
+          "divergence": 1.5,
+          "spreads": {
+            "Hamas": 2,
+            "Israel": 1
+          }
+        }
+      }
+    },
+    "Israeli–Palestinian conflict": {
+      "variants": {
+        "lead": {
+          "divergence": 1.0,
+          "spreads": {
+            "Israel": 1,
+            "Palestinians": 1
+          }
+        },
+        "focal": {
+          "divergence": 2.0,
+          "spreads": {
+            "Israel": 2,
+            "Palestinians": 2
+          }
+        }
+      }
+    },
+    "Naliboki massacre": {
+      "variants": {
+        "lead": {
+          "divergence": 0.5,
+          "spreads": {
+            "Poland": 0,
+            "Jews": 1
+          }
+        },
+        "focal": {
+          "divergence": 0.5,
+          "spreads": {
+            "Poland": 0,
+            "Jews": 1
+          }
+        }
+      }
+    },
+    "Rescue of Jews by Poles during the Holocaust": {
+      "variants": {
+        "lead": {
+          "divergence": 0.0,
+          "spreads": {
+            "Poland": 0,
+            "Jews": 0
+          }
+        },
+        "focal": {
+          "divergence": 0.0,
+          "spreads": {
+            "Poland": 0,
+            "Jews": 0
+          }
+        }
+      }
+    },
+    "Palestinian political violence": {
+      "variants": {
+        "lead": {
+          "divergence": 2.0,
+          "spreads": {
+            "Palestinians": 2,
+            "Israel": 2
+          }
+        },
+        "focal": {
+          "divergence": 2.0,
+          "spreads": {
+            "Palestinians": 2,
+            "Israel": 2
+          }
+        }
+      }
+    },
+    "Gaza war": {
+      "variants": {
+        "lead": {
+          "divergence": 1.33,
+          "spreads": {
+            "Israel": 2,
+            "Hamas": 1,
+            "Palestinians": 1
+          }
+        },
+        "focal": {
+          "divergence": 1.33,
+          "spreads": {
+            "Israel": 2,
+            "Hamas": 1,
+            "Palestinians": 1
+          }
+        }
+      }
+    },
+    "Palestine": {
+      "variants": {
+        "lead": {
+          "divergence": 0.67,
+          "spreads": {
+            "Israel": 1,
+            "Palestinians": 1,
+            "Zionism": 0
+          }
+        },
+        "focal": {
+          "divergence": 1.0,
+          "spreads": {
+            "Israel": 1,
+            "Palestinians": 1,
+            "Zionism": 1
+          }
+        }
+      }
+    },
+    "UNRWA": {
+      "variants": {
+        "lead": {
+          "divergence": 1.0,
+          "spreads": {
+            "UNRWA": 1,
+            "Israel": 1,
+            "Palestinians": 1
+          }
+        },
+        "focal": {
+          "divergence": 1.33,
+          "spreads": {
+            "UNRWA": 2,
+            "Israel": 1,
+            "Palestinians": 1
+          }
+        }
+      }
+    },
+    "Anti-Zionism": {
+      "variants": {
+        "lead": {
+          "divergence": 0.67,
+          "spreads": {
+            "Zionism": 1,
+            "Israel": 1,
+            "Jews": 0
+          }
+        },
+        "focal": {
+          "divergence": 1.67,
+          "spreads": {
+            "Zionism": 2,
+            "Israel": 2,
+            "Jews": 1
+          }
+        }
+      }
+    },
+    "Collaboration in German-occupied Poland": {
+      "variants": {
+        "lead": {
+          "divergence": 0.0,
+          "spreads": {}
+        },
+        "focal": {
+          "divergence": 0.0,
+          "spreads": {}
+        }
+      }
+    },
+    "History of Zionism": {
+      "variants": {
+        "lead": {
+          "divergence": 0.0,
+          "spreads": {
+            "Zionism": 0,
+            "Israel": 0,
+            "Palestinians": 0
+          }
+        },
+        "focal": {
+          "divergence": 0.33,
+          "spreads": {
+            "Zionism": 1,
+            "Israel": 0,
+            "Palestinians": 0
+          }
+        }
+      }
+    },
+    "Genetic studies of Jews": {
+      "variants": {
+        "lead": {
+          "divergence": 0.0,
+          "spreads": {
+            "Jews": 0,
+            "Israel": 0
+          }
+        },
+        "focal": {
+          "divergence": 0.0,
+          "spreads": {
+            "Jews": 0,
+            "Israel": 0
+          }
+        }
+      }
+    },
+    "Racial conceptions of Jewish identity in Zionism": {
+      "variants": {
+        "lead": {
+          "divergence": 0.0,
+          "spreads": {}
+        },
+        "focal": {
+          "divergence": 0.0,
+          "spreads": {}
+        }
+      }
+    },
+    "Bar Kokhba Revolt": {
+      "variants": {
+        "lead": {
+          "divergence": 0.33,
+          "spreads": {
+            "Jews": 0,
+            "Romans": 1,
+            "Bar Kokhba": 0
+          }
+        },
+        "focal": {
+          "divergence": 0.33,
+          "spreads": {
+            "Jews": 0,
+            "Romans": 0,
+            "Bar Kokhba": 1
+          }
+        }
+      }
+    },
+    "Gaza genocide": {
+      "variants": {
+        "lead": {
+          "divergence": 0.33,
+          "spreads": {
+            "Israel": 0,
+            "Palestinians": 0,
+            "Hamas": 1
+          }
+        },
+        "focal": {
+          "divergence": 0.33,
+          "spreads": {
+            "Israel": 0,
+            "Palestinians": 0,
+            "Hamas": 1
+          }
+        }
+      }
+    },
+    "Nakba": {
+      "article": "Nakba",
+      "langs": [
+        "en",
+        "he",
+        "ar"
+      ],
+      "variants": {
+        "lead": {
+          "divergence": 1.0,
+          "spreads": {
+            "Israel": 1,
+            "Palestinians": 1,
+            "Zionism": 1
+          }
+        },
+        "focal": {
+          "divergence": 0.33,
+          "spreads": {
+            "Israel": 0,
+            "Palestinians": 0,
+            "Zionism": 1
+          }
+        }
+      }
+    },
+    "Zionism": {
+      "article": "Zionism",
+      "langs": [
+        "en",
+        "he",
+        "ar"
+      ],
+      "variants": {
+        "lead": {
+          "divergence": 1.67,
+          "spreads": {
+            "Israel": 2,
+            "Palestinians": 1,
+            "Zionism": 2
+          }
+        },
+        "focal": {
+          "divergence": 1.33,
+          "spreads": {
+            "Israel": 1,
+            "Palestinians": 1,
+            "Zionism": 2
+          }
+        }
+      }
+    },
+    "Photosynthesis": {
+      "article": "Photosynthesis",
+      "langs": [
+        "en",
+        "he",
+        "ar"
+      ],
+      "variants": {
+        "lead": {
+          "divergence": 0.0,
+          "spreads": {
+            "Plant": 0,
+            "Sunlight": 0
+          }
+        },
+        "focal": {
+          "divergence": 0.0,
+          "spreads": {
+            "Plant": 0,
+            "Sunlight": 0
+          }
+        }
+      }
+    },
+    "Warsaw concentration camp": {
+      "article": "Warsaw concentration camp",
+      "langs": [
+        "en",
+        "pl",
+        "de"
+      ],
+      "variants": {
+        "lead": {
+          "divergence": 0.33,
+          "spreads": {
+            "Poland": 0,
+            "Germany": 1,
+            "Jews": 0
+          }
+        },
+        "focal": {
+          "divergence": 0.0,
+          "spreads": {
+            "Poland": 0,
+            "Germany": 0,
+            "Jews": 0
+          }
+        }
+      }
+    },
+    "Demo Topic": {
+      "variants": {
+        "lead": {
+          "divergence": 1.2,
+          "spreads": {
+            "Israel": 1.2
+          }
+        },
+        "focal": {
+          "divergence": 1.0,
+          "spreads": {}
+        }
+      }
+    }
+  },
+  "pivot_relative": {
+    "Jedwabne pogrom": {
+      "pivot": "2020-01-01",
+      "pivot_source": "L1 (peak 80.1%, 232,392 PWR, age 6.0yr)",
+      "en_gap_before": 0.5,
+      "en_gap_after": 0.33,
+      "read": "no net change",
+      "before": {
+        "en": {
+          "Poland": 0,
+          "Germany": 0,
+          "Jews": 1
+        },
+        "pl": {
+          "Poland": 0,
+          "Germany": 1,
+          "Jews": 0
+        },
+        "de": {
+          "Poland": -1,
+          "Germany": 0,
+          "Jews": 1
+        }
+      },
+      "after": {
+        "en": {
+          "Poland": 0,
+          "Germany": -1,
+          "Jews": 1
+        },
+        "pl": {
+          "Poland": 0,
+          "Germany": -1,
+          "Jews": 1
+        },
+        "de": {
+          "Poland": -1,
+          "Germany": 0,
+          "Jews": 1
+        }
+      }
+    },
+    "Hamas": {
+      "pivot": "2023-01-01",
+      "pivot_source": "L1 (peak 55.5%, 534,063 PWR, age 1.0yr)",
+      "en_gap_before": 0.75,
+      "en_gap_after": 0.25,
+      "read": "converged",
+      "before": {
+        "en": {
+          "Hamas": -1,
+          "Israel": 0
+        },
+        "he": {
+          "Hamas": -1,
+          "Israel": 0
+        },
+        "ar": {
+          "Hamas": 1,
+          "Israel": -1
+        }
+      },
+      "after": {
+        "en": {
+          "Hamas": 0,
+          "Israel": 0
+        },
+        "he": {
+          "Hamas": -1,
+          "Israel": 0
+        },
+        "ar": {
+          "Hamas": 1,
+          "Israel": -1
+        }
+      }
+    },
+    "Israeli–Palestinian conflict": {
+      "pivot": "2024-01-01",
+      "pivot_source": "L1 (peak 56.9%, 482,002 PWR, age 0.0yr)",
+      "en_gap_before": 0.0,
+      "en_gap_after": 0.5,
+      "read": "PEELED AWAY",
+      "before": {
+        "en": {
+          "Israel": 0,
+          "Palestinians": 0
+        },
+        "he": {
+          "Israel": 1,
+          "Palestinians": -1
+        },
+        "ar": {
+          "Israel": -1,
+          "Palestinians": 1
+        }
+      },
+      "after": {
+        "en": {
+          "Israel": -1,
+          "Palestinians": 1
+        },
+        "he": {
+          "Israel": 0,
+          "Palestinians": 0
+        },
+        "ar": {
+          "Israel": -1,
+          "Palestinians": 1
+        }
+      }
+    },
+    "Palestinian political violence": {
+      "pivot": "2023-10-01",
+      "pivot_source": "fallback (L1=HEALTHY — addition-side growth)",
+      "en_gap_before": 0.75,
+      "en_gap_after": 0.0,
+      "read": "converged",
+      "before": {
+        "en": {
+          "Palestinians": -1,
+          "Israel": 0
+        },
+        "he": {
+          "Palestinians": -1,
+          "Israel": 0
+        },
+        "ar": {
+          "Palestinians": 1,
+          "Israel": -1
+        }
+      },
+      "after": {
+        "en": {
+          "Palestinians": 0,
+          "Israel": 0
+        },
+        "he": {
+          "Palestinians": -1,
+          "Israel": 1
+        },
+        "ar": {
+          "Palestinians": 1,
+          "Israel": -1
+        }
+      }
+    },
+    "Gaza war": {
+      "pivot": "2024-01-01",
+      "pivot_source": "L1 (peak 72.3%, 194,861 PWR, age 0.0yr)",
+      "en_gap_before": 1.0,
+      "en_gap_after": 0.67,
+      "read": "converged",
+      "before": {
+        "en": {
+          "Israel": -1,
+          "Hamas": -1,
+          "Palestinians": 1
+        },
+        "he": {
+          "Israel": 1,
+          "Hamas": -1,
+          "Palestinians": -1
+        },
+        "ar": {
+          "Israel": -1,
+          "Hamas": 1,
+          "Palestinians": 1
+        }
+      },
+      "after": {
+        "en": {
+          "Israel": -1,
+          "Hamas": -1,
+          "Palestinians": 1
+        },
+        "he": {
+          "Israel": 1,
+          "Hamas": -1,
+          "Palestinians": 0
+        },
+        "ar": {
+          "Israel": -1,
+          "Hamas": 0,
+          "Palestinians": 1
+        }
+      }
+    },
+    "Palestine": {
+      "pivot": "2015-07-01",
+      "pivot_source": "L1 (peak 70.2%, 238,535 PWR, age 10.5yr)",
+      "en_gap_before": 0.33,
+      "en_gap_after": 1.17,
+      "read": "PEELED AWAY",
+      "before": {
+        "en": {
+          "Israel": 0,
+          "Palestinians": 0,
+          "Zionism": 0
+        },
+        "he": {
+          "Israel": 0,
+          "Palestinians": 0,
+          "Zionism": 1
+        },
+        "ar": {
+          "Israel": 0,
+          "Palestinians": 1,
+          "Zionism": 0
+        }
+      },
+      "after": {
+        "en": {
+          "Israel": -1,
+          "Palestinians": 1,
+          "Zionism": -1
+        },
+        "he": {
+          "Israel": 0,
+          "Palestinians": -1,
+          "Zionism": 0
+        },
+        "ar": {
+          "Israel": 0,
+          "Palestinians": 0,
+          "Zionism": 0
+        }
+      }
+    },
+    "UNRWA": {
+      "pivot": "2014-07-01",
+      "pivot_source": "L1 (peak 36.9%, 68,811 PWR, age 11.5yr)",
+      "en_gap_before": 0.5,
+      "en_gap_after": 0.67,
+      "read": "no net change",
+      "before": {
+        "en": {
+          "UNRWA": -1,
+          "Israel": 0,
+          "Palestinians": 0
+        },
+        "he": {
+          "UNRWA": -1,
+          "Israel": 1,
+          "Palestinians": -1
+        },
+        "ar": {
+          "UNRWA": 0,
+          "Israel": 0,
+          "Palestinians": 0
+        }
+      },
+      "after": {
+        "en": {
+          "UNRWA": 1,
+          "Israel": -1,
+          "Palestinians": 1
+        },
+        "he": {
+          "UNRWA": -1,
+          "Israel": 0,
+          "Palestinians": 0
+        },
+        "ar": {
+          "UNRWA": 1,
+          "Israel": -1,
+          "Palestinians": 1
+        }
+      }
+    },
+    "Anti-Zionism": {
+      "pivot": "2022-01-01",
+      "pivot_source": "L1 (peak 63.0%, 278,907 PWR, age 3.5yr)",
+      "en_gap_before": 0.67,
+      "en_gap_after": 0.33,
+      "read": "converged",
+      "before": {
+        "en": {
+          "Zionism": 0,
+          "Israel": 0,
+          "Jews": 0
+        },
+        "he": {
+          "Zionism": 0,
+          "Israel": 0,
+          "Jews": 1
+        },
+        "ar": {
+          "Zionism": -1,
+          "Israel": -1,
+          "Jews": 1
+        }
+      },
+      "after": {
+        "en": {
+          "Zionism": 0,
+          "Israel": 0,
+          "Jews": 1
+        },
+        "he": {
+          "Zionism": 0,
+          "Israel": 0,
+          "Jews": 1
+        },
+        "ar": {
+          "Zionism": -1,
+          "Israel": -1,
+          "Jews": 1
+        }
+      }
+    },
+    "Collaboration in German-occupied Poland": {
+      "pivot": "2018-07-01",
+      "pivot_source": "L1 (peak 31.5%, 5,822 PWR, age 7.5yr)",
+      "en_gap_before": 0.0,
+      "en_gap_after": 0.0,
+      "read": "no net change",
+      "before": {
+        "en": {
+          "Poland": 1,
+          "Germany": -1,
+          "Jews": 1
+        }
+      },
+      "after": {
+        "en": {
+          "Poland": 1,
+          "Germany": -1,
+          "Jews": 1
+        }
+      }
+    },
+    "History of Zionism": {
+      "pivot": "2023-10-01",
+      "pivot_source": "fallback (L1=HEALTHY — addition-side growth)",
+      "en_gap_before": 0.0,
+      "en_gap_after": 0.33,
+      "read": "PEELED AWAY",
+      "before": {
+        "en": {
+          "Zionism": 1,
+          "Israel": 1,
+          "Palestinians": 0
+        },
+        "ar": {
+          "Zionism": 1,
+          "Israel": 1,
+          "Palestinians": 0
+        }
+      },
+      "after": {
+        "en": {
+          "Zionism": 1,
+          "Israel": 0,
+          "Palestinians": 0
+        },
+        "ar": {
+          "Zionism": 1,
+          "Israel": 1,
+          "Palestinians": 0
+        }
+      }
+    },
+    "Genetic studies of Jews": {
+      "pivot": "2023-10-01",
+      "pivot_source": "fallback (L1=HEALTHY — addition-side growth)",
+      "en_gap_before": 0.0,
+      "en_gap_after": 0.0,
+      "read": "no net change",
+      "before": {
+        "en": {
+          "Jews": 0,
+          "Israel": 0
+        },
+        "he": {
+          "Jews": 0,
+          "Israel": 0
+        }
+      },
+      "after": {
+        "en": {
+          "Jews": 0,
+          "Israel": 0
+        },
+        "he": {
+          "Jews": 0,
+          "Israel": 0
+        }
+      }
+    },
+    "Racial conceptions of Jewish identity in Zionism": {
+      "pivot": "2023-10-01",
+      "pivot_source": "fallback (L1=HEALTHY — addition-side growth)",
+      "en_gap_before": 0.0,
+      "en_gap_after": 0.0,
+      "read": "no net change",
+      "before": {
+        "en": {
+          "Zionism": -1,
+          "Jews": 0
+        }
+      },
+      "after": {
+        "en": {
+          "Zionism": 0,
+          "Jews": 0
+        }
+      }
+    },
+    "Bar Kokhba Revolt": {
+      "pivot": "2025-01-01",
+      "pivot_source": "L1 (peak 61.0%, 311,631 PWR, age 0.0yr)",
+      "en_gap_before": 0.33,
+      "en_gap_after": 0.33,
+      "read": "no net change",
+      "before": {
+        "en": {
+          "Jews": 1,
+          "Romans": -1,
+          "Bar Kokhba": 1
+        },
+        "he": {
+          "Jews": 1,
+          "Romans": 0,
+          "Bar Kokhba": 1
+        }
+      },
+      "after": {
+        "en": {
+          "Jews": 1,
+          "Romans": -1,
+          "Bar Kokhba": 0
+        },
+        "he": {
+          "Jews": 1,
+          "Romans": 0,
+          "Bar Kokhba": 0
+        }
+      }
+    },
+    "Gaza genocide": {
+      "pivot": "2024-07-01",
+      "pivot_source": "L1 (peak 59.0%, 271,444 PWR, age 0.5yr)",
+      "en_gap_before": 0.0,
+      "en_gap_after": 0.17,
+      "read": "no net change",
+      "before": {
+        "en": {
+          "Israel": -1,
+          "Palestinians": 1,
+          "Hamas": 0
+        },
+        "ar": {
+          "Israel": -1,
+          "Palestinians": 1,
+          "Hamas": 0
+        }
+      },
+      "after": {
+        "en": {
+          "Israel": -1,
+          "Palestinians": 1,
+          "Hamas": 0
+        },
+        "he": {
+          "Israel": -1,
+          "Palestinians": 1,
+          "Hamas": -1
+        },
+        "ar": {
+          "Israel": -1,
+          "Palestinians": 1,
+          "Hamas": 0
+        }
+      }
+    },
+    "Nakba": {
+      "article": "Nakba",
+      "pivot": "2023-10-01",
+      "pivot_source": "fallback (L1=HEALTHY — addition-side growth)",
+      "en_gap_before": 0.5,
+      "en_gap_after": 0.5,
+      "read": "no net change",
+      "before": {
+        "en": {
+          "Israel": -1,
+          "Palestinians": 1,
+          "Zionism": -1
+        },
+        "he": {
+          "Israel": 0,
+          "Palestinians": 0,
+          "Zionism": 0
+        },
+        "ar": {
+          "Israel": -1,
+          "Palestinians": 1,
+          "Zionism": -1
+        }
+      },
+      "after": {
+        "en": {
+          "Israel": -1,
+          "Palestinians": 1,
+          "Zionism": -1
+        },
+        "he": {
+          "Israel": 0,
+          "Palestinians": 0,
+          "Zionism": 0
+        },
+        "ar": {
+          "Israel": -1,
+          "Palestinians": 1,
+          "Zionism": -1
+        }
+      }
+    },
+    "Zionism": {
+      "article": "Zionism",
+      "pivot": "2024-07-01",
+      "pivot_source": "L1 (peak 68.4%, 824,017 PWR, age 0.5yr)",
+      "en_gap_before": 0.17,
+      "en_gap_after": 0.67,
+      "read": "PEELED AWAY",
+      "before": {
+        "en": {
+          "Israel": 0,
+          "Palestinians": 0,
+          "Zionism": 0
+        },
+        "he": {
+          "Israel": 0,
+          "Palestinians": 0,
+          "Zionism": 1
+        },
+        "ar": {
+          "Israel": 0,
+          "Palestinians": 1,
+          "Zionism": -1
+        }
+      },
+      "after": {
+        "en": {
+          "Israel": 0,
+          "Palestinians": 1,
+          "Zionism": -1
+        },
+        "he": {
+          "Israel": 0,
+          "Palestinians": 0,
+          "Zionism": 1
+        },
+        "ar": {
+          "Israel": -1,
+          "Palestinians": 1,
+          "Zionism": -1
+        }
+      }
+    },
+    "Demo Topic": {
+      "pivot": "2023-10-01",
+      "read": "PEELED AWAY",
+      "en_gap_before": 0.2,
+      "en_gap_after": 0.7
+    }
+  }
+}

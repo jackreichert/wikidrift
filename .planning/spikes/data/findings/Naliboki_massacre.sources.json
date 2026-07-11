@@ -1,0 +1,101 @@
+{
+  "article": "Naliboki massacre",
+  "pivot": null,
+  "span": "2007-07-01 → 2026-07-01  (no L1 pivot — whole history)",
+  "before": {
+    "date": "2007-07-01",
+    "refs": 0,
+    "n_domains": 0,
+    "cite_mix": {},
+    "domains": {}
+  },
+  "after": {
+    "date": "2026-07-01",
+    "refs": 24,
+    "n_domains": 12,
+    "cite_mix": {
+      "web": 53,
+      "journal": 24,
+      "book": 18,
+      "news": 6
+    },
+    "domains": {
+      "books.google.com": 2,
+      "forward.com": 2,
+      "ipn.gov.pl": 5,
+      "citinet.net": 3,
+      "shtetlroutes.eu": 1,
+      "rp.pl": 1,
+      "wyborcza.pl": 2,
+      "naukawpolsce.pl": 1,
+      "discovery.ucl.ac.uk": 1,
+      "zagladazydow.pl": 1,
+      "ampoleagle.com": 1,
+      "radzima.org": 1
+    }
+  },
+  "added": [
+    {
+      "domain": "ipn.gov.pl",
+      "from": 0,
+      "to": 5
+    },
+    {
+      "domain": "citinet.net",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "forward.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "books.google.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "wyborcza.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "ampoleagle.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "radzima.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "naukawpolsce.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "rp.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "discovery.ucl.ac.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "zagladazydow.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "shtetlroutes.eu",
+      "from": 0,
+      "to": 1
+    }
+  ],
+  "dropped": [],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD."
+}

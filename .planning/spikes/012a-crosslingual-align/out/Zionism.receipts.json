@@ -1,0 +1,31 @@
+{
+  "article": "Zionism",
+  "qid": "Q42388",
+  "asof": null,
+  "editions": {
+    "en": {
+      "present": true,
+      "title": "Zionism",
+      "revid": 1363064629,
+      "timestamp": "2026-07-07T20:44:31Z",
+      "prose_chars": 134386,
+      "prose_file": "Zionism.en.txt"
+    },
+    "he": {
+      "present": true,
+      "title": "ציונות",
+      "revid": 43538175,
+      "timestamp": "2026-07-05T11:46:37Z",
+      "prose_chars": 51228,
+      "prose_file": "Zionism.he.txt"
+    },
+    "ar": {
+      "present": true,
+      "title": "صهيونية",
+      "revid": 75814026,
+      "timestamp": "2026-07-05T18:00:54Z",
+      "prose_chars": 52571,
+      "prose_file": "Zionism.ar.txt"
+    }
+  }
+}

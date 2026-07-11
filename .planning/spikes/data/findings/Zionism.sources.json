@@ -1,0 +1,957 @@
+{
+  "article": "Zionism",
+  "pivot": "2024-07-01",
+  "span": "2024-07-01 → 2026-07-01  (across the L1 pivot ~2024-07-01)",
+  "before": {
+    "date": "2024-07-01",
+    "refs": 385,
+    "n_domains": 121,
+    "cite_mix": {
+      "book": 48,
+      "web": 27,
+      "journal": 17,
+      "news": 8
+    },
+    "domains": {
+      "books.google.com": 106,
+      "oxfordscholarship.com": 2,
+      "oxfordreference.com": 2,
+      "britannica.com": 7,
+      "google.co.il": 1,
+      "brill.com": 4,
+      "oxfordlearnersdictionaries.com": 2,
+      "archive.org": 19,
+      "jstor.org": 38,
+      "jstor.com": 1,
+      "docs.google.com": 2,
+      "huffingtonpost.com": 2,
+      "en.jabotinsky.org": 2,
+      "cambridge.org": 4,
+      "sammlungen.ub.uni-frankfurt.de": 4,
+      "pdfs.semanticscholar.org": 2,
+      "nytimes.com": 4,
+      "dro.dur.ac.uk": 2,
+      "tandfonline.com": 6,
+      "etext.virginia.edu": 2,
+      "dx.doi.org": 1,
+      "haaretz.com": 8,
+      "bible.cc": 2,
+      "biblegateway.com": 2,
+      "faculty.gordon.edu": 2,
+      "muse.jhu.edu": 4,
+      "jewishvirtuallibrary.org": 10,
+      "tchelet.org.il": 2,
+      "jewishencyclopedia.com": 4,
+      "lds.org": 2,
+      "jewish-american-society-for-historic-preservation.org": 4,
+      "fusion.dalmatech.com": 2,
+      "mosaicmagazine.com": 2,
+      "services.israelpost.co.il": 1,
+      "urn.nb.no": 1,
+      "duo.uio.no": 1,
+      "stateofisrael.com": 2,
+      "jwa.org": 2,
+      "unispal.un.org": 4,
+      "api.parliament.uk": 1,
+      "hansard.millbanksystems.com": 1,
+      "avalon.law.yale.edu": 2,
+      "time.com": 1,
+      "archive.today": 2,
+      "unrwa.org": 2,
+      "ajcarchives.org": 2,
+      "hagshama.org.il": 2,
+      "mfa.gov.il": 4,
+      "vox.com": 1,
+      "humanities1.tau.ac.il": 2,
+      "countrystudies.us": 2,
+      "tabletmag.com": 2,
+      "fnst-jerusalem.org": 2,
+      "azure.org.il": 2,
+      "cnn.com": 2,
+      "cwi.org.uk": 2,
+      "americanvision.org": 2,
+      "newspaperarchive.com": 2,
+      "signaturebookslibrary.org": 2,
+      "americancongressfortruth.com": 2,
+      "weeklystandard.com": 2,
+      "jns.org": 1,
+      "forward.com": 1,
+      "haaretz.co.il": 2,
+      "tawfikhamid.com": 2,
+      "eur-lex.europa.eu": 2,
+      "jpost.com": 2,
+      "muslimworldtoday.com": 2,
+      "iran-press-service.com": 2,
+      "memri.org": 2,
+      "pewresearch.org": 2,
+      "indianmuslims.info": 2,
+      "yaleglobal.yale.edu": 2,
+      "southasiaanalysis.org": 2,
+      "ynetnews.com": 1,
+      "us.rediff.com": 2,
+      "ghadar.insaf.net": 2,
+      "academia.edu": 2,
+      "ifamericansknew.org": 1,
+      "encyclopedia2.thefreedictionary.com": 1,
+      "fathomjournal.org": 2,
+      "webjcli.org": 2,
+      "jewsconfrontapartheid.org": 2,
+      "nion.ca": 2,
+      "jewsagainstzionism.org": 2,
+      "ijsn.net": 3,
+      "swap.stanford.edu": 1,
+      "yivoencyclopedia.org": 2,
+      "achpr.org": 4,
+      "rabbidavidrosen.net": 2,
+      "christusrex.org": 2,
+      "lrb.co.uk": 2,
+      "antisemitism.org.il": 2,
+      "atheistnexus.org": 2,
+      "theguardian.com": 6,
+      "logosjournal.com": 2,
+      "mondediplo.com": 2,
+      "zochrot.org": 2,
+      "editriceilponte.org": 2,
+      "deiryassin.org": 2,
+      "abcnews.go.com": 2,
+      "news.bbc.co.uk": 6,
+      "cfr.org": 2,
+      "adl.org": 2,
+      "globalfire.tv": 2,
+      "nkusa.org": 2,
+      "jewsagainstzionism.com": 4,
+      "jcpa.org": 2,
+      "h-net.org": 2,
+      "zmag.org": 2,
+      "international.ucla.edu": 2,
+      "blackjews.org": 2,
+      "versobooks.com": 2,
+      "developingeconomics.org": 2,
+      "nbn-resolving.de": 2,
+      "amazon.com": 4,
+      "zionistarchives.org.il": 1,
+      "wzo.org.il": 1,
+      "exodus1947.com": 2,
+      "jewishmag.com": 1,
+      "youtube.com": 1
+    }
+  },
+  "after": {
+    "date": "2026-07-01",
+    "refs": 195,
+    "n_domains": 94,
+    "cite_mix": {
+      "book": 55,
+      "journal": 24,
+      "web": 10,
+      "news": 10,
+      "report": 1
+    },
+    "domains": {
+      "books.google.com": 110,
+      "archive.org": 5,
+      "nybooks.com": 2,
+      "academic.oup.com": 1,
+      "tandfonline.com": 4,
+      "muse.jhu.edu": 3,
+      "link.springer.com": 2,
+      "proquest.com": 1,
+      "benyehuda.org": 6,
+      "nli.org.il": 3,
+      "gutenberg.org": 2,
+      "foreignaffairs.com": 1,
+      "fathomjournal.org": 1,
+      "nad.ps": 1,
+      "versobooks.com": 3,
+      "unispal.un.org": 2,
+      "heinonline-org.proxy-um.researchport.umd.edu": 2,
+      "sammlungen.ub.uni-frankfurt.de": 4,
+      "jcpa.org": 3,
+      "newlinesmag.com": 1,
+      "taylorfrancis.com": 2,
+      "timesofisrael.com": 1,
+      "vox.com": 1,
+      "momentmag.com": 1,
+      "encyclopedia.ushmm.org": 2,
+      "jstor.org": 2,
+      "google.com": 3,
+      "jta.org": 2,
+      "history.state.gov": 2,
+      "nytimes.com": 2,
+      "jewishreviewofbooks.com": 2,
+      "avalon.law.yale.edu": 3,
+      "api.parliament.uk": 1,
+      "un.org": 2,
+      "unrwa.org": 2,
+      "countrystudies.us": 2,
+      "encyclopedia.yivo.org": 2,
+      "haaretz.com": 9,
+      "pewresearch.org": 2,
+      "us.rediff.com": 2,
+      "ghadar.insaf.net": 2,
+      "middleeasteye.net": 3,
+      "achpr.org": 4,
+      "cfr.org": 2,
+      "mfa.gov.il": 2,
+      "news.bbc.co.uk": 6,
+      "zmag.org": 2,
+      "developingeconomics.org": 2,
+      "journals.sagepub.com": 1,
+      "athenaeumreview.org": 1,
+      "columbialawreview.org": 1,
+      "thenation.com": 2,
+      "youtube.com": 1,
+      "nplusonemag.com": 1,
+      "docs.google.com": 1,
+      "haaretz.co.il": 2,
+      "progressive.org": 1,
+      "jewishstudies.washington.edu": 2,
+      "ynetnews.com": 1,
+      "archive.today": 2,
+      "israelnn.com": 1,
+      "israelnationalnews.com": 1,
+      "forward.com": 6,
+      "cambridge.org": 5,
+      "heinonline.org": 1,
+      "ieg-ego.eu": 2,
+      "en.wikisource.org": 2,
+      "digitalcommons.schulichlaw.dal.ca": 1,
+      "en.jabotinsky.org": 2,
+      "euppublishing.com": 1,
+      "besacenter.org": 2,
+      "rosalux.de": 2,
+      "theguardian.com": 4,
+      "cris.bgu.ac.il": 1,
+      "yivoencyclopedia.org": 2,
+      "jacobin.com": 1,
+      "972mag.com": 1,
+      "newleftreview.org": 1,
+      "weeklystandard.com": 2,
+      "brill.com": 1,
+      "jns.org": 2,
+      "fusion.dalmatech.com": 2,
+      "archive.newpol.org": 2,
+      "mosaicmagazine.com": 1,
+      "news.walla.co.il": 2,
+      "yalebooks.yale.edu": 1,
+      "jpr.org.uk": 2,
+      "azure.org.il": 2,
+      "academia.edu": 2,
+      "newslaundry.com": 1,
+      "cnn.com": 2,
+      "nbn-resolving.de": 2,
+      "zionistarchives.org.il": 1,
+      "wzo.org.il": 1
+    }
+  },
+  "added": [
+    {
+      "domain": "benyehuda.org",
+      "from": 0,
+      "to": 6
+    },
+    {
+      "domain": "forward.com",
+      "from": 1,
+      "to": 6
+    },
+    {
+      "domain": "books.google.com",
+      "from": 106,
+      "to": 110
+    },
+    {
+      "domain": "google.com",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "middleeasteye.net",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "nli.org.il",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "encyclopedia.ushmm.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "besacenter.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "link.springer.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "nybooks.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "thenation.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "archive.newpol.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "news.walla.co.il",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "rosalux.de",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "jta.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "taylorfrancis.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "gutenberg.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "heinonline-org.proxy-um.researchport.umd.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "jewishreviewofbooks.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "ieg-ego.eu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "en.wikisource.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "un.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "jpr.org.uk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "jewishstudies.washington.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "encyclopedia.yivo.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "history.state.gov",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "timesofisrael.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "proquest.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "journals.sagepub.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "avalon.law.yale.edu",
+      "from": 2,
+      "to": 3
+    },
+    {
+      "domain": "israelnn.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "nplusonemag.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "heinonline.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "yalebooks.yale.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "newlinesmag.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "jacobin.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "haaretz.com",
+      "from": 8,
+      "to": 9
+    },
+    {
+      "domain": "israelnationalnews.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "foreignaffairs.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "cris.bgu.ac.il",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "academic.oup.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "newleftreview.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "euppublishing.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "athenaeumreview.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "newslaundry.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "versobooks.com",
+      "from": 2,
+      "to": 3
+    },
+    {
+      "domain": "momentmag.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "progressive.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "jns.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "nad.ps",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "digitalcommons.schulichlaw.dal.ca",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "columbialawreview.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "cambridge.org",
+      "from": 4,
+      "to": 5
+    },
+    {
+      "domain": "972mag.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "jcpa.org",
+      "from": 2,
+      "to": 3
+    }
+  ],
+  "dropped": [
+    {
+      "domain": "jstor.org",
+      "from": 38,
+      "to": 2
+    },
+    {
+      "domain": "archive.org",
+      "from": 19,
+      "to": 5
+    },
+    {
+      "domain": "jewishvirtuallibrary.org",
+      "from": 10,
+      "to": 0
+    },
+    {
+      "domain": "britannica.com",
+      "from": 7,
+      "to": 0
+    },
+    {
+      "domain": "jewsagainstzionism.com",
+      "from": 4,
+      "to": 0
+    },
+    {
+      "domain": "amazon.com",
+      "from": 4,
+      "to": 0
+    },
+    {
+      "domain": "jewishencyclopedia.com",
+      "from": 4,
+      "to": 0
+    },
+    {
+      "domain": "jewish-american-society-for-historic-preservation.org",
+      "from": 4,
+      "to": 0
+    },
+    {
+      "domain": "ijsn.net",
+      "from": 3,
+      "to": 0
+    },
+    {
+      "domain": "brill.com",
+      "from": 4,
+      "to": 1
+    },
+    {
+      "domain": "indianmuslims.info",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "mondediplo.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "unispal.un.org",
+      "from": 4,
+      "to": 2
+    },
+    {
+      "domain": "etext.virginia.edu",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "mfa.gov.il",
+      "from": 4,
+      "to": 2
+    },
+    {
+      "domain": "dro.dur.ac.uk",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "adl.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "editriceilponte.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "deiryassin.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "newspaperarchive.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "ajcarchives.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "hagshama.org.il",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "iran-press-service.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "theguardian.com",
+      "from": 6,
+      "to": 4
+    },
+    {
+      "domain": "globalfire.tv",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "huffingtonpost.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "nytimes.com",
+      "from": 4,
+      "to": 2
+    },
+    {
+      "domain": "memri.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "americanvision.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "cwi.org.uk",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "americancongressfortruth.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "faculty.gordon.edu",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "international.ucla.edu",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "logosjournal.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "stateofisrael.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "bible.cc",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "blackjews.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "jwa.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "lds.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "lrb.co.uk",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "abcnews.go.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "tchelet.org.il",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "oxfordreference.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "humanities1.tau.ac.il",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "signaturebookslibrary.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "rabbidavidrosen.net",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "zochrot.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "exodus1947.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "tawfikhamid.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "atheistnexus.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "pdfs.semanticscholar.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "tabletmag.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "oxfordlearnersdictionaries.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "tandfonline.com",
+      "from": 6,
+      "to": 4
+    },
+    {
+      "domain": "biblegateway.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "oxfordscholarship.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "fnst-jerusalem.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "muslimworldtoday.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "jpost.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "christusrex.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "yaleglobal.yale.edu",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "southasiaanalysis.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "jewsconfrontapartheid.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "antisemitism.org.il",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "h-net.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "jewsagainstzionism.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "eur-lex.europa.eu",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "nkusa.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "nion.ca",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "webjcli.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "services.israelpost.co.il",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "swap.stanford.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "hansard.millbanksystems.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "time.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "urn.nb.no",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "fathomjournal.org",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "google.co.il",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "docs.google.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "ifamericansknew.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "encyclopedia2.thefreedictionary.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "dx.doi.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "mosaicmagazine.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "jewishmag.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "muse.jhu.edu",
+      "from": 4,
+      "to": 3
+    },
+    {
+      "domain": "jstor.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "duo.uio.no",
+      "from": 1,
+      "to": 0
+    }
+  ],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD."
+}

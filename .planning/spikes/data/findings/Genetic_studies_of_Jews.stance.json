@@ -1,0 +1,73 @@
+{
+  "article": "Genetic studies of Jews",
+  "langs": [
+    "en",
+    "he"
+  ],
+  "entities": [
+    "Jews",
+    "Israel"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Jews": {
+          "entity": "Jews",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Autosomal DNA studies show high levels of genetic relatedness among Ashkenazi, Sephardi, and Mizrahi Jews, corresponding to a shared Middle Eastern ancestry with variations in regional admixture."
+        },
+        "Israel": {
+          "entity": "Israel",
+          "stance": "absent",
+          "npov_departure": false,
+          "evidence": "The passage does not discuss the state of Israel; it focuses on Jewish genetics and history."
+        }
+      },
+      "lead": {
+        "Jews": {
+          "entity": "Jews",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Studies on the genetic composition of Ashkenazi, Sephardi, and Mizrahi Jewish populations of the Jewish diaspora show significant amounts of shared Middle Eastern ancestry, as well as admixture from their host populations."
+        },
+        "Israel": {
+          "entity": "Israel",
+          "stance": "absent",
+          "npov_departure": false,
+          "evidence": "The passage discusses genetic studies of Jewish populations and does not meaningfully reference the state of Israel."
+        }
+      }
+    },
+    "he": {
+      "focal": {
+        "Jews": {
+          "entity": "Jews",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "מרבית השושלות האבהיות של יהודים מקרב רוב העדות מקורן במזרח התיכון"
+        },
+        "Israel": {
+          "entity": "Israel",
+          "stance": "absent",
+          "npov_departure": false,
+          "evidence": "Israel as a state is not discussed; only 'ארץ ישראל' as historical/geographic region"
+        }
+      },
+      "lead": {
+        "Jews": {
+          "entity": "Jews",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "המחקרים מראים ומלמדים כי הקבוצות המרכזיות בעם היהודי... חולקות מוצא מזרח-תיכוני משותף"
+        },
+        "Israel": {
+          "entity": "Israel",
+          "stance": "absent",
+          "npov_departure": false,
+          "evidence": "הכתבה מתייחסת ל'ארץ ישראל' כמושג גאוגרפי-היסטורי ולא למדינת ישראל המודרנית כישות פוליטית"
+        }
+      }
+    }
+  }
+}

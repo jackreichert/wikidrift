@@ -1,0 +1,37 @@
+WikiDrift
+Copyright 2026 Jack Reichert
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+--------------------------------------------------------------------------------
+Displayed Wikipedia content (CC BY-SA)
+--------------------------------------------------------------------------------
+WikiDrift reads and displays text from Wikipedia (article prose, diffs, and
+quoted passages) obtained from public Wikimedia APIs and dumps. That displayed
+text is authored by Wikipedia contributors and is licensed under the Creative
+Commons Attribution-ShareAlike License (CC BY-SA 4.0), NOT under the Apache
+License that covers this software.
+
+Any redistribution or public display of that Wikipedia-derived text must:
+  - attribute the Wikipedia contributors (e.g. a link back to the source
+    article and its revision history), and
+  - remain available under CC BY-SA 4.0 (share-alike).
+
+See https://en.wikipedia.org/wiki/Wikipedia:Reusing_Wikipedia_content and
+https://creativecommons.org/licenses/by-sa/4.0/.
+
+--------------------------------------------------------------------------------
+Trademarks / affiliation
+--------------------------------------------------------------------------------
+WikiDrift is an independent research project. It is NOT affiliated with,
+endorsed by, or sponsored by the Wikimedia Foundation. "Wikipedia" and
+"Wikimedia" are trademarks of the Wikimedia Foundation, used here only nominally
+to describe the source of the analyzed content.
+
+--------------------------------------------------------------------------------
+Third-party components
+--------------------------------------------------------------------------------
+Token-level authorship is computed via WikiWho (hosted API) and the open-source
+wikiwho_rs engine (github.com/Schuwi/wikiwho_rs), each under its own license.
+Revision metadata comes from the MediaWiki Action API. These services and tools
+retain their respective licenses and terms.

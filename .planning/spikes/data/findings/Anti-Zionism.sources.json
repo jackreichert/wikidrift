@@ -1,0 +1,826 @@
+{
+  "article": "Anti-Zionism",
+  "pivot": "2022-01-01",
+  "span": "2021-01-01 → 2026-07-01  (across the L1 pivot ~2022-01-01)",
+  "before": {
+    "date": "2021-01-01",
+    "refs": 160,
+    "n_domains": 83,
+    "cite_mix": {
+      "web": 44,
+      "book": 25,
+      "news": 20,
+      "journal": 11,
+      "report": 1
+    },
+    "domains": {
+      "merriam-webster.com": 1,
+      "adl.org": 3,
+      "bbc.com": 1,
+      "books.google.com": 20,
+      "old.jcpa.org": 2,
+      "newleftreview.org": 1,
+      "jfjfp.org": 2,
+      "myjewishlearning.com": 2,
+      "uscj.org": 1,
+      "ccarnet.org": 2,
+      "sefaria.org": 1,
+      "ajcarchives.org": 1,
+      "meforum.org": 2,
+      "jewsagainstzionism.com": 3,
+      "truetorahjews.org": 1,
+      "ajc.org": 2,
+      "nytimes.com": 3,
+      "jewsconfrontapartheid.org": 2,
+      "nion.ca": 2,
+      "jewsagainstzionism.org": 2,
+      "ijsn.net": 2,
+      "swap.stanford.edu": 1,
+      "archive.today": 1,
+      "academia.edu": 3,
+      "archive.org": 8,
+      "counterpunch.org": 4,
+      "haaretz.com": 4,
+      "time.com": 1,
+      "expatica.com": 1,
+      "washingtontimes.com": 1,
+      "nrg.co.il": 3,
+      "pcusa.org": 6,
+      "kab7a5y1mq12utgo2g3l9t19.wpengine.netdna-cdn.com": 1,
+      "webcitation.org": 1,
+      "pfmep.org": 2,
+      "lausanne.org": 1,
+      "israeltoday.co.il": 1,
+      "jpost.com": 3,
+      "wiesenthal.com": 5,
+      "scojec.org": 2,
+      "jewishpress.com": 1,
+      "churchofscotland.org.uk": 1,
+      "wesley-fellowship.org.uk": 2,
+      "thejc.com": 2,
+      "methodist.org.uk": 1,
+      "warrenkinsella.com": 2,
+      "observer.guardian.co.uk": 1,
+      "yaleglobal.yale.edu": 1,
+      "socialistreview.org.uk": 1,
+      "politicalresearch.org": 1,
+      "tabletmag.com": 3,
+      "encycl.yandex.ru": 1,
+      "unbisnet.un.org:8080": 1,
+      "fra.europa.eu": 2,
+      "washingtonpost.com": 1,
+      "nationalreview.com": 2,
+      "amchainitiative.org": 1,
+      "thetower.org": 1,
+      "jcpa.org": 2,
+      "tau.ac.il": 2,
+      "theguardian.com": 4,
+      "tlv1.fm": 1,
+      "jewishvirtuallibrary.org": 2,
+      "theatlantic.com": 2,
+      "forward.com": 1,
+      "zmag.org": 1,
+      "thenation.com": 1,
+      "baltimorechronicle.com": 1,
+      "hnn.us": 1,
+      "memri.org": 2,
+      "wymaninstitute.org": 1,
+      "tomgrossmedia.com": 1,
+      "pmw.org.il": 2,
+      "zionism-israel.com": 1,
+      "publiceye.org": 1,
+      "sudantribune.com": 1,
+      "avalon.law.yale.edu": 1,
+      "memritv.org": 2,
+      "jewishjournal.com": 1,
+      "matzpen.org": 1,
+      "logosjournal.com": 2,
+      "mwcnews.net": 1,
+      "monthlyreview.org": 1
+    }
+  },
+  "after": {
+    "date": "2026-07-01",
+    "refs": 120,
+    "n_domains": 80,
+    "cite_mix": {
+      "book": 38,
+      "journal": 32,
+      "web": 17,
+      "news": 12,
+      "report": 1
+    },
+    "domains": {
+      "columbialawreview.org": 1,
+      "theconversation.com": 1,
+      "cambridge.org": 2,
+      "jacobin.com": 2,
+      "jewishcurrents.org": 1,
+      "doi.org": 6,
+      "jstor.org": 6,
+      "cf.uba.uva.nl": 2,
+      "thebaffler.com": 1,
+      "link.springer.com": 1,
+      "tandfonline.com": 7,
+      "referenceworks.brill.com": 1,
+      "monbalagan.com": 1,
+      "escholarship.org": 1,
+      "ces.fas.harvard.edu": 1,
+      "documentcloud.org": 1,
+      "wwv.yadvashem.org": 1,
+      "web.ceu.hu": 2,
+      "journals.ispan.edu.pl": 1,
+      "tabletmag.com": 1,
+      "archive.org": 5,
+      "unbisnet.un.org:8080": 2,
+      "stimson.org": 1,
+      "nytimes.com": 6,
+      "google.com": 1,
+      "proquest.com": 1,
+      "reuters.com": 2,
+      "bbc.com": 2,
+      "books.google.com": 50,
+      "nion.ca": 2,
+      "jewsagainstzionism.org": 2,
+      "jewsconfrontapartheid.org": 2,
+      "ijsn.net": 2,
+      "swap.stanford.edu": 1,
+      "archive.today": 2,
+      "mdsweb.jp": 1,
+      "cis.org.au": 1,
+      "jns.org": 1,
+      "oxfordre.com": 1,
+      "cfr.org": 1,
+      "laciviltacattolica.com": 1,
+      "ewtn.com": 1,
+      "ccjr.us": 1,
+      "ir.lib.uwo.ca": 1,
+      "myjewishlearning.com": 1,
+      "yaleglobal.yale.edu": 1,
+      "socialistreview.org.uk": 2,
+      "politicalresearch.org": 2,
+      "academia.edu": 1,
+      "muse.jhu.edu": 2,
+      "journals.sagepub.com": 1,
+      "archive.jpr.org.uk": 1,
+      "theguardian.com": 3,
+      "eurozine.com": 1,
+      "forward.com": 2,
+      "jerusalemdeclaration.org": 1,
+      "ajc.org": 2,
+      "powerbase.info": 1,
+      "trumpwhitehouse.archives.gov": 1,
+      "journals.uchicago.edu": 1,
+      "newrepublic.com": 2,
+      "aljazeera.com": 1,
+      "cbsnews.com": 1,
+      "lemonde.fr": 1,
+      "logosjournal.com": 1,
+      "zenodo.org": 1,
+      "researchgate.net": 1,
+      "newyorker.com": 1,
+      "ieg-ego.eu": 1,
+      "fathomjournal.org": 1,
+      "haaretz.com": 4,
+      "dx.doi.org": 1,
+      "dare.uva.nl": 1,
+      "thenation.com": 1,
+      "users.cecs.anu.edu.au": 1,
+      "washingtonpost.com": 1,
+      "digital-library.qub.ac.uk": 1,
+      "nla.gov.au": 1,
+      "monthlyreview.org": 1,
+      "matzpen.org": 1
+    }
+  },
+  "added": [
+    {
+      "domain": "books.google.com",
+      "from": 20,
+      "to": 50
+    },
+    {
+      "domain": "tandfonline.com",
+      "from": 0,
+      "to": 7
+    },
+    {
+      "domain": "jstor.org",
+      "from": 0,
+      "to": 6
+    },
+    {
+      "domain": "doi.org",
+      "from": 0,
+      "to": 6
+    },
+    {
+      "domain": "nytimes.com",
+      "from": 3,
+      "to": 6
+    },
+    {
+      "domain": "cf.uba.uva.nl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "muse.jhu.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "jacobin.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "web.ceu.hu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "reuters.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "cambridge.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "newrepublic.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "nla.gov.au",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "trumpwhitehouse.archives.gov",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "journals.ispan.edu.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "cbsnews.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "researchgate.net",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ir.lib.uwo.ca",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "jerusalemdeclaration.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "digital-library.qub.ac.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "users.cecs.anu.edu.au",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "referenceworks.brill.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "google.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "dare.uva.nl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "cfr.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "jewishcurrents.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ewtn.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "mdsweb.jp",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "link.springer.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "documentcloud.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "aljazeera.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "journals.uchicago.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "laciviltacattolica.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ieg-ego.eu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "lemonde.fr",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "forward.com",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "politicalresearch.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "ccjr.us",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "archive.today",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "unbisnet.un.org:8080",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "eurozine.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "theconversation.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "fathomjournal.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "socialistreview.org.uk",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "escholarship.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "powerbase.info",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "oxfordre.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "zenodo.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "stimson.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "jns.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "thebaffler.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "monbalagan.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "proquest.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "cis.org.au",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "journals.sagepub.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "dx.doi.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "bbc.com",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "newyorker.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "wwv.yadvashem.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "archive.jpr.org.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ces.fas.harvard.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "columbialawreview.org",
+      "from": 0,
+      "to": 1
+    }
+  ],
+  "dropped": [
+    {
+      "domain": "pcusa.org",
+      "from": 6,
+      "to": 0
+    },
+    {
+      "domain": "wiesenthal.com",
+      "from": 5,
+      "to": 0
+    },
+    {
+      "domain": "counterpunch.org",
+      "from": 4,
+      "to": 0
+    },
+    {
+      "domain": "jewsagainstzionism.com",
+      "from": 3,
+      "to": 0
+    },
+    {
+      "domain": "nrg.co.il",
+      "from": 3,
+      "to": 0
+    },
+    {
+      "domain": "adl.org",
+      "from": 3,
+      "to": 0
+    },
+    {
+      "domain": "archive.org",
+      "from": 8,
+      "to": 5
+    },
+    {
+      "domain": "jpost.com",
+      "from": 3,
+      "to": 0
+    },
+    {
+      "domain": "wesley-fellowship.org.uk",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "jewishvirtuallibrary.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "theatlantic.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "jcpa.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "ccarnet.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "pmw.org.il",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "thejc.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "fra.europa.eu",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "memritv.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "old.jcpa.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "jfjfp.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "scojec.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "warrenkinsella.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "tau.ac.il",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "tabletmag.com",
+      "from": 3,
+      "to": 1
+    },
+    {
+      "domain": "academia.edu",
+      "from": 3,
+      "to": 1
+    },
+    {
+      "domain": "meforum.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "nationalreview.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "memri.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "pfmep.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "observer.guardian.co.uk",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "ajcarchives.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "baltimorechronicle.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "tlv1.fm",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "truetorahjews.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "uscj.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "zionism-israel.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "washingtontimes.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "churchofscotland.org.uk",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "webcitation.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "publiceye.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "amchainitiative.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "avalon.law.yale.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "time.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "thetower.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "tomgrossmedia.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "theguardian.com",
+      "from": 4,
+      "to": 3
+    },
+    {
+      "domain": "wymaninstitute.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "lausanne.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "merriam-webster.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "jewishpress.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "sefaria.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "newleftreview.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "encycl.yandex.ru",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "jewishjournal.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "myjewishlearning.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "logosjournal.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "kab7a5y1mq12utgo2g3l9t19.wpengine.netdna-cdn.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "expatica.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "methodist.org.uk",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "hnn.us",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "sudantribune.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "mwcnews.net",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "israeltoday.co.il",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "zmag.org",
+      "from": 1,
+      "to": 0
+    }
+  ],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD."
+}

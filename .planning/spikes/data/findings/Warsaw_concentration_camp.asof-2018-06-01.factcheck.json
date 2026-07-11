@@ -1,0 +1,98 @@
+{
+  "article": "Warsaw concentration camp",
+  "asof": "2018-06-01T00:00:00Z",
+  "langs": [
+    "en",
+    "pl",
+    "de"
+  ],
+  "citation": {
+    "mean_jaccard": 0.04,
+    "domains_per_edition": {
+      "en": 12,
+      "pl": 8,
+      "de": 3
+    }
+  },
+  "claim": {
+    "per_edition": {
+      "en": {
+        "What is the estimated total number of people killed at this camp?": {
+          "question": "What is the estimated total number of people killed at this camp?",
+          "answer": "Estimates vary widely, from tens of thousands up to over 212,000; some estimate 20,000–35,000 (not counting ~37,000 executed at Pawiak).",
+          "value": "20,000–212,000 (disputed)",
+          "evidence": "IPN estimates... \"not less than tens of thousands\". Trzcińska's estimate however places the number of the camp's victims well above 212,000... Others estimate the number of deaths at 20,000 to 35,000"
+        },
+        "Who were the primary victims (e.g. Jews, ethnic Poles, Soviet POWs)?": {
+          "question": "Who were the primary victims (e.g. Jews, ethnic Poles, Soviet POWs)?",
+          "answer": "Mainly ethnic Poles, along with Jews and other Europeans.",
+          "value": "ethnic Poles (also Jews and others)",
+          "evidence": "Its main target was the Polish population of the city... mainly Poles and several thousand of non-Polish"
+        },
+        "Was it primarily an extermination/death camp, or a concentration/labor camp?": {
+          "question": "Was it primarily an extermination/death camp, or a concentration/labor camp?",
+          "answer": "It was a concentration camp complex that also included an extermination camp and served genocidal and labor purposes.",
+          "value": "concentration camp complex including an extermination camp",
+          "evidence": "an associated group of the German Nazi concentration camps, including an extermination camp... In addition to its genocidal purposes, the camp was designed to provide a work force"
+        }
+      },
+      "pl": {
+        "What is the estimated total number of people killed at this camp?": {
+          "question": "What is the estimated total number of people killed at this camp?",
+          "answer": "About 20,000 victims, including around 10,000 Poles (per official historiography); Trzcińska claimed 200,000.",
+          "value": "~20,000",
+          "evidence": "Liczba ofiar KL Warschau jest szacowana na ok. 20 tys., w tym ok. 10 tys. Polaków."
+        },
+        "Who were the primary victims (e.g. Jews, ethnic Poles, Soviet POWs)?": {
+          "question": "Who were the primary victims (e.g. Jews, ethnic Poles, Soviet POWs)?",
+          "answer": "Jews from various European countries (forced laborers), and Poles—Polish political prisoners, roundup victims, and Jews caught on the 'Aryan side'—were executed there.",
+          "value": "Jews and ethnic Poles",
+          "evidence": "Byli to Żydzi z różnych krajów Europy... Masowo rozstrzeliwano tam polskich więźniów politycznych, ofiary łapanek oraz Żydów ujętych „po aryjskiej stronie”."
+        },
+        "Was it primarily an extermination/death camp, or a concentration/labor camp?": {
+          "question": "Was it primarily an extermination/death camp, or a concentration/labor camp?",
+          "answer": "It was a concentration/labor camp (also used as an execution site); the claim it was an extermination camp with gas chambers is rejected by most historians.",
+          "value": "concentration/labor camp",
+          "evidence": "niemiecki nazistowski obóz koncentracyjny... Ustalenia Trzcińskiej [obóz zagłady, komory gazowe] są odrzucane przez Instytut Pamięci Narodowej oraz przez większość polskich historyków."
+        }
+      },
+      "de": {
+        "What is the estimated total number of people killed at this camp?": {
+          "question": "What is the estimated total number of people killed at this camp?",
+          "answer": "The claim of ca. 200,000 deaths is disputed by historians; the passage does not give an accepted total.",
+          "value": "not stated (claim of ~200,000 disputed)",
+          "evidence": "Behauptungen, es habe sich beim Konzentrationslager Warschau um ein Vernichtungslager mit Gaskammer und ca. 200.000 Todesopfern gehandelt, werden von Historikern bestritten."
+        },
+        "Who were the primary victims (e.g. Jews, ethnic Poles, Soviet POWs)?": {
+          "question": "Who were the primary victims (e.g. Jews, ethnic Poles, Soviet POWs)?",
+          "answer": "Mainly Jewish forced laborers (including Hungarian Jews) plus some non-Jewish prisoners.",
+          "value": "Jews (Jewish forced laborers)",
+          "evidence": "Bis Ende November wurden rund 3.700 jüdische Zwangsarbeiter aus Auschwitz eingeliefert, darunter 2.500 ungarische Juden."
+        },
+        "Was it primarily an extermination/death camp, or a concentration/labor camp?": {
+          "question": "Was it primarily an extermination/death camp, or a concentration/labor camp?",
+          "answer": "It was a concentration/labor camp used for demolition work, not an extermination camp (that claim is disputed).",
+          "value": "concentration/labor camp",
+          "evidence": "Die Häftlinge sollten nach Verlagerung der Betriebe die Gebäude im Wohnviertel abreißen und die Baumaterialien zur weiteren Nutzung sicherstellen."
+        }
+      }
+    },
+    "adjudication": [
+      {
+        "question": "What is the estimated total number of people killed at this camp?",
+        "verdict": "differ",
+        "note": "en gives wide range 20k-212k; pl favors ~20k; de declines a total but all treat ~200k as disputed"
+      },
+      {
+        "question": "Who were the primary victims (e.g. Jews, ethnic Poles, Soviet POWs)?",
+        "verdict": "differ",
+        "note": "en/pl emphasize ethnic Poles alongside Jews; de emphasizes primarily Jewish forced laborers"
+      },
+      {
+        "question": "Was it primarily an extermination/death camp, or a concentration/labor camp?",
+        "verdict": "differ",
+        "note": "pl/de say concentration/labor camp rejecting extermination claim; en includes an extermination camp component"
+      }
+    ]
+  }
+}

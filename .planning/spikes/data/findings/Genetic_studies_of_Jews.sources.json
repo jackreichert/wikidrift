@@ -1,0 +1,287 @@
+{
+  "article": "Genetic studies of Jews",
+  "pivot": null,
+  "span": "2010-07-01 → 2023-01-01  (no L1 pivot — whole history)",
+  "before": {
+    "date": "2010-07-01",
+    "refs": 91,
+    "n_domains": 15,
+    "cite_mix": {
+      "journal": 80,
+      "web": 9,
+      "news": 9,
+      "book": 2
+    },
+    "domains": {
+      "nytimes.com": 2,
+      "newsweek.com": 1,
+      "forward.com": 1,
+      "familytreedna.com": 2,
+      "nature.com": 2,
+      "pubmedcentral.nih.gov": 1,
+      "bmsap.revues.org": 1,
+      "smgf.org": 1,
+      "ftdna.com": 1,
+      "ashg.org": 1,
+      "cell.com": 1,
+      "khazaria.com": 1,
+      "pqasb.pqarchiver.com": 1,
+      "theatlantic.com": 1,
+      "sciencedaily.com": 1
+    }
+  },
+  "after": {
+    "date": "2023-01-01",
+    "refs": 250,
+    "n_domains": 34,
+    "cite_mix": {
+      "journal": 60,
+      "news": 20,
+      "book": 12,
+      "web": 7,
+      "report": 1,
+      "press": 1
+    },
+    "domains": {
+      "science.org": 2,
+      "jpost.com": 5,
+      "nytimes.com": 4,
+      "in.reuters.com": 3,
+      "digitalcommons.wayne.edu": 3,
+      "wired.co.uk": 1,
+      "timesofisrael.com": 3,
+      "api.nationalgeographic.com": 1,
+      "sciencedirect.com": 1,
+      "bmsap.revues.org": 1,
+      "scholar.google.com": 1,
+      "smgf.org": 2,
+      "academia.edu": 2,
+      "nybooks.com": 1,
+      "soas.ac.uk": 1,
+      "the-scientist.com": 1,
+      "bbc.com": 1,
+      "dx.medra.org": 1,
+      "forward.com": 1,
+      "albanytribune.com": 2,
+      "haaretz.com": 2,
+      "latimes.com": 1,
+      "jewishpress.com": 1,
+      "surnamedna.com": 1,
+      "natureasia.com": 1,
+      "independent.co.uk": 1,
+      "news.nationalpost.com": 1,
+      "sciencedaily.com": 2,
+      "maajournal.com": 1,
+      "boingboing.net": 1,
+      "books.google.com": 1,
+      "theatlantic.com": 1,
+      "youtube.com": 2,
+      "ghostarchive.org": 2
+    }
+  },
+  "added": [
+    {
+      "domain": "jpost.com",
+      "from": 0,
+      "to": 5
+    },
+    {
+      "domain": "timesofisrael.com",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "digitalcommons.wayne.edu",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "in.reuters.com",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "youtube.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "haaretz.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "albanytribune.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "nytimes.com",
+      "from": 2,
+      "to": 4
+    },
+    {
+      "domain": "ghostarchive.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "academia.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "science.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "books.google.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "jewishpress.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "surnamedna.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "independent.co.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "scholar.google.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "the-scientist.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "latimes.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "smgf.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "boingboing.net",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "nybooks.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "sciencedirect.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "api.nationalgeographic.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "bbc.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "wired.co.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "maajournal.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "soas.ac.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "sciencedaily.com",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "natureasia.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "news.nationalpost.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "dx.medra.org",
+      "from": 0,
+      "to": 1
+    }
+  ],
+  "dropped": [
+    {
+      "domain": "nature.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "familytreedna.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "pqasb.pqarchiver.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "pubmedcentral.nih.gov",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "newsweek.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "khazaria.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "ftdna.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "ashg.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "cell.com",
+      "from": 1,
+      "to": 0
+    }
+  ],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD."
+}

@@ -1,0 +1,141 @@
+{
+  "article": "Gaza genocide",
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "entities": [
+    "Israel",
+    "Palestinians",
+    "Hamas"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Israel": {
+          "entity": "Israel",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "The Gaza genocide is the ongoing, intentional, and systematic destruction of the Palestinian people in the Gaza Strip carried out by Israel"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "Over 1.9 million Palestinians—85% of Gaza's population—were forcibly displaced."
+        },
+        "Hamas": {
+          "entity": "Hamas",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Hamas officials said the attack was a response to Israeli occupation of the West Bank, desecration of the Al-Aqsa Mosque, the blockade of Gaza, Israeli settler violence against Palestinians, and the detention of thousands of Palestinians"
+        }
+      },
+      "lead": {
+        "Israel": {
+          "entity": "Israel",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "The Gaza genocide is the ongoing, intentional, and systematic destruction of the Palestinian people in the Gaza Strip carried out by Israel"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "The vast majority of the victims were civilians, and around 50% were women and children."
+        },
+        "Hamas": {
+          "entity": "Hamas",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "On 7 October 2023 Hamas led an attack into Israel from Gaza, killing at least 1,139 people, most of them civilians."
+        }
+      }
+    },
+    "he": {
+      "focal": {
+        "Israel": {
+          "entity": "Israel",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "מקרים של דריסת אזרחים פלסטינים בחיים דווחו... חיילים ישראלים ירו בכוונה לפגוע בילדים... 'שטחי השמדה' שבהם חיילים קיבלו פקודה לירות ולהרוג כל מי שנראה לעין, גם אם לא היה חמוש"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "האו\"ם וכלי תקשורת רבים העריכו כי כ-70% מהפלסטינים שנהרגו בעזה הם נשים וילדים... חיילים ישראלים ירו בכוונה לפגוע בילדים"
+        },
+        "Hamas": {
+          "entity": "Hamas",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "חמאס ביצע פשעי מלחמה; מעשי הרצח כללו התעללות, עינויים, אונס והשחתת גופות... חמאס מתחבא בכוונה באזורים עירוניים וצפופים באוכלוסייה"
+        }
+      },
+      "lead": {
+        "Israel": {
+          "entity": "Israel",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "המבקרים של ישראל טוענים כי היא ביצעה אלפי פשעי מלחמה ברצועה... דו\"ח של ארגון 'רשת אוניברסיטאית לזכויות אדם' האשים את צה\"ל בהריגה ללא משפט של עצורים פלסטינים"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "בין ההרוגים לפחות 20,633 ילדים, בהם 3,150 תינוקות עד גיל שלוש... מספר הילדים קטועי הגפיים בעזה הוא הגבוה ביותר לנפש בעולם"
+        },
+        "Hamas": {
+          "entity": "Hamas",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "חמאס ביצע פשעי מלחמה; מעשי הרצח כללו התעללות, עינויים, אונס והשחתת גופות"
+        }
+      }
+    },
+    "ar": {
+      "focal": {
+        "Israel": {
+          "entity": "Israel",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "التدمير والاستهداف الممنهج والمتعمد والمستمر للشعب الفلسطيني في قطاع غزة، والذي تنفذه إسرائيل"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "معاناة ما لا يقل عن مليون فلسطيني في قطاع غزة، نصفهم من الأطفال، من الجوع بسبب استخدام إسرائيل المتعمد للتجويع كسلاح حرب"
+        },
+        "Hamas": {
+          "entity": "Hamas",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "فشلت في إثبات أن 30% من الرجال البالغين كانوا من مقاتلي حماس"
+        }
+      },
+      "lead": {
+        "Israel": {
+          "entity": "Israel",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "التدمير والاستهداف الممنهج والمتعمد والمستمر للشعب الفلسطيني في قطاع غزة، والذي تنفذه إسرائيل"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "قتلت القوات الإسرائيلية أكثر من 80 الف فلسطيني ... وكان غالبية الضحايا من المدنيين"
+        },
+        "Hamas": {
+          "entity": "Hamas",
+          "stance": "absent",
+          "npov_departure": false,
+          "evidence": "عدم التمييز بين قوات حماس والمدنيين، أو عدم التمييز بشكل كافٍ"
+        }
+      }
+    }
+  }
+}

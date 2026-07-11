@@ -1,0 +1,98 @@
+{
+  "article": "History of Zionism",
+  "langs": [
+    "en",
+    "ar"
+  ],
+  "entities": [
+    "Zionism",
+    "Israel",
+    "Palestinians"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "his vision was fulfilled with the founding of the State of Israel in 1948... Zionism can be read as a response to the Haskala and the challenges of modernity and liberalism, rather than purely a response to antisemitism"
+        },
+        "Israel": {
+          "entity": "Israel",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "his vision was fulfilled with the founding of the State of Israel in 1948"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "absent",
+          "npov_departure": false,
+          "evidence": "The passage discusses Palestine as a geographic/historic region but does not meaningfully discuss Palestinians as a people"
+        }
+      },
+      "lead": {
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "At the core of the Zionist ideology was the traditional aspiration for a Jewish national home... facilitated by the Jewish diaspora"
+        },
+        "Israel": {
+          "entity": "Israel",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "his vision was fulfilled with the founding of the State of Israel in 1948"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "absent",
+          "npov_departure": false,
+          "evidence": "The passage does not meaningfully discuss Palestinians as a people or entity"
+        }
+      }
+    },
+    "ar": {
+      "focal": {
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "كان الهدف الرئيسي للحركة هو إعادة إنشاء وطن قومي يهودي ومركز ثقافي في فلسطين من خلال تسهيل عودة اليهود من الشتات"
+        },
+        "Israel": {
+          "entity": "Israel",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "مع تحقيق هدفها عام 1948 بإنشاء إسرائيل"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "absent",
+          "npov_departure": false,
+          "evidence": "not mentioned in the passage"
+        }
+      },
+      "lead": {
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "لا يوجد مثال آخر في التاريخ البشري لأمة يُعاد تأسيسها بعد فترة طويلة من العيش كأمة في الشتات."
+        },
+        "Israel": {
+          "entity": "Israel",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "مع تحقيق هدفها عام 1948 بإنشاء إسرائيل"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "absent",
+          "npov_departure": false,
+          "evidence": "لا يوجد ذكر مباشر للفلسطينيين في هذا النص، الذي يركز على تاريخ اليهود والصهيونية"
+        }
+      }
+    }
+  }
+}

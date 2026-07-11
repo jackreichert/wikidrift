@@ -1,0 +1,192 @@
+{
+  "static": {
+    "Nakba": {
+      "article": "Nakba",
+      "langs": [
+        "en",
+        "he",
+        "ar"
+      ],
+      "variants": {
+        "lead": {
+          "divergence": 1.0,
+          "spreads": {
+            "Israel": 1,
+            "Palestinians": 1,
+            "Zionism": 1
+          }
+        },
+        "focal": {
+          "divergence": 0.33,
+          "spreads": {
+            "Israel": 0,
+            "Palestinians": 0,
+            "Zionism": 1
+          }
+        }
+      }
+    },
+    "Zionism": {
+      "article": "Zionism",
+      "langs": [
+        "en",
+        "he",
+        "ar"
+      ],
+      "variants": {
+        "lead": {
+          "divergence": 1.67,
+          "spreads": {
+            "Israel": 2,
+            "Palestinians": 1,
+            "Zionism": 2
+          }
+        },
+        "focal": {
+          "divergence": 1.33,
+          "spreads": {
+            "Israel": 1,
+            "Palestinians": 1,
+            "Zionism": 2
+          }
+        }
+      }
+    },
+    "Photosynthesis": {
+      "article": "Photosynthesis",
+      "langs": [
+        "en",
+        "he",
+        "ar"
+      ],
+      "variants": {
+        "lead": {
+          "divergence": 0.0,
+          "spreads": {
+            "Plant": 0,
+            "Sunlight": 0
+          }
+        },
+        "focal": {
+          "divergence": 0.0,
+          "spreads": {
+            "Plant": 0,
+            "Sunlight": 0
+          }
+        }
+      }
+    },
+    "Warsaw concentration camp": {
+      "article": "Warsaw concentration camp",
+      "langs": [
+        "en",
+        "pl",
+        "de"
+      ],
+      "variants": {
+        "lead": {
+          "divergence": 0.33,
+          "spreads": {
+            "Poland": 0,
+            "Germany": 1,
+            "Jews": 0
+          }
+        },
+        "focal": {
+          "divergence": 0.0,
+          "spreads": {
+            "Poland": 0,
+            "Germany": 0,
+            "Jews": 0
+          }
+        }
+      }
+    }
+  },
+  "pivot_relative": {
+    "Nakba": {
+      "article": "Nakba",
+      "pivot": "2023-10-01",
+      "pivot_source": "fallback (L1=HEALTHY — addition-side growth)",
+      "en_gap_before": 0.5,
+      "en_gap_after": 0.5,
+      "read": "no net change",
+      "before": {
+        "en": {
+          "Israel": -1,
+          "Palestinians": 1,
+          "Zionism": -1
+        },
+        "he": {
+          "Israel": 0,
+          "Palestinians": 0,
+          "Zionism": 0
+        },
+        "ar": {
+          "Israel": -1,
+          "Palestinians": 1,
+          "Zionism": -1
+        }
+      },
+      "after": {
+        "en": {
+          "Israel": -1,
+          "Palestinians": 1,
+          "Zionism": -1
+        },
+        "he": {
+          "Israel": 0,
+          "Palestinians": 0,
+          "Zionism": 0
+        },
+        "ar": {
+          "Israel": -1,
+          "Palestinians": 1,
+          "Zionism": -1
+        }
+      }
+    },
+    "Zionism": {
+      "article": "Zionism",
+      "pivot": "2024-07-01",
+      "pivot_source": "L1 (peak 68.4%, 824,017 PWR, age 0.5yr)",
+      "en_gap_before": 0.17,
+      "en_gap_after": 0.67,
+      "read": "PEELED AWAY",
+      "before": {
+        "en": {
+          "Israel": 0,
+          "Palestinians": 0,
+          "Zionism": 0
+        },
+        "he": {
+          "Israel": 0,
+          "Palestinians": 0,
+          "Zionism": 1
+        },
+        "ar": {
+          "Israel": 0,
+          "Palestinians": 1,
+          "Zionism": -1
+        }
+      },
+      "after": {
+        "en": {
+          "Israel": 0,
+          "Palestinians": 1,
+          "Zionism": -1
+        },
+        "he": {
+          "Israel": 0,
+          "Palestinians": 0,
+          "Zionism": 1
+        },
+        "ar": {
+          "Israel": -1,
+          "Palestinians": 1,
+          "Zionism": -1
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "article": "Naliboki massacre",
+  "asof": null,
+  "langs": [
+    "en",
+    "pl"
+  ],
+  "citation": {
+    "mean_jaccard": 0.22,
+    "domains_per_edition": {
+      "en": 13,
+      "pl": 9
+    }
+  },
+  "claim": {
+    "per_edition": {
+      "en": {
+        "How many people were killed in the Naliboki massacre?": {
+          "question": "How many people were killed in the Naliboki massacre?",
+          "answer": "127 or 128 (now estimated at 129) Poles were killed",
+          "value": "127-129",
+          "evidence": "the 8 May 1943 mass killing of 127 or 128 Poles by Soviet partisans... In reality, the number of victims was lower (now estimated at 129)"
+        },
+        "Who was responsible — Soviet partisans, the Bielski partisans, or others?": {
+          "question": "Who was responsible — Soviet partisans, the Bielski partisans, or others?",
+          "answer": "Soviet partisans (the 'Stalin' brigade with 'Dzerzhinsky', 'Bolshevik', and 'Suvorov' units), not the Bielski partisans",
+          "value": "Soviet partisans",
+          "evidence": "the IPN held the massacre to have been carried out by partisans from the \"Stalin\" brigade, accompanied by those from the \"Dzerzhinsky\", \"Bolshevik\", and \"Suvorov\" units... Archival records rejected the presence of Bielski's unit in the area; they would move to the vicinity of Naliboki months later, in July 1943."
+        }
+      },
+      "pl": {
+        "How many people were killed in the Naliboki massacre?": {
+          "question": "How many people were killed in the Naliboki massacre?",
+          "answer": "About 128 Polish inhabitants were killed according to the main account, though Soviet sources claimed as many as 250; later research questions the exact figure.",
+          "value": "~128 (Soviet sources claimed 250)",
+          "evidence": "zamordowały ok. 128 polskich mieszkańców miasteczka podejrzewanych o przynależność do samoobrony lub AK. ... W sowieckich źródłach szacowano liczbę zabitych Polaków na 250 osób"
+        },
+        "Who was responsible — Soviet partisans, the Bielski partisans, or others?": {
+          "question": "Who was responsible — Soviet partisans, the Bielski partisans, or others?",
+          "answer": "Soviet partisan units (Brigade named after Stalin and units 'Dzierżyński', 'Bolszewik', 'Suworow') under Pawel Gulewicz were responsible; some versions suggest possible involvement of Jewish partisans, including the Bielski unit, but this is only one of the investigated versions, not confirmed.",
+          "value": "Soviet partisans (possible but unconfirmed involvement of Bielski partisans)",
+          "evidence": "8 maja 1943 oddziały radzieckich partyzantów pod dowództwem Pawła Gulewicza z Brygady im. Stalina i z oddziałów „Dzierżyńskiego”, „Bolszewik”, „Suworowa” – według niektórych wersji przy współudziale partyzantów żydowskich... Tak więc fakt udziału partyzantów z Oddziału Bielskiego w ataku na Naliboki jest tylko jedną z wersji przyjętych w toku śledztwa."
+        }
+      }
+    },
+    "adjudication": [
+      {
+        "question": "How many people were killed in the Naliboki massacre?",
+        "verdict": "agree",
+        "note": "Both give ~127-129 as main figure; pl notes Soviet sources claimed 250 as alternate, but core estimate matches."
+      },
+      {
+        "question": "Who was responsible — Soviet partisans, the Bielski partisans, or others?",
+        "verdict": "differ",
+        "note": "Both attribute to Soviet partisan units under same brigade names; pl adds unconfirmed possible Bielski involvement not stated in en."
+      }
+    ]
+  }
+}

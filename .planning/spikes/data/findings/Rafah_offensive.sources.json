@@ -1,0 +1,408 @@
+{
+  "article": "Rafah offensive",
+  "pivot": null,
+  "span": "2024-07-01 → 2026-07-01  (no L1 pivot — whole history)",
+  "before": {
+    "date": "2024-07-01",
+    "refs": 506,
+    "n_domains": 70,
+    "cite_mix": {
+      "web": 79,
+      "news": 21
+    },
+    "domains": {
+      "efe.com": 2,
+      "aljazeera.com": 130,
+      "i24news.tv": 7,
+      "understandingwar.org": 5,
+      "timesofisrael.com": 53,
+      "13tv.co.il": 1,
+      "news.sky.com": 3,
+      "jpost.com": 28,
+      "reuters.com": 64,
+      "cnn.com": 9,
+      "nytimes.com": 16,
+      "bbc.com": 16,
+      "apnews.com": 11,
+      "wsj.com": 5,
+      "haaretz.com": 8,
+      "english.wafa.ps": 4,
+      "voanews.com": 2,
+      "france24.com": 4,
+      "icj-cij.org": 1,
+      "abcnews.go.com": 5,
+      "pbs.org": 1,
+      "au.news.yahoo.com": 1,
+      "ynetnews.com": 7,
+      "washingtonpost.com": 10,
+      "edition.cnn.com": 5,
+      "amp.cnn.com": 1,
+      "bloomberg.com": 2,
+      "ft.com": 1,
+      "archive.today": 2,
+      "telegraph.co.uk": 1,
+      "axios.com": 4,
+      "amp.theguardian.com": 2,
+      "yahoo.com": 1,
+      "barrons.com": 6,
+      "ndtv.com": 1,
+      "jns.org": 3,
+      "usatoday.com": 1,
+      "themedialine.org": 2,
+      "arabnews.com": 1,
+      "cbc.ca": 1,
+      "archive.is": 1,
+      "nbcnews.com": 1,
+      "crisis24.garda.com": 1,
+      "newarab.com": 1,
+      "middleeasteye.net": 2,
+      "aa.com.tr": 3,
+      "thehindu.com": 1,
+      "msn.com": 1,
+      "theguardian.com": 7,
+      "thenationalnews.com": 1,
+      "news.un.org": 3,
+      "wionews.com": 1,
+      "reliefweb.int": 3,
+      "ochaopt.org": 1,
+      "politico.eu": 3,
+      "irishtimes.com": 1,
+      "dirco.gov.za": 1,
+      "aje.io": 1,
+      "globalnews.ca": 1,
+      "politico.com": 4,
+      "scmp.com": 2,
+      "bernama.com": 1,
+      "timesnownews.com": 2,
+      "washington-emb.mfa.gov.tr": 2,
+      "chinadaily.com.cn": 1,
+      "icrc.org": 2,
+      "newyorker.com": 2,
+      "israelnationalnews.com": 2,
+      "who.int": 2,
+      "ohchr.org": 2
+    }
+  },
+  "after": {
+    "date": "2026-07-01",
+    "refs": 1014,
+    "n_domains": 86,
+    "cite_mix": {
+      "web": 62,
+      "news": 38
+    },
+    "domains": {
+      "nytimes.com": 20,
+      "timesofisrael.com": 124,
+      "efe.com": 2,
+      "aljazeera.com": 140,
+      "i24news.tv": 7,
+      "jpost.com": 69,
+      "understandingwar.org": 85,
+      "13tv.co.il": 1,
+      "news.sky.com": 4,
+      "reuters.com": 145,
+      "israelhayom.com": 1,
+      "shafaq.com": 2,
+      "ynetnews.com": 14,
+      "apnews.com": 16,
+      "haaretz.com": 12,
+      "english.wafa.ps": 4,
+      "voanews.com": 2,
+      "france24.com": 8,
+      "icj-cij.org": 1,
+      "abcnews.go.com": 5,
+      "pbs.org": 1,
+      "au.news.yahoo.com": 1,
+      "washingtonpost.com": 14,
+      "edition.cnn.com": 7,
+      "amp.cnn.com": 1,
+      "bloomberg.com": 2,
+      "ft.com": 1,
+      "archive.today": 4,
+      "telegraph.co.uk": 1,
+      "bbc.com": 22,
+      "axios.com": 4,
+      "theguardian.com": 8,
+      "amp.theguardian.com": 1,
+      "yahoo.com": 1,
+      "barrons.com": 6,
+      "wsj.com": 4,
+      "ndtv.com": 1,
+      "jns.org": 17,
+      "cnn.com": 11,
+      "usatoday.com": 1,
+      "themedialine.org": 2,
+      "arabnews.com": 1,
+      "cbc.ca": 1,
+      "nbcnews.com": 1,
+      "crisis24.garda.com": 1,
+      "newarab.com": 4,
+      "middleeasteye.net": 4,
+      "aa.com.tr": 99,
+      "thehindu.com": 1,
+      "msn.com": 1,
+      "timesofindia.indiatimes.com": 1,
+      "israelnationalnews.com": 4,
+      "dailynewsegypt.com": 1,
+      "allisrael.com": 2,
+      "aljazeera.net": 15,
+      "english.alarabiya.net": 1,
+      "tps.co.il": 1,
+      "aljazeeramubasher.net": 1,
+      "asharq.com": 1,
+      "skynewsarabia.com": 1,
+      "stripes.com": 1,
+      "middleeastmonitor.com": 1,
+      "khaleejtimes.com": 1,
+      "longwarjournal.org": 1,
+      "thenationalnews.com": 1,
+      "news.un.org": 3,
+      "semafor.com": 1,
+      "wionews.com": 1,
+      "reliefweb.int": 3,
+      "ochaopt.org": 1,
+      "politico.eu": 3,
+      "irishtimes.com": 1,
+      "misbar.com": 1,
+      "acleddata.com": 2,
+      "dirco.gov.za": 1,
+      "globalnews.ca": 1,
+      "politico.com": 4,
+      "scmp.com": 2,
+      "bernama.com": 1,
+      "timesnownews.com": 2,
+      "washington-emb.mfa.gov.tr": 2,
+      "chinadaily.com.cn": 1,
+      "icrc.org": 2,
+      "newyorker.com": 2,
+      "who.int": 2,
+      "ohchr.org": 2
+    }
+  },
+  "added": [
+    {
+      "domain": "aa.com.tr",
+      "from": 3,
+      "to": 99
+    },
+    {
+      "domain": "reuters.com",
+      "from": 64,
+      "to": 145
+    },
+    {
+      "domain": "understandingwar.org",
+      "from": 5,
+      "to": 85
+    },
+    {
+      "domain": "timesofisrael.com",
+      "from": 53,
+      "to": 124
+    },
+    {
+      "domain": "jpost.com",
+      "from": 28,
+      "to": 69
+    },
+    {
+      "domain": "aljazeera.net",
+      "from": 0,
+      "to": 15
+    },
+    {
+      "domain": "jns.org",
+      "from": 3,
+      "to": 17
+    },
+    {
+      "domain": "aljazeera.com",
+      "from": 130,
+      "to": 140
+    },
+    {
+      "domain": "ynetnews.com",
+      "from": 7,
+      "to": 14
+    },
+    {
+      "domain": "bbc.com",
+      "from": 16,
+      "to": 22
+    },
+    {
+      "domain": "apnews.com",
+      "from": 11,
+      "to": 16
+    },
+    {
+      "domain": "nytimes.com",
+      "from": 16,
+      "to": 20
+    },
+    {
+      "domain": "haaretz.com",
+      "from": 8,
+      "to": 12
+    },
+    {
+      "domain": "france24.com",
+      "from": 4,
+      "to": 8
+    },
+    {
+      "domain": "washingtonpost.com",
+      "from": 10,
+      "to": 14
+    },
+    {
+      "domain": "newarab.com",
+      "from": 1,
+      "to": 4
+    },
+    {
+      "domain": "archive.today",
+      "from": 2,
+      "to": 4
+    },
+    {
+      "domain": "acleddata.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "middleeasteye.net",
+      "from": 2,
+      "to": 4
+    },
+    {
+      "domain": "israelnationalnews.com",
+      "from": 2,
+      "to": 4
+    },
+    {
+      "domain": "edition.cnn.com",
+      "from": 5,
+      "to": 7
+    },
+    {
+      "domain": "shafaq.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "cnn.com",
+      "from": 9,
+      "to": 11
+    },
+    {
+      "domain": "allisrael.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "israelhayom.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "asharq.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "middleeastmonitor.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "timesofindia.indiatimes.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "english.alarabiya.net",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "aljazeeramubasher.net",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "stripes.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "tps.co.il",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "dailynewsegypt.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "semafor.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "skynewsarabia.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "longwarjournal.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "misbar.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "khaleejtimes.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "news.sky.com",
+      "from": 3,
+      "to": 4
+    },
+    {
+      "domain": "theguardian.com",
+      "from": 7,
+      "to": 8
+    }
+  ],
+  "dropped": [
+    {
+      "domain": "amp.theguardian.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "wsj.com",
+      "from": 5,
+      "to": 4
+    },
+    {
+      "domain": "aje.io",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "archive.is",
+      "from": 1,
+      "to": 0
+    }
+  ],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD."
+}

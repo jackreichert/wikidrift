@@ -1,0 +1,75 @@
+{
+  "article": "Nakba",
+  "asof": null,
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "citation": {
+    "mean_jaccard": 0.23,
+    "domains_per_edition": {
+      "en": 59,
+      "he": 19,
+      "ar": 46
+    }
+  },
+  "claim": {
+    "per_edition": {
+      "en": {
+        "Approximately how many Palestinians were displaced?": {
+          "question": "Approximately how many Palestinians were displaced?",
+          "answer": "About 750,000 Palestinians were expelled or fled.",
+          "value": "~750,000",
+          "evidence": "about half of Palestine's predominantly Arab populationaround 750,000 peoplewere expelled from their homes or made to flee"
+        },
+        "Is the event described as ethnic cleansing?": {
+          "question": "Is the event described as ethnic cleansing?",
+          "answer": "Yes, it is described as ethnic cleansing of Palestinian Arabs.",
+          "value": "yes",
+          "evidence": "The Nakba () is the ethnic cleansing of Palestinian Arabs by Zionists"
+        }
+      },
+      "he": {
+        "Approximately how many Palestinians were displaced?": {
+          "question": "Approximately how many Palestinians were displaced?",
+          "answer": "About 650,000 to 760,000 Palestinian Arabs; the government later blocked the return of roughly 750,000 refugees.",
+          "value": "650,000–760,000",
+          "evidence": "עזיבתם, מנוסתם או גירושם של כ־650 אלף עד 760 אלף ערבים פלסטינים"
+        },
+        "Is the event described as ethnic cleansing?": {
+          "question": "Is the event described as ethnic cleansing?",
+          "answer": "Yes, according to Palestinian historiography and critical scholars, the events are seen as a systematic and deliberate process of ethnic cleansing.",
+          "value": "Yes (per Palestinian/critical view)",
+          "evidence": "ההיסטוריוגרפיה הפלסטינית וחוקרים בגישה הביקורתית רואים באירועים תהליך שיטתי ומכוון של טיהור אתני"
+        }
+      },
+      "ar": {
+        "Approximately how many Palestinians were displaced?": {
+          "question": "Approximately how many Palestinians were displaced?",
+          "answer": "About 700,000–750,000 Palestinians were displaced.",
+          "value": "700,000–750,000",
+          "evidence": "طرد ما يربو على 750 ألف فلسطيني... فر أو طرد ما يقدر بنحو 700،000 فلسطيني"
+        },
+        "Is the event described as ethnic cleansing?": {
+          "question": "Is the event described as ethnic cleansing?",
+          "answer": "Yes, it is described as ethnic cleansing of Palestine.",
+          "value": "Yes",
+          "evidence": "في حرب التطهير العرقي لفلسطين 1947–48"
+        }
+      }
+    },
+    "adjudication": [
+      {
+        "question": "Approximately how many Palestinians were displaced?",
+        "verdict": "agree",
+        "note": "All center on ~750,000; ranges overlap (he 650k-760k, ar 700k-750k)."
+      },
+      {
+        "question": "Is the event described as ethnic cleansing?",
+        "verdict": "agree",
+        "note": "All say yes; he attributes it specifically to Palestinian/critical scholarship."
+      }
+    ]
+  }
+}

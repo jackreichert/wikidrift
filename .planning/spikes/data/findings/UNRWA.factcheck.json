@@ -1,0 +1,98 @@
+{
+  "article": "UNRWA",
+  "asof": null,
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "citation": {
+    "mean_jaccard": 0.07,
+    "domains_per_edition": {
+      "en": 89,
+      "he": 42,
+      "ar": 9
+    }
+  },
+  "claim": {
+    "per_edition": {
+      "en": {
+        "In what year was UNRWA established, and by which body?": {
+          "question": "In what year was UNRWA established, and by which body?",
+          "answer": "UNRWA was established in 1949 by the United Nations General Assembly",
+          "value": "1949",
+          "evidence": "UNRWA was established in 1949 by the UN General Assembly (UNGA) to provide relief to all refugees resulting from the 1948 conflict"
+        },
+        "How does UNRWA define a 'Palestine refugee', and does that definition include descendants?": {
+          "question": "How does UNRWA define a 'Palestine refugee', and does that definition include descendants?",
+          "answer": "Palestine refugees are defined as persons whose regular place of residence was Palestine from 1 June 1946 to 15 May 1948 who lost both home and livelihood due to the 1948 conflict; yes, the definition includes descendants of Palestine refugee males, including adopted children.",
+          "value": "includes descendants",
+          "evidence": "Palestine refugees are \"persons whose regular place of residence was Palestine during the period 1 June 1946 to 15 May 1948, and who lost both home and means of livelihood as a result of the 1948 conflict.\" ... The descendants of Palestine refugee males, including adopted children, are also eligible for registration as refugees."
+        },
+        "Which populations and territories does UNRWA's mandate cover?": {
+          "question": "Which populations and territories does UNRWA's mandate cover?",
+          "answer": "UNRWA's mandate covers Palestinians displaced by the 1948 Nakba and their descendants, as well as those displaced by the 1967 war and subsequent hostilities, and it operates in five areas: Jordan, Lebanon, Syria, the Gaza Strip, and the West Bank (including East Jerusalem).",
+          "value": "Jordan, Lebanon, Syria, Gaza Strip, West Bank (incl. East Jerusalem)",
+          "evidence": "UNRWA operates in five areas: Jordan, Lebanon, Syria, the Gaza Strip, and the West Bank (including East Jerusalem). ... it also extends to persons displaced by \"the 1967 and subsequent hostilities\" and occasionally to a broader cross-section of the local community."
+        }
+      },
+      "he": {
+        "In what year was UNRWA established, and by which body?": {
+          "question": "In what year was UNRWA established, and by which body?",
+          "answer": "UNRWA was established on December 8, 1949, by the UN General Assembly via Resolution 302.",
+          "value": "1949",
+          "evidence": "סוכנות הסעד והתעסוקה של האו\"ם לפליטי פלסטין במזרח הקרוב הוקמה ב-8 בדצמבר 1949 בעקבות מלחמת העצמאות... הסוכנות הוקמה על סמך החלטה 302 של העצרת הכללית של האו\"ם."
+        },
+        "How does UNRWA define a 'Palestine refugee', and does that definition include descendants?": {
+          "question": "How does UNRWA define a 'Palestine refugee', and does that definition include descendants?",
+          "answer": "UNRWA's definition relates to a defined territory and time period (Palestine refugees from the 1948 war and later, e.g. 1967 war refugees added since 1991), and it also includes descendants through the male line, including legally adopted children.",
+          "value": "Yes, includes descendants via paternal line, including adopted children",
+          "evidence": "אונר\"א הגדירה את האוכלוסייה שהיא מספקת לה שירותים כפליטי פלסטין (לפי ההגדרה למעלה), אך גם צאצאיהם מצד האב, כולל ילדים שאומצו חוקית."
+        },
+        "Which populations and territories does UNRWA's mandate cover?": {
+          "question": "Which populations and territories does UNRWA's mandate cover?",
+          "answer": "UNRWA operates in five areas: the Gaza Strip, the West Bank (including East Jerusalem), Jordan, Syria, and Lebanon, serving Palestine refugees and their descendants.",
+          "value": "Gaza Strip, West Bank (incl. East Jerusalem), Jordan, Syria, Lebanon",
+          "evidence": "אונר\"א פועלת בחמישה אזורים: רצועת עזה, הגדה המערבית (לרבות מזרח ירושלים), ירדן, סוריה ולבנון."
+        }
+      },
+      "ar": {
+        "In what year was UNRWA established, and by which body?": {
+          "question": "In what year was UNRWA established, and by which body?",
+          "answer": "UNRWA was established in 1949 by the United Nations General Assembly, via resolution 302.",
+          "value": "1949",
+          "evidence": "أُسِّست بقرار من الجمعية العامة للأمم المتحدة في عام 1949... وفي 8 ديسمبر 1949 وبموجب قرار الجمعية العامة رقم 302، أُسِّست وكالة الأمم المتحدة لغوث وتشغيل اللاجئين الفلسطينيين"
+        },
+        "How does UNRWA define a 'Palestine refugee', and does that definition include descendants?": {
+          "question": "How does UNRWA define a 'Palestine refugee', and does that definition include descendants?",
+          "answer": "The passage does not give a specific definition of 'Palestine refugee' or state whether descendants are included; it only mentions the number of registered refugees.",
+          "value": "not stated",
+          "evidence": "تعمل على تقديم الدعم والحماية وكسب التأييد لقرابة 5.6 مليون لاجئ فلسطيني مسجَّلين لديها في الأردن ولبنان وسوريا والضفة الغربية وقطاع غزة"
+        },
+        "Which populations and territories does UNRWA's mandate cover?": {
+          "question": "Which populations and territories does UNRWA's mandate cover?",
+          "answer": "UNRWA covers Palestinian refugees registered in Jordan, Lebanon, Syria, the West Bank, and the Gaza Strip.",
+          "value": "Jordan, Lebanon, Syria, West Bank, Gaza Strip",
+          "evidence": "لقرابة 5.6 مليون لاجئ فلسطيني مسجَّلين لديها في الأردن ولبنان وسوريا والضفة الغربية وقطاع غزة"
+        }
+      }
+    },
+    "adjudication": [
+      {
+        "question": "In what year was UNRWA established, and by which body?",
+        "verdict": "agree",
+        "note": "All editions agree: 1949, UN General Assembly, Resolution 302."
+      },
+      {
+        "question": "How does UNRWA define a 'Palestine refugee', and does that definition include descendants?",
+        "verdict": "differ",
+        "note": "en and he give consistent definitions including descendants (he adds paternal line/adoption detail); ar states no definition given, which is insufficient rather than contradictory."
+      },
+      {
+        "question": "Which populations and territories does UNRWA's mandate cover?",
+        "verdict": "agree",
+        "note": "All three list the same five areas: Jordan, Lebanon, Syria, West Bank (incl. East Jerusalem), Gaza Strip."
+      }
+    ]
+  }
+}

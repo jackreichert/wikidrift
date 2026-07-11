@@ -1,0 +1,209 @@
+{
+  "article": "Photosynthesis",
+  "pivot": null,
+  "span": "2002-01-01 → 2026-07-01  (no L1 pivot — whole history)",
+  "before": {
+    "date": "2002-01-01",
+    "refs": 0,
+    "n_domains": 0,
+    "cite_mix": {},
+    "domains": {}
+  },
+  "after": {
+    "date": "2026-07-01",
+    "refs": 133,
+    "n_domains": 30,
+    "cite_mix": {
+      "journal": 66,
+      "book": 24,
+      "web": 7,
+      "news": 3
+    },
+    "domains": {
+      "lexico.com": 2,
+      "cambridge.org": 2,
+      "archive.org": 6,
+      "life.illinois.edu": 5,
+      "books.google.com": 16,
+      "eia.doe.gov": 2,
+      "escholarship.org": 2,
+      "doi.org": 1,
+      "bio-medicine.org": 2,
+      "phschool.com": 2,
+      "fao.org": 1,
+      "research.wur.nl": 1,
+      "bbc.com": 2,
+      "pbs.org": 2,
+      "newscientist.com": 4,
+      "astrobio.net": 2,
+      "cbc.ca": 1,
+      "scholarworks.montana.edu": 1,
+      "ucmp.berkeley.edu": 1,
+      "biodiversitylibrary.org": 2,
+      "nobelprize.org": 2,
+      "zfn.mpdl.mpg.de": 2,
+      "etymonline.com": 2,
+      "perseus.tufts.edu": 4,
+      "garfield.library.upenn.edu": 2,
+      "life.uiuc.edu": 3,
+      "scienceaid.co.uk": 1,
+      "biochemweb.org": 1,
+      "chemsoc.org": 1,
+      "bcs.whfreeman.com": 1
+    }
+  },
+  "added": [
+    {
+      "domain": "books.google.com",
+      "from": 0,
+      "to": 16
+    },
+    {
+      "domain": "archive.org",
+      "from": 0,
+      "to": 6
+    },
+    {
+      "domain": "life.illinois.edu",
+      "from": 0,
+      "to": 5
+    },
+    {
+      "domain": "newscientist.com",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "perseus.tufts.edu",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "life.uiuc.edu",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "lexico.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "zfn.mpdl.mpg.de",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "cambridge.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "biodiversitylibrary.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "bio-medicine.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "astrobio.net",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "escholarship.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "bbc.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "etymonline.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "eia.doe.gov",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "nobelprize.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "pbs.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "phschool.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "garfield.library.upenn.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "cbc.ca",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "bcs.whfreeman.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "research.wur.nl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "doi.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "biochemweb.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "scienceaid.co.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "fao.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ucmp.berkeley.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "chemsoc.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "scholarworks.montana.edu",
+      "from": 0,
+      "to": 1
+    }
+  ],
+  "dropped": [],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD."
+}

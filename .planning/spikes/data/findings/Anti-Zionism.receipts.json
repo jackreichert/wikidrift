@@ -1,0 +1,27 @@
+{
+  "article": "Anti-Zionism",
+  "qid": "Q584548",
+  "editions": {
+    "en": {
+      "present": true,
+      "revid": 1363014612,
+      "title": "Anti-Zionism",
+      "timestamp": "2026-07-07T15:15:46Z",
+      "prose_chars": 54551
+    },
+    "he": {
+      "present": true,
+      "revid": 43560500,
+      "title": "אנטי-ציונות",
+      "timestamp": "2026-07-09T08:25:48Z",
+      "prose_chars": 15715
+    },
+    "ar": {
+      "present": true,
+      "revid": 74267274,
+      "title": "معاداة الصهيونية",
+      "timestamp": "2026-04-14T09:20:22Z",
+      "prose_chars": 16594
+    }
+  }
+}

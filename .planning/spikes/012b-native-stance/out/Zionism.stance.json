@@ -1,0 +1,159 @@
+{
+  "article": "Zionism",
+  "entities": [
+    "Israel",
+    "Palestinians",
+    "Zionism"
+  ],
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "editions": {
+    "en": {
+      "native_labels": {
+        "Israel": "Israel",
+        "Palestinians": "Palestinians",
+        "Zionism": "Zionism"
+      },
+      "focal_empty": false,
+      "focal": {
+        "Israel": {
+          "entity": "Israel",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Zionism was the main force behind the creation of the State of Israel in 1948... During the war, Israel expanded its territory to control over 78% of former Mandatory Palestine."
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "After the 1948 Palestinian expulsion and flight, an estimated 160,000 of 870,000 Palestinians in the territory remained, forming a Palestinian minority in Israel."
+        },
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Advocates of Zionism have viewed it as a national liberation movement... Opponents of Zionism often characterize it as a supremacist, colonialist, or racist ideology."
+        }
+      },
+      "lead": {
+        "Israel": {
+          "entity": "Israel",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Zionism was the main force behind the creation of the State of Israel in 1948... During the war, Israel expanded its territory to control over 78% of former Mandatory Palestine."
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "Zionists wanted to create a Jewish state in Palestine with as much land, as many Jews, and as few Palestinian Arabs as possible... After the 1948 Palestinian expulsion and flight"
+        },
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "Zionists wanted to create a Jewish state in Palestine with as much land, as many Jews, and as few Palestinian Arabs as possible... arguing that the Jewish claim outweighed that of the Palestinian Arab population."
+        }
+      }
+    },
+    "he": {
+      "native_labels": {
+        "Israel": "ישראל",
+        "Palestinians": "פלסטינים",
+        "Zionism": "ציונות"
+      },
+      "focal_empty": false,
+      "focal": {
+        "Israel": {
+          "entity": "Israel",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "עם הקמת מדינת ישראל ממשיכה הציונות לפעול לתמיכה בישראל, להבטחת קיומה ולחיזוקה"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "absent",
+          "npov_departure": false,
+          "evidence": "The passage does not discuss Palestinians; it focuses on the history and goals of Zionism."
+        },
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "בניית חברת מופת, המבוססת על צדק חברתי ושוויון... יצירת יהודי חדש – יהדות השרירים, and 'השאיפה לשלמות מוסרית ורוחנית' — framed in idealized, movement-internal terms."
+        }
+      },
+      "lead": {
+        "Israel": {
+          "entity": "Israel",
+          "stance": "sympathetic",
+          "npov_departure": false,
+          "evidence": "ממשיכה הציונות לפעול לתמיכה בישראל, להבטחת קיומה ולחיזוקה — descriptive of Zionism's aims rather than framing Israel itself"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "absent",
+          "npov_departure": false,
+          "evidence": "Palestinians are not mentioned in the passage"
+        },
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "שורשי הציונות נעוצים במניעים ובערכים עתיקי-יומין... השכילו הציונים לעשות שימוש פורה... בניית חברת מופת, המבוססת על צדק חברתי ושוויון — presents Zionism's aims and self-conception in affirmative, movement-internal terms without countervailing perspectives"
+        }
+      }
+    },
+    "ar": {
+      "native_labels": {
+        "Israel": "إسرائيل",
+        "Palestinians": "فلسطينيون",
+        "Zionism": "صهيونية"
+      },
+      "focal_empty": false,
+      "focal": {
+        "Israel": {
+          "entity": "Israel",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "إنشاء إثنوقراطية يهودية في فلسطين... وحصرت حق تقرير المصير فيها للقومية اليهودية وحدها"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "مضت عبر حرب التطهير العرقي لفلسطين 1947–1948"
+        },
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "سعت لإنشاء دولة قومية خاصّة لهم باستعمار بلاد خارج اوروبا، ومضت عبر حرب التطهير العرقي... بلورتها بشكل كامل... على يد مفكرين غير يهود بل معادين لليهود"
+        }
+      },
+      "lead": {
+        "Israel": {
+          "entity": "Israel",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "لإنشاء إثنوقراطية يهودية في فلسطين... وحصرت حق تقرير المصير فيها للقومية اليهودية وحدها"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "عبر حرب التطهير العرقي لفلسطين 1947–1948... وتسببت في نزوح العديد من الفلسطينيين، ثم إنكار حقهم في العودة"
+        },
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "سعت لإنشاء دولة قومية خاصّة لهم باستعمار بلاد خارج اوروبا، ومضت عبر حرب التطهير العرقي لفلسطين"
+        }
+      }
+    }
+  }
+}

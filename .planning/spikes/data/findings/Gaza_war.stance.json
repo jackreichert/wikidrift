@@ -1,0 +1,141 @@
+{
+  "article": "Gaza war",
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "entities": [
+    "Israel",
+    "Hamas",
+    "Palestinians"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Israel": {
+          "entity": "Israel",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "Many scholarly sources and international organizations...have concluded that Israel's actions in Gaza constitute genocide under international law."
+        },
+        "Hamas": {
+          "entity": "Hamas",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "the Palestinian militant group Hamas led a surprise attack on Israel, in which 1,195 Israelis and foreign nationals were killed and 251 were taken hostage"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "over 73,000 Palestinians in Gaza have been killed... Nearly all of the strip's 2.3million Palestinians have been forcibly displaced."
+        }
+      },
+      "lead": {
+        "Israel": {
+          "entity": "Israel",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "Many scholarly sources and international organizations... have concluded that Israel's actions in Gaza constitute genocide under international law."
+        },
+        "Hamas": {
+          "entity": "Hamas",
+          "stance": "critical",
+          "npov_departure": false,
+          "evidence": "the Palestinian militant group Hamas led a surprise attack on Israel, in which 1,195 Israelis and foreign nationals were killed and 251 were taken hostage."
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "Nearly all of the strip's 2.3million Palestinians have been forcibly displaced... large parts are uninhabitable, with most hospitals, religious and cultural landmarks, and educational facilities destroyed."
+        }
+      }
+    },
+    "he": {
+      "focal": {
+        "Israel": {
+          "entity": "Israel",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "The passage frames Israeli military actions in operational, justificatory terms ('טיהור עורף ישראל ממחבלים', 'יצירת יציבות בקו הגבול') while attributing atrocity claims against Israel to 'critics' ('מבקריה של ישראל טוענים') rather than presenting them neutrally."
+        },
+        "Hamas": {
+          "entity": "Hamas",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "Referred to repeatedly as 'ארגון טרור אסלאמיסטי-סוני פלסטיני' and accused of using civilians as human shields, inflating death tolls, and committing the Oct 7 'טבח' (massacre)."
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Casualty figures are reported factually, e.g., 'נהרגו לפחות 92 פלסטינים, כולל 40 ילדים', without editorializing on Palestinian civilians as a group."
+        }
+      },
+      "lead": {
+        "Israel": {
+          "entity": "Israel",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "הכריזה מדינת ישראל בעקבות טבח שבעה באוקטובר שבוצע על ידי ארגוני הטרור... בהובלת חמאס, ארגון טרור אסלאמיסטי-סוני פלסטיני"
+        },
+        "Hamas": {
+          "entity": "Hamas",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "ארגון טרור אסלאמיסטי-סוני פלסטיני"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "תקיפות אלו גרמו להרג של עשרות אלפי אזרחים, לצד הרס כמעט מוחלט של תשתיות, בתי חולים ובתי ספר"
+        }
+      }
+    },
+    "ar": {
+      "focal": {
+        "Israel": {
+          "entity": "Israel",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "وبحلول أوائل عام 2025، تسبّبت إسرائيل في دمار غير مسبوق في غزة... واتخاذ سياسة التجويع"
+        },
+        "Hamas": {
+          "entity": "Hamas",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "بدأت الحرب في 7 تشرين الأول/أكتوبر 2023م بعد هجوم مفاجئ شنَّته حركة حماس على إسرائيل... وقد صرّح خبراء ومنظمات حقوق الإنسان بأن إسرائيل وحماس ارتكبتا جرائم حرب"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "منذ بداية الهجوم الإسرائيلي، تمّ الإبلاغ عن استشهاد ما لا يقلُّ عن 50 ألف فلسطيني غالبيتهم من النساء والأطفال"
+        }
+      },
+      "lead": {
+        "Israel": {
+          "entity": "Israel",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "تسبّبت إسرائيل في دمار غير مسبوق في غزة... التطهير العرقي الجماعي للشعب الفلسطيني... استخدام التجويع كسلاح في الحرب على الفلسطينيين"
+        },
+        "Hamas": {
+          "entity": "Hamas",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "قد صرّح خبراء ومنظمات حقوق الإنسان بأن إسرائيل وحماس ارتكبتا جرائم حرب"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "تمّ الإبلاغ عن استشهاد ما لا يقلُّ عن 50 ألف فلسطيني غالبيتهم من النساء والأطفال... موجة موت جماعي ستضرب القطاع"
+        }
+      }
+    }
+  }
+}

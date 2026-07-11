@@ -1,0 +1,54 @@
+{
+  "article": "Collaboration in German-occupied Poland",
+  "asof": null,
+  "langs": [
+    "en"
+  ],
+  "citation": {
+    "mean_jaccard": 1.0,
+    "domains_per_edition": {
+      "en": 29
+    }
+  },
+  "claim": {
+    "per_edition": {
+      "en": {
+        "Did the Polish state or its government-in-exile formally collaborate with Nazi Germany?": {
+          "question": "Did the Polish state or its government-in-exile formally collaborate with Nazi Germany?",
+          "answer": "No, the Polish state and government-in-exile did not formally collaborate with Nazi Germany.",
+          "value": "No",
+          "evidence": "Poland as a polity never surrendered to the Germans."
+        },
+        "What scale of individual Polish collaboration with the occupier does the article describe?": {
+          "question": "What scale of individual Polish collaboration with the occupier does the article describe?",
+          "answer": "About 5% of the population in the General Government actively collaborated, compared to 25% who actively resisted.",
+          "value": "5%",
+          "evidence": "Czesław Madajczyk estimates that 5% of the population in the General Government actively collaborated, which he contrasts with the 25% who actively resisted the occupation."
+        },
+        "What role does the article attribute to Poles in the deaths of Jews under occupation?": {
+          "question": "What role does the article attribute to Poles in the deaths of Jews under occupation?",
+          "answer": "The article criticizes Polish indifference to the Jewish plight, describing it as a form of 'structural collaboration' rather than direct killing.",
+          "value": "structural collaboration (indifference)",
+          "evidence": "he criticizes the same population for its indifference to the Jewish plight, a phenomenon he terms \"structural collaboration\" (see more below)."
+        }
+      }
+    },
+    "adjudication": [
+      {
+        "question": "Did the Polish state or its government-in-exile formally collaborate with Nazi Germany?",
+        "verdict": "insufficient",
+        "note": "Only English edition's answer provided; no other-language data to compare."
+      },
+      {
+        "question": "What scale of individual Polish collaboration with the occupier does the article describe?",
+        "verdict": "insufficient",
+        "note": "Only English edition's answer provided; no other-language data to compare."
+      },
+      {
+        "question": "What role does the article attribute to Poles in the deaths of Jews under occupation?",
+        "verdict": "insufficient",
+        "note": "Only English edition's answer provided; no other-language data to compare."
+      }
+    ]
+  }
+}

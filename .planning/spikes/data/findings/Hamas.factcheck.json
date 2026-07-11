@@ -1,0 +1,98 @@
+{
+  "article": "Hamas",
+  "asof": null,
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "citation": {
+    "mean_jaccard": 0.09,
+    "domains_per_edition": {
+      "en": 153,
+      "he": 46,
+      "ar": 105
+    }
+  },
+  "claim": {
+    "per_edition": {
+      "en": {
+        "In what year was Hamas founded, and by whom?": {
+          "question": "In what year was Hamas founded, and by whom?",
+          "answer": "1987, by Ahmed Yassin",
+          "value": "1987",
+          "evidence": "The Hamas movement was founded by Palestinian Islamic scholar Ahmed Yassin in 1987 after the outbreak of the First Intifada against the Israeli occupation."
+        },
+        "Which governments or bodies have officially designated Hamas (or its military wing) a terrorist organization?": {
+          "question": "Which governments or bodies have officially designated Hamas (or its military wing) a terrorist organization?",
+          "answer": "Australia, Canada, Costa Rica, Ecuador, Honduras, Israel, Japan, New Zealand, Paraguay, Trinidad and Tobago, the United Kingdom, the United States, and the European Union",
+          "value": "Australia, Canada, Costa Rica, Ecuador, Honduras, Israel, Japan, New Zealand, Paraguay, Trinidad and Tobago, United Kingdom, United States, European Union",
+          "evidence": "Australia, Canada, Costa Rica, Ecuador, Honduras, Israel, Japan, New Zealand, Paraguay, Trinidad and Tobago, the United Kingdom, the United States, and the European Union have designated Hamas as a terrorist organisation."
+        },
+        "What does Hamas's founding charter state regarding the state of Israel?": {
+          "question": "What does Hamas's founding charter state regarding the state of Israel?",
+          "answer": "The 1988 charter did not recognize Israel and was widely described as antisemitic; the later 2017 charter supported a Palestinian state within 1967 borders without recognizing Israel and shifted language to target 'Zionists' rather than Jews",
+          "value": "not stated (original charter's specific text on Israel not quoted; described as antisemitic and non-recognizing)",
+          "evidence": "In 2017, Hamas released a new charter that supported a Palestinian state within the 1967 borders without recognizing Israel... While the 1988 Hamas charter was widely described as antisemitic, Hamas's 2017 charter removed the antisemitic language and declared Zionists, not Jews, the targets of their struggle."
+        }
+      },
+      "he": {
+        "In what year was Hamas founded, and by whom?": {
+          "question": "In what year was Hamas founded, and by whom?",
+          "answer": "Hamas was founded in Gaza in 1987 by Sheikh Ahmed Yassin, following the outbreak of the First Intifada.",
+          "value": "1987; founder: Ahmed Yassin",
+          "evidence": "התנועה נוסדה בעזה בשנת 1987 על ידי השייח' אחמד יאסין, בעקבות פרוץ האינתיפאדה הראשונה."
+        },
+        "Which governments or bodies have officially designated Hamas (or its military wing) a terrorist organization?": {
+          "question": "Which governments or bodies have officially designated Hamas (or its military wing) a terrorist organization?",
+          "answer": "Australia, Canada, Paraguay, Israel, Japan, New Zealand, the United Kingdom, the United States, and the European Union have designated Hamas as a terrorist organization.",
+          "value": "Australia, Canada, Paraguay, Israel, Japan, New Zealand, UK, USA, EU",
+          "evidence": "חמאס הוגדרה כארגון טרור על ידי אוסטרליה, קנדה, פרגוואי, ישראל, יפן, ניו זילנד, בריטניה, ארצות הברית והאיחוד האירופי"
+        },
+        "What does Hamas's founding charter state regarding the state of Israel?": {
+          "question": "What does Hamas's founding charter state regarding the state of Israel?",
+          "answer": "The 1988 Hamas Charter defines all of the Land of Israel (from the river to the sea) as an inalienable Islamic religious endowment (waqf), calls for the destruction of the State of Israel, contains harsh antisemitic expressions, and firmly opposes a political solution and the peace process, emphasizing armed jihad as the only path to liberation.",
+          "value": "Calls for destruction of Israel; land defined as Islamic waqf",
+          "evidence": "אמנת חמאס מ־1988 מגדירה את ארץ ישראל כולה (מהנהר לים) כהקדש אסלאמי שאין לוותר עליו (וקף), היא קוראת להשמדת מדינת ישראל, כוללת ביטויים אנטישמיים חריפים, ומתנגדת נחרצות לפתרון מדיני ולתהליך השלום הישראלי-פלסטיני, תוך הדגשת הג'יהאד המזוין כדרך היחידה לשחרור."
+        }
+      },
+      "ar": {
+        "In what year was Hamas founded, and by whom?": {
+          "question": "In what year was Hamas founded, and by whom?",
+          "answer": "Hamas emerged in December 1987 during the First Intifada, founded by a group of Muslim Brotherhood members led by Sheikh Ahmed Yassin, along with Ibrahim al-Yazouri, Muhammad Shama, Abd al-Fattah Dukhan, Abd al-Aziz al-Rantisi, Issa al-Nashar, and Salah Shehadeh.",
+          "value": "1987",
+          "evidence": "بدأت فكرة حماس في التبلور في 10 ديسمبر/كانون الأول 1987... اجتمع عدد من أعضاء جماعة الإخوان المسلمين الفلسطينية... وهم: أحمد ياسين، وإبراهيم اليازوري، ومحمد شمعة... وعبد الفتاح دخان... وعبد العزيز الرنتيسي... وعيسى النشار... وصلاح شحادة"
+        },
+        "Which governments or bodies have officially designated Hamas (or its military wing) a terrorist organization?": {
+          "question": "Which governments or bodies have officially designated Hamas (or its military wing) a terrorist organization?",
+          "answer": "The United States, the European Union, the United Kingdom, Japan, Canada, Australia, New Zealand, Israel, and the Organization of American States classify it as a terrorist organization.",
+          "value": "United States, EU, UK, Japan, Canada, Australia, New Zealand, Israel, Organization of American States",
+          "evidence": "تُصنفها منظمة إرهابية كل من الولايات المتحدة، والإتحاد الأوروبي، وبريطانيا، واليابان، وكندا، وأستراليا، ونيوزيلاندا، وإسرائيل، ومنظمة الدول الأمريكية."
+        },
+        "What does Hamas's founding charter state regarding the state of Israel?": {
+          "question": "What does Hamas's founding charter state regarding the state of Israel?",
+          "answer": "The passage does not quote specific charter text about the state of Israel; it only states that the movement considers the land of Palestine an Islamic endowment and historic homeland for Palestinians, with Jerusalem as its capital, and that its goal is to liberate all of Palestine 'from the river to the sea.'",
+          "value": "not stated",
+          "evidence": "تؤمن أن هذه النهضة هي المدخل الأساسي لهدفها وهو تحرير فلسطين كاملة من النهر إلى البحر... وتَعتبِر الحركة أرضَ فلسطين وقفاً إسلامياً ووطناً تاريخياً للفلسطينيين بعاصمتها القدس."
+        }
+      }
+    },
+    "adjudication": [
+      {
+        "question": "In what year was Hamas founded, and by whom?",
+        "verdict": "agree",
+        "note": "All agree on 1987, founded by Ahmed Yassin (ar adds co-founders)."
+      },
+      {
+        "question": "Which governments or bodies have officially designated Hamas (or its military wing) a terrorist organization?",
+        "verdict": "differ",
+        "note": "Core list overlaps (US, EU, UK, Japan, Canada, Australia, NZ, Israel); en/ar add extra countries or OAS not in he."
+      },
+      {
+        "question": "What does Hamas's founding charter state regarding the state of Israel?",
+        "verdict": "differ",
+        "note": "he gives specific charter content (waqf, destruction of Israel) while en/ar decline to quote specifics, though not contradicting it."
+      }
+    ]
+  }
+}

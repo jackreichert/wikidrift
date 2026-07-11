@@ -1,0 +1,141 @@
+{
+  "article": "Anti-Zionism",
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "entities": [
+    "Zionism",
+    "Israel",
+    "Jews"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Anti-Zionism is opposition to Zionism... a heterogeneous phenomenon"
+        },
+        "Israel": {
+          "entity": "Israel",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "the creation of the State of Israel in 1948... was flawed or unjust in some way"
+        },
+        "Jews": {
+          "entity": "Jews",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "conditions for Jews rapidly deteriorated in Europe due to the rise of Adolf Hitler and Nazi Germany, and Zionism began to prevail"
+        }
+      },
+      "lead": {
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Anti-Zionism is opposition to Zionism...heterogeneous phenomenon"
+        },
+        "Israel": {
+          "entity": "Israel",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "the creation of the State of Israel in 1948...was flawed or unjust in some way"
+        },
+        "Jews": {
+          "entity": "Jews",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "conditions for Jews rapidly deteriorated in Europe due to the rise of Adolf Hitler and Nazi Germany"
+        }
+      }
+    },
+    "he": {
+      "focal": {
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "הרטוריקה נגד ישראל קיימה את תנאי מבחן שלושת ה-D-ים לאנטישמיות... ושללה את זכותה של מדינת ישראל להתקיים ואת זכותו של העם היהודי להגדרה עצמית"
+        },
+        "Israel": {
+          "entity": "Israel",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "פרץ גל של אנטישמיות בחלקים נרחבים בעולם שהתבטא ברטוריקה מסיתה נגד ישראל ופעולות אלימות נגד יהודים ברחבי העולם"
+        },
+        "Jews": {
+          "entity": "Jews",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "פעולות אלימות נגד יהודים ברחבי העולם, בהם תנועת ה-BDS... גל זה של אנטישמיות... כונה האנטישמיות החדשה"
+        }
+      },
+      "lead": {
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "אנטי-ציונות הוא מונח מורכב ורב-פנים, שמשמעותו התנגדות לתנועה הציונית"
+        },
+        "Israel": {
+          "entity": "Israel",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "לאחר הקמת מדינת ישראל נעשה שימוש במונח גם כהתנגדות לקיומה"
+        },
+        "Jews": {
+          "entity": "Jews",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "פעילים ציונים רבים נאסרו או הוגלו לסיביר וכונו אסיר ציון... הנודעים בהם כוללים את אנטולי שרנסקי, אידה נודל"
+        }
+      }
+    },
+    "ar": {
+      "focal": {
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "باعتبارها مشروعا استعماريا يصطدم بتطلعات الدولة العربية وبوجود الفلسطينيين"
+        },
+        "Israel": {
+          "entity": "Israel",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "يخلطون عمداً بين معاداة الصهيونية ومعاداة السامية بغرض استخدام معاداة السامية كسلاح لتجنب الانتقادات الموجهة لإسرائيل وسياساتها"
+        },
+        "Jews": {
+          "entity": "Jews",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "وتختلف معاداة الصهيونية عن معاداة اليهود، أو اللاسامية الأوروبية التي تعادي اليهود لذاتهم"
+        }
+      },
+      "lead": {
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "باعتبارها مشروعا استعماريا يصطدم بتطلعات الدولة العربية وبوجود الفلسطينيين ... الصهيونية آلة يقوم بخيرها الاستعمار العالمى لمصالحه على حساب اليهود والعرب معا"
+        },
+        "Israel": {
+          "entity": "Israel",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "تقاريرهم وتعليماتهم للقياده السياسية وهكذا تدار السياسة الإسرائيلية نحو الفلسطينيين ... يسيطرون على قطاعات هامه للغايه في الجيش"
+        },
+        "Jews": {
+          "entity": "Jews",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "حِرصاً على اليهود وخوفا من مواجهتهم اضطهادا جديدا بسبب الاندفاع الصهيوني"
+        }
+      }
+    }
+  }
+}

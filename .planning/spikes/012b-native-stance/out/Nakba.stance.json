@@ -1,0 +1,159 @@
+{
+  "article": "Nakba",
+  "entities": [
+    "Israel",
+    "Palestinians",
+    "Zionism"
+  ],
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "editions": {
+    "en": {
+      "native_labels": {
+        "Israel": "Israel",
+        "Palestinians": "Palestinians",
+        "Zionism": "Zionism"
+      },
+      "focal_empty": false,
+      "focal": {
+        "Israel": {
+          "entity": "Israel",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "Israel employed biological warfare against Palestinians by poisoning village wells... Israel negates or denies the atrocities it committed"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "about half of Palestine's predominantly Arab population...were expelled from their homes or made to flee through various violent means"
+        },
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "Zionists accepted it, but planned to expand Israel's borders beyond what the UN allocated to it... at first by Zionist paramilitaries"
+        }
+      },
+      "lead": {
+        "Israel": {
+          "entity": "Israel",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "Israel employed biological warfare against Palestinians by poisoning village wells... Israel negates or denies the atrocities it committed"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "were expelled from their homes or made to flee through various violent means... collective trauma that defines Palestinians' national identity"
+        },
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "the ethnic cleansing of Palestinian Arabs by Zionists... Zionists wanted to create a Jewish state in Palestine with as much land, as many Jews, and as few Palestinian Arabs as possible"
+        }
+      }
+    },
+    "he": {
+      "native_labels": {
+        "Israel": "ישראל",
+        "Palestinians": "פלסטינים",
+        "Zionism": "ציונות"
+      },
+      "focal_empty": false,
+      "focal": {
+        "Israel": {
+          "entity": "Israel",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "החליטה ממשלת ישראל באופן גורף למנוע את חזרתם של כ-750,000 הפליטים לבתיהם. כדי לבסס עובדות בשטח... מאות כפרים ערביים נהרסו או הופקעו... המעיט הנרטיב הישראלי הממסדי בחלקה של המדינה ביצירת בעיית הפליטים"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "sympathetic",
+          "npov_departure": false,
+          "evidence": "עזיבתם, מנוסתם או גירושם של כ־650 אלף עד 760 אלף ערבים פלסטינים... והפיכתם לפליטים; passage also presents critical counterviews via Avineri, Yemini"
+        },
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "absent",
+          "npov_departure": false,
+          "evidence": "Zionism is not meaningfully discussed as a focal entity in this passage."
+        }
+      },
+      "lead": {
+        "Israel": {
+          "entity": "Israel",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "מרבית הפליטים עברו למדינות ערב השכנות... שנותרו בתום המלחמה תחת שליטת ירדן ומצרים"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "היא עזיבתם, מנוסתם או גירושם של כ־650 אלף עד 760 אלף ערבים פלסטינים במהלך מלחמת העצמאות"
+        },
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "לפי הנרטיב הציוני-ממסדי, מרבית העזיבה הייתה בריחה מרצון... מנגד, ההיסטוריוגרפיה הפלסטינית וחוקרים בגישה הביקורתית רואים באירועים תהליך שיטתי ומכוון"
+        }
+      }
+    },
+    "ar": {
+      "native_labels": {
+        "Israel": "إسرائيل",
+        "Palestinians": "فلسطينيون",
+        "Zionism": "صهيونية"
+      },
+      "focal_empty": false,
+      "focal": {
+        "Israel": {
+          "entity": "Israel",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "قتل ما يتراوح بين بين 2,700 و5,000 فلسطيني على يد إسرائيل خلال هذه الفترة، وكانت الغالبية العظمى منهم غير مسلحة... حرب التطهير العرقي لفلسطين"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "حيث طرد شعب الفلسطيني من بيته وأرضه وخسر وطنه... تشمل الأحداث عشرات المجازر والفظائع وأعمال النهب ضد الفلسطينيين"
+        },
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "بدأت العصابات الصهيونية بعملية دالت لبدأ التطهير العرقي على نطاق واسع... عصابات صهيونية إرهابية هاجمت قرىً وبلدات ومدن فلسطينية بهدف إبادتها"
+        }
+      },
+      "lead": {
+        "Israel": {
+          "entity": "Israel",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "حرب التطهير العرقي لفلسطين 1947–48 حيث طرد شعب الفلسطيني من بيته وأرضه... تشمل الأحداث عشرات المجازر والفظائع وأعمال النهب ضد الفلسطينيين"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "المأساة الإنسانية المتعلقة بتشريد عدد كبير من الشعب الفلسطيني خارج دياره... طرد ما يربو على 750 ألف فلسطيني وتحويلهم إلى لاجئين"
+        },
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "بدأت العصابات الصهيونية بعملية دالت لبدأ التطهير العرقي على نطاق واسع... عصابات صهيونية إرهابية هاجمت قرىً وبلدات ومدن فلسطينية بهدف إبادتها"
+        }
+      }
+    }
+  }
+}

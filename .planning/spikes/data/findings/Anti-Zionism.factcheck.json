@@ -1,0 +1,75 @@
+{
+  "article": "Anti-Zionism",
+  "asof": null,
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "citation": {
+    "mean_jaccard": 0.01,
+    "domains_per_edition": {
+      "en": 83,
+      "he": 10,
+      "ar": 3
+    }
+  },
+  "claim": {
+    "per_edition": {
+      "en": {
+        "When did anti-Zionism emerge as a distinct position?": {
+          "question": "When did anti-Zionism emerge as a distinct position?",
+          "answer": "Anti-Zionism emerged as opposition existed from the beginning, alongside Theodor Herzl's call for a Jewish state, with the term shifting meaning after 1948 when Israel was established.",
+          "value": "from the late 19th century (Herzl era), shifting focus after 1948",
+          "evidence": "From the beginning, there was resistance to Zionism and Theodor Herzl's call for the establishment of a Jewish state in Palestine."
+        },
+        "Which religious and political groups does the article identify as holding anti-Zionist positions?": {
+          "question": "Which religious and political groups does the article identify as holding anti-Zionist positions?",
+          "answer": "The article names Orthodox rabbis, assimilationist Jewish liberals, left-wing Jewish movements like the Bund and Autonomists, Reform rabbis, Agudat Yisrael, the Yevsektsiya, Moroccan Sephardic communities, the Jewish Anti-Zionist League in Egypt, the American Council for Judaism, some Haredi Jews, and Arab/Palestinian groups.",
+          "value": "Orthodox rabbis, Bund, Autonomists, Reform rabbis, Agudat Yisrael, Yevsektsiya, Moroccan Jewish communities, Jewish Anti-Zionist League, American Council for Judaism, Haredi Jews, Palestinians/Arabs",
+          "evidence": "Opposition came from diverse sources: many Orthodox rabbis held that a Jewish state before the messiah was against divine will; assimilationist Jewish liberals feared Zionism threatened efforts at integration and citizenship in European states; and various left-wing Jewish movements, such as the Bund and Autonomists, promoted alternative forms of Jewish identity... more traditionalist groups like Agudat Yisrael opposed cooperation with secular Zionists... In Egypt in 1946, Jewish members of Iskra, an underground Communist movement, founded the Jewish Anti-Zionist League... some, including the American Council for Judaism, continued to oppose the ideology... Some are anti-Zionist for religious reasons, such as some Haredi Jews."
+        }
+      },
+      "he": {
+        "When did anti-Zionism emerge as a distinct position?": {
+          "question": "When did anti-Zionism emerge as a distinct position?",
+          "answer": "It existed as a self-aware concept from the beginning of the Zionist movement in the late 19th century.",
+          "value": "late 19th century",
+          "evidence": "אנטי-ציונות, ממקורות שונים ומסוגים שונים, התקיימה כתפיסה מודעת לעצמה החל מראשיתה של התנועה הציונית בשלהי המאה ה-19."
+        },
+        "Which religious and political groups does the article identify as holding anti-Zionist positions?": {
+          "question": "Which religious and political groups does the article identify as holding anti-Zionist positions?",
+          "answer": "Jewish groups such as the Bund, ultra-Orthodox (Haredi) groups including the Edah HaChareidis and Neturei Karta, Canaanites, post-Zionists, communist/anarchist left, radical anti-Zionist left, as well as external groups like the Palestinian national movement, Arab national movement, fundamentalist Islam, and neo-Nazism/white supremacy.",
+          "value": "Bund, Haredi/Edah HaChareidis, Neturei Karta, Canaanites, post-Zionists, communist/anarchist left, radical left, Palestinian national movement, Arab national movement, fundamentalist Islam, neo-Nazism/white supremacy",
+          "evidence": "תנועות פוליטיות יהודיות דוגמת הבונד, היהדות הרפורמית, אגודת ישראל ואף מקצת זרמי הציונות... בין הבולטים במתנגדי הציונות בעולם היהודי כיום ניתן לציין את העדה החרדית... קבוצת נטורי קרתא... התנועה הלאומית הפלסטינית... התנועה הלאומית הערבית... אסלאם פונדמנטליסטי... נאו-נאציזם/עליונות לבנה"
+        }
+      },
+      "ar": {
+        "When did anti-Zionism emerge as a distinct position?": {
+          "question": "When did anti-Zionism emerge as a distinct position?",
+          "answer": "Not explicitly dated as a distinct term; the article's first reference point is the March 1920 large-scale anti-Zionist demonstrations in Palestine, and Orthodox Jewish rejection is linked to the rise of the Orthodox trend as a reaction to the Reform movement in the first half of the 19th century.",
+          "value": "first half of 19th century (Orthodox Jewish rejection); March 1920 (first large demonstrations in Palestine)",
+          "evidence": "أول مظاهرات واسعة النطاق مناهضة للصهيونية في فلسطين عام مارس 1920م. ... وظهر التيار الأرثوذكسي مثل تيار رئيسى في الديانة اليهودية كرد فعل لبروز التيار الإصلاحي في النصف الأول من القرن التاسع عشر"
+        },
+        "Which religious and political groups does the article identify as holding anti-Zionist positions?": {
+          "question": "Which religious and political groups does the article identify as holding anti-Zionist positions?",
+          "answer": "The article names the Ottoman State, Arab states after WWI, Arab and Islamic societies generally, the governments of Algeria, Syria, Iran, Lebanon, and the Emirate of Sharjah, Palestinian organizations such as Hamas, Islamic Jihad, and the Popular Front for the Liberation of Palestine, the Lebanese Hezbollah organization, and the ultra-Orthodox Jewish movement Neturei Karta.",
+          "value": "Ottoman State; Arab states; Arab/Islamic societies; governments of Algeria, Syria, Iran, Lebanon, Sharjah; Hamas; Islamic Jihad; Popular Front for the Liberation of Palestine; Hezbollah; Neturei Karta (Orthodox Jewish)",
+          "evidence": "رفضت الدولة العثمانية الصهيونية ... وقاومتها الدول العربية ... فيما تتمسك حكومات الجزائر وسوريا وإيران ولبنان وإمارة الشارقة بموقف معاد للصهيونية، كما قاومتها المنظمات الفلسطينية مثل حماس والجهاد الإسلامي والجبهة الشعبية لتحرير فلسطين، ومنظمة حزب الله اللبنانية، وتقاومها سياسيا حركة ناطوري كارتا اليهودية الأرثوذكسية."
+        }
+      }
+    },
+    "adjudication": [
+      {
+        "question": "When did anti-Zionism emerge as a distinct position?",
+        "verdict": "differ",
+        "note": "All place origins in 19th century/early Zionist era, but en/he emphasize Herzl-era Jewish debates while ar emphasizes Orthodox rejection and 1920 Palestine demonstrations."
+      },
+      {
+        "question": "Which religious and political groups does the article identify as holding anti-Zionist positions?",
+        "verdict": "differ",
+        "note": "Each edition lists a different, only partially overlapping set of groups (en: mostly Jewish political/religious groups plus Palestinians; he: Jewish factions plus post-Zionist/left/Islamist/neo-Nazi; ar: mainly Arab/Islamic states and organizations plus Neturei Karta), reflecting differing emphasis rather than outright contradiction."
+      }
+    ]
+  }
+}

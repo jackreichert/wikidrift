@@ -1,0 +1,284 @@
+{
+  "Palestine": {
+    "raw": {
+      "revs": 5673,
+      "mutual_pairs": 111,
+      "M": 167134,
+      "M_per_rev": 29.46
+    },
+    "refined": {
+      "revs": 4995,
+      "mutual_pairs": 13,
+      "M": 6795,
+      "M_per_rev": 1.36
+    },
+    "refined_per_rev": 1.2
+  },
+  "UNRWA": {
+    "raw": {
+      "revs": 1877,
+      "mutual_pairs": 56,
+      "M": 13414,
+      "M_per_rev": 7.15
+    },
+    "refined": {
+      "revs": 1665,
+      "mutual_pairs": 14,
+      "M": 1573,
+      "M_per_rev": 0.94
+    },
+    "refined_per_rev": 0.84
+  },
+  "Anti-Zionism": {
+    "raw": {
+      "revs": 5721,
+      "mutual_pairs": 201,
+      "M": 529533,
+      "M_per_rev": 92.56
+    },
+    "refined": {
+      "revs": 5157,
+      "mutual_pairs": 35,
+      "M": 40026,
+      "M_per_rev": 7.76
+    },
+    "refined_per_rev": 7.0
+  },
+  "Collaboration in German-occupied Poland": {
+    "raw": {
+      "revs": 1974,
+      "mutual_pairs": 17,
+      "M": 15678,
+      "M_per_rev": 7.94
+    },
+    "refined": {
+      "revs": 1831,
+      "mutual_pairs": 2,
+      "M": 520,
+      "M_per_rev": 0.28
+    },
+    "refined_per_rev": 0.26
+  },
+  "History of Zionism": {
+    "raw": {
+      "revs": 1368,
+      "mutual_pairs": 3,
+      "M": 54,
+      "M_per_rev": 0.04
+    },
+    "refined": {
+      "revs": 1167,
+      "mutual_pairs": 0,
+      "M": 0,
+      "M_per_rev": 0.0
+    },
+    "refined_per_rev": 0.0
+  },
+  "Genetic studies of Jews": {
+    "raw": {
+      "revs": 2851,
+      "mutual_pairs": 51,
+      "M": 37734,
+      "M_per_rev": 13.24
+    },
+    "refined": {
+      "revs": 2296,
+      "mutual_pairs": 12,
+      "M": 4471,
+      "M_per_rev": 1.95
+    },
+    "refined_per_rev": 1.57
+  },
+  "Racial conceptions of Jewish identity in Zionism": {
+    "raw": {
+      "revs": 1187,
+      "mutual_pairs": 1,
+      "M": 86,
+      "M_per_rev": 0.07
+    },
+    "refined": {
+      "revs": 1185,
+      "mutual_pairs": 0,
+      "M": 0,
+      "M_per_rev": 0.0
+    },
+    "refined_per_rev": 0.0
+  },
+  "Bar Kokhba Revolt": {
+    "raw": {
+      "revs": 2428,
+      "mutual_pairs": 22,
+      "M": 8215,
+      "M_per_rev": 3.38
+    },
+    "refined": {
+      "revs": 1995,
+      "mutual_pairs": 2,
+      "M": 344,
+      "M_per_rev": 0.17
+    },
+    "refined_per_rev": 0.14
+  },
+  "Gaza genocide": {
+    "raw": {
+      "revs": 6712,
+      "mutual_pairs": 19,
+      "M": 42744,
+      "M_per_rev": 6.37
+    },
+    "refined": {
+      "revs": 6712,
+      "mutual_pairs": 0,
+      "M": 0,
+      "M_per_rev": 0.0
+    },
+    "refined_per_rev": 0.0
+  },
+  "Zionism": {
+    "raw": {
+      "revs": 12060,
+      "editors": 3150,
+      "mutual_pairs": 384,
+      "mutual_reverters": 313,
+      "weight": 5327,
+      "M": 1667351,
+      "M_per_rev": 138.25
+    },
+    "refined": {
+      "revs": 9973,
+      "editors": 1806,
+      "mutual_pairs": 64,
+      "mutual_reverters": 59,
+      "weight": 2233,
+      "M": 131747,
+      "M_per_rev": 13.21
+    },
+    "refined_per_rev": 10.92
+  },
+  "Nakba": {
+    "raw": {
+      "revs": 1175,
+      "editors": 221,
+      "mutual_pairs": 0,
+      "mutual_reverters": 0,
+      "weight": 0,
+      "M": 0,
+      "M_per_rev": 0.0
+    },
+    "refined": {
+      "revs": 1174,
+      "editors": 220,
+      "mutual_pairs": 0,
+      "mutual_reverters": 0,
+      "weight": 0,
+      "M": 0,
+      "M_per_rev": 0.0
+    },
+    "refined_per_rev": 0.0
+  },
+  "Warsaw concentration camp": {
+    "raw": {
+      "revs": 1056,
+      "editors": 259,
+      "mutual_pairs": 3,
+      "mutual_reverters": 6,
+      "weight": 28,
+      "M": 168,
+      "M_per_rev": 0.16
+    },
+    "refined": {
+      "revs": 923,
+      "editors": 190,
+      "mutual_pairs": 0,
+      "mutual_reverters": 0,
+      "weight": 0,
+      "M": 0,
+      "M_per_rev": 0.0
+    },
+    "refined_per_rev": 0.0
+  },
+  "Israeli–Palestinian conflict": {
+    "raw": {
+      "revs": 9419,
+      "editors": 2811,
+      "mutual_pairs": 220,
+      "mutual_reverters": 179,
+      "weight": 4230,
+      "M": 757170,
+      "M_per_rev": 80.39
+    },
+    "refined": {
+      "revs": 7286,
+      "editors": 1466,
+      "mutual_pairs": 36,
+      "mutual_reverters": 38,
+      "weight": 1523,
+      "M": 57874,
+      "M_per_rev": 7.94
+    },
+    "refined_per_rev": 6.14
+  },
+  "Photosynthesis": {
+    "raw": {
+      "revs": 5177,
+      "editors": 2465,
+      "mutual_pairs": 255,
+      "mutual_reverters": 181,
+      "weight": 1889,
+      "M": 341909,
+      "M_per_rev": 66.04
+    },
+    "refined": {
+      "revs": 3016,
+      "editors": 1090,
+      "mutual_pairs": 26,
+      "mutual_reverters": 22,
+      "weight": 672,
+      "M": 14784,
+      "M_per_rev": 4.9
+    },
+    "refined_per_rev": 2.86
+  },
+  "Climate change": {
+    "raw": {
+      "revs": 26788,
+      "editors": 5313,
+      "mutual_pairs": 1462,
+      "mutual_reverters": 615,
+      "weight": 43792,
+      "M": 26932080,
+      "M_per_rev": 1005.38
+    },
+    "refined": {
+      "revs": 23495,
+      "editors": 3515,
+      "mutual_pairs": 330,
+      "mutual_reverters": 149,
+      "weight": 25308,
+      "M": 3770892,
+      "M_per_rev": 160.5
+    },
+    "refined_per_rev": 140.77
+  },
+  "Water": {
+    "raw": {
+      "revs": 7899,
+      "editors": 4029,
+      "mutual_pairs": 343,
+      "mutual_reverters": 248,
+      "weight": 2690,
+      "M": 667120,
+      "M_per_rev": 84.46
+    },
+    "refined": {
+      "revs": 5327,
+      "editors": 2277,
+      "mutual_pairs": 43,
+      "mutual_reverters": 30,
+      "weight": 1297,
+      "M": 38910,
+      "M_per_rev": 7.3
+    },
+    "refined_per_rev": 4.93
+  }
+}

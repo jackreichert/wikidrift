@@ -1,0 +1,224 @@
+[
+  {
+    "article": "Zionism",
+    "cat": "A_removal",
+    "src": "base-rate; PIA5-evidence+ADL",
+    "expect": "flag: recent removal retrofit",
+    "status": "PASS",
+    "detail": "flagged (PWR-mass 824,017, recent)",
+    "L1": "PIVOT?",
+    "pwr_mass": 824017,
+    "leads": [
+      "removal→PWR"
+    ]
+  },
+  {
+    "article": "Anti-Zionism",
+    "cat": "A_removal",
+    "src": "base-rate",
+    "expect": "flag: removal retrofit",
+    "status": "PASS",
+    "detail": "flagged (PWR-mass 278,907, standing 3yr)",
+    "L1": "PIVOT?",
+    "pwr_mass": 278907,
+    "leads": [
+      "removal→PWR"
+    ]
+  },
+  {
+    "article": "Israeli–Palestinian conflict",
+    "cat": "A_removal",
+    "src": "base-rate",
+    "expect": "flag: removal retrofit",
+    "status": "PASS",
+    "detail": "flagged (PWR-mass 482,002, recent)",
+    "L1": "PIVOT?",
+    "pwr_mass": 482002,
+    "leads": [
+      "removal→PWR"
+    ]
+  },
+  {
+    "article": "Hamas",
+    "cat": "A_removal",
+    "src": "ADL (de-emphasize terror)",
+    "expect": "flag: removal retrofit",
+    "status": "PASS",
+    "detail": "flagged (PWR-mass 535,921, recent)",
+    "L1": "PIVOT?",
+    "pwr_mass": 535921,
+    "leads": [
+      "removal→PWR"
+    ]
+  },
+  {
+    "article": "Palestinian political violence",
+    "cat": "A_removal",
+    "src": "ADL (removed text 2023)",
+    "expect": "flag: removal",
+    "status": "FAIL",
+    "detail": "missed (L1=HEALTHY)",
+    "L1": "HEALTHY",
+    "pwr_mass": 0,
+    "leads": []
+  },
+  {
+    "article": "Jedwabne pogrom",
+    "cat": "A_removal",
+    "src": "Grabowski-Klein; Icewhiz-ev",
+    "expect": "flag: removal retrofit",
+    "status": "PASS",
+    "detail": "flagged (PWR-mass 231,839, standing 6yr)",
+    "L1": "PIVOT?",
+    "pwr_mass": 231839,
+    "leads": []
+  },
+  {
+    "article": "Nakba",
+    "cat": "B_addition",
+    "src": "this project (Phase 7)",
+    "expect": "L1 healthy + addition→L2 lead",
+    "status": "PASS",
+    "detail": "addition→L2 lead raised (L1=HEALTHY, as expected — born-biased blind spot)",
+    "L1": "HEALTHY",
+    "pwr_mass": 0,
+    "leads": [
+      "addition→L2"
+    ]
+  },
+  {
+    "article": "Gaza war",
+    "cat": "B_addition",
+    "src": "PIA5-evidence+ADL",
+    "expect": "addition→L2 (born in contested period)",
+    "status": "FAIL",
+    "detail": "addition lead NOT raised (L1=PIVOT?, leads=none)",
+    "L1": "PIVOT?",
+    "pwr_mass": 193049,
+    "leads": []
+  },
+  {
+    "article": "Collaboration in German-occupied Poland",
+    "cat": "B_addition",
+    "src": "Grabowski-Klein; Icewhiz-ev",
+    "expect": "addition→L2 reframe",
+    "status": "FAIL",
+    "detail": "addition lead NOT raised (L1=PIVOT?, leads=['removal→PWR'])",
+    "L1": "PIVOT?",
+    "pwr_mass": 5802,
+    "leads": [
+      "removal→PWR"
+    ]
+  },
+  {
+    "article": "Rescue of Jews by Poles during the Holocaust",
+    "cat": "B_addition",
+    "src": "Grabowski-Klein; Icewhiz-ev",
+    "expect": "addition→L2 reframe",
+    "status": "PASS",
+    "detail": "addition→L2 lead raised (L1=HEALTHY, as expected — born-biased blind spot)",
+    "L1": "HEALTHY",
+    "pwr_mass": 0,
+    "leads": [
+      "addition→L2"
+    ]
+  },
+  {
+    "article": "Naliboki massacre",
+    "cat": "B_addition",
+    "src": "Grabowski-Klein; Icewhiz-ev",
+    "expect": "addition→L2 (quiet article — may be sub-maturity)",
+    "status": "FAIL",
+    "detail": "addition lead NOT raised (L1=HEALTHY, leads=none)",
+    "L1": "HEALTHY",
+    "pwr_mass": 0,
+    "leads": []
+  },
+  {
+    "article": "Warsaw concentration camp",
+    "cat": "C_l5gap",
+    "src": "Grabowski-Klein (peer-reviewed)",
+    "expect": "flag via L5 (born-biased ~15yr hoax) — expected L1/L2 MISS today",
+    "status": "L5-GAP",
+    "detail": "L1=HEALTHY (PWR-mass 0); flagged via addition→L2 pre-ranker (not L1) — a lead, still needs L5 to adjudicate",
+    "L1": "HEALTHY",
+    "pwr_mass": 0,
+    "leads": [
+      "addition→L2"
+    ]
+  },
+  {
+    "article": "Climate change",
+    "cat": "D_benign",
+    "src": "base-rate",
+    "expect": "may register as change; not bias; demote",
+    "status": "PARTIAL",
+    "detail": "flagged, large (PWR-mass 358,747, standing 4yr); change is real but L1 cannot separate benign from malicious → needs L2/L5",
+    "L1": "PIVOT?",
+    "pwr_mass": 358747,
+    "leads": [
+      "removal→PWR"
+    ]
+  },
+  {
+    "article": "Water",
+    "cat": "D_benign",
+    "src": "base-rate",
+    "expect": "ancient/tiny; demote",
+    "status": "PASS",
+    "detail": "flagged as change but low mass → demoted (PWR-mass 17,570, standing 18yr)",
+    "L1": "PIVOT?",
+    "pwr_mass": 17570,
+    "leads": [
+      "removal→PWR"
+    ]
+  },
+  {
+    "article": "Abortion",
+    "cat": "D_benign",
+    "src": "base-rate",
+    "expect": "old; demote",
+    "status": "PASS",
+    "detail": "flagged as change but low mass → demoted (PWR-mass 46,141, standing 14yr)",
+    "L1": "PIVOT?",
+    "pwr_mass": 46141,
+    "leads": [
+      "removal→PWR"
+    ]
+  },
+  {
+    "article": "Photosynthesis",
+    "cat": "E_clean",
+    "src": "base-rate",
+    "expect": "HEALTHY",
+    "status": "PASS",
+    "detail": "HEALTHY",
+    "L1": "HEALTHY",
+    "pwr_mass": 0,
+    "leads": []
+  },
+  {
+    "article": "Brontosaurus",
+    "cat": "E_clean",
+    "src": "base-rate",
+    "expect": "HEALTHY (expansion)",
+    "status": "PASS",
+    "detail": "HEALTHY",
+    "L1": "HEALTHY",
+    "pwr_mass": 0,
+    "leads": []
+  },
+  {
+    "article": "Chess",
+    "cat": "E_clean",
+    "src": "base-rate",
+    "expect": "HEALTHY",
+    "status": "PASS",
+    "detail": "HEALTHY",
+    "L1": "HEALTHY",
+    "pwr_mass": 0,
+    "leads": [
+      "removal→PWR"
+    ]
+  }
+]

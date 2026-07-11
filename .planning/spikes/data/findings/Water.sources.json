@@ -1,0 +1,1004 @@
+{
+  "article": "Water",
+  "pivot": "2007-07-01",
+  "span": "2006-01-01 → 2026-07-01  (across the L1 pivot ~2007-07-01)",
+  "before": {
+    "date": "2006-01-01",
+    "refs": 0,
+    "n_domains": 24,
+    "cite_mix": {},
+    "domains": {
+      "ajpregu.physiology.org": 1,
+      "iom.edu": 1,
+      "thirdworldtraveler.com": 1,
+      "twt.mpei.ac.ru": 1,
+      "lsbu.ac.uk": 2,
+      "publicforuminstitute.org": 1,
+      "greenfacts.org": 1,
+      "hkc22.com": 3,
+      "worldwaterforum.org": 1,
+      "unesco.org": 1,
+      "unesdoc.unesco.org": 1,
+      "gemswater.org": 1,
+      "wateraid.org": 1,
+      "sahra.arizona.edu": 1,
+      "siwi.org": 1,
+      "c-win.org": 1,
+      "news.bbc.co.uk": 1,
+      "geocities.com": 1,
+      "emagazine.com": 1,
+      "iapws.org": 1,
+      "ga.water.usgs.gov": 1,
+      "dartmouth.edu": 1,
+      "water.org.uk": 1,
+      "phys.unsw.edu.au": 1
+    }
+  },
+  "after": {
+    "date": "2026-07-01",
+    "refs": 252,
+    "n_domains": 143,
+    "cite_mix": {
+      "web": 42,
+      "journal": 27,
+      "book": 23,
+      "news": 7,
+      "report": 1
+    },
+    "domains": {
+      "usgs.gov": 4,
+      "chem.libretexts.org": 1,
+      "uh.edu": 2,
+      "oup.com": 4,
+      "agu.org": 2,
+      "unep.org": 2,
+      "etymonline.com": 2,
+      "water.usgs.gov": 4,
+      "khanacademy.org": 1,
+      "old.iupac.org": 2,
+      "pubchem.ncbi.nlm.nih.gov": 2,
+      "esrl.noaa.gov": 2,
+      "mt.com": 2,
+      "academia.edu": 2,
+      "sciencelearn.org.nz": 1,
+      "ausableriver.org": 2,
+      "conservancy.umn.edu": 2,
+      "ssec.si.edu": 2,
+      "books.google.com": 18,
+      "google.com": 2,
+      "antarcticglaciers.org": 2,
+      "nps.gov": 2,
+      "newscientist.com": 5,
+      "fsis.usda.gov": 2,
+      "exploratorium.edu": 2,
+      "wired.com": 4,
+      "zenodo.org": 2,
+      "bipm.org": 4,
+      "osti.gov": 2,
+      "pdfs.semanticscholar.org": 10,
+      "authors.library.caltech.edu": 3,
+      "s3.us-west-2.amazonaws.com": 1,
+      "halshs.archives-ouvertes.fr": 2,
+      "dartmouth.edu": 2,
+      "msu.edu": 2,
+      "phschool.com": 2,
+      "onlinelibrary.wiley.com": 1,
+      "desmos.com": 2,
+      "physicsclassroom.com": 1,
+      "nature.com": 2,
+      "hyperphysics.phy-astr.gsu.edu": 2,
+      "resource.npl.co.uk": 2,
+      "pubs.acs.org": 1,
+      "britannica.com": 2,
+      "archive.org": 6,
+      "asknature.org": 2,
+      "eib.org": 4,
+      "ieg.worldbankgroup.org": 2,
+      "un.org": 6,
+      "fao.org": 3,
+      "who.int": 3,
+      "ourworldindata.org": 2,
+      "wbcsd.org": 2,
+      "pubs.er.usgs.gov": 2,
+      "pacinst.org": 2,
+      "waterfootprint.org": 4,
+      "smdsi.quartier-rural.org": 2,
+      "histoire.du.metre.free.fr": 2,
+      "medicalnewstoday.com": 1,
+      "bbc.co.uk": 2,
+      "webmd.com": 2,
+      "nap.edu": 2,
+      "mayoclinic.com": 2,
+      "heart.org": 1,
+      "nutritionsource.hsph.harvard.edu": 1,
+      "cdc.gov": 2,
+      "epa.gov": 1,
+      "ncbi.nlm.nih.gov": 1,
+      "nationalatlas.gov": 2,
+      "lhoist.com": 2,
+      "sustainableict.blog.gov.uk": 1,
+      "dwi.defra.gov.uk": 2,
+      "apps.who.int": 2,
+      "eso.org": 2,
+      "news.harvard.edu": 5,
+      "jhu.edu": 2,
+      "nasa.gov": 10,
+      "space.com": 8,
+      "planetary.org": 2,
+      "orbi.uliege.be": 2,
+      "www-personal.umich.edu": 2,
+      "jpl.nasa.gov": 8,
+      "yalescientific.org": 1,
+      "time.com": 2,
+      "lup.lub.lu.se": 2,
+      "lpi.usra.edu": 2,
+      "people.msoe.edu": 2,
+      "in.reuters.com": 2,
+      "hal.science": 1,
+      "spiegel.de": 2,
+      "science.nasa.gov": 3,
+      "hal.archives-ouvertes.fr": 2,
+      "nytimes.com": 4,
+      "starryskies.com": 2,
+      "geoinf.fu-berlin.de": 2,
+      "daviddarling.info": 2,
+      "scijinks.gov": 1,
+      "csiro.au": 1,
+      "space.newscientist.com": 1,
+      "cfa.harvard.edu": 2,
+      "mckinsey.com": 2,
+      "mdgs.un.org": 4,
+      "lomborg.com": 2,
+      "unesdoc.unesco.org": 2,
+      "odi.org.uk": 2,
+      "iwmi.cgiar.org": 2,
+      "theguardian.com": 4,
+      "thelancet.com": 2,
+      "unesco.org": 2,
+      "rural21.com": 2,
+      "france24.com": 2,
+      "abc.net.au": 2,
+      "unworldoceansday.org": 2,
+      "news.un.org": 1,
+      "iranicaonline.org": 2,
+      "sacred-texts.com": 2,
+      "ctext.org": 2,
+      "hyperallergic.com": 2,
+      "huffingtonpost.com": 2,
+      "vimeo.com": 2,
+      "artsci.ucla.edu": 2,
+      "huffpost.com": 2,
+      "inhabitat.com": 2,
+      "thinkaboutwater.com": 2,
+      "basiairland.com": 2,
+      "tseshaht.com": 2,
+      "unwater.org": 2,
+      "dictionary.com": 2,
+      "letslearnslang.com": 2,
+      "genius.com": 2,
+      "inside.mines.edu": 2,
+      "polymer.bu.edu": 2,
+      "worldwater.org": 4,
+      "ucowr.org": 2,
+      "ga.water.usgs.gov": 1,
+      "water.worldbank.org": 1,
+      "awra.org": 2,
+      "waterontheweb.org": 1,
+      "www1.lsbu.ac.uk": 2,
+      "youtube.com": 1,
+      "nsf.gov": 2,
+      "iapws.org": 2,
+      "pbs.org": 1
+    }
+  },
+  "added": [
+    {
+      "domain": "books.google.com",
+      "from": 0,
+      "to": 18
+    },
+    {
+      "domain": "pdfs.semanticscholar.org",
+      "from": 0,
+      "to": 10
+    },
+    {
+      "domain": "nasa.gov",
+      "from": 0,
+      "to": 10
+    },
+    {
+      "domain": "space.com",
+      "from": 0,
+      "to": 8
+    },
+    {
+      "domain": "jpl.nasa.gov",
+      "from": 0,
+      "to": 8
+    },
+    {
+      "domain": "un.org",
+      "from": 0,
+      "to": 6
+    },
+    {
+      "domain": "archive.org",
+      "from": 0,
+      "to": 6
+    },
+    {
+      "domain": "news.harvard.edu",
+      "from": 0,
+      "to": 5
+    },
+    {
+      "domain": "newscientist.com",
+      "from": 0,
+      "to": 5
+    },
+    {
+      "domain": "mdgs.un.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "worldwater.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "bipm.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "wired.com",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "theguardian.com",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "water.usgs.gov",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "usgs.gov",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "waterfootprint.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "eib.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "oup.com",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "nytimes.com",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "who.int",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "fao.org",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "authors.library.caltech.edu",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "science.nasa.gov",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "halshs.archives-ouvertes.fr",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "apps.who.int",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "odi.org.uk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "thinkaboutwater.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "etymonline.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "huffingtonpost.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "thelancet.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "time.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "agu.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "esrl.noaa.gov",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "nap.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "histoire.du.metre.free.fr",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "ucowr.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "osti.gov",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "lhoist.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "ctext.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "zenodo.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "starryskies.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "inside.mines.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "uh.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "basiairland.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "hyperphysics.phy-astr.gsu.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "bbc.co.uk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "planetary.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "nsf.gov",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "nationalatlas.gov",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "orbi.uliege.be",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "webmd.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "france24.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "unworldoceansday.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "nps.gov",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "sacred-texts.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "pacinst.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "dictionary.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "wbcsd.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "iwmi.cgiar.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "geoinf.fu-berlin.de",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "pubs.er.usgs.gov",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "old.iupac.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "www1.lsbu.ac.uk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "asknature.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "people.msoe.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "ssec.si.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "lup.lub.lu.se",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "artsci.ucla.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "ieg.worldbankgroup.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "dwi.defra.gov.uk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "spiegel.de",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "vimeo.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "tseshaht.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "ausableriver.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "google.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "mckinsey.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "hal.archives-ouvertes.fr",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "lomborg.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "in.reuters.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "pubchem.ncbi.nlm.nih.gov",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "inhabitat.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "exploratorium.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "desmos.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "daviddarling.info",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "abc.net.au",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "polymer.bu.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "hyperallergic.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "conservancy.umn.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "www-personal.umich.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "lpi.usra.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "jhu.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "academia.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "msu.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "mt.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "resource.npl.co.uk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "smdsi.quartier-rural.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "britannica.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "unep.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "awra.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "rural21.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "huffpost.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "eso.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "iranicaonline.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "genius.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "cfa.harvard.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "nature.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "letslearnslang.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "fsis.usda.gov",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "phschool.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "unwater.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "mayoclinic.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "antarcticglaciers.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "cdc.gov",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "ourworldindata.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "unesdoc.unesco.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "hal.science",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "sciencelearn.org.nz",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "scijinks.gov",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "csiro.au",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "waterontheweb.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "yalescientific.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "youtube.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "nutritionsource.hsph.harvard.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "pubs.acs.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "chem.libretexts.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "water.worldbank.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "news.un.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "unesco.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "khanacademy.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "dartmouth.edu",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "physicsclassroom.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "sustainableict.blog.gov.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "space.newscientist.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "heart.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "iapws.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "pbs.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "onlinelibrary.wiley.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ncbi.nlm.nih.gov",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "s3.us-west-2.amazonaws.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "epa.gov",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "medicalnewstoday.com",
+      "from": 0,
+      "to": 1
+    }
+  ],
+  "dropped": [
+    {
+      "domain": "hkc22.com",
+      "from": 3,
+      "to": 0
+    },
+    {
+      "domain": "lsbu.ac.uk",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "emagazine.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "phys.unsw.edu.au",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "c-win.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "thirdworldtraveler.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "worldwaterforum.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "publicforuminstitute.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "geocities.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "twt.mpei.ac.ru",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "water.org.uk",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "siwi.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "wateraid.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "ajpregu.physiology.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "sahra.arizona.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "iom.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "greenfacts.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "gemswater.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "news.bbc.co.uk",
+      "from": 1,
+      "to": 0
+    }
+  ],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD."
+}

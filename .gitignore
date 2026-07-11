@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.coverage
+
+# Node tooling
+node_modules/
+
+# Rust build artifacts (regenerable — ~1.5 GB across the helper crates)
+target/
+
+# Local token corpus — regenerable from the APIs/dumps, binary, ~1 GB
+*.duckdb
+*.duckdb.wal
+
+# Re-downloadable caches under the data dir (NOT findings — see below)
+.planning/spikes/data/history-xml/
+.planning/spikes/data/mscore/
+
+# Large fetched artifacts (regenerable from the APIs/dumps) — spike 011 xml/ alone is ~11 GB
+.planning/spikes/**/xml/
+.planning/spikes/**/*.jsonl
+.planning/spikes/**/logs/
+
+# External tool clone (upstream Schuwi/wikiwho_rs; has its own git history)
+.planning/spikes/001b-provenance-wikiwho-rs/wikiwho_rs/
+
+# Regenerable raw-fetch caches that slipped into git (the tool/viewer read the .json summaries, not these)
+.planning/spikes/013-mscore/out/*.history.json
+.planning/spikes/012a-crosslingual-align/out/*.txt
+
+# Secrets — never commit
+.env
+.env.*
+# the placeholder template is safe to commit (no values)
+!.env.example
+ssm-*.json
+
+# OS
+.DS_Store
+
+# --- intentionally TRACKED (small, valuable) ---
+#   .planning/spikes/data/findings/   the tool's canonical results (the whole point)
+#   .planning/spikes/*/out/           frozen spike findings (JSON + prose) — the viewer's data
+#   docs/                             the built site GitHub Pages serves
+#   viewer/data/*.json                L3 diff/pivot exports
+#   tools/snapshot-tokens/Cargo.lock  pins the reproducible build

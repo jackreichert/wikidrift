@@ -1,0 +1,43 @@
+[project]
+name = "wikidrift"
+version = "0.1.0"
+description = "Editor-agnostic temporal narrative-drift detector for Wikipedia"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+requires-python = ">=3.11"
+dependencies = [
+    "duckdb>=1.5.4",
+    "mwparserfromhell>=0.7.2",
+    "requests>=2.34.2",
+    "vadersentiment>=3.3.2",
+    "anthropic>=0.40.0",
+]
+
+# LLM backends beyond the default Anthropic (see wikidrift/llm.py). Optional so offline use stays lean.
+#   openai extra also covers OpenAI-compatible endpoints (OpenRouter/Together/Groq/DeepSeek; local Ollama/vLLM).
+[project.optional-dependencies]
+openai = ["openai>=1.40.0"]
+google = ["google-genai>=0.3.0"]
+all-llm = ["openai>=1.40.0", "google-genai>=0.3.0"]
+
+[project.scripts]
+wikidrift = "wikidrift.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/wikidrift"]
+
+[tool.coverage.run]
+source = ["src/wikidrift"]
+
+[tool.coverage.report]
+show_missing = true
+# A regression FLOOR, not a target. The number is held down by intentionally-untested I/O shells
+# (provenance / ingest / cli / bootstrap and the network+LLM orchestration paths — mocked only at the
+# boundary, per the project's testing discipline); the decision/logic modules carry the real coverage.
+# Ratchet this up as logic coverage grows; never let it fall.
+fail_under = 38

@@ -1,0 +1,98 @@
+{
+  "article": "Jedwabne pogrom",
+  "asof": null,
+  "langs": [
+    "en",
+    "pl",
+    "de"
+  ],
+  "citation": {
+    "mean_jaccard": 0.03,
+    "domains_per_edition": {
+      "en": 36,
+      "pl": 23,
+      "de": 17
+    }
+  },
+  "claim": {
+    "per_edition": {
+      "en": {
+        "How many Jews were killed in the Jedwabne pogrom?": {
+          "question": "How many Jews were killed in the Jedwabne pogrom?",
+          "answer": "Estimates vary widely, from 300 to 1,600 victims, with 400-800 considered most plausible by some historians, though 1,600 was long the widely accepted figure.",
+          "value": "300-1600 (commonly cited ~1,600; some estimate 400-800)",
+          "evidence": "Estimates of the number of victims vary from 300 to 1,600, including women, children, and elderly, many of whom were locked in a barn and burned alive."
+        },
+        "Who carried out the killings — local Polish residents or German forces?": {
+          "question": "Who carried out the killings — local Polish residents or German forces?",
+          "answer": "The direct killings were carried out by at least 40 ethnic Poles (local residents), though their ringleaders coordinated beforehand with German security forces.",
+          "value": "local Polish residents",
+          "evidence": "At least 40 ethnic Poles carried out the killing; their ringleaders decided on it beforehand with Germany's Gestapo, SS security police or SS intelligence, and they cooperated with German military police."
+        },
+        "What was the role of the German authorities?": {
+          "question": "What was the role of the German authorities?",
+          "answer": "According to historian Jan T. Gross, the Germans were the ultimate authority controlling the fate of the Jews, and the Polish perpetrators coordinated with German Gestapo/SS and military police.",
+          "value": "Germans held ultimate authority/control and coordinated with local perpetrators",
+          "evidence": "According to historian Jan T. Gross, \"the undisputed bosses of life and death in Jedwabne were the Germans,\" who were \"the only ones who could decide the fate of the Jews.\""
+        }
+      },
+      "pl": {
+        "How many Jews were killed in the Jedwabne pogrom?": {
+          "question": "How many Jews were killed in the Jedwabne pogrom?",
+          "answer": "Several hundred Polish Jews from Jedwabne and the surrounding area were killed",
+          "value": "several hundred",
+          "evidence": "którego ofiarą padło kilkuset polskich Żydów z Jedwabnego i okolic"
+        },
+        "Who carried out the killings — local Polish residents or German forces?": {
+          "question": "Who carried out the killings — local Polish residents or German forces?",
+          "answer": "The killings were carried out by local Polish residents of the town, acting on inspiration from the German occupiers",
+          "value": "local Polish residents (German-inspired)",
+          "evidence": "masowe morderstwo żydowskich mieszkańców miasta dokonane 10 lipca 1941 przez polskich mieszkańców miasta Jedwabne, działających z inspiracji niemieckich okupantów"
+        },
+        "What was the role of the German authorities?": {
+          "question": "What was the role of the German authorities?",
+          "answer": "German authorities inspired and incited the pogrom, in line with Heydrich's instructions to encourage 'self-cleansing' actions by local anti-communist and anti-Jewish circles without leaving traces, while a small German gendarmerie post remained in the town",
+          "value": "instigators/inciters, not direct perpetrators",
+          "evidence": "Nie należy stawiać przeszkód dążeniom do samooczyszczenia występującym w antykomunistycznych i antyżydowskich kręgach na nowo zajętych obszarach. Przeciwnie, należy je wywoływać, nie pozostawiając śladów, intensyfikować, jeśli to potrzebne, oraz kierować na odpowiednie tory…"
+        }
+      },
+      "de": {
+        "How many Jews were killed in the Jedwabne pogrom?": {
+          "question": "How many Jews were killed in the Jedwabne pogrom?",
+          "answer": "At least 340 people were killed, though earlier estimates ranged from 300–400 up to an original estimate of 1,600.",
+          "value": "at least 340 (estimates range 300-400, originally estimated 1,600)",
+          "evidence": "bei dem mindestens 340 Menschen ermordet wurden... wurde nach Exhumierungen der Massengräber und Ausgrabungen des Instituts für Nationales Gedenken (IPN) im Jahre 2001 davon ausgegangen, dass es zwischen 300 und 400 Menschen waren. Spätere Forschungen schätzen die Zahl der jüdischen Opfer auf mindestens 340."
+        },
+        "Who carried out the killings — local Polish residents or German forces?": {
+          "question": "Who carried out the killings — local Polish residents or German forces?",
+          "answer": "The killings were carried out by local Polish residents, though it is considered a joint crime with the German occupying forces.",
+          "value": "local Polish residents (with German involvement)",
+          "evidence": "gilt als gemeinsames Verbrechen einer Gruppe von polnischen Einwohnern und deutscher Besatzungsmacht... An dem Verbrechen beteiligten sich mindestens 40 Polen aus Jedwabne und Umgebung."
+        },
+        "What was the role of the German authorities?": {
+          "question": "What was the role of the German authorities?",
+          "answer": "Sources differ: some historians say Germans (Gestapo/SS) were present, photographed the event, and possibly gave the order to kill, while others argue the presence of German police guaranteed impunity for the attacks, and some (e.g. Strzembosz, Dmitrów) claim the pogrom was clearly initiated by the Germans, tied to Heydrich's orders for 'self-cleansing' actions.",
+          "value": "disputed - ranging from passive presence/incitement to active initiation of the massacre",
+          "evidence": "Fest steht, dass die Präsenz von bewaffneten Schupomännern in Jedwabne Straffreiheit bei Übergriffen gegen Juden garantierte... Der Entschluss, die Entscheidung, das Signal, die Anordnung oder der Befehl zum Morden wurde von Deutschen, einer Einsatzgruppe gegeben."
+        }
+      }
+    },
+    "adjudication": [
+      {
+        "question": "How many Jews were killed in the Jedwabne pogrom?",
+        "verdict": "contradict",
+        "note": "EN cites up to 1,600 (often cited figure) while DE gives at least 340 with a range of 300-400, a large numeric discrepancy; PL is vague ('several hundred') which is compatible with DE but not clearly with EN's higher figure."
+      },
+      {
+        "question": "Who carried out the killings — local Polish residents or German forces?",
+        "verdict": "agree",
+        "note": "All three agree local Polish residents carried out the killings, with some form of German involvement/inspiration/coordination noted in each."
+      },
+      {
+        "question": "What was the role of the German authorities?",
+        "verdict": "differ",
+        "note": "All acknowledge German involvement but differ in emphasis: EN stresses German ultimate control/coordination, PL frames Germans as inciters per Heydrich's policy, DE presents it as disputed among historians ranging from passive to active roles."
+      }
+    ]
+  }
+}

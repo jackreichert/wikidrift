@@ -1,0 +1,98 @@
+{
+  "article": "Zionism",
+  "asof": null,
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "citation": {
+    "mean_jaccard": 0.05,
+    "domains_per_edition": {
+      "en": 94,
+      "he": 17,
+      "ar": 21
+    }
+  },
+  "claim": {
+    "per_edition": {
+      "en": {
+        "In what year and city was the First Zionist Congress held, and who convened it?": {
+          "question": "In what year and city was the First Zionist Congress held, and who convened it?",
+          "answer": "It was held in 1897, convened by Theodor Herzl (the Congress took place in Basel, associated with the Basel declaration).",
+          "value": "1897; Herzl",
+          "evidence": "His usage of \"Zionism\" was later popularized when convening the 1897 First Zionist Congress"
+        },
+        "In what geographic region did the Zionist movement seek to establish a Jewish homeland?": {
+          "question": "In what geographic region did the Zionist movement seek to establish a Jewish homeland?",
+          "answer": "In the region of Palestine, roughly corresponding to the Land of Israel.",
+          "value": "Palestine (Land of Israel)",
+          "evidence": "to establish and support a Jewish homeland through colonization in the region of Palestine, which roughly corresponds to the Land of Israel"
+        },
+        "Approximately when did the modern political Zionist movement emerge?": {
+          "question": "Approximately when did the modern political Zionist movement emerge?",
+          "answer": "It emerged in the late 19th century in Central and Eastern Europe.",
+          "value": "late 19th century",
+          "evidence": "Zionism initially emerged in Central and Eastern Europe as a secular nationalist movement in the late 19th century"
+        }
+      },
+      "he": {
+        "In what year and city was the First Zionist Congress held, and who convened it?": {
+          "question": "In what year and city was the First Zionist Congress held, and who convened it?",
+          "answer": "It was held in 1897 in Basel, Switzerland, organized under Herzl (Birnbaum served as first secretary of the Zionist office run by Herzl in Vienna).",
+          "value": "1897, Basel; Herzl",
+          "evidence": "צירים בקונגרס הציוני הראשון שנערך בשנת 1897 בעיר בזל בשווייץ ... המשרד הציוני שניהל הרצל בווינה"
+        },
+        "In what geographic region did the Zionist movement seek to establish a Jewish homeland?": {
+          "question": "In what geographic region did the Zionist movement seek to establish a Jewish homeland?",
+          "answer": "In the Land of Israel (Eretz Israel).",
+          "value": "Land of Israel (Eretz Israel)",
+          "evidence": "תנועה לאומית ואידאולוגיה שמטרתה קיום בית לאומי לעם היהודי בארץ ישראל"
+        },
+        "Approximately when did the modern political Zionist movement emerge?": {
+          "question": "Approximately when did the modern political Zionist movement emerge?",
+          "answer": "In the last third of the 19th century, mainly in central and eastern Europe.",
+          "value": "last third of the 19th century",
+          "evidence": "התנועה הציונית ... קמה בשליש האחרון של המאה ה-19, בעיקר במרכז ובמזרח אירופה"
+        }
+      },
+      "ar": {
+        "In what year and city was the First Zionist Congress held, and who convened it?": {
+          "question": "In what year and city was the First Zionist Congress held, and who convened it?",
+          "answer": "The First Zionist Congress was held in 1897 in Basel, Switzerland. The passage links the modern Zionist movement to Herzl but does not explicitly state that Herzl convened this specific congress.",
+          "value": "1897, Basel; convener not stated",
+          "evidence": "وقد عقد أول مؤتمر للحركة الصهيونية في بازل بسويسرا ... وأقرت الحركة الصهيونية التسمية المؤتمر الصهيوني الأول في عام 1897"
+        },
+        "In what geographic region did the Zionist movement seek to establish a Jewish homeland?": {
+          "question": "In what geographic region did the Zionist movement seek to establish a Jewish homeland?",
+          "answer": "In Palestine (Eretz Israel), then part of the Ottoman Empire; Argentina was also among the proposed locations.",
+          "value": "Palestine",
+          "evidence": "فطلب قادة الحركة الصهيونية بإنشاء دولة منشودة في فلسطين والتي كانت ضمن أراضي الدولة العثمانية"
+        },
+        "Approximately when did the modern political Zionist movement emerge?": {
+          "question": "Approximately when did the modern political Zionist movement emerge?",
+          "answer": "It emerged among Jews of Eastern and Central Europe in the late nineteenth century.",
+          "value": "late 19th century",
+          "evidence": "حركة قومية إثنو-ثقافية ظهرت بين يهود شرق ووسط أوروبا أواخر القرن التاسع عشر"
+        }
+      }
+    },
+    "adjudication": [
+      {
+        "question": "In what year and city was the First Zionist Congress held, and who convened it?",
+        "verdict": "agree",
+        "note": "All agree 1897 Basel; en/he credit Herzl, ar omits convener but consistent."
+      },
+      {
+        "question": "In what geographic region did the Zionist movement seek to establish a Jewish homeland?",
+        "verdict": "agree",
+        "note": "All refer to Palestine/Land of Israel; ar adds Argentina as alternative proposal."
+      },
+      {
+        "question": "Approximately when did the modern political Zionist movement emerge?",
+        "verdict": "agree",
+        "note": "All say late 19th century in Central/Eastern Europe."
+      }
+    ]
+  }
+}

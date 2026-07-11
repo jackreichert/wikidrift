@@ -1,0 +1,27 @@
+{
+  "article": "Gaza genocide",
+  "qid": "Q124086054",
+  "editions": {
+    "en": {
+      "present": true,
+      "revid": 1363360843,
+      "title": "Gaza genocide",
+      "timestamp": "2026-07-09T18:42:42Z",
+      "prose_chars": 103584
+    },
+    "he": {
+      "present": true,
+      "revid": 43552107,
+      "title": "טענות לרצח עם ברצועת עזה",
+      "timestamp": "2026-07-07T18:53:15Z",
+      "prose_chars": 54913
+    },
+    "ar": {
+      "present": true,
+      "revid": 75737645,
+      "title": "الإبادة الجماعية لغزة",
+      "timestamp": "2026-06-30T15:25:18Z",
+      "prose_chars": 24392
+    }
+  }
+}

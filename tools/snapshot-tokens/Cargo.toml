@@ -1,0 +1,21 @@
+[package]
+name = "snapshot-tokens"
+version = "0.1.0"
+edition = "2021"
+
+# Standalone helper: reuses the vendored `wikiwho` library (path dep) to emit token-level
+# authorship for SPECIFIC HISTORICAL revisions of one page — the true snapshot state (including
+# tokens later deleted), which the hosted `wikiwho-cli` (current-revision-only `all_tokens`)
+# cannot give. Feeds the rsnap schema for the local, dump-based benchmark ingestion.
+
+[[bin]]
+name = "snapshot-tokens"
+path = "src/main.rs"
+
+# Depends on upstream wikiwho_rs `main`, which now carries the dump-parser entity fix
+# (Schuwi/wikiwho_rs PR #44, contributed by this project). Cargo.lock pins the exact commit.
+[dependencies]
+wikiwho = { git = "https://github.com/Schuwi/wikiwho_rs", branch = "main" }
+
+[profile.release]
+opt-level = 3

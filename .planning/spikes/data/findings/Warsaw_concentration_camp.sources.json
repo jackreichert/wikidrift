@@ -1,0 +1,377 @@
+{
+  "article": "Warsaw concentration camp",
+  "pivot": null,
+  "span": "2005-01-01 → 2026-07-01  (no L1 pivot — whole history)",
+  "before": {
+    "date": "2005-01-01",
+    "refs": 0,
+    "n_domains": 0,
+    "cite_mix": {},
+    "domains": {}
+  },
+  "after": {
+    "date": "2026-07-01",
+    "refs": 202,
+    "n_domains": 58,
+    "cite_mix": {
+      "web": 34,
+      "book": 33,
+      "journal": 23,
+      "news": 9
+    },
+    "domains": {
+      "ushmm.org": 2,
+      "hsozkult.de": 2,
+      "lrb.co.uk": 2,
+      "kombatanci.gov.pl": 2,
+      "zagladazydow.pl": 3,
+      "books.google.com": 11,
+      "digisam.ub.uni-giessen.de": 2,
+      "1943.pl": 2,
+      "rp.pl": 7,
+      "cbj.jhi.pl": 4,
+      "warszawa.ipn.gov.pl": 2,
+      "blog.ehri-project.eu": 2,
+      "jstor.org": 2,
+      "cairn.info": 2,
+      "czasopisma.uni.lodz.pl": 2,
+      "eupsycho.com": 2,
+      "gesiowka.adactio.com": 2,
+      "pap.pl": 1,
+      "wpolityce.pl": 3,
+      "sehepunkte.de": 2,
+      "yadvashem.org": 2,
+      "ceeol.com": 1,
+      "polityka.pl": 4,
+      "www1.jur.uva.nl:80": 1,
+      "www1.jur.uva.nl": 1,
+      "scholarlycommons.law.cwsl.edu": 2,
+      "inquirer.com": 2,
+      "warszawa.wyborcza.pl": 2,
+      "dzieje.pl": 4,
+      "timesofisrael.com": 2,
+      "wiadomosci.wp.pl": 1,
+      "polska1918-89.pl": 2,
+      "youtube.com": 4,
+      "tvn24.pl": 2,
+      "haaretz.com": 5,
+      "discovery.ucl.ac.uk": 2,
+      "researchgate.net": 2,
+      "metrowarszawa.gazeta.pl": 2,
+      "orka.sejm.gov.pl": 2,
+      "bip.warszawa.pl": 4,
+      "tustolica.pl": 1,
+      "zw.com.pl": 2,
+      "wola.waw.pl": 2,
+      "warszawaexpress.pl": 2,
+      "tvnwarszawa.tvn24.pl": 2,
+      "muzeum-niepodleglosci.pl": 2,
+      "suche-briefmarken.de": 2,
+      "nbp.pl": 2,
+      "academia.edu": 1,
+      "avalon.law.yale.edu": 1,
+      "cambridge.org": 1,
+      "um.kutno.pl": 1,
+      "sephardichorizons.org": 1,
+      "deathcamps.org": 1,
+      "niezlomni.com": 1,
+      "zdjecia.korzeniemiasta.pl": 1,
+      "1.bp.blogspot.com": 1,
+      "klwarschau.pl.eu.org": 1
+    }
+  },
+  "added": [
+    {
+      "domain": "books.google.com",
+      "from": 0,
+      "to": 11
+    },
+    {
+      "domain": "rp.pl",
+      "from": 0,
+      "to": 7
+    },
+    {
+      "domain": "haaretz.com",
+      "from": 0,
+      "to": 5
+    },
+    {
+      "domain": "bip.warszawa.pl",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "youtube.com",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "cbj.jhi.pl",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "polityka.pl",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "dzieje.pl",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "zagladazydow.pl",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "wpolityce.pl",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "muzeum-niepodleglosci.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "suche-briefmarken.de",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "hsozkult.de",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "scholarlycommons.law.cwsl.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "jstor.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "warszawaexpress.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "ushmm.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "czasopisma.uni.lodz.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "tvnwarszawa.tvn24.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "researchgate.net",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "lrb.co.uk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "gesiowka.adactio.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "yadvashem.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "timesofisrael.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "sehepunkte.de",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "tvn24.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "blog.ehri-project.eu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "zw.com.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "cairn.info",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "digisam.ub.uni-giessen.de",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "orka.sejm.gov.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "discovery.ucl.ac.uk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "warszawa.wyborcza.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "nbp.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "wola.waw.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "metrowarszawa.gazeta.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "1943.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "warszawa.ipn.gov.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "kombatanci.gov.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "polska1918-89.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "inquirer.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "eupsycho.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "zdjecia.korzeniemiasta.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "deathcamps.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "um.kutno.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "sephardichorizons.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "wiadomosci.wp.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "cambridge.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "klwarschau.pl.eu.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ceeol.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "1.bp.blogspot.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "academia.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "avalon.law.yale.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "pap.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "niezlomni.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "www1.jur.uva.nl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "www1.jur.uva.nl:80",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "tustolica.pl",
+      "from": 0,
+      "to": 1
+    }
+  ],
+  "dropped": [],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD."
+}

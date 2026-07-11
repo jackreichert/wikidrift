@@ -1,0 +1,443 @@
+{
+  "article": "Rescue of Jews by Poles during the Holocaust",
+  "pivot": null,
+  "span": "2009-01-01 → 2026-07-01  (no L1 pivot — whole history)",
+  "before": {
+    "date": "2009-01-01",
+    "refs": 179,
+    "n_domains": 23,
+    "cite_mix": {
+      "book": 71,
+      "web": 29
+    },
+    "domains": {
+      "books.google.com": 43,
+      "www1.yadvashem.org": 18,
+      "jewishvirtuallibrary.org": 1,
+      "books.google.ca": 5,
+      "ipn.gov.pl": 4,
+      "jstor.org": 2,
+      "zydziwpolsce.edu.pl": 1,
+      "rp.pl": 1,
+      "sru.edu": 1,
+      "jewishgen.org": 2,
+      "kki.krakow.pl": 1,
+      "forum-znak.org.pl": 1,
+      "aapjs.org": 1,
+      "sicsa.huji.ac.il": 1,
+      "fear.piastinstitute.org": 1,
+      "openlibrary.org": 1,
+      "h-net.org": 1,
+      "polishresistance-ak.org": 1,
+      "auschwitz.dk": 1,
+      "wilk.wpk.p.lodz.pl": 1,
+      "yad-vashem.org.il": 1,
+      "209.85.173.104": 1,
+      "massorti.com": 1
+    }
+  },
+  "after": {
+    "date": "2026-07-01",
+    "refs": 345,
+    "n_domains": 61,
+    "cite_mix": {
+      "book": 50,
+      "web": 37,
+      "journal": 10,
+      "news": 2
+    },
+    "domains": {
+      "books.google.com": 58,
+      "rcin.org.pl": 2,
+      "dac.neu.edu": 2,
+      "niedziela.pl": 1,
+      "ushmm.org": 4,
+      "archive.org": 18,
+      "msz.gov.pl": 2,
+      "spranceana.com": 2,
+      "history.org.ua": 1,
+      "uamoderna.com": 1,
+      "lwow.home.pl": 2,
+      "sprawiedliwi.org.pl": 5,
+      "tandfonline.com": 1,
+      "ceeol.com": 1,
+      "nowysacz.pl": 1,
+      "polish-jewish-heritage.org": 1,
+      "muzeumulmow.pl": 1,
+      "db.yadvashem.org": 1,
+      "chicago.mfa.gov.pl": 2,
+      "israelhayom.com": 1,
+      "instytutpileckiego.pl": 1,
+      "swissinfo.ch": 1,
+      "haaretz.com": 1,
+      "aleteia.org": 1,
+      "www1.yadvashem.org": 6,
+      "yadvashem.org": 9,
+      "forum-znak.org.pl": 4,
+      "prezydent.pl": 2,
+      "zyciezazycie.pl": 3,
+      "krakow-info.com": 1,
+      "humboldt.edu": 2,
+      "polishresistance-ak.org": 2,
+      "znak.org.pl": 2,
+      "aapjs.org": 2,
+      "focus.pl": 4,
+      "ipn.gov.pl": 7,
+      "tygodniksolidarnosc.com": 1,
+      "archive.today": 1,
+      "openlibrary.org": 1,
+      "google.com": 1,
+      "holocaust-trc.org": 1,
+      "warsawvoice.pl": 4,
+      "findarticles.com": 2,
+      "auschwitz.dk": 1,
+      "lsic.us": 2,
+      "dollartimes.com": 1,
+      "fzp.net.pl": 1,
+      "h-net.org": 2,
+      "sicsa.huji.ac.il": 2,
+      "icj.huji.ac.il": 1,
+      "jewishvirtuallibrary.org": 1,
+      "muse.jhu.edu": 1,
+      "infocenters.co.il": 1,
+      "pacwashmetrodiv.org": 2,
+      "fear.piastinstitute.org": 2,
+      "muzeum.stalowawola.pl": 2,
+      "sru.edu": 2,
+      "variety.com": 1,
+      "rp.pl": 2,
+      "zydziwpolsce.edu.pl": 1,
+      "kulturapolshi.ru": 1
+    }
+  },
+  "added": [
+    {
+      "domain": "archive.org",
+      "from": 0,
+      "to": 18
+    },
+    {
+      "domain": "books.google.com",
+      "from": 43,
+      "to": 58
+    },
+    {
+      "domain": "yadvashem.org",
+      "from": 0,
+      "to": 9
+    },
+    {
+      "domain": "sprawiedliwi.org.pl",
+      "from": 0,
+      "to": 5
+    },
+    {
+      "domain": "ushmm.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "focus.pl",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "warsawvoice.pl",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "ipn.gov.pl",
+      "from": 4,
+      "to": 7
+    },
+    {
+      "domain": "forum-znak.org.pl",
+      "from": 1,
+      "to": 4
+    },
+    {
+      "domain": "zyciezazycie.pl",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "findarticles.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "humboldt.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "lsic.us",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "prezydent.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "muzeum.stalowawola.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "chicago.mfa.gov.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "spranceana.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "rcin.org.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "lwow.home.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "dac.neu.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "znak.org.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "pacwashmetrodiv.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "msz.gov.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "tandfonline.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "israelhayom.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "krakow-info.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "variety.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ceeol.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "polish-jewish-heritage.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "sicsa.huji.ac.il",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "archive.today",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "tygodniksolidarnosc.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "google.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "dollartimes.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "muse.jhu.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "sru.edu",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "nowysacz.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "muzeumulmow.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "aleteia.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "history.org.ua",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "niedziela.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "swissinfo.ch",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "icj.huji.ac.il",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "h-net.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "uamoderna.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "infocenters.co.il",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "holocaust-trc.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "aapjs.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "haaretz.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "db.yadvashem.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "rp.pl",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "fear.piastinstitute.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "kulturapolshi.ru",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "polishresistance-ak.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "fzp.net.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "instytutpileckiego.pl",
+      "from": 0,
+      "to": 1
+    }
+  ],
+  "dropped": [
+    {
+      "domain": "www1.yadvashem.org",
+      "from": 18,
+      "to": 6
+    },
+    {
+      "domain": "books.google.ca",
+      "from": 5,
+      "to": 0
+    },
+    {
+      "domain": "jewishgen.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "jstor.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "wilk.wpk.p.lodz.pl",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "yad-vashem.org.il",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "massorti.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "kki.krakow.pl",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "209.85.173.104",
+      "from": 1,
+      "to": 0
+    }
+  ],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD."
+}

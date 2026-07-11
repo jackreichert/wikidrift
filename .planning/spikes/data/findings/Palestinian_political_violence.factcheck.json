@@ -1,0 +1,52 @@
+{
+  "article": "Palestinian political violence",
+  "asof": null,
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "citation": {
+    "mean_jaccard": 0.07,
+    "domains_per_edition": {
+      "en": 62,
+      "he": 19,
+      "ar": 24
+    }
+  },
+  "claim": {
+    "per_edition": {
+      "en": {
+        "What time period and categories of events does the article cover?": {
+          "question": "What time period and categories of events does the article cover?",
+          "answer": "The article covers Palestinian political violence from the British Mandate period (starting 1917) through the modern Israeli-Palestinian conflict, including events up to at least 2012 (Operation Pillar of Defense) and references to the October 7 attacks; categories include insurgency, riots, revolts, wars, intifadas, hijackings, suicide bombings, rocket attacks, and assassinations.",
+          "value": "1917–2012+ (includes reference to October 7 attacks); categories: riots, revolts, wars, intifadas, hijackings, suicide bombings, rocket attacks, assassinations",
+          "evidence": "Following the Balfour Declaration in November 1917... In 1987, the First Intifada... culminating in a further two conflicts, the Gaza War of 2008–09 and Operation Pillar of Defense in 2012... The October 7 attacks resulted in massacres and hostage-taking."
+        }
+      },
+      "he": {
+        "What time period and categories of events does the article cover?": {
+          "question": "What time period and categories of events does the article cover?",
+          "answer": "The article covers Palestinian terrorism from the Ottoman/British Mandate period (starting mid-19th century, notably 1851 and the 1920s) through the 1950s, 1960s, and 1970s, including riots, guerrilla attacks, plane hijackings, and international terrorism against Jewish/Israeli targets.",
+          "value": "1851–1970s (Ottoman period, British Mandate, and Israeli statehood era)",
+          "evidence": "מדינת ישראל מכירה ברב אברהם שלמה זלמן צורף כנרצח היהודי הראשון על רקע לאומני, בשנת 1851... בין השנים 1968–1977 הם חטפו או ניסו לחטוף 29 מטוסים."
+        }
+      },
+      "ar": {
+        "What time period and categories of events does the article cover?": {
+          "question": "What time period and categories of events does the article cover?",
+          "answer": "The article covers the period from the start of the British occupation/mandate of Palestine in 1918 until the present day, covering civil, popular, and armed resistance movements, including the 1936 Arab Revolt, cross-border resistance operations, and the PLO's relocation to Tunisia.",
+          "value": "1918–present; civil, popular, and armed resistance",
+          "evidence": "ويستخدم المصطلح للإشارة إلى الفترة بين بدء الاحتلال البريطاني لفلسطين عام 1918م وحتى اليوم، من أبرزها ثورة 1936م وإعلان الإضراب العام الكبير... يستخدم المصطلح لوصف تحركات فلسطينية متنوعة تتراوح بين المقاومة المدنية، الشعبية والمسلحة."
+        }
+      }
+    },
+    "adjudication": [
+      {
+        "question": "What time period and categories of events does the article cover?",
+        "verdict": "contradict",
+        "note": "en starts 1917 and extends to 2012+/October 7; he starts 1851 and ends 1970s; ar starts 1918 and extends to present—differing start dates and end points, with he notably ending far earlier than en/ar, a large numeric/temporal gap."
+      }
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "article": "Genetic studies of Jews",
+  "asof": null,
+  "langs": [
+    "en",
+    "he"
+  ],
+  "citation": {
+    "mean_jaccard": 0.41,
+    "domains_per_edition": {
+      "en": 40,
+      "he": 25
+    }
+  },
+  "claim": {
+    "per_edition": {
+      "en": {
+        "Do genetic studies indicate that major Jewish populations share common Middle Eastern / Levantine ancestry?": {
+          "question": "Do genetic studies indicate that major Jewish populations share common Middle Eastern / Levantine ancestry?",
+          "answer": "Yes, studies show Ashkenazi, Sephardi, and Mizrahi Jewish populations share significant amounts of Middle Eastern ancestry, alongside admixture from host populations.",
+          "value": "yes",
+          "evidence": "Studies on the genetic composition of Ashkenazi, Sephardi, and Mizrahi Jewish populations of the Jewish diaspora show significant amounts of shared Middle Eastern ancestry, as well as admixture from their host populations."
+        },
+        "What do studies conclude about the ancestry of Ashkenazi Jews?": {
+          "question": "What do studies conclude about the ancestry of Ashkenazi Jews?",
+          "answer": "Ashkenazi Jews are found to have a mixture of Middle Eastern (Levantine) ancestry and European ancestry, with close genetic ties to Southern Europeans like Italians and Greeks, and estimates of Middle Eastern ancestry ranging roughly from 19% to 59% depending on the study/method.",
+          "value": "Middle Eastern ~19-59%, European ~41-81% (varies by study)",
+          "evidence": "Ashkenazi Jews share genetic similarities with Southern Europeans, such as Italians and Greeks, while exhibiting unique markers distinguishing them from non-Jewish groups."
+        }
+      },
+      "he": {
+        "Do genetic studies indicate that major Jewish populations share common Middle Eastern / Levantine ancestry?": {
+          "question": "Do genetic studies indicate that major Jewish populations share common Middle Eastern / Levantine ancestry?",
+          "answer": "Yes, studies show the major Jewish groups (Ashkenazi, Sephardi, and Mizrahi) share common Middle Eastern ancestry.",
+          "value": "Yes",
+          "evidence": "המחקרים מראים ומלמדים כי הקבוצות המרכזיות בעם היהודי, יהדות אשכנז, יהדות ספרד ויהדות המזרח, חולקות מוצא מזרח-תיכוני משותף."
+        },
+        "What do studies conclude about the ancestry of Ashkenazi Jews?": {
+          "question": "What do studies conclude about the ancestry of Ashkenazi Jews?",
+          "answer": "Studies conclude Ashkenazi Jews derive their genetic ancestry mainly from Middle Eastern and European populations, share close genetic ties with other Jewish groups, and show no evidence of significant Khazar origin.",
+          "value": "Mainly Middle Eastern with some European (mostly southern European) admixture; no significant Khazar contribution",
+          "evidence": "האשכנזים חולקים הכי הרבה מטען גנטי עם אוכלוסיות יהודיות אחרות, ומקרב האוכלוסיות הלא יהודיות, עם קבוצות מאירופה ומהמזרח התיכון... יהודי אשכנז קיבלו את מטענם הגנטי בעיקר מאוכלוסיות המזרח התיכון ואירופה... ושאין סימן לתרומה גנטית משמעותית מאזור הקווקז עצמו, או מצפון לו."
+        }
+      }
+    },
+    "adjudication": [
+      {
+        "question": "Do genetic studies indicate that major Jewish populations share common Middle Eastern / Levantine ancestry?",
+        "verdict": "agree",
+        "note": "Both editions affirm shared Middle Eastern ancestry across Ashkenazi, Sephardi, and Mizrahi groups."
+      },
+      {
+        "question": "What do studies conclude about the ancestry of Ashkenazi Jews?",
+        "verdict": "differ",
+        "note": "Both cite Middle Eastern plus European (esp. Southern European) admixture; en gives specific percentage ranges while he emphasizes no Khazar contribution, differing in detail/emphasis not fact."
+      }
+    ]
+  }
+}

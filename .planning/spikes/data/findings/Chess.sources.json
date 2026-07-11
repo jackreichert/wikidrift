@@ -1,0 +1,57 @@
+{
+  "article": "Chess",
+  "pivot": null,
+  "span": "2002-01-01 → 2004-01-01  (no L1 pivot — whole history)",
+  "before": {
+    "date": "2002-01-01",
+    "refs": 0,
+    "n_domains": 3,
+    "cite_mix": {},
+    "domains": {
+      "chess.ibm.com": 1,
+      "fide.com": 1,
+      "handbook.fide.com": 1
+    }
+  },
+  "after": {
+    "date": "2004-01-01",
+    "refs": 0,
+    "n_domains": 3,
+    "cite_mix": {},
+    "domains": {
+      "fide.com": 2,
+      "freechess.org": 1,
+      "geocities.com": 1
+    }
+  },
+  "added": [
+    {
+      "domain": "freechess.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "fide.com",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "geocities.com",
+      "from": 0,
+      "to": 1
+    }
+  ],
+  "dropped": [
+    {
+      "domain": "chess.ibm.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "handbook.fide.com",
+      "from": 1,
+      "to": 0
+    }
+  ],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD."
+}

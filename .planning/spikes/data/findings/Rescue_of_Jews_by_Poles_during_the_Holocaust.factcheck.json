@@ -1,0 +1,59 @@
+{
+  "article": "Rescue of Jews by Poles during the Holocaust",
+  "asof": null,
+  "langs": [
+    "en",
+    "pl"
+  ],
+  "citation": {
+    "mean_jaccard": 0.04,
+    "domains_per_edition": {
+      "en": 61,
+      "pl": 17
+    }
+  },
+  "claim": {
+    "per_edition": {
+      "en": {
+        "Approximately how many Jews were saved by Poles during the Holocaust?": {
+          "question": "Approximately how many Jews were saved by Poles during the Holocaust?",
+          "answer": "Not explicitly stated as a total number saved; the passage only gives figures for recognized rescuers (7,280 by January 2023, 6,066 Righteous among the Nations) and specific examples like Dr. Łazowski's 8,000",
+          "value": "not stated",
+          "evidence": "By January 2023, 7,280 people in Poland have been recognized by the State of Israel as Righteous among the Nations."
+        },
+        "What was the penalty in German-occupied Poland for helping Jews?": {
+          "question": "What was the penalty in German-occupied Poland for helping Jews?",
+          "answer": "Death, for the rescuer and their family",
+          "value": "death penalty (for rescuer and family)",
+          "evidence": "Any kind of help to Jews was punishable by death, for the rescuer and their family"
+        }
+      },
+      "pl": {
+        "Approximately how many Jews were saved by Poles during the Holocaust?": {
+          "question": "Approximately how many Jews were saved by Poles during the Holocaust?",
+          "answer": "not stated in the passage",
+          "value": "not stated",
+          "evidence": ""
+        },
+        "What was the penalty in German-occupied Poland for helping Jews?": {
+          "question": "What was the penalty in German-occupied Poland for helping Jews?",
+          "answer": "Death penalty",
+          "value": "death penalty",
+          "evidence": "„Żydzi, którzy bez upoważnienia opuszczają wyznaczoną im dzielnicę, podlegają karze śmierci. Tej samej karze podlegają osoby, które takim Żydom świadomie dają kryjówkę”."
+        }
+      }
+    },
+    "adjudication": [
+      {
+        "question": "Approximately how many Jews were saved by Poles during the Holocaust?",
+        "verdict": "insufficient",
+        "note": "Both editions state no explicit total figure is given, only recognized rescuer counts."
+      },
+      {
+        "question": "What was the penalty in German-occupied Poland for helping Jews?",
+        "verdict": "agree",
+        "note": "Both agree the penalty was death; en specifies it extended to the rescuer's family."
+      }
+    ]
+  }
+}
