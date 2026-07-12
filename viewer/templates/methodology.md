@@ -7,10 +7,10 @@ Public data only; same inputs → same outputs.</p>
 
 ## Starting point
 
-The project began as a token-level Wikipedia filter-mirror (show who wrote what; optionally
-highlight contributions from a sourced list). Git looked like a natural substrate but was a poor fit:
-line-level blame and no native "drop author X" model. **WikiWho-class token provenance into a columnar
-store** became the engine; git/GitHub stayed useful for transparency and static hosting, not for blame.
+The project began with a concrete question: can narrative drift on Wikipedia be quantified
+programmatically? Not flagged by intuition or by watching an article — but measured from the revision
+history itself, reproducibly, on any topic. **WikiWho-class token provenance into a columnar store**
+became the engine for that measurement.
 
 Scope then narrowed around a concrete problem: coordinated point-of-view editing on contested topics.
 A bounded topic slice is tractable. The decisive design choice was not which list to hard-code, but
@@ -60,6 +60,9 @@ removal → PWR, addition → L2, churn → L2.</td></tr>
 <tr><td><b>L2 — Framing</b></td><td>Did stance on key entities shift?</td>
 <td><a href="glossary.html#stance">NPOV-axis</a> ratings over time (not generic sentiment). Prefer
 sampling the L1 pivot window.</td></tr>
+<tr><td><b>L3 — Visualization</b></td><td>What exactly changed, sentence by sentence?</td>
+<td>Before/after redline at the pivot revision; per-span blame overlay (who introduced which text).
+Rendered in the Diff and Blame tabs. Currently exported for selected articles.</td></tr>
 <tr><td><b>L4 — Discovery</b></td><td>Where else should L1 look?</td>
 <td>Seed from destroyers of a confirmed pivot; expand only via large removals elsewhere; re-test each
 candidate on its own content. Graph never flags.</td></tr>
@@ -88,6 +91,35 @@ absolute PWR-mass. Coarse passes run offline from cached snapshots.
 
 One factor is not enough. Stronger cases stack signals ([conjunction](glossary.html#conjunction)):
 long-stable, removed, meaning shift, persistence against reverts, concentrated authorship on the change.
+
+## Article selection and the benchmark
+
+The articles on this site are not an arbitrary sample. The thesis cluster — Israel-Palestine and
+Holocaust in Poland — was selected because those articles appear in **independent external sources**:
+Wikipedia's own ArbCom arbitration findings (the PIA5 and Icewhiz cases), a peer-reviewed paper
+(Grabowski & Klein 2023 on Holocaust-history distortion in Wikipedia), and a 2025 ADL report naming
+specific articles. Those sources do not drive the detector; they define the **benchmark ground truth**.
+The detector runs on each article's own content and must independently surface the same findings those
+sources identify — without consuming their lists.
+
+Three additional groups complete the roster:
+
+- **Clean controls** (Photosynthesis, Brontosaurus, Water) — known-stable articles to catch false
+  positives and establish the base rate.
+- **Cross-domain contested** (Climate change, Abortion) — articles with known large rewrites that are
+  *not* coordinated POV editing. These proved decisive: Climate change registered a pivot larger than
+  Zionism's (359k PWR) from a benign 2020–21 restructuring. That result is what established the tool as
+  a *change* detector, not a bias detector, and mandated L2 + L5 as the discrimination layer.
+- **Born-biased** (Warsaw concentration camp) — included as an *expected miss* for L1/L2, to
+  honestly quantify the blind spot and justify the external-reference layer (L5).
+
+A further group was added by the tool itself: **L4 graph-guided discovery**, seeded from Zionism's
+confirmed pivot, identified additional articles where the same editors had made large removals —
+Gaza genocide, Bar Kokhba Revolt, Palestine, UNRWA, and Racial conceptions of Jewish identity in
+Zionism. Each was then re-tested independently on its own content; graph membership alone never
+flags an article.
+
+The tool runs on any article. This roster is the validation set.
 
 ## What validation taught
 
@@ -124,7 +156,6 @@ Those cases route to L5 rather than a clean bill of health.
 
 ## Key decisions
 
-- Git rejected as blame/reconstruction engine (line-level mismatch).
 - Hard-coded editor lists rejected as foundation.
 - Default view highlights provenance; removal is a toggle, not the default.
 - Hosted WikiWho for analysis; local `wikiwho_rs` for scale (parser parity certified).
@@ -154,10 +185,10 @@ results inconclusive (reported as such).
 
 ## Reproducibility
 
-Findings point at public revisions under [receipts](glossary.html#receipts). Provenance from
+Findings point at public revisions under [Revisions](glossary.html#revisions). Provenance from
 WikiWho; timelines from the Action API; edition links from Wikidata. Framing and claim adjudication use a
 language model with fixed JSON schemas (thinking disabled on classification calls so structured output is
-reliable). Open-source tooling.
+reliable). [Open-source tooling](https://github.com/jackreichert/wikidrift/).
 
 ## What is novel
 

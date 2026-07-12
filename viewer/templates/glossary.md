@@ -32,7 +32,7 @@ relative to its own baseline. May look HEALTHY to pure removal-ratio L1; routed 
 <dt id="control">Control</dt><dd>A neutral topic (e.g. Photosynthesis) used as a sanity check.</dd>
 <dt id="conflict">Conflict weight / M-score</dt><dd>How hard the article was edit-warred (mutual-revert
 style measures). Contested ≠ biased. Low score on a large change means the rewrite was not fought over.</dd>
-<dt id="receipts">Receipts</dt><dd>Exact revision IDs and dates behind a finding.</dd>
+<dt id="revisions">Revisions</dt><dd>Exact revision IDs and dates behind a finding.</dd>
 <dt id="stability-prior">Stability prior</dt><dd>Long-surviving text is treated as sticky by default;
 a lasting collapse of that text is the anomaly the L1 layer targets.</dd>
 <dt id="pwr">Persistence-weighted loss (PWR)</dt><dd>Rewrite magnitude: each token weighted by how long

@@ -3,7 +3,8 @@
 <p class="summary">Measures how a Wikipedia article changed over time, and how language editions of the
 same topic differ. Public data, revision IDs, reproducible diffs. Part of the
 <a href="https://encyclopediae.org">encyclopediae.org</a> family — the diagnostic arm beside the
-constructive project of encyclopedias from academic institutions.</p>
+constructive project of encyclopedias from academic institutions.
+<a href="https://github.com/jackreichert/wikidrift/" target="_blank" rel="noopener">Open source on GitHub.</a></p>
 
 <p class="disclaimer">Candidates only — not conclusions.</p>
 
@@ -37,7 +38,18 @@ Internal history cannot see bias that was there from the start with no rewrite t
 ([born-framed](glossary.html#born-framed) / long-standing consensus). Those cases need external
 reference — other language editions and related instruments. Attribution reports public actions only.
 
+## How articles were selected
+
+The articles on this site are a validation set, not a curated accusation list. The thesis cluster
+(Israel-Palestine, Holocaust in Poland) was chosen because those articles appear in independent external
+sources — Wikipedia's own ArbCom arbitration findings, a peer-reviewed academic paper (Grabowski & Klein
+2023), and a 2025 ADL report. Those sources define what the detector *should* find; the detector runs on
+each article's own content independently and must reach the same conclusions without consuming any list.
+
+Clean controls (Photosynthesis, Brontosaurus) and cross-domain contested articles (Climate change,
+Abortion) were added to establish the base rate and catch false positives. The tool works on any article.
+
 ## How to use it
 
-Open a finding, read the tabs, follow the [receipts](glossary.html#receipts). For layers,
+Open a finding, read the tabs, follow the [revisions](glossary.html#revisions). For layers,
 validation lessons, principles, and citations, see [Methodology](methodology.html).

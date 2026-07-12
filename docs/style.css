@@ -1,5 +1,6 @@
 /* WikiDrift — encyclopediae family
    Wide tool shell for data; reading measure only for prose copy. */
+[hidden]{display:none!important}
 
 :root{
   --shell: 1440px;

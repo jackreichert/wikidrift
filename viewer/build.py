@@ -395,7 +395,7 @@ def diff_rows(chunks, lbl_b="before", lbl_a="after"):
         if t == "trunc":
             rows.append('<div class="drow"><div class="dfull muted">This was a near-total rewrite — most of the '
                         'article changed, so only the first several hundred changes are shown here. Open either '
-                        'full revision from the <b>Receipts</b> tab to read everything.</div></div>')
+                        'full revision from the <b>Revisions</b> tab to read everything.</div></div>')
             continue
         rem, add = c.get("rem", ""), c.get("add", "")
         left = f'<div class="dl del"><span class="mk">−</span>{esc(rem)}</div>' if rem else '<div class="dl empty"></div>'
@@ -556,18 +556,18 @@ def overview_section(article, f, lead, layers):
         parts.append(ms)
     parts.append(profile_line(f.profiles.get(article)))
     parts.append(
-        '<p class="muted">Use the tabs for framing grids, fact tables, diffs, citation change, and revision receipts. '
+        '<p class="muted">Use the tabs for framing grids, fact tables, diffs, citation change, and revisions. '
         'Deep-link with <code>#framing</code>, <code>#facts</code>, <code>#diff</code>, <code>#sources</code>, '
-        '<code>#receipts</code>.</p>')
+        '<code>#revisions</code>.</p>')
     return "".join(p for p in parts if p)
 
 
 def missing_diff_section():
     return (
         '<h2>What changed, and when</h2>'
-        '<p class="missing-note">No pivot redline has been exported for this article yet. '
-        'Other layers (framing, facts, sources) may still apply. Diffs are generated offline from public '
-        'WikiWho snapshots for selected articles; Zionism and Warsaw concentration camp are the current examples.</p>'
+        '<p class="missing-note">No confirmed pivot was detected for this article — '
+        'L1 did not find a durable rewrite large enough to redline. '
+        'Other layers (framing, facts, sources) may still apply.</p>'
     )
 
 
@@ -619,9 +619,9 @@ def _layer_flags(article, f):
     return [
         ("Framing", has_framing, "not run"),
         ("Facts", has_facts, "not run"),
-        ("Diff", has_diff, "not exported"),
+        ("Diff", has_diff, "no pivot found"),
         ("Sources", has_src, "not run"),
-        ("Receipts", has_rec, "not run"),
+        ("Revisions", has_rec, "not run"),
     ]
 
 
@@ -647,7 +647,7 @@ def article_page(article, f):
     if src:
         panels.append(("Sources", sources_section(article, src), "sources"))
     if rec:
-        panels.append(("Receipts", receipts_section(rec), "receipts"))
+        panels.append(("Revisions", receipts_section(rec), "revisions"))
     cat = CATEGORY.get(article, "Other")
     body = (
         f'<div class="page-intro"><p class="kicker">{esc(cat)}</p><h1>{esc(article)}</h1>'
