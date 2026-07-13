@@ -39,27 +39,35 @@ _BASE_DELAY = 2.0    # seconds; doubles each attempt
 _MAX_DELAY = 60.0    # cap on a single backoff wait
 
 
+def _canonical_provider(provider):
+    """Normalize provider aliases to a single internal identifier."""
+    p = (provider or "").lower().strip()
+    return "xai" if p == "grok" else p
+
+
 def _priority_chain():
     """Ordered provider chain used for auto-failover when provider is not explicitly selected."""
     raw = os.environ.get("WIKIDRIFT_LLM_PROVIDER_PRIORITY", config.LLM_PROVIDER_PRIORITY)
     ordered = []
     seen = set()
-    for p in (x.strip().lower() for x in raw.split(",")):
+    for p in (_canonical_provider(x.strip().lower()) for x in raw.split(",")):
         if p and p in config.DEFAULT_MODELS and p not in seen:
             ordered.append(p)
             seen.add(p)
-    return ordered or ["anthropic", "openai", "grok", "google"]
+    return ordered or ["anthropic", "openai", "xai", "google"]
 
 
 def _provider_base_url(provider, base_url=None):
+    provider = _canonical_provider(provider)
     if base_url:
         return base_url
-    if provider == "grok":
+    if provider == "xai":
         return os.environ.get("WIKIDRIFT_LLM_GROK_BASE_URL", "https://api.x.ai/v1")
     return os.environ.get("WIKIDRIFT_LLM_BASE_URL")
 
 
 def _provider_model(provider, model=None):
+    provider = _canonical_provider(provider)
     if model:
         return model
     per_provider = os.environ.get(f"WIKIDRIFT_LLM_MODEL_{provider.upper()}")
@@ -69,11 +77,12 @@ def _provider_model(provider, model=None):
 
 
 def _provider_key(provider, api_key=None):
+    provider = _canonical_provider(provider)
     return api_key or os.environ.get("WIKIDRIFT_LLM_API_KEY") or os.environ.get(config.KEY_ENV.get(provider, ""))
 
 
 def _resolve(provider, model, base_url, api_key):
-    provider = (provider or os.environ.get("WIKIDRIFT_LLM_PROVIDER") or config.LLM_PROVIDER).lower()
+    provider = _canonical_provider(provider or os.environ.get("WIKIDRIFT_LLM_PROVIDER") or config.LLM_PROVIDER)
     model = _provider_model(provider, model)
     if not model:
         raise ValueError(f"no model for provider {provider!r}; pass --model or set WIKIDRIFT_LLM_MODEL")
@@ -167,7 +176,7 @@ class Client:
         if self.provider == "anthropic":
             import anthropic
             self._impl = anthropic.Anthropic(api_key=self.api_key) if self.api_key else anthropic.Anthropic()
-        elif self.provider in ("openai", "grok"):
+        elif self.provider in ("openai", "xai"):
             import openai
             kw = {}
             if self.api_key:
@@ -179,7 +188,7 @@ class Client:
             from google import genai
             self._impl = genai.Client(api_key=self.api_key) if self.api_key else genai.Client()
         else:
-            raise ValueError(f"unknown LLM provider {self.provider!r} (anthropic|openai|grok|google)")
+            raise ValueError(f"unknown LLM provider {self.provider!r} (anthropic|openai|xai|google)")
         return self._impl
 
     def _send(self, call):
@@ -207,7 +216,7 @@ class Client:
 
     def complete_json(self, schema, prompt, max_tokens=1024):
         """Send `prompt`, return a dict conforming to `schema` (a strict JSON Schema)."""
-        if self.provider in ("openai", "grok"):
+        if self.provider in ("openai", "xai"):
             return self._openai(schema, prompt, max_tokens)
         return getattr(self, f"_{self.provider}")(schema, prompt, max_tokens)
 

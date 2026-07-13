@@ -59,7 +59,7 @@ def _corroboration(result):
         refined = m.get("refined") or {}
         if isinstance(refined, dict) and refined.get("M"):
             signals.append("mscore_contested")
-    fr = result.get("framing") or {}
+    fr = result.get("framing") or result.get("l5") or {}
     if isinstance(fr, dict):
         if any(d.get("verdict") == "contradict" for d in (fr.get("divergences") or [])):
             signals.append("framing_contradict")
@@ -161,8 +161,7 @@ def run(article, llm=False, corroborate=False, framing=False, provider=None, mod
     else:
         print("  L5 framing: run via `wikidrift framing` or `wikidrift pipeline --framing` (separate instrument)")
     result = {"article": article, "l1": label, "leads": leads, "l2_adjudicated": l2_done,
-              "mscore": m, "lexical": lex, "framing": framing_result}
-    result["corroboration"] = _corroboration(result)
-    corr = result["corroboration"]
+              "mscore": m, "lexical": lex, "l5": framing_result}
+    corr = _corroboration(result)
     print(f"  corroboration: {corr['count']} signal(s) — {corr['signals'] or '(none)'}")
     return result

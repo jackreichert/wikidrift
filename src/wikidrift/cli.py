@@ -12,7 +12,7 @@
   wikidrift pipeline "Nakba" [--llm] [--mscore]          # L1→router→(L2/L5) orchestration for one article
     wikidrift lexical "Zionism" [--top-n 20] [--min-total 3]  # L2.5 lexical drift lead (offline)
 
-LLM verbs (stance/crosslingual/factcheck/pipeline) accept --provider {anthropic|openai|grok|google} --model NAME
+LLM verbs (stance/crosslingual/factcheck/pipeline) accept --provider {anthropic|openai|xai|grok|google} --model NAME
 --base-url URL to pick a cheaper/local backend (default Anthropic). --base-url + --provider openai reaches any
 OpenAI-compatible endpoint (OpenRouter/Together/Groq/DeepSeek; local Ollama/LM Studio/vLLM). Keys via the
 provider's env var (ANTHROPIC_API_KEY/OPENAI_API_KEY/GOOGLE_API_KEY) or WIKIDRIFT_LLM_API_KEY; env equivalents
@@ -64,7 +64,7 @@ def main(argv=None):
 
     def add_llm_flags(sp):
         """Provider-selection flags shared by the LLM verbs (arg → env → default; see llm.py)."""
-        sp.add_argument("--provider", default=None, choices=["anthropic", "openai", "grok", "google"],
+        sp.add_argument("--provider", default=None, choices=["anthropic", "openai", "xai", "grok", "google"],
                         help="LLM provider (default: auto priority from WIKIDRIFT_LLM_PROVIDER_PRIORITY;"
                             " explicit provider or WIKIDRIFT_LLM_PROVIDER disables failover)")
         sp.add_argument("--model", default=None, help="model id (default: provider default / WIKIDRIFT_LLM_MODEL)")

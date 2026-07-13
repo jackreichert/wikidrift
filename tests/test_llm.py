@@ -72,7 +72,7 @@ class Resolution(unittest.TestCase):
 
     def test_provider_default_model(self):
         self.assertEqual(llm.make_client("openai").model, "gpt-4o-mini")
-        self.assertEqual(llm.make_client("grok").model, "grok-3-mini")
+        self.assertEqual(llm.make_client("grok").model, "grok-4")
         self.assertEqual(llm.make_client("google").model, "gemini-flash-lite-latest")
         self.assertEqual(llm.make_client("xai").model, "grok-4")
 
