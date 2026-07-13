@@ -9,7 +9,7 @@ import pathlib
 
 # --- .env auto-load (dependency-free) ---------------------------------------
 # Load KEY=VALUE pairs from the repo-root .env into the environment so a researcher's provider key
-# (GOOGLE_API_KEY / OPENAI_API_KEY / ANTHROPIC_API_KEY) or WIKIDRIFT_LLM_* is picked up without a manual
+# (GOOGLE_API_KEY / OPENAI_API_KEY / ANTHROPIC_API_KEY / XAI_API_KEY) or WIKIDRIFT_LLM_* is picked up without a manual
 # `source`. NEVER overrides an already-set env var (an explicit export or CI secret always wins) and never
 # prints values. .env is gitignored; see .env.example for the recognized names.
 def _load_dotenv(path):

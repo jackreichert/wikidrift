@@ -2,7 +2,7 @@
 
 Only two layers touch a model: L2 stance (stance.py) and L5 claim adjudication (l5_factcheck.py). Both
 need exactly one primitive — send a prompt, get back JSON matching a strict JSON Schema. This module wraps
-that primitive across three providers so a researcher can pick a cheaper (or free/local) model:
+that primitive across providers so a researcher can pick a cheaper (or free/local) model:
 
   anthropic — default; native structured output (output_config json_schema). Preserves the validated results.
   openai    — OpenAI *and* any OpenAI-compatible base_url: OpenRouter / Together / Groq / DeepSeek / Fireworks
@@ -10,6 +10,8 @@ that primitive across three providers so a researcher can pick a cheaper (or fre
               response_format json_schema (strict) — our schemas are already strict-compatible.
   google    — native google-genai SDK; response_mime_type=application/json + the schema inlined in the prompt
               (Gemini's response_schema is an OpenAPI subset, not raw JSON Schema — inlining avoids translation).
+  xai       — xAI Grok (alias: grok). OpenAI SDK + default base_url https://api.x.ai/v1 + XAI_API_KEY.
+              Same strict json_schema path as openai (xAI is OpenAI-compatible).
 
 Selection per field: explicit arg → env → default (see config.LLM_PROVIDER / DEFAULT_MODELS / KEY_ENV). The
 openai and google SDKs are imported lazily, so offline commands and the test suite need neither installed.
@@ -33,13 +35,18 @@ _DEFAULT_MAX_RETRIES = 5
 _BASE_DELAY = 2.0    # seconds; doubles each attempt
 _MAX_DELAY = 60.0    # cap on a single backoff wait
 
+# Providers that speak the OpenAI chat.completions + response_format json_schema wire format.
+_OPENAI_COMPAT = frozenset({"openai", "xai"})
+
 
 def _resolve(provider, model, base_url, api_key):
     provider = (provider or os.environ.get("WIKIDRIFT_LLM_PROVIDER") or config.LLM_PROVIDER).lower()
+    provider = config.PROVIDER_ALIASES.get(provider, provider)
     model = model or os.environ.get("WIKIDRIFT_LLM_MODEL") or config.DEFAULT_MODELS.get(provider)
     if not model:
         raise ValueError(f"no model for provider {provider!r}; pass --model or set WIKIDRIFT_LLM_MODEL")
-    base_url = base_url or os.environ.get("WIKIDRIFT_LLM_BASE_URL")
+    base_url = (base_url or os.environ.get("WIKIDRIFT_LLM_BASE_URL")
+                or config.DEFAULT_BASE_URLS.get(provider))
     api_key = (api_key or os.environ.get("WIKIDRIFT_LLM_API_KEY")
                or os.environ.get(config.KEY_ENV.get(provider, "")))
     return provider, model, base_url, api_key
@@ -90,7 +97,7 @@ class Client:
         if self.provider == "anthropic":
             import anthropic
             self._impl = anthropic.Anthropic(api_key=self.api_key) if self.api_key else anthropic.Anthropic()
-        elif self.provider == "openai":
+        elif self.provider in _OPENAI_COMPAT:
             import openai
             kw = {}
             if self.api_key:
@@ -102,7 +109,7 @@ class Client:
             from google import genai
             self._impl = genai.Client(api_key=self.api_key) if self.api_key else genai.Client()
         else:
-            raise ValueError(f"unknown LLM provider {self.provider!r} (anthropic|openai|google)")
+            raise ValueError(f"unknown LLM provider {self.provider!r} (anthropic|openai|google|xai)")
         return self._impl
 
     def _send(self, call):
@@ -130,7 +137,9 @@ class Client:
 
     def complete_json(self, schema, prompt, max_tokens=1024):
         """Send `prompt`, return a dict conforming to `schema` (a strict JSON Schema)."""
-        return getattr(self, f"_{self.provider}")(schema, prompt, max_tokens)
+        # xai reuses the openai wire format; method name is the transport, not the brand.
+        method = "openai" if self.provider in _OPENAI_COMPAT else self.provider
+        return getattr(self, f"_{method}")(schema, prompt, max_tokens)
 
     def _anthropic(self, schema, prompt, max_tokens):
         # thinking disabled: these are structured JSON classifications, not reasoning tasks, and it matches

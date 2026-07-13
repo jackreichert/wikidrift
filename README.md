@@ -96,12 +96,13 @@ The engine (L1/L4) and `sources`/`mscore` need no key. The framing (L2, L5 #1) a
 an LLM. Copy `.env.example` → `.env` and set the key for your provider (auto-loaded, gitignored):
 
 ```bash
-cp .env.example .env      # then fill in ANTHROPIC_API_KEY (default) or OPENAI_API_KEY / GOOGLE_API_KEY
+cp .env.example .env      # then fill in ANTHROPIC_API_KEY (default) or OPENAI_API_KEY / GOOGLE_API_KEY / XAI_API_KEY
 ```
 
-Default backend is Anthropic `claude-sonnet-5`; any OpenAI-compatible endpoint (OpenRouter/Groq/local
-Ollama/vLLM) or Google Gemini is selectable via `--provider/--model/--base-url` or `WIKIDRIFT_LLM_*` env.
-Optional SDKs: `uv sync --extra openai` / `--extra google` / `--extra all-llm`. Details in the tool README.
+Default backend is Anthropic `claude-sonnet-5`; OpenAI-compatible endpoints (OpenRouter/Groq/local
+Ollama/vLLM), Google Gemini, or xAI Grok (`--provider xai` / `grok`) are selectable via
+`--provider/--model/--base-url` or `WIKIDRIFT_LLM_*` env. Optional SDKs: `uv sync --extra openai`
+(covers OpenAI + xAI) / `--extra google` / `--extra all-llm`. Details in the tool README.
 
 ## Build the viewer (the site)
 

@@ -71,10 +71,26 @@ class Resolution(unittest.TestCase):
     def test_provider_default_model(self):
         self.assertEqual(llm.make_client("openai").model, "gpt-4o-mini")
         self.assertEqual(llm.make_client("google").model, "gemini-flash-lite-latest")
+        self.assertEqual(llm.make_client("xai").model, "grok-4")
+
+    def test_xai_default_base_url(self):
+        c = llm.make_client("xai")
+        self.assertEqual(c.provider, "xai")
+        self.assertEqual(c.base_url, "https://api.x.ai/v1")
+
+    def test_grok_alias_resolves_to_xai(self):
+        c = llm.make_client("grok")
+        self.assertEqual(c.provider, "xai")
+        self.assertEqual(c.model, "grok-4")
+        self.assertEqual(c.base_url, "https://api.x.ai/v1")
 
     def test_env_selects_provider(self):
         os.environ["WIKIDRIFT_LLM_PROVIDER"] = "openai"
         self.assertEqual(llm.make_client().provider, "openai")
+
+    def test_env_grok_alias(self):
+        os.environ["WIKIDRIFT_LLM_PROVIDER"] = "grok"
+        self.assertEqual(llm.make_client().provider, "xai")
 
     def test_unknown_provider_without_model_raises(self):
         with self.assertRaises(ValueError):
@@ -101,6 +117,14 @@ class Backends(unittest.TestCase):
         self.assertEqual(rf["type"], "json_schema")
         self.assertTrue(rf["json_schema"]["strict"])
         self.assertEqual(rf["json_schema"]["schema"], SCHEMA)
+
+    def test_xai_reuses_openai_wire_format(self):
+        # Grok is OpenAI-compatible: same chat.completions + json_schema response_format path.
+        c, rec = self._client("xai", _openai_impl)
+        self.assertEqual(c.complete_json(SCHEMA, "hi"), {"ok": 2})
+        rf = rec.kwargs["response_format"]
+        self.assertEqual(rf["type"], "json_schema")
+        self.assertTrue(rf["json_schema"]["strict"])
 
     def test_google_shape_and_parse(self):
         c, rec = self._client("google", _google_impl)

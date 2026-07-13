@@ -76,6 +76,9 @@ certified ★#3 benchmark baseline). A researcher can pick a cheaper or free/loc
 ```bash
 # OpenAI (cheap hosted, strict structured output)
 wikidrift stance "Nakba" --provider openai --model gpt-4o-mini            # OPENAI_API_KEY
+# xAI Grok (OpenAI-compatible; default model grok-4; alias --provider grok)
+wikidrift stance "Nakba" --provider xai                                   # XAI_API_KEY
+wikidrift pipeline "Nakba" --llm --provider grok --model grok-4           # same as xai
 # any OpenAI-compatible endpoint via --base-url: OpenRouter / Together / Groq / DeepSeek / Fireworks …
 wikidrift factcheck "Jedwabne pogrom" --provider openai \
     --base-url https://openrouter.ai/api/v1 --model meta-llama/llama-3.3-70b-instruct
@@ -86,9 +89,9 @@ wikidrift pipeline "Nakba" --llm --provider google --model gemini-flash-lite-lat
 ```
 
 Equivalent env vars: `WIKIDRIFT_LLM_PROVIDER` / `_MODEL` / `_BASE_URL` / `_API_KEY` (the last overrides the
-provider-native `ANTHROPIC_API_KEY` / `OPENAI_API_KEY` / `GOOGLE_API_KEY`). Install the extra SDK only if you
-use it: `uv sync --extra openai` / `--extra google` / `--extra all-llm` (the default install needs neither).
-Model ids are examples — pick per current availability.
+provider-native `ANTHROPIC_API_KEY` / `OPENAI_API_KEY` / `GOOGLE_API_KEY` / `XAI_API_KEY`). Install the extra
+SDK only if you use it: `uv sync --extra openai` (covers OpenAI *and* xAI/Grok) / `--extra google` /
+`--extra all-llm` (the default install needs neither). Model ids are examples — pick per current availability.
 
 **Keys via `.env`.** Copy `.env.example` → `.env` (gitignored) and fill in the key for your provider; it's
 auto-loaded on import (never overriding an already-set env var), so no manual `source` is needed.

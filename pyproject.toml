@@ -16,7 +16,8 @@ dependencies = [
 ]
 
 # LLM backends beyond the default Anthropic (see wikidrift/llm.py). Optional so offline use stays lean.
-#   openai extra also covers OpenAI-compatible endpoints (OpenRouter/Together/Groq/DeepSeek; local Ollama/vLLM).
+#   openai extra also covers OpenAI-compatible endpoints (OpenRouter/Together/Groq/DeepSeek; local Ollama/vLLM)
+#   and first-class xAI Grok (--provider xai|grok → https://api.x.ai/v1).
 [project.optional-dependencies]
 openai = ["openai>=1.40.0"]
 google = ["google-genai>=0.3.0"]

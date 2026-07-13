@@ -1,6 +1,7 @@
 """wikidrift command-line entry point.
 
   wikidrift analyze "Zionism"          # full L1 pipeline (fetches as needed) + attribution
+  wikidrift analyze "https://en.wikipedia.org/wiki/Zionism"  # same, accepts Wikipedia URLs
   wikidrift validate ["Zionism" ...]   # offline PWR candidate verdicts (no WikiWho); default = whole cache
   wikidrift prerank ["Zionism" ...]    # metadata pre-ranker (offline)
   wikidrift benchmark [--json]         # score the adjudicated roster
@@ -11,20 +12,50 @@
   wikidrift ingest "Naliboki massacre" [...] [--force]   # local wikiwho_rs-on-dumps rsnap ingestion
   wikidrift pipeline "Nakba" [--llm] [--mscore]          # L1→router→(L2/L5) orchestration for one article
 
-LLM verbs (stance/crosslingual/factcheck/pipeline) accept --provider {anthropic|openai|google} --model NAME
---base-url URL to pick a cheaper/local backend (default Anthropic). --base-url + --provider openai reaches any
-OpenAI-compatible endpoint (OpenRouter/Together/Groq/DeepSeek; local Ollama/LM Studio/vLLM). Keys via the
-provider's env var (ANTHROPIC_API_KEY/OPENAI_API_KEY/GOOGLE_API_KEY) or WIKIDRIFT_LLM_API_KEY; env equivalents
+LLM verbs (stance/crosslingual/factcheck/pipeline) accept --provider {anthropic|openai|google|xai|grok}
+--model NAME --base-url URL to pick a cheaper/local backend (default Anthropic). --provider xai (alias: grok)
+uses Grok via https://api.x.ai/v1 (XAI_API_KEY). --base-url + --provider openai reaches any OpenAI-compatible
+endpoint (OpenRouter/Together/Groq/DeepSeek; local Ollama/LM Studio/vLLM). Keys via the provider's env var
+(ANTHROPIC_API_KEY/OPENAI_API_KEY/GOOGLE_API_KEY/XAI_API_KEY) or WIKIDRIFT_LLM_API_KEY; env equivalents
 WIKIDRIFT_LLM_PROVIDER/_MODEL/_BASE_URL.
 """
 import sys
 import argparse
+from urllib.parse import urlparse, unquote
 
 import duckdb
 
 from . import (config, drift, prerank, benchmark, stance, l5_crosslingual, l5_factcheck,  # noqa: F401
                mscore, ingest, pipeline, l4, l5_sources, bootstrap)
 from .corpus import Corpus
+
+
+def extract_article_title(input_str):
+    """Parse Wikipedia URL or return the article title as-is.
+    
+    Handles:
+      - https://en.wikipedia.org/wiki/Zionism → Zionism
+      - https://en.wikipedia.org/wiki/Israeli–Palestinian_conflict → Israeli–Palestinian_conflict
+      - Zionism → Zionism
+    """
+    if not input_str:
+        return input_str
+    
+    # Check if it looks like a URL
+    if input_str.startswith(("http://", "https://")):
+        try:
+            parsed = urlparse(input_str)
+            # Extract the path component, which should be /wiki/{article_title}
+            if parsed.path.startswith("/wiki/"):
+                title = parsed.path[6:]  # Remove "/wiki/" prefix
+                # URL-decode the title (handle %20 → space, etc.)
+                title = unquote(title)
+                return title
+        except Exception:
+            pass
+    
+    # Not a URL or parsing failed; return as-is
+    return input_str
 
 
 def main(argv=None):
@@ -34,11 +65,12 @@ def main(argv=None):
 
     def add_llm_flags(sp):
         """Provider-selection flags shared by the LLM verbs (arg → env → default; see llm.py)."""
-        sp.add_argument("--provider", default=None, choices=["anthropic", "openai", "google"],
-                        help="LLM provider (default: anthropic, or WIKIDRIFT_LLM_PROVIDER)")
+        sp.add_argument("--provider", default=None,
+                        choices=["anthropic", "openai", "google", "xai", "grok"],
+                        help="LLM provider (default: anthropic, or WIKIDRIFT_LLM_PROVIDER; grok → xai)")
         sp.add_argument("--model", default=None, help="model id (default: provider default / WIKIDRIFT_LLM_MODEL)")
         sp.add_argument("--base-url", dest="base_url", default=None,
-                        help="OpenAI-compatible endpoint base URL (openai provider): OpenRouter/Groq/Ollama/…")
+                        help="OpenAI-compatible endpoint base URL (openai/xai): OpenRouter/xAI/Ollama/…")
 
     sp = sub.add_parser("analyze", help="full L1 pipeline for one article (+ attribution)")
     sp.add_argument("article")
@@ -103,7 +135,8 @@ def main(argv=None):
     args = p.parse_args(argv)
 
     if args.cmd == "analyze":
-        drift.analyze(args.article)
+        article = extract_article_title(args.article)
+        drift.analyze(article)
     elif args.cmd == "validate":
         con = duckdb.connect(str(config.DB), read_only=True)
         targets = args.articles or Corpus(con).articles_with_snapshots(3)
@@ -119,17 +152,20 @@ def main(argv=None):
     elif args.cmd == "benchmark":
         benchmark.run(as_json=args.json)
     elif args.cmd == "stance":
+        article = extract_article_title(args.article)
         ents = [e.strip() for e in args.entities.split(",")] if args.entities else None
-        stance.stance_over_time(args.article, entities=ents, max_snaps=args.max_snaps, since=args.since,
+        stance.stance_over_time(article, entities=ents, max_snaps=args.max_snaps, since=args.since,
                                 provider=args.provider, model=args.model, base_url=args.base_url)
     elif args.cmd == "crosslingual":
+        article = extract_article_title(args.article)
         langs = [l.strip() for l in args.langs.split(",")] if args.langs else None
-        l5_crosslingual.crosslingual(args.article, langs=langs, pivot=not args.no_pivot,
+        l5_crosslingual.crosslingual(article, langs=langs, pivot=not args.no_pivot,
                                      provider=args.provider, model=args.model, base_url=args.base_url)
     elif args.cmd == "factcheck":
+        article = extract_article_title(args.article)
         langs = [l.strip() for l in args.langs.split(",")] if args.langs else None
         ts = f"{args.asof}T00:00:00Z" if args.asof else None
-        l5_factcheck.factcheck(args.article, langs=langs, ts=ts,
+        l5_factcheck.factcheck(article, langs=langs, ts=ts,
                                provider=args.provider, model=args.model, base_url=args.base_url)
     elif args.cmd == "mscore":
         mscore.run(args.articles or ["Zionism", "Nakba", "Warsaw concentration camp",
@@ -137,14 +173,18 @@ def main(argv=None):
     elif args.cmd == "ingest":
         ingest.ingest_articles(args.articles, force=args.force)
     elif args.cmd == "pipeline":
-        pipeline.run(args.article, llm=args.llm, corroborate=args.mscore,
+        article = extract_article_title(args.article)
+        pipeline.run(article, llm=args.llm, corroborate=args.mscore,
                      provider=args.provider, model=args.model, base_url=args.base_url)
     elif args.cmd == "discover":
-        l4.discover(args.article, top_n=args.top_n, limit=args.limit)
+        article = extract_article_title(args.article)
+        l4.discover(article, top_n=args.top_n, limit=args.limit)
     elif args.cmd == "sources":
-        l5_sources.sources_over_time(args.article, max_snaps=args.max_snaps)
+        article = extract_article_title(args.article)
+        l5_sources.sources_over_time(article, max_snaps=args.max_snaps)
     elif args.cmd == "profile":
-        drift.profile_report(args.article)
+        article = extract_article_title(args.article)
+        drift.profile_report(article)
     elif args.cmd == "bootstrap":
         bootstrap.run(args.articles or None)
 
