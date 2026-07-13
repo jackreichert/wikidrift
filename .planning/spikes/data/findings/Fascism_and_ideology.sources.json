@@ -98,7 +98,22 @@
       "to": 0
     },
     {
+      "domain": "aljazeera.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "washingtoninstitute.org",
+      "from": 2,
+      "to": 0
+    },
+    {
       "domain": "newyorker.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "en.qantara.de",
       "from": 2,
       "to": 0
     },
@@ -113,57 +128,17 @@
       "to": 0
     },
     {
-      "domain": "jstor.org",
-      "from": 3,
-      "to": 1
-    },
-    {
-      "domain": "en.qantara.de",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "washingtoninstitute.org",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "aljazeera.com",
-      "from": 2,
-      "to": 0
-    },
-    {
       "domain": "books.google.com",
       "from": 15,
       "to": 13
     },
     {
-      "domain": "newsweek.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "academia.edu",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "brill.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "vox.com",
-      "from": 1,
-      "to": 0
+      "domain": "jstor.org",
+      "from": 3,
+      "to": 1
     },
     {
       "domain": "journals.openedition.org",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "politico.com",
       "from": 1,
       "to": 0
     },
@@ -178,12 +153,37 @@
       "to": 0
     },
     {
+      "domain": "newstatesman.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "newsweek.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "brill.com",
+      "from": 1,
+      "to": 0
+    },
+    {
       "domain": "derechos.org",
       "from": 1,
       "to": 0
     },
     {
-      "domain": "newstatesman.com",
+      "domain": "academia.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "vox.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "politico.com",
       "from": 1,
       "to": 0
     }

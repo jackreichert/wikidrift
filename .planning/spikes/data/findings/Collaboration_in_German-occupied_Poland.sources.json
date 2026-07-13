@@ -116,12 +116,7 @@
       "to": 3
     },
     {
-      "domain": "niniwa22.cba.pl",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "dzieje.pl",
+      "domain": "api.parliament.uk",
       "from": 0,
       "to": 1
     },
@@ -131,17 +126,7 @@
       "to": 2
     },
     {
-      "domain": "api.parliament.uk",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "mazowsze.hist.pl",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "delet.jhi.pl",
+      "domain": "niniwa22.cba.pl",
       "from": 0,
       "to": 1
     },
@@ -161,7 +146,12 @@
       "to": 1
     },
     {
-      "domain": "ora.ox.ac.uk",
+      "domain": "mazowsze.hist.pl",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "delet.jhi.pl",
       "from": 0,
       "to": 1
     },
@@ -172,6 +162,16 @@
     },
     {
       "domain": "czestochowa.wyborcza.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "dzieje.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ora.ox.ac.uk",
       "from": 0,
       "to": 1
     }
@@ -198,47 +198,7 @@
       "to": 0
     },
     {
-      "domain": "books.google.co.kr",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "jhi.pl",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "michael-wildt.de",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "cristeros1.w.interia.pl",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "hansard.millbanksystems.com",
-      "from": 1,
-      "to": 0
-    },
-    {
       "domain": "treblinka-muzeum.eu",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "msn.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "timesofisrael.com",
-      "from": 2,
-      "to": 1
-    },
-    {
-      "domain": "tandfonline.com",
       "from": 1,
       "to": 0
     },
@@ -248,12 +208,52 @@
       "to": 0
     },
     {
+      "domain": "jstor.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "cristeros1.w.interia.pl",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "books.google.co.kr",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "michael-wildt.de",
+      "from": 1,
+      "to": 0
+    },
+    {
       "domain": "niniwa2.cba.pl",
       "from": 2,
       "to": 1
     },
     {
-      "domain": "jstor.org",
+      "domain": "timesofisrael.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "jhi.pl",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "tandfonline.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "hansard.millbanksystems.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "msn.com",
       "from": 1,
       "to": 0
     }

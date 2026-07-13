@@ -13,9 +13,10 @@ A CONTRADICT verdict is a LEAD for a researcher, never a verdict. Needs an LLM k
 pick a cheaper/local backend via --provider/--model/--base-url or WIKIDRIFT_LLM_* env — see llm.py).
 """
 from . import config
-from .l5_crosslingual import sitelinks, fetch_asof
+from .l5_crosslingual import sitelinks, fetch_asof, _select_established_langs, SLATE
 
 MAX_CHARS = 8000
+MIN_EDITION_COUNT = 2
 
 # Load-bearing factual questions per article (transparent — the researcher picks them).
 QUESTIONS = {
@@ -183,53 +184,165 @@ def _call(client, schema, prompt, max_tokens=1600):
     return client.complete_json(schema, prompt, max_tokens)
 
 
+def _cap_langs(langs, max_langs):
+    if not max_langs or max_langs < 1:
+        return list(langs)
+    return list(langs)[:max_langs]
+
+
+def _insufficient_adjudication(questions, note):
+    return [{"question": q, "verdict": "insufficient", "note": note} for q in questions]
+
+
+def _adjudicate_with_retry(client, payload, questions):
+    prompt = ADJ_PROMPT.format(payload=payload)
+    try:
+        return _call(client, ADJ_SCHEMA, prompt)["questions"], None
+    except Exception as first_error:  # noqa: BLE001
+        repair_prompt = (
+            prompt
+            + "\n\nReturn ONLY valid JSON matching the schema."
+            " Do not include markdown fences or extra prose."
+        )
+        try:
+            return _call(client, ADJ_SCHEMA, repair_prompt)["questions"], str(first_error)
+        except Exception as second_error:  # noqa: BLE001
+            note = f"adjudication unavailable: {second_error}"
+            return _insufficient_adjudication(questions, note), f"{first_error} | {second_error}"
+
+
+def _resolve_requested_langs(user_langs, links, article=None):
+    if user_langs:
+        return [l for l in user_langs if l in links], False
+    return _select_established_langs(links, max_langs=50, pinned=SLATE.get(article) if article else None), True
+
+
 def factcheck(article, langs=None, ts=None, persist=True, provider=None, model=None, base_url=None,
-              client=None, context=None):
+              client=None, context=None, max_langs=None):
     """Cross-edition citation + claim divergence for one article (as-of aware). Print + return.
     Persists a viewer-shaped findings file unless persist=False (tests). `client` is the injectable LLM
     port — built from provider/model/base_url when None (CLI path), injected by the pipeline."""
-    _, links = sitelinks(article, langs)
-    langs = [l for l in (langs or links) if l in links]
+    _, links = sitelinks(article, None)
+    requested_langs, auto_selected = _resolve_requested_langs(list(langs) if langs else None, links, article)
+    langs = _cap_langs(requested_langs, max_langs)
     if client is None:
         from . import llm
         client = llm.make_client(provider, model, base_url)
     tag = f" @ {ts[:10]}" if ts else " (now)"
     print(f"=== L5 fact-check (citation+claim) — {article}{tag}  ({'/'.join(langs)}) ===")
+    if not langs:
+        raise LookupError(f"no usable language editions found for article {article!r}")
+    if auto_selected:
+        print("  default editions: auto-selected established languages for this topic")
+    if max_langs and max_langs > 0 and len(requested_langs) > len(langs):
+        print(f"  limited editions for stability: {len(requested_langs)} -> {len(langs)}")
+
+    errors = []
 
     # citation divergence
     dom = {}
+    prose_by_lang = {}
     for l in langs:
-        _, _, raw, _ = fetch_asof(l, links[l], ts)
+        try:
+            _, _, raw, prose = fetch_asof(l, links[l], ts)
+        except Exception as e:  # noqa: BLE001
+            msg = str(e)
+            errors.append({"lang": l, "stage": "fetch", "error": msg})
+            print(f"  edition skipped [{l}] fetch error: {msg}")
+            continue
         dom[l] = _domains(raw)
-    pairs = [(langs[i], langs[j]) for i in range(len(langs)) for j in range(i + 1, len(langs))]
+        prose_by_lang[l] = prose
+
+    ok_langs = [l for l in langs if l in dom]
+    if len(ok_langs) < MIN_EDITION_COUNT:
+        note = (
+            f"insufficient editions fetched: need >= {MIN_EDITION_COUNT}, got {len(ok_langs)}"
+        )
+        print(f"  CLAIM divergence unavailable: {note}")
+        res = {
+            "article": article,
+            "asof": ts,
+            "langs": langs,
+            "citation": {
+                "mean_jaccard": 1.0,
+                "domains_per_edition": {l: len(dom[l]) for l in ok_langs},
+            },
+            "claim": {
+                "per_edition": {},
+                "adjudication": _insufficient_adjudication(QUESTIONS.get(article, []), note),
+            },
+            "diagnostics": {
+                "min_edition_count": MIN_EDITION_COUNT,
+                "effective_langs": ok_langs,
+                "errors": errors,
+            },
+        }
+        if persist:
+            slug = config.slugify(article) + (f".asof-{ts[:10]}" if ts else "")
+            config.write_findings(f"{slug}.factcheck.json", res)
+        return res
+
+    pairs = [(ok_langs[i], ok_langs[j]) for i in range(len(ok_langs)) for j in range(i + 1, len(ok_langs))]
     js = [_jaccard(dom[a], dom[b]) for a, b in pairs] or [1.0]
     mean_j = round(sum(js) / len(js), 2)
     print(f"  CITATION overlap (Jaccard, CONTEXT only) = {mean_j}  domains/edition: "
-          + ", ".join(f"{l}:{len(dom[l])}" for l in langs))
+          + ", ".join(f"{l}:{len(dom[l])}" for l in ok_langs))
 
     # claim divergence
     qs = QUESTIONS.get(article, [])
     per = {}
-    for l in langs:
-        _, _, _, prose = fetch_asof(l, links[l], ts)
-        ans = _call(client, EXTRACT_SCHEMA,
-                    EXTRACT_PROMPT.format(qs="\n".join(f"- {q}" for q in qs), passage=prose[:MAX_CHARS]))["answers"]
+    for l in ok_langs:
+        prose = prose_by_lang.get(l, "")
+        try:
+            ans = _call(
+                client,
+                EXTRACT_SCHEMA,
+                EXTRACT_PROMPT.format(qs="\n".join(f"- {q}" for q in qs), passage=prose[:MAX_CHARS]),
+            )["answers"]
+        except Exception as e:  # noqa: BLE001
+            msg = str(e)
+            errors.append({"lang": l, "stage": "extract", "error": msg})
+            print(f"  edition skipped [{l}] extract error: {msg}")
+            continue
         per[l] = {a["question"]: a for a in ans}
-    lines = []
-    for q in qs:
-        lines.append(f"Q: {q}")
-        for l in langs:
-            a = per[l].get(q, {})
-            lines.append(f"  [{l}] value={a.get('value', '?')!r} — {a.get('answer', '')[:180]}")
-    payload = _context_block(context) + "\n".join(lines)
-    adj = _call(client, ADJ_SCHEMA, ADJ_PROMPT.format(payload=payload))["questions"]
+
+    claim_langs = [l for l in ok_langs if l in per]
+    if not qs:
+        adj = []
+        print("  CLAIM divergence skipped: no configured questions for this article.")
+    elif len(claim_langs) < MIN_EDITION_COUNT:
+        note = f"insufficient extracted editions: need >= {MIN_EDITION_COUNT}, got {len(claim_langs)}"
+        adj = _insufficient_adjudication(qs, note)
+        print(f"  CLAIM divergence unavailable: {note}")
+    else:
+        lines = []
+        for q in qs:
+            lines.append(f"Q: {q}")
+            for l in claim_langs:
+                a = per[l].get(q, {})
+                lines.append(f"  [{l}] value={a.get('value', '?')!r} — {a.get('answer', '')[:180]}")
+        payload = _context_block(context) + "\n".join(lines)
+        adj, retry_error = _adjudicate_with_retry(client, payload, qs)
+        if retry_error:
+            errors.append({"lang": "all", "stage": "adjudicate", "error": retry_error})
+            print("  adjudication needed retry due to malformed response.")
+
     print("  CLAIM divergence (the reliable signal):")
     for a in adj:
         mark = "‼" if a["verdict"] == "contradict" else (" " if a["verdict"] == "agree" else "·")
         print(f"    [{a['verdict']:>11}]{mark} {a['question'][:58]}\n        {a['note'][:110]}")
-    res = {"article": article, "asof": ts, "langs": langs,
-           "citation": {"mean_jaccard": mean_j, "domains_per_edition": {l: len(dom[l]) for l in langs}},
-           "claim": {"per_edition": per, "adjudication": adj}}
+    res = {
+        "article": article,
+        "asof": ts,
+        "langs": langs,
+        "citation": {"mean_jaccard": mean_j, "domains_per_edition": {l: len(dom[l]) for l in ok_langs}},
+        "claim": {"per_edition": per, "adjudication": adj},
+        "diagnostics": {
+            "min_edition_count": MIN_EDITION_COUNT,
+            "effective_langs": claim_langs,
+            "errors": errors,
+        },
+    }
     if persist:
         slug = config.slugify(article) + (f".asof-{ts[:10]}" if ts else "")
         config.write_findings(f"{slug}.factcheck.json", res)

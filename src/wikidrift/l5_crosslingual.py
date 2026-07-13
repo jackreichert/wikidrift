@@ -23,6 +23,11 @@ from .stance import classify, focal_passage, STANCE_VAL, default_entities
 
 _S = config.session()
 MAX_CHARS = 6000
+DEFAULT_COMPARE_LANGS = 3
+MAJOR_LANG_PRIORITY = [
+    "en", "de", "fr", "es", "ru", "ja", "zh", "it", "pt", "pl",
+    "nl", "sv", "uk", "ar", "he", "tr", "fa", "cs", "ko", "id",
+]
 
 # Topic-appropriate default language sets and focal entities (transparent, researcher-editable).
 SLATE = {
@@ -108,6 +113,57 @@ def fetch_asof(lang, title, ts=None):
 
 def prose_asof(lang, title, ts=None):
     return fetch_asof(lang, title, ts)[3]
+
+
+def _select_established_langs(links, max_langs=DEFAULT_COMPARE_LANGS, pinned=None):
+    """Choose a stable, topic-specific default language set.
+
+    Strategy:
+    - pin SLATE langs first (always included if available in links),
+    - fill remaining slots with established editions ranked by prose length,
+    - total cap = max(max_langs, len(pinned) + 2) so SLATE always gets extras,
+    - keep English in the set when available (pivot-relative read is en-anchored).
+    """
+    if not links:
+        return []
+
+    pinned_valid = [l for l in (pinned or []) if l in links]
+    cap = max(max_langs, len(pinned_valid) + 2) if pinned_valid else max_langs
+
+    major_pool = [l for l in MAJOR_LANG_PRIORITY if l in links]
+    pool = major_pool or sorted(links)
+    priority = {lang: idx for idx, lang in enumerate(MAJOR_LANG_PRIORITY)}
+
+    scored = []
+    for lang in pool:
+        if lang in pinned_valid:
+            continue
+        try:
+            prose = prose_asof(lang, links[lang], None)
+            chars = len(prose or "")
+        except Exception:  # noqa: BLE001
+            chars = 0
+        scored.append((lang, chars))
+
+    scored.sort(key=lambda row: (-row[1], priority.get(row[0], 999), row[0]))
+    extras_needed = cap - len(pinned_valid)
+    extras = [lang for lang, chars in scored if chars > 0][:extras_needed]
+    if not extras:
+        extras = [lang for lang, _ in scored][:extras_needed]
+
+    chosen = pinned_valid + extras
+
+    if "en" in links and "en" not in chosen:
+        if len(chosen) < cap:
+            chosen.append("en")
+        elif chosen:
+            chosen[-1] = "en"
+
+    out = []
+    for lang in chosen:
+        if lang not in out:
+            out.append(lang)
+    return out
 
 
 # ---- stance per edition + divergence (spikes 012b/012c) --------------------
@@ -209,9 +265,13 @@ def crosslingual(article, langs=None, pivot=True, persist=True, provider=None, m
     """Run the cross-lingual framing instrument for one article; print + return the report.
     Persists viewer-shaped findings unless persist=False (tests). `client` is the injectable LLM port —
     built from provider/model/base_url when None (CLI path), injected by the pipeline (shared client)."""
-    langs = langs or SLATE.get(article, ["en", "he", "ar"])
+    requested_langs = list(langs) if langs else None
     ents = list((context or {}).get("entities") or default_entities(article))
-    qid, links = sitelinks(article, langs)
+    qid, links = sitelinks(article, None)
+    if requested_langs:
+        langs = [l for l in requested_langs if l in links]
+    else:
+        langs = _select_established_langs(links, pinned=SLATE.get(article))
     langs = [l for l in langs if l in links]
     labels = {e: entity_labels(e, langs) for e in ents}
     prose_by_lang, meta = {}, {}
@@ -224,6 +284,8 @@ def crosslingual(article, langs=None, pivot=True, persist=True, provider=None, m
         client = llm.make_client(provider, model, base_url)
 
     print(f"=== L5 cross-lingual (framing) — {article}  ({'/'.join(langs)}) ===")
+    if not requested_langs:
+        print("  default editions: auto-selected established languages for this topic")
     if context:
         print(f"  context: L2/L2.5 feed active (entities={ents})")
     stat = static_divergence(client, article, langs, prose_by_lang, ents, labels)

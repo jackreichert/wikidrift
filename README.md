@@ -100,12 +100,25 @@ Default entity focus for L2/L5 is now **self-determined and controversy-agnostic
 For L5 cross-lingual, pivot-relative comparison currently uses one shared L1 pivot boundary for all
 selected editions in a run (not separate per-language pivot dates).
 
+Cross-lingual edition defaults are now auto-selected per topic from established language editions with
+available prose depth (English kept when available for pivot-relative comparability). Pass `--langs` to
+pin an explicit set.
+
 ### Batch-fill missing or partial topics
 
 Use the helper script to pass an explicit topic list and choose either:
 
 - `--mode full` (always run pipeline + sources + profile), or
 - `--mode fill` (run only what is missing).
+
+Current helper defaults for pipeline invocations:
+
+- LLM path is enabled by default (use `--no-llm` to disable),
+- M-score is enabled by default (use `--no-mscore` to disable),
+- L5 factcheck language cap defaults to `--l5-max-langs 6` with `--l5-cap-policy adaptive`
+  (per-topic auto-tuning from latest factcheck diagnostics),
+- set `--l5-cap-policy fixed` to always use the configured cap,
+- set `--l5-max-langs 0` for no cap.
 
 ```bash
 # preview only, explicit list
@@ -119,10 +132,16 @@ uv run python tools/cover_missing_topics.py --topics "History of Zionism" "Gaza 
 
 # still available: run for controls or all discovered partial topics
 uv run python tools/cover_missing_topics.py --only-controls --mode fill --execute
-uv run python tools/cover_missing_topics.py --mode fill --execute --mscore
+uv run python tools/cover_missing_topics.py --mode fill --execute
 
 # run the full discovered topic list with LLM layers
-uv run python tools/cover_missing_topics.py --mode full --execute --mscore
+uv run python tools/cover_missing_topics.py --mode full --execute
+
+# opt-out examples (faster/lighter)
+uv run python tools/cover_missing_topics.py --mode full --execute --no-mscore
+uv run python tools/cover_missing_topics.py --mode full --execute --no-llm
+uv run python tools/cover_missing_topics.py --mode full --execute --l5-max-langs 0
+uv run python tools/cover_missing_topics.py --mode full --execute --l5-cap-policy fixed --l5-max-langs 6
 ```
 
 Full per-verb detail, the module map, and the LLM-backend options are in
@@ -155,6 +174,19 @@ findings (no corpus, no keys needed):
 uv run python viewer/build.py          # regenerates docs/ from findings JSON
 uv run python viewer/check_contrast.py # verify the palette stays WCAG 2.1 AA
 open docs/index.html                    # preview
+```
+
+Optional: auto-categorize topic filters with an LLM during site build (cached for repeat runs):
+
+```bash
+uv run python viewer/build.py --llm-categories
+# cache file (default): .planning/spikes/data/findings/topic_categories.json
+```
+
+To recompute all cached categories:
+
+```bash
+uv run python viewer/build.py --llm-categories --refresh-categories
 ```
 
 ## Tests
@@ -195,10 +227,6 @@ builds from committed findings. Pages **deployment** is intentionally not wired 
 WikiDrift is a research tool. It surfaces **candidates for a human to adjudicate**; it names *actions* from
 public data, never intent; it does not assert "the neutral truth." What it does *not* do, and the limits it is
 honest about (born-biased blind spot, base-rate, external-reference asymmetry), are in `METHODOLOGY.md`.
-
-## Transition plan: no-prior L5 (next)
-
-The full rollout checklist lives in [TRANSITION-L5.md](TRANSITION-L5.md).
 
 ## License
 

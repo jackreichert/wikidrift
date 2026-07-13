@@ -59,6 +59,10 @@ uv run wikidrift ingest "Naliboki massacre"                    # local wikiwho_r
 Single-article verbs accept either an article title or a Wikipedia URL (for example,
 `https://en.wikipedia.org/wiki/Chess`).
 
+`crosslingual` defaults to a topic-specific, auto-selected established-edition set (targeting editions
+with stronger article coverage; English kept when present for pivot-relative comparability). Pass
+`--langs` to pin an explicit comparison set.
+
 `discover` seeds from an article's confirmed destroyers, follows *only their content-removing edits* elsewhere
 (a search prior — the graph never flags anything), subtracts the base-rate roster, and re-tests each fresh
 candidate by its **own** L1 content; a candidate is a lead only if its own trajectory confirms it (and

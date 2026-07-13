@@ -37,7 +37,8 @@ def _pipeline_entities(article, l2_summary):
     return [title] if title else []
 
 
-def run(article, llm=False, corroborate=False, provider=None, model=None, base_url=None):
+def run(article, llm=False, corroborate=False, provider=None, model=None, base_url=None,
+    l5_langs=None, l5_max_langs=None):
     """Orchestrate the layers for one article. Returns a consolidated result dict.
 
     provider/model/base_url select the LLM backend for the opt-in L2/L5 layers (see llm.py)."""
@@ -111,7 +112,10 @@ def run(article, llm=False, corroborate=False, provider=None, model=None, base_u
         for name, fn in (("crosslingual", l5_crosslingual.crosslingual), ("factcheck", l5_factcheck.factcheck)):
             try:
                 print()
-                l5[name] = fn(article, client=client, context=l5_context)
+                kwargs = {"client": client, "context": l5_context, "langs": l5_langs}
+                if name == "factcheck":
+                    kwargs["max_langs"] = l5_max_langs
+                l5[name] = fn(article, **kwargs)
             except Exception as e:                          # noqa: BLE001
                 print(f"L5 {name} skipped: {e}")
     else:

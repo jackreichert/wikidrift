@@ -93,13 +93,15 @@ def main(argv=None):
 
     sp = sub.add_parser("crosslingual", help="L5 #1 — cross-lingual framing divergence")
     sp.add_argument("article")
-    sp.add_argument("--langs", default=None, help="comma-separated editions (default: topic slate)")
+    sp.add_argument("--langs", default=None, help="comma-separated editions (default: auto established set)")
     sp.add_argument("--no-pivot", action="store_true", help="static divergence only (skip pivot-relative)")
     add_llm_flags(sp)
 
     sp = sub.add_parser("factcheck", help="L5 #2 — cross-edition citation + claim divergence")
     sp.add_argument("article")
     sp.add_argument("--langs", default=None, help="comma-separated editions (default: all)")
+    sp.add_argument("--max-langs", type=int, default=0,
+                    help="cap editions for stability (0 = no cap)")
     sp.add_argument("--asof", default=None, help="ISO date, e.g. 2018-06-01 (compare editions as of then)")
     add_llm_flags(sp)
 
@@ -115,6 +117,10 @@ def main(argv=None):
     sp.add_argument("article")
     sp.add_argument("--llm", action="store_true", help="run L2 stance on routed leads + L5 (needs an LLM key)")
     sp.add_argument("--mscore", action="store_true", help="also run the M-score controversy corroborator")
+    sp.add_argument("--l5-langs", default=None,
+                    help="comma-separated editions for L5 verbs (default: auto per verb)")
+    sp.add_argument("--l5-max-langs", type=int, default=0,
+                    help="cap L5 factcheck editions for stability (0 = no cap)")
     add_llm_flags(sp)
 
     sp = sub.add_parser("discover", help="L4 graph-guided discovery: seed → destructive footprint → L1 re-test")
@@ -168,15 +174,18 @@ def main(argv=None):
         langs = [l.strip() for l in args.langs.split(",")] if args.langs else None
         ts = f"{args.asof}T00:00:00Z" if args.asof else None
         l5_factcheck.factcheck(_normalize_article_arg(args.article), langs=langs, ts=ts,
-                               provider=args.provider, model=args.model, base_url=args.base_url)
+                               provider=args.provider, model=args.model, base_url=args.base_url,
+                               max_langs=(args.max_langs or None))
     elif args.cmd == "mscore":
         mscore.run(args.articles or ["Zionism", "Nakba", "Warsaw concentration camp",
                                      "Photosynthesis", "Climate change"], force=args.force)
     elif args.cmd == "ingest":
         ingest.ingest_articles(args.articles, force=args.force)
     elif args.cmd == "pipeline":
+        l5_langs = [l.strip() for l in args.l5_langs.split(",")] if args.l5_langs else None
         pipeline.run(_normalize_article_arg(args.article), llm=args.llm, corroborate=args.mscore,
-                     provider=args.provider, model=args.model, base_url=args.base_url)
+                     provider=args.provider, model=args.model, base_url=args.base_url,
+                     l5_langs=l5_langs, l5_max_langs=(args.l5_max_langs or None))
     elif args.cmd == "discover":
         l4.discover(_normalize_article_arg(args.article), top_n=args.top_n, limit=args.limit)
     elif args.cmd == "sources":

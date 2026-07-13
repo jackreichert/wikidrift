@@ -136,24 +136,18 @@
   },
   "Zionism": {
     "raw": {
-      "revs": 12060,
-      "editors": 3150,
-      "mutual_pairs": 384,
-      "mutual_reverters": 313,
-      "weight": 5327,
-      "M": 1667351,
-      "M_per_rev": 138.25
+      "revs": 12074,
+      "mutual_pairs": 385,
+      "M": 1674562,
+      "M_per_rev": 138.69
     },
     "refined": {
-      "revs": 9973,
-      "editors": 1806,
+      "revs": 9987,
       "mutual_pairs": 64,
-      "mutual_reverters": 59,
-      "weight": 2233,
       "M": 131747,
-      "M_per_rev": 13.21
+      "M_per_rev": 13.19
     },
-    "refined_per_rev": 10.92
+    "refined_per_rev": 10.91
   },
   "Nakba": {
     "raw": {
@@ -223,24 +217,18 @@
   },
   "Climate change": {
     "raw": {
-      "revs": 26788,
-      "editors": 5313,
+      "revs": 26791,
       "mutual_pairs": 1462,
-      "mutual_reverters": 615,
-      "weight": 43792,
       "M": 26932080,
-      "M_per_rev": 1005.38
+      "M_per_rev": 1005.27
     },
     "refined": {
-      "revs": 23495,
-      "editors": 3515,
+      "revs": 23498,
       "mutual_pairs": 330,
-      "mutual_reverters": 149,
-      "weight": 25308,
       "M": 3770892,
-      "M_per_rev": 160.5
+      "M_per_rev": 160.48
     },
-    "refined_per_rev": 140.77
+    "refined_per_rev": 140.75
   },
   "Water": {
     "raw": {

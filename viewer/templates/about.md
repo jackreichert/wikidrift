@@ -32,6 +32,9 @@ Optional named lists can sit on top as overlays; they are not the foundation. A 
 Default entity focus is self-determined from the article itself (controversy-agnostic), and pipeline runs
 pass L2/L2.5 context into L5 so external checks are guided by observed shifts rather than fixed priors.
 
+Edition selection is also defaulted for stability: runs use established topic-specific language editions,
+and batch fact-check coverage applies an adaptive language cap per topic unless explicitly overridden.
+
 A large rewrite is a *change* signal. Base-rate runs show legitimate overhauls can out-pivot contested
 topics. Direction is a separate layer (stance + cross-edition checks). Every page here is a
 [lead](glossary.html#lead) with links back to underlying revisions.

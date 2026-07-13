@@ -1,4 +1,6 @@
 """Unit tests for pure engine functions (no network, no DB, no LLM)."""
+import importlib.util
+import pathlib
 import unittest
 from unittest.mock import patch
 
@@ -14,6 +16,20 @@ from wikidrift import stance
 from wikidrift.registry import focal_entities
 
 
+def _load_cover_missing_topics_module():
+    root = pathlib.Path(__file__).resolve().parents[1]
+    path = root / "tools" / "cover_missing_topics.py"
+    spec = importlib.util.spec_from_file_location("cover_missing_topics", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec is not None
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
+
+
+cover_missing_topics = _load_cover_missing_topics_module()
+
+
 class Jaccard(unittest.TestCase):
     def test_partial_overlap(self):
         self.assertAlmostEqual(fc._jaccard({"a", "b"}, {"b", "c"}), 1 / 3)
@@ -24,6 +40,76 @@ class Jaccard(unittest.TestCase):
     def test_both_empty_is_one(self):
         # no sources on either side = vacuously identical (not a divergence signal)
         self.assertEqual(fc._jaccard(set(), set()), 1.0)
+
+
+class FactcheckResilience(unittest.TestCase):
+    def test_cap_langs_respects_positive_limit(self):
+        self.assertEqual(fc._cap_langs(["en", "he", "ar"], 2), ["en", "he"])
+
+    def test_cap_langs_no_limit_keeps_all(self):
+        self.assertEqual(fc._cap_langs(["en", "he"], None), ["en", "he"])
+        self.assertEqual(fc._cap_langs(["en", "he"], 0), ["en", "he"])
+
+    @patch("wikidrift.l5_factcheck._call")
+    def test_adjudicate_retries_once_after_malformed_output(self, mock_call):
+        mock_call.side_effect = [
+            ValueError("Unterminated string starting at line 1"),
+            {"questions": [{"question": "q", "verdict": "agree", "note": "ok"}]},
+        ]
+        out, retry_error = fc._adjudicate_with_retry(client=object(), payload="x", questions=["q"])
+        self.assertEqual(out[0]["verdict"], "agree")
+        self.assertIn("Unterminated string", retry_error)
+
+    @patch("wikidrift.l5_factcheck._call")
+    def test_adjudicate_falls_back_to_insufficient_when_retry_fails(self, mock_call):
+        mock_call.side_effect = [ValueError("bad json"), ValueError("still bad")]
+        out, retry_error = fc._adjudicate_with_retry(client=object(), payload="x", questions=["q1", "q2"])
+        self.assertEqual([row["verdict"] for row in out], ["insufficient", "insufficient"])
+        self.assertIn("bad json", retry_error)
+        self.assertIn("still bad", retry_error)
+
+    @patch("wikidrift.l5_factcheck._select_established_langs")
+    def test_resolve_requested_langs_uses_established_defaults_when_not_provided(self, mock_select):
+        mock_select.return_value = ["de", "sv", "en"]
+        langs, auto_selected = fc._resolve_requested_langs(None, {"en": "A", "de": "A", "sv": "A"})
+        self.assertEqual(langs, ["de", "sv", "en"])
+        self.assertTrue(auto_selected)
+
+    def test_resolve_requested_langs_filters_user_langs_to_available_links(self):
+        langs, auto_selected = fc._resolve_requested_langs(["en", "xx", "fr"], {"en": "A", "fr": "A"})
+        self.assertEqual(langs, ["en", "fr"])
+        self.assertFalse(auto_selected)
+
+
+class AdaptiveL5CapPolicy(unittest.TestCase):
+    def test_adaptive_cap_uses_default_when_no_prior_diagnostics(self):
+        cap, note = cover_missing_topics._adaptive_l5_cap("Abortion", {}, 6)
+        self.assertEqual(cap, 6)
+        self.assertIn("no prior diagnostics", note)
+
+    def test_adaptive_cap_reduces_when_success_rate_low(self):
+        diagnostics = {
+            "Abortion": {
+                "langs_count": 6,
+                "effective_count": 2,
+                "error_count": 4,
+            }
+        }
+        cap, note = cover_missing_topics._adaptive_l5_cap("Abortion", diagnostics, 6)
+        self.assertEqual(cap, 3)
+        self.assertIn("success=0.33", note)
+
+    def test_adaptive_cap_stays_near_default_when_success_high(self):
+        diagnostics = {
+            "Abortion": {
+                "langs_count": 6,
+                "effective_count": 6,
+                "error_count": 0,
+            }
+        }
+        cap, note = cover_missing_topics._adaptive_l5_cap("Abortion", diagnostics, 6)
+        self.assertEqual(cap, 6)
+        self.assertIn("success=1.00", note)
 
 
 class StanceValue(unittest.TestCase):
@@ -41,6 +127,34 @@ class EnglishGap(unittest.TestCase):
 
     def test_no_others_is_zero(self):
         self.assertEqual(xl._en_gap({"en": {"X": 2}}, ["X"]), 0.0)
+
+
+class CrosslingualDefaultLangs(unittest.TestCase):
+    @patch("wikidrift.l5_crosslingual.prose_asof")
+    def test_select_established_langs_prefers_longer_topic_prose(self, mock_prose_asof):
+        links = {"en": "A", "fr": "A", "he": "A", "ar": "A"}
+        lengths = {"en": 100, "fr": 5000, "he": 2000, "ar": 1500}
+        mock_prose_asof.side_effect = lambda lang, title, ts=None: "x" * lengths[lang]
+        out = xl._select_established_langs(links, max_langs=3)
+        self.assertEqual(out, ["fr", "he", "en"])
+
+    @patch("wikidrift.l5_crosslingual.prose_asof")
+    def test_select_established_langs_keeps_english_anchor_when_available(self, mock_prose_asof):
+        links = {"en": "A", "de": "A", "fr": "A"}
+        lengths = {"en": 1, "de": 4000, "fr": 3000}
+        mock_prose_asof.side_effect = lambda lang, title, ts=None: "x" * lengths[lang]
+        out = xl._select_established_langs(links, max_langs=2)
+        self.assertEqual(out, ["de", "en"])
+
+    @patch("wikidrift.l5_crosslingual.prose_asof")
+    def test_pinned_langs_always_included_and_extras_filled_by_prose(self, mock_prose_asof):
+        # SLATE pins en/he/ar; de/fr are longer but should still fill extra slots
+        links = {"en": "A", "he": "A", "ar": "A", "de": "A", "fr": "A"}
+        lengths = {"en": 100, "he": 2000, "ar": 1500, "de": 8000, "fr": 7000}
+        mock_prose_asof.side_effect = lambda lang, title, ts=None: "x" * lengths[lang]
+        # cap = max(3, 3+2) = 5; pinned=[en,he,ar]; extras=[de,fr]
+        out = xl._select_established_langs(links, pinned=["en", "he", "ar"])
+        self.assertEqual(out, ["en", "he", "ar", "de", "fr"])
 
 
 class MScore(unittest.TestCase):

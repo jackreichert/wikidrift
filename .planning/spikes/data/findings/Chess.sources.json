@@ -26,11 +26,6 @@
   },
   "added": [
     {
-      "domain": "fide.com",
-      "from": 1,
-      "to": 2
-    },
-    {
       "domain": "freechess.org",
       "from": 0,
       "to": 1
@@ -39,16 +34,21 @@
       "domain": "geocities.com",
       "from": 0,
       "to": 1
+    },
+    {
+      "domain": "fide.com",
+      "from": 1,
+      "to": 2
     }
   ],
   "dropped": [
     {
-      "domain": "chess.ibm.com",
+      "domain": "handbook.fide.com",
       "from": 1,
       "to": 0
     },
     {
-      "domain": "handbook.fide.com",
+      "domain": "chess.ibm.com",
       "from": 1,
       "to": 0
     }

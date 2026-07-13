@@ -241,9 +241,9 @@
     "Gaza genocide": {
       "variants": {
         "lead": {
-          "divergence": 0.0,
+          "divergence": 2.0,
           "spreads": {
-            "Gaza genocide": 0
+            "Gaza genocide": 2
           }
         },
         "focal": {
@@ -271,26 +271,16 @@
       }
     },
     "Zionism": {
-      "article": "Zionism",
-      "langs": [
-        "en",
-        "he",
-        "ar"
-      ],
       "variants": {
         "lead": {
-          "divergence": 1.67,
+          "divergence": 2.0,
           "spreads": {
-            "Israel": 2,
-            "Palestinians": 1,
             "Zionism": 2
           }
         },
         "focal": {
-          "divergence": 1.33,
+          "divergence": 2.0,
           "spreads": {
-            "Israel": 1,
-            "Palestinians": 1,
             "Zionism": 2
           }
         }
@@ -355,15 +345,15 @@
     "Abortion": {
       "variants": {
         "lead": {
-          "divergence": 1.0,
+          "divergence": 0.0,
           "spreads": {
-            "Abortion": 1
+            "Abortion": 0
           }
         },
         "focal": {
-          "divergence": 1.0,
+          "divergence": 0.0,
           "spreads": {
-            "Abortion": 1
+            "Abortion": 0
           }
         }
       }
@@ -447,9 +437,9 @@
     "Genocide of indigenous peoples": {
       "variants": {
         "lead": {
-          "divergence": 0.0,
+          "divergence": 2.0,
           "spreads": {
-            "Genocide of indigenous peoples": 0
+            "Genocide of indigenous peoples": 2
           }
         },
         "focal": {
@@ -510,12 +500,12 @@
     "Hamas": {
       "pivot": "2023-01-01",
       "pivot_source": "L1 (peak 55.5%, 534,063 PWR, age 1.0yr)",
-      "en_gap_before": 0.0,
+      "en_gap_before": 1.0,
       "en_gap_after": 0.0,
-      "read": "no net change",
+      "read": "converged",
       "before": {
         "en": {
-          "Hamas": 0
+          "Hamas": -1
         },
         "he": {
           "Hamas": -1
@@ -603,15 +593,15 @@
     "Gaza war": {
       "pivot": "2024-01-01",
       "pivot_source": "L1 (peak 72.3%, 194,861 PWR, age 0.0yr)",
-      "en_gap_before": 1.5,
+      "en_gap_before": 0.0,
       "en_gap_after": 0.5,
-      "read": "converged",
+      "read": "PEELED AWAY",
       "before": {
         "en": {
-          "Gaza war": -1
+          "Gaza war": 0
         },
         "he": {
-          "Gaza war": 1
+          "Gaza war": 0
         },
         "ar": {
           "Gaza war": 0
@@ -772,8 +762,8 @@
       "pivot": "2023-10-01",
       "pivot_source": "fallback (L1=HEALTHY — addition-side growth)",
       "en_gap_before": 0.0,
-      "en_gap_after": 0.0,
-      "read": "no net change",
+      "en_gap_after": 1.0,
+      "read": "PEELED AWAY",
       "before": {
         "en": {
           "Genetic studies of Jews": 0
@@ -787,7 +777,7 @@
           "Genetic studies of Jews": 0
         },
         "he": {
-          "Genetic studies of Jews": 0
+          "Genetic studies of Jews": 1
         }
       }
     },
@@ -811,20 +801,20 @@
     "Bar Kokhba Revolt": {
       "pivot": "2025-01-01",
       "pivot_source": "L1 (peak 61.0%, 311,631 PWR, age 0.0yr)",
-      "en_gap_before": 1.0,
-      "en_gap_after": 1.0,
+      "en_gap_before": 0.0,
+      "en_gap_after": 0.0,
       "read": "no net change",
       "before": {
         "en": {
           "Bar Kokhba Revolt": 1
         },
         "he": {
-          "Bar Kokhba Revolt": 0
+          "Bar Kokhba Revolt": 1
         }
       },
       "after": {
         "en": {
-          "Bar Kokhba Revolt": 0
+          "Bar Kokhba Revolt": 1
         },
         "he": {
           "Bar Kokhba Revolt": 1
@@ -887,44 +877,43 @@
       }
     },
     "Zionism": {
-      "article": "Zionism",
       "pivot": "2024-07-01",
       "pivot_source": "L1 (peak 68.4%, 824,017 PWR, age 0.5yr)",
-      "en_gap_before": 0.17,
-      "en_gap_after": 0.67,
+      "en_gap_before": 0.0,
+      "en_gap_after": 1.0,
       "read": "PEELED AWAY",
       "before": {
         "en": {
-          "Israel": 0,
-          "Palestinians": 0,
           "Zionism": 0
         },
         "he": {
-          "Israel": 0,
-          "Palestinians": 0,
           "Zionism": 1
         },
         "ar": {
-          "Israel": 0,
-          "Palestinians": 1,
           "Zionism": -1
+        },
+        "de": {
+          "Zionism": 0
+        },
+        "ja": {
+          "Zionism": 0
         }
       },
       "after": {
         "en": {
-          "Israel": 0,
-          "Palestinians": 1,
           "Zionism": -1
         },
         "he": {
-          "Israel": 0,
-          "Palestinians": 0,
           "Zionism": 1
         },
         "ar": {
-          "Israel": -1,
-          "Palestinians": 1,
           "Zionism": -1
+        },
+        "de": {
+          "Zionism": 0
+        },
+        "ja": {
+          "Zionism": 0
         }
       }
     },
@@ -941,25 +930,25 @@
       "en_gap_after": 1.0,
       "read": "PEELED AWAY",
       "before": {
+        "de": {
+          "Abortion": 0
+        },
+        "sv": {
+          "Abortion": 0
+        },
         "en": {
-          "Abortion": 0
-        },
-        "he": {
-          "Abortion": 0
-        },
-        "ar": {
           "Abortion": 0
         }
       },
       "after": {
+        "de": {
+          "Abortion": 0
+        },
+        "sv": {
+          "Abortion": 0
+        },
         "en": {
           "Abortion": 1
-        },
-        "he": {
-          "Abortion": 0
-        },
-        "ar": {
-          "Abortion": 0
         }
       }
     },
@@ -1069,7 +1058,7 @@
       },
       "after": {
         "en": {
-          "Climate change": 0
+          "Climate change": -1
         },
         "he": {
           "Climate change": 0
@@ -1124,7 +1113,7 @@
       },
       "after": {
         "en": {
-          "Fascism and ideology": null
+          "Fascism and ideology": -1
         },
         "ar": {
           "Fascism and ideology": null

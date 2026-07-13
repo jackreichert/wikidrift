@@ -1,0 +1,114 @@
+{
+  "article": "Abortion",
+  "asof": null,
+  "langs": [
+    "de",
+    "sv",
+    "en"
+  ],
+  "citation": {
+    "mean_jaccard": 0.05,
+    "domains_per_edition": {
+      "de": 197,
+      "sv": 34,
+      "en": 105
+    }
+  },
+  "claim": {
+    "per_edition": {
+      "sv": {
+        "Vad kallas det när graviditeten avslutas genom att embryot dör utan att livmodern stöter ut det?": {
+          "question": "Vad kallas det när graviditeten avslutas genom att embryot dör utan att livmodern stöter ut det?",
+          "answer": "Missed abortion",
+          "value": "missed abortion",
+          "evidence": "vilket kallas missed abortion"
+        },
+        "Vad kallas spontan abort hos djur?": {
+          "question": "Vad kallas spontan abort hos djur?",
+          "answer": "Kastning",
+          "value": "kastning",
+          "evidence": "Spontan abort hos djur kallas kastning."
+        },
+        "Inom hur lång tid måste ett akut-p-piller tas för att förhindra graviditet?": {
+          "question": "Inom hur lång tid måste ett akut-p-piller tas för att förhindra graviditet?",
+          "answer": "72 timmar",
+          "value": "72 timmar",
+          "evidence": "Om en preventivmetod har misslyckats är det möjligt att inom 72 timmar med ett akut-p-piller förhindra att en graviditet uppstår"
+        },
+        "Fram till vilken graviditetsvecka är medicinsk abort vanligast/möjlig?": {
+          "question": "Fram till vilken graviditetsvecka är medicinsk abort vanligast/möjlig?",
+          "answer": "Graviditetsvecka 8+6",
+          "value": "vecka 8+6",
+          "evidence": "Vid tidig graviditet, upp till graviditetsvecka 8+6, är medicinsk abort vanligast."
+        },
+        "Fram till vilken graviditetsvecka är det möjligt att genomföra en kirurgisk abort?": {
+          "question": "Fram till vilken graviditetsvecka är det möjligt att genomföra en kirurgisk abort?",
+          "answer": "Vecka 13+6",
+          "value": "vecka 13+6",
+          "evidence": "Fram till vecka 13+6 är det även möjligt för patienten att genomföra en kirurgisk abort."
+        },
+        "Vilken metod för tömning av livmodern används vid kirurgisk abort?": {
+          "question": "Vilken metod för tömning av livmodern används vid kirurgisk abort?",
+          "answer": "Vakuumextirpation",
+          "value": "vakuumextirpation",
+          "evidence": "går ut på att man tömmer livmodern genom vakuumextirpation"
+        },
+        "Efter vilken vecka används tvåstegs-metoden vid sent avbrytande?": {
+          "question": "Efter vilken vecka används tvåstegs-metoden vid sent avbrytande?",
+          "answer": "Efter vecka 13+5",
+          "value": "efter vecka 13+5",
+          "evidence": "Efter vecka 13+5 används så kallad tvåstegs-metod, eftersom det finns risk för skador på livmoderhalsen eller livmodern vid en kirurgisk abort."
+        },
+        "Hur länge kan patienten blöda efter aborten?": {
+          "question": "Hur länge kan patienten blöda efter aborten?",
+          "answer": "Upp till 4 veckor",
+          "value": "upp till 4 veckor",
+          "evidence": "Efter aborten kan patienten blöda som en mensblödning upp till 4 veckor."
+        },
+        "Efter hur lång tid kommer patienten i regel på återbesök efter aborten?": {
+          "question": "Efter hur lång tid kommer patienten i regel på återbesök efter aborten?",
+          "answer": "Cirka 2 veckor",
+          "value": "ca 2 veckor",
+          "evidence": "Efter ca 2 veckor kommer patienten på återbesök för att undersöka att aborten är komplett och att inga komplikationer uppstått."
+        },
+        "Vilket prov tas alltid innan en abort genomförs?": {
+          "question": "Vilket prov tas alltid innan en abort genomförs?",
+          "answer": "Klamydiaprov",
+          "value": "klamydiaprov",
+          "evidence": "Innan en abort genomförs tas alltid klamydiaprov, ibland tas också andra prover."
+        },
+        "Vem utför den kirurgiska abortoperationen?": {
+          "question": "Vem utför den kirurgiska abortoperationen?",
+          "answer": "En gynekolog",
+          "value": "gynekolog",
+          "evidence": "Operationen tar bara några minuter och utförs av en gynekolog."
+        },
+        "Hur lång tid tar den kirurgiska abortoperationen (proceduren)?": {
+          "question": "Hur lång tid tar den kirurgiska abortoperationen (proceduren)?",
+          "answer": "Oftast en dag",
+          "value": "en dag",
+          "evidence": "Hela proceduren tar oftast en dag då patienten får stanna för observation efter aborten."
+        }
+      }
+    },
+    "adjudication": []
+  },
+  "diagnostics": {
+    "min_edition_count": 2,
+    "effective_langs": [
+      "sv"
+    ],
+    "errors": [
+      {
+        "lang": "de",
+        "stage": "extract",
+        "error": "Unterminated string starting at: line 1 column 3153 (char 3152)"
+      },
+      {
+        "lang": "en",
+        "stage": "extract",
+        "error": "Unterminated string starting at: line 1 column 4347 (char 4346)"
+      }
+    ]
+  }
+}

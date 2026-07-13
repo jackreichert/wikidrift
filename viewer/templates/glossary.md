@@ -17,7 +17,8 @@ negative sentiment (tone ≠ viewpoint balance).</dd>
 <dt id="cross-lingual">Cross-lingual comparison</dt><dd>Same topic across language editions. Can be
 static (today) or <i>pivot-relative</i> (before vs after a detected rewrite). Disagreement is a signal with
 more than one possible cause. In current runs, pivot-relative mode uses one shared L1 pivot boundary
-across all compared editions.</dd>
+across all compared editions. Unless explicitly pinned, default runs select established editions for the
+topic rather than a hardcoded language trio.</dd>
 <dt id="fact-divergence">Fact divergence</dt><dd>Incompatible load-bearing claims across editions (e.g.
 different counts). Separate from framing: facts can agree while frames differ.</dd>
 <dt id="lexical-drift">Lexical drift</dt><dd>Shift in term distribution between two revision windows,

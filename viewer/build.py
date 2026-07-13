@@ -6,6 +6,7 @@ Family chrome matches encyclopediae.org (Source Sans, light header, dark footer)
 Run:    python viewer/build.py
 Deploy: GitHub Pages serves `/docs`; CNAME = wikidrift.encyclopediae.org
 """
+import argparse
 import difflib
 import html
 import json
@@ -81,6 +82,88 @@ CATEGORY = {
     "Photosynthesis": "Science (control)", "Water": "Science (control)", "Chess": "Science (control)",
     "Brontosaurus": "Science (control)", "Abortion": "Cross-domain", "Climate change": "Cross-domain",
 }
+DEFAULT_CATEGORY = "Other"
+CATEGORY_CACHE = FIND / "topic_categories.json"
+CATEGORY_OPTIONS = [
+    "Israel–Palestine",
+    "Holocaust in Poland",
+    "Science (control)",
+    "Cross-domain",
+    "Other",
+]
+
+
+def _category_for(article, categories):
+    return categories.get(article, DEFAULT_CATEGORY)
+
+
+def _load_category_cache(path):
+    data = load(path) if path else None
+    if not isinstance(data, dict):
+        return {}
+    cats = data.get("categories")
+    if not isinstance(cats, dict):
+        return {}
+    out = {}
+    for k, v in cats.items():
+        if isinstance(k, str) and isinstance(v, str):
+            out[k] = v
+    return out
+
+
+def _save_category_cache(path, categories):
+    payload = {"version": 1, "categories": dict(sorted(categories.items()))}
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def _llm_category_client(provider=None, model=None, base_url=None):
+    from wikidrift import llm as llm_backend
+    return llm_backend.make_client(provider=provider, model=model, base_url=base_url)
+
+
+def _llm_categorize_topic(client, article):
+    schema = {
+        "type": "object",
+        "additionalProperties": False,
+        "required": ["category"],
+        "properties": {
+            "category": {"type": "string", "enum": CATEGORY_OPTIONS}
+        },
+    }
+    prompt = (
+        "Classify this Wikipedia topic title into one category for website filtering. "
+        "Return JSON only.\n"
+        f"Topic: {article}\n"
+        f"Allowed categories: {', '.join(CATEGORY_OPTIONS)}\n"
+        "Use 'Other' when uncertain."
+    )
+    return client.complete_json(schema, prompt, max_tokens=128)["category"]
+
+
+def resolve_categories(articles, use_llm=False, refresh=False, cache_path=CATEGORY_CACHE,
+                       provider=None, model=None, base_url=None):
+    categories = {a: CATEGORY.get(a, DEFAULT_CATEGORY) for a in articles}
+    if not use_llm:
+        return categories
+
+    cache = _load_category_cache(cache_path)
+    categories.update({a: cache[a] for a in articles if a in cache})
+    needed = [a for a in articles if refresh or a not in cache]
+    if not needed:
+        return categories
+
+    client = _llm_category_client(provider=provider, model=model, base_url=base_url)
+    for article in needed:
+        try:
+            cat = _llm_categorize_topic(client, article)
+        except Exception as e:  # noqa: BLE001
+            print(f"category fallback [{article}]: {e}")
+            cat = CATEGORY.get(article, DEFAULT_CATEGORY)
+        categories[article] = cat
+        cache[article] = cat
+    _save_category_cache(cache_path, cache)
+    return categories
 
 
 def load(path):
@@ -672,7 +755,7 @@ def _layer_flags(article, f):
     ]
 
 
-def article_page(article, f):
+def article_page(article, f, categories):
     rec, st, diver = f.receipts.get(article), f.stances.get(article), f.diver
     fcs = f.factchecks.get(article, {})
     diff, pv = f.diffs.get(article), f.pivots.get(article)
@@ -698,7 +781,7 @@ def article_page(article, f):
         panels.append(("Sources", sources_section(article, src), "sources"))
     if rec:
         panels.append(("Revisions", receipts_section(rec), "revisions"))
-    cat = CATEGORY.get(article, "Other")
+    cat = _category_for(article, categories)
     body = (
         f'<div class="page-intro"><p class="kicker">{esc(cat)}</p><h1>{esc(article)}</h1>'
         f'<p class="summary">{esc(lead)}</p>'
@@ -745,15 +828,15 @@ def lexical_score(article, f):
         return 0.0
 
 
-def index_page(articles, f):
-    cats = sorted({CATEGORY.get(a, "Other") for a in articles})
+def index_page(articles, f, categories):
+    cats = sorted({_category_for(a, categories) for a in articles})
     chips = ('<button type="button" class="fchip active" data-cat="all" aria-pressed="true">All</button>'
              + "".join(f'<button type="button" class="fchip" data-cat="{esc(c)}" aria-pressed="false">{esc(c)}</button>'
                        for c in cats))
     rows = []
     for a in articles:
         h = headline(a, f.stances.get(a), f.diver, f.factchecks.get(a, {}), f.mscore)
-        cat = CATEGORY.get(a, "Other")
+        cat = _category_for(a, categories)
         stat = f.diver.get("static", {}).get(a)
         score = stat["variants"]["lead"]["divergence"] if stat else 0
         sc = score if score is not None else 0
@@ -822,9 +905,41 @@ METHODOLOGY_BODY = _md_asset("methodology")
 CSS = _asset("style.css")
 
 
-def main():
+def _parse_args(argv=None):
+    parser = argparse.ArgumentParser(description="Build static WikiDrift site")
+    parser.add_argument(
+        "--llm-categories",
+        action="store_true",
+        help="Use LLM to categorize topics for index filters (cached in findings)",
+    )
+    parser.add_argument(
+        "--refresh-categories",
+        action="store_true",
+        help="Refresh cached LLM categories for all topics (implies --llm-categories)",
+    )
+    parser.add_argument("--provider", default=None, help="LLM provider override for category classification")
+    parser.add_argument("--model", default=None, help="LLM model override for category classification")
+    parser.add_argument("--base-url", dest="base_url", default=None,
+                        help="LLM base URL override for category classification")
+    parser.add_argument("--category-cache", default=str(CATEGORY_CACHE),
+                        help="Path to persisted topic-category cache JSON")
+    return parser.parse_args(argv)
+
+
+def main(argv=None):
+    args = _parse_args(argv)
     f = gather()
     articles = f.articles()
+    use_llm_categories = args.llm_categories or args.refresh_categories
+    categories = resolve_categories(
+        articles,
+        use_llm=use_llm_categories,
+        refresh=args.refresh_categories,
+        cache_path=pathlib.Path(args.category_cache),
+        provider=args.provider,
+        model=args.model,
+        base_url=args.base_url,
+    )
     SITE.mkdir(parents=True, exist_ok=True)
     (SITE / "article").mkdir(exist_ok=True)
     for stale in (SITE / "article").glob("*.html"):
@@ -833,12 +948,12 @@ def main():
     (SITE / "site.js").write_text(_asset("site.js"), encoding="utf-8")
     (SITE / "CNAME").write_text(CUSTOM_DOMAIN + "\n", encoding="utf-8")
     (SITE / ".nojekyll").write_text("", encoding="utf-8")
-    (SITE / "index.html").write_text(index_page(articles, f), encoding="utf-8")
+    (SITE / "index.html").write_text(index_page(articles, f, categories), encoding="utf-8")
     (SITE / "about.html").write_text(simple_page("About", ABOUT_BODY, "about"), encoding="utf-8")
     (SITE / "methodology.html").write_text(simple_page("Methodology", METHODOLOGY_BODY, "methodology"), encoding="utf-8")
     (SITE / "glossary.html").write_text(simple_page("Glossary", GLOSSARY_BODY, "glossary"), encoding="utf-8")
     for a in articles:
-        (SITE / "article" / f"{slugify(a)}.html").write_text(article_page(a, f), encoding="utf-8")
+        (SITE / "article" / f"{slugify(a)}.html").write_text(article_page(a, f, categories), encoding="utf-8")
         if a in f.pivots:
             for i, p in enumerate(f.pivots[a]["pivots"]):
                 (SITE / "article" / f"{slugify(a)}.p{i}.html").write_text(pivot_page(a, p, i), encoding="utf-8")

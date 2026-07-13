@@ -21,9 +21,9 @@
       "lead": {
         "Gaza war": {
           "entity": "Gaza war",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "Many scholarly sources and international organizations...have concluded that Israel's actions in Gaza constitute genocide under international law."
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "The Gaza war is an armed conflict in the Gaza Strip and Israel, fought as part of the unresolved Israeli–Palestinian and Gaza–Israel conflicts."
         }
       }
     },
@@ -33,7 +33,7 @@
           "entity": "Gaza war",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "זירת רצועת עזה במלחמת חרבות ברזל (המכונה גם מלחמת עזה) היא זירת הלחימה ברצועת עזה במלחמת חרבות ברזל, שהייתה הזירה המרכזית לאורך רוב חודשי המלחמה."
+          "evidence": "זירת רצועת עזה במלחמת חרבות ברזל (המכונה גם מלחמת עזה) היא זירת הלחימה ברצועת עזה במלחמת חרבות ברזל, שהייתה הזירה המרכזית לאורך רוב חודשי המלחמה"
         }
       },
       "lead": {
@@ -41,25 +41,7 @@
           "entity": "Gaza war",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "תיאור כרונולוגי של שלבי המלחמה, פעולות צה\"ל, וארגונים בין-לאומיים בטון תיעודי-אנציקלופדי"
-        },
-        "Hamas": {
-          "entity": "Hamas",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "ארגון טרור אסלאמיסטי-סוני פלסטיני... טבח שבעה באוקטובר שבוצע על ידי ארגוני הטרור"
-        },
-        "Israel/IDF": {
-          "entity": "Israel/IDF",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "תיאור פעולות צה\"ל בטון אופרטיבי-הרואי, כגון 'לוחמי הפלגה בלמו מחבלים', 'סוכלו ניסיונות חדירה', לצד תיאור מרוסן וקצר יותר של הנפגעים הפלסטינים"
-        },
-        "Palestinian civilians/Gaza population": {
-          "entity": "Palestinian civilians/Gaza population",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "תקיפות אלו גרמו להרג של עשרות אלפי אזרחים, לצד הרס כמעט מוחלט של תשתיות, בתי חולים ובתי ספר"
+          "evidence": "היא זירת הלחימה ברצועת עזה במלחמת חרבות ברזל, שהייתה הזירה המרכזית לאורך רוב חודשי המלחמה"
         }
       }
     },
@@ -69,7 +51,7 @@
           "entity": "Gaza war",
           "stance": "critical",
           "npov_departure": true,
-          "evidence": "The passage frames the war predominantly through extensive detail on Palestinian civilian casualties, destruction, famine, and accusations of genocide against Israel, using terms like 'العدوان الإسرائيلي على غزة' (Israeli aggression on Gaza) and describing Israel's siege as causing 'تجويع' (starvation as a weapon) and 'تطهير عرقي' (ethnic cleansing), while providing comparatively less scrutiny of Hamas's actions beyond the October 7 casualty figures, indicating a departure from neutral encyclopedic framing toward a viewpoint critical of Israel's conduct in the war."
+          "evidence": "وبحلول أوائل عام 2025، تسبّبت إسرائيل في دمار غير مسبوق في غزة وجعلت أجزاء كبيرة منها غير صالحة للسكن... حيث يعتبر هذا تهجيراً قسرياً من شأنه أن يرقى إلى جريمة حرب"
         }
       },
       "lead": {
@@ -77,7 +59,7 @@
           "entity": "Gaza war",
           "stance": "critical",
           "npov_departure": true,
-          "evidence": "The passage's framing of the war overall is heavily weighted toward detailing Israeli-caused destruction, casualties, famine, forced displacement, and genocide allegations ('تسبّبت إسرائيل في دمار غير مسبوق', 'إبادة جماعية', 'موجة موت جماعي'), presenting the conflict predominantly through the lens of Israeli culpability and Palestinian suffering, using terms like 'العدوان الإسرائيلي على غزة' as an alternate title, which departs from a neutral, balanced encyclopedic description of the war as a two-sided conflict."
+          "evidence": "وبحلول أوائل عام 2025، تسبّبت إسرائيل في دمار غير مسبوق في غزة وجعلت أجزاء كبيرة منها غير صالحة للسكن... وقد صرّح خبراء ومنظمات حقوق الإنسان بأن إسرائيل وحماس ارتكبتا جرائم حرب وأن الأحداث في غزة كانت إبادة جماعية"
         }
       }
     }

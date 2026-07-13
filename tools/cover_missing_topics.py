@@ -30,6 +30,8 @@ import sys
 from pathlib import Path
 
 DEFAULT_REQUIRED_LAYERS = ["receipts", "stance", "factcheck", "sources", "profile"]
+DEFAULT_L5_MAX_LANGS = 6
+MIN_ADAPTIVE_L5_MAX_LANGS = 3
 DEFAULT_CONTROLS = [
     "Photosynthesis",
     "Brontosaurus",
@@ -38,6 +40,67 @@ DEFAULT_CONTROLS = [
     "Chess",
     "Water",
 ]
+EXCLUDED_AUTO_TOPICS = {"Demo Topic"}
+
+
+def _fetch_extract_error_count(errors: list[dict]) -> int:
+    stages = {"fetch", "extract"}
+    return sum(1 for err in errors if err.get("stage") in stages)
+
+
+def _load_factcheck_diagnostics(findings_dir: Path) -> dict[str, dict]:
+    latest: dict[str, tuple[float, dict]] = {}
+    for p in findings_dir.glob("*.factcheck.json"):
+        try:
+            payload = json.loads(p.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        topic = (payload.get("article") or "").strip()
+        if not topic:
+            continue
+        diagnostics = payload.get("diagnostics") or {}
+        if not isinstance(diagnostics, dict):
+            diagnostics = {}
+        record = {
+            "langs_count": len(payload.get("langs") or []),
+            "effective_count": len(diagnostics.get("effective_langs") or []),
+            "error_count": _fetch_extract_error_count(diagnostics.get("errors") or []),
+        }
+        mtime = p.stat().st_mtime
+        prev = latest.get(topic)
+        if prev is None or mtime >= prev[0]:
+            latest[topic] = (mtime, record)
+    return {topic: record for topic, (_, record) in latest.items()}
+
+
+def _adaptive_l5_cap(topic: str, diagnostics: dict[str, dict], default_cap: int) -> tuple[int, str]:
+    record = diagnostics.get(topic)
+    if not record:
+        return default_cap, f"L5 cap adaptive: no prior diagnostics; using {default_cap}"
+
+    attempted = int(record.get("langs_count") or 0)
+    effective = int(record.get("effective_count") or 0)
+    errors = int(record.get("error_count") or 0)
+
+    observed = max(attempted, effective + errors, 1)
+    success = effective / observed
+
+    cap = max(MIN_ADAPTIVE_L5_MAX_LANGS, min(default_cap, effective + 1))
+    if effective < 2 or success < 0.50:
+        cap = MIN_ADAPTIVE_L5_MAX_LANGS
+    elif success < 0.70:
+        cap = min(cap, 4)
+    elif success < 0.85:
+        cap = min(cap, 5)
+    else:
+        cap = min(default_cap, max(cap, min(default_cap, effective + 1)))
+
+    note = (
+        "L5 cap adaptive: "
+        f"attempted={attempted} effective={effective} errors={errors} "
+        f"success={success:.2f} -> {cap}"
+    )
+    return cap, note
 
 
 def _title_from_filename(path: Path, suffix: str) -> str:
@@ -89,17 +152,20 @@ def _run(cmd: list[str], execute: bool) -> int:
     return int(completed.returncode)
 
 
-def _pipeline_cmd(topic: str, use_llm: bool, include_mscore: bool) -> list[str]:
+def _pipeline_cmd(topic: str, use_llm: bool, include_mscore: bool, l5_max_langs: int | None = None) -> list[str]:
     base = [sys.executable, "-m", "wikidrift.cli"]
     cmd = base + ["pipeline", topic]
     if use_llm:
         cmd.append("--llm")
+        if l5_max_langs and l5_max_langs > 0:
+            cmd.extend(["--l5-max-langs", str(l5_max_langs)])
     if include_mscore:
         cmd.append("--mscore")
     return cmd
 
 
 def _topic_commands(topic: str, use_llm: bool, include_mscore: bool, mode: str,
+                    l5_max_langs: int | None,
                     required: set[str], have: set[str]) -> tuple[list[list[str]], list[str]]:
     """Return (commands, notes) for this topic under the selected mode."""
     base = [sys.executable, "-m", "wikidrift.cli"]
@@ -109,7 +175,12 @@ def _topic_commands(topic: str, use_llm: bool, include_mscore: bool, mode: str,
     if mode == "full":
         # Full path always runs pipeline once.
         pipeline_llm = use_llm
-        cmds.append(_pipeline_cmd(topic, use_llm=pipeline_llm, include_mscore=include_mscore))
+        cmds.append(_pipeline_cmd(
+            topic,
+            use_llm=pipeline_llm,
+            include_mscore=include_mscore,
+            l5_max_langs=l5_max_langs,
+        ))
         cmds.append(base + ["sources", topic])
         cmds.append(base + ["profile", topic])
         return cmds, notes
@@ -119,7 +190,12 @@ def _topic_commands(topic: str, use_llm: bool, include_mscore: bool, mode: str,
     needs_core = bool({"receipts", "stance", "factcheck"} & missing)
     if needs_core:
         pipeline_llm = use_llm
-        cmds.append(_pipeline_cmd(topic, use_llm=pipeline_llm, include_mscore=include_mscore))
+        cmds.append(_pipeline_cmd(
+            topic,
+            use_llm=pipeline_llm,
+            include_mscore=include_mscore,
+            l5_max_langs=l5_max_langs,
+        ))
 
     if "sources" in missing:
         cmds.append(base + ["sources", topic])
@@ -182,8 +258,27 @@ def main() -> int:
     )
     parser.add_argument(
         "--mscore",
-        action="store_true",
-        help="Also pass --mscore when running pipeline",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Pass --mscore when running pipeline (default: on; use --no-mscore to skip)",
+    )
+    parser.add_argument(
+        "--l5-max-langs",
+        type=int,
+        default=DEFAULT_L5_MAX_LANGS,
+        help=(
+            "When --llm is active, cap L5 factcheck editions for stability "
+            f"(default: {DEFAULT_L5_MAX_LANGS}; set 0 for no cap)"
+        ),
+    )
+    parser.add_argument(
+        "--l5-cap-policy",
+        choices=["adaptive", "fixed"],
+        default="adaptive",
+        help=(
+            "Cap strategy when --l5-max-langs > 0: "
+            "adaptive uses latest topic diagnostics, fixed always uses --l5-max-langs"
+        ),
     )
     args = parser.parse_args()
 
@@ -214,7 +309,7 @@ def main() -> int:
     elif args.only_controls:
         candidates = set(args.controls)
     else:
-        candidates = set(layers.keys())
+        candidates = set(layers.keys()) - EXCLUDED_AUTO_TOPICS
 
     if args.mode == "fill":
         targets = sorted(t for t in candidates if not required.issubset(layers.get(t, set())))
@@ -228,6 +323,7 @@ def main() -> int:
         return 0
 
     use_llm = not args.no_llm
+    factcheck_diagnostics = _load_factcheck_diagnostics(findings_dir)
     failures = 0
 
     for topic in targets:
@@ -236,11 +332,16 @@ def main() -> int:
         print(f"\n=== {topic} ===")
         print(f"  have: {have}")
         print(f"  missing: {missing}")
+        topic_l5_max_langs = args.l5_max_langs or None
+        if use_llm and topic_l5_max_langs and args.l5_cap_policy == "adaptive":
+            topic_l5_max_langs, cap_note = _adaptive_l5_cap(topic, factcheck_diagnostics, args.l5_max_langs)
+            print(f"  note: {cap_note}")
         cmds, notes = _topic_commands(
             topic,
             use_llm=use_llm,
             include_mscore=args.mscore,
             mode=args.mode,
+            l5_max_langs=topic_l5_max_langs,
             required=required,
             have=set(have),
         )

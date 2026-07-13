@@ -21,9 +21,9 @@
       "lead": {
         "Gaza genocide": {
           "entity": "Gaza genocide",
-          "stance": "sympathetic",
+          "stance": "critical",
           "npov_departure": true,
-          "evidence": "The passage opens by declaring as fact that 'The Gaza genocide is the ongoing, intentional, and systematic destruction of the Palestinian people in the Gaza Strip carried out by Israel,' presenting a contested characterization as settled encyclopedic fact rather than attributing it to specific bodies, which departs from neutral framing."
+          "evidence": "The Gaza genocide is the ongoing, intentional, and systematic destruction of the Palestinian people in the Gaza Strip carried out by Israel during the Gaza war."
         }
       }
     },
@@ -41,7 +41,7 @@
           "entity": "Gaza genocide",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "בשני חודשי המלחמה הראשונים, ישראל הטילה 25,000 טונות של חומרי נפץ על רצועת עזה... פורסם בעיתון \"הארץ\" כי מפקדים ישראלים הקימו \"שטחי השמדה\" שבהם חיילים קיבלו פקודה לירות ולהרוג כל מי שנראה לעין, גם אם לא היה חמוש"
+          "evidence": "הפסקה מציגה בהרחבה ובפירוט רב את הטענות והראיות לתמיכה בטענת רצח העם (מספרי הרוגים, ציטוטים ממומחים, החלטות בין-לאומיות), בעוד שהכחשת ישראל מוצגת בקצרה יחסית ומתויגת כ'מנגד', מה שמייצר נטייה מבנית לכיוון אימוץ הנרטיב תוך שימוש בשפה כמו 'שטחי השמדה' ו'הריגה ללא משפט'"
         }
       }
     },
@@ -51,7 +51,7 @@
           "entity": "Gaza genocide",
           "stance": "critical",
           "npov_departure": true,
-          "evidence": "هي التدمير والاستهداف الممنهج والمتعمد والمستمر للشعب الفلسطيني في قطاع غزة، والذي تنفذه إسرائيل"
+          "evidence": "التدمير والاستهداف الممنهج والمتعمد والمستمر للشعب الفلسطيني في قطاع غزة، والذي تنفذه إسرائيل"
         }
       },
       "lead": {
@@ -59,7 +59,7 @@
           "entity": "Gaza genocide",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "الإبادة الجماعية لغزة هي التدمير والاستهداف الممنهج والمتعمد والمستمر للشعب الفلسطيني في قطاع غزة، والذي تنفذه إسرائيل"
+          "evidence": "الإبادة الجماعية لغزة هي التدمير والاستهداف الممنهج والمتعمد والمستمر للشعب الفلسطيني في قطاع غزة، والذي تنفذه إسرائيل خلال حرب غزة"
         }
       }
     }

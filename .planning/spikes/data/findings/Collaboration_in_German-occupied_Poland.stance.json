@@ -21,7 +21,43 @@
           "entity": "Collaboration in German-occupied Poland",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "Collaboration in Poland was less institutionalized than in some other countries and has been described as marginal, a point of pride with the Polish people."
+          "evidence": "Estimates of the number of collaborators vary. Collaboration in Poland was less institutionalized than in some other countries and has been described as marginal, a point of pride with the Polish people."
+        },
+        "Polish government in exile": {
+          "entity": "Polish government in exile",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "the Polish government in exile...and the Polish resistance movement punished collaborators and sentenced thousands of them to death."
+        },
+        "Individual Polish collaborators": {
+          "entity": "Individual Polish collaborators",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Estimates of the number of individual Polish collaborators vary according to the definition of 'collaboration'."
+        },
+        "Polish peasantry": {
+          "entity": "Polish peasantry",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "collaborated and benefited financially from the wartime economy and the removal of Jews from the Polish economy for much of the war."
+        },
+        "Polish resistance/Home Army": {
+          "entity": "Polish resistance/Home Army",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "Post-war communist Polish propaganda painted the entire non-communist Polish resistance, in particular the Home Army, as 'Nazi collaborators.'"
+        },
+        "Polish population (general)": {
+          "entity": "Polish population (general)",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "only a relatively small percentage of the Polish population engaged in activities that may be described as collaboration, when seen against the backdrop of European and world history."
+        },
+        "Nazi Germany": {
+          "entity": "Nazi Germany",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "Germany's primary aim in Eastern Europe was to expand Germany's Lebensraum, in the name of which elimination or deportation of all non-Germanic ethnicities...was to make them 'free' of Poles within 15–20 years."
         }
       }
     }

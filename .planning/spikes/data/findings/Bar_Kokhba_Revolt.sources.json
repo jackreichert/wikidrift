@@ -117,14 +117,29 @@
       "to": 3
     },
     {
+      "domain": "mohrsiebeck.com",
+      "from": 1,
+      "to": 3
+    },
+    {
       "domain": "yalebooks.yale.edu",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "mohrsiebeck.com",
+      "domain": "researchgate.net",
       "from": 1,
-      "to": 3
+      "to": 2
+    },
+    {
+      "domain": "ruj.uj.edu.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "books.google.co.il",
+      "from": 0,
+      "to": 1
     },
     {
       "domain": "tandfonline.com",
@@ -132,12 +147,7 @@
       "to": 1
     },
     {
-      "domain": "global.oup.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "degruyterbrill.com",
+      "domain": "hup.harvard.edu",
       "from": 0,
       "to": 1
     },
@@ -147,22 +157,12 @@
       "to": 1
     },
     {
-      "domain": "researchgate.net",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "hup.harvard.edu",
+      "domain": "degruyterbrill.com",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "ruj.uj.edu.pl",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "books.google.co.il",
+      "domain": "global.oup.com",
       "from": 0,
       "to": 1
     }
@@ -174,14 +174,14 @@
       "to": 5
     },
     {
-      "domain": "lisa.biu.ac.il",
-      "from": 4,
-      "to": 0
-    },
-    {
       "domain": "livius.org",
       "from": 7,
       "to": 3
+    },
+    {
+      "domain": "lisa.biu.ac.il",
+      "from": 4,
+      "to": 0
     },
     {
       "domain": "ejournals.eu",
@@ -189,32 +189,12 @@
       "to": 0
     },
     {
-      "domain": "halakhah.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "jpost.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "archive.today",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "oxfordre.com",
+      "domain": "sefaria.org",
       "from": 2,
       "to": 0
     },
     {
       "domain": "mechon-mamre.org",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "dtorah.com",
       "from": 2,
       "to": 0
     },
@@ -229,7 +209,27 @@
       "to": 0
     },
     {
-      "domain": "sefaria.org",
+      "domain": "oxfordre.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "archive.today",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "jpost.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "dtorah.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "halakhah.com",
       "from": 2,
       "to": 0
     },
@@ -239,12 +239,12 @@
       "to": 0
     },
     {
-      "domain": "youtube.com",
+      "domain": "sunburst.usd.edu",
       "from": 1,
       "to": 0
     },
     {
-      "domain": "sunburst.usd.edu",
+      "domain": "israelhayom.com",
       "from": 1,
       "to": 0
     },
@@ -254,12 +254,12 @@
       "to": 0
     },
     {
-      "domain": "cnn.com",
+      "domain": "bbc.com",
       "from": 1,
       "to": 0
     },
     {
-      "domain": "knesset.gov.il",
+      "domain": "cnn.com",
       "from": 1,
       "to": 0
     },
@@ -269,34 +269,9 @@
       "to": 1
     },
     {
-      "domain": "israelnationalnews.com",
+      "domain": "instonebrewer.com",
       "from": 1,
       "to": 0
-    },
-    {
-      "domain": "steinsaltz.org",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "europeana.eu",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "gibsoncondo.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "bbc.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "haaretz.com",
-      "from": 2,
-      "to": 1
     },
     {
       "domain": "sacred-texts.com",
@@ -309,17 +284,42 @@
       "to": 0
     },
     {
+      "domain": "gibsoncondo.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "youtube.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "europeana.eu",
+      "from": 1,
+      "to": 0
+    },
+    {
       "domain": "hebrewbooks.org",
       "from": 1,
       "to": 0
     },
     {
-      "domain": "israelhayom.com",
+      "domain": "steinsaltz.org",
       "from": 1,
       "to": 0
     },
     {
-      "domain": "instonebrewer.com",
+      "domain": "israelnationalnews.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "haaretz.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "knesset.gov.il",
       "from": 1,
       "to": 0
     },

@@ -22,7 +22,7 @@
           "entity": "Bar Kokhba Revolt",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "leading to the near-total depopulation of Judea proper, along with mass killings, enslavement, and displacement... The consequences of the revolt were disastrous for Judea's Jewish population."
+          "evidence": "leading to the near-total depopulation of Judea proper, along with mass killings, enslavement, and displacement... The consequences of the revolt were disastrous for Judea's Jewish population"
         }
       }
     },
@@ -32,7 +32,7 @@
           "entity": "Bar Kokhba Revolt",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "למרד בר כוכבא נודעו השלכות הרסניות עבור היישוב היהודי בארץ ישראל, שהיו חמורות בהרבה מזה של המרד הגדול; ...ועד היום לא נמצא אפילו כפר אחד שלא חרב במרד זה — framing emphasizes Roman devastation and Jewish suffering/heroism (e.g., Roman casualties, Hadrian avoiding standard victory phrasing), leaning toward a sympathetic national-historical narrative rather than strictly neutral description."
+          "evidence": "למרד בר כוכבא נודעו השלכות הרסניות עבור היישוב היהודי בארץ ישראל, שהיו חמורות בהרבה מזה של המרד הגדול... ועד היום לא נמצא אפילו כפר אחד שלא חרב במרד זה"
         }
       },
       "lead": {
@@ -40,7 +40,7 @@
           "entity": "Bar Kokhba Revolt",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "היה המרד הגדול האחרון של יהודי ארץ ישראל נגד שלטון האימפריה הרומית... בין השנים 132–136 לספירה"
+          "evidence": "מרד בר כוכבא... היה המרד הגדול האחרון של יהודי ארץ ישראל נגד שלטון האימפריה הרומית... בין השנים 132–136 לספירה"
         }
       }
     }

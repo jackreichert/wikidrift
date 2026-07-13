@@ -19,39 +19,39 @@
       "ar": {
         "Did the Polish state or its government-in-exile formally collaborate with Nazi Germany?": {
           "question": "Did the Polish state or its government-in-exile formally collaborate with Nazi Germany?",
-          "answer": "No, there was no collaborationist Polish government and the government-in-exile refused all German proposals for collaboration",
+          "answer": "No, there was no puppet government and the Polish state/government-in-exile never surrendered or formally collaborated with Germany.",
           "value": "No",
-          "evidence": "لم تكن هناك حكومة دمية في بولندا المحتلة... رفضت الحكومة البولندية والمجلس الوطني البولندي مناقشة الاستسلام، وأعلنا أنهما سيواصلان القتال حتى النصر الكامل على ألمانيا النازية"
+          "evidence": "لكن لم تكن هناك حكومة دمية في بولندا المحتلة... لم تستسلم بولندا ككيان سياسي للألمان أبدًا."
         },
         "What scale of individual Polish collaboration with the occupier does the article describe?": {
           "question": "What scale of individual Polish collaboration with the occupier does the article describe?",
-          "answer": "Estimates range from about 7,000 up to hundreds of thousands depending on definition, but described as marginal and less organized than in other countries; Madajczyk estimates 5% actively collaborated",
-          "value": "7,000 to hundreds of thousands (estimated 5% of population in General Government)",
-          "evidence": "حسب تقديرات كلاوس بيتر فريدريش تتراوح ما بين 7000 إلى ما يصل إلى مئات الآلاف... يقدر تشيسلاف ماداجيتشيك أن 5٪ من السكان في الحكومة العامة قد تواطؤوا بشكل نشط"
+          "answer": "Individual collaboration was less organized and marginal compared to other countries, with estimates ranging from 7,000 to hundreds of thousands depending on definition, and Madajczyk estimating about 5% of the population actively collaborated.",
+          "value": "~5% (estimates range 7,000 to hundreds of thousands)",
+          "evidence": "وقد كان التواطؤ في بولندا أقل تنظيمًا مما هو عليه في بعض البلدان الأخرى ووُصف بأنه هامشي... تتراوح ما بين 7000 إلى ما يصل إلى مئات الآلاف... يقدر تشيسلاف ماداجيتشيك أن 5٪ من السكان في الحكومة العامة قد تواطؤوا بشكل نشط"
         },
         "What role does the article attribute to Poles in the deaths of Jews under occupation?": {
           "question": "What role does the article attribute to Poles in the deaths of Jews under occupation?",
-          "answer": "The article attributes to Poles a 'structural collaboration' of indifference to the Jewish plight, rather than direct responsibility for killings, which are attributed to Nazi Germany's extermination policy",
-          "value": "Structural indifference/collaboration, not direct perpetration",
-          "evidence": "فهو ينتقد نفس السكان بسبب عدم اكتراثهم بالمحنة اليهودية، وهي ظاهرة يسميها «التواطؤ الهيكلي»"
+          "answer": "The article attributes the extermination of Jews to Nazi Germany as an explicit goal, while criticizing Poles for indifference to the Jewish plight, describing this as 'structural complicity' rather than direct killing.",
+          "value": "Structural complicity/indifference (extermination attributed to Nazi Germany)",
+          "evidence": "الهدف الصريح المتمثل في إبادة اليهود البولنديين، الذي نفذته ألمانيا النازية في الأراضي البولندية المحتلة... فهو ينتقد نفس السكان بسبب عدم اكتراثهم بالمحنة اليهودية، وهي ظاهرة يسميها «التواطؤ الهيكلي»."
         }
       },
       "en": {
         "Did the Polish state or its government-in-exile formally collaborate with Nazi Germany?": {
           "question": "Did the Polish state or its government-in-exile formally collaborate with Nazi Germany?",
-          "answer": "No, the Polish state never surrendered and the government-in-exile rejected German offers and refused capitulation",
+          "answer": "No, the Polish government-in-exile refused to collaborate and rejected German offers",
           "value": "no",
-          "evidence": "Poland as a polity never surrendered to the Germans."
+          "evidence": "Three days later the Polish Government and Polish National Council rejected discussing capitulation and declared they would fight on until full victory over Nazi Germany."
         },
         "What scale of individual Polish collaboration with the occupier does the article describe?": {
           "question": "What scale of individual Polish collaboration with the occupier does the article describe?",
-          "answer": "About 5% of the population in the General Government actively collaborated, described as marginal",
-          "value": "5%",
+          "answer": "Small/marginal, around 5% actively collaborated versus 25% who actively resisted",
+          "value": "~5% (estimated)",
           "evidence": "Czesław Madajczyk estimates that 5% of the population in the General Government actively collaborated, which he contrasts with the 25% who actively resisted the occupation."
         },
         "What role does the article attribute to Poles in the deaths of Jews under occupation?": {
           "question": "What role does the article attribute to Poles in the deaths of Jews under occupation?",
-          "answer": "The article criticizes Polish indifference to the Jewish plight, describing it as 'structural collaboration' rather than direct killing",
+          "answer": "The article attributes 'structural collaboration' via indifference to the Jewish plight, rather than direct causation of deaths",
           "value": "structural collaboration (indifference)",
           "evidence": "he criticizes the same population for its indifference to the Jewish plight, a phenomenon he terms \"structural collaboration\" (see more below)."
         }
@@ -59,21 +59,21 @@
       "ru": {
         "Did the Polish state or its government-in-exile formally collaborate with Nazi Germany?": {
           "question": "Did the Polish state or its government-in-exile formally collaborate with Nazi Germany?",
-          "answer": "No, the Polish state never surrendered and the government-in-exile refused collaboration proposals",
-          "value": "no",
-          "evidence": "Три дня спустя польское правительство и польский национальный совет отказались обсуждать капитуляцию и заявили, что будут сражаться до полной победы над нацистской Германией."
+          "answer": "No, the Polish state never surrendered and its government-in-exile fought against Germany; proposals for collaboration were rejected.",
+          "value": "No",
+          "evidence": "Польша как государство никогда не сдавалась немцам."
         },
         "What scale of individual Polish collaboration with the occupier does the article describe?": {
           "question": "What scale of individual Polish collaboration with the occupier does the article describe?",
-          "answer": "About 5% of the population actively collaborated, versus 25% actively resisting",
+          "answer": "Around 5% of the population actively collaborated, compared to 25% who actively resisted.",
           "value": "5%",
           "evidence": "подсчитал, что 5 % населения генерал-губернаторства активно сотрудничали, в отличие от 25 %, которые активно сопротивлялись оккупации."
         },
         "What role does the article attribute to Poles in the deaths of Jews under occupation?": {
           "question": "What role does the article attribute to Poles in the deaths of Jews under occupation?",
-          "answer": "The article criticizes the population's indifference to the plight of Jews, calling it 'structural collaboration'",
-          "value": "indifference/structural collaboration",
-          "evidence": "Однако он критикует то же население за безразличие к тяжёлому положению евреев, явление, которое он называет «структурным сотрудничеством»."
+          "answer": "The article says historians criticize the population's indifference to the plight of Jews, calling it 'structural collaboration', rather than describing direct killing.",
+          "value": "structural collaboration (indifference), not direct killing",
+          "evidence": "Однако историк  критикует то же население за безразличие к тяжёлому положению евреев, это он называл «структурным сотрудничеством»"
         }
       }
     },
@@ -81,17 +81,17 @@
       {
         "question": "Did the Polish state or its government-in-exile formally collaborate with Nazi Germany?",
         "verdict": "agree",
-        "note": "All editions agree there was no formal collaboration; state never surrendered and rejected German proposals."
+        "note": "All editions agree: no formal collaboration; government-in-exile rejected German proposals."
       },
       {
         "question": "What scale of individual Polish collaboration with the occupier does the article describe?",
         "verdict": "agree",
-        "note": "All cite ~5% (Madajczyk estimate) as marginal collaboration; ar adds broader range (7,000-hundreds of thousands) as context but consistent with same 5% figure."
+        "note": "All cite ~5% active collaboration vs ~25% resistance; ar adds wider numeric range but same overall framing."
       },
       {
         "question": "What role does the article attribute to Poles in the deaths of Jews under occupation?",
         "verdict": "agree",
-        "note": "All three describe it as structural collaboration via indifference, not direct perpetration, consistently attributing killings to Nazi Germany."
+        "note": "All three describe 'structural collaboration' via indifference, not direct killing, with extermination attributed to Nazi Germany."
       }
     ]
   }
