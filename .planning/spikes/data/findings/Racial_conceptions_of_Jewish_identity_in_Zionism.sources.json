@@ -92,11 +92,6 @@
       "to": 4
     },
     {
-      "domain": "researchgate.net",
-      "from": 0,
-      "to": 3
-    },
-    {
       "domain": "tandfonline.com",
       "from": 2,
       "to": 5
@@ -107,17 +102,22 @@
       "to": 9
     },
     {
-      "domain": "infocenters.co.il",
+      "domain": "researchgate.net",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "google.it",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "bjpa.org",
-      "from": 1,
-      "to": 3
+      "domain": "brill.com",
+      "from": 0,
+      "to": 2
     },
     {
-      "domain": "brill.com",
+      "domain": "infocenters.co.il",
       "from": 0,
       "to": 2
     },
@@ -127,34 +127,9 @@
       "to": 2
     },
     {
-      "domain": "google.it",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "degruyter.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "forward.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "quest-cdecjournal.it",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "dro.dur.ac.uk",
+      "domain": "bjpa.org",
       "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "columbia.edu",
-      "from": 0,
-      "to": 1
+      "to": 3
     },
     {
       "domain": "rosenberglab.stanford.edu",
@@ -167,12 +142,27 @@
       "to": 1
     },
     {
-      "domain": "ia800901.us.archive.org",
+      "domain": "isita-org.com",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "isita-org.com",
+      "domain": "forward.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "degruyter.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "dro.dur.ac.uk",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "archive.org",
       "from": 0,
       "to": 1
     },
@@ -182,12 +172,12 @@
       "to": 1
     },
     {
-      "domain": "archive.org",
+      "domain": "avotaynuonline.com",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "academic.oup.com",
+      "domain": "quest-cdecjournal.it",
       "from": 0,
       "to": 1
     },
@@ -197,12 +187,27 @@
       "to": 1
     },
     {
-      "domain": "avotaynuonline.com",
+      "domain": "columbia.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "academic.oup.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ia800901.us.archive.org",
       "from": 0,
       "to": 1
     }
   ],
   "dropped": [
+    {
+      "domain": "ncbi.nlm.nih.gov",
+      "from": 1,
+      "to": 0
+    },
     {
       "domain": "adalah.org",
       "from": 1,
@@ -210,11 +215,6 @@
     },
     {
       "domain": "pewresearch.org",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "ncbi.nlm.nih.gov",
       "from": 1,
       "to": 0
     }

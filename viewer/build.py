@@ -59,6 +59,8 @@ WHAT = {
     "sources": 'How the article\'s own citations <a href="../glossary.html#source-change">changed from '
                '&rarr; to</a> across the rewrite — domains added or dropped. Composition only; '
                '<b>no source is rated</b>.',
+    "lexical": 'How vocabulary usage shifted across the rewrite window (distribution drift + top terms '
+               'over/under-represented after). Signal only, not a conclusion.',
 }
 # Topic grouping for the index filter.
 CATEGORY = {
@@ -113,18 +115,20 @@ class Findings:
     blames: dict = field(default_factory=dict)
     pivots: dict = field(default_factory=dict)
     sources: dict = field(default_factory=dict)
+    lexical: dict = field(default_factory=dict)
     profiles: dict = field(default_factory=dict)
 
     l4: dict = field(default_factory=dict)  # article -> discovery meta (optional)
 
     def articles(self):
         """Every public article with a renderable finding (excludes test fixtures)."""
-        names = set(self.receipts) | set(self.stances) | set(self.diver.get("static", {})) | set(self.factchecks)
+        names = (set(self.receipts) | set(self.stances) | set(self.diver.get("static", {})) |
+             set(self.factchecks) | set(self.lexical))
         return sorted(a for a in names if a not in EXCLUDE_ARTICLES)
 
 
 def gather():
-    receipts, stances, factchecks, sources, profiles = {}, {}, {}, {}, {}
+    receipts, stances, factchecks, sources, lexical, profiles = {}, {}, {}, {}, {}, {}
     diver = {"static": {}, "pivot_relative": {}}
     mscore, l4map = {}, {}
     if FIND.exists():
@@ -145,6 +149,10 @@ def gather():
             d = load(f)
             if d and d.get("article") not in EXCLUDE_ARTICLES:
                 sources[d["article"]] = d
+        for f in FIND.glob("*.lexical.json"):
+            d = load(f)
+            if d and d.get("article") not in EXCLUDE_ARTICLES:
+                lexical[d["article"]] = d
         for f in FIND.glob("*.profile.json"):
             d = load(f)
             if d and d.get("article") not in EXCLUDE_ARTICLES:
@@ -197,7 +205,8 @@ def gather():
             if d:
                 pivots[d["article"]] = d
     return Findings(receipts=receipts, stances=stances, factchecks=factchecks, diver=diver, mscore=mscore,
-                    diffs=diffs, blames=blames, pivots=pivots, sources=sources, profiles=profiles, l4=l4map)
+                    diffs=diffs, blames=blames, pivots=pivots, sources=sources, lexical=lexical,
+                    profiles=profiles, l4=l4map)
 
 
 # ---- shared fragments -------------------------------------------------------
@@ -557,7 +566,8 @@ def overview_section(article, f, lead, layers):
     parts.append(profile_line(f.profiles.get(article)))
     parts.append(
         '<p class="muted">Use the tabs for framing grids, fact tables, diffs, citation change, and revisions. '
-        'Deep-link with <code>#framing</code>, <code>#facts</code>, <code>#diff</code>, <code>#sources</code>, '
+        'Deep-link with <code>#framing</code>, <code>#facts</code>, <code>#lexical</code>, <code>#diff</code>, '
+        '<code>#sources</code>, '
         '<code>#revisions</code>.</p>')
     return "".join(p for p in parts if p)
 
@@ -599,6 +609,41 @@ def sources_section(article, src):
         'source).</p>')
 
 
+def lexical_section(lex):
+    if not lex:
+        return ""
+    over = lex.get("overrepresented_after_terms") or lex.get("gained_terms") or []
+    under = lex.get("underrepresented_after_terms") or lex.get("lost_terms") or []
+
+    def rows(items):
+        out = "".join(
+            f'<tr><td>{esc(x.get("term", ""))}</td><td>{x.get("before", 0)}</td><td>{x.get("after", 0)}</td>'
+            f'<td>{x.get("delta", 0)}</td><td>{x.get("log_odds", 0)}</td></tr>'
+            for x in items[:12])
+        return out or '<tr><td colspan="5" class="muted">none</td></tr>'
+
+    b = lex.get("before") or {}
+    a = lex.get("after") or {}
+    jsd = lex.get("js_divergence", "n/a")
+    span = lex.get("span", "")
+    return (
+        '<h2>How vocabulary shifted</h2>'
+        f'<p class="lead">{WHAT["lexical"]}</p>'
+        f'<p>{esc(span)}. Token counts {b.get("tokens", 0)} → {a.get("tokens", 0)}. '
+        f'Jensen-Shannon divergence <b>{esc(jsd)}</b>.</p>'
+        '<div class="srcgrid">'
+        '<div class="tablewrap"><table><thead><tr><th scope="col">overrepresented after</th>'
+        '<th scope="col">before</th><th scope="col">after</th><th scope="col">delta</th>'
+        '<th scope="col">log-odds</th></tr></thead>'
+        f'<tbody>{rows(over)}</tbody></table></div>'
+        '<div class="tablewrap"><table><thead><tr><th scope="col">underrepresented after</th>'
+        '<th scope="col">before</th><th scope="col">after</th><th scope="col">delta</th>'
+        '<th scope="col">log-odds</th></tr></thead>'
+        f'<tbody>{rows(under)}</tbody></table></div>'
+        '</div>'
+        '<p class="muted">Relative term keyness from smoothed log-odds. Interpretation is directional only.</p>')
+
+
 def profile_line(prof):
     """A single-line, aggregate drift-profile strip (recency + editor concentration). No editor names."""
     if not prof or prof.get("reason"):
@@ -613,12 +658,14 @@ def profile_line(prof):
 def _layer_flags(article, f):
     has_framing = article in f.stances or article in f.diver.get("static", {})
     has_facts = bool(f.factchecks.get(article))
+    has_lex = article in f.lexical
     has_diff = article in f.pivots or article in f.diffs
     has_src = article in f.sources
     has_rec = article in f.receipts
     return [
         ("Framing", has_framing, "not run"),
         ("Facts", has_facts, "not run"),
+        ("Lexical", has_lex, "not run"),
         ("Diff", has_diff, "no pivot found"),
         ("Sources", has_src, "not run"),
         ("Revisions", has_rec, "not run"),
@@ -630,6 +677,7 @@ def article_page(article, f):
     fcs = f.factchecks.get(article, {})
     diff, pv = f.diffs.get(article), f.pivots.get(article)
     src = f.sources.get(article)
+    lex = f.lexical.get(article)
     lead = headline(article, st, diver, fcs, f.mscore)
     layers = _layer_flags(article, f)
     panels = [("Overview", overview_section(article, f, lead, layers), "overview")]
@@ -638,6 +686,8 @@ def article_page(article, f):
         panels.append(("Framing", framing_section(article, st, diver), "framing"))
     if fcs:
         panels.append(("Facts", fact_section(article, fcs), "facts"))
+    if lex:
+        panels.append(("Lexical", lexical_section(lex), "lexical"))
     if pv:
         panels.append(("Diff", render_pivots(pv, slugify(article)), "diff"))
     elif diff:
@@ -679,9 +729,20 @@ def signal_badges(article, f, score):
         badges.append('<span class="sig med">framing gap</span>')
     if article in f.pivots or article in f.diffs:
         badges.append('<span class="sig">diff</span>')
+    if article in f.lexical:
+        js = lexical_score(article, f)
+        badges.append(f'<span class="sig lex">lex {js:.2f}</span>')
     if article in f.l4:
         badges.append('<span class="sig">L4</span>')
     return "".join(badges)
+
+
+def lexical_score(article, f):
+    lex = f.lexical.get(article) or {}
+    try:
+        return float(lex.get("js_divergence", 0) or 0)
+    except Exception:
+        return 0.0
 
 
 def index_page(articles, f):
@@ -696,17 +757,21 @@ def index_page(articles, f):
         stat = f.diver.get("static", {}).get(a)
         score = stat["variants"]["lead"]["divergence"] if stat else 0
         sc = score if score is not None else 0
+        lex_sc = lexical_score(a, f)
         badges = signal_badges(a, f, score)
         meta = f'<div class="f-meta">{badges}</div>' if badges else ""
+        meta_html = meta if meta else '<div class="f-meta"></div>'
+        lex_text = f" lexical {lex_sc:.3f}" if a in f.lexical else ""
         # grid: title | summary | badges | arrow  (CSS rearranges on narrow screens)
         rows.append(
             f'<a class="finding" href="article/{slugify(a)}.html" data-cat="{esc(cat)}" '
             f'data-title="{esc(a.lower())}" data-score="{sc}" '
-            f'data-text="{esc((a + " " + h + " " + cat).lower())}">'
+            f'data-lex="{lex_sc}" '
+            f'data-text="{esc((a + " " + h + " " + cat + lex_text).lower())}">'
             f'<div class="f-head"><span class="kicker">{esc(cat)}</span>'
             f'<h3>{esc(a)}</h3></div>'
             f'<p>{esc(h)}</p>'
-            f'{meta or "<div class=\"f-meta\"></div>"}'
+            f'{meta_html}'
             f'<span class="f-go" aria-hidden="true">→</span></a>')
     intro = (
         '<div class="page-intro"><h1>WikiDrift findings</h1>'
@@ -721,6 +786,7 @@ def index_page(articles, f):
         f'<div class="filters" role="group" aria-label="Filter by topic">{chips}</div>'
         '<label class="sortlab">Sort <select id="sort" class="sortsel" aria-label="Sort findings">'
         '<option value="div" selected>Framing divergence</option>'
+        '<option value="lex">Lexical drift</option>'
         '<option value="az">A–Z</option>'
         '<option value="cat">Topic</option></select></label>'
         '<span id="count" class="count" role="status" aria-live="polite"></span></div>')

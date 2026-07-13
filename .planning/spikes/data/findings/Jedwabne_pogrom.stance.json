@@ -6,134 +6,60 @@
     "de"
   ],
   "entities": [
-    "Poland",
-    "Germany",
-    "Jews"
+    "Jedwabne pogrom"
   ],
   "editions": {
     "en": {
       "focal": {
-        "Poland": {
-          "entity": "Poland",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "The country was shocked by the findings... the government felt responsible for Jews and tried to protect them – arresting violent nationalists"
-        },
-        "Germany": {
-          "entity": "Germany",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "the undisputed bosses of life and death in Jedwabne were the Germans"
-        },
-        "Jews": {
-          "entity": "Jews",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "including women, children, and elderly, many of whom were locked in a barn and burned alive"
+        "Jedwabne pogrom": {
+          "entity": "Jedwabne pogrom",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "a massacre of Polish Jews in the town of Jedwabne, German-occupied Poland, on 10 July 1941, during World War II and the early stages of the Holocaust"
         }
       },
       "lead": {
-        "Poland": {
-          "entity": "Poland",
+        "Jedwabne pogrom": {
+          "entity": "Jedwabne pogrom",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "the country was shocked by the findings... Poland's Institute of National Remembrance conducted a forensic murder investigation; it confirmed that the direct perpetrators were ethnic Poles"
-        },
-        "Germany": {
-          "entity": "Germany",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "\"the undisputed bosses of life and death in Jedwabne were the Germans,\" who were \"the only ones who could decide the fate of the Jews\""
-        },
-        "Jews": {
-          "entity": "Jews",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "many of whom were locked in a barn and burned alive... including women, children, and elderly"
+          "evidence": "The passage presents multiple, sometimes conflicting, scholarly estimates of victims and details of the massacre in an even, sourced, encyclopedic manner, e.g. 'Estimates of the number of victims vary from 300 to 1,600' and citing differing historians' views without endorsing one."
         }
       }
     },
     "pl": {
       "focal": {
-        "Poland": {
-          "entity": "Poland",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "Spotkało się to z krytyką części środowisk politycznych, niezgadzających się aby Rzeczpospolita Polska ponosiła odpowiedzialność za tę zbrodnię, gdyż dokonała się ona na terenie okupowanym przez III Rzeszę."
-        },
-        "Germany": {
-          "entity": "Germany",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "istnieje też wystarczająco wiele wskazówek przemawiających za tym, że Niemcy zastosowali przymus, a nawet przemoc, by wymusić uczestnictwo polskich mieszkańców w zbrodni"
-        },
-        "Jews": {
-          "entity": "Jews",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "Żydzi byli zmuszeni wchodzić. Po podpaleniu ja poszedłem do domu, a Żydzi spalili się w stodole."
+        "Jedwabne pogrom": {
+          "entity": "Jedwabne pogrom",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Pogrom w Jedwabnem (również: mord w Jedwabnem) stał się znany w Polsce i na świecie za sprawą książki Jana Tomasza Grossa Sąsiedzi."
         }
       },
       "lead": {
-        "Poland": {
-          "entity": "Poland",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "masowe morderstwo żydowskich mieszkańców miasta dokonane... przez polskich mieszkańców miasta Jedwabne, działających z inspiracji niemieckich okupantów"
-        },
-        "Germany": {
-          "entity": "Germany",
+        "Jedwabne pogrom": {
+          "entity": "Jedwabne pogrom",
           "stance": "critical",
-          "npov_departure": true,
-          "evidence": "przez polskich mieszkańców miasta Jedwabne, działających z inspiracji niemieckich okupantów"
-        },
-        "Jews": {
-          "entity": "Jews",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "Rezultatem tej zbrodni była niemal całkowita zagłada Żydów z Jedwabnego. Większość z ofiar została spalona żywcem w stodole"
+          "npov_departure": false,
+          "evidence": "masowe morderstwo żydowskich mieszkańców miasta dokonane 10 lipca 1941 przez polskich mieszkańców miasta Jedwabne... Większość z ofiar została spalona żywcem w stodole"
         }
       }
     },
     "de": {
       "focal": {
-        "Poland": {
-          "entity": "Poland",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "An dem Verbrechen beteiligten sich mindestens 40 Polen aus Jedwabne und Umgebung ... Ihr Besitz wurde geplündert und von Polen übernommen."
-        },
-        "Germany": {
-          "entity": "Germany",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "Dimitrov resümiert: „Der Entschluss, die Entscheidung, das Signal, die Anordnung oder der Befehl zum Morden wurde von Deutschen, einer Einsatzgruppe gegeben.“"
-        },
-        "Jews": {
-          "entity": "Jews",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "wurden die restlichen Juden in eine außerhalb des Ortes gelegene Scheune getrieben und bei lebendigem Leibe verbrannt"
+        "Jedwabne pogrom": {
+          "entity": "Jedwabne pogrom",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Das Massaker von Jedwabne war ein Pogrom polnischer Bürger von Jedwabne und der Umgebung an jüdischen Einwohnern der Kleinstadt im Nordosten Polens"
         }
       },
       "lead": {
-        "Poland": {
-          "entity": "Poland",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "gilt als gemeinsames Verbrechen einer Gruppe von polnischen Einwohnern und deutscher Besatzungsmacht... Am 10. Juli 1941 wurde die jüdische Bevölkerung des Ortes von polnischen Bürgern auf dem Marktplatz zusammengetrieben... Ihr Besitz wurde geplündert und von Polen übernommen."
-        },
-        "Germany": {
-          "entity": "Germany",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "waren Deutsche am Ort des Geschehens und fotografierten... ein SS-Einsatzkommando die örtliche polnische Bevölkerung anstiftete... muss das Massaker und dessen Initiierung auf dem Hintergrund von Reinhard Heydrichs Befehlen... gesehen werden."
-        },
-        "Jews": {
-          "entity": "Jews",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "wurden die restlichen Juden in eine außerhalb des Ortes gelegene Scheune getrieben und bei lebendigem Leibe verbrannt. Ihr Besitz wurde geplündert und von Polen übernommen. Das Pogrom überlebten nur wenige Juden."
+        "Jedwabne pogrom": {
+          "entity": "Jedwabne pogrom",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "gilt als gemeinsames Verbrechen einer Gruppe von polnischen Einwohnern und deutscher Besatzungsmacht"
         }
       }
     }

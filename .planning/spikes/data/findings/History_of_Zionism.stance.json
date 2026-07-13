@@ -5,92 +5,42 @@
     "ar"
   ],
   "entities": [
-    "Zionism",
-    "Israel",
-    "Palestinians"
+    "History of Zionism"
   ],
   "editions": {
     "en": {
       "focal": {
-        "Zionism": {
-          "entity": "Zionism",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "his vision was fulfilled with the founding of the State of Israel in 1948... Zionism can be read as a response to the Haskala and the challenges of modernity and liberalism, rather than purely a response to antisemitism"
-        },
-        "Israel": {
-          "entity": "Israel",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "his vision was fulfilled with the founding of the State of Israel in 1948"
-        },
-        "Palestinians": {
-          "entity": "Palestinians",
+        "History of Zionism": {
+          "entity": "History of Zionism",
           "stance": "absent",
           "npov_departure": false,
-          "evidence": "The passage discusses Palestine as a geographic/historic region but does not meaningfully discuss Palestinians as a people"
+          "evidence": "This passage consists solely of a 'See also', 'Notes', 'References', and 'Further reading' section listing links and citations, with no substantive discussion or framing of the entity."
         }
       },
       "lead": {
-        "Zionism": {
-          "entity": "Zionism",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "At the core of the Zionist ideology was the traditional aspiration for a Jewish national home... facilitated by the Jewish diaspora"
-        },
-        "Israel": {
-          "entity": "Israel",
+        "History of Zionism": {
+          "entity": "History of Zionism",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "his vision was fulfilled with the founding of the State of Israel in 1948"
-        },
-        "Palestinians": {
-          "entity": "Palestinians",
-          "stance": "absent",
-          "npov_departure": false,
-          "evidence": "The passage does not meaningfully discuss Palestinians as a people or entity"
+          "evidence": "As an organised nationalist movement, Zionism is generally considered to have been founded by Theodor Herzl in 1897."
         }
       }
     },
     "ar": {
       "focal": {
-        "Zionism": {
-          "entity": "Zionism",
+        "History of Zionism": {
+          "entity": "History of Zionism",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "كان الهدف الرئيسي للحركة هو إعادة إنشاء وطن قومي يهودي ومركز ثقافي في فلسطين من خلال تسهيل عودة اليهود من الشتات"
-        },
-        "Israel": {
-          "entity": "Israel",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "مع تحقيق هدفها عام 1948 بإنشاء إسرائيل"
-        },
-        "Palestinians": {
-          "entity": "Palestinians",
-          "stance": "absent",
-          "npov_departure": false,
-          "evidence": "not mentioned in the passage"
+          "evidence": "لكن تاريخ الصهيونية بدأ، رغم ذلك، في وقت سابق ويرتبط باليهودية والتاريخ اليهودي."
         }
       },
       "lead": {
-        "Zionism": {
-          "entity": "Zionism",
+        "History of Zionism": {
+          "entity": "History of Zionism",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "لا يوجد مثال آخر في التاريخ البشري لأمة يُعاد تأسيسها بعد فترة طويلة من العيش كأمة في الشتات."
-        },
-        "Israel": {
-          "entity": "Israel",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "مع تحقيق هدفها عام 1948 بإنشاء إسرائيل"
-        },
-        "Palestinians": {
-          "entity": "Palestinians",
-          "stance": "absent",
-          "npov_departure": false,
-          "evidence": "لا يوجد ذكر مباشر للفلسطينيين في هذا النص، الذي يركز على تاريخ اليهود والصهيونية"
+          "evidence": "يُحتفل بذلك سنويًا... ولعب في وقت لاحق دورًا هامًا في إلهام الصهاينة لرفض أنماط الهوية الأوروبية؛ السرد يقدم الصهيونية كاستمرار طبيعي وشرعي لتاريخ ديني وقومي طويل مع تأطير الاضطهاد اليهودي كخلفية مبررة، دون ذكر منظور فلسطيني أو نقدي"
         }
       }
     }

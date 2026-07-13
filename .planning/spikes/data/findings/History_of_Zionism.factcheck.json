@@ -2,28 +2,82 @@
   "article": "History of Zionism",
   "asof": null,
   "langs": [
+    "ar",
+    "ca",
     "en",
-    "ar"
+    "es",
+    "fa",
+    "fr",
+    "ps",
+    "uk",
+    "ur"
   ],
   "citation": {
-    "mean_jaccard": 0.05,
+    "mean_jaccard": 0.14,
     "domains_per_edition": {
+      "ar": 4,
+      "ca": 9,
       "en": 86,
-      "ar": 4
+      "es": 5,
+      "fa": 5,
+      "fr": 19,
+      "ps": 4,
+      "uk": 16,
+      "ur": 0
     }
   },
   "claim": {
     "per_edition": {
-      "en": {
+      "ar": {
         "In what year and city was the First Zionist Congress held, and who convened it?": {
           "question": "In what year and city was the First Zionist Congress held, and who convened it?",
-          "answer": "Not directly stated in the passage; only that Herzl founded organised Zionism in 1897",
-          "value": "not stated",
-          "evidence": "As an organised nationalist movement, Zionism is generally considered to have been founded by Theodor Herzl in 1897."
+          "answer": "Not explicitly stated with city/year for a congress; the passage only states Herzl founded organized Zionism in 1897",
+          "value": "1897, city not stated",
+          "evidence": "يُعتقد عمومًا أن الصهيونية كحركة منظمة قد أسسها تيودور هرتزل عام 1897"
         },
         "Approximately when did the modern political Zionist movement emerge?": {
           "question": "Approximately when did the modern political Zionist movement emerge?",
-          "answer": "1897",
+          "answer": "1897, founded by Theodor Herzl",
+          "value": "1897",
+          "evidence": "يُعتقد عمومًا أن الصهيونية كحركة منظمة قد أسسها تيودور هرتزل عام 1897"
+        },
+        "In what geographic region did the movement seek to establish a Jewish homeland?": {
+          "question": "In what geographic region did the movement seek to establish a Jewish homeland?",
+          "answer": "Palestine",
+          "value": "Palestine",
+          "evidence": "كان الهدف الرئيسي للحركة هو إعادة إنشاء وطن قومي يهودي ومركز ثقافي في فلسطين"
+        }
+      },
+      "ca": {
+        "In what year and city was the First Zionist Congress held, and who convened it?": {
+          "question": "In what year and city was the First Zionist Congress held, and who convened it?",
+          "answer": "Not stated in the passage",
+          "value": "not stated",
+          "evidence": "The passage does not mention a First Zionist Congress, its year, city, or convener."
+        },
+        "Approximately when did the modern political Zionist movement emerge?": {
+          "question": "Approximately when did the modern political Zionist movement emerge?",
+          "answer": "End of the 19th century",
+          "value": "late 19th century",
+          "evidence": "El sionisme és una ideologia política nacionalista, que va aparèixer a finals del [segle XIX]"
+        },
+        "In what geographic region did the movement seek to establish a Jewish homeland?": {
+          "question": "In what geographic region did the movement seek to establish a Jewish homeland?",
+          "answer": "Palestine / the Land of Israel (Érets Yisrael)",
+          "value": "Palestine (Érets Yisrael)",
+          "evidence": "Érets Yisrael (en català: Terra d'Israel)... Palestina va ser el nom del país, i de fet un nom utilitzat pels mateixos sionistes fins a l'any 1948"
+        }
+      },
+      "en": {
+        "In what year and city was the First Zionist Congress held, and who convened it?": {
+          "question": "In what year and city was the First Zionist Congress held, and who convened it?",
+          "answer": "not stated",
+          "value": "not stated",
+          "evidence": "The passage does not mention the location, year, or convener of the First Zionist Congress."
+        },
+        "Approximately when did the modern political Zionist movement emerge?": {
+          "question": "Approximately when did the modern political Zionist movement emerge?",
+          "answer": "1897, founded by Theodor Herzl",
           "value": "1897",
           "evidence": "As an organised nationalist movement, Zionism is generally considered to have been founded by Theodor Herzl in 1897."
         },
@@ -34,42 +88,142 @@
           "evidence": "From the late 19th century, Zionism sought to establish a homeland for the Jewish people in the region of Palestine, which generally encompasses the area between the Jordan River to the east and the Mediterranean Sea to the west."
         }
       },
-      "ar": {
+      "es": {
         "In what year and city was the First Zionist Congress held, and who convened it?": {
           "question": "In what year and city was the First Zionist Congress held, and who convened it?",
-          "answer": "Not explicitly stated with city or congress name; the passage only states Herzl founded Zionism as an organized movement in 1897.",
-          "value": "1897, city not stated",
-          "evidence": "يُعتقد عمومًا أن الصهيونية كحركة منظمة قد أسسها تيودور هرتزل عام 1897."
+          "answer": "Not explicitly stated with a city; the passage only states the movement was created by Theodor Herzl in 1897",
+          "value": "not stated",
+          "evidence": "se considera generalmente que el sionismo fue creado por Theodor Herzl en 1897"
         },
         "Approximately when did the modern political Zionist movement emerge?": {
           "question": "Approximately when did the modern political Zionist movement emerge?",
-          "answer": "Around 1897",
+          "answer": "1897",
           "value": "1897",
-          "evidence": "يُعتقد عمومًا أن الصهيونية كحركة منظمة قد أسسها تيودور هرتزل عام 1897."
+          "evidence": "se considera generalmente que el sionismo fue creado por Theodor Herzl en 1897"
         },
         "In what geographic region did the movement seek to establish a Jewish homeland?": {
           "question": "In what geographic region did the movement seek to establish a Jewish homeland?",
           "answer": "Palestine",
-          "value": "فلسطين (Palestine)",
-          "evidence": "كان الهدف الرئيسي للحركة هو إعادة إنشاء وطن قومي يهودي ومركز ثقافي في فلسطين من خلال تسهيل عودة اليهود من الشتات"
+          "value": "Palestine",
+          "evidence": "El objetivo principal del movimiento era la creación de la Patria Nacional Judía y el centro cultural en Palestina facilitando la emigración judía"
+        }
+      },
+      "fa": {
+        "In what year and city was the First Zionist Congress held, and who convened it?": {
+          "question": "In what year and city was the First Zionist Congress held, and who convened it?",
+          "answer": "Not explicitly stated with city; the passage only mentions that Theodor Herzl founded Zionism in 1897 and wrote 'The Jewish State' in 1896.",
+          "value": "not stated",
+          "evidence": "صهیونیسم، به عنوان یک جنبش ملی‌گرای سازمان‌یافته، عموماً توسط تئودور هرتسل در سال ۱۸۹۷ تأسیس شده است."
+        },
+        "Approximately when did the modern political Zionist movement emerge?": {
+          "question": "Approximately when did the modern political Zionist movement emerge?",
+          "answer": "1897, founded by Theodor Herzl",
+          "value": "1897",
+          "evidence": "صهیونیسم، به عنوان یک جنبش ملی‌گرای سازمان‌یافته، عموماً توسط تئودور هرتسل در سال ۱۸۹۷ تأسیس شده است."
+        },
+        "In what geographic region did the movement seek to establish a Jewish homeland?": {
+          "question": "In what geographic region did the movement seek to establish a Jewish homeland?",
+          "answer": "Palestine",
+          "value": "Palestine",
+          "evidence": "آرمان سنتی برای ایجاد یک خانه ملی یهودی از طریق برقراری مجدد حاکمیت یهودی در فلسطین که توسط یهودیان پراکنده تسهیل می‌شد، قرار داشت."
+        }
+      },
+      "fr": {
+        "In what year and city was the First Zionist Congress held, and who convened it?": {
+          "question": "In what year and city was the First Zionist Congress held, and who convened it?",
+          "answer": "Not stated in the passage",
+          "value": "not stated",
+          "evidence": "The passage does not mention the First Zionist Congress, its year, city, or convener."
+        },
+        "Approximately when did the modern political Zionist movement emerge?": {
+          "question": "Approximately when did the modern political Zionist movement emerge?",
+          "answer": "19th century",
+          "value": "19th century",
+          "evidence": "Ce n’est qu’au [XIXe siècle], dans un contexte de montée des nationalismes, de persécutions récurrentes et de redéfinition des identités collectives en Europe, que cette aspiration plurimillénaire se transforme en projet politique concret."
+        },
+        "In what geographic region did the movement seek to establish a Jewish homeland?": {
+          "question": "In what geographic region did the movement seek to establish a Jewish homeland?",
+          "answer": "Palestine (the historical Land of Israel)",
+          "value": "Palestine / Land of Israel",
+          "evidence": "qui entend permettre aux Juifs d'avoir un État en Palestine, qui était dans l'Antiquité la Terre d'Israël, considérée comme son berceau historique."
+        }
+      },
+      "ps": {
+        "In what year and city was the First Zionist Congress held, and who convened it?": {
+          "question": "In what year and city was the First Zionist Congress held, and who convened it?",
+          "answer": "Not stated in the passage (only that Herzl founded Zionism in 1897 and wrote a 1896 pamphlet; no specific congress city mentioned)",
+          "value": "not stated",
+          "evidence": "عمومي باور دا دی چې «تيودور هرزل» په 1897ز کال کې، د يو منظم ملتپال خوځښت په توګه د صهيونيزم بنسټ اېښی دی."
+        },
+        "Approximately when did the modern political Zionist movement emerge?": {
+          "question": "Approximately when did the modern political Zionist movement emerge?",
+          "answer": "Around 1897, when Theodor Herzl is commonly credited with founding Zionism as an organized nationalist movement",
+          "value": "1897",
+          "evidence": "عمومي باور دا دی چې «تيودور هرزل» په 1897ز کال کې، د يو منظم ملتپال خوځښت په توګه د صهيونيزم بنسټ اېښی دی."
+        },
+        "In what geographic region did the movement seek to establish a Jewish homeland?": {
+          "question": "In what geographic region did the movement seek to establish a Jewish homeland?",
+          "answer": "Palestine / the Land of Israel",
+          "value": "Palestine (Land of Israel)",
+          "evidence": "په فلسطين کې د يهودي خپلواکۍ د بيا منځ ته راوړلو په مټ د يهوديانو د قومي کور دوديزه هيله وه"
+        }
+      },
+      "uk": {
+        "In what year and city was the First Zionist Congress held, and who convened it?": {
+          "question": "In what year and city was the First Zionist Congress held, and who convened it?",
+          "answer": "Not explicitly stated as 'First Zionist Congress' with city and year together; passage states Zionism was founded by Theodor Herzl in 1897 and references a 'Базельська конференція' (Basel conference) as the founding reference point.",
+          "value": "1897, Basel (implied); convened by Theodor Herzl",
+          "evidence": "Історія сіонізму — організація руху сіонізму, що був заснований Теодором Герцлем в 1897 році. ... перші сіоністські відділення (мізрахі та сефарди) відкрилися в Марокко лише через кілька років після Базельської конференції"
+        },
+        "Approximately when did the modern political Zionist movement emerge?": {
+          "question": "Approximately when did the modern political Zionist movement emerge?",
+          "answer": "1897",
+          "value": "1897",
+          "evidence": "Історія сіонізму — організація руху сіонізму, що був заснований Теодором Герцлем в 1897 році."
+        },
+        "In what geographic region did the movement seek to establish a Jewish homeland?": {
+          "question": "In what geographic region did the movement seek to establish a Jewish homeland?",
+          "answer": "Palestine",
+          "value": "Palestine",
+          "evidence": "основними цілями руху було створення «Єврейського національного дому» та культурного центру в Палестині для полегшення організації єврейської міграції."
+        }
+      },
+      "ur": {
+        "In what year and city was the First Zionist Congress held, and who convened it?": {
+          "question": "In what year and city was the First Zionist Congress held, and who convened it?",
+          "answer": "1897 in Basel, Switzerland, convened by Theodor Herzl",
+          "value": "1897; Basel, Switzerland; Theodor Herzl",
+          "evidence": "ہرزل نے 1897 میں سوئٹزرلینڈ کے بیسل میں پہلی صیہونی کانگریس کا انعقاد کیا"
+        },
+        "Approximately when did the modern political Zionist movement emerge?": {
+          "question": "Approximately when did the modern political Zionist movement emerge?",
+          "answer": "Late 19th century",
+          "value": "late 19th century",
+          "evidence": "صیہونیت کی تاریخ ایک قومی تحریک ہے جو 19ویں صدی کے آخر میں ابھری"
+        },
+        "In what geographic region did the movement seek to establish a Jewish homeland?": {
+          "question": "In what geographic region did the movement seek to establish a Jewish homeland?",
+          "answer": "Palestine",
+          "value": "Palestine",
+          "evidence": "جس کا مقصد فلسطین میں ایک یہودی وطن قائم کرنا تھا"
         }
       }
     },
     "adjudication": [
       {
         "question": "In what year and city was the First Zionist Congress held, and who convened it?",
-        "verdict": "agree",
-        "note": "Both editions fail to state the year/city/convener, only noting 1897 as when Herzl founded organized Zionism."
+        "verdict": "insufficient",
+        "note": "Most editions state nothing specific about the congress; only ur (and partially uk) give Basel 1897 with Herzl, others only mention 1897 founding without city/congress detail."
       },
       {
         "question": "Approximately when did the modern political Zionist movement emerge?",
         "verdict": "agree",
-        "note": "Both give 1897."
+        "note": "All editions converge on 1897 or late 19th century, consistent framing of the same period."
       },
       {
         "question": "In what geographic region did the movement seek to establish a Jewish homeland?",
         "verdict": "agree",
-        "note": "Both identify Palestine; en adds more specific geographic boundaries."
+        "note": "All editions agree the goal was Palestine/Land of Israel, with en adding specific geographic boundaries."
       }
     ]
   }

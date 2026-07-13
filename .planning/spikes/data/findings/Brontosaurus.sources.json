@@ -87,12 +87,12 @@
   },
   "added": [
     {
-      "domain": "archive.org",
+      "domain": "ghostarchive.org",
       "from": 0,
       "to": 5
     },
     {
-      "domain": "ghostarchive.org",
+      "domain": "archive.org",
       "from": 0,
       "to": 5
     },
@@ -102,17 +102,12 @@
       "to": 5
     },
     {
-      "domain": "doc.rero.ch",
-      "from": 0,
-      "to": 4
-    },
-    {
-      "domain": "nytimes.com",
-      "from": 0,
-      "to": 4
-    },
-    {
       "domain": "evolbiol.ru",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "doc.rero.ch",
       "from": 0,
       "to": 4
     },
@@ -122,9 +117,9 @@
       "to": 4
     },
     {
-      "domain": "academia.edu",
+      "domain": "nytimes.com",
       "from": 0,
-      "to": 3
+      "to": 4
     },
     {
       "domain": "marsh.dinodb.com",
@@ -132,14 +127,9 @@
       "to": 3
     },
     {
-      "domain": "collections.peabody.yale.edu",
+      "domain": "academia.edu",
       "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "sdnhm.org",
-      "from": 0,
-      "to": 2
+      "to": 3
     },
     {
       "domain": "sinclairoil.com",
@@ -147,52 +137,7 @@
       "to": 2
     },
     {
-      "domain": "qeios.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "econtent.unm.edu",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "carnegiemuseums.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "biodiversitylibrary.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "scientificamerican.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "cambridge.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "discovermagazine.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "perezhilton.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "ajsonline.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "onlinelibrary.wiley.com",
+      "domain": "geol.umd.edu",
       "from": 0,
       "to": 2
     },
@@ -207,22 +152,12 @@
       "to": 2
     },
     {
-      "domain": "geol.umd.edu",
+      "domain": "onlinelibrary.wiley.com",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "nature.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "lexico.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "sciencemag.org",
+      "domain": "ajsonline.org",
       "from": 0,
       "to": 2
     },
@@ -232,22 +167,72 @@
       "to": 3
     },
     {
-      "domain": "postalmuseum.si.edu",
+      "domain": "sdnhm.org",
       "from": 0,
-      "to": 1
+      "to": 2
     },
     {
-      "domain": "tandfonline.com",
+      "domain": "discovermagazine.com",
       "from": 0,
-      "to": 1
+      "to": 2
     },
     {
-      "domain": "slate.com",
+      "domain": "cambridge.org",
       "from": 0,
-      "to": 1
+      "to": 2
     },
     {
-      "domain": "palaeo-electronica.org",
+      "domain": "scientificamerican.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "sciencemag.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "econtent.unm.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "carnegiemuseums.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "collections.peabody.yale.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "perezhilton.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "nature.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "biodiversitylibrary.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "lexico.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "qeios.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "scienceblogs.com",
       "from": 0,
       "to": 1
     },
@@ -262,17 +247,47 @@
       "to": 1
     },
     {
+      "domain": "newyorker.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "archive.today",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "postalmuseum.si.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "giw.utahgeology.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "youtube.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "uspostalbulletins.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "allmusic.com",
+      "from": 0,
+      "to": 1
+    },
+    {
       "domain": "sciencedaily.com",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "theguardian.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "books.google.com",
+      "domain": "tandfonline.com",
       "from": 0,
       "to": 1
     },
@@ -282,7 +297,22 @@
       "to": 1
     },
     {
-      "domain": "giw.utahgeology.org",
+      "domain": "palaeo-electronica.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "skeptic.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "eoas.ubc.ca",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "theguardian.com",
       "from": 0,
       "to": 1
     },
@@ -297,42 +327,12 @@
       "to": 1
     },
     {
-      "domain": "skeptic.com",
+      "domain": "slate.com",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "allmusic.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "newyorker.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "uspostalbulletins.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "archive.today",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "scienceblogs.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "youtube.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "eoas.ubc.ca",
+      "domain": "books.google.com",
       "from": 0,
       "to": 1
     }
@@ -349,12 +349,17 @@
       "to": 0
     },
     {
+      "domain": "infoplease.com",
+      "from": 1,
+      "to": 0
+    },
+    {
       "domain": "britannica.com",
       "from": 1,
       "to": 0
     },
     {
-      "domain": "infoplease.com",
+      "domain": "unmuseum.org",
       "from": 1,
       "to": 0
     },
@@ -370,11 +375,6 @@
     },
     {
       "domain": "dinoruss.org",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "unmuseum.org",
       "from": 1,
       "to": 0
     },

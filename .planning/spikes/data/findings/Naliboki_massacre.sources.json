@@ -46,7 +46,7 @@
       "to": 3
     },
     {
-      "domain": "forward.com",
+      "domain": "wyborcza.pl",
       "from": 0,
       "to": 2
     },
@@ -56,24 +56,9 @@
       "to": 2
     },
     {
-      "domain": "wyborcza.pl",
+      "domain": "forward.com",
       "from": 0,
       "to": 2
-    },
-    {
-      "domain": "ampoleagle.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "radzima.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "naukawpolsce.pl",
-      "from": 0,
-      "to": 1
     },
     {
       "domain": "rp.pl",
@@ -86,12 +71,27 @@
       "to": 1
     },
     {
+      "domain": "shtetlroutes.eu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "naukawpolsce.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
       "domain": "zagladazydow.pl",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "shtetlroutes.eu",
+      "domain": "ampoleagle.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "radzima.org",
       "from": 0,
       "to": 1
     }

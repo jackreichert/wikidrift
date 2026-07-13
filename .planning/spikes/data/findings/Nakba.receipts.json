@@ -1,31 +1,27 @@
 {
   "article": "Nakba",
   "qid": "Q3266633",
-  "asof": null,
   "editions": {
     "en": {
       "present": true,
-      "title": "Nakba",
       "revid": 1362789734,
+      "title": "Nakba",
       "timestamp": "2026-07-06T05:29:43Z",
-      "prose_chars": 37505,
-      "prose_file": "Nakba.en.txt"
+      "prose_chars": 37505
     },
     "he": {
       "present": true,
-      "title": "הנכבה",
       "revid": 43391910,
+      "title": "הנכבה",
       "timestamp": "2026-06-09T13:36:50Z",
-      "prose_chars": 19606,
-      "prose_file": "Nakba.he.txt"
+      "prose_chars": 19606
     },
     "ar": {
       "present": true,
+      "revid": 75889902,
       "title": "النكبة",
-      "revid": 75429925,
-      "timestamp": "2026-06-13T10:24:23Z",
-      "prose_chars": 55014,
-      "prose_file": "Nakba.ar.txt"
+      "timestamp": "2026-07-13T08:01:50Z",
+      "prose_chars": 55014
     }
   }
 }

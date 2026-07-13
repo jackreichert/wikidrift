@@ -6,97 +6,72 @@
     "ar"
   ],
   "entities": [
-    "Israel",
-    "Palestinians"
+    "Israeli–Palestinian conflict"
   ],
   "editions": {
     "en": {
       "focal": {
-        "Israel": {
-          "entity": "Israel",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "a system of institutionalized discrimination against Palestinians under its occupation referred to as Israeli apartheid... Israel's actions in Gaza during this war have been described... as a genocide"
-        },
-        "Palestinians": {
-          "entity": "Palestinians",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "more than half of the mandate's predominantly Palestinian Arab population fled or were expelled by Israeli forces, referred to by Palestinians as the Nakba"
+        "Israeli–Palestinian conflict": {
+          "entity": "Israeli–Palestinian conflict",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "The Israeli–Palestinian conflict began in the late 19th and early 20th centuries, with the development of political Zionism and the arrival of Zionist settlers to Palestine."
         }
       },
       "lead": {
-        "Israel": {
-          "entity": "Israel",
+        "Israeli–Palestinian conflict": {
+          "entity": "Israeli–Palestinian conflict",
           "stance": "critical",
           "npov_departure": true,
-          "evidence": "creating a system of institutionalized discrimination against Palestinians under its occupation referred to as Israeli apartheid"
-        },
-        "Palestinians": {
-          "entity": "Palestinians",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "Israel has also drawn international condemnation for violating the human rights of the Palestinians"
+          "evidence": "Israel constructing illegal settlements there, creating a system of institutionalized discrimination against Palestinians under its occupation referred to as Israeli apartheid"
         }
       }
     },
     "he": {
       "focal": {
-        "Israel": {
-          "entity": "Israel",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "ישראל, לעומת זאת, חסמה לעיתים נדירות בלבד את הגישה למקומות הקדושים בפני הדתות האחרות... ישראל העניקה אוטונומיה כמעט מלאה לווקף על הר הבית"
-        },
-        "Palestinians": {
-          "entity": "Palestinians",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "במהלך בנייה בלתי חוקית בהר הבית – מסגד אורוות שלמה – חפרו הפלסטינים כ־12,000 טון מילויים רוויי עתיקות ושפכו אותם לנחל קידרון"
+        "Israeli–Palestinian conflict": {
+          "entity": "Israeli–Palestinian conflict",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "הסכסוך הישראלי-פלסטיני, כחלק מהסכסוך היהודי-ערבי, נחלק לשבע תקופות, שונות מהותית זו מזו"
         }
       },
       "lead": {
+        "Israeli–Palestinian conflict": {
+          "entity": "Israeli–Palestinian conflict",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "הוא סכסוך בין תושביה היהודים של ארץ ישראל... לבין ערביי ארץ ישראל (פלסטינים)"
+        },
         "Israel": {
           "entity": "Israel",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "מדינת ישראל שהקימו לבין ערביי ארץ ישראל (פלסטינים)"
+          "evidence": "ישראל רואה באלימות נגד חיילים ואזרחים ישראלים כפעולות טרור"
         },
         "Palestinians": {
           "entity": "Palestinians",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "הפלסטינים רואים את הכיבוש הישראלי כפסול"
+          "evidence": "בעוד הפלסטינים רואים את הכיבוש הישראלי כפסול"
         }
       }
     },
     "ar": {
       "focal": {
-        "Israel": {
-          "entity": "Israel",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "شرعية دولة إسرائيل واحتلالها للأراضي الفلسطينية بعدة مراحل ... لاقى هذا المشروع الصهيوني غضباً شعبياً عم كل فلسطين، ورفضاً قاطعاً"
-        },
-        "Palestinians": {
-          "entity": "Palestinians",
+        "Israeli–Palestinian conflict": {
+          "entity": "Israeli–Palestinian conflict",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "شكّل اللاجئون الفلسطينيون الذين خرجوا من المناطق التي قامت عليها إسرائيل، نواة جديدة للقضية الفلسطينية ... نزح بين عام 1947 مرورًا بحرب 1948 حوالي 750000 عربي فلسطيني عن بلداتهم"
+          "evidence": "قضية اللاجئين الفلسطينيين وشرعية دولة إسرائيل واحتلالها للأراضي الفلسطينية بعدة مراحل"
         }
       },
       "lead": {
-        "Israel": {
-          "entity": "Israel",
+        "Israeli–Palestinian conflict": {
+          "entity": "Israeli–Palestinian conflict",
           "stance": "critical",
           "npov_departure": true,
-          "evidence": "ما نتج عن ذلك من ارتكابها للمجازر بحق الفلسطينيين"
-        },
-        "Palestinians": {
-          "entity": "Palestinians",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "لاقى هذا المشروع الصهيوني غضباً شعبياً عم كل فلسطين، ورفضاً قاطعاً من كل الشخصيات السياسية"
+          "evidence": "وما نتج عن ذلك من ارتكابها للمجازر بحق الفلسطينيين وعمليات المقاومة ضد الدولة العبرية... لاقى هذا المشروع الصهيوني غضباً شعبياً عم كل فلسطين، ورفضاً قاطعاً"
         }
       }
     }

@@ -1,0 +1,301 @@
+{
+  "article": "Bar Kokhba Revolt",
+  "span": "2025-01-01 -> 2025-07-01 (around L1 pivot ~2025-01-01)",
+  "pivot": "2025-01-01",
+  "before": {
+    "date": "2025-01-01",
+    "rev": 1264634404,
+    "tokens": 5835
+  },
+  "after": {
+    "date": "2025-07-01",
+    "rev": 1298257238,
+    "tokens": 7878
+  },
+  "js_divergence": 0.0938,
+  "overrepresented_after_terms": [
+    {
+      "term": "control",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 2.0984
+    },
+    {
+      "term": "imperial",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 2.0984
+    },
+    {
+      "term": "reflected",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 2.0984
+    },
+    {
+      "term": "whose",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 2.0984
+    },
+    {
+      "term": "conditions",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 1.8976
+    },
+    {
+      "term": "devastating",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 1.8976
+    },
+    {
+      "term": "figure",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 1.8976
+    },
+    {
+      "term": "hopes",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 1.8976
+    },
+    {
+      "term": "limited",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 1.8976
+    },
+    {
+      "term": "lost",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 1.8976
+    },
+    {
+      "term": "presents",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 1.8976
+    },
+    {
+      "term": "shaped",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 1.8976
+    },
+    {
+      "term": "suggest",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 1.8976
+    },
+    {
+      "term": "access",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 1.6461
+    },
+    {
+      "term": "argues",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 1.6461
+    },
+    {
+      "term": "broader",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 1.6461
+    },
+    {
+      "term": "case",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 1.6461
+    },
+    {
+      "term": "compiled",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 1.6461
+    },
+    {
+      "term": "decision",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 1.6461
+    },
+    {
+      "term": "decrees",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 1.6461
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "electrum",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.6989
+    },
+    {
+      "term": "art",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.2466
+    },
+    {
+      "term": "bce",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.2466
+    },
+    {
+      "term": "colonia",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.2466
+    },
+    {
+      "term": "ejournals",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.2466
+    },
+    {
+      "term": "http",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.2466
+    },
+    {
+      "term": "majority",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.2466
+    },
+    {
+      "term": "proximate",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.2466
+    },
+    {
+      "term": "www",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.2466
+    },
+    {
+      "term": "fact",
+      "before": 4,
+      "after": 1,
+      "delta": -3,
+      "log_odds": -1.3993
+    },
+    {
+      "term": "results",
+      "before": 4,
+      "after": 1,
+      "delta": -3,
+      "log_odds": -1.3993
+    },
+    {
+      "term": "julian",
+      "before": 6,
+      "after": 2,
+      "delta": -4,
+      "log_odds": -1.2565
+    },
+    {
+      "term": "accepted",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -1.1479
+    },
+    {
+      "term": "aqraba",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -1.1479
+    },
+    {
+      "term": "back",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -1.1479
+    },
+    {
+      "term": "best",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -1.1479
+    },
+    {
+      "term": "caverns",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -1.1479
+    },
+    {
+      "term": "conservative",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -1.1479
+    },
+    {
+      "term": "disastrous",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -1.1479
+    },
+    {
+      "term": "districts",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -1.1479
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

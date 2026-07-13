@@ -101,11 +101,6 @@
       "to": 3
     },
     {
-      "domain": "youtube.com",
-      "from": 0,
-      "to": 2
-    },
-    {
       "domain": "haaretz.com",
       "from": 0,
       "to": 2
@@ -116,17 +111,12 @@
       "to": 2
     },
     {
-      "domain": "nytimes.com",
-      "from": 2,
-      "to": 4
-    },
-    {
-      "domain": "ghostarchive.org",
+      "domain": "academia.edu",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "academia.edu",
+      "domain": "ghostarchive.org",
       "from": 0,
       "to": 2
     },
@@ -136,57 +126,17 @@
       "to": 2
     },
     {
-      "domain": "books.google.com",
-      "from": 0,
-      "to": 1
+      "domain": "nytimes.com",
+      "from": 2,
+      "to": 4
     },
     {
-      "domain": "jewishpress.com",
+      "domain": "youtube.com",
       "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "surnamedna.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "independent.co.uk",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "scholar.google.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "the-scientist.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "latimes.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "smgf.org",
-      "from": 1,
       "to": 2
     },
     {
-      "domain": "boingboing.net",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "nybooks.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "sciencedirect.com",
+      "domain": "bbc.com",
       "from": 0,
       "to": 1
     },
@@ -196,7 +146,67 @@
       "to": 1
     },
     {
-      "domain": "bbc.com",
+      "domain": "latimes.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "nybooks.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "sciencedaily.com",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "surnamedna.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "soas.ac.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "the-scientist.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "jewishpress.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "news.nationalpost.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "boingboing.net",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "books.google.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "sciencedirect.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "smgf.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "dx.medra.org",
       "from": 0,
       "to": 1
     },
@@ -211,27 +221,17 @@
       "to": 1
     },
     {
-      "domain": "soas.ac.uk",
+      "domain": "independent.co.uk",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "sciencedaily.com",
-      "from": 1,
-      "to": 2
+      "domain": "scholar.google.com",
+      "from": 0,
+      "to": 1
     },
     {
       "domain": "natureasia.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "news.nationalpost.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "dx.medra.org",
       "from": 0,
       "to": 1
     }
@@ -248,17 +248,7 @@
       "to": 0
     },
     {
-      "domain": "pqasb.pqarchiver.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "pubmedcentral.nih.gov",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "newsweek.com",
+      "domain": "ashg.org",
       "from": 1,
       "to": 0
     },
@@ -268,17 +258,27 @@
       "to": 0
     },
     {
+      "domain": "pqasb.pqarchiver.com",
+      "from": 1,
+      "to": 0
+    },
+    {
       "domain": "ftdna.com",
       "from": 1,
       "to": 0
     },
     {
-      "domain": "ashg.org",
+      "domain": "newsweek.com",
       "from": 1,
       "to": 0
     },
     {
       "domain": "cell.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "pubmedcentral.nih.gov",
       "from": 1,
       "to": 0
     }

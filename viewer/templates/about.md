@@ -17,7 +17,8 @@ WikiDrift runs on public MediaWiki and WikiWho data. For each article it can rep
   ([persistence-weighted](glossary.html#pwr) displacement).
 - **Other editions:** how English compares with editions such as Hebrew, Arabic, Polish, or German on
   [framing](glossary.html#framing) and [load-bearing facts](glossary.html#fact-divergence) — including
-  whether English moved at the pivot, not only whether editions differ today.
+  whether English moved at the pivot, not only whether editions differ today. In current runs,
+  pivot-relative comparison uses one shared L1 pivot boundary across all compared editions.
 - **Citations:** how the article's own source mix shifted across a rewrite
   ([from → to](glossary.html#source-change)), without reliability ratings on domains.
 
@@ -27,6 +28,9 @@ Articles are selected and scored from **content trajectory**, not from a roster 
 Optional named lists can sit on top as overlays; they are not the foundation. A metadata pre-ranker
 (byte displacement, no full text) decides what deserves a full token-level pass and routes addition- or
 [churn](glossary.html#churn)-heavy cases to framing analysis when removal alone would miss them.
+
+Default entity focus is self-determined from the article itself (controversy-agnostic), and pipeline runs
+pass L2/L2.5 context into L5 so external checks are guided by observed shifts rather than fixed priors.
 
 A large rewrite is a *change* signal. Base-rate runs show legitimate overhauls can out-pivot contested
 topics. Direction is a separate layer (stance + cross-edition checks). Every page here is a

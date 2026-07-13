@@ -2,12 +2,14 @@
   "article": "Racial conceptions of Jewish identity in Zionism",
   "asof": null,
   "langs": [
-    "en"
+    "en",
+    "es"
   ],
   "citation": {
-    "mean_jaccard": 1.0,
+    "mean_jaccard": 0.93,
     "domains_per_edition": {
-      "en": 27
+      "en": 27,
+      "es": 29
     }
   },
   "claim": {
@@ -15,28 +17,42 @@
       "en": {
         "Did early Zionist thinkers employ racial or ethnic conceptions of Jewish identity?": {
           "question": "Did early Zionist thinkers employ racial or ethnic conceptions of Jewish identity?",
-          "answer": "Yes, some founders of Zionism, such as Max Nordau, sought to reformulate Jewish identity in racial terms using the race science of their time.",
+          "answer": "Yes, some founders of Zionism sought to reformulate Jewishness in racial terms using the race science of the time.",
           "value": "yes",
           "evidence": "some of the founders of Zionism (such as Max Nordau) sought to reformulate conceptions of Jewishness in terms of racial identity and the \"race science\" of the time."
         },
         "How does the article characterize the relationship between Zionism and contemporaneous race science?": {
           "question": "How does the article characterize the relationship between Zionism and contemporaneous race science?",
-          "answer": "The article describes Zionism as both a response to and an extension of the era's race-related discourses, including Social Darwinism, eugenics, nationalism, and colonialism, with Zionists appropriating race theory concepts to counter antisemitism and argue for Jewish national regeneration.",
-          "value": "Zionism as both response to and extension of race science/eugenics discourses",
-          "evidence": "\"If anything, the first decades of Zionism bear out an affinity with some of the more unsavoury 'regenerative' discourses of the late nineteenth century, particularly Social Darwinism, eugenics, nationalism, and colonialism, precisely because Zionism – partly as a project of self-legitimacy – was both a Jewish response to and extension of these very same discourses.\""
+          "answer": "The article describes early Zionism as having an affinity with and drawing on contemporary 'regenerative' race discourses like Social Darwinism and eugenics, both as a response to and an extension of such discourses.",
+          "value": "Zionism as both response to and extension of race science discourses",
+          "evidence": "the first decades of Zionism bear out an affinity with some of the more unsavoury 'regenerative' discourses of the late nineteenth century, particularly Social Darwinism, eugenics, nationalism, and colonialism, precisely because Zionism – partly as a project of self-legitimacy – was both a Jewish response to and extension of these very same discourses."
+        }
+      },
+      "es": {
+        "Did early Zionist thinkers employ racial or ethnic conceptions of Jewish identity?": {
+          "question": "Did early Zionist thinkers employ racial or ethnic conceptions of Jewish identity?",
+          "answer": "Yes, some founders of Zionism, such as Max Nordau, sought to reformulate conceptions of Judaism in terms of racial identity and the scientific racism of the era.",
+          "value": "yes",
+          "evidence": "algunos de los fundadores del sionismo (como Max Nordau) buscaron reformular las concepciones del judaísmo en términos de identidad racial y el racismo científico de la época"
+        },
+        "How does the article characterize the relationship between Zionism and contemporaneous race science?": {
+          "question": "How does the article characterize the relationship between Zionism and contemporaneous race science?",
+          "answer": "The article states that early Zionism shows affinity with negative late 19th-century discourses like social Darwinism, eugenics, nationalism and colonialism, being both a Jewish response to and an extension of these discourses, arguing that only a national home could allow physical regeneration and racial pride.",
+          "value": "affinity/extension of contemporaneous race discourses",
+          "evidence": "las primeras décadas de la historia del sionismo muestran una cierta afinidad con algunos de los discursos más negativos de finales del siglo XIX, en particular el darwinismo social, la eugenesia, el nacionalismo y el colonialismo, precisamente porque el sionismo, en parte como proyecto de autolegitimación, fue a la vez una respuesta judía y una extensión de estos mismos discursos"
         }
       }
     },
     "adjudication": [
       {
         "question": "Did early Zionist thinkers employ racial or ethnic conceptions of Jewish identity?",
-        "verdict": "insufficient",
-        "note": "Only one edition (en) provided; no other-language answer to compare, so cross-edition judgment cannot be made."
+        "verdict": "agree",
+        "note": "Both editions confirm yes, citing figures like Max Nordau using contemporary race science."
       },
       {
         "question": "How does the article characterize the relationship between Zionism and contemporaneous race science?",
-        "verdict": "insufficient",
-        "note": "Only the English edition's answer is given; without a second edition's statement, cross-edition comparison is not possible."
+        "verdict": "agree",
+        "note": "Both describe Zionism as drawing on and paralleling contemporaneous race discourses like Social Darwinism and eugenics, as both response and extension."
       }
     ]
   }

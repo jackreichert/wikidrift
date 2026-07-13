@@ -13,7 +13,7 @@ Full design + methodology live in the vault:
 ## Layout
 
 | Module | Role | Spike origin |
-|---|---|---|
+| --- | --- | --- |
 | `config.py` | Paths, endpoints, HTTP session, all tuned thresholds | (was duplicated everywhere) |
 | `provenance.py` | DuckDB schema + WikiWho/Action-API fetching, persistent snapshots | 001a, 005 |
 | `drift.py` | **L1** PWR engine: coarse loss → episodes → binary-search confirm → attribution; offline `verdict_dict`; descriptive `profile` (recency + editor concentration) | 005, 002 |
@@ -45,16 +45,19 @@ uv run wikidrift bootstrap            # populate the token corpus for the roster
 uv run wikidrift benchmark            # score the adjudicated roster (offline)
 uv run wikidrift validate             # offline PWR candidate verdicts (no WikiWho)
 uv run wikidrift prerank              # metadata pre-ranker (offline)
-uv run wikidrift profile "Zionism"    # descriptive L1 drift profile: recency + editor concentration (offline)
-uv run wikidrift analyze "Zionism"    # full L1 pipeline (+ WikiWho for confirm/attribute)
-uv run wikidrift stance "Nakba"       # L2 stance over time (needs an LLM key)
-uv run wikidrift crosslingual "Zionism"                       # L5 #1 framing divergence (needs key)
+uv run wikidrift profile "Brontosaurus" # descriptive L1 drift profile: recency + editor concentration (offline)
+uv run wikidrift analyze "Climate change" # full L1 pipeline (+ WikiWho for confirm/attribute)
+uv run wikidrift stance "Abortion"    # L2 stance over time (needs an LLM key)
+uv run wikidrift crosslingual "Zionism"                     # L5 #1 framing divergence (needs key)
 uv run wikidrift factcheck "Warsaw concentration camp" --asof 2018-06-01   # L5 #2 fact divergence (needs key)
 uv run wikidrift mscore                                        # controversy corroborator (offline fetch)
-uv run wikidrift discover "Zionism"                            # L5→L4 graph-guided discovery (seed → footprint → re-test)
+uv run wikidrift discover "Nakba"                              # L5→L4 graph-guided discovery (seed → footprint → re-test)
 uv run wikidrift sources "Palestine"                           # L5 #3b citation-source change from → to across the pivot
 uv run wikidrift ingest "Naliboki massacre"                    # local wikiwho_rs backend → rsnap (then analyze/validate offline)
 ```
+
+Single-article verbs accept either an article title or a Wikipedia URL (for example,
+`https://en.wikipedia.org/wiki/Chess`).
 
 `discover` seeds from an article's confirmed destroyers, follows *only their content-removing edits* elsewhere
 (a search prior — the graph never flags anything), subtracts the base-rate roster, and re-tests each fresh
@@ -69,29 +72,44 @@ Offline commands (`benchmark`, `validate`, `prerank`) need only that DB; `analyz
 
 ### LLM backend (cost lever, `llm.py`)
 
-The two LLM layers — **L2 stance** and **L5 claim adjudication** — are provider-agnostic. Default is
-**Anthropic** `claude-sonnet-5` (near-Opus quality at ~40-60% cost; `--model claude-opus-4-8` reproduces the
-certified ★#3 benchmark baseline). A researcher can pick a cheaper or free/local model:
+The two LLM layers — **L2 stance** and **L5 claim adjudication** — are provider-agnostic. Default mode is
+provider auto-selection + failover via `WIKIDRIFT_LLM_PROVIDER_PRIORITY`
+(`anthropic,openai,grok,google` unless changed), using whichever provider keys are configured.
+Set `WIKIDRIFT_LLM_PROVIDER` (or pass `--provider`) only to pin one provider and disable auto failover.
+`claude-sonnet-5` remains the default Anthropic model (near-Opus quality at ~40-60% cost;
+`--model claude-opus-4-8` reproduces the certified ★#3 benchmark baseline). A researcher can pick a cheaper
+or free/local model:
 
 ```bash
 # OpenAI (cheap hosted, strict structured output)
-wikidrift stance "Nakba" --provider openai --model gpt-4o-mini            # OPENAI_API_KEY
-# xAI Grok (OpenAI-compatible; default model grok-4; alias --provider grok)
-wikidrift stance "Nakba" --provider xai                                   # XAI_API_KEY
-wikidrift pipeline "Nakba" --llm --provider grok --model grok-4           # same as xai
+wikidrift stance "Photosynthesis" --provider openai --model gpt-4o-mini            # OPENAI_API_KEY
 # any OpenAI-compatible endpoint via --base-url: OpenRouter / Together / Groq / DeepSeek / Fireworks …
 wikidrift factcheck "Jedwabne pogrom" --provider openai \
     --base-url https://openrouter.ai/api/v1 --model meta-llama/llama-3.3-70b-instruct
 # fully local + free (Ollama / LM Studio / vLLM speak the OpenAI API)
-wikidrift crosslingual "Zionism" --provider openai --base-url http://localhost:11434/v1 --model llama3.1
+wikidrift crosslingual "Hamas" --provider openai --base-url http://localhost:11434/v1 --model llama3.1
 # native Google Gemini (very cheap)
-wikidrift pipeline "Nakba" --llm --provider google --model gemini-flash-lite-latest   # GOOGLE_API_KEY
+wikidrift pipeline "Water" --llm --provider google --model gemini-flash-lite-latest   # GOOGLE_API_KEY
 ```
 
 Equivalent env vars: `WIKIDRIFT_LLM_PROVIDER` / `_MODEL` / `_BASE_URL` / `_API_KEY` (the last overrides the
-provider-native `ANTHROPIC_API_KEY` / `OPENAI_API_KEY` / `GOOGLE_API_KEY` / `XAI_API_KEY`). Install the extra
-SDK only if you use it: `uv sync --extra openai` (covers OpenAI *and* xAI/Grok) / `--extra google` /
-`--extra all-llm` (the default install needs neither). Model ids are examples — pick per current availability.
+provider-native `ANTHROPIC_API_KEY` / `OPENAI_API_KEY` / `XAI_API_KEY` / `GOOGLE_API_KEY`).
+If `WIKIDRIFT_LLM_PROVIDER` is unset, auto mode checks configured keys in
+`WIKIDRIFT_LLM_PROVIDER_PRIORITY` (default: `anthropic,openai,grok,google`) and fails over to the next
+provider on rate/quota exhaustion.
+Install the extra SDK only if you
+use it: `uv sync --extra openai` / `--extra google` / `--extra all-llm` (the default install needs neither).
+Model ids are examples — pick per current availability.
+
+### Default entity focus (no-prior mode)
+
+For standalone and pipeline runs, default entity focus is self-determined from the article itself:
+
+- `wikidrift stance <article>` defaults to entity = article title (unless `--entities` is passed)
+- `wikidrift pipeline <article> --llm` forwards L2/L2.5 context into L5 (entities, shifts, lexical JS)
+- standalone `crosslingual` also defaults to entity = article title when no explicit context is provided
+
+This keeps the default path controversy-agnostic and avoids hard-coded focal priors.
 
 **Keys via `.env`.** Copy `.env.example` → `.env` (gitignored) and fill in the key for your provider; it's
 auto-loaded on import (never overriding an already-set env var), so no manual `source` is needed.
@@ -118,7 +136,8 @@ PR #44, from this project). After `ingest`, the offline commands run on the loca
 All validated spikes are now promoted — the last stragglers (002 drift-profile → `drift.profile`, and 007's
 base-rate batch → the `bootstrap` verb) landed in Session 08. Known gaps in the package, prioritized:
 
-**Near-term**
+### Near-term
+
 1. ✅ **Findings-output layer (done, Session 05)** — `crosslingual`/`factcheck`/`mscore` now persist
    viewer-shaped JSON into `config.FINDINGS` (`.planning/spikes/data/findings/`); the viewer merges it over
    the frozen spike `out/` dirs, so a production run on a *new* article flows straight to the site.
@@ -129,14 +148,16 @@ base-rate batch → the `bootstrap` verb) landed in Session 08. Known gaps in th
    layers opt-in (`--llm`) and the M-score corroborator opt-in (`--mscore`). Closes "adjudicate the routed
    leads": the router's L2 leads are now actually run.
 
-**Built since (Session 08)**
+### Built since (Session 08)
+
 - ✅ **L4 graph-guided discovery** (`l4.py`, `wikidrift discover`) — seed → destructive footprint → independent
   L1 re-test; the graph is a search prior only. *Not yet wired:* the iterate/snowball step (confirmed hits
   recruit their own destroyers into the next round) and corpus-scale batch via `ingest`.
 - ✅ **L5 #3b citation-source change** (`l5_sources.py`, `wikidrift sources`) — reference-agnostic, no source
   rated.
 
-**Design-deferred**
+### Design-deferred
+
 - **L2 section-level segmentation** (stance is whole-article / focal-entity today).
 - **Attribution ID→username reconciliation** (WikiWho editor IDs → names).
 - **L5 instrument #3 (the *external-reference* form)** — cross-encyclopedia / scholarly-corpus comparison.

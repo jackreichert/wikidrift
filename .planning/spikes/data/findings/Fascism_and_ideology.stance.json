@@ -1,0 +1,72 @@
+{
+  "article": "Fascism and ideology",
+  "langs": [
+    "en",
+    "ar"
+  ],
+  "entities": [
+    "Fascism and ideology"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Fascism": {
+          "entity": "Fascism",
+          "stance": "critical",
+          "npov_departure": false,
+          "evidence": "strongly opposed liberalism, communism, anarchism, and democratic socialism... perception of decadence, anti-egalitarianism and totalitarianism"
+        },
+        "ideology": {
+          "entity": "ideology",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "The history of fascist ideology is long and draws on many sources."
+        }
+      },
+      "lead": {
+        "Fascism": {
+          "entity": "Fascism",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "The history of fascist ideology is long and draws on many sources... Common themes among fascist movements include: authoritarianism, nationalism, hierarchy, elitism, and militarism."
+        },
+        "ideology": {
+          "entity": "ideology",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Fascism had a complex relationship with other ideologies that were contemporary with it. Fascism frequently considered those ideologies its adversaries, but at the same time it was also focused on co-opting their more popular aspects."
+        }
+      }
+    },
+    "ar": {
+      "focal": {
+        "Fascism": {
+          "entity": "Fascism",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "استقى الفاشيون الإلهام من المصادر القديمة مثل الإسبارطيين لتركيزهم على النقاء العِرقي وتشديدهم على حُكم نخبة الأقلية"
+        },
+        "ideology": {
+          "entity": "ideology",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "تشمل الموضوعات المشتركة في أوساط الفاشيين ما يلي: القومية... والهرمية، والنخبوية، والعسكرة، والتدين العلماني، والذكورية، والفلسفة"
+        }
+      },
+      "lead": {
+        "Fascism": {
+          "entity": "Fascism",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "استقى الفاشيون الإلهام من المصادر القديمة مثل الإسبارطيين لتركيزهم على النقاء العِرقي وتشديدهم على حُكم نخبة الأقلية... تنبع من الأفكار المذكورة آنفًا"
+        },
+        "ideology": {
+          "entity": "ideology",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "تتسم طبيعة علاقتها بغيرها من الأيديولوجيات السائدة في زمانها بالتعقيد، عادة ما اتخذت طابعًا عدائيًا"
+        }
+      }
+    }
+  }
+}

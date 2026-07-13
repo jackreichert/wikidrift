@@ -44,7 +44,7 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("Testland", out)
         self.assertIn("rev 123", out)          # receipts revision link
         self.assertIn("Q42", out)              # Wikidata QID
-        self.assertIn("Receipts", out)         # receipts tab present
+        self.assertIn("Revisions", out)        # revisions tab present
 
     def test_renders_framing_stance_grid(self):
         out = _article_html()

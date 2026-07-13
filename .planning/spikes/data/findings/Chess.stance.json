@@ -1,0 +1,67 @@
+{
+  "article": "Chess",
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "entities": [
+    "Chess"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Chess": {
+          "entity": "Chess",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Chess is a board game for two players, played on a square board consisting of 64 squares arranged in an 8×8 grid."
+        }
+      },
+      "lead": {
+        "Chess": {
+          "entity": "Chess",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Chess is a board game for two players, played on a square board consisting of 64 squares arranged in an 8×8 grid."
+        }
+      }
+    },
+    "he": {
+      "focal": {
+        "Chess": {
+          "entity": "Chess",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "שחמט הוא אחד המשחקים השכיחים והמורכבים ביותר הקיימים בתרבות האנושית"
+        }
+      },
+      "lead": {
+        "Chess": {
+          "entity": "Chess",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "שחמט הוא משחק לוח אסטרטגי מופשט וענף ספורט לשני שחקנים"
+        }
+      }
+    },
+    "ar": {
+      "focal": {
+        "Chess": {
+          "entity": "Chess",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "لُعبةُ رقعةٍ وتخطيطٍ، يلعب بها لاعبان على رقعةٍ مطعمةٍ، مربعةِ الشكلِ، ذاتِ 64 مربعًا"
+        }
+      },
+      "lead": {
+        "Chess": {
+          "entity": "Chess",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "لُعبةُ رقعةٍ وتخطيطٍ، يلعب بها لاعبان على رقعةٍ مطعمةٍ، مربعةِ الشكلِ، ذاتِ 64 مربعًا"
+        }
+      }
+    }
+  }
+}

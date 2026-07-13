@@ -19,8 +19,7 @@ import duckdb
 import mwparserfromhell
 
 from . import config, drift
-from .registry import FOCAL, DEFAULT_FOCAL   # focal entities shared with L2 stance (single source)
-from .stance import classify, focal_passage, STANCE_VAL
+from .stance import classify, focal_passage, STANCE_VAL, default_entities
 
 _S = config.session()
 MAX_CHARS = 6000
@@ -50,7 +49,6 @@ SLATE = {
     "Bar Kokhba Revolt": ["en", "he"],                             # confirmed pivot (case study); fact #2 (Syria Palaestina)
     "Gaza genocide": ["en", "he", "ar"],                           # born-in-contested → L5's home (small; static-led)
 }
-# FOCAL (focal entities) is shared with L2 stance and lives in registry.py (single source, no divergence).
 # I-P pivot fallback when L1 reads HEALTHY (addition-side growth, no removal pivot). Anchored to Oct-7-2023 —
 # the natural I-P reframe boundary — for the born-in-contested / HEALTHY-reading articles whose L2 shift is
 # recent and decoupled from any structural removal pivot.
@@ -207,12 +205,12 @@ def emit_findings(article, qid, langs, ents, meta, stat, pr=None):
 
 
 def crosslingual(article, langs=None, pivot=True, persist=True, provider=None, model=None, base_url=None,
-                 client=None):
+                 client=None, context=None):
     """Run the cross-lingual framing instrument for one article; print + return the report.
     Persists viewer-shaped findings unless persist=False (tests). `client` is the injectable LLM port —
     built from provider/model/base_url when None (CLI path), injected by the pipeline (shared client)."""
     langs = langs or SLATE.get(article, ["en", "he", "ar"])
-    ents = FOCAL.get(article, DEFAULT_FOCAL)
+    ents = list((context or {}).get("entities") or default_entities(article))
     qid, links = sitelinks(article, langs)
     langs = [l for l in langs if l in links]
     labels = {e: entity_labels(e, langs) for e in ents}
@@ -226,6 +224,8 @@ def crosslingual(article, langs=None, pivot=True, persist=True, provider=None, m
         client = llm.make_client(provider, model, base_url)
 
     print(f"=== L5 cross-lingual (framing) — {article}  ({'/'.join(langs)}) ===")
+    if context:
+        print(f"  context: L2/L2.5 feed active (entities={ents})")
     stat = static_divergence(client, article, langs, prose_by_lang, ents, labels)
     print("  STATIC divergence (0=agree … 2=max):")
     for v in ("lead", "focal"):

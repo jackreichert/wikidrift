@@ -1,0 +1,301 @@
+{
+  "article": "Gaza genocide",
+  "span": "2024-07-01 -> 2025-01-01 (around L1 pivot ~2024-07-01)",
+  "pivot": "2024-07-01",
+  "before": {
+    "date": "2024-07-01",
+    "rev": 1232016083,
+    "tokens": 6012
+  },
+  "after": {
+    "date": "2025-01-01",
+    "rev": 1266685120,
+    "tokens": 9700
+  },
+  "js_divergence": 0.0801,
+  "overrepresented_after_terms": [
+    {
+      "term": "accusation",
+      "before": 0,
+      "after": 9,
+      "delta": 9,
+      "log_odds": 2.467
+    },
+    {
+      "term": "august",
+      "before": 0,
+      "after": 8,
+      "delta": 8,
+      "log_odds": 2.3557
+    },
+    {
+      "term": "estimate",
+      "before": 0,
+      "after": 7,
+      "delta": 7,
+      "log_odds": 2.2304
+    },
+    {
+      "term": "september",
+      "before": 0,
+      "after": 7,
+      "delta": 7,
+      "log_odds": 2.2304
+    },
+    {
+      "term": "indirect",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 2.0872
+    },
+    {
+      "term": "months",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 2.0872
+    },
+    {
+      "term": "assembly",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 1.9201
+    },
+    {
+      "term": "recent",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 1.9201
+    },
+    {
+      "term": "third",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 1.9201
+    },
+    {
+      "term": "care",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 1.7193
+    },
+    {
+      "term": "countries",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 1.7193
+    },
+    {
+      "term": "displacement",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 1.7193
+    },
+    {
+      "term": "fatalities",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 1.7193
+    },
+    {
+      "term": "field",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 1.7193
+    },
+    {
+      "term": "harris",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 1.7193
+    },
+    {
+      "term": "militant",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 1.7193
+    },
+    {
+      "term": "plan",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 1.7193
+    },
+    {
+      "term": "reports",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 1.7193
+    },
+    {
+      "term": "sultany",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 1.7193
+    },
+    {
+      "term": "systematic",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 1.7193
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "romania",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.8771
+    },
+    {
+      "term": "alleged",
+      "before": 8,
+      "after": 2,
+      "delta": -6,
+      "log_odds": -1.7032
+    },
+    {
+      "term": "ngo",
+      "before": 4,
+      "after": 1,
+      "delta": -3,
+      "log_odds": -1.5775
+    },
+    {
+      "term": "achieve",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -1.326
+    },
+    {
+      "term": "constitute",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -1.326
+    },
+    {
+      "term": "publications",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -1.326
+    },
+    {
+      "term": "verse",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -1.326
+    },
+    {
+      "term": "calculated",
+      "before": 5,
+      "after": 2,
+      "delta": -3,
+      "log_odds": -1.2674
+    },
+    {
+      "term": "real",
+      "before": 5,
+      "after": 2,
+      "delta": -3,
+      "log_odds": -1.2674
+    },
+    {
+      "term": "textbook",
+      "before": 6,
+      "after": 3,
+      "delta": -3,
+      "log_odds": -1.0981
+    },
+    {
+      "term": "engaging",
+      "before": 4,
+      "after": 2,
+      "delta": -2,
+      "log_odds": -1.0666
+    },
+    {
+      "term": "held",
+      "before": 4,
+      "after": 2,
+      "delta": -2,
+      "log_odds": -1.0666
+    },
+    {
+      "term": "complicity",
+      "before": 19,
+      "after": 11,
+      "delta": -8,
+      "log_odds": -1.0084
+    },
+    {
+      "term": "assistance",
+      "before": 7,
+      "after": 4,
+      "delta": -3,
+      "log_odds": -0.9899
+    },
+    {
+      "term": "accuses",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.9894
+    },
+    {
+      "term": "advocated",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.9894
+    },
+    {
+      "term": "allegedly",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.9894
+    },
+    {
+      "term": "allusion",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.9894
+    },
+    {
+      "term": "already",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.9894
+    },
+    {
+      "term": "ammunition",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.9894
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

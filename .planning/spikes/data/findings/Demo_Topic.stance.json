@@ -1,0 +1,19 @@
+{
+  "article": "Demo Topic",
+  "langs": [
+    "en"
+  ],
+  "entities": [
+    "Israel"
+  ],
+  "editions": {
+    "en": {
+      "lead": {
+        "Israel": {
+          "stance": "neutral"
+        }
+      },
+      "focal": {}
+    }
+  }
+}

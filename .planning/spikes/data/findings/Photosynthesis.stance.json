@@ -1,117 +1,65 @@
 {
   "article": "Photosynthesis",
-  "entities": [
-    "Plant",
-    "Sunlight"
-  ],
   "langs": [
     "en",
     "he",
     "ar"
   ],
+  "entities": [
+    "Photosynthesis"
+  ],
   "editions": {
     "en": {
-      "native_labels": {
-        "Plant": "Plant",
-        "Sunlight": "Sunlight"
-      },
-      "focal_empty": false,
       "focal": {
-        "Plant": {
-          "entity": "Plant",
+        "Photosynthesis": {
+          "entity": "Photosynthesis",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "Photosynthesis is a system of biological processes by which photopigment-bearing autotrophic organisms, such as most plants..."
-        },
-        "Sunlight": {
-          "entity": "Sunlight",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "convert light energy — typically from sunlight — into the chemical energy necessary to fuel their metabolism"
+          "evidence": "a system of biological processes by which photopigment-bearing autotrophic organisms... convert light energy... into the chemical energy necessary to fuel their metabolism"
         }
       },
       "lead": {
-        "Plant": {
-          "entity": "Plant",
+        "Photosynthesis": {
+          "entity": "Photosynthesis",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "such as most plants, algae and cyanobacteria, convert light energy ... into the chemical energy"
-        },
-        "Sunlight": {
-          "entity": "Sunlight",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "convert light energy — typically from sunlight — into the chemical energy necessary to fuel their metabolism"
+          "evidence": "Photosynthesis is a system of biological processes by which photopigment-bearing autotrophic organisms... convert light energy... into the chemical energy necessary to fuel their metabolism."
         }
       }
     },
     "he": {
-      "native_labels": {
-        "Plant": "צומח",
-        "Sunlight": "קרינת השמש"
-      },
-      "focal_empty": false,
       "focal": {
-        "Plant": {
-          "entity": "Plant",
-          "stance": "absent",
-          "npov_departure": false,
-          "evidence": "The passage refers to autotrophs generally, not plants specifically."
-        },
-        "Sunlight": {
-          "entity": "Sunlight",
+        "Photosynthesis": {
+          "entity": "Photosynthesis",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "אנרגיית אור, המתקבלת מקרינת השמש"
+          "evidence": "היא תהליך ביולוגי המתקיים ביצורים פוטוסינתטיים... הממירים את אנרגיית האור... לאנרגיה הכימית הנחוצה כדי לתדלק את חילוף החומרים שלהם."
         }
       },
       "lead": {
-        "Plant": {
-          "entity": "Plant",
+        "Photosynthesis": {
+          "entity": "Photosynthesis",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "רוב הצמחים, האצות והציאנובקטריה מבצעים פוטוסינתזה פוטואאוטוטרופית"
-        },
-        "Sunlight": {
-          "entity": "Sunlight",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "הממירים את אנרגיית האור, בדרך כלל אור שמש, לאנרגיה הכימית"
+          "evidence": "תהליך ביולוגי המתקיים ביצורים פוטוסינתטיים... הממירים את אנרגיית האור... לאנרגיה הכימית הנחוצה כדי לתדלק את חילוף החומרים שלהם"
         }
       }
     },
     "ar": {
-      "native_labels": {
-        "Plant": "نبات",
-        "Sunlight": "أشعة الشمس"
-      },
-      "focal_empty": false,
       "focal": {
-        "Plant": {
-          "entity": "Plant",
+        "Photosynthesis": {
+          "entity": "Photosynthesis",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "هو عملية تستخدمها النباتات وبعض الكائنات الحية الأخرى لتحويل الطاقة الضوئية إلى طاقة كيميائية"
-        },
-        "Sunlight": {
-          "entity": "Sunlight",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "عملية البناء الضوئي تبدأ بسقوط الضوء على مجموعة من الخلايا النباتية المتجاورة"
+          "evidence": "هو عملية تستخدمها النباتات وبعض الكائنات الحية الأخرى لتحويل الطاقة الضوئية إلى طاقة كيميائية - a standard encyclopedic scientific description without evaluative framing"
         }
       },
       "lead": {
-        "Plant": {
-          "entity": "Plant",
+        "Photosynthesis": {
+          "entity": "Photosynthesis",
           "stance": "neutral",
           "npov_departure": false,
           "evidence": "هو عملية تستخدمها النباتات وبعض الكائنات الحية الأخرى لتحويل الطاقة الضوئية إلى طاقة كيميائية"
-        },
-        "Sunlight": {
-          "entity": "Sunlight",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "تبدأ العملية دائمًا عندما تُمتص الطاقة الضوئية بواسطة بروتينات تُسمى مراكز التفاعل"
         }
       }
     }

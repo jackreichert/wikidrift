@@ -148,6 +148,26 @@ Treat a large NUMERIC gap as "contradict". Add a one-line 'note'. This is a LEAD
 {payload}"""
 
 
+def _context_block(context):
+    if not context:
+        return ""
+    lines = []
+    if context.get("router_leads"):
+        lines.append(f"Router leads: {', '.join(context['router_leads'])}")
+    if context.get("entities"):
+        lines.append(f"Focal entities: {', '.join(context['entities'])}")
+    l2 = context.get("l2_shifts") or {}
+    shifted = [e for e, x in l2.items() if x.get("shifted")]
+    if shifted:
+        lines.append(f"L2 shifted entities: {', '.join(shifted)}")
+    lex = context.get("lexical") or {}
+    if lex.get("js_divergence") is not None:
+        lines.append(f"Lexical JS divergence: {lex['js_divergence']}")
+    if not lines:
+        return ""
+    return "\nContext from earlier layers:\n" + "\n".join(f"- {ln}" for ln in lines) + "\n"
+
+
 def _domains(raw):
     """Citation domains for the cross-edition Jaccard overlap (shared parser; no Wayback unwrap here —
     overlap is CONTEXT only, so archive wrappers are harmless)."""
@@ -164,7 +184,7 @@ def _call(client, schema, prompt, max_tokens=1600):
 
 
 def factcheck(article, langs=None, ts=None, persist=True, provider=None, model=None, base_url=None,
-              client=None):
+              client=None, context=None):
     """Cross-edition citation + claim divergence for one article (as-of aware). Print + return.
     Persists a viewer-shaped findings file unless persist=False (tests). `client` is the injectable LLM
     port — built from provider/model/base_url when None (CLI path), injected by the pipeline."""
@@ -201,7 +221,8 @@ def factcheck(article, langs=None, ts=None, persist=True, provider=None, model=N
         for l in langs:
             a = per[l].get(q, {})
             lines.append(f"  [{l}] value={a.get('value', '?')!r} — {a.get('answer', '')[:180]}")
-    adj = _call(client, ADJ_SCHEMA, ADJ_PROMPT.format(payload="\n".join(lines)))["questions"]
+    payload = _context_block(context) + "\n".join(lines)
+    adj = _call(client, ADJ_SCHEMA, ADJ_PROMPT.format(payload=payload))["questions"]
     print("  CLAIM divergence (the reliable signal):")
     for a in adj:
         mark = "‼" if a["verdict"] == "contradict" else (" " if a["verdict"] == "agree" else "·")

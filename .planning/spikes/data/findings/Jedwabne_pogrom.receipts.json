@@ -4,10 +4,10 @@
   "editions": {
     "en": {
       "present": true,
-      "revid": 1357128039,
+      "revid": 1363506741,
       "title": "Jedwabne pogrom",
-      "timestamp": "2026-05-31T22:21:36Z",
-      "prose_chars": 39826
+      "timestamp": "2026-07-10T16:57:32Z",
+      "prose_chars": 39835
     },
     "pl": {
       "present": true,
@@ -18,9 +18,9 @@
     },
     "de": {
       "present": true,
-      "revid": 268112189,
+      "revid": 268699149,
       "title": "Massaker von Jedwabne",
-      "timestamp": "2026-06-21T14:20:33Z",
+      "timestamp": "2026-07-11T12:10:07Z",
       "prose_chars": 19293
     }
   }

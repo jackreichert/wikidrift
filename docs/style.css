@@ -209,6 +209,7 @@ h3{font-weight:600;font-size:1rem;margin:0}
 .sig.med{background:var(--warn-bg);color:var(--warn-fg)}
 .sig.peel{background:var(--symp-bg);color:var(--symp-fg)}
 .sig.fact{background:var(--crit-bg);color:var(--crit-fg)}
+.sig.lex{background:var(--neut-bg);color:var(--neut-fg)}
 #empty{padding:2.5rem 0;color:var(--faint);font-weight:200}
 
 /* —— tabs (full shell width) —— */

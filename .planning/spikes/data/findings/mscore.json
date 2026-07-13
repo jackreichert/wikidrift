@@ -158,19 +158,13 @@
   "Nakba": {
     "raw": {
       "revs": 1175,
-      "editors": 221,
       "mutual_pairs": 0,
-      "mutual_reverters": 0,
-      "weight": 0,
       "M": 0,
       "M_per_rev": 0.0
     },
     "refined": {
       "revs": 1174,
-      "editors": 220,
       "mutual_pairs": 0,
-      "mutual_reverters": 0,
-      "weight": 0,
       "M": 0,
       "M_per_rev": 0.0
     },
@@ -199,20 +193,14 @@
   },
   "Israeli–Palestinian conflict": {
     "raw": {
-      "revs": 9419,
-      "editors": 2811,
+      "revs": 9420,
       "mutual_pairs": 220,
-      "mutual_reverters": 179,
-      "weight": 4230,
       "M": 757170,
-      "M_per_rev": 80.39
+      "M_per_rev": 80.38
     },
     "refined": {
-      "revs": 7286,
-      "editors": 1466,
+      "revs": 7287,
       "mutual_pairs": 36,
-      "mutual_reverters": 38,
-      "weight": 1523,
       "M": 57874,
       "M_per_rev": 7.94
     },
@@ -221,19 +209,13 @@
   "Photosynthesis": {
     "raw": {
       "revs": 5177,
-      "editors": 2465,
       "mutual_pairs": 255,
-      "mutual_reverters": 181,
-      "weight": 1889,
       "M": 341909,
       "M_per_rev": 66.04
     },
     "refined": {
       "revs": 3016,
-      "editors": 1090,
       "mutual_pairs": 26,
-      "mutual_reverters": 22,
-      "weight": 672,
       "M": 14784,
       "M_per_rev": 4.9
     },
@@ -280,5 +262,215 @@
       "M_per_rev": 7.3
     },
     "refined_per_rev": 4.93
+  },
+  "Abortion": {
+    "raw": {
+      "revs": 13570,
+      "mutual_pairs": 697,
+      "M": 5635686,
+      "M_per_rev": 415.3
+    },
+    "refined": {
+      "revs": 10560,
+      "mutual_pairs": 138,
+      "M": 601640,
+      "M_per_rev": 56.97
+    },
+    "refined_per_rev": 44.34
+  },
+  "Ainu people": {
+    "raw": {
+      "revs": 4456,
+      "mutual_pairs": 53,
+      "M": 29722,
+      "M_per_rev": 6.67
+    },
+    "refined": {
+      "revs": 3140,
+      "mutual_pairs": 4,
+      "M": 216,
+      "M_per_rev": 0.07
+    },
+    "refined_per_rev": 0.05
+  },
+  "Brontosaurus": {
+    "raw": {
+      "revs": 1085,
+      "mutual_pairs": 4,
+      "M": 592,
+      "M_per_rev": 0.55
+    },
+    "refined": {
+      "revs": 798,
+      "mutual_pairs": 1,
+      "M": 68,
+      "M_per_rev": 0.09
+    },
+    "refined_per_rev": 0.06
+  },
+  "Chess": {
+    "raw": {
+      "revs": 11400,
+      "mutual_pairs": 202,
+      "M": 676820,
+      "M_per_rev": 59.37
+    },
+    "refined": {
+      "revs": 8958,
+      "mutual_pairs": 21,
+      "M": 27404,
+      "M_per_rev": 3.06
+    },
+    "refined_per_rev": 2.4
+  },
+  "Demo Topic": {
+    "raw": {
+      "revs": 0,
+      "mutual_pairs": 0,
+      "M": 0,
+      "M_per_rev": 0.0
+    },
+    "refined": {
+      "revs": 0,
+      "mutual_pairs": 0,
+      "M": 0,
+      "M_per_rev": 0.0
+    },
+    "refined_per_rev": 0.0
+  },
+  "Fascism and ideology": {
+    "raw": {
+      "revs": 1625,
+      "mutual_pairs": 17,
+      "M": 5060,
+      "M_per_rev": 3.11
+    },
+    "refined": {
+      "revs": 1327,
+      "mutual_pairs": 4,
+      "M": 860,
+      "M_per_rev": 0.65
+    },
+    "refined_per_rev": 0.53
+  },
+  "Gaza war": {
+    "raw": {
+      "revs": 20314,
+      "mutual_pairs": 24,
+      "M": 120714,
+      "M_per_rev": 5.94
+    },
+    "refined": {
+      "revs": 20285,
+      "mutual_pairs": 0,
+      "M": 0,
+      "M_per_rev": 0.0
+    },
+    "refined_per_rev": 0.0
+  },
+  "Genocide of indigenous peoples": {
+    "raw": {
+      "revs": 2702,
+      "mutual_pairs": 56,
+      "M": 26397,
+      "M_per_rev": 9.77
+    },
+    "refined": {
+      "revs": 2172,
+      "mutual_pairs": 6,
+      "M": 410,
+      "M_per_rev": 0.19
+    },
+    "refined_per_rev": 0.15
+  },
+  "Hamas": {
+    "raw": {
+      "revs": 14131,
+      "mutual_pairs": 350,
+      "M": 2012540,
+      "M_per_rev": 142.42
+    },
+    "refined": {
+      "revs": 11983,
+      "mutual_pairs": 78,
+      "M": 260864,
+      "M_per_rev": 21.77
+    },
+    "refined_per_rev": 18.46
+  },
+  "Jedwabne pogrom": {
+    "raw": {
+      "revs": 2256,
+      "mutual_pairs": 24,
+      "M": 13680,
+      "M_per_rev": 6.06
+    },
+    "refined": {
+      "revs": 2045,
+      "mutual_pairs": 4,
+      "M": 732,
+      "M_per_rev": 0.36
+    },
+    "refined_per_rev": 0.32
+  },
+  "Naliboki massacre": {
+    "raw": {
+      "revs": 605,
+      "mutual_pairs": 23,
+      "M": 4030,
+      "M_per_rev": 6.66
+    },
+    "refined": {
+      "revs": 499,
+      "mutual_pairs": 3,
+      "M": 340,
+      "M_per_rev": 0.68
+    },
+    "refined_per_rev": 0.56
+  },
+  "Palestinian political violence": {
+    "raw": {
+      "revs": 2343,
+      "mutual_pairs": 79,
+      "M": 55796,
+      "M_per_rev": 23.81
+    },
+    "refined": {
+      "revs": 1870,
+      "mutual_pairs": 14,
+      "M": 3978,
+      "M_per_rev": 2.13
+    },
+    "refined_per_rev": 1.7
+  },
+  "Rafah offensive": {
+    "raw": {
+      "revs": 2238,
+      "mutual_pairs": 1,
+      "M": 550,
+      "M_per_rev": 0.25
+    },
+    "refined": {
+      "revs": 2238,
+      "mutual_pairs": 0,
+      "M": 0,
+      "M_per_rev": 0.0
+    },
+    "refined_per_rev": 0.0
+  },
+  "Rescue of Jews by Poles during the Holocaust": {
+    "raw": {
+      "revs": 1366,
+      "mutual_pairs": 11,
+      "M": 1190,
+      "M_per_rev": 0.87
+    },
+    "refined": {
+      "revs": 1255,
+      "mutual_pairs": 2,
+      "M": 260,
+      "M_per_rev": 0.21
+    },
+    "refined_per_rev": 0.19
   }
 }

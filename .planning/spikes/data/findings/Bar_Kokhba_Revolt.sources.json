@@ -117,32 +117,17 @@
       "to": 3
     },
     {
-      "domain": "mohrsiebeck.com",
-      "from": 1,
-      "to": 3
-    },
-    {
       "domain": "yalebooks.yale.edu",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "books.google.co.il",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "researchgate.net",
+      "domain": "mohrsiebeck.com",
       "from": 1,
-      "to": 2
+      "to": 3
     },
     {
       "domain": "tandfonline.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "degruyterbrill.com",
       "from": 0,
       "to": 1
     },
@@ -152,7 +137,22 @@
       "to": 1
     },
     {
+      "domain": "degruyterbrill.com",
+      "from": 0,
+      "to": 1
+    },
+    {
       "domain": "d1wqtxts1xzle7.cloudfront.net",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "researchgate.net",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "hup.harvard.edu",
       "from": 0,
       "to": 1
     },
@@ -162,7 +162,7 @@
       "to": 1
     },
     {
-      "domain": "hup.harvard.edu",
+      "domain": "books.google.co.il",
       "from": 0,
       "to": 1
     }
@@ -189,7 +189,7 @@
       "to": 0
     },
     {
-      "domain": "dtorah.com",
+      "domain": "halakhah.com",
       "from": 2,
       "to": 0
     },
@@ -199,22 +199,22 @@
       "to": 0
     },
     {
-      "domain": "sefaria.org",
-      "from": 2,
-      "to": 0
-    },
-    {
       "domain": "archive.today",
       "from": 2,
       "to": 0
     },
     {
-      "domain": "halakhah.com",
+      "domain": "oxfordre.com",
       "from": 2,
       "to": 0
     },
     {
       "domain": "mechon-mamre.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "dtorah.com",
       "from": 2,
       "to": 0
     },
@@ -229,7 +229,7 @@
       "to": 0
     },
     {
-      "domain": "oxfordre.com",
+      "domain": "sefaria.org",
       "from": 2,
       "to": 0
     },
@@ -239,22 +239,7 @@
       "to": 0
     },
     {
-      "domain": "sacred-texts.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "penelope.uchicago.edu",
-      "from": 2,
-      "to": 1
-    },
-    {
       "domain": "youtube.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "israelhayom.com",
       "from": 1,
       "to": 0
     },
@@ -264,37 +249,7 @@
       "to": 0
     },
     {
-      "domain": "instonebrewer.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "gibsoncondo.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "haaretz.com",
-      "from": 2,
-      "to": 1
-    },
-    {
-      "domain": "israelnationalnews.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "archive.org",
-      "from": 3,
-      "to": 2
-    },
-    {
-      "domain": "hebrewbooks.org",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "knesset.gov.il",
+      "domain": "ceeol.com",
       "from": 1,
       "to": 0
     },
@@ -304,17 +259,22 @@
       "to": 0
     },
     {
-      "domain": "ceeol.com",
+      "domain": "knesset.gov.il",
       "from": 1,
       "to": 0
     },
     {
-      "domain": "bbc.com",
+      "domain": "penelope.uchicago.edu",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "israelnationalnews.com",
       "from": 1,
       "to": 0
     },
     {
-      "domain": "nrg.co.il",
+      "domain": "steinsaltz.org",
       "from": 1,
       "to": 0
     },
@@ -324,9 +284,49 @@
       "to": 0
     },
     {
-      "domain": "steinsaltz.org",
+      "domain": "gibsoncondo.com",
       "from": 1,
       "to": 0
+    },
+    {
+      "domain": "bbc.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "haaretz.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "sacred-texts.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "nrg.co.il",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "hebrewbooks.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "israelhayom.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "instonebrewer.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "archive.org",
+      "from": 3,
+      "to": 2
     }
   ],
   "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD."

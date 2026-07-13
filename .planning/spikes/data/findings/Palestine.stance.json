@@ -6,134 +6,60 @@
     "ar"
   ],
   "entities": [
-    "Israel",
-    "Palestinians",
-    "Zionism"
+    "Palestine"
   ],
   "editions": {
     "en": {
       "focal": {
-        "Israel": {
-          "entity": "Israel",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "these acts have been recognised as constituting genocide against the Palestinian people by a growing scholarly consensus"
-        },
-        "Palestinians": {
-          "entity": "Palestinians",
+        "Palestine": {
+          "entity": "Palestine",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "killed over 72,000 Palestinians, caused mass population displacement, a humanitarian crisis, and a famine"
-        },
-        "Zionism": {
-          "entity": "Zionism",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "the rise of the Zionist movement, supported by the United Kingdom during World War I"
+          "evidence": "The 1948 Palestine war saw the forcible displacement of a majority of the Arab population... referred to by Palestinians as the Nakba ('catastrophe')."
         }
       },
       "lead": {
-        "Israel": {
-          "entity": "Israel",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "these acts have been recognised as constituting genocide against the Palestinian people by a growing scholarly consensus"
-        },
-        "Palestinians": {
-          "entity": "Palestinians",
+        "Palestine": {
+          "entity": "Palestine",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "the forcible displacement of a majority of the Arab population...these events are referred to by Palestinians as the Nakba ('catastrophe')"
-        },
-        "Zionism": {
-          "entity": "Zionism",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "The onset of the Zionist movement, which sought to establish a Jewish homeland in Palestine, also exercised a strong influence on Palestinian national consciousness"
+          "evidence": "the forcible displacement of a majority of the Arab population... these acts have been recognised as constituting genocide against the Palestinian people by a growing scholarly consensus"
         }
       }
     },
     "he": {
       "focal": {
-        "Israel": {
-          "entity": "Israel",
+        "Palestine (Palestinian statehood)": {
+          "entity": "Palestine (Palestinian statehood)",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "ממשלת ישראל לא סיפחה את יהודה ושומרון ורצועת עזה לישראל, למעט מזרח ירושלים שסופחה בצו מיוחד"
-        },
-        "Palestinians": {
-          "entity": "Palestinians",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "הפלסטינים ששללו את ההחלטה, פתחו במתקפה על היישוב היהודי בארץ"
-        },
-        "Zionism": {
-          "entity": "Zionism",
-          "stance": "absent",
-          "npov_departure": false,
-          "evidence": "the term Zionism itself is not directly discussed in this passage"
+          "evidence": "מדינה ששואפים להקים חלק ניכר מהפלסטינים... הקמה של מדינה פלסטינית היא אבן יסוד לסכסוך הישראלי-פלסטיני"
         }
       },
       "lead": {
-        "Israel": {
-          "entity": "Israel",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "בתגובה להכרזת העצמאות של מדינת ישראל במאי 1948, הקימה הליגה הערבית בעזה את ממשלת כל פלסטין"
-        },
-        "Palestinians": {
-          "entity": "Palestinians",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "היא מדינה ששואפים להקים חלק ניכר מהפלסטינים"
-        },
-        "Zionism": {
-          "entity": "Zionism",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "התנועה הציונית החליטה לשתף פעולה עם הוועדה, בעוד ההנהגה הפלסטינית החרימה אותה"
+        "Palestine": {
+          "entity": "Palestine",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "הפלסטינים ששללו את ההחלטה, פתחו במתקפה על היישוב היהודי בארץ, מתקפה שהסלימה והתפתחה למלחמה"
         }
       }
     },
     "ar": {
       "focal": {
-        "Israel": {
-          "entity": "Israel",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "وأن غزة تحكمها حركة حماس وتحت حصار طويل الأمد تطبقه إسرائيل ... مناحيم بيغن وإسحاق شامير اللذان أصبحا فيما بعد رئيسي وزراء إسرائيل وراء هذه الهجمات الإرهابية"
-        },
-        "Palestinians": {
-          "entity": "Palestinians",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "ارتكبت مذبحة دير ياسين بحق القرويين الفلسطينيين على يد الميليشيات الصهيونية"
-        },
-        "Zionism": {
-          "entity": "Zionism",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "نفّذت عدة جماعات صهيونية مسلحة من بينها الإرجون والهاجانا وليحي أعمال عنف ضد أهداف عسكرية ومدنية بريطانية ... مناحيم بيغن وإسحاق شامير ... وراء هذه الهجمات الإرهابية"
+        "Palestine": {
+          "entity": "Palestine",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "تنقسم دولة فلسطين إلى ستة عشر قسماً إدارياً... تدار فلسطين بنظام حكم مركزي وشبه رئاسي"
         }
       },
       "lead": {
-        "Israel": {
-          "entity": "Israel",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "احتلت إسرائيل الأراضي الفلسطينية منذ حرب 1967... غزة تحكمها حركة حماس وتحت حصار طويل الأمد تطبقه إسرائيل"
-        },
-        "Palestinians": {
-          "entity": "Palestinians",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "المنطقة الجغرافية للأرض الفلسطينية التي تحتلها إسرائيل منذ عام 1967... الأرض التي تطالب بها دولة فلسطين"
-        },
-        "Zionism": {
-          "entity": "Zionism",
+        "Palestine": {
+          "entity": "Palestine",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "أعلنت الوكالة اليهودية لإسرائيل قيام دولة إسرائيل وفق خطة الأمم المتحدة المقترحة"
+          "evidence": "هي بحكم القانون دولة ذات سيادة في غرب آسيا، وتحكمها رسميًا منظمة التحرير الفلسطينية وتطالب بالضفة الغربية وقطاع غزة"
         }
       }
     }

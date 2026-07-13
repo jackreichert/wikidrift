@@ -5,92 +5,42 @@
     "he"
   ],
   "entities": [
-    "Jews",
-    "Romans",
-    "Bar Kokhba"
+    "Bar Kokhba Revolt"
   ],
   "editions": {
     "en": {
       "focal": {
-        "Jews": {
-          "entity": "Jews",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "leading to the near-total depopulation of Judea proper, along with mass killings, enslavement, and displacement"
-        },
-        "Romans": {
-          "entity": "Romans",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "the Romans systematically devastated towns and villages throughout the country... an act intended to sever the region's historical association with the Jewish people"
-        },
-        "Bar Kokhba": {
-          "entity": "Bar Kokhba",
+        "Bar Kokhba Revolt": {
+          "entity": "Bar Kokhba Revolt",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "Simon bar Kokhba was declared nasi (\"prince\") of Israel, and his administration issued standardized weights and its own coinage"
+          "evidence": "was the last and most devastating of three major Jewish rebellions against the Roman Empire"
         }
       },
       "lead": {
-        "Jews": {
-          "entity": "Jews",
+        "Bar Kokhba Revolt": {
+          "entity": "Bar Kokhba Revolt",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "near-total depopulation of Judea proper, along with mass killings, enslavement, and displacement"
-        },
-        "Romans": {
-          "entity": "Romans",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "the Romans systematically devastated towns and villages throughout the country"
-        },
-        "Bar Kokhba": {
-          "entity": "Bar Kokhba",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "rabbinic literature... explicitly describes him as a messianic figure while expressing both sympathetic and critical views on his leade"
+          "evidence": "leading to the near-total depopulation of Judea proper, along with mass killings, enslavement, and displacement... The consequences of the revolt were disastrous for Judea's Jewish population."
         }
       }
     },
     "he": {
       "focal": {
-        "Jews": {
-          "entity": "Jews",
+        "Bar Kokhba Revolt": {
+          "entity": "Bar Kokhba Revolt",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "מאות אלפי יהודים נהרגו, רבים אחרים הוגלו ממכורתם או נמכרו לעבדות... הביאו את היהודים לתחושה קשה, שיש מדיניות מכוונת מלמעלה להדירם מהארץ"
-        },
-        "Romans": {
-          "entity": "Romans",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "מכלול של מעשים שמטרתם הייתה לחזק את ההגמוניה הרומית וליוון את היהודים... צמצום האוכלוסייה היהודית בפרובינקיה, היה מגביר את הרווחים הכלכליים בה"
-        },
-        "Bar Kokhba": {
-          "entity": "Bar Kokhba",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "בר כוכבא הצליח לאחד את העם תחת הנהגתו, דבר המעיד על אופיו... מראות על מנהיג תקיף ואדמיניסטרטור מוכשר"
+          "evidence": "למרד בר כוכבא נודעו השלכות הרסניות עבור היישוב היהודי בארץ ישראל, שהיו חמורות בהרבה מזה של המרד הגדול; ...ועד היום לא נמצא אפילו כפר אחד שלא חרב במרד זה — framing emphasizes Roman devastation and Jewish suffering/heroism (e.g., Roman casualties, Hadrian avoiding standard victory phrasing), leaning toward a sympathetic national-historical narrative rather than strictly neutral description."
         }
       },
       "lead": {
-        "Jews": {
-          "entity": "Jews",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "מאות אלפי יהודים נהרגו, רבים אחרים הוגלו ממכורתם או נמכרו לעבדות, ומעמדה של הדת היהודית ברחבי האימפריה נפגע"
-        },
-        "Romans": {
-          "entity": "Romans",
+        "Bar Kokhba Revolt": {
+          "entity": "Bar Kokhba Revolt",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "ניהלו הרומאים מסע מלחמה זהיר והרסני כנגד המורדים, כשהם מצמצמים בהדרגה את השטח שבשליטתם"
-        },
-        "Bar Kokhba": {
-          "entity": "Bar Kokhba",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "ראייה זו התהפכה בהשקפת הלאומיות היהודית המודרנית, כשבר כוכבא הפך לגיבור לאומי וסמל למאבק לשחרור"
+          "evidence": "היה המרד הגדול האחרון של יהודי ארץ ישראל נגד שלטון האימפריה הרומית... בין השנים 132–136 לספירה"
         }
       }
     }

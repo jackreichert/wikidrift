@@ -4,50 +4,24 @@
     "en"
   ],
   "entities": [
-    "Poland",
-    "Germany",
-    "Jews"
+    "Collaboration in German-occupied Poland"
   ],
   "editions": {
     "en": {
       "focal": {
-        "Poland": {
-          "entity": "Poland",
-          "stance": "sympathetic",
-          "npov_departure": true,
+        "Collaboration in German-occupied Poland": {
+          "entity": "Collaboration in German-occupied Poland",
+          "stance": "neutral",
+          "npov_departure": false,
           "evidence": "Collaboration in Poland was less institutionalized than in some other countries and has been described as marginal, a point of pride with the Polish people."
-        },
-        "Germany": {
-          "entity": "Germany",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "Germany's primary aim in Eastern Europe was to expand Germany's Lebensraum, in the name of which elimination or deportation of all non-Germanic ethnicities... was to make them 'free' of Poles within 15–20 years."
-        },
-        "Jews": {
-          "entity": "Jews",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "Nazi Germany's explicit goal of exterminating Polish Jews, which was carried out in the occupied Polish territories"
         }
       },
       "lead": {
-        "Poland": {
-          "entity": "Poland",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "\"has been described as marginal, a point of pride with the Polish people\" and Poland's resistance and non-collaborationist government emphasized"
-        },
-        "Germany": {
-          "entity": "Germany",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "\"Germany's primary aim in Eastern Europe was to expand Germany's Lebensraum, in the name of which elimination or deportation of all non-Germanic ethnicities... was to make them 'free' of Poles\""
-        },
-        "Jews": {
-          "entity": "Jews",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "\"Nazi Germany's explicit goal of exterminating Polish Jews\" and reference to \"indifference to the Jewish plight\""
+        "Collaboration in German-occupied Poland": {
+          "entity": "Collaboration in German-occupied Poland",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Collaboration in Poland was less institutionalized than in some other countries and has been described as marginal, a point of pride with the Polish people."
         }
       }
     }

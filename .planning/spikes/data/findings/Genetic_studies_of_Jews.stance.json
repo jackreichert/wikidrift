@@ -5,67 +5,42 @@
     "he"
   ],
   "entities": [
-    "Jews",
-    "Israel"
+    "Genetic studies of Jews"
   ],
   "editions": {
     "en": {
       "focal": {
-        "Jews": {
-          "entity": "Jews",
+        "Genetic studies of Jews": {
+          "entity": "Genetic studies of Jews",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "Autosomal DNA studies show high levels of genetic relatedness among Ashkenazi, Sephardi, and Mizrahi Jews, corresponding to a shared Middle Eastern ancestry with variations in regional admixture."
-        },
-        "Israel": {
-          "entity": "Israel",
-          "stance": "absent",
-          "npov_departure": false,
-          "evidence": "The passage does not discuss the state of Israel; it focuses on Jewish genetics and history."
+          "evidence": "Studies on Jewish populations have been principally conducted using three types of genealogical DNA tests: autosomal (atDNA), mitochondrial (mtDNA), and Y-chromosome (Y-DNA)."
         }
       },
       "lead": {
-        "Jews": {
-          "entity": "Jews",
+        "Genetic studies of Jews": {
+          "entity": "Genetic studies of Jews",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "Studies on the genetic composition of Ashkenazi, Sephardi, and Mizrahi Jewish populations of the Jewish diaspora show significant amounts of shared Middle Eastern ancestry, as well as admixture from their host populations."
-        },
-        "Israel": {
-          "entity": "Israel",
-          "stance": "absent",
-          "npov_departure": false,
-          "evidence": "The passage discusses genetic studies of Jewish populations and does not meaningfully reference the state of Israel."
+          "evidence": "The passage presents research findings, methodologies, and scholarly debates (e.g., Weitzman, Cohen) in a balanced, descriptive manner, noting both supportive genetic evidence and disputes about interpretation without advocating a position."
         }
       }
     },
     "he": {
       "focal": {
-        "Jews": {
-          "entity": "Jews",
+        "Genetic studies of Jews": {
+          "entity": "Genetic studies of Jews",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "מרבית השושלות האבהיות של יהודים מקרב רוב העדות מקורן במזרח התיכון"
-        },
-        "Israel": {
-          "entity": "Israel",
-          "stance": "absent",
-          "npov_departure": false,
-          "evidence": "Israel as a state is not discussed; only 'ארץ ישראל' as historical/geographic region"
+          "evidence": "המחקרים מראים ומלמדים כי הקבוצות המרכזיות בעם היהודי – יהדות אשכנז, יהדות ספרד ויהדות המזרח – חולקות מוצא מזרח-תיכוני משותף"
         }
       },
       "lead": {
-        "Jews": {
-          "entity": "Jews",
+        "Genetic studies of Jews": {
+          "entity": "Genetic studies of Jews",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "המחקרים מראים ומלמדים כי הקבוצות המרכזיות בעם היהודי... חולקות מוצא מזרח-תיכוני משותף"
-        },
-        "Israel": {
-          "entity": "Israel",
-          "stance": "absent",
-          "npov_departure": false,
-          "evidence": "הכתבה מתייחסת ל'ארץ ישראל' כמושג גאוגרפי-היסטורי ולא למדינת ישראל המודרנית כישות פוליטית"
+          "evidence": "המחקרים מראים ומלמדים כי הקבוצות המרכזיות בעם היהודי – יהדות אשכנז, יהדות ספרד ויהדות המזרח – חולקות מוצא מזרח-תיכוני משותף"
         }
       }
     }

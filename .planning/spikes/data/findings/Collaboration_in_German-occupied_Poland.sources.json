@@ -116,7 +116,7 @@
       "to": 3
     },
     {
-      "domain": "archiwum.rp.pl",
+      "domain": "niniwa22.cba.pl",
       "from": 0,
       "to": 1
     },
@@ -126,37 +126,7 @@
       "to": 1
     },
     {
-      "domain": "ora.ox.ac.uk",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "policjapanstwowa.pl",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "niniwa22.cba.pl",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "ceeol.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "delet.jhi.pl",
-      "from": 0,
-      "to": 1
-    },
-    {
       "domain": "haaretz.com",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "mazowsze.hist.pl",
       "from": 1,
       "to": 2
     },
@@ -166,12 +136,42 @@
       "to": 1
     },
     {
-      "domain": "czestochowa.wyborcza.pl",
+      "domain": "mazowsze.hist.pl",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "delet.jhi.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "archiwum.rp.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "policjapanstwowa.pl",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "ceeol.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ora.ox.ac.uk",
       "from": 0,
       "to": 1
     },
     {
       "domain": "jpost.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "czestochowa.wyborcza.pl",
       "from": 0,
       "to": 1
     }
@@ -188,42 +188,22 @@
       "to": 0
     },
     {
-      "domain": "cbc.ca",
-      "from": 2,
-      "to": 0
-    },
-    {
       "domain": "grott.info",
       "from": 2,
       "to": 0
     },
     {
-      "domain": "tandfonline.com",
-      "from": 1,
+      "domain": "cbc.ca",
+      "from": 2,
       "to": 0
     },
     {
-      "domain": "arch.ipn.gov.pl",
+      "domain": "books.google.co.kr",
       "from": 1,
       "to": 0
     },
     {
       "domain": "jhi.pl",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "hansard.millbanksystems.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "msn.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "treblinka-muzeum.eu",
       "from": 1,
       "to": 0
     },
@@ -238,17 +218,37 @@
       "to": 0
     },
     {
-      "domain": "niniwa2.cba.pl",
-      "from": 2,
-      "to": 1
+      "domain": "hansard.millbanksystems.com",
+      "from": 1,
+      "to": 0
     },
     {
-      "domain": "books.google.co.kr",
+      "domain": "treblinka-muzeum.eu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "msn.com",
       "from": 1,
       "to": 0
     },
     {
       "domain": "timesofisrael.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "tandfonline.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "arch.ipn.gov.pl",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "niniwa2.cba.pl",
       "from": 2,
       "to": 1
     },

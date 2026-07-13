@@ -5,67 +5,42 @@
     "pl"
   ],
   "entities": [
-    "Poland",
-    "Jews"
+    "Rescue of Jews by Poles during the Holocaust"
   ],
   "editions": {
     "en": {
       "focal": {
-        "Poland": {
-          "entity": "Poland",
+        "Rescue of Jews by Poles during the Holocaust": {
+          "entity": "Rescue of Jews by Poles during the Holocaust",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "'Poles were, by nationality, the most numerous persons identified as rescuing Jews' and Paldiel's quote about 'courage, fortitude, and lofty humanitarianism unequalled in other occupied countries' cast Poles in an emphatically laudatory light beyond neutral description."
-        },
-        "Jews": {
-          "entity": "Jews",
-          "stance": "sympathetic",
-          "npov_departure": false,
-          "evidence": "Described as 'the primary victims of the Nazi Germany-organized Holocaust in Poland,' a factual, encyclopedic characterization consistent with historical consensus rather than an evaluative departure."
+          "evidence": "exemplified a courage, fortitude, and lofty humanitarianism unequalled in other occupied countries"
         }
       },
       "lead": {
-        "Poland": {
-          "entity": "Poland",
+        "Rescue of Jews by Poles during the Holocaust": {
+          "entity": "Rescue of Jews by Poles during the Holocaust",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "Polish rescuers of Jews in a special category, for they exemplified a courage, fortitude, and lofty humanitarianism unequalled in other occupied countries"
-        },
-        "Jews": {
-          "entity": "Jews",
-          "stance": "sympathetic",
-          "npov_departure": false,
-          "evidence": "Polish Jews were the primary victims of the Nazi Germany-organized Holocaust in Poland"
+          "evidence": "they exemplified a courage, fortitude, and lofty humanitarianism unequalled in other occupied countries"
         }
       }
     },
     "pl": {
       "focal": {
-        "Poland": {
-          "entity": "Poland",
+        "Rescue of Jews by Poles during the Holocaust": {
+          "entity": "Rescue of Jews by Poles during the Holocaust",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "jak serdecznie odnosiła się ludność polska do żydowskich uchodźców... Żydzi byli ukrywani w ponad 70 klasztorach męskich w Polsce"
-        },
-        "Jews": {
-          "entity": "Jews",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "są bezlitośnie mordowani, truci gazami, zakopywani żywcem, strącani z pięter na bruk – przed śmiercią przechodząc dodatkową mękę powolnego konania"
+          "evidence": "ogół pomocy polskich organizacji humanitarnych, rządu polskiego na uchodźstwie, struktur państwa podziemnego oraz ludności cywilnej RP jaka została skierowana wobec ludności żydowskiej"
         }
       },
       "lead": {
-        "Poland": {
-          "entity": "Poland",
+        "Rescue of Jews by Poles during the Holocaust": {
+          "entity": "Rescue of Jews by Poles during the Holocaust",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "passage emphasizes death penalty faced by Poles helping Jews and details Polish rescue efforts, resistance reporting (Pilecki), framing Poles as heroic helpers and victims of Nazi terror"
-        },
-        "Jews": {
-          "entity": "Jews",
-          "stance": "sympathetic",
-          "npov_departure": false,
-          "evidence": "describes Jews as victims of Nazi persecution, ghettoization, and deportation to death camps, in line with historical consensus and neutral description of victimhood"
+          "evidence": "Zawiera się w niej działalność informacyjna związana z prześladowaniami oraz zbrodniami dokonywanymi przez okupanta niemieckiego na ludności żydowskiej, a także pomoc materialna mająca wymiar humanitarny oraz ukrywanie Żydów"
         }
       }
     }

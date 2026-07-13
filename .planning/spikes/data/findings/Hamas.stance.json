@@ -6,23 +6,16 @@
     "ar"
   ],
   "entities": [
-    "Hamas",
-    "Israel"
+    "Hamas"
   ],
   "editions": {
     "en": {
       "focal": {
         "Hamas": {
           "entity": "Hamas",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "The passage extensively details Hamas's purported acceptance of 1967 borders and two-state solution across multiple quoted sources, and frames its 2017 charter as removing antisemitic language, giving substantial space to contextualizing/legitimizing framing rather than balanced encyclopedic description."
-        },
-        "Israel": {
-          "entity": "Israel",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "Initially, Hamas was discreetly supported by Israel, as a counter-balance to the secular Palestine Liberation Organization (PLO) to prevent the creation of an independent Palestinian state... Israel significantly intensified existing movement restrictions and imposed a complete blockade of the Gaza Strip."
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "a Sunni Islamist Palestinian nationalist political organisation with a military wing known as the al-Qassam Brigades"
         }
       },
       "lead": {
@@ -30,13 +23,7 @@
           "entity": "Hamas",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "a Sunni Islamist Palestinian nationalist political organisation with a military wing known as the al-Qassam Brigades"
-        },
-        "Israel": {
-          "entity": "Israel",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "Israel significantly intensified existing movement restrictions and imposed a complete blockade of the Gaza Strip"
+          "evidence": "describes Hamas's founding, governance, wars, and shifting political positions in even, sourced, encyclopedic terms, presenting both critical and sympathetic characterizations (e.g., 'criticized for human rights violations' alongside detailed treatment of its acceptance of 1967 borders) without endorsing either"
         }
       }
     },
@@ -46,13 +33,7 @@
           "entity": "Hamas",
           "stance": "critical",
           "npov_departure": true,
-          "evidence": "מתקפה אשר כללה שכללה פשעי מלחמה, פשעים נגד האנושות, אלימות מינית וחטיפת אזרחים המוחזקים כבני ערובה"
-        },
-        "Israel": {
-          "entity": "Israel",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "בעקבות ההשתלטות הידקו ישראל ומצרים את מגבלות התנועה וישראל הטילה הסגר על רצועת עזה"
+          "evidence": "היא קוראת להשמדת מדינת ישראל, כוללת ביטויים אנטישמיים חריפים... כללה פשעי מלחמה, פשעים נגד האנושות, אלימות מינית וחטיפת אזרחים"
         }
       },
       "lead": {
@@ -60,13 +41,7 @@
           "entity": "Hamas",
           "stance": "critical",
           "npov_departure": true,
-          "evidence": "ארגון טרור פלסטיני אסלאמיסטי... מבצע פיגועים, ירי רקטות, חטיפות ופעולות טרור אחרות נגד אזרחים וחיילים ישראלים"
-        },
-        "Israel": {
-          "entity": "Israel",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "ישראל הטילה הסגר על רצועת עזה"
+          "evidence": "הוא ארגון טרור פלסטיני אסלאמיסטי... מתקפה אשר כללה שכללה פשעי מלחמה, פשעים נגד האנושות, אלימות מינית וחטיפת אזרחים המוחזקים כבני ערובה"
         }
       }
     },
@@ -76,13 +51,7 @@
           "entity": "Hamas",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "وتعرف نفسها على أنها حركة تحرر وطني ذات فكر إسلامي وسطي معتدل... تحصر الحركة مقاومتها ضد الاحتلال الإسرائيلي فقط، وليس لها أي معركة مع أي طرف في العالم"
-        },
-        "Israel": {
-          "entity": "Israel",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "وتنظر إلى إسرائيل على أنها جزء من مشروع «استعماري غربي صهيوني» يهدف إلى تمزيق العالم الإسلامي وتهجير الفلسطينيين"
+          "evidence": "تعمل على توفير الظروف الملائمة لتحقيق تحرر الشعب الفلسطيني وتحرير أرضه من الاحتلال الإسرائيلي، والتصدي للمشروع الصهيوني المدعوم من قبل قوى الاستعمار الحديث"
         }
       },
       "lead": {
@@ -90,13 +59,7 @@
           "entity": "Hamas",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "تحصر الحركة مقاومتها ضد الاحتلال الإسرائيلي فقط، وليس لها أي معركة مع أي طرف في العالم، فهي حركة وطنية لا تقاوم إلا من يقاتل الشعب الفلسطيني ويحتل أرضها"
-        },
-        "Israel": {
-          "entity": "Israel",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "استنتج في وقت لاحق مع الأسف أن حماس تم إنشائها عبر إسرائيل... وشجعت السلطات الإسرائيلية مؤسسة ياسين الخيرية على التوسع لأنها رأت أنها تمثل توازنًا مفيدًا لمنظمة التحرير الفلسطينية العلمانية"
+          "evidence": "وتعرف نفسها على أنها حركة تحرر وطني ذات فكر إسلامي وسطي معتدل، تحصر نضالها وعملها في قضية فلسطين، ولا تتدخل في شؤون الآخرين"
         }
       }
     }

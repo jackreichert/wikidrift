@@ -155,37 +155,12 @@
       "to": 2
     },
     {
-      "domain": "theguardian.com",
-      "from": 2,
-      "to": 3
-    },
-    {
-      "domain": "spectator.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "timesofisrael.com",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "wilmatheater.org",
-      "from": 1,
-      "to": 2
-    },
-    {
       "domain": "archiwum.thenews.pl",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "latimes.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "researchgate.net",
+      "domain": "spectator.org",
       "from": 0,
       "to": 1
     },
@@ -195,7 +170,47 @@
       "to": 1
     },
     {
+      "domain": "wilmatheater.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "theguardian.com",
+      "from": 2,
+      "to": 3
+    },
+    {
+      "domain": "timesofisrael.com",
+      "from": 1,
+      "to": 2
+    },
+    {
       "domain": "info-poland.icm.edu.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "collections.yadvashem.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "academia.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "latimes.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "vimeo.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "archive.jpr.org.uk",
       "from": 0,
       "to": 1
     },
@@ -210,27 +225,12 @@
       "to": 1
     },
     {
-      "domain": "academia.edu",
+      "domain": "researchgate.net",
       "from": 0,
       "to": 1
     },
     {
       "domain": "encyclopedia.ushmm.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "archive.jpr.org.uk",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "collections.yadvashem.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "vimeo.com",
       "from": 0,
       "to": 1
     }
@@ -257,17 +257,12 @@
       "to": 0
     },
     {
-      "domain": "youtube.com",
-      "from": 3,
-      "to": 0
-    },
-    {
       "domain": "ipn.gov.pl",
       "from": 9,
       "to": 6
     },
     {
-      "domain": "wiez.free.ngo.pl",
+      "domain": "youtube.com",
       "from": 3,
       "to": 0
     },
@@ -277,13 +272,8 @@
       "to": 0
     },
     {
-      "domain": "polish-jewish-heritage.org",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "glaukopis.pl",
-      "from": 2,
+      "domain": "wiez.free.ngo.pl",
+      "from": 3,
       "to": 0
     },
     {
@@ -297,22 +287,12 @@
       "to": 0
     },
     {
-      "domain": "pacwashmetrodiv.org",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "radzilow.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "thejc.com",
-      "from": 2,
-      "to": 0
-    },
-    {
       "domain": "polin.org.pl",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "polish-jewish-heritage.org",
       "from": 2,
       "to": 0
     },
@@ -322,19 +302,29 @@
       "to": 0
     },
     {
-      "domain": "blogs.telegraph.co.uk",
-      "from": 1,
+      "domain": "thejc.com",
+      "from": 2,
       "to": 0
     },
     {
-      "domain": "dialog.org",
-      "from": 1,
+      "domain": "glaukopis.pl",
+      "from": 2,
       "to": 0
     },
     {
-      "domain": "tvniezaleznapolonia.org",
-      "from": 1,
+      "domain": "radzilow.com",
+      "from": 2,
       "to": 0
+    },
+    {
+      "domain": "pacwashmetrodiv.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "rzeczpospolita.pl",
+      "from": 3,
+      "to": 2
     },
     {
       "domain": "telegraph.co.uk",
@@ -342,32 +332,7 @@
       "to": 0
     },
     {
-      "domain": "historyandreconciliation.org",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "onlinelibrary.wiley.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "jewishjournal.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "newbooksinhistory.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "ushmm.org",
-      "from": 2,
-      "to": 1
-    },
-    {
-      "domain": "traditionarchive.org",
+      "domain": "bloomberg.com",
       "from": 1,
       "to": 0
     },
@@ -377,22 +342,12 @@
       "to": 0
     },
     {
-      "domain": "yivoencyclopedia.org",
-      "from": 1,
-      "to": 0
-    },
-    {
       "domain": "encyklopedia.pwn.pl",
       "from": 1,
       "to": 0
     },
     {
-      "domain": "nybooks.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "jcpa.org",
+      "domain": "dialog.org",
       "from": 1,
       "to": 0
     },
@@ -402,37 +357,67 @@
       "to": 0
     },
     {
+      "domain": "gazetabaltycka.pl",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "traditionarchive.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "blogs.telegraph.co.uk",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "aapjstudies.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "historyandreconciliation.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "newbooksinhistory.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "marucha.wordpress.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "jcpa.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "deon.pl",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "jewishjournal.com",
+      "from": 1,
+      "to": 0
+    },
+    {
       "domain": "niniwa2.cba.pl",
       "from": 1,
       "to": 0
     },
     {
-      "domain": "wprost.pl",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "antyk.org.pl",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "znak.org.pl",
+      "domain": "senat.gov.pl",
       "from": 1,
       "to": 0
     },
     {
       "domain": "sztetl.org.pl",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "entertainment.timesonline.co.uk",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "gazetabaltycka.pl",
       "from": 1,
       "to": 0
     },
@@ -447,22 +432,17 @@
       "to": 0
     },
     {
-      "domain": "marucha.wordpress.com",
+      "domain": "entertainment.timesonline.co.uk",
       "from": 1,
       "to": 0
     },
     {
-      "domain": "bloomberg.com",
+      "domain": "tvniezaleznapolonia.org",
       "from": 1,
       "to": 0
     },
     {
-      "domain": "aapjstudies.org",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "deon.pl",
+      "domain": "antyk.org.pl",
       "from": 1,
       "to": 0
     },
@@ -472,12 +452,32 @@
       "to": 0
     },
     {
-      "domain": "rzeczpospolita.pl",
-      "from": 3,
-      "to": 2
+      "domain": "wprost.pl",
+      "from": 1,
+      "to": 0
     },
     {
-      "domain": "senat.gov.pl",
+      "domain": "ushmm.org",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "znak.org.pl",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "nybooks.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "onlinelibrary.wiley.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "yivoencyclopedia.org",
       "from": 1,
       "to": 0
     }

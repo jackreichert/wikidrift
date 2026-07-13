@@ -68,14 +68,23 @@ Rendered in the Diff and Blame tabs. Currently exported for selected articles.</
 candidate on its own content. Graph never flags.</td></tr>
 <tr><td><b>L5 #1 — Cross-lingual</b></td><td>Do other editions frame it differently?</td>
 <td>Same stance read across editions, static and relative to the L1 pivot
-(<a href="glossary.html#cross-lingual">native, no translation</a>).</td></tr>
+(<a href="glossary.html#cross-lingual">native, no translation</a>). Pivot-relative mode currently
+applies one shared L1 pivot boundary across all compared editions in the run.</td></tr>
 <tr><td><b>L5 #2 — Facts</b></td><td>Do editions disagree on load-bearing facts?</td>
 <td>Fixed questions, as-of dated answers, adjudicated for
 <a href="glossary.html#fact-divergence">agree / differ / contradict</a>.</td></tr>
+<tr><td><b>L2.5 — Lexical drift</b></td><td>Did vocabulary usage shift across the rewrite window?</td>
+<td>Term-distribution divergence (Jensen-Shannon) plus relative term keyness (smoothed log-odds).
+Signal only; no claim of intent.</td></tr>
 <tr><td><b>L5 #3b — Sources</b></td><td>How did the citation mix change across the pivot?</td>
 <td>Cite-template types and domains (archive links unwrapped). Composition only —
 <a href="glossary.html#source-change">no reliability ratings</a>.</td></tr>
 </tbody></table></div>
+
+Pipeline defaults are now <b>self-determined and controversy-agnostic</b>: unless explicitly overridden,
+entity focus defaults to the article title itself (not a curated controversy list). In pipeline mode,
+L2 and L2.5 feed context forward into L5 (entity focus, detected stance shifts, lexical JS divergence),
+so external-reference checks are informed by lower-layer observations rather than run in isolation.
 
 Edit-war intensity ([M-score](glossary.html#conflict)) is context only. High controversy is
 not capture; near-zero controversy on a large rewrite means the change was not fought over (route toward L5

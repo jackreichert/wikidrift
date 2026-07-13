@@ -55,7 +55,8 @@ constructive project of encyclopedias from academic institutions.
   (<a href="glossary.html#pwr">persistence-weighted</a> displacement).</li>
 <li><strong>Other editions:</strong> how English compares with editions such as Hebrew, Arabic, Polish, or German on
   <a href="glossary.html#framing">framing</a> and <a href="glossary.html#fact-divergence">load-bearing facts</a> — including
-  whether English moved at the pivot, not only whether editions differ today.</li>
+  whether English moved at the pivot, not only whether editions differ today. In current runs,
+  pivot-relative comparison uses one shared L1 pivot boundary across all compared editions.</li>
 <li><strong>Citations:</strong> how the article's own source mix shifted across a rewrite
   (<a href="glossary.html#source-change">from → to</a>), without reliability ratings on domains.</li>
 </ul>
@@ -64,6 +65,8 @@ constructive project of encyclopedias from academic institutions.
 Optional named lists can sit on top as overlays; they are not the foundation. A metadata pre-ranker
 (byte displacement, no full text) decides what deserves a full token-level pass and routes addition- or
 <a href="glossary.html#churn">churn</a>-heavy cases to framing analysis when removal alone would miss them.</p>
+<p>Default entity focus is self-determined from the article itself (controversy-agnostic), and pipeline runs
+pass L2/L2.5 context into L5 so external checks are guided by observed shifts rather than fixed priors.</p>
 <p>A large rewrite is a <em>change</em> signal. Base-rate runs show legitimate overhauls can out-pivot contested
 topics. Direction is a separate layer (stance + cross-edition checks). Every page here is a
 <a href="glossary.html#lead">lead</a> with links back to underlying revisions.</p>

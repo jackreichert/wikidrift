@@ -1,0 +1,67 @@
+{
+  "article": "Ainu people",
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "entities": [
+    "Ainu people"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Ainu people": {
+          "entity": "Ainu people",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "underscored the long history of the oppression of the Ainu people by Japan's majority... urged him to recognize the Japanese genocide against the Ainu people"
+        }
+      },
+      "lead": {
+        "Ainu people": {
+          "entity": "Ainu people",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "forced assimilation... Japanese assimilation policies... forced them to give up traditional ways of life... Ainu people were not allowed to practice their religion"
+        }
+      }
+    },
+    "he": {
+      "focal": {
+        "Ainu people": {
+          "entity": "Ainu people",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "רבים מהם מסתירים את מוצאם או אינם יודעים אותו לאחר שהוסתר מהם, כדי להגן על עצמם מפני אפליה על בסיס גזעי; העימות בין היפנים הפולשים לבין האיינו, התושבים המקוריים"
+        }
+      },
+      "lead": {
+        "Ainu people": {
+          "entity": "Ainu people",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "הם נושלו משטחי מחייתם ואולצו ללמוד בבתי ספר יפנים ולהיטמע בעם היפני... רבים מהם מסתירים את מוצאם או אינם יודעים אותו לאחר שהוסתר מהם, כדי להגן על עצמם מפני אפליה על בסיס גזעי"
+        }
+      }
+    },
+    "ar": {
+      "focal": {
+        "Ainu people": {
+          "entity": "Ainu people",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "كان الآينو مهمشين على نحو متزايد على الأراضي التي كانوا يقطنونها... تم إجباره «قسريا» كي يصبح شعبا يابانيا من الأساس"
+        }
+      },
+      "lead": {
+        "Ainu people": {
+          "entity": "Ainu people",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "كان الآينو مهمشين على نحو متزايد على الأراضي التي كانوا يقطنونها... تم إجباره «قسريا» كي يصبح شعبا يابانيا من الأساس"
+        }
+      }
+    }
+  }
+}

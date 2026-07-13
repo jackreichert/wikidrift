@@ -1,0 +1,301 @@
+{
+  "article": "Brontosaurus",
+  "span": "2006-01-01 -> 2026-07-01 (no L1 pivot — whole history)",
+  "pivot": null,
+  "before": {
+    "date": "2006-01-01",
+    "rev": 34095001,
+    "tokens": 622
+  },
+  "after": {
+    "date": "2026-07-01",
+    "rev": 1362749745,
+    "tokens": 4077
+  },
+  "js_divergence": 0.4015,
+  "overrepresented_after_terms": [
+    {
+      "term": "vertebrae",
+      "before": 0,
+      "after": 26,
+      "delta": 26,
+      "log_odds": 2.0972
+    },
+    {
+      "term": "formation",
+      "before": 0,
+      "after": 24,
+      "delta": 24,
+      "log_odds": 2.0182
+    },
+    {
+      "term": "long",
+      "before": 0,
+      "after": 22,
+      "delta": 22,
+      "log_odds": 1.9326
+    },
+    {
+      "term": "morrison",
+      "before": 0,
+      "after": 22,
+      "delta": 22,
+      "log_odds": 1.9326
+    },
+    {
+      "term": "cervical",
+      "before": 0,
+      "after": 17,
+      "delta": 17,
+      "log_odds": 1.68
+    },
+    {
+      "term": "parvus",
+      "before": 0,
+      "after": 15,
+      "delta": 15,
+      "log_odds": 1.5582
+    },
+    {
+      "term": "diplodocids",
+      "before": 0,
+      "after": 14,
+      "delta": 14,
+      "log_odds": 1.4912
+    },
+    {
+      "term": "neck",
+      "before": 0,
+      "after": 13,
+      "delta": 13,
+      "log_odds": 1.4195
+    },
+    {
+      "term": "left",
+      "before": 0,
+      "after": 12,
+      "delta": 12,
+      "log_odds": 1.3423
+    },
+    {
+      "term": "neural",
+      "before": 0,
+      "after": 12,
+      "delta": 12,
+      "log_odds": 1.3423
+    },
+    {
+      "term": "ribs",
+      "before": 0,
+      "after": 12,
+      "delta": 12,
+      "log_odds": 1.3423
+    },
+    {
+      "term": "animals",
+      "before": 0,
+      "after": 11,
+      "delta": 11,
+      "log_odds": 1.2587
+    },
+    {
+      "term": "jurassic",
+      "before": 0,
+      "after": 11,
+      "delta": 11,
+      "log_odds": 1.2587
+    },
+    {
+      "term": "spines",
+      "before": 0,
+      "after": 11,
+      "delta": 11,
+      "log_odds": 1.2587
+    },
+    {
+      "term": "though",
+      "before": 0,
+      "after": 11,
+      "delta": 11,
+      "log_odds": 1.2587
+    },
+    {
+      "term": "amnh",
+      "before": 0,
+      "after": 10,
+      "delta": 10,
+      "log_odds": 1.1675
+    },
+    {
+      "term": "animal",
+      "before": 0,
+      "after": 10,
+      "delta": 10,
+      "log_odds": 1.1675
+    },
+    {
+      "term": "specimens",
+      "before": 0,
+      "after": 10,
+      "delta": 10,
+      "log_odds": 1.1675
+    },
+    {
+      "term": "found",
+      "before": 1,
+      "after": 30,
+      "delta": 29,
+      "log_odds": 1.1385
+    },
+    {
+      "term": "specimen",
+      "before": 1,
+      "after": 30,
+      "delta": 29,
+      "log_odds": 1.1385
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "bronto",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -3.8302
+    },
+    {
+      "term": "brontosaurs",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -3.8302
+    },
+    {
+      "term": "fact",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -3.8302
+    },
+    {
+      "term": "baby",
+      "before": 4,
+      "after": 1,
+      "delta": -3,
+      "log_odds": -2.9843
+    },
+    {
+      "term": "article",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -2.7314
+    },
+    {
+      "term": "feet",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -2.7314
+    },
+    {
+      "term": "lost",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -2.7314
+    },
+    {
+      "term": "battle",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.3933
+    },
+    {
+      "term": "book",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.3933
+    },
+    {
+      "term": "bully",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.3933
+    },
+    {
+      "term": "discovered",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.3933
+    },
+    {
+      "term": "itself",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.3933
+    },
+    {
+      "term": "jay",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.3933
+    },
+    {
+      "term": "real",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.3933
+    },
+    {
+      "term": "recently",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.3933
+    },
+    {
+      "term": "see",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.3933
+    },
+    {
+      "term": "stephen",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.3933
+    },
+    {
+      "term": "thunder",
+      "before": 4,
+      "after": 3,
+      "delta": -1,
+      "log_odds": -2.1365
+    },
+    {
+      "term": "scientific",
+      "before": 3,
+      "after": 4,
+      "delta": 1,
+      "log_odds": -1.632
+    },
+    {
+      "term": "despite",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": -1.5455
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

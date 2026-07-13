@@ -48,7 +48,9 @@ class Resolution(unittest.TestCase):
     def setUp(self):
         # isolate from any ambient WIKIDRIFT_LLM_* env
         self._saved = {k: os.environ.pop(k, None)
-                       for k in ("WIKIDRIFT_LLM_PROVIDER", "WIKIDRIFT_LLM_MODEL", "WIKIDRIFT_LLM_BASE_URL")}
+                       for k in ("WIKIDRIFT_LLM_PROVIDER", "WIKIDRIFT_LLM_MODEL", "WIKIDRIFT_LLM_BASE_URL",
+                                 "WIKIDRIFT_LLM_PROVIDER_PRIORITY", "WIKIDRIFT_LLM_API_KEY",
+                                 "ANTHROPIC_API_KEY", "OPENAI_API_KEY", "XAI_API_KEY", "GOOGLE_API_KEY")}
 
     def tearDown(self):
         for k, v in self._saved.items():
@@ -70,6 +72,7 @@ class Resolution(unittest.TestCase):
 
     def test_provider_default_model(self):
         self.assertEqual(llm.make_client("openai").model, "gpt-4o-mini")
+        self.assertEqual(llm.make_client("grok").model, "grok-3-mini")
         self.assertEqual(llm.make_client("google").model, "gemini-flash-lite-latest")
         self.assertEqual(llm.make_client("xai").model, "grok-4")
 
@@ -83,6 +86,16 @@ class Resolution(unittest.TestCase):
         self.assertEqual(c.provider, "xai")
         self.assertEqual(c.model, "grok-4")
         self.assertEqual(c.base_url, "https://api.x.ai/v1")
+
+    def test_auto_priority_uses_first_configured_key(self):
+        # In auto mode (no explicit provider), choose the first provider in priority with a configured key.
+        os.environ["WIKIDRIFT_LLM_PROVIDER_PRIORITY"] = "anthropic,openai,google"
+        os.environ["OPENAI_API_KEY"] = "x"
+        try:
+            c = llm.make_client()
+            self.assertEqual(c.provider, "openai")
+        finally:
+            os.environ.pop("OPENAI_API_KEY", None)
 
     def test_env_selects_provider(self):
         os.environ["WIKIDRIFT_LLM_PROVIDER"] = "openai"
@@ -214,6 +227,23 @@ class Retry(unittest.TestCase):
 
         self.assertEqual(c._send(flaky), "ok")
         self.assertIn(7.0, waits)                  # used the header, not the exponential default
+
+
+class Failover(unittest.TestCase):
+    def test_rotates_to_next_provider_on_429(self):
+        first = llm.Client("anthropic", "m1")
+        second = llm.Client("openai", "m2")
+
+        def boom(*_a, **_k):
+            raise _Boom(429)
+
+        first.complete_json = boom
+        second.complete_json = lambda *_a, **_k: {"ok": 9}
+
+        fc = llm.FailoverClient([first, second])
+        out = fc.complete_json(SCHEMA, "hi")
+        self.assertEqual(out, {"ok": 9})
+        self.assertEqual(fc.provider, "openai")
 
 
 class DotEnv(unittest.TestCase):

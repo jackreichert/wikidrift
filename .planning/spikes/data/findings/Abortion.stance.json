@@ -1,0 +1,67 @@
+{
+  "article": "Abortion",
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "entities": [
+    "Abortion"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Abortion": {
+          "entity": "Abortion",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "When performed legally and safely on a woman who desires it, an induced abortion does not increase the risk of long-term mental or physical problems... making safe abortion legal and accessible reduces maternal deaths."
+        }
+      },
+      "lead": {
+        "Abortion": {
+          "entity": "Abortion",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "When performed legally and safely on a woman who desires it, an induced abortion does not increase the risk of long-term mental or physical problems... Public health data show that making safe abortion legal and accessible reduces maternal deaths."
+        }
+      }
+    },
+    "he": {
+      "focal": {
+        "Abortion": {
+          "entity": "Abortion",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "הפלה מלאכותית, הפלה יזומה או הפסקת היריון יזומה היא הפסקה מכוונת של היריון, שלא על ידי לידת תינוק חי"
+        }
+      },
+      "lead": {
+        "Abortion": {
+          "entity": "Abortion",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "הפלה יזומה כזו היא התערבות בריאותית נפוצה. היא בטוחה מאוד כאשר היא מתבצעת בשיטה המומלצת על ידי ארגון הבריאות העולמי"
+        }
+      }
+    },
+    "ar": {
+      "focal": {
+        "Abortion": {
+          "entity": "Abortion",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "الإجهاض المحرض (المستحث) من أسلم الإجراءات الطبية في البلدان المتطورة التي يسمح القانون بإجرائه"
+        }
+      },
+      "lead": {
+        "Abortion": {
+          "entity": "Abortion",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "الإجهاض المحرض (المستحث) من أسلم الإجراءات الطبية في البلدان المتطورة التي يسمح القانون بإجرائه."
+        }
+      }
+    }
+  }
+}

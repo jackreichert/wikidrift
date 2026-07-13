@@ -4,17 +4,17 @@
   "editions": {
     "en": {
       "present": true,
-      "revid": 1363393095,
+      "revid": 1363755706,
       "title": "Genetic studies of Jews",
-      "timestamp": "2026-07-09T22:56:29Z",
-      "prose_chars": 96157
+      "timestamp": "2026-07-12T05:51:18Z",
+      "prose_chars": 96536
     },
     "he": {
       "present": true,
-      "revid": 43465920,
+      "revid": 43587748,
       "title": "מחקרים גנטיים על יהודים",
-      "timestamp": "2026-06-21T10:07:15Z",
-      "prose_chars": 50606
+      "timestamp": "2026-07-13T12:58:27Z",
+      "prose_chars": 50611
     }
   }
 }

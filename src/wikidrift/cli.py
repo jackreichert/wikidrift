@@ -1,7 +1,6 @@
 """wikidrift command-line entry point.
 
   wikidrift analyze "Zionism"          # full L1 pipeline (fetches as needed) + attribution
-  wikidrift analyze "https://en.wikipedia.org/wiki/Zionism"  # same, accepts Wikipedia URLs
   wikidrift validate ["Zionism" ...]   # offline PWR candidate verdicts (no WikiWho); default = whole cache
   wikidrift prerank ["Zionism" ...]    # metadata pre-ranker (offline)
   wikidrift benchmark [--json]         # score the adjudicated roster
@@ -11,51 +10,51 @@
   wikidrift mscore ["Zionism" ...]      # Yasseri mutual-revert controversy corroborator (offline fetch)
   wikidrift ingest "Naliboki massacre" [...] [--force]   # local wikiwho_rs-on-dumps rsnap ingestion
   wikidrift pipeline "Nakba" [--llm] [--mscore]          # L1→router→(L2/L5) orchestration for one article
+    wikidrift lexical "Zionism" [--top-n 20] [--min-total 3]  # L2.5 lexical drift lead (offline)
 
-LLM verbs (stance/crosslingual/factcheck/pipeline) accept --provider {anthropic|openai|google|xai|grok}
---model NAME --base-url URL to pick a cheaper/local backend (default Anthropic). --provider xai (alias: grok)
-uses Grok via https://api.x.ai/v1 (XAI_API_KEY). --base-url + --provider openai reaches any OpenAI-compatible
-endpoint (OpenRouter/Together/Groq/DeepSeek; local Ollama/LM Studio/vLLM). Keys via the provider's env var
-(ANTHROPIC_API_KEY/OPENAI_API_KEY/GOOGLE_API_KEY/XAI_API_KEY) or WIKIDRIFT_LLM_API_KEY; env equivalents
+LLM verbs (stance/crosslingual/factcheck/pipeline) accept --provider {anthropic|openai|grok|google} --model NAME
+--base-url URL to pick a cheaper/local backend (default Anthropic). --base-url + --provider openai reaches any
+OpenAI-compatible endpoint (OpenRouter/Together/Groq/DeepSeek; local Ollama/LM Studio/vLLM). Keys via the
+provider's env var (ANTHROPIC_API_KEY/OPENAI_API_KEY/GOOGLE_API_KEY) or WIKIDRIFT_LLM_API_KEY; env equivalents
 WIKIDRIFT_LLM_PROVIDER/_MODEL/_BASE_URL.
 """
 import sys
 import argparse
-from urllib.parse import urlparse, unquote
+from urllib.parse import urlparse, parse_qs, unquote
 
 import duckdb
 
 from . import (config, drift, prerank, benchmark, stance, l5_crosslingual, l5_factcheck,  # noqa: F401
-               mscore, ingest, pipeline, l4, l5_sources, bootstrap)
+               mscore, ingest, pipeline, l4, l5_sources, lexical, bootstrap)
 from .corpus import Corpus
 
 
-def extract_article_title(input_str):
-    """Parse Wikipedia URL or return the article title as-is.
-    
-    Handles:
-      - https://en.wikipedia.org/wiki/Zionism → Zionism
-      - https://en.wikipedia.org/wiki/Israeli–Palestinian_conflict → Israeli–Palestinian_conflict
-      - Zionism → Zionism
+def _normalize_article_arg(value):
+    """Accept either an article title or a Wikipedia URL and return a normalized title.
+
+    Supported URL shapes:
+    - https://<lang>.wikipedia.org/wiki/<Title>
+    - https://<lang>.wikipedia.org/w/index.php?title=<Title>
     """
-    if not input_str:
-        return input_str
-    
-    # Check if it looks like a URL
-    if input_str.startswith(("http://", "https://")):
-        try:
-            parsed = urlparse(input_str)
-            # Extract the path component, which should be /wiki/{article_title}
-            if parsed.path.startswith("/wiki/"):
-                title = parsed.path[6:]  # Remove "/wiki/" prefix
-                # URL-decode the title (handle %20 → space, etc.)
-                title = unquote(title)
-                return title
-        except Exception:
-            pass
-    
-    # Not a URL or parsing failed; return as-is
-    return input_str
+    raw = (value or "").strip()
+    if not raw:
+        return raw
+    if not (raw.startswith("http://") or raw.startswith("https://")):
+        return raw
+
+    parsed = urlparse(raw)
+    if "wikipedia.org" not in (parsed.netloc or ""):
+        # Non-Wikipedia URL: leave unchanged so downstream errors remain explicit.
+        return raw
+
+    title = ""
+    if "/wiki/" in parsed.path:
+        title = parsed.path.split("/wiki/", 1)[1]
+    elif parsed.path.endswith("/w/index.php"):
+        title = parse_qs(parsed.query).get("title", [""])[0]
+
+    title = unquote(title).replace("_", " ").strip()
+    return title or raw
 
 
 def main(argv=None):
@@ -65,12 +64,12 @@ def main(argv=None):
 
     def add_llm_flags(sp):
         """Provider-selection flags shared by the LLM verbs (arg → env → default; see llm.py)."""
-        sp.add_argument("--provider", default=None,
-                        choices=["anthropic", "openai", "google", "xai", "grok"],
-                        help="LLM provider (default: anthropic, or WIKIDRIFT_LLM_PROVIDER; grok → xai)")
+        sp.add_argument("--provider", default=None, choices=["anthropic", "openai", "grok", "google"],
+                        help="LLM provider (default: auto priority from WIKIDRIFT_LLM_PROVIDER_PRIORITY;"
+                            " explicit provider or WIKIDRIFT_LLM_PROVIDER disables failover)")
         sp.add_argument("--model", default=None, help="model id (default: provider default / WIKIDRIFT_LLM_MODEL)")
         sp.add_argument("--base-url", dest="base_url", default=None,
-                        help="OpenAI-compatible endpoint base URL (openai/xai): OpenRouter/xAI/Ollama/…")
+                        help="OpenAI-compatible endpoint base URL (openai provider): OpenRouter/Groq/Ollama/…")
 
     sp = sub.add_parser("analyze", help="full L1 pipeline for one article (+ attribution)")
     sp.add_argument("article")
@@ -86,7 +85,8 @@ def main(argv=None):
 
     sp = sub.add_parser("stance", help="L2 LLM stance classifier over time")
     sp.add_argument("article")
-    sp.add_argument("--entities", default=None, help="comma-separated focal entities")
+    sp.add_argument("--entities", default=None,
+                    help="comma-separated entities (default: article title, controversy-agnostic)")
     sp.add_argument("--max-snaps", type=int, default=0)
     sp.add_argument("--since", default=None, help="ISO date; only snapshots on/after it (target the L1 pivot window)")
     add_llm_flags(sp)
@@ -126,6 +126,11 @@ def main(argv=None):
     sp.add_argument("article")
     sp.add_argument("--max-snaps", type=int, default=12, help="snapshots to sample (bounds Action-API fetches)")
 
+    sp = sub.add_parser("lexical", help="L2.5 lexical drift lead (term keyness + JS divergence)")
+    sp.add_argument("article")
+    sp.add_argument("--top-n", type=int, default=20, help="terms to keep per side (gained/lost)")
+    sp.add_argument("--min-total", type=int, default=3, help="minimum total count across windows per term")
+
     sp = sub.add_parser("profile", help="descriptive L1 drift profile (recency + editor concentration, offline)")
     sp.add_argument("article")
 
@@ -135,8 +140,7 @@ def main(argv=None):
     args = p.parse_args(argv)
 
     if args.cmd == "analyze":
-        article = extract_article_title(args.article)
-        drift.analyze(article)
+        drift.analyze(_normalize_article_arg(args.article))
     elif args.cmd == "validate":
         con = duckdb.connect(str(config.DB), read_only=True)
         targets = args.articles or Corpus(con).articles_with_snapshots(3)
@@ -152,20 +156,18 @@ def main(argv=None):
     elif args.cmd == "benchmark":
         benchmark.run(as_json=args.json)
     elif args.cmd == "stance":
-        article = extract_article_title(args.article)
         ents = [e.strip() for e in args.entities.split(",")] if args.entities else None
-        stance.stance_over_time(article, entities=ents, max_snaps=args.max_snaps, since=args.since,
+        stance.stance_over_time(_normalize_article_arg(args.article), entities=ents, max_snaps=args.max_snaps,
+                                since=args.since,
                                 provider=args.provider, model=args.model, base_url=args.base_url)
     elif args.cmd == "crosslingual":
-        article = extract_article_title(args.article)
         langs = [l.strip() for l in args.langs.split(",")] if args.langs else None
-        l5_crosslingual.crosslingual(article, langs=langs, pivot=not args.no_pivot,
+        l5_crosslingual.crosslingual(_normalize_article_arg(args.article), langs=langs, pivot=not args.no_pivot,
                                      provider=args.provider, model=args.model, base_url=args.base_url)
     elif args.cmd == "factcheck":
-        article = extract_article_title(args.article)
         langs = [l.strip() for l in args.langs.split(",")] if args.langs else None
         ts = f"{args.asof}T00:00:00Z" if args.asof else None
-        l5_factcheck.factcheck(article, langs=langs, ts=ts,
+        l5_factcheck.factcheck(_normalize_article_arg(args.article), langs=langs, ts=ts,
                                provider=args.provider, model=args.model, base_url=args.base_url)
     elif args.cmd == "mscore":
         mscore.run(args.articles or ["Zionism", "Nakba", "Warsaw concentration camp",
@@ -173,18 +175,16 @@ def main(argv=None):
     elif args.cmd == "ingest":
         ingest.ingest_articles(args.articles, force=args.force)
     elif args.cmd == "pipeline":
-        article = extract_article_title(args.article)
-        pipeline.run(article, llm=args.llm, corroborate=args.mscore,
+        pipeline.run(_normalize_article_arg(args.article), llm=args.llm, corroborate=args.mscore,
                      provider=args.provider, model=args.model, base_url=args.base_url)
     elif args.cmd == "discover":
-        article = extract_article_title(args.article)
-        l4.discover(article, top_n=args.top_n, limit=args.limit)
+        l4.discover(_normalize_article_arg(args.article), top_n=args.top_n, limit=args.limit)
     elif args.cmd == "sources":
-        article = extract_article_title(args.article)
-        l5_sources.sources_over_time(article, max_snaps=args.max_snaps)
+        l5_sources.sources_over_time(_normalize_article_arg(args.article), max_snaps=args.max_snaps)
+    elif args.cmd == "lexical":
+        lexical.lexical_drift(_normalize_article_arg(args.article), top_n=args.top_n, min_total=args.min_total)
     elif args.cmd == "profile":
-        article = extract_article_title(args.article)
-        drift.profile_report(article)
+        drift.profile_report(_normalize_article_arg(args.article))
     elif args.cmd == "bootstrap":
         bootstrap.run(args.articles or None)
 

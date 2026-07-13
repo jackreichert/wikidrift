@@ -7,9 +7,11 @@ from wikidrift import l5_crosslingual as xl
 from wikidrift import mscore
 from wikidrift import l4
 from wikidrift import l5_sources as src
+from wikidrift import lexical
 from wikidrift import drift
 from wikidrift import benchmark
 from wikidrift import stance
+from wikidrift.registry import focal_entities
 
 
 class Jaccard(unittest.TestCase):
@@ -89,6 +91,28 @@ class FocalPassage(unittest.TestCase):
     def test_truncates_to_max_chars(self):
         prose = "Israel " + "x" * 100 + "."
         self.assertEqual(len(stance.focal_passage(prose, ["Israel"], max_chars=20)), 20)
+
+
+class FocalRegistry(unittest.TestCase):
+    def test_out_of_slate_article_uses_title_as_focal(self):
+        self.assertEqual(focal_entities("Chess"), ["Chess"])
+
+    def test_empty_article_returns_no_focal_entities(self):
+        self.assertEqual(focal_entities(""), [])
+
+
+class LexicalMath(unittest.TestCase):
+    def test_js_divergence_zero_on_identical_distributions(self):
+        a = {"term": 10, "x": 5}
+        b = {"term": 20, "x": 10}
+        self.assertEqual(lexical._js_divergence(a, b), 0.0)
+
+    def test_log_odds_splits_gained_and_lost(self):
+        before = {"old": 10, "stay": 5}
+        after = {"new": 10, "stay": 5}
+        gained, lost = lexical._log_odds(before, after, min_total=1, top_n=5)
+        self.assertTrue(any(r["term"] == "new" for r in gained))
+        self.assertTrue(any(r["term"] == "old" for r in lost))
 
 
 class ReadGap(unittest.TestCase):

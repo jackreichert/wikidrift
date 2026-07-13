@@ -1,0 +1,301 @@
+{
+  "article": "Palestinian political violence",
+  "span": "2003-07-01 -> 2026-07-01 (no L1 pivot — whole history)",
+  "pivot": null,
+  "before": {
+    "date": "2003-07-01",
+    "rev": 1143729,
+    "tokens": 194
+  },
+  "after": {
+    "date": "2026-07-01",
+    "rev": 1362071472,
+    "tokens": 5893
+  },
+  "js_divergence": 0.5096,
+  "overrepresented_after_terms": [
+    {
+      "term": "gaza",
+      "before": 0,
+      "after": 63,
+      "delta": 63,
+      "log_odds": 1.4438
+    },
+    {
+      "term": "suicide",
+      "before": 0,
+      "after": 53,
+      "delta": 53,
+      "log_odds": 1.2707
+    },
+    {
+      "term": "palestinians",
+      "before": 0,
+      "after": 52,
+      "delta": 52,
+      "log_odds": 1.2516
+    },
+    {
+      "term": "civilians",
+      "before": 0,
+      "after": 48,
+      "delta": 48,
+      "log_odds": 1.1717
+    },
+    {
+      "term": "killed",
+      "before": 0,
+      "after": 48,
+      "delta": 48,
+      "log_odds": 1.1717
+    },
+    {
+      "term": "west",
+      "before": 0,
+      "after": 48,
+      "delta": 48,
+      "log_odds": 1.1717
+    },
+    {
+      "term": "bus",
+      "before": 0,
+      "after": 41,
+      "delta": 41,
+      "log_odds": 1.0146
+    },
+    {
+      "term": "led",
+      "before": 0,
+      "after": 35,
+      "delta": 35,
+      "log_odds": 0.8575
+    },
+    {
+      "term": "group",
+      "before": 0,
+      "after": 32,
+      "delta": 32,
+      "log_odds": 0.7687
+    },
+    {
+      "term": "strip",
+      "before": 0,
+      "after": 30,
+      "delta": 30,
+      "log_odds": 0.7048
+    },
+    {
+      "term": "war",
+      "before": 0,
+      "after": 29,
+      "delta": 29,
+      "log_odds": 0.6713
+    },
+    {
+      "term": "armed",
+      "before": 0,
+      "after": 28,
+      "delta": 28,
+      "log_odds": 0.6366
+    },
+    {
+      "term": "arab",
+      "before": 0,
+      "after": 24,
+      "delta": 24,
+      "log_odds": 0.4847
+    },
+    {
+      "term": "jerusalem",
+      "before": 0,
+      "after": 23,
+      "delta": 23,
+      "log_odds": 0.4429
+    },
+    {
+      "term": "september",
+      "before": 0,
+      "after": 23,
+      "delta": 23,
+      "log_odds": 0.4429
+    },
+    {
+      "term": "rockets",
+      "before": 0,
+      "after": 22,
+      "delta": 22,
+      "log_odds": 0.3992
+    },
+    {
+      "term": "bombing",
+      "before": 0,
+      "after": 21,
+      "delta": 21,
+      "log_odds": 0.3536
+    },
+    {
+      "term": "founded",
+      "before": 0,
+      "after": 21,
+      "delta": 21,
+      "log_odds": 0.3536
+    },
+    {
+      "term": "plo",
+      "before": 0,
+      "after": 21,
+      "delta": 21,
+      "log_odds": 0.3536
+    },
+    {
+      "term": "abu",
+      "before": 0,
+      "after": 20,
+      "delta": 20,
+      "log_odds": 0.3058
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "terrorist",
+      "before": 7,
+      "after": 3,
+      "delta": -4,
+      "log_odds": -4.2095
+    },
+    {
+      "term": "acts",
+      "before": 3,
+      "after": 2,
+      "delta": -1,
+      "log_odds": -3.7629
+    },
+    {
+      "term": "organizations",
+      "before": 6,
+      "after": 7,
+      "delta": 1,
+      "log_odds": -3.2982
+    },
+    {
+      "term": "terrorism",
+      "before": 5,
+      "after": 7,
+      "delta": 2,
+      "log_odds": -3.1259
+    },
+    {
+      "term": "bet",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -2.9052
+    },
+    {
+      "term": "bodies",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -2.9052
+    },
+    {
+      "term": "committed",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -2.9052
+    },
+    {
+      "term": "countries",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -2.9052
+    },
+    {
+      "term": "even",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -2.9052
+    },
+    {
+      "term": "history",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -2.9052
+    },
+    {
+      "term": "homes",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -2.9052
+    },
+    {
+      "term": "limited",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -2.9052
+    },
+    {
+      "term": "means",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -2.9052
+    },
+    {
+      "term": "name",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -2.9052
+    },
+    {
+      "term": "shin",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -2.9052
+    },
+    {
+      "term": "taken",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -2.9052
+    },
+    {
+      "term": "non",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": -2.5685
+    },
+    {
+      "term": "person",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": -2.5685
+    },
+    {
+      "term": "see",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": -2.5685
+    },
+    {
+      "term": "shopping",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": -2.5685
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

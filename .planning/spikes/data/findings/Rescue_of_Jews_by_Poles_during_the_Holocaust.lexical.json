@@ -1,0 +1,301 @@
+{
+  "article": "Rescue of Jews by Poles during the Holocaust",
+  "span": "2009-01-01 -> 2026-07-01 (no L1 pivot — whole history)",
+  "pivot": null,
+  "before": {
+    "date": "2009-01-01",
+    "rev": 261508417,
+    "tokens": 5145
+  },
+  "after": {
+    "date": "2026-07-01",
+    "rev": 1357153654,
+    "tokens": 3971
+  },
+  "js_divergence": 0.2045,
+  "overrepresented_after_terms": [
+    {
+      "term": "upright",
+      "before": 0,
+      "after": 9,
+      "delta": 9,
+      "log_odds": 3.2057
+    },
+    {
+      "term": "getter",
+      "before": 0,
+      "after": 7,
+      "delta": 7,
+      "log_odds": 2.9688
+    },
+    {
+      "term": "party",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 2.8254
+    },
+    {
+      "term": "germany",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 2.6581
+    },
+    {
+      "term": "mary",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 2.6581
+    },
+    {
+      "term": "police",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 2.6581
+    },
+    {
+      "term": "see",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 2.6581
+    },
+    {
+      "term": "sławik",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 2.6581
+    },
+    {
+      "term": "invasion",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.4572
+    },
+    {
+      "term": "territories",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.4572
+    },
+    {
+      "term": "united",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.4572
+    },
+    {
+      "term": "ładoś",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.4572
+    },
+    {
+      "term": "camp",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.2056
+    },
+    {
+      "term": "commemoration",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.2056
+    },
+    {
+      "term": "countless",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.2056
+    },
+    {
+      "term": "datner",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.2056
+    },
+    {
+      "term": "film",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.2056
+    },
+    {
+      "term": "groups",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.2056
+    },
+    {
+      "term": "hungary",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.2056
+    },
+    {
+      "term": "imposed",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.2056
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "university",
+      "before": 46,
+      "after": 0,
+      "delta": -46,
+      "log_odds": -4.2826
+    },
+    {
+      "term": "pages",
+      "before": 14,
+      "after": 0,
+      "delta": -14,
+      "log_odds": -3.111
+    },
+    {
+      "term": "http",
+      "before": 13,
+      "after": 0,
+      "delta": -13,
+      "log_odds": -3.0394
+    },
+    {
+      "term": "isbn",
+      "before": 12,
+      "after": 0,
+      "delta": -12,
+      "log_odds": -2.9622
+    },
+    {
+      "term": "org",
+      "before": 12,
+      "after": 0,
+      "delta": -12,
+      "log_odds": -2.9622
+    },
+    {
+      "term": "zimmerman",
+      "before": 12,
+      "after": 0,
+      "delta": -12,
+      "log_odds": -2.9622
+    },
+    {
+      "term": "aftermath",
+      "before": 11,
+      "after": 0,
+      "delta": -11,
+      "log_odds": -2.8787
+    },
+    {
+      "term": "joshua",
+      "before": 11,
+      "after": 0,
+      "delta": -11,
+      "log_odds": -2.8787
+    },
+    {
+      "term": "pdf",
+      "before": 11,
+      "after": 0,
+      "delta": -11,
+      "log_odds": -2.8787
+    },
+    {
+      "term": "yadvashem",
+      "before": 11,
+      "after": 0,
+      "delta": -11,
+      "log_odds": -2.8787
+    },
+    {
+      "term": "contested",
+      "before": 10,
+      "after": 0,
+      "delta": -10,
+      "log_odds": -2.7875
+    },
+    {
+      "term": "memories",
+      "before": 10,
+      "after": 0,
+      "delta": -10,
+      "log_odds": -2.7875
+    },
+    {
+      "term": "rutgers",
+      "before": 10,
+      "after": 0,
+      "delta": -10,
+      "log_odds": -2.7875
+    },
+    {
+      "term": "press",
+      "before": 47,
+      "after": 2,
+      "delta": -45,
+      "log_odds": -2.6941
+    },
+    {
+      "term": "google",
+      "before": 9,
+      "after": 0,
+      "delta": -9,
+      "log_odds": -2.6872
+    },
+    {
+      "term": "print",
+      "before": 8,
+      "after": 0,
+      "delta": -8,
+      "log_odds": -2.5758
+    },
+    {
+      "term": "studies",
+      "before": 8,
+      "after": 0,
+      "delta": -8,
+      "log_odds": -2.5758
+    },
+    {
+      "term": "microsoft",
+      "before": 7,
+      "after": 0,
+      "delta": -7,
+      "log_odds": -2.4504
+    },
+    {
+      "term": "resource",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -2.3071
+    },
+    {
+      "term": "review",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -2.3071
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

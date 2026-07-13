@@ -41,5 +41,14 @@ FOCAL = {
     "Climate change": ["fossil fuel industry", "climate scientists", "governments"],
 }
 
-# The fallback when an article isn't in FOCAL — a neutral I-P pair (both stance and crosslingual used it).
-DEFAULT_FOCAL = ["Israel", "Palestinians"]
+def focal_entities(article):
+    """Return focal entities for one article.
+
+    For known study topics, return the curated list from FOCAL.
+    For out-of-slate topics (for example controls like Chess), use the article title itself as the
+    fallback focal target so LLM layers stay controversy-agnostic.
+    """
+    if article in FOCAL:
+        return FOCAL[article]
+    title = (article or "").strip()
+    return [title] if title else []

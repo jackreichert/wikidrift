@@ -1,0 +1,301 @@
+{
+  "article": "Genetic studies of Jews",
+  "span": "2010-07-01 -> 2023-01-01 (no L1 pivot — whole history)",
+  "pivot": null,
+  "before": {
+    "date": "2010-07-01",
+    "rev": 370943603,
+    "tokens": 2827
+  },
+  "after": {
+    "date": "2023-01-01",
+    "rev": 1130396492,
+    "tokens": 8016
+  },
+  "js_divergence": 0.1615,
+  "overrepresented_after_terms": [
+    {
+      "term": "sephardic",
+      "before": 0,
+      "after": 22,
+      "delta": 22,
+      "log_odds": 2.7673
+    },
+    {
+      "term": "component",
+      "before": 0,
+      "after": 15,
+      "delta": 15,
+      "log_odds": 2.3938
+    },
+    {
+      "term": "mizrahi",
+      "before": 0,
+      "after": 15,
+      "delta": 15,
+      "log_odds": 2.3938
+    },
+    {
+      "term": "genome",
+      "before": 0,
+      "after": 14,
+      "delta": 14,
+      "log_odds": 2.3269
+    },
+    {
+      "term": "others",
+      "before": 0,
+      "after": 14,
+      "delta": 14,
+      "log_odds": 2.3269
+    },
+    {
+      "term": "elhaik",
+      "before": 0,
+      "after": 12,
+      "delta": 12,
+      "log_odds": 2.1783
+    },
+    {
+      "term": "ostrer",
+      "before": 0,
+      "after": 11,
+      "delta": 11,
+      "log_odds": 2.0948
+    },
+    {
+      "term": "age",
+      "before": 0,
+      "after": 10,
+      "delta": 10,
+      "log_odds": 2.0037
+    },
+    {
+      "term": "along",
+      "before": 0,
+      "after": 10,
+      "delta": 10,
+      "log_odds": 2.0037
+    },
+    {
+      "term": "findings",
+      "before": 0,
+      "after": 10,
+      "delta": 10,
+      "log_odds": 2.0037
+    },
+    {
+      "term": "yiddish",
+      "before": 0,
+      "after": 10,
+      "delta": 10,
+      "log_odds": 2.0037
+    },
+    {
+      "term": "concerning",
+      "before": 0,
+      "after": 9,
+      "delta": 9,
+      "log_odds": 1.9035
+    },
+    {
+      "term": "harry",
+      "before": 0,
+      "after": 9,
+      "delta": 9,
+      "log_odds": 1.9035
+    },
+    {
+      "term": "originated",
+      "before": 0,
+      "after": 9,
+      "delta": 9,
+      "log_odds": 1.9035
+    },
+    {
+      "term": "participants",
+      "before": 0,
+      "after": 9,
+      "delta": 9,
+      "log_odds": 1.9035
+    },
+    {
+      "term": "linguistic",
+      "before": 0,
+      "after": 8,
+      "delta": 8,
+      "log_odds": 1.7921
+    },
+    {
+      "term": "previous",
+      "before": 0,
+      "after": 8,
+      "delta": 8,
+      "log_odds": 1.7921
+    },
+    {
+      "term": "result",
+      "before": 0,
+      "after": 8,
+      "delta": 8,
+      "log_odds": 1.7921
+    },
+    {
+      "term": "support",
+      "before": 0,
+      "after": 8,
+      "delta": 8,
+      "log_odds": 1.7921
+    },
+    {
+      "term": "ancestor",
+      "before": 0,
+      "after": 7,
+      "delta": 7,
+      "log_odds": 1.6668
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "rare",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.9891
+    },
+    {
+      "term": "transmitted",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.9891
+    },
+    {
+      "term": "determine",
+      "before": 6,
+      "after": 1,
+      "delta": -5,
+      "log_odds": -2.5104
+    },
+    {
+      "term": "originating",
+      "before": 4,
+      "after": 1,
+      "delta": -3,
+      "log_odds": -2.142
+    },
+    {
+      "term": "percentage",
+      "before": 4,
+      "after": 1,
+      "delta": -3,
+      "log_odds": -2.142
+    },
+    {
+      "term": "appears",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -1.8903
+    },
+    {
+      "term": "excluding",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -1.8903
+    },
+    {
+      "term": "faerman",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -1.8903
+    },
+    {
+      "term": "father",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -1.8903
+    },
+    {
+      "term": "formation",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -1.8903
+    },
+    {
+      "term": "indeed",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -1.8903
+    },
+    {
+      "term": "called",
+      "before": 5,
+      "after": 2,
+      "delta": -3,
+      "log_odds": -1.8321
+    },
+    {
+      "term": "given",
+      "before": 4,
+      "after": 2,
+      "delta": -2,
+      "log_odds": -1.6311
+    },
+    {
+      "term": "human",
+      "before": 4,
+      "after": 2,
+      "delta": -2,
+      "log_odds": -1.6311
+    },
+    {
+      "term": "june",
+      "before": 4,
+      "after": 2,
+      "delta": -2,
+      "log_odds": -1.6311
+    },
+    {
+      "term": "oriental",
+      "before": 4,
+      "after": 2,
+      "delta": -2,
+      "log_odds": -1.6311
+    },
+    {
+      "term": "term",
+      "before": 4,
+      "after": 2,
+      "delta": -2,
+      "log_odds": -1.6311
+    },
+    {
+      "term": "tradition",
+      "before": 4,
+      "after": 2,
+      "delta": -2,
+      "log_odds": -1.6311
+    },
+    {
+      "term": "lembas",
+      "before": 7,
+      "after": 4,
+      "delta": -3,
+      "log_odds": -1.5549
+    },
+    {
+      "term": "algeria",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -1.5535
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

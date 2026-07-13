@@ -15,4 +15,4 @@ Design: ~/Documents/JackObsidian/encyclopediae/wikipedia-filter-mirror-design.md
 __version__ = "0.1.0"
 
 from . import (config, provenance, drift, prerank, stance, benchmark,  # noqa: F401
-               l5_crosslingual, l5_factcheck, mscore, ingest, pipeline, llm)
+               l5_crosslingual, l5_factcheck, lexical, mscore, ingest, pipeline, llm)

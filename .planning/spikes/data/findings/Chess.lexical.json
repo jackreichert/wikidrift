@@ -1,0 +1,301 @@
+{
+  "article": "Chess",
+  "span": "2002-01-01 -> 2004-01-01 (no L1 pivot — whole history)",
+  "pivot": null,
+  "before": {
+    "date": "2002-01-01",
+    "rev": 241170,
+    "tokens": 1004
+  },
+  "after": {
+    "date": "2004-01-01",
+    "rev": 2080797,
+    "tokens": 932
+  },
+  "js_divergence": 0.3645,
+  "overrepresented_after_terms": [
+    {
+      "term": "notation",
+      "before": 0,
+      "after": 11,
+      "delta": 11,
+      "log_odds": 3.2217
+    },
+    {
+      "term": "literature",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.2759
+    },
+    {
+      "term": "algebraic",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.0235
+    },
+    {
+      "term": "format",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.0235
+    },
+    {
+      "term": "fritz",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.0235
+    },
+    {
+      "term": "kramnik",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.0235
+    },
+    {
+      "term": "six",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.0235
+    },
+    {
+      "term": "using",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.0235
+    },
+    {
+      "term": "champion",
+      "before": 1,
+      "after": 7,
+      "delta": 6,
+      "log_odds": 1.6904
+    },
+    {
+      "term": "games",
+      "before": 2,
+      "after": 11,
+      "delta": 9,
+      "log_odds": 1.6103
+    },
+    {
+      "term": "champions",
+      "before": 1,
+      "after": 5,
+      "delta": 4,
+      "log_odds": 1.378
+    },
+    {
+      "term": "deep",
+      "before": 2,
+      "after": 8,
+      "delta": 6,
+      "log_odds": 1.3048
+    },
+    {
+      "term": "matches",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 1.1763
+    },
+    {
+      "term": "chess",
+      "before": 36,
+      "after": 81,
+      "delta": 45,
+      "log_odds": 0.932
+    },
+    {
+      "term": "championship",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.9239
+    },
+    {
+      "term": "match",
+      "before": 5,
+      "after": 12,
+      "delta": 7,
+      "log_odds": 0.9033
+    },
+    {
+      "term": "against",
+      "before": 2,
+      "after": 5,
+      "delta": 3,
+      "log_odds": 0.8662
+    },
+    {
+      "term": "blue",
+      "before": 2,
+      "after": 5,
+      "delta": 3,
+      "log_odds": 0.8662
+    },
+    {
+      "term": "variants",
+      "before": 2,
+      "after": 5,
+      "delta": 3,
+      "log_odds": 0.8662
+    },
+    {
+      "term": "game",
+      "before": 11,
+      "after": 24,
+      "delta": 13,
+      "log_odds": 0.8458
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "opponent",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -2.4966
+    },
+    {
+      "term": "black",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.3285
+    },
+    {
+      "term": "check",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.3285
+    },
+    {
+      "term": "must",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.3285
+    },
+    {
+      "term": "position",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.3285
+    },
+    {
+      "term": "straight",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.3285
+    },
+    {
+      "term": "white",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.3285
+    },
+    {
+      "term": "king",
+      "before": 15,
+      "after": 1,
+      "delta": -14,
+      "log_odds": -2.275
+    },
+    {
+      "term": "below",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.1268
+    },
+    {
+      "term": "checkmate",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.1268
+    },
+    {
+      "term": "given",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.1268
+    },
+    {
+      "term": "intelligence",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.1268
+    },
+    {
+      "term": "left",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.1268
+    },
+    {
+      "term": "rank",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.1268
+    },
+    {
+      "term": "pawn",
+      "before": 11,
+      "after": 1,
+      "delta": -10,
+      "log_odds": -1.9724
+    },
+    {
+      "term": "arbitrary",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.8745
+    },
+    {
+      "term": "captured",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.8745
+    },
+    {
+      "term": "directions",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.8745
+    },
+    {
+      "term": "easy",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.8745
+    },
+    {
+      "term": "either",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.8745
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

@@ -21,7 +21,6 @@ import mwparserfromhell
 
 from . import config
 from .corpus import Corpus
-from .registry import FOCAL, DEFAULT_FOCAL   # focal entities shared with L5 framing (single source)
 
 _S = config.session()
 
@@ -74,6 +73,8 @@ def prose_at(rev_id):
 
 
 def focal_passage(prose, entities, max_chars=6000):
+    if not entities:
+        return ""
     pat = re.compile("|".join(re.escape(e) for e in entities), re.I)
     sents = [s.strip() for s in re.split(r"(?<=[.!?])\s+", prose) if pat.search(s)]
     out = " ".join(sents)
@@ -85,6 +86,12 @@ def classify(client, entities, passage):
         SCHEMA, PROMPT.format(entities=", ".join(entities), passage=passage), max_tokens=1024)["entities"]
 
 
+def default_entities(article):
+    """Self-determined default entity focus: the article title itself."""
+    title = (article or "").strip()
+    return [title] if title else []
+
+
 def stance_over_time(article, entities=None, max_snaps=0, since=None, provider=None, model=None, base_url=None,
                      client=None):
     """Classify focal-entity stance across the article's snapshots and report the directional shift.
@@ -94,7 +101,7 @@ def stance_over_time(article, entities=None, max_snaps=0, since=None, provider=N
     restricts to snapshots on/after that date — use it to TARGET the L1 pivot window (with a pre-pivot
     baseline) rather than even-sampling, which under-weights a late pivot (S07: Zionism's 4-sample even-sample
     stopped at 2020 and missed its 2024-26 pivot)."""
-    entities = entities or FOCAL.get(article, DEFAULT_FOCAL)
+    entities = entities or default_entities(article)
     con = duckdb.connect(str(config.DB), read_only=True)
     snaps = Corpus(con).snapshots(article)
     con.close()
@@ -131,3 +138,21 @@ def stance_over_time(article, entities=None, max_snaps=0, since=None, provider=N
             print(f"  {e}: {v[0]:+d} → {v[-1]:+d}  ⇒ framing shifted (lead for a researcher + L5)")
         elif v:
             print(f"  {e}: flat ({v[0]:+d}) — no directional shift detected")
+
+    shifts = {}
+    for e in entities:
+        v = traj.get(e, [])
+        if not v:
+            continue
+        shifts[e] = {
+            "start": v[0],
+            "end": v[-1],
+            "shifted": len(v) >= 2 and v[0] != v[-1],
+            "n": len(v),
+        }
+    return {
+        "article": article,
+        "entities": entities,
+        "shifts": shifts,
+        "since": since,
+    }

@@ -1,31 +1,27 @@
 {
   "article": "Photosynthesis",
   "qid": "Q11982",
-  "asof": null,
   "editions": {
     "en": {
       "present": true,
-      "title": "Photosynthesis",
       "revid": 1358838651,
+      "title": "Photosynthesis",
       "timestamp": "2026-06-11T08:28:10Z",
-      "prose_chars": 51773,
-      "prose_file": "Photosynthesis.en.txt"
+      "prose_chars": 51773
     },
     "he": {
       "present": true,
-      "title": "פוטוסינתזה",
       "revid": 43535123,
+      "title": "פוטוסינתזה",
       "timestamp": "2026-07-04T21:40:21Z",
-      "prose_chars": 17372,
-      "prose_file": "Photosynthesis.he.txt"
+      "prose_chars": 17372
     },
     "ar": {
       "present": true,
-      "title": "تركيب ضوئي",
       "revid": 75016379,
+      "title": "تركيب ضوئي",
       "timestamp": "2026-06-04T21:45:54Z",
-      "prose_chars": 8299,
-      "prose_file": "Photosynthesis.ar.txt"
+      "prose_chars": 8299
     }
   }
 }

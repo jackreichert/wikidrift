@@ -38,7 +38,7 @@ uv run python -m unittest discover -s tests    # sanity check (DB-dependent test
 There are **two independent artifacts** in this repo, and only one needs the (large, untracked) token corpus:
 
 | You want to… | Needs the token corpus (`provenance.duckdb`)? | Notes |
-|---|---|---|
+| --- | --- | --- |
 | **Build / view the site** (`viewer/`) | **No** | Reproduces from the committed findings JSON. See "Build the viewer" below. |
 | **Re-run the analysis engine** (`analyze`, `validate`, `benchmark`, `discover`, `sources`…) | **Yes** | The corpus is gitignored (binary, ~350 MB–1 GB, regenerable). You bootstrap it — see below. |
 
@@ -58,7 +58,7 @@ network.
 uv run wikidrift bootstrap
 
 # …or just a specific slate:
-uv run wikidrift bootstrap "Zionism" "Palestine" "Photosynthesis"
+uv run wikidrift bootstrap "Photosynthesis" "Chess" "Water"
 
 # One article the full way (fetch → confirm → attribute):
 uv run wikidrift analyze "Zionism"
@@ -76,15 +76,53 @@ uv run wikidrift ingest "Naliboki massacre"
 uv run wikidrift bootstrap                      # populate the token corpus for the roster (fetch, sequential)
 uv run wikidrift benchmark                     # score the adjudicated roster (offline)
 uv run wikidrift validate                      # offline PWR candidate verdicts (no WikiWho)
-uv run wikidrift profile "Zionism"             # descriptive L1 profile: recency + editor concentration (offline)
-uv run wikidrift analyze "Zionism"             # full L1: drift → pivots → binary-search confirm → attribution
-uv run wikidrift discover "Zionism"            # L4: seed → destructive footprint → independent L1 re-test
+uv run wikidrift profile "Brontosaurus"        # descriptive L1 profile: recency + editor concentration (offline)
+uv run wikidrift analyze "Climate change"      # full L1: drift → pivots → binary-search confirm → attribution
+uv run wikidrift discover "Nakba"              # L4: seed → destructive footprint → independent L1 re-test
 uv run wikidrift sources "Palestine"           # L5 #3b: citation-source change (from → to across the pivot)
-uv run wikidrift stance "Nakba"                # L2 framing/stance over time            (needs an LLM key)
-uv run wikidrift crosslingual "Zionism"        # L5 #1: cross-lingual framing divergence (needs an LLM key)
+uv run wikidrift stance "Abortion"             # L2 framing/stance over time            (needs an LLM key)
+uv run wikidrift crosslingual "Anti-Zionism"   # L5 #1: cross-lingual framing divergence (needs an LLM key)
 uv run wikidrift factcheck "Warsaw concentration camp" --asof 2018-06-01   # L5 #2: fact divergence (LLM key)
 uv run wikidrift mscore                         # controversy corroborator (metadata only)
-uv run wikidrift pipeline "Nakba" --llm         # L1 → router → (L2/L5) orchestration for one article
+uv run wikidrift pipeline "Hamas" --llm         # L1 → router → (L2/L5) orchestration for one article
+```
+
+Single-article verbs (`analyze`, `stance`, `crosslingual`, `factcheck`, `pipeline`, `discover`, `sources`,
+`lexical`, `profile`) accept either an article title or a Wikipedia URL (e.g.
+`https://en.wikipedia.org/wiki/Jedwabne_pogrom`).
+
+Default entity focus for L2/L5 is now **self-determined and controversy-agnostic**:
+
+- unless you pass `--entities`, L2 uses the article title as its entity target,
+- pipeline and standalone L5 consume that same default (or L2 output when available),
+- no hard-coded controversy focal fallback is used in the default path.
+
+For L5 cross-lingual, pivot-relative comparison currently uses one shared L1 pivot boundary for all
+selected editions in a run (not separate per-language pivot dates).
+
+### Batch-fill missing or partial topics
+
+Use the helper script to pass an explicit topic list and choose either:
+
+- `--mode full` (always run pipeline + sources + profile), or
+- `--mode fill` (run only what is missing).
+
+```bash
+# preview only, explicit list
+uv run python tools/cover_missing_topics.py --topics "Ainu people" "Genocide of indigenous peoples" --mode full
+
+# execute explicit list, full workflow
+uv run python tools/cover_missing_topics.py --topics "Bar Kokhba Revolt" "UNRWA" --mode full --execute
+
+# execute explicit list, fill only missing layers
+uv run python tools/cover_missing_topics.py --topics "History of Zionism" "Gaza war" --mode fill --execute
+
+# still available: run for controls or all discovered partial topics
+uv run python tools/cover_missing_topics.py --only-controls --mode fill --execute
+uv run python tools/cover_missing_topics.py --mode fill --execute --mscore
+
+# run the full discovered topic list with LLM layers
+uv run python tools/cover_missing_topics.py --mode full --execute --mscore
 ```
 
 Full per-verb detail, the module map, and the LLM-backend options are in
@@ -96,13 +134,17 @@ The engine (L1/L4) and `sources`/`mscore` need no key. The framing (L2, L5 #1) a
 an LLM. Copy `.env.example` → `.env` and set the key for your provider (auto-loaded, gitignored):
 
 ```bash
-cp .env.example .env      # then fill in ANTHROPIC_API_KEY (default) or OPENAI_API_KEY / GOOGLE_API_KEY / XAI_API_KEY
+cp .env.example .env      # then fill in ANTHROPIC_API_KEY (default) or OPENAI_API_KEY / GOOGLE_API_KEY
 ```
 
-Default backend is Anthropic `claude-sonnet-5`; OpenAI-compatible endpoints (OpenRouter/Groq/local
-Ollama/vLLM), Google Gemini, or xAI Grok (`--provider xai` / `grok`) are selectable via
-`--provider/--model/--base-url` or `WIKIDRIFT_LLM_*` env. Optional SDKs: `uv sync --extra openai`
-(covers OpenAI + xAI) / `--extra google` / `--extra all-llm`. Details in the tool README.
+Default mode is provider auto-selection + failover. If `WIKIDRIFT_LLM_PROVIDER` is not set, WikiDrift checks
+configured keys and follows `WIKIDRIFT_LLM_PROVIDER_PRIORITY` (default:
+`anthropic,openai,grok,google`), failing over to the next provider on rate/quota exhaustion.
+OpenAI-compatible endpoints (OpenAI/OpenRouter/Groq/local Ollama/vLLM), xAI Grok, and Google Gemini are
+all supported via `--provider/--model/--base-url` or `WIKIDRIFT_LLM_*` env.
+Set `WIKIDRIFT_LLM_PROVIDER` (or pass `--provider`) only when you want to pin a single provider and disable
+auto failover.
+Optional SDKs: `uv sync --extra openai` / `--extra google` / `--extra all-llm`. Details in the tool README.
 
 ## Build the viewer (the site)
 
@@ -126,13 +168,14 @@ a synthetic-corpus L1 engine test (runs in CI without the corpus), and a golden-
 (auto-skips if the token corpus is absent). See the tool README for what each suite covers.
 
 Coverage is enforced in CI via `coverage` with a regression floor (`fail_under` in `pyproject.toml`):
+
 ```bash
 uv run --with coverage python -m coverage run -m unittest discover -s tests && uv run --with coverage python -m coverage report
 ```
 
 ## Repo map
 
-```
+```text
 src/wikidrift/     the tool (engine + CLI)  — see src/wikidrift/README.md
 viewer/            static-site generator (build.py) + templates/style
 docs/              the built site (committed; GitHub Pages)
@@ -152,6 +195,10 @@ builds from committed findings. Pages **deployment** is intentionally not wired 
 WikiDrift is a research tool. It surfaces **candidates for a human to adjudicate**; it names *actions* from
 public data, never intent; it does not assert "the neutral truth." What it does *not* do, and the limits it is
 honest about (born-biased blind spot, base-rate, external-reference asymmetry), are in `METHODOLOGY.md`.
+
+## Transition plan: no-prior L5 (next)
+
+The full rollout checklist lives in [TRANSITION-L5.md](TRANSITION-L5.md).
 
 ## License
 

@@ -1,0 +1,231 @@
+{
+  "article": "Naliboki massacre",
+  "span": "2007-07-01 -> 2026-07-01 (no L1 pivot — whole history)",
+  "pivot": null,
+  "before": {
+    "date": "2007-07-01",
+    "rev": 141959460,
+    "tokens": 73
+  },
+  "after": {
+    "date": "2026-07-01",
+    "rev": 1357986947,
+    "tokens": 808
+  },
+  "js_divergence": 0.4219,
+  "overrepresented_after_terms": [
+    {
+      "term": "partisans",
+      "before": 0,
+      "after": 18,
+      "delta": 18,
+      "log_odds": 1.2355
+    },
+    {
+      "term": "attacks",
+      "before": 0,
+      "after": 8,
+      "delta": 8,
+      "log_odds": 0.4453
+    },
+    {
+      "term": "war",
+      "before": 0,
+      "after": 8,
+      "delta": 8,
+      "log_odds": 0.4453
+    },
+    {
+      "term": "forest",
+      "before": 0,
+      "after": 7,
+      "delta": 7,
+      "log_odds": 0.3189
+    },
+    {
+      "term": "church",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 0.0062
+    },
+    {
+      "term": "defense",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 0.0062
+    },
+    {
+      "term": "europe",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 0.0062
+    },
+    {
+      "term": "town",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 0.0062
+    },
+    {
+      "term": "villages",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 0.0062
+    },
+    {
+      "term": "world",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 0.0062
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "partizans",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -4.3855
+    },
+    {
+      "term": "agreement",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.9351
+    },
+    {
+      "term": "number",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.9351
+    },
+    {
+      "term": "history",
+      "before": 3,
+      "after": 2,
+      "delta": -1,
+      "log_odds": -2.7736
+    },
+    {
+      "term": "killing",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": -2.0853
+    },
+    {
+      "term": "destruction",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -1.8983
+    },
+    {
+      "term": "only",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -1.8983
+    },
+    {
+      "term": "people",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -1.8983
+    },
+    {
+      "term": "killed",
+      "before": 2,
+      "after": 5,
+      "delta": 3,
+      "log_odds": -1.6308
+    },
+    {
+      "term": "koniuchy",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": -1.308
+    },
+    {
+      "term": "local",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": -1.308
+    },
+    {
+      "term": "police",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": -1.308
+    },
+    {
+      "term": "station",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": -1.308
+    },
+    {
+      "term": "belarus",
+      "before": 2,
+      "after": 8,
+      "delta": 6,
+      "log_odds": -1.1918
+    },
+    {
+      "term": "jewish",
+      "before": 2,
+      "after": 8,
+      "delta": 6,
+      "log_odds": -1.1918
+    },
+    {
+      "term": "unit",
+      "before": 2,
+      "after": 8,
+      "delta": 6,
+      "log_odds": -1.1918
+    },
+    {
+      "term": "self",
+      "before": 1,
+      "after": 5,
+      "delta": 4,
+      "log_odds": -1.1061
+    },
+    {
+      "term": "category",
+      "before": 6,
+      "after": 25,
+      "delta": 19,
+      "log_odds": -1.0848
+    },
+    {
+      "term": "german",
+      "before": 2,
+      "after": 9,
+      "delta": 7,
+      "log_odds": -1.0793
+    },
+    {
+      "term": "massacre",
+      "before": 2,
+      "after": 9,
+      "delta": 7,
+      "log_odds": -1.0793
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

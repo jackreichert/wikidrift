@@ -5,67 +5,42 @@
     "pl"
   ],
   "entities": [
-    "Poland",
-    "Jews"
+    "Naliboki massacre"
   ],
   "editions": {
     "en": {
       "focal": {
-        "Poland": {
-          "entity": "Poland",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "mass killing of 127 or 128 Poles by Soviet partisans... in German-occupied Poland"
-        },
-        "Jews": {
-          "entity": "Jews",
+        "Naliboki massacre": {
+          "entity": "Naliboki massacre",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "published a series of articles on the Naliboki massacre, all blaming the Jews; Hanna Maria Kwiatkowska perceives the sudden focus as a balancing counterweight to the culpability of Poles in the Jedwabne pogrom"
+          "evidence": "the 8 May 1943 mass killing of 127 or 128 Poles by Soviet partisans in the small town of Naliboki"
         }
       },
       "lead": {
-        "Poland": {
-          "entity": "Poland",
-          "stance": "sympathetic",
+        "Naliboki massacre": {
+          "entity": "Naliboki massacre",
+          "stance": "critical",
           "npov_departure": true,
-          "evidence": "Naliboki's self-defense was outnumbered... Polish men were dragged from their homes and shot individually or in small groups... also killed during the Soviet attack were three Polish women, several teenagers, and a ten-year-old boy."
-        },
-        "Jews": {
-          "entity": "Jews",
-          "stance": "absent",
-          "npov_departure": false,
-          "evidence": "Jews are not mentioned anywhere in this passage."
+          "evidence": "the massacre is described as a mass killing of Polish civilians, with details like 'Polish men were dragged from their homes and shot individually or in small groups' and inflated Soviet casualty reports contrasted with the actual toll, framing the event and perpetrators critically despite otherwise factual tone"
         }
       }
     },
     "pl": {
       "focal": {
-        "Poland": {
-          "entity": "Poland",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "masakra polskich mieszkańców wsi Naliboki... zamordowały ok. 128 polskich mieszkańców miasteczka podejrzewanych o przynależność do samoobrony lub AK"
-        },
-        "Jews": {
-          "entity": "Jews",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "według niektórych wersji przy współudziale partyzantów żydowskich... fakt udziału partyzantów z Oddziału Bielskiego w ataku na Naliboki jest tylko jedną z wersji przyjętych w toku śledztwa"
+        "Naliboki massacre": {
+          "entity": "Naliboki massacre",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Zbrodnia w Nalibokach – masakra polskich mieszkańców wsi Naliboki dokonana przez oddziały radzieckich partyzantów."
         }
       },
       "lead": {
-        "Poland": {
-          "entity": "Poland",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "masakra polskich mieszkańców wsi Naliboki dokonana przez oddziały radzieckich partyzantów... zamordowały ok. 128 polskich mieszkańców miasteczka"
-        },
-        "Jews": {
-          "entity": "Jews",
+        "Naliboki massacre": {
+          "entity": "Naliboki massacre",
           "stance": "critical",
           "npov_departure": true,
-          "evidence": "według niektórych wersji przy współudziale partyzantów żydowskich... Kategoria:Zbrodnie żydowskich oddziałów partyzanckich w Polsce 1939–1945"
+          "evidence": "masakra polskich mieszkańców wsi Naliboki dokonana przez oddziały radzieckich partyzantów... zamordowały ok. 128 polskich mieszkańców miasteczka podejrzewanych o przynależność do samoobrony lub AK"
         }
       }
     }

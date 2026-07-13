@@ -4,37 +4,42 @@
     "en"
   ],
   "entities": [
-    "Zionism",
-    "Jews"
+    "Racial conceptions of Jewish identity in Zionism"
   ],
   "editions": {
     "en": {
       "focal": {
-        "Zionism": {
-          "entity": "Zionism",
+        "Racial conceptions of Jewish identity in Zionism": {
+          "entity": "Racial conceptions of Jewish identity in Zionism",
           "stance": "critical",
           "npov_departure": true,
-          "evidence": "the first decades of Zionism bear out an affinity with some of the more unsavoury 'regenerative' discourses of the late nineteenth century, particularly Social Darwinism, eugenics, nationalism, and colonialism"
+          "evidence": "'the first decades of Zionism bear out an affinity with some of the more unsavoury \"regenerative\" discourses of the late nineteenth century, particularly Social Darwinism, eugenics, nationalism, and colonialism'"
         },
-        "Jews": {
-          "entity": "Jews",
+        "Max Nordau": {
+          "entity": "Max Nordau",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "Zionist and non-Zionist Jews vigorously debated aspects of this proposition in terms of the merits or otherwise of diaspora life"
+          "evidence": "some of the founders of Zionism (such as Max Nordau) sought to reformulate conceptions of Jewishness in terms of racial identity"
+        },
+        "Genetic studies on origins of modern Jews / Jewish population genetics research": {
+          "entity": "Genetic studies on origins of modern Jews / Jewish population genetics research",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "Genetic studies on the origins of modern Jews have been criticized as 'being designed or interpreted in the framework of a \"Zionist narrative\"' and as an essentialist approach to biology"
+        },
+        "Israeli medical researchers and geneticists": {
+          "entity": "Israeli medical researchers and geneticists",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "Israeli medical researchers and geneticists were careful to avoid any language that might resonate with racial ideas"
         }
       },
       "lead": {
-        "Zionism": {
-          "entity": "Zionism",
+        "Racial conceptions of Jewish identity in Zionism": {
+          "entity": "Racial conceptions of Jewish identity in Zionism",
           "stance": "critical",
           "npov_departure": true,
           "evidence": "\"the first decades of Zionism bear out an affinity with some of the more unsavoury 'regenerative' discourses of the late nineteenth century, particularly Social Darwinism, eugenics, nationalism, and colonialism\""
-        },
-        "Jews": {
-          "entity": "Jews",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "\"themes of 'blood logic' or 'race' have nevertheless been described as a recurrent feature of modern Jewish thought in both scholarship and popular belief\""
         }
       }
     }

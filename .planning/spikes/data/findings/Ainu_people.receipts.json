@@ -1,0 +1,27 @@
+{
+  "article": "Ainu people",
+  "qid": "Q101828",
+  "editions": {
+    "en": {
+      "present": true,
+      "revid": 1360770633,
+      "title": "Ainu people",
+      "timestamp": "2026-06-23T13:58:05Z",
+      "prose_chars": 72110
+    },
+    "he": {
+      "present": true,
+      "revid": 40760772,
+      "title": "איינו",
+      "timestamp": "2025-03-27T09:07:54Z",
+      "prose_chars": 2272
+    },
+    "ar": {
+      "present": true,
+      "revid": 75632404,
+      "title": "آينو",
+      "timestamp": "2026-06-23T14:43:55Z",
+      "prose_chars": 13366
+    }
+  }
+}

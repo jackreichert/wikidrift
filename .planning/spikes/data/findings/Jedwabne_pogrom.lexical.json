@@ -1,0 +1,301 @@
+{
+  "article": "Jedwabne pogrom",
+  "span": "2020-01-01 -> 2020-07-01 (around L1 pivot ~2020-01-01)",
+  "pivot": "2020-01-01",
+  "before": {
+    "date": "2020-01-01",
+    "rev": 932771603,
+    "tokens": 4546
+  },
+  "after": {
+    "date": "2020-07-01",
+    "rev": 962603609,
+    "tokens": 2818
+  },
+  "js_divergence": 0.1759,
+  "overrepresented_after_terms": [
+    {
+      "term": "statement",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.6768
+    },
+    {
+      "term": "communism",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.4251
+    },
+    {
+      "term": "held",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.4251
+    },
+    {
+      "term": "militia",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.4251
+    },
+    {
+      "term": "stereotype",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.4251
+    },
+    {
+      "term": "persak",
+      "before": 1,
+      "after": 5,
+      "delta": 4,
+      "log_odds": 1.779
+    },
+    {
+      "term": "writes",
+      "before": 3,
+      "after": 12,
+      "delta": 9,
+      "log_odds": 1.7547
+    },
+    {
+      "term": "apologized",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 1.578
+    },
+    {
+      "term": "class",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 1.578
+    },
+    {
+      "term": "council",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 1.578
+    },
+    {
+      "term": "interviews",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 1.578
+    },
+    {
+      "term": "moved",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 1.578
+    },
+    {
+      "term": "report",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 1.578
+    },
+    {
+      "term": "revenge",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 1.578
+    },
+    {
+      "term": "stone",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 1.578
+    },
+    {
+      "term": "communist",
+      "before": 2,
+      "after": 6,
+      "delta": 4,
+      "log_odds": 1.4354
+    },
+    {
+      "term": "szmul",
+      "before": 2,
+      "after": 6,
+      "delta": 4,
+      "log_odds": 1.4354
+    },
+    {
+      "term": "upright",
+      "before": 2,
+      "after": 6,
+      "delta": 4,
+      "log_odds": 1.4354
+    },
+    {
+      "term": "wasersztajn",
+      "before": 3,
+      "after": 8,
+      "delta": 5,
+      "log_odds": 1.3676
+    },
+    {
+      "term": "day",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 1.3263
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "www",
+      "before": 8,
+      "after": 0,
+      "delta": -8,
+      "log_odds": -2.3568
+    },
+    {
+      "term": "analysis",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -2.0881
+    },
+    {
+      "term": "center",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -2.0881
+    },
+    {
+      "term": "http",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -2.0881
+    },
+    {
+      "term": "jerusalem",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -2.0881
+    },
+    {
+      "term": "nazis",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -2.0881
+    },
+    {
+      "term": "historian",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -1.9208
+    },
+    {
+      "term": "pdf",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -1.9208
+    },
+    {
+      "term": "silence",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -1.9208
+    },
+    {
+      "term": "available",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -1.72
+    },
+    {
+      "term": "confronting",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -1.72
+    },
+    {
+      "term": "daily",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -1.72
+    },
+    {
+      "term": "deported",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -1.72
+    },
+    {
+      "term": "discussion",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -1.72
+    },
+    {
+      "term": "done",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -1.72
+    },
+    {
+      "term": "kill",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -1.72
+    },
+    {
+      "term": "org",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -1.72
+    },
+    {
+      "term": "russian",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -1.72
+    },
+    {
+      "term": "stated",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -1.72
+    },
+    {
+      "term": "wartime",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -1.72
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

@@ -16,9 +16,13 @@ bare facts. Editions can frame the same topic differently.</dd>
 negative sentiment (tone ≠ viewpoint balance).</dd>
 <dt id="cross-lingual">Cross-lingual comparison</dt><dd>Same topic across language editions. Can be
 static (today) or <i>pivot-relative</i> (before vs after a detected rewrite). Disagreement is a signal with
-more than one possible cause.</dd>
+more than one possible cause. In current runs, pivot-relative mode uses one shared L1 pivot boundary
+across all compared editions.</dd>
 <dt id="fact-divergence">Fact divergence</dt><dd>Incompatible load-bearing claims across editions (e.g.
 different counts). Separate from framing: facts can agree while frames differ.</dd>
+<dt id="lexical-drift">Lexical drift</dt><dd>Shift in term distribution between two revision windows,
+summarized with Jensen-Shannon divergence and relative term keyness (smoothed log-odds). A signal for
+context shift, not a verdict.</dd>
 <dt id="source-change">Citation-source change</dt><dd>How an article's own citations shifted
 <i>from &rarr; to</i> across a major rewrite: domains added/dropped and mix of journal / news / book /
 web. No reliability labels on sources — composition only.</dd>
