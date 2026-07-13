@@ -110,6 +110,56 @@ h3{font-weight:600;font-size:1rem;margin:0}
 .layer-list li.have{background:#000;color:#fff;border-color:#000}
 .layer-list li.miss{font-weight:400;color:var(--dim)}
 
+/* —— at-a-glance signal cards —— */
+.signal-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(16rem,1fr));
+  gap:.75rem;
+  margin:1.1rem 0 1.35rem;
+}
+.signal-card{
+  border:1px solid var(--line);
+  border-radius:var(--r);
+  background:var(--surface);
+  padding:12px 14px;
+  min-height:6.5rem;
+}
+.signal-card.hot{border-color:oklch(80% 0.05 25);background:oklch(98% 0.012 25)}
+.signal-card.cool{background:var(--surface)}
+.signal-label{
+  font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;
+  font-weight:600;color:var(--dim);margin:0 0 .35rem;
+}
+.signal-value{
+  font-size:1.02rem;font-weight:700;line-height:1.3;margin:0 0 .4rem;
+}
+.signal-note{
+  margin:0;font-size:.86rem;font-weight:200;color:var(--faint);line-height:1.45;
+}
+.signal-note a{font-weight:600}
+.brief-sum{font-size:1rem;line-height:1.5;margin:.55rem 0 1rem;max-width:48rem}
+h2.subhead{font-size:1rem;margin:1.4em 0 .45em}
+.sections-note{margin:.85rem 0 .35rem}
+.col-h{font-size:.88rem;font-weight:700;margin:0 0 .55rem;letter-spacing:.01em}
+
+/* vocabulary term chips */
+.term-list{
+  list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:.4rem;
+}
+.term-chip{
+  display:inline-flex;align-items:baseline;gap:.45rem;
+  border:1px solid var(--line-strong);border-radius:20px;
+  padding:5px 11px;background:#fff;font-size:.88rem;
+}
+.term-chip .term{font-weight:600}
+.term-chip .term-count{
+  font-variant-numeric:tabular-nums;font-size:.78rem;color:var(--faint);font-weight:400;
+}
+.term-chip.up{border-color:oklch(78% 0.06 150);background:var(--ok-bg)}
+.term-chip.down{border-color:oklch(80% 0.05 25);background:var(--crit-bg)}
+.term-chip.down .term{color:var(--crit-fg)}
+.term-chip.up .term{color:var(--ok-fg)}
+
 /* —— page structure: intro (measure) + workspace (full shell) —— */
 .page-intro{
   max-width:var(--intro);
@@ -346,6 +396,7 @@ footer.site{background:#000;color:#fff;margin-top:auto}
   .f-meta{grid-column:1}
   .finding .f-go{grid-column:2;grid-row:1/3}
   .srcgrid{grid-template-columns:1fr}
+  .signal-grid{grid-template-columns:1fr}
   .controls{top:48px}
 }
 @media(max-width:768px){

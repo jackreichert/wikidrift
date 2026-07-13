@@ -1,275 +1,157 @@
-# Methodology
+# How it works
 
-<p class="summary">How the detector works, how it was built, and what it does not claim.
-Public data only; same inputs → same outputs.</p>
+<p class="summary">A plain explanation of what WikiDrift measures, how a page is built, and what we
+refuse to claim. Same public inputs → same outputs.</p>
 
-<p class="disclaimer">Candidates only — not conclusions.</p>
+<p class="disclaimer">Every result is something to inspect — not a verdict of guilt or bias.</p>
 
-## Starting point
+## The question we started with
 
-The project began with a concrete question: can narrative drift on Wikipedia be quantified
-programmatically? Not flagged by intuition or by watching an article — but measured from the revision
-history itself, reproducibly, on any topic. **WikiWho-class token provenance into a columnar store**
-became the engine for that measurement.
+Can you measure, from the public edit history alone, when a Wikipedia article’s long-stable wording
+was torn out and replaced — without starting from a list of “suspect” editors?
 
-Scope then narrowed around a concrete problem: coordinated point-of-view editing on contested topics.
-A bounded topic slice is tractable. The decisive design choice was not which list to hard-code, but
-**not to start from a list at all**.
+That is the core of WikiDrift. Lists of people are optional background at most. The article’s own
+history is the evidence.
 
-## Content trajectory first
+## Two different problems
 
-Some efforts begin with named editors and treat co-editing or aligned voting as evidence of
-coordination. On contested topics, clustering is expected even without collusion, so that path is
-circular. WikiDrift instead measures each article's **own edit history**. Named lists, if used, are
-optional sourced overlays — never the foundation of a flag.
+Problems on Wikipedia do not all look the same:
 
-The structural signal of interest is **stable-then-retrofit**: long-surviving text is dismantled and
-the replacement sticks. That is a [necessary condition](glossary.html#lead) for further review,
-not proof of bias. Semantic direction and intent are separate questions.
+1. **The story changed later.** Text that had sat for years was removed, and the new version stuck.
+   You can often see that by comparing the article to **its own past**.
+2. **The story was always framed that way.** There is no earlier “neutral baseline” in the history.
+   Comparing only to the past will miss it. You need **something outside the English history** —
+   usually other language editions, or a careful fact check across languages.
 
-## Two failure modes
+WikiDrift is strongest on the first problem. The second is only partly covered (other languages and
+shared facts), and honestly so.
 
-Skew can arrive in different ways; they need different instruments:
+## What “a finding” means
 
-- **[By change](glossary.html#capture)** — durable text was replaced and the change persisted.
-  Read the article against its own past (L1–L2, then L5 for direction).
-- **By origin / consensus** — framed from creation, or held steady by a quiet majority, with no useful
-  earlier contrast. Internal history alone is blind. Needs an
-  [external reference](glossary.html#external-reference) (other language editions, facts across
-  editions, citation mix).
+A finding is a **lead**: “look here.”
 
-A third pattern sits between pure removal and pure addition: **reframe-by-churn** (article net-grows
-while shedding unusual amounts of older text). L1 may read HEALTHY; metadata pre-rank routes those as
-[churn → L2](glossary.html#churn) leads.
+It is **not**:
 
-## Layers
+- proof that editors colluded,
+- proof that the old text was “the truth,”
+- proof that the new text is wrong,
+- or a score of how biased an article is.
 
-Each layer answers a narrower question. Lower layers use public data only; upper layers add framing and
-cross-edition comparison.
+Big, honest rewrites happen all the time (style overhauls, new sources, real-world events). That is
+why we also test quiet science articles: so we know what ordinary change looks like.
 
-<div class="tablewrap"><table><thead><tr><th scope="col">Layer</th><th scope="col">Question</th>
-<th scope="col">Method</th></tr></thead><tbody>
-<tr><td><b>L1 — Drift &amp; pivots</b></td><td>When was durable text dismantled?</td>
-<td><a href="glossary.html#pwr">Persistence-weighted loss</a> on the stable spine; coarse grid, then
-binary-search for the pivot revision. Multi-episode; ranked by absolute PWR-mass.</td></tr>
-<tr><td><b>Attribution</b></td><td>Who removed the old text / wrote the new?</td>
-<td>Public revision and token-authorship data. Action only — not intent.</td></tr>
-<tr><td><b>Pre-rank</b></td><td>Which articles deserve a full pass?</td>
-<td>Metadata only (size / time / actor): rolling-median byte displacement; routes
-removal → PWR, addition → L2, churn → L2.</td></tr>
-<tr><td><b>L2 — Framing</b></td><td>Did stance on key entities shift?</td>
-<td><a href="glossary.html#stance">NPOV-axis</a> ratings over time (not generic sentiment). Prefer
-sampling the L1 pivot window.</td></tr>
-<tr><td><b>L2.5 — Lexical drift</b></td><td>Did vocabulary usage shift across the rewrite window?</td>
-<td>Term-distribution divergence (Jensen-Shannon) plus relative term keyness (smoothed log-odds).
-Signal only; no claim of intent.</td></tr>
-<tr><td><b>L3 — Visualization</b></td><td>What exactly changed, sentence by sentence?</td>
-<td>Before/after redline at the pivot revision; per-span blame overlay (who introduced which text).
-Rendered in the Diff and Blame tabs. Currently exported for selected articles.</td></tr>
-<tr><td><b>L4 — Discovery</b></td><td>Where else should L1 look?</td>
-<td>Seed from destroyers of a confirmed pivot; expand only via large removals elsewhere; re-test each
-candidate on its own content. Graph never flags.</td></tr>
-<tr><td><b>L5 #1 — Cross-lingual</b></td><td>Do other editions frame it differently?</td>
-<td>Same stance read across editions, static and relative to the L1 pivot
-(<a href="glossary.html#cross-lingual">native, no translation</a>). <b>Standalone instrument</b> —
-run via <code>wikidrift crosslingual</code>; not part of the pipeline.</td></tr>
-<tr><td><b>L5 Framing Lite</b></td><td>Does the pivot's lost framing survive in other editions?</td>
-<td>Pivot-gated: only runs when L1 finds a removal event. Compares lead sections across
-SLATE + top-2 editions by length; LLM flags divergences as differ / contradict / absent.
-A contradict corroborates that the English removal was contested, not corrective.
-Run via <code>wikidrift framing</code> or <code>wikidrift pipeline --framing</code>.</td></tr>
-<tr><td><b>L5 #2 — Facts</b></td><td>Do editions disagree on load-bearing facts?</td>
-<td>Fixed questions, as-of dated answers, adjudicated for
-<a href="glossary.html#fact-divergence">agree / differ / contradict</a>. <b>Standalone instrument</b> —
-run via <code>wikidrift factcheck</code>; not part of the pipeline.</td></tr>
-<tr><td><b>L5 #3b — Sources</b></td><td>How did the citation mix change across the pivot?</td>
-<td>Cite-template types and domains (archive links unwrapped). Composition only —
-<a href="glossary.html#source-change">no reliability ratings</a>.</td></tr>
-</tbody></table></div>
+## How we read one article’s history
 
-Pipeline defaults are now <b>self-determined and controversy-agnostic</b>: unless explicitly overridden,
-entity focus defaults to the article title itself (not a curated controversy list).
+### 1. Track who wrote which words
 
-Edit-war intensity ([M-score](glossary.html#conflict)) is context only. High controversy is
-not capture; near-zero controversy on a large rewrite means the change was not fought over (route toward L5
-when other signals fire).
+Wikipedia keeps every past version. Tools such as WikiWho can say, for each bit of text, which
+revision introduced it. We store those snapshots so measurements are repeatable.
 
-## Stability prior and PWR
+### 2. Prefer long-lived text
 
-Text that survived years of editing has a [stability prior](glossary.html#stability-prior).
-A large, lasting collapse of that spine is unusual enough to inspect. The L1 metric is
-[persistence-weighted content loss](glossary.html#pwr) (Halfaker et al.; Adler–de Alfaro): each
-token is weighted by how long it survived; classification uses the weighted loss ratio, ranking uses
-absolute PWR-mass. Coarse passes run offline from cached snapshots.
+Words that survived for years of readers and editors count more than last month’s churn. Deleting a
+sentence that lived for a decade is a bigger signal than deleting something that appeared last week.
 
-One factor is not enough. Stronger cases stack signals ([conjunction](glossary.html#conjunction)):
-long-stable, removed, meaning shift, persistence against reverts, concentrated authorship on the change.
+### 3. Find major rewrite windows
 
-## Article selection and the benchmark
+We look for stretches of time where a large share of that long-lived text disappeared and stayed
+gone (not a one-day vandalism blank that was immediately fixed). Those windows appear on the site as
+**Rewrite** pages you can open and read.
 
-The articles on this site are not an arbitrary sample. The thesis cluster — Israel-Palestine and
-Holocaust in Poland — was selected because those articles appear in **independent external sources**:
-Wikipedia's own ArbCom arbitration findings (the PIA5 and Icewhiz cases), a peer-reviewed paper
-(Grabowski & Klein 2023 on Holocaust-history distortion in Wikipedia), and a 2025 ADL report naming
-specific articles. Those sources do not drive the detector; they define the **benchmark ground truth**.
-The detector runs on each article's own content and must independently surface the same findings those
-sources identify — without consuming their lists.
+### 4. Show before and after
 
-Three additional groups complete the roster:
+For those windows we build a tracked-changes view: removed text struck out, new text highlighted.
+Where we can, we also note which accounts added the new wording.
 
-- **Clean controls** (Photosynthesis, Brontosaurus, Water) — known-stable articles to catch false
-  positives and establish the base rate.
-- **Cross-domain contested** (Climate change, Abortion) — articles with known large rewrites that are
-  *not* coordinated POV editing. These proved decisive: Climate change registered a pivot larger than
-  Zionism's (359k PWR) from a benign 2020–21 restructuring. That result is what established the tool as
-  a *change* detector, not a bias detector, and mandated L2 + L5 as the discrimination layer.
-- **Born-biased** (Warsaw concentration camp) — included as an *expected miss* for L1/L2, to
-  honestly quantify the blind spot and justify the external-reference layer (L5).
+### 5. Note who wrote today’s text
 
-A further group was added by the tool itself: **L4 graph-guided discovery**, seeded from Zionism's
-confirmed pivot, identified additional articles where the same editors had made large removals —
-Gaza genocide, Bar Kokhba Revolt, Palestine, UNRWA, and Racial conceptions of Jewish identity in
-Zionism. Each was then re-tested independently on its own content; graph membership alone never
-flags an article.
+Separately, we describe how much of the **current** article comes from a small set of accounts, and
+how much of it is recent. That is background — concentrated authorship is common and is **not** by
+itself evidence of a plot.
 
-The tool runs on any article. This roster is the validation set.
+## Words, sources, and “how hard was the fight?”
 
-## What validation taught
+Besides the rewrite itself, we often show:
 
-Early metrics broke in predictable ways; the fixes define the current method.
+- **Vocabulary** — which words became more or less common across the rewrite window. Useful for
+  noticing topic or tone shifts; not a moral score.
+- **Citations** — which domains and citation types (book, news, journal, web) grew or shrank. We
+  report the mix **as-is**. We never label a domain “reliable” or “biased.”
+- **Edit fights** — whether the article saw lots of mutual reverts (editors undoing each other).
+  A quiet rewrite can matter *more*, not less: it means the change was not loudly contested on the page.
 
-<div class="tablewrap"><table><thead><tr><th scope="col">Issue</th><th scope="col">Adjustment</th></tr></thead><tbody>
-<tr><td>Raw churn higher on controls</td><td>Dropped standalone churn; age-confounded on surviving tokens</td></tr>
-<tr><td>Spurious "pivots" from blanking</td><td>Snapshots on persistent revisions (size ≈ local median)</td></tr>
-<tr><td>Blips labeled as pivots</td><td>Magnitude floor + binary-search confirmation</td></tr>
-<tr><td>Percentage favored tiny old cohorts</td><td>Multi-episode ranking by absolute PWR-mass</td></tr>
-<tr><td>Hosted API gaps / load</td><td>Retry/backoff; local <code>wikiwho_rs</code> for coverage</td></tr>
-<tr><td>Medium reframe-by-churn missed</td><td>Relative-anomaly pre-rank lead → L2</td></tr>
-<tr><td>Slow sub-threshold losses undetected</td><td>12-month cumulative PWR-loss window (slow-bleed lead)</td></tr>
-</tbody></table></div>
+## Other languages
 
-**Base rate:** contested articles and some benign rewrites (e.g. Climate change quality overhauls) both
-trigger pivots. L1 identifies *change*; L2 and L5 discriminate further. Real but tiny old rewrites on
-clean articles are kept and demoted by mass — no suppression gate to make controls look perfect.
+English is only one Wikipedia. For many topics we also compare:
 
-**Addition-side example (Nakba):** removal-based L1 can read HEALTHY when most of the article is new
-growth. Byte growth can be citation-heavy while prose grows modestly; L2 can still show framing shift.
-Those cases route to L5 rather than a clean bill of health.
+- **Framing in the opening** — does the lead sound more critical, neutral, or sympathetic toward the
+  same subject in Hebrew, Arabic, German, Polish, and so on?
+- **Basic facts** — for a short list of load-bearing questions (dates, places, counts), do editions
+  agree, differ, or contradict?
 
-## Principles
+When we can, we also ask a sharper question: did English **move away** from other languages around
+the same time as a big rewrite — or have the languages disagreed for a long time?
 
-1. Article trajectory is primary; lists are optional overlays.
-2. Outputs are leads for review, not final verdicts.
-3. Separate necessary conditions (text replaced) from sufficient claims (meaning reversed; intent).
-4. Validate on controls before trusting positives.
-5. Require base-rate checks on designed control sets.
-6. Cover removal, addition, and churn vectors.
-7. Attribute public actions; do not infer intent.
-8. Use the social graph only downstream of content evidence (L4 search prior).
-9. Reproducibility from public data is part of the product.
+Disagreement has many causes (different audiences, different sources, translation lag, real debate).
+It is a reason to read carefully, not a scoreboard.
 
-## Key decisions
+## Following the trail of large deletions
 
-- Hard-coded editor lists rejected as foundation.
-- Default view highlights provenance; removal is a toggle, not the default.
-- Hosted WikiWho for analysis; local `wikiwho_rs` for scale (parser parity certified).
-- Rank by absolute PWR-mass; recency describes, it does not demote.
-- L2 = NPOV-axis LLM stance (provider-agnostic); sentiment classifiers dropped.
-- M-score = contextual corroborator only.
-- L5 #3 = citation composition change, not a scholarly-consensus oracle (no source ratings).
-- L4 discovery subtracts a **fixed** base-rate roster, never the growing cache.
+After a confirmed big rewrite, we can look at where the same accounts made **other large deletions**
+on other articles, then **re-check each candidate on its own history**. Being on that trail never
+flags an article by itself; only the article’s own pattern can.
 
-## Established and open
+## What we never do
 
-**Established:** provenance pipeline; PWR metric; multi-pivot detection with persistent snapshots;
-slow-bleed cumulative-window detection; attribution; metadata pre-ranking (including addition-side editor
-concentration); L2 stance; L5 framing + facts + sources (standalone instruments); L4 first probe; local engine
-parity with hosted on neutral articles; benchmark on adjudicated must-flag set (removal-oriented cases and
-controls); signal corroboration count.
+- Claim an editor’s private motives.
+- Publish “the neutral truth.”
+- Rate news sites or books as good or bad.
+- Treat a rewrite as automatic proof of capture.
+- Tie a public username to a real-world identity.
 
-**Open / partial:** fuller L3 visualization across all articles; scaled L4 snowball; denser L2
-shift-localization (where in time the stance moves); cross-encyclopedia external reference beyond
-language editions; more benign-rewrite controls; LLM calibration baseline for stance drift; co-edit
-clustering for sockpuppet-network detection; cross-lingual agreed-hoax detection.
+## Why these topics appear on the site
 
-## Limits
+This site is a **validation sample**, not a complete encyclopedia audit.
 
-Blind to bias with no historical contrast unless L5 has coverage. Direction is underdetermined from L1
-alone (correction vs capture). Attribution names accounts and actions; a same-day "dominant drop" can be a
-restructure — diffs should be read. Quiet editions and thin non-English coverage make some cross-lingual
-results inconclusive (reported as such).
+- Some topics appear because **outside** reports and research already discuss them. Those sources help
+  us define what a working detector *ought* to notice — they are **not** fed into the detector as a
+  list of people to watch.
+- **Quiet control** articles (for example Photosynthesis) check for false alarms.
+- **Other contested** topics (for example Climate change) check that large legitimate rewrites still
+  look like *change*, not automatic scandal.
+- Some pages are expected to be hard for history-only tools (story shaped from the start). Those show
+  why other-language checks matter.
 
-Three additional gaps are documented but not yet resolved: **sockpuppet evasion** (L4 footprint is blind
-to coordinated rotating accounts — co-edit clustering is the fix, not built yet); **cross-lingual agreed
-hoax** (if all editions carry the same distortion, L5 reads flat agreement — needs an external anchor);
-**LLM cultural bias** (L2 stance classifications may reflect model training-data bias on charged prose — a
-calibration baseline on neutral controls is needed to establish a jitter floor).
+Any English Wikipedia article can be run through the same pipeline. What you see here is the published
+test set.
+
+## Lessons that shaped the method
+
+Early versions made familiar mistakes. The fixes are part of the product:
+
+| What went wrong | What we do now |
+| --- | --- |
+| Counting every edit as drama | Weight long-lived wording more than short-lived churn |
+| Vandalism blankings looking like rewrites | Ignore short-lived blankings; require the change to stick |
+| Tiny old pages looking “more rewritten” in percentages | Rank by absolute amount of long-lived text lost, not just percentages |
+| Missing articles that *grew* while swapping tone | Also look at vocabulary, framing, and other languages — not only pure deletion |
+| Treating one big rewrite as proof | Always compare with control topics; never publish a bias label |
+
+One result that still guides us: a benign overhaul on a well-known science topic can outrank a
+political rewrite on raw size. That is why this site always says **change first, judgment later**.
 
 ## Reproducibility
 
-Findings point at public revisions under [Revisions](glossary.html#revisions). Provenance from
-WikiWho; timelines from the Action API; edition links from Wikidata. Framing and claim adjudication use a
-language model with fixed JSON schemas (thinking disabled on classification calls so structured output is
-reliable). [Open-source tooling](https://github.com/jackreichert/wikidrift/).
+- Article text and revision IDs come from public Wikipedia APIs and related open tooling.
+- Framing and fact checks, when present, use a language model with a fixed question format — still
+  treated as leads, not oracles.
+- The site is static HTML generated from saved result files; you can rebuild it from the
+  [open-source repository](https://github.com/jackreichert/wikidrift/).
 
-## What is novel
+## For readers who want the research trail
 
-<p class="lead">Components already exist in the literature. The contribution is the join:</p>
-
-- **Pivot + attribution.** Discover when the stable core collapsed from content displacement (not a known
-  tag date or activity burst alone), then name who removed and who replaced at that revision.
-- **Change vs origin.** Separate those modes; external reference is the answer to the internal blind
-  spot, not a footnote.
-- **Pivot-relative cross-lingual.** Not only "do editions differ today," but whether English moved
-  relative to others *at the detected pivot*.
-
-## Prior work
-
-<p class="lead">Composition of established work, not a new authorship algorithm. Project notes live in
-<code>sources/</code> in the repository.</p>
-
-### Token authorship
-
-- Fabian Flöck & Maribel Acosta, *WikiWho* (WWW 2014); *TokTrack*
-  ([ICWSM 2017](https://arxiv.org/abs/1703.08244)).
-- [wikiwho\_rs](https://github.com/Schuwi/wikiwho_rs) (this project contributed a dump-parser fix).
-
-### Content survival
-
-- Adler & de Alfaro, WikiTrust (WWW 2007).
-- Halfaker et al., persistent-word-revisions (WikiSym 2009) — basis for [PWR](glossary.html#pwr).
-
-### Framing / NPOV measurement
-
-- Pavalanathan, Han & Eisenstein, *Mind Your POV*
-  ([CSCW 2018](https://arxiv.org/abs/1809.06951)) — framing over time; change-point typically known a priori.
-- Isaac Johnson et al., *Recommended Practices for NPOV Research on Wikipedia*
-  ([2025](https://arxiv.org/abs/2510.21526)) — stance axis, not sentiment.
-
-### Controversy
-
-- Sumi / Yasseri et al., edit-war detection and mutual-revert measures
-  ([arXiv:1107.3689](https://arxiv.org/abs/1107.3689); PLOS ONE line).
-
-### Cross-lingual comparison
-
-- Bao, Hecht et al., *Omnipedia* (CHI 2012); Massa & Scrinzi, *Manypedia* — snapshot
-  external-reference prototypes.
-
-### Empirical cautions and cases
-
-- Greenstein & Zhu (AER 2012; MISQ 2018): article slant rarely shifts via revision — do not treat every
-  rewrite as capture.
-- Yang & Colavizza (2024): news-source composition as a measurable signal.
-- Grabowski & Klein (2023) on Holocaust-history distortion — long-standing factual error as a target
-  for the external-reference layer (see Warsaw concentration camp here).
-
-### Not used as input
-
-Advocacy reports that name editor clusters and treat co-editing as proof of coordination are not inputs
-to any finding. They may be motivating context for topic choice; the detector does not consume their lists.
-
-## Out of scope
-
-No intent claims about accounts. No single "neutral truth" oracle. No automated "this article is biased"
-label. The site shows where to look and how the numbers were computed.
+WikiDrift joins ideas that already exist in the research literature (token authorship, content
+survival, edit wars, cross-language comparison). Notes and paper links live in the repo’s
+`sources/` folder. The contribution is the **combination**: find the rewrite from content itself,
+attribute the public edits, then check direction with languages and facts — without starting from an
+enemies list.

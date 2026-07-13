@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About — WikiDrift</title>
-<meta name="description" content="About — WikiDrift, a diagnostic tool from encyclopediae.org.">
+<title>About WikiDrift</title>
+<meta name="description" content="What WikiDrift is: a plain look at how Wikipedia articles change over time.">
 <meta name="author" content="encyclopediae.org">
 <link rel="canonical" href="https://wikidrift.encyclopediae.org/about.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="WikiDrift · encyclopediae.org">
-<meta property="og:title" content="About — WikiDrift">
-<meta property="og:description" content="About — WikiDrift, a diagnostic tool from encyclopediae.org.">
+<meta property="og:title" content="About WikiDrift">
+<meta property="og:description" content="What WikiDrift is: a plain look at how Wikipedia articles change over time.">
 <meta property="og:url" content="https://wikidrift.encyclopediae.org/about.html">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="About — WikiDrift">
-<meta name="twitter:description" content="About — WikiDrift, a diagnostic tool from encyclopediae.org.">
+<meta name="twitter:title" content="About WikiDrift">
+<meta name="twitter:description" content="What WikiDrift is: a plain look at how Wikipedia articles change over time.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;600;900&display=swap" rel="stylesheet">
@@ -31,80 +31,86 @@
       <span></span><span></span><span></span>
     </button>
     <div class="nav-links" id="site-nav">
-      <a href="index.html">Findings</a>
-      <a href="about.html" class="active" aria-current="page">About</a>
-      <a href="methodology.html">Methodology</a>
-      <a href="glossary.html">Glossary</a>
+      <a href="index.html" class="active" aria-current="page">About</a>
+      <a href="findings.html">Findings</a>
+      <a href="methodology.html">How it works</a>
+      <a href="glossary.html">Reading tips</a>
     </div>
   </nav>
 </header>
 <main id="main"><div class="prose"><h1>About WikiDrift</h1>
-<p class="summary">Measures how a Wikipedia article changed over time, and how language editions of the
-same topic differ. Public data, revision IDs, reproducible diffs. Part of the
-<a href="https://encyclopediae.org">encyclopediae.org</a> family — the diagnostic arm beside the
-constructive project of encyclopedias from academic institutions.
-<a href="https://github.com/jackreichert/wikidrift/" target="_blank" rel="noopener">Open source on GitHub.</a></p>
+<p class="summary">WikiDrift shows how a Wikipedia article changed over time — and how versions in different languages tell the same story differently, or contradict each other. Almost everything you see is built from <b>public Wikipedia history</b> you can open and check yourself. Where we compare <b>language editions</b> (how openings frame the topic, whether basic facts agree), a language model reads that public text and summarizes the differences — still leads to inspect, not oracles. You cannot honestly prove “Wikipedia was captured by bad actors” with a tool that won’t show its work — or that quietly takes a side. A project of <a href="https://encyclopediae.org">encyclopediae.org</a>. <a href="https://github.com/jackreichert/wikidrift/" target="_blank" rel="noopener">Open source on GitHub.</a></p>
 
-<p class="disclaimer">Candidates only — not conclusions.</p>
+<p class="disclaimer">Built not to pick a side and not to hide the evidence. Judgments are for people — not for a black-box score.</p>
 
-<h2>What it measures</h2>
-<p>WikiDrift runs on public MediaWiki and WikiWho data. For each article it can report:</p>
+<h2>In one sentence</h2>
+<p>WikiDrift finds and shows <strong>when</strong> a long-stable Wikipedia story was rewritten, <strong>how much</strong> changed, <strong>who made the biggest cuts</strong>, and whether <strong>other languages still tell it differently</strong>.</p>
+<h2>What comes from public history vs a language model</h2>
+<p><strong>From public Wikipedia history alone</strong> (no model):</p>
 <ul>
-<li><strong>History:</strong> when long-stable text was dismantled (<a href="glossary.html#pivot">pivots</a>), with before/after
-  diffs and which accounts removed or wrote the text
-  (<a href="glossary.html#pwr">persistence-weighted</a> displacement).</li>
-<li><strong>Other editions:</strong> how English compares with editions such as Hebrew, Arabic, Polish, or German on
-  <a href="glossary.html#framing">framing</a> and <a href="glossary.html#fact-divergence">load-bearing facts</a> — including
-  whether English moved at the pivot, not only whether editions differ today. In current runs,
-  pivot-relative comparison uses one shared L1 pivot boundary across all compared editions.</li>
-<li><strong>Citations:</strong> how the article's own source mix shifted across a rewrite
-  (<a href="glossary.html#source-change">from → to</a>), without reliability ratings on domains.</li>
+<li><strong>Rewrite</strong> — when a large share of long-stable text was replaced, and the before-and-after wording</li>
+<li><strong>Vocabulary</strong> — which words became more or less common (simple counting across versions)</li>
+<li><strong>Citations</strong> — which websites and books the footnotes cited before vs after (we do <strong>not</strong> rate sources)</li>
+<li><strong>Versions</strong> — the exact Wikipedia revisions used, so anyone can verify</li>
+<li>Edit-fight and “who wrote today’s text” context, when shown</li>
 </ul>
-<h2>How findings are produced</h2>
-<p>Articles are selected and scored from <strong>content trajectory</strong>, not from a roster of suspect editors.
-Optional named lists can sit on top as overlays; they are not the foundation. A metadata pre-ranker
-(byte displacement, no full text) decides what deserves a full token-level pass and routes addition- or
-<a href="glossary.html#churn">churn</a>-heavy cases to framing analysis when removal alone would miss them.</p>
-<p>Default entity focus is self-determined from the article itself (controversy-agnostic), and pipeline runs
-pass L2/L2.5 context into L5 so external checks are guided by observed shifts rather than fixed priors.</p>
-<p>Edition selection is also defaulted for stability: runs use established topic-specific language editions,
-and batch fact-check coverage applies an adaptive language cap per topic unless explicitly overridden.</p>
-<p>A large rewrite is a <em>change</em> signal. Base-rate runs show legitimate overhauls can out-pivot contested
-topics. Direction is a separate layer (stance + cross-edition checks). Every page here is a
-<a href="glossary.html#lead">lead</a> with links back to underlying revisions.</p>
-<h2>Limits in brief</h2>
-<p>Internal history cannot see bias that was there from the start with no rewrite to contrast
-(<a href="glossary.html#born-framed">born-framed</a> / long-standing consensus). Those cases need external
-reference — other language editions and related instruments. Attribution reports public actions only.</p>
-<h2>How articles were selected</h2>
-<p>The articles on this site are a validation set, not a curated accusation list. The thesis cluster
-(Israel-Palestine, Holocaust in Poland) was chosen because those articles appear in independent external
-sources — Wikipedia's own ArbCom arbitration findings, a peer-reviewed academic paper (Grabowski &amp; Klein
-2023), and a 2025 ADL report. Those sources define what the detector <em>should</em> find; the detector runs on
-each article's own content independently and must reach the same conclusions without consuming any list.</p>
-<p>Clean controls (Photosynthesis, Brontosaurus) and cross-domain contested articles (Climate change,
-Abortion) were added to establish the base rate and catch false positives. The tool works on any article.</p>
+<p><strong>From a language model comparing public text across languages</strong> (only on some articles):</p>
+<ul>
+<li><strong>Framing</strong> — how openings in different languages treat the same topic (for example more critical, neutral, or more sympathetic), with short quotes from each edition</li>
+<li><strong>Facts</strong> — simple factual questions checked in each language, then agree / differ / contradict / not enough said</li>
+</ul>
+<p>The model is doing the cross-language reading for you; the editions themselves are still public Wikipedia pages you can open. These steps only appear when they were run for that article. If you do not see a <strong>Framing</strong> or <strong>Facts</strong> tab, that check was not run (or not saved) for this page.</p>
+<h2>What you will find on each article page</h2>
+<ul>
+<li><strong>Start here</strong> — a short briefing built from the checks that exist for this article.</li>
+<li><strong>Rewrite</strong>, <strong>Vocabulary</strong>, <strong>Citations</strong>, <strong>Versions</strong> — public-history pieces (above).</li>
+<li><strong>Framing</strong>, <strong>Facts</strong> — model-assisted pieces when they were run (above).</li>
+</ul>
+<h2>What a rewrite window is (a “pivot”)</h2>
+<p>The <strong>Rewrite</strong> tab shows major <strong>rewrite windows</strong>: stretches of time when a large share of wording that had been stable for a long time was removed and replaced — and the new version <strong>stuck</strong> (not just a one-day vandalism blank that got fixed).</p>
+<p>In the research notes and method docs, that window is often called a <strong>pivot</strong>. Same idea: dates (for example 2024-07 → 2026-01), roughly how much of the article changed, and a before-and-after view with struck-out old text and highlighted new text.</p>
+<p>A rewrite window answers: <strong>“When did the long-stable story flip?”</strong> It does <strong>not</strong> answer: <strong>“Was that flip good, bad, capture, or cleanup?”</strong> That judgment is yours after you read the change.</p>
+<p>Some pages have more than one window. Some have none large enough to show — those can still have gradual wording or footnote changes.</p>
+<h2>What this is not</h2>
+<ul>
+<li>It is <strong>not</strong> a “bias score” or a list of bad editors.</li>
+<li>A big rewrite is <strong>not</strong> automatically proof that something was captured or distorted. Legitimate cleanups and real-world events also produce big rewrites.</li>
+<li>Naming an account means “this public username made this public edit” — <strong>not</strong> “this person had bad intent.”</li>
+<li>We do <strong>not</strong> declare the one true version of history.</li>
+</ul>
+<h2>Why that caution matters</h2>
+<p>Large rewrites are common. In our own tests, a normal science/history cleanup can look as large as a rewrite on a contested political topic. So the tool is built to <strong>surface change and disagreement</strong>, then leave judgment to a human reader who can open the diffs and sources.</p>
+<h2>How articles on this site were chosen</h2>
+<p>The topics here are a <strong>test set</strong>, not a hit list. We picked clusters that outside sources already discuss (for example Wikipedia’s own arbitration cases, academic papers, and public reports) so we could ask: does the tool notice the same places without being fed those lists?</p>
+<p>We also include <strong>control</strong> topics (like Photosynthesis) and other hot-button subjects (like Climate change) to check that ordinary big edits do not get treated as automatic proof of wrongdoing.</p>
+<p>The software itself can run on any English Wikipedia article. This site is just the published sample.</p>
 <h2>How to use it</h2>
-<p>Open a finding, read the tabs, follow the <a href="glossary.html#revisions">revisions</a>. For layers,
-validation lessons, principles, and citations, see <a href="methodology.html">Methodology</a>.</p></div></main>
+<ol>
+<li>Open the <a href="findings.html">findings list</a>.</li>
+<li>Pick an article and read <strong>Start here</strong> first.</li>
+<li>Open <strong>Rewrite</strong> and actually read the struck-out / highlighted text.</li>
+<li>Use <strong>Framing</strong>, <strong>Facts</strong>, and <strong>Citations</strong> only as extra context.</li>
+<li>Click through to the live Wikipedia versions when you want proof.</li>
+</ol>
+<p>For a longer explanation of the method, see <a href="methodology.html">How it works</a>.</p></div></main>
 <footer class="site">
   <div class="footer-inner">
     <div class="footer-brand">
       <a href="https://encyclopediae.org">encyclopediae.org</a>
-      <p>Diagnostic tool in the encyclopediae family: measure Wikipedia change and cross-edition disagreement from public data.</p>
+      <p>Shows how Wikipedia articles change over time and how language editions differ — from public data you can check yourself.</p>
     </div>
     <div class="footer-links">
-      <a href="index.html">Findings</a>
-      <a href="about.html">About</a>
-      <a href="methodology.html">Methodology</a>
-      <a href="glossary.html">Glossary</a>
+      <a href="index.html">About</a>
+      <a href="findings.html">Findings</a>
+      <a href="methodology.html">How it works</a>
+      <a href="glossary.html">Reading tips</a>
       <a href="https://encyclopediae.org">encyclopediae.org</a>
       <a href="https://encyclopediae.org/mission.html">Our Mission</a>
       <a href="https://github.com/jackreichert/wikidrift/" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
   <div class="footer-base">
-    <p>Static findings from WikiDrift. Public data only. Each page is a <b>candidate to inspect</b> — change and cross-edition disagreement, not a bias label.</p>
+    <p>Built from public Wikipedia history. Each page is a place to look — not a label of bias or bad faith.</p>
   </div>
 </footer>
 <script src="site.js"></script>
