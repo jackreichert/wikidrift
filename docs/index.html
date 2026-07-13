@@ -39,9 +39,11 @@
   </nav>
 </header>
 <main id="main"><div class="prose"><h1>About WikiDrift</h1>
-<p class="summary">WikiDrift shows how a Wikipedia article changed over time — and how versions in different languages tell the same story differently, or contradict each other. Almost everything you see is built from <b>public Wikipedia history</b> you can open and check yourself. Where we compare <b>language editions</b> (how openings frame the topic, whether basic facts agree), a language model reads that public text and summarizes the differences — still leads to inspect, not oracles. You cannot honestly prove “Wikipedia was captured by bad actors” with a tool that won’t show its work — or that quietly takes a side. A project of <a href="https://encyclopediae.org">encyclopediae.org</a>. <a href="https://github.com/jackreichert/wikidrift/" target="_blank" rel="noopener">Open source on GitHub.</a></p>
+<p class="summary">WikiDrift shows how a Wikipedia article changed over time — and how versions in different languages tell the same story differently, or contradict each other. Almost everything you see is built from <b>public Wikipedia history</b> you can open and check yourself. WikiDrift leverages language models to compare <b>language editions</b>, how openings frame the topic, and whether basic facts agree.</p>
 
-<p class="disclaimer">Built not to pick a side and not to hide the evidence. Judgments are for people — not for a black-box score.</p>
+<p class="summary">You cannot honestly prove “Wikipedia was captured by bad actors” with a tool that won’t show its work — or that quietly takes a side. A project of <a href="https://encyclopediae.org">encyclopediae.org</a>. <a href="https://github.com/jackreichert/wikidrift/" target="_blank" rel="noopener">Open source on GitHub.</a></p>
+
+<p class="disclaimer">Not built to pick a side or to hide the evidence. Judgments are for people — not for a black-box score.</p>
 
 <h2>In one sentence</h2>
 <p>WikiDrift finds and shows <strong>when</strong> a long-stable Wikipedia story was rewritten, <strong>how much</strong> changed, <strong>who made the biggest cuts</strong>, and whether <strong>other languages still tell it differently</strong>.</p>
@@ -76,10 +78,9 @@
 <li>It is <strong>not</strong> a “bias score” or a list of bad editors.</li>
 <li>A big rewrite is <strong>not</strong> automatically proof that something was captured or distorted. Legitimate cleanups and real-world events also produce big rewrites.</li>
 <li>Naming an account means “this public username made this public edit” — <strong>not</strong> “this person had bad intent.”</li>
-<li>We do <strong>not</strong> declare the one true version of history.</li>
 </ul>
 <h2>Why that caution matters</h2>
-<p>Large rewrites are common. In our own tests, a normal science/history cleanup can look as large as a rewrite on a contested political topic. So the tool is built to <strong>surface change and disagreement</strong>, then leave judgment to a human reader who can open the diffs and sources.</p>
+<p>Large rewrites are common. In our own tests, a normal science/history cleanup can look as large as a rewrite on a contested political topic. So the tool is built to <strong>surface change and disagreement</strong>, then leave judgment to a human reader who can open the diffs and sources. However, they aren't always done for those reasons, as you can see from our findings.</p>
 <h2>How articles on this site were chosen</h2>
 <p>The topics here are a <strong>test set</strong>, not a hit list. We picked clusters that outside sources already discuss (for example Wikipedia’s own arbitration cases, academic papers, and public reports) so we could ask: does the tool notice the same places without being fed those lists?</p>
 <p>We also include <strong>control</strong> topics (like Photosynthesis) and other hot-button subjects (like Climate change) to check that ordinary big edits do not get treated as automatic proof of wrongdoing.</p>
