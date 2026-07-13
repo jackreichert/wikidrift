@@ -1,4 +1,4 @@
-"""L1 → L2 → L5 orchestration for one article, following the pre-rank router.
+"""L1 → L2 orchestration for one article, following the pre-rank router.
 
 Closes the methodology's "adjudicate the routed leads" gap: `prerank` raises `addition→L2` / `churn→L2`
 for reframe-by-addition/churn (vectors the removal metric is structurally blind to), but nothing consumed
@@ -9,14 +9,19 @@ Layers by cost (so the default stays offline and keyless):
   L1 drift + pre-rank router — offline (cached corpus); always run.
     L2.5 lexical drift         — offline term-distribution lead; always run.
   M-score corroborator       — Action API, no LLM; opt-in (`--mscore`).
-  L2 stance + L5 external ref — LLM (needs an LLM key; default Anthropic, --provider/--model/--base-url for a
-                                cheaper/local backend); opt-in (`--llm`). L5 persists to the viewer.
+  L2 stance                  — LLM (needs an LLM key; default Anthropic, --provider/--model/--base-url for a
+                               cheaper/local backend); opt-in (`--llm`).
+
+Cross-lingual framing (L5 #1) and fact divergence (L5 #2) are available as standalone instruments
+(`wikidrift crosslingual` / `wikidrift factcheck`) but are not part of the pipeline — they address
+born-biased detection (a separate problem from drift/pivot detection) and add significant cost and
+language-selection complexity. See METHODOLOGY.md §7 for the known-limits note.
 
 Every output is a LEAD for a researcher, never a published verdict.
 """
 import duckdb
 
-from . import config, drift, prerank, stance, l5_crosslingual, l5_factcheck, lexical, mscore
+from . import config, drift, prerank, stance, lexical, mscore
 from .corpus import Corpus
 
 
@@ -37,11 +42,38 @@ def _pipeline_entities(article, l2_summary):
     return [title] if title else []
 
 
-def run(article, llm=False, corroborate=False, provider=None, model=None, base_url=None,
-    l5_langs=None, l5_max_langs=None):
+def _corroboration(result):
+    """Count how many independent layers corroborate an anomaly — a lead count, not a verdict.
+    Each signal is an independent instrument; agreement adds confidence without compounding errors."""
+    signals = []
+    l1 = result.get("l1") or ""
+    if l1 and not l1.startswith(("HEALTHY", "SKIP", "n/a")):
+        signals.append("l1_pivot")
+    if result.get("l2_adjudicated"):
+        signals.append("l2_shift")
+    lex = result.get("lexical") or {}
+    if isinstance(lex, dict) and (lex.get("js_divergence") or 0) > 0.05:
+        signals.append("lexical_drift")
+    m = result.get("mscore") or {}
+    if isinstance(m, dict):
+        refined = m.get("refined") or {}
+        if isinstance(refined, dict) and refined.get("M"):
+            signals.append("mscore_contested")
+    fr = result.get("framing") or {}
+    if isinstance(fr, dict):
+        if any(d.get("verdict") == "contradict" for d in (fr.get("divergences") or [])):
+            signals.append("framing_contradict")
+        elif any(d.get("verdict") in ("differ", "absent_en", "absent_other")
+                 for d in (fr.get("divergences") or [])):
+            signals.append("framing_differ")
+    return {"count": len(signals), "signals": signals}
+
+
+def run(article, llm=False, corroborate=False, framing=False, provider=None, model=None, base_url=None):
     """Orchestrate the layers for one article. Returns a consolidated result dict.
 
-    provider/model/base_url select the LLM backend for the opt-in L2/L5 layers (see llm.py)."""
+    provider/model/base_url select the LLM backend for the opt-in L2 + framing layers (see llm.py).
+    Cross-lingual framing lite (L5) is opt-in via --framing; it runs after L1 only when a pivot exists."""
     # Build the LLM client ONCE and share it across L2 + L5 (was threaded as 3 loose params into each verb).
     # NB the `llm` parameter here is the bool opt-in flag, so import the module under an alias.
     client = None
@@ -100,26 +132,15 @@ def run(article, llm=False, corroborate=False, provider=None, model=None, base_u
     except Exception as e:                                  # noqa: BLE001
         print(f"lexical drift skipped: {e}")
 
-    # ---- L5 external reference (opt-in; LLM; persists to the viewer) ----
-    l5 = {}
-    if llm:
-        l5_context = {
-            "router_leads": l2_leads,
-            "entities": _pipeline_entities(article, l2_summary),
-            "l2_shifts": (l2_summary or {}).get("shifts") or {},
-            "lexical": {"js_divergence": lex.get("js_divergence")} if isinstance(lex, dict) else {},
-        }
-        for name, fn in (("crosslingual", l5_crosslingual.crosslingual), ("factcheck", l5_factcheck.factcheck)):
-            try:
-                print()
-                kwargs = {"client": client, "context": l5_context, "langs": l5_langs}
-                if name == "factcheck":
-                    kwargs["max_langs"] = l5_max_langs
-                l5[name] = fn(article, **kwargs)
-            except Exception as e:                          # noqa: BLE001
-                print(f"L5 {name} skipped: {e}")
-    else:
-        print("L5 (cross-lingual framing + fact divergence): re-run with --llm — persists to the viewer.")
+    # ---- L5 Framing Lite (opt-in; LLM) ----
+    # Runs regardless of L1 verdict: pivot articles → drift corroborator; healthy articles → static born-bias check.
+    framing_result = None
+    if framing:
+        try:
+            from . import l5_framing_lite
+            framing_result = l5_framing_lite.framing_lite(article, client=client)
+        except Exception as e:                              # noqa: BLE001
+            print(f"Framing Lite skipped: {e}")
 
     # ---- consolidated lead ----
     print("\n── CONSOLIDATED LEAD (not a verdict) ──")
@@ -129,13 +150,19 @@ def run(article, llm=False, corroborate=False, provider=None, model=None, base_u
         print(f"  L2 stance: {'adjudicated above' if l2_done else 'PENDING (--llm) — a reframe-by-addition/churn is a semantic call'}")
     if m is not None:
         refined = m.get("refined", {}).get("M") if isinstance(m.get("refined"), dict) else m.get("refined")
-        read = "low ⇒ not fought-over ⇒ route-to-L5" if not refined else "contested (controversy ≠ malice)"
+        read = "low ⇒ not fought-over" if not refined else "contested (controversy ≠ malice)"
         print(f"  M-score  : refined M={refined} — {read}")
     if lex is not None and isinstance(lex, dict):
         print(f"  lexical  : JS divergence={lex.get('js_divergence', 'n/a')}")
-    if l5:
-        print(f"  L5       : {', '.join(l5)} computed (see the viewer)")
-    elif not llm:
-        print("  L5       : not run (offline) — --llm for the external-reference read")
-    return {"article": article, "l1": label, "leads": leads, "l2_adjudicated": l2_done,
-            "mscore": m, "lexical": lex, "l5": l5}
+    if framing_result:
+        n = len(framing_result.get("divergences") or [])
+        mode = "static" if not framing_result.get("pivot_window") else "pivot-corroborator"
+        print(f"  framing  : {n} divergence(s) [{mode}] — see findings/{article.replace(' ','_')}.framing.json")
+    else:
+        print("  L5 framing: run via `wikidrift framing` or `wikidrift pipeline --framing` (separate instrument)")
+    result = {"article": article, "l1": label, "leads": leads, "l2_adjudicated": l2_done,
+              "mscore": m, "lexical": lex, "framing": framing_result}
+    result["corroboration"] = _corroboration(result)
+    corr = result["corroboration"]
+    print(f"  corroboration: {corr['count']} signal(s) — {corr['signals'] or '(none)'}")
+    return result

@@ -2,8 +2,8 @@
   "article": "Ainu people",
   "langs": [
     "en",
-    "he",
-    "ar"
+    "ru",
+    "fr"
   ],
   "entities": [
     "Ainu people"
@@ -23,17 +23,35 @@
           "entity": "Ainu people",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "forced assimilation... Japanese assimilation policies... forced them to give up traditional ways of life... Ainu people were not allowed to practice their religion"
+          "evidence": "The Ainu were subject to forced assimilation during the Japanese colonization of Hokkaido since at least the 18th century... Ainu people were not allowed to practice their religion and were placed into Japanese-language schools, where speaking the Hokkaido Ainu language was forbidden."
         }
       }
     },
-    "he": {
+    "ru": {
       "focal": {
         "Ainu people": {
           "entity": "Ainu people",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "רבים מהם מסתירים את מוצאם או אינם יודעים אותו לאחר שהוסתר מהם, כדי להגן על עצמם מפני אפליה על בסיס גזעי; העימות בין היפנים הפולשים לבין האיינו, התושבים המקוריים"
+          "evidence": "Айны находились фактически на положении рабов... в условиях неестественной скученности, не имея возможности поддерживать традиционный образ жизни."
+        }
+      },
+      "lead": {
+        "Ainu people": {
+          "entity": "Ainu people",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "народ, являющийся древнейшим населением Японских островов"
+        }
+      }
+    },
+    "fr": {
+      "focal": {
+        "Ainu people": {
+          "entity": "Ainu people",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "leurs parents la leur ayant dissimulée pour les protéger de la discrimination et du racisme"
         }
       },
       "lead": {
@@ -41,25 +59,7 @@
           "entity": "Ainu people",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "הם נושלו משטחי מחייתם ואולצו ללמוד בבתי ספר יפנים ולהיטמע בעם היפני... רבים מהם מסתירים את מוצאם או אינם יודעים אותו לאחר שהוסתר מהם, כדי להגן על עצמם מפני אפליה על בסיס גזעי"
-        }
-      }
-    },
-    "ar": {
-      "focal": {
-        "Ainu people": {
-          "entity": "Ainu people",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "كان الآينو مهمشين على نحو متزايد على الأراضي التي كانوا يقطنونها... تم إجباره «قسريا» كي يصبح شعبا يابانيا من الأساس"
-        }
-      },
-      "lead": {
-        "Ainu people": {
-          "entity": "Ainu people",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "كان الآينو مهمشين على نحو متزايد على الأراضي التي كانوا يقطنونها... تم إجباره «قسريا» كي يصبح شعبا يابانيا من الأساس"
+          "evidence": "leurs parents la leur ayant dissimulée pour les protéger de la discrimination et du racisme"
         }
       }
     }

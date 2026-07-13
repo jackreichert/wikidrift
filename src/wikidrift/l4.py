@@ -100,28 +100,35 @@ def _usercontribs(editor, since=FOOTPRINT_SINCE, max_pages=FOOTPRINT_MAX_PAGES):
 
 def footprint(editors, tested, seed_article):
     """The DESTRUCTIVE footprint of the seed editors: per candidate article, how many seed editors removed
-    substantial content there and how much. Only edits that removed >= REMOVAL_BYTES count (safeguard #3).
+    substantial content there and how much. REMOVAL_BYTES is applied as an aggregate per-editor-per-article
+    threshold (not a per-edit floor) so coordinated small removes are not silently discarded.
     Returns {title: {"editors": set, "removed": int, "edits": int}} for FRESH titles only (tested set +
     seed subtracted). The graph as a LEAD; nothing here flags anything."""
     seen = set(tested) | {_norm(seed_article)}
     agg = {}
     for editor, _mass in editors:
         contribs = _usercontribs(editor)
-        big_rm = [c for c in contribs if (c.get("sizediff") or 0) <= -REMOVAL_BYTES]
-        titles = {}
-        for c in big_rm:                    # collapse an editor's multiple removing-edits per title
-            t = _norm(c.get("title"))
-            titles.setdefault(t, 0)
-            titles[t] += -(c.get("sizediff") or 0)
-        for t, removed in titles.items():
-            if not t or t in seen:
+        # Aggregate ALL removals per title first; apply REMOVAL_BYTES on the total so an editor
+        # removing 1400B × 50 edits is not silently excluded by the per-edit floor.
+        editor_titles = {}
+        for c in contribs:
+            diff = -(c.get("sizediff") or 0)
+            if diff > 0:
+                t = _norm(c.get("title"))
+                if t:
+                    entry = editor_titles.setdefault(t, {"removed": 0, "edits": 0})
+                    entry["removed"] += diff
+                    entry["edits"] += 1
+        qualifying = {t: s for t, s in editor_titles.items() if s["removed"] >= REMOVAL_BYTES}
+        for t, stats in qualifying.items():
+            if t in seen:
                 continue
             a = agg.setdefault(t, {"editors": set(), "removed": 0, "edits": 0})
             a["editors"].add(editor)
-            a["removed"] += removed
-            a["edits"] += 1
+            a["removed"] += stats["removed"]
+            a["edits"] += stats["edits"]
         print(f"  {editor:<24} {len(contribs):>5} ns0 contribs (since {FOOTPRINT_SINCE[:4]}), "
-              f"{len(big_rm):>4} removed ≥{REMOVAL_BYTES}B", flush=True)
+              f"{len(qualifying):>4} articles with ≥{REMOVAL_BYTES}B removed (aggregate)", flush=True)
     return agg
 
 

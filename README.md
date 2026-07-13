@@ -2,6 +2,8 @@
 
 **An editor-agnostic, temporal narrative-drift detector for Wikipedia.**
 
+**[Live site → wikidrift.encyclopediae.org](https://wikidrift.encyclopediae.org/)**
+
 WikiDrift reads a Wikipedia article against *its own edit history* and against *its other-language editions*
 to surface where a long-stable narrative was rewritten, when, by which edits — and whether the result diverges
 from how independent editions frame or state the same thing. It is built to **make disagreement legible**, not
@@ -81,13 +83,14 @@ uv run wikidrift analyze "Climate change"      # full L1: drift → pivots → b
 uv run wikidrift discover "Nakba"              # L4: seed → destructive footprint → independent L1 re-test
 uv run wikidrift sources "Palestine"           # L5 #3b: citation-source change (from → to across the pivot)
 uv run wikidrift stance "Abortion"             # L2 framing/stance over time            (needs an LLM key)
+uv run wikidrift framing "Gaza war"            # L5 Framing Lite: cross-lingual lead divergence (LLM key)
 uv run wikidrift crosslingual "Anti-Zionism"   # L5 #1: cross-lingual framing divergence (needs an LLM key)
 uv run wikidrift factcheck "Warsaw concentration camp" --asof 2018-06-01   # L5 #2: fact divergence (LLM key)
 uv run wikidrift mscore                         # controversy corroborator (metadata only)
-uv run wikidrift pipeline "Hamas" --llm         # L1 → router → (L2/L5) orchestration for one article
+uv run wikidrift pipeline "Hamas" --llm --framing  # L1 → router → L2 + Framing Lite orchestration
 ```
 
-Single-article verbs (`analyze`, `stance`, `crosslingual`, `factcheck`, `pipeline`, `discover`, `sources`,
+Single-article verbs (`analyze`, `stance`, `framing`, `crosslingual`, `factcheck`, `pipeline`, `discover`, `sources`,
 `lexical`, `profile`) accept either an article title or a Wikipedia URL (e.g.
 `https://en.wikipedia.org/wiki/Jedwabne_pogrom`).
 
@@ -115,6 +118,7 @@ Current helper defaults for pipeline invocations:
 
 - LLM path is enabled by default (use `--no-llm` to disable),
 - M-score is enabled by default (use `--no-mscore` to disable),
+- Framing Lite is opt-in: add `--framing` to batch-run cross-lingual lead comparison,
 - L5 factcheck language cap defaults to `--l5-max-langs 6` with `--l5-cap-policy adaptive`
   (per-topic auto-tuning from latest factcheck diagnostics),
 - set `--l5-cap-policy fixed` to always use the configured cap,

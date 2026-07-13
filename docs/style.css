@@ -181,7 +181,7 @@ h3{font-weight:600;font-size:1rem;margin:0}
 .findings{margin-top:0}
 .finding{
   display:grid;
-  grid-template-columns:minmax(12rem,1.1fr) minmax(10rem,1.4fr) auto auto;
+  grid-template-columns:minmax(12rem,1.1fr) minmax(10rem,1.8fr) auto;
   gap:.35rem 1.25rem;
   align-items:center;
   text-decoration:none;color:inherit;
@@ -190,6 +190,7 @@ h3{font-weight:600;font-size:1rem;margin:0}
 }
 .finding:hover{background:linear-gradient(90deg, var(--surface), transparent 80%)}
 .f-head{display:flex;flex-direction:column;gap:2px;min-width:0}
+.f-body{display:flex;flex-direction:column;gap:6px;min-width:0}
 .finding h3{font-size:1.05rem;font-weight:600;line-height:1.25}
 .finding p{
   margin:0;color:var(--faint);font-size:.92rem;font-weight:200;
@@ -210,6 +211,10 @@ h3{font-weight:600;font-size:1rem;margin:0}
 .sig.peel{background:var(--symp-bg);color:var(--symp-fg)}
 .sig.fact{background:var(--crit-bg);color:var(--crit-fg)}
 .sig.lex{background:var(--neut-bg);color:var(--neut-fg)}
+.sig.l2{background:var(--warn-bg);color:var(--warn-fg)}
+.sig.conc{background:var(--symp-bg);color:var(--symp-fg)}
+.sig.framing{background:var(--warn-bg);color:var(--warn-fg)}
+.sig.framing-c{background:var(--crit-bg);color:var(--crit-fg)}
 #empty{padding:2.5rem 0;color:var(--faint);font-weight:200}
 
 /* —— tabs (full shell width) —— */

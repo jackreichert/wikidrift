@@ -45,8 +45,9 @@ upper layers add language and meaning. **All are leads.**
 | **L1.6 — attribution** | Which edits removed the spine / wrote the replacement? *Action only, from public data.* | internal |
 | **L2 — framing (stance)** | Did the meaning shift — not just the words — on a neutrality (NPOV) axis, whether by adding slanted text or removing critical text? | internal (temporal) |
 | **L4 — discovery** | Where else to look? Use a confirmed article's actors as a *search prior* → re-test each candidate by its own content. | prior → internal |
-| **L5 #1 — cross-lingual framing** | Do other-language editions frame it differently — and did English *peel away* from a prior cross-lingual consensus at the pivot? | **external** |
-| **L5 #2 — fact/claim** | Do the editions disagree on load-bearing *facts* (as-of aware)? | **external** |
+| **L5 #1 — cross-lingual framing** | Do other-language editions frame it differently — and did English *peel away* from a prior cross-lingual consensus at the pivot? | **external** — standalone instrument (`wikidrift crosslingual`) |
+| **L5 Framing Lite** | Pivot-gated: does the framing English lost survive in other editions' lead sections? Corroborates contested pivots. | **external** — `wikidrift framing` or `pipeline --framing`; SLATE + top-2 by length; lead sections only |
+| **L5 #2 — fact/claim** | Do the editions disagree on load-bearing *facts* (as-of aware)? | **external** — standalone instrument (`wikidrift factcheck`) |
 | **L5 #3b — citation-source change** | What did the article's *own citations* change **from → to** across the pivot? Reference-agnostic; **rates no source.** | internal (own refs) |
 
 A **controversy signal** (Yasseri mutual-revert M-score) is context only: it cannot separate a genuinely
@@ -99,6 +100,16 @@ Surface the conjunction; a single factor is noise.
   L5 #3 ships as the reference-agnostic **3b**, not a consensus oracle.)
 - **Attribution can mislead if unread.** A single "dominant drop" can be a restructure/merge/page-move, not a
   POV act. Read the diff before characterizing it.
+- **Sockpuppet evasion.** L4 footprint traces editors by username to their destructive contributions elsewhere.
+  Coordinated editing via rotating accounts is invisible — the per-account footprint collapses to noise. A
+  co-edit clustering approach (detecting accounts that co-appear with unusual timing across flagged articles)
+  would close this gap but is not yet implemented.
+- **Cross-lingual agreed hoax.** L5 cross-lingual comparison detects *divergence* between editions. If all
+  editions reproduce the same distortion in the same direction, comparison reads flat (agreement). Anchoring
+  against an external reference corpus (academic sources, encyclopedias) is needed; not yet implemented.
+- **LLM cultural bias.** Stance classifications (L2 NPOV-axis) are produced by a language model and may reflect
+  training-data cultural bias on politically charged prose. A calibration baseline — repeated runs on
+  known-neutral control articles — is needed to quantify a jitter floor. Not yet established.
 
 ## 8. What WikiDrift will not do
 

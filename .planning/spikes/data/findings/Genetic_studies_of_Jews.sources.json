@@ -86,12 +86,12 @@
       "to": 5
     },
     {
-      "domain": "timesofisrael.com",
+      "domain": "digitalcommons.wayne.edu",
       "from": 0,
       "to": 3
     },
     {
-      "domain": "digitalcommons.wayne.edu",
+      "domain": "timesofisrael.com",
       "from": 0,
       "to": 3
     },
@@ -101,17 +101,12 @@
       "to": 3
     },
     {
-      "domain": "academia.edu",
+      "domain": "haaretz.com",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "nytimes.com",
-      "from": 2,
-      "to": 4
-    },
-    {
-      "domain": "ghostarchive.org",
+      "domain": "academia.edu",
       "from": 0,
       "to": 2
     },
@@ -126,77 +121,22 @@
       "to": 2
     },
     {
+      "domain": "nytimes.com",
+      "from": 2,
+      "to": 4
+    },
+    {
       "domain": "science.org",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "haaretz.com",
+      "domain": "ghostarchive.org",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "books.google.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "natureasia.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "nybooks.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "news.nationalpost.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "independent.co.uk",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "soas.ac.uk",
-      "from": 0,
-      "to": 1
-    },
-    {
       "domain": "boingboing.net",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "the-scientist.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "maajournal.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "scholar.google.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "wired.co.uk",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "latimes.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "jewishpress.com",
       "from": 0,
       "to": 1
     },
@@ -206,7 +146,62 @@
       "to": 1
     },
     {
-      "domain": "bbc.com",
+      "domain": "api.nationalgeographic.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "latimes.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "books.google.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "the-scientist.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "natureasia.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "wired.co.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "surnamedna.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "maajournal.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "independent.co.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "smgf.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "news.nationalpost.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "soas.ac.uk",
       "from": 0,
       "to": 1
     },
@@ -216,12 +211,22 @@
       "to": 2
     },
     {
-      "domain": "smgf.org",
-      "from": 1,
-      "to": 2
+      "domain": "jewishpress.com",
+      "from": 0,
+      "to": 1
     },
     {
-      "domain": "api.nationalgeographic.com",
+      "domain": "bbc.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "scholar.google.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "nybooks.com",
       "from": 0,
       "to": 1
     },
@@ -229,36 +234,21 @@
       "domain": "sciencedirect.com",
       "from": 0,
       "to": 1
-    },
-    {
-      "domain": "surnamedna.com",
-      "from": 0,
-      "to": 1
     }
   ],
   "dropped": [
-    {
-      "domain": "familytreedna.com",
-      "from": 2,
-      "to": 0
-    },
     {
       "domain": "nature.com",
       "from": 2,
       "to": 0
     },
     {
-      "domain": "pubmedcentral.nih.gov",
-      "from": 1,
+      "domain": "familytreedna.com",
+      "from": 2,
       "to": 0
     },
     {
-      "domain": "ftdna.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "newsweek.com",
+      "domain": "ashg.org",
       "from": 1,
       "to": 0
     },
@@ -273,12 +263,22 @@
       "to": 0
     },
     {
+      "domain": "newsweek.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "ftdna.com",
+      "from": 1,
+      "to": 0
+    },
+    {
       "domain": "pqasb.pqarchiver.com",
       "from": 1,
       "to": 0
     },
     {
-      "domain": "ashg.org",
+      "domain": "pubmedcentral.nih.gov",
       "from": 1,
       "to": 0
     }

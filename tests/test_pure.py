@@ -13,6 +13,7 @@ from wikidrift import lexical
 from wikidrift import drift
 from wikidrift import benchmark
 from wikidrift import stance
+from wikidrift import pipeline
 from wikidrift.registry import focal_entities
 
 
@@ -460,6 +461,198 @@ class BenchmarkScoring(unittest.TestCase):
     def test_pending_case_short_circuits(self):
         r = benchmark.score_case(None, {"article": "X", "cat": "C_l5gap", "pending": True})
         self.assertEqual(r["status"], "PENDING")
+
+
+class SlowBleedWindow(unittest.TestCase):
+    """_cumulative_loss_windows: rolling 12-month cumulative PWR-loss detector."""
+    # series row: (d0, r0, d1, r1, ratio%, size, wlost)
+
+    def _make_series(self, intervals):
+        """Build a minimal series from (d0, d1, size, wlost) tuples."""
+        return [(d0, 0, d1, 0, 100.0 * wlost / size if size else 0, size, wlost)
+                for d0, d1, size, wlost in intervals]
+
+    def test_returns_none_for_empty_series(self):
+        self.assertIsNone(drift._cumulative_loss_windows([]))
+
+    def test_returns_none_when_below_threshold(self):
+        # 4 quarters, each losing 20 tokens of 1000 → ratio 0.08 < SLOW_BLEED_FLOOR
+        series = self._make_series([
+            ("2022-01-01", "2022-04-01", 1000, 20),
+            ("2022-04-01", "2022-07-01", 1000, 20),
+            ("2022-07-01", "2022-10-01", 1000, 20),
+            ("2022-10-01", "2023-01-01", 1000, 20),
+        ])
+        self.assertIsNone(drift._cumulative_loss_windows(series))
+
+    def test_detects_slow_bleed_above_threshold(self):
+        # 4 intervals in one year, each removing 100 of 1000 tokens → ratio 0.4 ≥ SLOW_BLEED_FLOOR
+        series = self._make_series([
+            ("2022-01-01", "2022-04-01", 1000, 100),
+            ("2022-04-01", "2022-07-01", 1000, 100),
+            ("2022-07-01", "2022-10-01", 1000, 100),
+            ("2022-10-01", "2023-01-01", 1000, 100),
+        ])
+        result = drift._cumulative_loss_windows(series)
+        self.assertIsNotNone(result)
+        start, end, ratio = result
+        self.assertGreaterEqual(ratio, drift.SLOW_BLEED_FLOOR)
+
+    def test_window_does_not_span_more_than_twelve_months(self):
+        # bleed spread over 18 months → should NOT trigger if no single 12-month window accumulates enough
+        series = self._make_series([
+            ("2021-01-01", "2021-07-01", 1000, 100),   # 6 months apart
+            ("2021-07-01", "2022-01-01", 1000, 100),   # another 6 (total = 12 months, ratio=0.2 < 0.35)
+            ("2022-01-01", "2022-07-01", 1000, 100),   # slides past first interval
+        ])
+        # Each 12-month window contains at most 2 intervals (200/1000=0.2) — below threshold
+        self.assertIsNone(drift._cumulative_loss_windows(series))
+
+
+class PipelineCorroboration(unittest.TestCase):
+    """_corroboration: count how many independent layers fire."""
+
+    def test_zero_signals_when_all_healthy(self):
+        result = {"l1": "HEALTHY (mean 2.0%)", "l2_adjudicated": False,
+                  "lexical": {"js_divergence": 0.01}, "mscore": None}
+        c = pipeline._corroboration(result)
+        self.assertEqual(c["count"], 0)
+        self.assertEqual(c["signals"], [])
+
+    def test_l1_pivot_fires_when_not_healthy(self):
+        result = {"l1": "PIVOT? 2020-01-01→2022-01-01 ...", "l2_adjudicated": False,
+                  "lexical": None, "mscore": None}
+        c = pipeline._corroboration(result)
+        self.assertIn("l1_pivot", c["signals"])
+
+    def test_l1_creep_also_fires(self):
+        result = {"l1": "CREEP? mean 9.2%", "l2_adjudicated": False,
+                  "lexical": None, "mscore": None}
+        self.assertIn("l1_pivot", pipeline._corroboration(result)["signals"])
+
+    def test_l2_adjudicated_adds_shift_signal(self):
+        result = {"l1": "HEALTHY (mean 2.0%)", "l2_adjudicated": True,
+                  "lexical": None, "mscore": None}
+        self.assertIn("l2_shift", pipeline._corroboration(result)["signals"])
+
+    def test_lexical_drift_fires_above_threshold(self):
+        result = {"l1": "HEALTHY", "l2_adjudicated": False,
+                  "lexical": {"js_divergence": 0.08}, "mscore": None}
+        self.assertIn("lexical_drift", pipeline._corroboration(result)["signals"])
+
+    def test_lexical_drift_does_not_fire_below_threshold(self):
+        result = {"l1": "HEALTHY", "l2_adjudicated": False,
+                  "lexical": {"js_divergence": 0.03}, "mscore": None}
+        self.assertNotIn("lexical_drift", pipeline._corroboration(result)["signals"])
+
+    def test_count_matches_signals_length(self):
+        result = {"l1": "PIVOT?", "l2_adjudicated": True,
+                  "lexical": {"js_divergence": 0.09}, "mscore": None}
+        c = pipeline._corroboration(result)
+        self.assertEqual(c["count"], len(c["signals"]))
+
+    def test_skip_verdict_does_not_fire_l1(self):
+        result = {"l1": "SKIP (too few snapshots)", "l2_adjudicated": False,
+                  "lexical": None, "mscore": None}
+        self.assertNotIn("l1_pivot", pipeline._corroboration(result)["signals"])
+
+
+class L4AggregateFootprint(unittest.TestCase):
+    """footprint(): aggregate-per-editor-per-article threshold (not per-edit)."""
+
+    @patch("wikidrift.l4._usercontribs")
+    def test_fifty_small_removals_sum_above_threshold(self, mock_contribs):
+        # 50 edits × 1400B each = 70 000B total > REMOVAL_BYTES(1500) → should qualify
+        mock_contribs.return_value = [
+            {"title": "New Article", "sizediff": -1400, "timestamp": "2023-01-01T00:00:00Z"}
+            for _ in range(50)
+        ]
+        editors = [("Alice", 100)]
+        agg = l4.footprint(editors, tested=set(), seed_article="SeedArticle")
+        self.assertIn("New Article", agg)
+        self.assertGreaterEqual(agg["New Article"]["removed"], 70_000)
+
+    @patch("wikidrift.l4._usercontribs")
+    def test_single_edit_below_threshold_does_not_qualify(self, mock_contribs):
+        # One edit removing 1400B < REMOVAL_BYTES(1500) → should NOT qualify
+        mock_contribs.return_value = [
+            {"title": "New Article", "sizediff": -1400, "timestamp": "2023-01-01T00:00:00Z"}
+        ]
+        editors = [("Alice", 100)]
+        agg = l4.footprint(editors, tested=set(), seed_article="SeedArticle")
+        self.assertNotIn("New Article", agg)
+
+    @patch("wikidrift.l4._usercontribs")
+    def test_tested_articles_excluded_from_footprint(self, mock_contribs):
+        mock_contribs.return_value = [
+            {"title": "Known Article", "sizediff": -50_000, "timestamp": "2023-01-01T00:00:00Z"}
+        ]
+        editors = [("Alice", 100)]
+        agg = l4.footprint(editors, tested={"Known Article"}, seed_article="SeedArticle")
+        self.assertNotIn("Known Article", agg)
+
+
+from wikidrift import l5_framing_lite as fl
+
+
+class FramingLiteEditionSelect(unittest.TestCase):
+    """_select_editions: SLATE + top-N by length, deduplicated and capped."""
+
+    def _links(self, langs):
+        return {l: f"Title_{l}" for l in langs}
+
+    def test_slate_langs_always_included(self):
+        links = self._links(["en", "ar", "he", "fr", "de"])
+        lengths = {"ar": 5000, "he": 4000, "fr": 3000, "de": 2000}
+        eds = fl._select_editions("israeli-palestinian", links, lengths)
+        self.assertIn("ar", eds)
+        self.assertIn("he", eds)
+        self.assertIn("en", eds)
+
+    def test_top2_by_length_added_to_slate(self):
+        links = self._links(["en", "ar", "he", "fr", "de", "es"])
+        lengths = {"ar": 5000, "he": 4000, "fr": 9000, "de": 8000, "es": 1000}
+        eds = fl._select_editions("israeli-palestinian", links, lengths)
+        # ar + he are SLATE; fr + de are top-2 by length; es is below MIN_EDITION_BYTES
+        self.assertIn("fr", eds)
+        self.assertIn("de", eds)
+        self.assertNotIn("es", eds)
+
+    def test_cap_at_max_editions(self):
+        links = self._links(["en", "ar", "he", "fr", "de", "es", "ru", "zh"])
+        lengths = {l: 5000 for l in ["ar", "he", "fr", "de", "es", "ru", "zh"]}
+        eds = fl._select_editions("israeli-palestinian", links, lengths)
+        self.assertLessEqual(len(eds), fl.MAX_EDITIONS)
+
+    def test_general_category_uses_length_only(self):
+        links = self._links(["en", "fr", "de", "es"])
+        lengths = {"fr": 9000, "de": 8000, "es": 3000}
+        eds = fl._select_editions("general", links, lengths)
+        self.assertIn("en", eds)
+        self.assertIn("fr", eds)
+        self.assertIn("de", eds)
+        # No SLATE for general — just top-2 by length
+        self.assertLessEqual(len(eds), fl.MAX_EDITIONS)
+
+    def test_stub_editions_excluded(self):
+        links = self._links(["en", "fr", "de"])
+        lengths = {"fr": 9000, "de": 500}  # de is below MIN_EDITION_BYTES
+        eds = fl._select_editions("general", links, lengths)
+        self.assertIn("fr", eds)
+        self.assertNotIn("de", eds)
+
+    def test_en_always_first(self):
+        links = self._links(["en", "ar", "he"])
+        lengths = {"ar": 5000, "he": 4000}
+        eds = fl._select_editions("israeli-palestinian", links, lengths)
+        self.assertEqual(eds[0], "en")
+
+    def test_no_duplicates(self):
+        # ar is both SLATE and top by length — should appear once
+        links = self._links(["en", "ar", "he", "fr"])
+        lengths = {"ar": 99000, "he": 4000, "fr": 3000}
+        eds = fl._select_editions("israeli-palestinian", links, lengths)
+        self.assertEqual(len(eds), len(set(eds)))
 
 
 if __name__ == "__main__":

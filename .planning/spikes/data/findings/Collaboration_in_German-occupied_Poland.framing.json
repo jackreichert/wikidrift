@@ -1,0 +1,93 @@
+{
+  "article": "Collaboration in German-occupied Poland",
+  "run_ts": "2026-07-13T21:11:23.741328Z",
+  "category": "polish-wwii",
+  "pivot_window": null,
+  "editions_compared": [
+    "en",
+    "ru",
+    "ar"
+  ],
+  "lead_chars": {
+    "en": 531,
+    "ru": 979,
+    "ar": 438
+  },
+  "divergences": [
+    {
+      "topic": "pride framing of marginality",
+      "editions_differ": [
+        "EN",
+        "RU",
+        "AR"
+      ],
+      "en_says": "Collaboration has been described as marginal, a point of pride with the Polish people",
+      "other_says": "not mentioned as a point of pride; RU frames it via Madajczyk's 5% estimate compared to 25% resistance; AR only says it was less institutionalized and marginal without the pride framing",
+      "verdict": "differ",
+      "evidence_en": "has been described as marginal, a point of pride with the Polish people",
+      "evidence_other": null
+    },
+    {
+      "topic": "quantitative estimate of collaborators",
+      "editions_differ": [
+        "EN",
+        "RU"
+      ],
+      "en_says": "Estimates of the number of collaborators vary (no specific figure given in lead)",
+      "other_says": "Czesław Madajczyk estimated about 5% of Polish citizens actively collaborated with the occupation regime, contrasted with 25% actively resisting",
+      "verdict": "absent_en",
+      "evidence_en": "Estimates of the number of collaborators vary.",
+      "evidence_other": "Чеслав Мадайчик подсчитал, что около 5 % польских граждан активно сотрудничали с оккупационным режимом... 25 % активно сопротивляющегося населения"
+    },
+    {
+      "topic": "structural collaboration / indifference to Jews",
+      "editions_differ": [
+        "EN",
+        "RU"
+      ],
+      "en_says": "not mentioned",
+      "other_says": "Historian John Connelly criticizes the population for indifference to the plight of Jews, calling it 'structural collaboration', a phenomenon that plagued Poland throughout the occupation",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": "историк Джон Коннелли критикует то же население за безразличие к тяжёлому положению евреев, это он называл «структурным сотрудничеством»"
+    },
+    {
+      "topic": "forms/types of collaboration",
+      "editions_differ": [
+        "EN",
+        "RU"
+      ],
+      "en_says": "not mentioned in lead",
+      "other_says": "Collaboration manifested in various forms: industrial, political, military and cultural",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": "Коллаборационизм проявлялся в разных формах: начиная от промышленного и политического, заканчивая военным и культурным."
+    },
+    {
+      "topic": "scope of collaborators (individuals vs organizations)",
+      "editions_differ": [
+        "EN",
+        "RU"
+      ],
+      "en_says": "citizens of all its major ethnic groups collaborated with the Germans",
+      "other_says": "cooperation of Polish organizations, Polish citizens, and individual ethnic Poles with Nazi Germany and the Axis countries",
+      "verdict": "differ",
+      "evidence_en": "citizens of all its major ethnic groups collaborated with the Germans",
+      "evidence_other": "сотрудничество польских организаций, польских граждан и отдельных этнических поляков с нацистской Германией и странами «оси»"
+    },
+    {
+      "topic": "Poland's Allied membership placement",
+      "editions_differ": [
+        "EN",
+        "AR"
+      ],
+      "en_says": "mentions Polish government in exile as a member of the Allied coalition in the context of punishing collaborators",
+      "other_says": "AR opens the lead by stating Poland was a member of the Allied coalition throughout WWII fighting Nazi Germany, as a separate opening statement",
+      "verdict": "differ",
+      "evidence_en": "the Polish government in exile (a member of the Allied coalition that fought Nazi Germany)",
+      "evidence_other": "طوال الحرب العالمية الثانية، كانت بولندا عضوًا في تحالف الحلفاء الذي حارب ضد ألمانيا النازية"
+    }
+  ],
+  "summary": "The EN lead emphasizes marginality of collaboration as a point of national pride and frames punishment by the government-in-exile and resistance. The RU lead is more analytical, providing Madajczyk's specific 5% estimate compared to 25% resistance, categorizing collaboration into industrial/political/military/cultural forms, and introducing John Connelly's critique of 'structural collaboration' regarding indifference to Jewish suffering—none of which appear in the EN lead. The AR lead closely mirrors EN but restructures the opening to foreground Poland's Allied membership and omits the 'point of pride' framing. Overall, RU diverges most significantly by adding analytical depth and a critical perspective absent from EN and AR leads.",
+  "model": "claude-sonnet-5"
+}

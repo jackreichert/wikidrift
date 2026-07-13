@@ -26,5 +26,8 @@ GROWTH_RATIO = 3.0      # addition lead: peak-added bin must be this-× removed 
 CHURN_ANOMALY = 10.0    # removal anomaly (× own baseline) to raise a churn→L2 lead even below LEAD_FLOOR
 CHURN_MIN_BYTES = 15_000  # but require a non-trivial absolute removal (keeps PPV ~20.8k; drops a clean-control FP)
 
+# --- slow-bleed detector (12-month cumulative window) -----------------------
+SLOW_BLEED_FLOOR = 0.35  # cumulative wlost/peak_size ratio in a 12-month window to raise a slow_bleed lead
+
 # --- benchmark (from 009-benchmark) -----------------------------------------
 MASS_FLOOR = 50_000     # PWR-mass above this = a substantive drift lead (age-agnostic)

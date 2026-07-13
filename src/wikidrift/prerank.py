@@ -68,6 +68,8 @@ def prerank(con, article):
     rem_anom = pk["removed"] / rem_base
     add_anom = pa["added"] / add_base
     top_ed, top_n = max(pk["users"].items(), key=lambda x: x[1]) if pk["users"] else ("?", 0)
+    top_ed_add, top_n_add = max(pa["users"].items(), key=lambda x: x[1]) if pa.get("users") else ("?", 0)
+    add_editor_conc = top_n_add / pa["revs"] if pa.get("revs") else 0.0
 
     leads = []
     if pk["removed"] >= LEAD_FLOOR and rem_anom >= ANOMALY_MIN:
@@ -91,6 +93,7 @@ def prerank(con, article):
         "added": pa["added"], "add_anom": add_anom,
         "add_window": (pa["start"][:10], pa["end"][:10]),
         "editor_conc": top_n / pk["revs"] if pk["revs"] else 0,
+        "add_editor_conc": add_editor_conc,
         "leads": leads,
         "total_revs": len(rows),
     }
@@ -109,11 +112,11 @@ def run(targets=None):
     con.close()
     results.sort(key=lambda r: -r["removed"])
 
-    print(f"\n{'article':<30} {'rem_peak_B':>10} {'add_peak_B':>10} {'ed%':>4}  {'leads':<20} rem/add windows")
-    print("-" * 112)
+    print(f"\n{'article':<30} {'rem_peak_B':>10} {'add_peak_B':>10} {'rem_ed%':>7} {'add_ed%':>7}  {'leads':<20} rem/add windows")
+    print("-" * 120)
     for r in results:
         tag = "PIVOT" if r["article"] in KNOWN_PIVOT else ("healthy" if r["article"] in KNOWN_HEALTHY else "?")
-        print(f"{r['article']:<30} {r['removed']:>10,} {r['added']:>10,} {r['editor_conc']*100:>3.0f}%  "
+        print(f"{r['article']:<30} {r['removed']:>10,} {r['added']:>10,} {r['editor_conc']*100:>6.0f}% {r['add_editor_conc']*100:>6.0f}%  "
               f"{(', '.join(r['leads']) or '—'):<20} R:{r['rem_window'][0]} A:{r['add_window'][0]} [{tag}]")
 
     pivots = [r for r in results if r["article"] in KNOWN_PIVOT]
@@ -121,7 +124,7 @@ def run(targets=None):
     if pivots and healthy:
         min_pivot = min(r["removed"] for r in pivots)
         below = [r["article"] for r in healthy if r["removed"] >= min_pivot]
-        print("-" * 112)
+        print("-" * 120)
         print(f"lowest known-PIVOT removed_bytes: {min_pivot:,}  "
               f"({[r['article'] for r in pivots if r['removed']==min_pivot][0]})")
         print(f"known-HEALTHY at/above that floor (acceptable false positives for a recall filter): {below or 'none'}")

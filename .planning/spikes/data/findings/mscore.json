@@ -167,19 +167,13 @@
   "Warsaw concentration camp": {
     "raw": {
       "revs": 1056,
-      "editors": 259,
       "mutual_pairs": 3,
-      "mutual_reverters": 6,
-      "weight": 28,
       "M": 168,
       "M_per_rev": 0.16
     },
     "refined": {
       "revs": 923,
-      "editors": 190,
       "mutual_pairs": 0,
-      "mutual_reverters": 0,
-      "weight": 0,
       "M": 0,
       "M_per_rev": 0.0
     },
@@ -232,20 +226,14 @@
   },
   "Water": {
     "raw": {
-      "revs": 7899,
-      "editors": 4029,
+      "revs": 7900,
       "mutual_pairs": 343,
-      "mutual_reverters": 248,
-      "weight": 2690,
       "M": 667120,
-      "M_per_rev": 84.46
+      "M_per_rev": 84.45
     },
     "refined": {
-      "revs": 5327,
-      "editors": 2277,
+      "revs": 5328,
       "mutual_pairs": 43,
-      "mutual_reverters": 30,
-      "weight": 1297,
       "M": 38910,
       "M_per_rev": 7.3
     },
@@ -460,5 +448,20 @@
       "M_per_rev": 0.21
     },
     "refined_per_rev": 0.19
+  },
+  "United Nations General Assembly observers": {
+    "raw": {
+      "revs": 848,
+      "mutual_pairs": 4,
+      "M": 468,
+      "M_per_rev": 0.55
+    },
+    "refined": {
+      "revs": 655,
+      "mutual_pairs": 0,
+      "M": 0,
+      "M_per_rev": 0.0
+    },
+    "refined_per_rev": 0.0
   }
 }

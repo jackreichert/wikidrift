@@ -242,6 +242,11 @@
       "to": 14
     },
     {
+      "domain": "haaretz.com",
+      "from": 8,
+      "to": 12
+    },
+    {
       "domain": "france24.com",
       "from": 4,
       "to": 8
@@ -252,24 +257,24 @@
       "to": 20
     },
     {
-      "domain": "haaretz.com",
-      "from": 8,
-      "to": 12
-    },
-    {
       "domain": "newarab.com",
       "from": 1,
       "to": 4
     },
     {
-      "domain": "cnn.com",
-      "from": 9,
-      "to": 11
+      "domain": "middleeasteye.net",
+      "from": 2,
+      "to": 4
     },
     {
       "domain": "edition.cnn.com",
       "from": 5,
       "to": 7
+    },
+    {
+      "domain": "allisrael.com",
+      "from": 0,
+      "to": 2
     },
     {
       "domain": "israelnationalnews.com",
@@ -282,9 +287,9 @@
       "to": 2
     },
     {
-      "domain": "middleeasteye.net",
-      "from": 2,
-      "to": 4
+      "domain": "cnn.com",
+      "from": 9,
+      "to": 11
     },
     {
       "domain": "archive.today",
@@ -297,37 +302,12 @@
       "to": 2
     },
     {
-      "domain": "allisrael.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "theguardian.com",
-      "from": 7,
-      "to": 8
-    },
-    {
-      "domain": "tps.co.il",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "khaleejtimes.com",
-      "from": 0,
-      "to": 1
-    },
-    {
       "domain": "english.alarabiya.net",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "asharq.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "middleeastmonitor.com",
+      "domain": "tps.co.il",
       "from": 0,
       "to": 1
     },
@@ -337,7 +317,7 @@
       "to": 1
     },
     {
-      "domain": "timesofindia.indiatimes.com",
+      "domain": "asharq.com",
       "from": 0,
       "to": 1
     },
@@ -347,12 +327,12 @@
       "to": 1
     },
     {
-      "domain": "longwarjournal.org",
+      "domain": "aljazeeramubasher.net",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "dailynewsegypt.com",
+      "domain": "stripes.com",
       "from": 0,
       "to": 1
     },
@@ -367,19 +347,39 @@
       "to": 1
     },
     {
-      "domain": "stripes.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "aljazeeramubasher.net",
-      "from": 0,
-      "to": 1
-    },
-    {
       "domain": "news.sky.com",
       "from": 3,
       "to": 4
+    },
+    {
+      "domain": "longwarjournal.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "dailynewsegypt.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "khaleejtimes.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "theguardian.com",
+      "from": 7,
+      "to": 8
+    },
+    {
+      "domain": "timesofindia.indiatimes.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "middleeastmonitor.com",
+      "from": 0,
+      "to": 1
     }
   ],
   "dropped": [
@@ -389,14 +389,14 @@
       "to": 0
     },
     {
-      "domain": "wsj.com",
-      "from": 5,
-      "to": 4
-    },
-    {
       "domain": "archive.is",
       "from": 1,
       "to": 0
+    },
+    {
+      "domain": "wsj.com",
+      "from": 5,
+      "to": 4
     },
     {
       "domain": "amp.theguardian.com",

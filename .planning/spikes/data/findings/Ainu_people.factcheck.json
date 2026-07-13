@@ -1,0 +1,229 @@
+{
+  "article": "Ainu people",
+  "asof": null,
+  "langs": [
+    "en",
+    "ru",
+    "fr",
+    "pt",
+    "ja",
+    "nl"
+  ],
+  "citation": {
+    "mean_jaccard": 0.07,
+    "domains_per_edition": {
+      "en": 106,
+      "ru": 30,
+      "fr": 42,
+      "pt": 52,
+      "ja": 67,
+      "nl": 4
+    }
+  },
+  "claim": {
+    "per_edition": {
+      "en": {
+        "What was the official survey response for the known Ainu population in Hokkaido in 2023?": {
+          "question": "What was the official survey response for the known Ainu population in Hokkaido in 2023?",
+          "answer": "11,450 responses",
+          "value": "11450",
+          "evidence": "Official surveys of the known Ainu population in Hokkaido received 11,450 responses in 2023"
+        },
+        "What was the estimated Ainu population in Russia in 2021?": {
+          "question": "What was the estimated Ainu population in Russia in 2021?",
+          "answer": "300",
+          "value": "300",
+          "evidence": "the Ainu population in Russia was estimated at 300 in 2021"
+        },
+        "What was the unofficial estimate of the total Ainu population in Japan in 2002?": {
+          "question": "What was the unofficial estimate of the total Ainu population in Japan in 2002?",
+          "answer": "200,000 or higher",
+          "value": "200000 or higher",
+          "evidence": "Unofficial estimates in 2002 placed the total population in Japan at 200,000 or higher"
+        },
+        "How many native Ainu speakers were there in 1966?": {
+          "question": "How many native Ainu speakers were there in 1966?",
+          "answer": "about 300",
+          "value": "300",
+          "evidence": "In 1966, there were about 300 native Ainu speakers."
+        },
+        "How many native Ainu speakers were there in the 1980s, and how many used the language daily?": {
+          "question": "How many native Ainu speakers were there in the 1980s, and how many used the language daily?",
+          "answer": "fewer than 100 speakers, 15 using it daily",
+          "value": "<100 speakers; 15 daily users",
+          "evidence": "In the 1980s, there were fewer than 100 native Ainu speakers, with only 15 using the language daily."
+        },
+        "What is the current status of the Hokkaido Ainu language?": {
+          "question": "What is the current status of the Hokkaido Ainu language?",
+          "answer": "Likely extinct, with no known native speakers",
+          "value": "extinct (no known native speakers)",
+          "evidence": "The Hokkaido Ainu language is likely extinct today, as there remain no known native speakers."
+        },
+        "When were Sakhalin Ainu and Kuril Ainu declared extinct?": {
+          "question": "When were Sakhalin Ainu and Kuril Ainu declared extinct?",
+          "answer": "In the 20th century",
+          "value": "20th century",
+          "evidence": "The other Ainu languages, Sakhalin Ainu and Kuril Ainu were declared extinct in the 20th century."
+        },
+        "When did the ethnonym 'Ainu' first appear in a European source?": {
+          "question": "When did the ethnonym 'Ainu' first appear in a European source?",
+          "answer": "1591, in a Latin manuscript",
+          "value": "1591",
+          "evidence": "The name first appeared as  in a 1591 Latin manuscript titled ."
+        },
+        "When did the ethnonym first appear in a German encyclopedia article?": {
+          "question": "When did the ethnonym first appear in a German encyclopedia article?",
+          "answer": "1819",
+          "value": "1819",
+          "evidence": "The ethnonym first appeared in an 1819 German encyclopedia article."
+        },
+        "When did Europeans and Japanese begin conceiving of the Ainu as a distinct ethnic group?": {
+          "question": "When did Europeans and Japanese begin conceiving of the Ainu as a distinct ethnic group?",
+          "answer": "Not until the late 1700s",
+          "value": "late 1700s",
+          "evidence": "Neither European nor Japanese sources conceived of the Ainu as a distinct ethnic group until the late 1700s."
+        },
+        "When did the Mongols establish an administrative post at Nurgan?": {
+          "question": "When did the Mongols establish an administrative post at Nurgan?",
+          "answer": "1263",
+          "value": "1263",
+          "evidence": "the Mongols established an administration post at Nurgan (now Tyr, Russia) at the junction of the Amur and Amgun rivers in 1263"
+        },
+        "When did the Mongols attack the Ainu according to the passage?": {
+          "question": "When did the Mongols attack the Ainu according to the passage?",
+          "answer": "November 30, 1264",
+          "value": "1264-11-30",
+          "evidence": "On November 30, 1264, the Mongols attacked the Ainu."
+        },
+        "By what year had the Northern Sakhalin Ainu been subdued by the Mongols?": {
+          "question": "By what year had the Northern Sakhalin Ainu been subdued by the Mongols?",
+          "answer": "1308",
+          "value": "1308",
+          "evidence": "The Northern Sakhalin Ainu resisted the Mongols, but by 1308 had been subdued."
+        },
+        "When did the Ming dynasty take control of the Amur region?": {
+          "question": "When did the Ming dynasty take control of the Amur region?",
+          "answer": "1387",
+          "value": "1387",
+          "evidence": "The Chinese Ming dynasty (1368–1644) took control of the Amur region in 1387"
+        },
+        "When did Admiral Yishiha reportedly reach Sakhalin?": {
+          "question": "When did Admiral Yishiha reportedly reach Sakhalin?",
+          "answer": "1413",
+          "value": "1413",
+          "evidence": "There is some evidence that Admiral Yishiha reached Sakhalin in 1413 during one of his expeditions to the lower Amur"
+        },
+        "When did the assistant commander Alige bring tribute to the Wuliehe post?": {
+          "question": "When did the assistant commander Alige bring tribute to the Wuliehe post?",
+          "answer": "1431",
+          "value": "1431",
+          "evidence": "In 1431, one such assistant commander, Alige, brought marten pelts as tribute to the Wuliehe post."
+        },
+        "When did four other assistant commanders present tribute?": {
+          "question": "When did four other assistant commanders present tribute?",
+          "answer": "1437",
+          "value": "1437",
+          "evidence": "In 1437, four other assistant commanders (Zhaluha, Sanchiha, Tuolingha, and Alingge) also presented tribute."
+        }
+      },
+      "ru": {
+        "Какова численность айнов по официальным данным правительства Хоккайдо (исследование 2023 года)?": {
+          "question": "Какова численность айнов по официальным данным правительства Хоккайдо (исследование 2023 года)?",
+          "answer": "11 450 человек из 5322 семей",
+          "value": "11450",
+          "evidence": "численность айнов составляет 11 450 человек из 5322 семей (исследование 2023 года)"
+        },
+        "Каков диапазон численности лиц айнского происхождения по некоторым данным?": {
+          "question": "Каков диапазон численности лиц айнского происхождения по некоторым данным?",
+          "answer": "от 25 000 до 200 000 человек",
+          "value": "25000-200000",
+          "evidence": "численность лиц айнского происхождения может составлять от 25 000 до 200 000 человек"
+        },
+        "Когда айны были признаны в Японии коренным населением?": {
+          "question": "Когда айны были признаны в Японии коренным населением?",
+          "answer": "июнь 2008 года",
+          "value": "июнь 2008",
+          "evidence": "Признаны в Японии коренным населением в июне 2008 года."
+        },
+        "Какой процент субклада D1b встречается у айнов?": {
+          "question": "Какой процент субклада D1b встречается у айнов?",
+          "answer": "81,3%",
+          "value": "81.3%",
+          "evidence": "Субклад D1b достигает у айнов 81,3 %"
+        },
+        "С какой частотой встречается у айнов гаплогруппа C2-M217?": {
+          "question": "С какой частотой встречается у айнов гаплогруппа C2-M217?",
+          "answer": "около 15%",
+          "value": "15%",
+          "evidence": "С частотой около 15 % также встречается Y-хромосомная гаплогруппа C2-M217"
+        },
+        "Когда айны появились на Японских островах?": {
+          "question": "Когда айны появились на Японских островах?",
+          "answer": "около 13 тыс. лет до н.э.",
+          "value": "13000 BCE",
+          "evidence": "На Японских островах айны появились около 13 тыс. лет до н. э."
+        },
+        "Какую неолитическую культуру создали айны?": {
+          "question": "Какую неолитическую культуру создали айны?",
+          "answer": "культура Дзёмон",
+          "value": "Дзёмон",
+          "evidence": "создали неолитическую культуру Дзёмон"
+        },
+        "В каком году был утверждён национальный флаг айнов?": {
+          "question": "В каком году был утверждён национальный флаг айнов?",
+          "answer": "1973 год",
+          "value": "1973",
+          "evidence": "Национальный флаг айнов, утверждённый в 1973 году"
+        },
+        "Как назывался регион на юге Камчатки, где жили айны?": {
+          "question": "Как назывался регион на юге Камчатки, где жили айны?",
+          "answer": "Курильская землица",
+          "value": "Курильская землица",
+          "evidence": "эта страна так и называлась «Курильская землица»"
+        },
+        "Как называли айнов в русских источниках XVIII века?": {
+          "question": "Как называли айнов в русских источниках XVIII века?",
+          "answer": "курилы",
+          "value": "курилы",
+          "evidence": "А́йны, в русских источниках XVIII века — курилы (от айн. кур «человек»)"
+        },
+        "Что означает слово «айну» буквально?": {
+          "question": "Что означает слово «айну» буквально?",
+          "answer": "человек",
+          "value": "человек",
+          "evidence": "аину́, буквально: «человек», «настоящий человек»"
+        }
+      }
+    },
+    "adjudication": []
+  },
+  "diagnostics": {
+    "min_edition_count": 2,
+    "effective_langs": [
+      "en",
+      "ru"
+    ],
+    "errors": [
+      {
+        "lang": "fr",
+        "stage": "extract",
+        "error": "Unterminated string starting at: line 1 column 3630 (char 3629)"
+      },
+      {
+        "lang": "pt",
+        "stage": "extract",
+        "error": "Unterminated string starting at: line 1 column 3538 (char 3537)"
+      },
+      {
+        "lang": "ja",
+        "stage": "extract",
+        "error": "Unterminated string starting at: line 1 column 2106 (char 2105)"
+      },
+      {
+        "lang": "nl",
+        "stage": "extract",
+        "error": "Unterminated string starting at: line 1 column 3234 (char 3233)"
+      }
+    ]
+  }
+}

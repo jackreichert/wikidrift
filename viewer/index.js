@@ -5,9 +5,11 @@ var rows=[].slice.call(box.querySelectorAll('.finding'));
 var countEl=document.getElementById('count');
 function num(r){return parseFloat(r.dataset.score)||0;}
 function lex(r){return parseFloat(r.dataset.lex)||0;}
+function pwr(r){return parseFloat(r.dataset.pwr)||0;}
 function cmp(a,b){var s=sortSel.value;
 if(s==='div')return num(b)-num(a)||a.dataset.title.localeCompare(b.dataset.title);
 if(s==='lex')return lex(b)-lex(a)||a.dataset.title.localeCompare(b.dataset.title);
+if(s==='pwr')return pwr(b)-pwr(a)||a.dataset.title.localeCompare(b.dataset.title);
 if(s==='cat')return a.dataset.cat.localeCompare(b.dataset.cat)||a.dataset.title.localeCompare(b.dataset.title);
 return a.dataset.title.localeCompare(b.dataset.title);}
 function drawPager(pages){if(pages<=1){pager.innerHTML='';return;}

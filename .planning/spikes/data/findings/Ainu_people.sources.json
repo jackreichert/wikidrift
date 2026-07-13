@@ -160,22 +160,7 @@
       "to": 6
     },
     {
-      "domain": "2kamuymintara.com",
-      "from": 0,
-      "to": 4
-    },
-    {
-      "domain": "asahi.com",
-      "from": 0,
-      "to": 4
-    },
-    {
       "domain": "cais.hokudai.ac.jp",
-      "from": 0,
-      "to": 4
-    },
-    {
-      "domain": "apjjf.org",
       "from": 0,
       "to": 4
     },
@@ -185,17 +170,7 @@
       "to": 4
     },
     {
-      "domain": "demoscope.ru",
-      "from": 0,
-      "to": 4
-    },
-    {
-      "domain": "ff-ainu.or.jp",
-      "from": 0,
-      "to": 4
-    },
-    {
-      "domain": "ghostarchive.org",
+      "domain": "apjjf.org",
       "from": 0,
       "to": 4
     },
@@ -205,9 +180,29 @@
       "to": 4
     },
     {
-      "domain": "jstor.org",
+      "domain": "ghostarchive.org",
       "from": 0,
-      "to": 3
+      "to": 4
+    },
+    {
+      "domain": "ff-ainu.or.jp",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "asahi.com",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "demoscope.ru",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "2kamuymintara.com",
+      "from": 0,
+      "to": 4
     },
     {
       "domain": "blm.gov",
@@ -215,22 +210,17 @@
       "to": 3
     },
     {
-      "domain": "japantoday.com",
+      "domain": "jstor.org",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "ainu-org.jp",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "city.sapporo.jp",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "mmdesign-jpn.la.coocan.jp",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "soranews24.com",
+      "domain": "cnn.com",
       "from": 0,
       "to": 2
     },
@@ -240,112 +230,27 @@
       "to": 2
     },
     {
-      "domain": "ainu-org.jp",
+      "domain": "severdv.ru",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "japan-guide.com",
+      "domain": "nippon.com",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "kamtime.ru",
+      "domain": "teikokushoin.co.jp",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "ainu-upopoy.jp",
+      "domain": "hokkaidolikers.com",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "tigweb.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "indigenous.ru",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "en.unesco.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "themarysue.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "archive.today",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "kamchatka-etno.ru",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "kunishitei.bunka.go.jp",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "academia.edu",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "nazaccent.ru",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "pk.russiaregionpress.ru",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "city.asahikawa.hokkaido.jp",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "ansipra.npolar.no",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "sangiin.go.jp",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "segodnia.ru",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "news.bbc.co.uk",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "rg.ru",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "ritsumei.ac.jp",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "nytimes.com",
+      "domain": "newvoices.org.au",
       "from": 0,
       "to": 2
     },
@@ -360,67 +265,7 @@
       "to": 2
     },
     {
-      "domain": "omniglot.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "cnn.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "filmpreservation.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "teikokushoin.co.jp",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "nikkei.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "thearchaeologist.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "doi.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "daisetsu-kamikawa-ainu.jp",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "src-h.slav.hokudai.ac.jp",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "rosstat.gov.ru",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "bbc.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "sbs.com.au",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "severdv.ru",
+      "domain": "japantoday.com",
       "from": 0,
       "to": 2
     },
@@ -430,72 +275,32 @@
       "to": 2
     },
     {
-      "domain": "britannica.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "newvoices.org.au",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "hokkaidolikers.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "independent.co.uk",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "blog.hawaii.edu",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "hmv.co.jp",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "nippon.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "asia.nikkei.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "smithsonianmag.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "karafuto.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "studenttheses.universiteitleiden.nl",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "sapiens.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "arcticcentre.org",
-      "from": 0,
-      "to": 2
-    },
-    {
       "domain": "mnh.si.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "src-h.slav.hokudai.ac.jp",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "nikkei.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "ansipra.npolar.no",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "kamchatka-etno.ru",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "filmpreservation.org",
       "from": 0,
       "to": 2
     },
@@ -505,32 +310,207 @@
       "to": 2
     },
     {
-      "domain": "stanfordrewired.com",
+      "domain": "independent.co.uk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "rosstat.gov.ru",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "indigenous.ru",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "archive.today",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "city.asahikawa.hokkaido.jp",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "studenttheses.universiteitleiden.nl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "ainu-upopoy.jp",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "nazaccent.ru",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "rg.ru",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "pk.russiaregionpress.ru",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "japan-guide.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "themarysue.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "daisetsu-kamikawa-ainu.jp",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "doi.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "asia.nikkei.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "kamtime.ru",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "segodnia.ru",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "thearchaeologist.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "hmv.co.jp",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "kunishitei.bunka.go.jp",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "tigweb.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "smithsonianmag.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "ritsumei.ac.jp",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "britannica.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "arcticcentre.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "soranews24.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "sapiens.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "en.unesco.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "omniglot.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "mmdesign-jpn.la.coocan.jp",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "sbs.com.au",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "news.bbc.co.uk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "bbc.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "academia.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "nytimes.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "karafuto.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "sangiin.go.jp",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "city.sapporo.jp",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "blog.hawaii.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "dx.doi.org",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "ign.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "loc.gov",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "5-tv.ru",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "ethnologue.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "ich.unesco.org",
+      "domain": "tota.world",
       "from": 0,
       "to": 1
     },
@@ -540,32 +520,7 @@
       "to": 1
     },
     {
-      "domain": "molli.org.uk",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "sustainable.japantimes.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "jspsusa.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "uwdc.library.wisc.edu",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "frpac.or.jp",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "popjap.hypotheses.org",
+      "domain": "archive.fieldmuseum.org",
       "from": 0,
       "to": 1
     },
@@ -575,32 +530,42 @@
       "to": 1
     },
     {
+      "domain": "cambridge.org",
+      "from": 0,
+      "to": 1
+    },
+    {
       "domain": "polona.pl",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "archive.fieldmuseum.org",
+      "domain": "ainu-center.hm.pref.hokkaido.lg.jp",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "dh-north.org",
+      "domain": "jspsusa.org",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "eprints.lib.hokudai.ac.jp",
+      "domain": "webcitation.org",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "ainu-museum-nibutani.org",
+      "domain": "stanfordrewired.com",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "pref.hokkaido.lg.jp",
+      "domain": "5-tv.ru",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "uwdc.library.wisc.edu",
       "from": 0,
       "to": 1
     },
@@ -610,7 +575,62 @@
       "to": 1
     },
     {
-      "domain": "webcitation.org",
+      "domain": "eprints.lib.hokudai.ac.jp",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ainumosir-movie.jp",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ethnologue.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "dh-north.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "molli.org.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "pref.hokkaido.lg.jp",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "cbc.ca",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "skyehohmann.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ich.unesco.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "scj.go.jp",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ainu-museum-nibutani.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "frpac.or.jp",
       "from": 0,
       "to": 1
     },
@@ -625,47 +645,17 @@
       "to": 1
     },
     {
-      "domain": "tota.world",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "ainu-center.hm.pref.hokkaido.lg.jp",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "dx.doi.org",
-      "from": 0,
-      "to": 1
-    },
-    {
       "domain": "shugiin.go.jp",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "scj.go.jp",
+      "domain": "loc.gov",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "csmonitor.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "cbc.ca",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "ainumosir-movie.jp",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "cambridge.org",
+      "domain": "ign.com",
       "from": 0,
       "to": 1
     },
@@ -675,7 +665,17 @@
       "to": 1
     },
     {
-      "domain": "skyehohmann.com",
+      "domain": "csmonitor.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "sustainable.japantimes.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "popjap.hypotheses.org",
       "from": 0,
       "to": 1
     }

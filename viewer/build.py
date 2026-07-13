@@ -42,17 +42,12 @@ def _md_asset(stem):
 # Editor tints for the (opt-in) blame overlay — light backgrounds, dark text (AA-safe).
 BLAME_PALETTE = ["#f6dede", "#dde6f4", "#dfeede", "#f4eccf", "#e7ddf2", "#d5ecec",
                  "#f4e2cf", "#e4e4e6", "#efdde8", "#dcecdf"]
-# Stance / verdict rendered as CSS classes (tinted bg + dark text) — see CSS for the AA-safe values.
+# Stance / verdict rendered as CSS classes — kept for any future L5 re-integration.
 SCLASS = {"critical": "c", "sympathetic": "s", "neutral": "n", "absent": "a"}
 VCLASS = {"contradict": "c", "differ": "d", "agree": "a", "insufficient": "i"}
 
 # Plain-language "what am I looking at?" leads per tab (links resolve from an article page: root "../").
 WHAT = {
-    "framing": 'How language editions <a href="../glossary.html#framing">frame</a> the same subject '
-               '(critical / neutral / sympathetic). Gaps are a <a href="../glossary.html#lead">signal</a> '
-               'to inspect, not a conclusion.',
-    "facts": 'Whether editions <a href="../glossary.html#fact-divergence">agree on load-bearing facts</a> '
-             '(counts, categories). Contradictions — especially ones later corrected — are worth checking.',
     "diff": 'Side-by-side <a href="../glossary.html#pivot">before / after</a> of the English article around '
             'its heaviest rewrite windows.',
     "blame": 'Who introduced the current opening: each color is one account '
@@ -191,7 +186,7 @@ class Findings:
     an 11-arg signature at three call sites (where a swapped pair would silently render the wrong tab)."""
     receipts: dict = field(default_factory=dict)
     stances: dict = field(default_factory=dict)
-    factchecks: dict = field(default_factory=dict)
+    factchecks: dict = field(default_factory=lambda: {})
     diver: dict = field(default_factory=lambda: {"static": {}, "pivot_relative": {}})
     mscore: dict = field(default_factory=dict)
     diffs: dict = field(default_factory=dict)
@@ -200,13 +195,13 @@ class Findings:
     sources: dict = field(default_factory=dict)
     lexical: dict = field(default_factory=dict)
     profiles: dict = field(default_factory=dict)
+    framings: dict = field(default_factory=dict)
 
-    l4: dict = field(default_factory=dict)  # article -> discovery meta (optional)
+    l4: dict = field(default_factory=dict)
 
     def articles(self):
         """Every public article with a renderable finding (excludes test fixtures)."""
-        names = (set(self.receipts) | set(self.stances) | set(self.diver.get("static", {})) |
-             set(self.factchecks) | set(self.lexical))
+        names = (set(self.pivots) | set(self.diffs) | set(self.lexical) | set(self.sources) | set(self.profiles))
         return sorted(a for a in names if a not in EXCLUDE_ARTICLES)
 
 
@@ -273,7 +268,7 @@ def gather():
             t = _l4_title(row)
             if t and t not in EXCLUDE_ARTICLES:
                 l4map.setdefault(t, {"seed": seed, "class": row.get("class") or row.get("label") or "L4 candidate"})
-    diffs, blames, pivots = {}, {}, {}
+    diffs, blames, pivots, framings = {}, {}, {}, {}
     if DATA.exists():
         for f in DATA.glob("*.diff.json"):
             d = load(f)
@@ -287,9 +282,13 @@ def gather():
             d = load(f)
             if d:
                 pivots[d["article"]] = d
+        for f in FIND.glob("*.framing.json"):
+            d = load(f)
+            if d and d.get("article"):
+                framings[d["article"]] = d
     return Findings(receipts=receipts, stances=stances, factchecks=factchecks, diver=diver, mscore=mscore,
                     diffs=diffs, blames=blames, pivots=pivots, sources=sources, lexical=lexical,
-                    profiles=profiles, l4=l4map)
+                    profiles=profiles, framings=framings, l4=l4map)
 
 
 # ---- shared fragments -------------------------------------------------------
@@ -388,15 +387,21 @@ def fact_section(article, fcs):
         cells = []
         for t in times:
             a = verdict_by[t].get(q)
-            cells.append(f'<td><span class="badge v-{VCLASS.get(a["verdict"],"i")}">{esc(a["verdict"])}</span></td>'
-                         if a else "<td>—</td>")
+            if a:
+                v = a["verdict"]
+                if v == "agree":
+                    cells.append(f'<td class="muted" style="font-size:.82rem">agree</td>')
+                else:
+                    cells.append(f'<td><span class="badge v-{VCLASS.get(v,"i")}">{esc(v)}</span></td>')
+            else:
+                cells.append("<td>—</td>")
         worst = max((verdict_by[t][q] for t in times if q in verdict_by[t]),
                     key=lambda a: sev.get(a["verdict"], 0), default=None)
         note = worst.get("note", "") if worst else ""
         rows.append(f'<tr><th scope="row">{esc(q)}</th>{"".join(cells)}</tr>'
                     f'<tr class="noterow"><td colspan="{len(times)+1}" class="muted">{esc(note)}</td></tr>')
     cite = " · ".join(f"{esc(t)}: {fcs[t]['citation']['mean_jaccard']}" for t in times)
-    return (f'<h2>Do the editions agree on facts?</h2><p class="lead">{WHAT["facts"]}</p>'
+    return (f'<h2>Factual cross-edition check</h2><p class="lead">{WHAT["facts"]}</p>'
             f'<div class="tablewrap"><table class="grid"><thead><tr><th scope="col">factual question</th>{thead}</tr>'
             f'</thead><tbody>{"".join(rows)}</tbody></table></div>'
             f'<p class="muted">Shared-source overlap (context only, skewed by edition language): {cite}.</p>')
@@ -563,22 +568,16 @@ def _fact_improved(fcs):
     return False
 
 
-def headline(article, st, diver, fcs, mscore):
-    pr = diver.get("pivot_relative", {}).get(article)
-    stat = diver.get("static", {}).get(article)
-    div = stat["variants"]["lead"]["divergence"] if stat else None
-    if pr and pr["read"] == "PEELED AWAY":
-        return "The English article's framing moved away from the other-language editions during a major rewrite."
-    if _fact_improved(fcs):
-        return "The editions disagreed on key facts in the past, and have since converged."
-    if fcs and any(a["verdict"] == "contradict" for t in fcs for a in fcs[t]["claim"]["adjudication"]):
-        return "The editions currently state conflicting facts."
-    if div == 0:
-        return "A neutral control topic: the editions agree."
-    if pr and pr["read"] == "no net change" and div:
-        return "The editions frame this differently, but it was not introduced by a single rewrite."
-    if div is not None:
-        return "The editions frame this subject differently."
+def headline(article, f):
+    has_pivot = article in f.pivots or article in f.diffs
+    lex = f.lexical.get(article) or {}
+    jsd = float(lex.get("js_divergence", 0) or 0)
+    if has_pivot and jsd > 0.1:
+        return "A major rewrite was detected, with a measurable shift in vocabulary."
+    if has_pivot:
+        return "A major rewrite was detected in this article's edit history."
+    if jsd > 0.1:
+        return "Vocabulary shifted significantly around the rewrite window."
     return "Findings compiled."
 
 
@@ -629,6 +628,22 @@ def overview_section(article, f, lead, layers):
         f'<a class="wiki-link" href="{esc(wiki_en_url(article))}" target="_blank" rel="noopener">'
         f'Open current English Wikipedia article ↗</a>',
     ]
+
+    # Pivot signal — shown before M-score so severity is immediately clear
+    pwr = pivot_score(article, f)
+    if article in f.pivots or article in f.diffs:
+        tier = "high" if pwr >= 200_000 else ("med" if pwr >= 50_000 else "")
+        pill_cls = {"high": "warn", "med": "warn", "": ""}.get(tier, "")
+        badge_cls = f"sig {tier}".strip()
+        pv = f.pivots.get(article) or {}
+        pivs = pv.get("pivots") or []
+        n = len(pivs)
+        label = f"pivot {_fmt_pwr(pwr)}" if pwr else "pivot detected"
+        pivot_note = f"{n} confirmed pivot{'s' if n != 1 else ''}" if n else "diff detected"
+        parts.append(
+            f'<p style="margin:.65rem 0 .35rem"><span class="{badge_cls}">{label}</span> '
+            f'<span class="muted" style="font-size:.88rem">{pivot_note} — see Diff tab</span></p>'
+        )
     chips = []
     for name, have, note in layers:
         cls = "have" if have else "miss"
@@ -648,10 +663,8 @@ def overview_section(article, f, lead, layers):
         parts.append(ms)
     parts.append(profile_line(f.profiles.get(article)))
     parts.append(
-        '<p class="muted">Use the tabs for framing grids, fact tables, diffs, citation change, and revisions. '
-        'Deep-link with <code>#framing</code>, <code>#facts</code>, <code>#lexical</code>, <code>#diff</code>, '
-        '<code>#sources</code>, '
-        '<code>#revisions</code>.</p>')
+        '<p class="muted">Use the tabs for lexical drift, diffs, and citation change. '
+        'Deep-link with <code>#lexical</code>, <code>#diff</code>, <code>#sources</code>.</p>')
     return "".join(p for p in parts if p)
 
 
@@ -660,7 +673,7 @@ def missing_diff_section():
         '<h2>What changed, and when</h2>'
         '<p class="missing-note">No confirmed pivot was detected for this article — '
         'L1 did not find a durable rewrite large enough to redline. '
-        'Other layers (framing, facts, sources) may still apply.</p>'
+        'Other layers (lexical, sources) may still apply.</p>'
     )
 
 
@@ -738,37 +751,83 @@ def profile_line(prof):
             '<span class="muted">Descriptive context only.</span></p>')
 
 
+def framing_section(fr):
+    """Render the Framing Lite tab: cross-lingual lead divergences."""
+    if not fr:
+        return ""
+    divs = fr.get("divergences") or []
+    editions = fr.get("editions_compared") or []
+    summary = fr.get("summary") or ""
+    category = fr.get("category") or "general"
+    pivot = fr.get("pivot_window")
+
+    pivot_note = ""
+    if pivot:
+        pivot_note = (f'<p class="muted">Pivot window: {esc(pivot.get("start","?"))} – '
+                      f'{esc(pivot.get("end","?"))}</p>')
+
+    if not divs:
+        return (f'<h2>Cross-lingual framing</h2>'
+                f'<p class="lead">Compared: {", ".join(editions)}. '
+                f'No significant divergences found.</p>{pivot_note}')
+
+    verdict_cls = {"contradict": "v-c", "differ": "v-d", "absent_en": "v-d",
+                   "absent_other": "v-i", "agree": "v-a"}
+    rows = ""
+    for d in divs:
+        v = d.get("verdict", "differ")
+        cls = verdict_cls.get(v, "v-i")
+        other_says = esc(d.get("other_says") or "")
+        ev_other = d.get("evidence_other")
+        if ev_other:
+            other_says += f'<br><span class="muted">&ldquo;{esc(ev_other)}&rdquo;</span>'
+        en_says = esc(d.get("en_says") or "")
+        ev_en = d.get("evidence_en")
+        if ev_en:
+            en_says += f'<br><span class="muted">&ldquo;{esc(ev_en)}&rdquo;</span>'
+        eds = ", ".join(d.get("editions_differ") or [])
+        rows += (f'<tr><td>{esc(d.get("topic",""))}</td>'
+                 f'<td class="cell {cls}">{esc(v)}</td>'
+                 f'<td>{en_says}</td><td>{other_says}</td>'
+                 f'<td class="muted" style="font-size:.82rem">{esc(eds)}</td></tr>')
+
+    table = (f'<div class="tablewrap"><table>'
+             f'<thead><tr><th>Topic</th><th>Verdict</th><th>EN says</th>'
+             f'<th>Other edition(s) say</th><th>Editions</th></tr></thead>'
+             f'<tbody>{rows}</tbody></table></div>')
+
+    return (f'<h2>Cross-lingual framing</h2>'
+            f'<p class="lead">{esc(summary)}</p>'
+            f'{pivot_note}'
+            f'<p class="muted">Editions compared: {", ".join(editions)} · category: {esc(category)}</p>'
+            f'<p class="legend"><span class="badge v-c">contradict</span> factual contradiction &nbsp;'
+            f'<span class="badge v-d">differ</span> emphasis differs &nbsp;'
+            f'<span class="badge v-i">absent</span> missing from one edition</p>'
+            f'{table}'
+            f'<p class="disclaimer">Divergences are leads for researchers, not verdicts.</p>')
+
+
 def _layer_flags(article, f):
-    has_framing = article in f.stances or article in f.diver.get("static", {})
-    has_facts = bool(f.factchecks.get(article))
     has_lex = article in f.lexical
     has_diff = article in f.pivots or article in f.diffs
     has_src = article in f.sources
-    has_rec = article in f.receipts
+    has_framing = bool((f.framings.get(article) or {}).get("divergences"))
     return [
-        ("Framing", has_framing, "not run"),
-        ("Facts", has_facts, "not run"),
         ("Lexical", has_lex, "not run"),
         ("Diff", has_diff, "no pivot found"),
         ("Sources", has_src, "not run"),
-        ("Revisions", has_rec, "not run"),
+        ("Framing", has_framing, "not run"),
     ]
 
 
 def article_page(article, f, categories):
-    rec, st, diver = f.receipts.get(article), f.stances.get(article), f.diver
-    fcs = f.factchecks.get(article, {})
     diff, pv = f.diffs.get(article), f.pivots.get(article)
     src = f.sources.get(article)
     lex = f.lexical.get(article)
-    lead = headline(article, st, diver, fcs, f.mscore)
+    fr = f.framings.get(article)
+    lead = headline(article, f)
     layers = _layer_flags(article, f)
     panels = [("Overview", overview_section(article, f, lead, layers), "overview")]
-    # Framing (mscore already on overview when present)
-    if st or article in diver.get("static", {}):
-        panels.append(("Framing", framing_section(article, st, diver), "framing"))
-    if fcs:
-        panels.append(("Facts", fact_section(article, fcs), "facts"))
     if lex:
         panels.append(("Lexical", lexical_section(lex), "lexical"))
     if pv:
@@ -779,8 +838,8 @@ def article_page(article, f, categories):
         panels.append(("Diff", missing_diff_section(), "diff"))
     if src:
         panels.append(("Sources", sources_section(article, src), "sources"))
-    if rec:
-        panels.append(("Revisions", receipts_section(rec), "revisions"))
+    if fr:
+        panels.append(("Framing", framing_section(fr), "framing"))
     cat = _category_for(article, categories)
     body = (
         f'<div class="page-intro"><p class="kicker">{esc(cat)}</p><h1>{esc(article)}</h1>'
@@ -797,24 +856,44 @@ def article_page(article, f, categories):
 INDEX_JS = _asset("index.js")
 
 
+def _fmt_pwr(n):
+    """Compact PWR-mass label: 827,154 → '827k'."""
+    return f"{n // 1000}k" if n >= 1000 else str(n)
+
+
+def _stance_departed(article, f):
+    """True if L2 found npov_departure on any entity in any edition."""
+    eds = (f.stances.get(article) or {}).get("editions") or {}
+    for ed in eds.values():
+        for slot in ed.values():
+            if isinstance(slot, dict):
+                for ent in slot.values():
+                    if isinstance(ent, dict) and ent.get("npov_departure"):
+                        return True
+    return False
+
+
 def signal_badges(article, f, score):
     """Severity cues for the index list."""
     badges = []
-    pr = f.diver.get("pivot_relative", {}).get(article)
-    if pr and pr.get("read") == "PEELED AWAY":
-        badges.append('<span class="sig peel">peeled</span>')
-    fcs = f.factchecks.get(article, {})
-    if fcs and any(a["verdict"] == "contradict" for t in fcs for a in fcs[t]["claim"]["adjudication"]):
-        badges.append('<span class="sig fact">fact gap</span>')
-    if score is not None and score >= 1.2:
-        badges.append('<span class="sig high">high framing gap</span>')
-    elif score is not None and score >= 0.4:
-        badges.append('<span class="sig med">framing gap</span>')
+    pwr = pivot_score(article, f)
     if article in f.pivots or article in f.diffs:
-        badges.append('<span class="sig">diff</span>')
+        label = f"pivot {_fmt_pwr(pwr)}" if pwr else "diff"
+        tier = "high" if pwr >= 200_000 else ("med" if pwr >= 50_000 else "")
+        cls = f"sig {tier}".strip()
+        badges.append(f'<span class="{cls}">{label}</span>')
     if article in f.lexical:
         js = lexical_score(article, f)
         badges.append(f'<span class="sig lex">lex {js:.2f}</span>')
+    fr = f.framings.get(article) or {}
+    if fr.get("divergences"):
+        has_contradict = any(d.get("verdict") == "contradict" for d in fr["divergences"])
+        badge_cls = "sig framing-c" if has_contradict else "sig framing"
+        badges.append(f'<span class="{badge_cls}">framing</span>')
+    prof = f.profiles.get(article) or {}
+    conc = prof.get("top10_editor_share") or 0
+    if conc >= 70:
+        badges.append(f'<span class="sig conc">{conc:.0f}% conc</span>')
     if article in f.l4:
         badges.append('<span class="sig">L4</span>')
     return "".join(badges)
@@ -828,6 +907,16 @@ def lexical_score(article, f):
         return 0.0
 
 
+def pivot_score(article, f):
+    """Top PWR-mass across confirmed pivots for this article (0 if none)."""
+    pv = f.pivots.get(article) or {}
+    pivs = pv.get("pivots") or []
+    try:
+        return max((int(p.get("pwr_mass") or 0) for p in pivs), default=0)
+    except Exception:
+        return 0
+
+
 def index_page(articles, f, categories):
     cats = sorted({_category_for(a, categories) for a in articles})
     chips = ('<button type="button" class="fchip active" data-cat="all" aria-pressed="true">All</button>'
@@ -835,32 +924,28 @@ def index_page(articles, f, categories):
                        for c in cats))
     rows = []
     for a in articles:
-        h = headline(a, f.stances.get(a), f.diver, f.factchecks.get(a, {}), f.mscore)
+        h = headline(a, f)
         cat = _category_for(a, categories)
-        stat = f.diver.get("static", {}).get(a)
-        score = stat["variants"]["lead"]["divergence"] if stat else 0
-        sc = score if score is not None else 0
         lex_sc = lexical_score(a, f)
-        badges = signal_badges(a, f, score)
+        pwr_sc = pivot_score(a, f)
+        badges = signal_badges(a, f, None)
         meta = f'<div class="f-meta">{badges}</div>' if badges else ""
         meta_html = meta if meta else '<div class="f-meta"></div>'
         lex_text = f" lexical {lex_sc:.3f}" if a in f.lexical else ""
         # grid: title | summary | badges | arrow  (CSS rearranges on narrow screens)
         rows.append(
             f'<a class="finding" href="article/{slugify(a)}.html" data-cat="{esc(cat)}" '
-            f'data-title="{esc(a.lower())}" data-score="{sc}" '
-            f'data-lex="{lex_sc}" '
+            f'data-title="{esc(a.lower())}" data-score="{lex_sc}" '
+            f'data-lex="{lex_sc}" data-pwr="{pwr_sc}" '
             f'data-text="{esc((a + " " + h + " " + cat + lex_text).lower())}">'
             f'<div class="f-head"><span class="kicker">{esc(cat)}</span>'
             f'<h3>{esc(a)}</h3></div>'
-            f'<p>{esc(h)}</p>'
-            f'{meta_html}'
+            f'<div class="f-body"><p>{esc(h)}</p>{meta_html}</div>'
             f'<span class="f-go" aria-hidden="true">→</span></a>')
     intro = (
         '<div class="page-intro"><h1>WikiDrift findings</h1>'
-        '<p class="summary">Each article against its own history and against other-language editions: '
-        '<a href="glossary.html#framing">framing</a> gaps, '
-        '<a href="glossary.html#fact-divergence">fact</a> disagreements, and major rewrites. '
+        '<p class="summary">Each article against its own history: '
+        'major rewrites, vocabulary shift, and citation changes. '
         'A diagnostic tool from <a href="https://encyclopediae.org">encyclopediae.org</a>.</p>'
         '<p class="disclaimer">Candidates only — not conclusions.</p></div>')
     controls = (
@@ -868,8 +953,8 @@ def index_page(articles, f, categories):
         'placeholder="Search findings…" aria-label="Search findings">'
         f'<div class="filters" role="group" aria-label="Filter by topic">{chips}</div>'
         '<label class="sortlab">Sort <select id="sort" class="sortsel" aria-label="Sort findings">'
-        '<option value="div" selected>Framing divergence</option>'
-        '<option value="lex">Lexical drift</option>'
+        '<option value="lex" selected>Lexical drift</option>'
+        '<option value="pwr">Pivot (PWR mass)</option>'
         '<option value="az">A–Z</option>'
         '<option value="cat">Topic</option></select></label>'
         '<span id="count" class="count" role="status" aria-live="polite"></span></div>')

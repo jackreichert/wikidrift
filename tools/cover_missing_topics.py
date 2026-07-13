@@ -29,7 +29,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-DEFAULT_REQUIRED_LAYERS = ["receipts", "stance", "factcheck", "sources", "profile"]
+DEFAULT_REQUIRED_LAYERS = ["receipts", "stance", "sources", "profile"]
 DEFAULT_L5_MAX_LANGS = 6
 MIN_ADAPTIVE_L5_MAX_LANGS = 3
 DEFAULT_CONTROLS = [
@@ -123,6 +123,12 @@ def _load_topic_layers(findings_dir: Path) -> dict[str, set[str]]:
         add(_title_from_filename(p, ".sources.json"), "sources")
     for p in findings_dir.glob("*.profile.json"):
         add(_title_from_filename(p, ".profile.json"), "profile")
+    for p in findings_dir.glob("*.framing.json"):
+        try:
+            payload = json.loads(p.read_text(encoding="utf-8"))
+            add((payload.get("article") or "").strip(), "framing")
+        except Exception:
+            continue
 
     for p in findings_dir.glob("*.factcheck.json"):
         try:
@@ -152,19 +158,20 @@ def _run(cmd: list[str], execute: bool) -> int:
     return int(completed.returncode)
 
 
-def _pipeline_cmd(topic: str, use_llm: bool, include_mscore: bool, l5_max_langs: int | None = None) -> list[str]:
+def _pipeline_cmd(topic: str, use_llm: bool, include_mscore: bool, include_framing: bool = False,
+                  l5_max_langs: int | None = None) -> list[str]:
     base = [sys.executable, "-m", "wikidrift.cli"]
     cmd = base + ["pipeline", topic]
     if use_llm:
         cmd.append("--llm")
-        if l5_max_langs and l5_max_langs > 0:
-            cmd.extend(["--l5-max-langs", str(l5_max_langs)])
     if include_mscore:
         cmd.append("--mscore")
+    if include_framing:
+        cmd.append("--framing")
     return cmd
 
 
-def _topic_commands(topic: str, use_llm: bool, include_mscore: bool, mode: str,
+def _topic_commands(topic: str, use_llm: bool, include_mscore: bool, include_framing: bool, mode: str,
                     l5_max_langs: int | None,
                     required: set[str], have: set[str]) -> tuple[list[list[str]], list[str]]:
     """Return (commands, notes) for this topic under the selected mode."""
@@ -173,29 +180,19 @@ def _topic_commands(topic: str, use_llm: bool, include_mscore: bool, mode: str,
     notes: list[str] = []
 
     if mode == "full":
-        # Full path always runs pipeline once.
-        pipeline_llm = use_llm
-        cmds.append(_pipeline_cmd(
-            topic,
-            use_llm=pipeline_llm,
-            include_mscore=include_mscore,
-            l5_max_langs=l5_max_langs,
-        ))
+        cmds.append(_pipeline_cmd(topic, use_llm=use_llm, include_mscore=include_mscore,
+                                  include_framing=include_framing))
         cmds.append(base + ["sources", topic])
         cmds.append(base + ["profile", topic])
         return cmds, notes
 
     # mode == fill: run the smallest command set that can cover missing layers.
     missing = required - have
-    needs_core = bool({"receipts", "stance", "factcheck"} & missing)
-    if needs_core:
-        pipeline_llm = use_llm
-        cmds.append(_pipeline_cmd(
-            topic,
-            use_llm=pipeline_llm,
-            include_mscore=include_mscore,
-            l5_max_langs=l5_max_langs,
-        ))
+    needs_core = bool({"receipts", "stance"} & missing)
+    needs_framing = "framing" in missing
+    if needs_core or needs_framing:
+        cmds.append(_pipeline_cmd(topic, use_llm=use_llm, include_mscore=include_mscore,
+                                  include_framing=include_framing and (needs_framing or needs_core)))
 
     if "sources" in missing:
         cmds.append(base + ["sources", topic])
@@ -280,6 +277,11 @@ def main() -> int:
             "adaptive uses latest topic diagnostics, fixed always uses --l5-max-langs"
         ),
     )
+    parser.add_argument(
+        "--framing",
+        action="store_true",
+        help="Run L5 Framing Lite (cross-lingual lead divergence) via pipeline --framing (opt-in; needs an LLM key)",
+    )
     args = parser.parse_args()
 
     findings_dir = Path(args.findings_dir)
@@ -288,6 +290,8 @@ def main() -> int:
         return 2
 
     required = set(args.required_layers)
+    if args.framing:
+        required.add("framing")
     layers = _load_topic_layers(findings_dir)
 
     # Ensure controls are visible even if they have zero files.
@@ -340,6 +344,7 @@ def main() -> int:
             topic,
             use_llm=use_llm,
             include_mscore=args.mscore,
+            include_framing=args.framing,
             mode=args.mode,
             l5_max_langs=topic_l5_max_langs,
             required=required,

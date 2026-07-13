@@ -107,21 +107,6 @@
       "to": 3
     },
     {
-      "domain": "google.it",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "brill.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "infocenters.co.il",
-      "from": 0,
-      "to": 2
-    },
-    {
       "domain": "haaretz.com",
       "from": 0,
       "to": 2
@@ -132,42 +117,22 @@
       "to": 3
     },
     {
-      "domain": "rosenberglab.stanford.edu",
+      "domain": "infocenters.co.il",
       "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "pure.manchester.ac.uk",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "isita-org.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "forward.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "degruyter.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "dro.dur.ac.uk",
-      "from": 1,
       "to": 2
     },
     {
-      "domain": "archive.org",
+      "domain": "google.it",
       "from": 0,
-      "to": 1
+      "to": 2
     },
     {
-      "domain": "science.org",
+      "domain": "brill.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "columbia.edu",
       "from": 0,
       "to": 1
     },
@@ -177,17 +142,37 @@
       "to": 1
     },
     {
-      "domain": "quest-cdecjournal.it",
+      "domain": "ia800901.us.archive.org",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "smithsonianmag.com",
+      "domain": "archive.org",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "columbia.edu",
+      "domain": "dro.dur.ac.uk",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "forward.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "science.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "isita-org.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "pure.manchester.ac.uk",
       "from": 0,
       "to": 1
     },
@@ -197,19 +182,34 @@
       "to": 1
     },
     {
-      "domain": "ia800901.us.archive.org",
+      "domain": "quest-cdecjournal.it",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "degruyter.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "smithsonianmag.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "rosenberglab.stanford.edu",
       "from": 0,
       "to": 1
     }
   ],
   "dropped": [
     {
-      "domain": "ncbi.nlm.nih.gov",
+      "domain": "adalah.org",
       "from": 1,
       "to": 0
     },
     {
-      "domain": "adalah.org",
+      "domain": "ncbi.nlm.nih.gov",
       "from": 1,
       "to": 0
     },

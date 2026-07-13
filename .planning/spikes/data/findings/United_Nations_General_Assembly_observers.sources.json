@@ -64,19 +64,14 @@
       "to": 21
     },
     {
-      "domain": "reuters.com",
-      "from": 0,
-      "to": 5
-    },
-    {
       "domain": "un.int",
       "from": 0,
       "to": 5
     },
     {
-      "domain": "digitallibrary.un.org",
+      "domain": "reuters.com",
       "from": 0,
-      "to": 4
+      "to": 5
     },
     {
       "domain": "books.google.com",
@@ -84,7 +79,7 @@
       "to": 4
     },
     {
-      "domain": "daccess-dds-ny.un.org",
+      "domain": "digitallibrary.un.org",
       "from": 0,
       "to": 4
     },
@@ -99,27 +94,22 @@
       "to": 4
     },
     {
+      "domain": "daccess-dds-ny.un.org",
+      "from": 0,
+      "to": 4
+    },
+    {
       "domain": "undemocracy.com",
       "from": 0,
       "to": 3
     },
     {
-      "domain": "treaties.un.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "asil.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "mfa.gov.il",
-      "from": 0,
-      "to": 2
-    },
-    {
       "domain": "unispal.un.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "treaties.un.org",
       "from": 0,
       "to": 2
     },
@@ -134,9 +124,29 @@
       "to": 2
     },
     {
+      "domain": "mfa.gov.il",
+      "from": 0,
+      "to": 2
+    },
+    {
       "domain": "thedailybeast.com",
       "from": 0,
       "to": 2
+    },
+    {
+      "domain": "asil.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "edition.cnn.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "theguardian.com",
+      "from": 0,
+      "to": 1
     },
     {
       "domain": "mcgill.ca",
@@ -149,7 +159,7 @@
       "to": 1
     },
     {
-      "domain": "news.un.org",
+      "domain": "sknc.qdnd.vn",
       "from": 0,
       "to": 1
     },
@@ -159,12 +169,7 @@
       "to": 1
     },
     {
-      "domain": "sknc.qdnd.vn",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "apnews.com",
+      "domain": "archive.wikiwix.com",
       "from": 0,
       "to": 1
     },
@@ -174,22 +179,17 @@
       "to": 1
     },
     {
+      "domain": "news.un.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "apnews.com",
+      "from": 0,
+      "to": 1
+    },
+    {
       "domain": "baltimoresun.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "edition.cnn.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "archive.wikiwix.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "theguardian.com",
       "from": 0,
       "to": 1
     }

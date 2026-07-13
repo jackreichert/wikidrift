@@ -383,14 +383,14 @@
       "to": 21
     },
     {
-      "domain": "apnews.com",
-      "from": 0,
-      "to": 7
-    },
-    {
       "domain": "bbc.com",
       "from": 3,
       "to": 10
+    },
+    {
+      "domain": "apnews.com",
+      "from": 0,
+      "to": 7
     },
     {
       "domain": "jstor.org",
@@ -398,34 +398,19 @@
       "to": 6
     },
     {
-      "domain": "cnn.com",
-      "from": 2,
-      "to": 7
-    },
-    {
       "domain": "washingtonpost.com",
       "from": 6,
       "to": 11
     },
     {
+      "domain": "cnn.com",
+      "from": 2,
+      "to": 7
+    },
+    {
       "domain": "timesofisrael.com",
       "from": 14,
       "to": 19
-    },
-    {
-      "domain": "haaretz.com",
-      "from": 22,
-      "to": 26
-    },
-    {
-      "domain": "france24.com",
-      "from": 0,
-      "to": 4
-    },
-    {
-      "domain": "palestine-studies.org",
-      "from": 0,
-      "to": 4
     },
     {
       "domain": "heinonline.org",
@@ -443,29 +428,19 @@
       "to": 4
     },
     {
-      "domain": "theguardian.com",
-      "from": 18,
-      "to": 21
-    },
-    {
-      "domain": "middleeasteye.net",
-      "from": 2,
-      "to": 5
-    },
-    {
-      "domain": "theatlantic.com",
-      "from": 2,
-      "to": 5
-    },
-    {
-      "domain": "tandfonline.com",
+      "domain": "palestine-studies.org",
       "from": 0,
-      "to": 3
+      "to": 4
     },
     {
-      "domain": "maariv.co.il",
+      "domain": "france24.com",
       "from": 0,
-      "to": 3
+      "to": 4
+    },
+    {
+      "domain": "haaretz.com",
+      "from": 22,
+      "to": 26
     },
     {
       "domain": "foreignpolicy.com",
@@ -473,17 +448,42 @@
       "to": 3
     },
     {
+      "domain": "tandfonline.com",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "middleeasteye.net",
+      "from": 2,
+      "to": 5
+    },
+    {
       "domain": "archive.today",
       "from": 3,
       "to": 6
     },
     {
-      "domain": "dayan.org",
+      "domain": "theguardian.com",
+      "from": 18,
+      "to": 21
+    },
+    {
+      "domain": "theatlantic.com",
+      "from": 2,
+      "to": 5
+    },
+    {
+      "domain": "maariv.co.il",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "merip.org",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "thetimes.com",
+      "domain": "trendsresearch.org",
       "from": 0,
       "to": 2
     },
@@ -493,62 +493,12 @@
       "to": 2
     },
     {
-      "domain": "upi.com",
-      "from": 1,
-      "to": 3
-    },
-    {
-      "domain": "palestine-pmc.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "jewishtimes.com",
-      "from": 0,
-      "to": 2
-    },
-    {
       "domain": "npr.org",
       "from": 3,
       "to": 5
     },
     {
-      "domain": "trendsresearch.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "nzz.ch",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "merip.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "spiegel.de",
-      "from": 1,
-      "to": 3
-    },
-    {
-      "domain": "worldbulletin.net",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "inss.org.il",
-      "from": 0,
-      "to": 2
-    },
-    {
       "domain": "unicef.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "aja.me",
       "from": 0,
       "to": 2
     },
@@ -558,14 +508,24 @@
       "to": 2
     },
     {
-      "domain": "theage.com.au",
+      "domain": "worldbulletin.net",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "washingtonbureau.typepad.com",
+      "domain": "thetimes.com",
       "from": 0,
       "to": 2
+    },
+    {
+      "domain": "jewishtimes.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "spiegel.de",
+      "from": 1,
+      "to": 3
     },
     {
       "domain": "dni.gov",
@@ -573,7 +533,7 @@
       "to": 2
     },
     {
-      "domain": "websites.umich.edu",
+      "domain": "nzz.ch",
       "from": 0,
       "to": 2
     },
@@ -583,52 +543,52 @@
       "to": 2
     },
     {
+      "domain": "theage.com.au",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "palestine-pmc.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "washingtonbureau.typepad.com",
+      "from": 0,
+      "to": 2
+    },
+    {
       "domain": "vox.com",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "theconversation.com",
-      "from": 1,
+      "domain": "dayan.org",
+      "from": 0,
       "to": 2
     },
     {
-      "domain": "lusailnews.net",
+      "domain": "websites.umich.edu",
       "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "ghostarchive.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "ict.org.il",
-      "from": 1,
       "to": 2
     },
     {
-      "domain": "newyorker.com",
-      "from": 1,
+      "domain": "aja.me",
+      "from": 0,
       "to": 2
     },
     {
-      "domain": "swissinfo.ch",
+      "domain": "inss.org.il",
       "from": 0,
-      "to": 1
+      "to": 2
     },
     {
-      "domain": "beehive.govt.nz",
-      "from": 0,
-      "to": 1
+      "domain": "upi.com",
+      "from": 1,
+      "to": 3
     },
     {
-      "domain": "abc.net.au",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "press.un.org",
+      "domain": "pcpsr.org",
       "from": 0,
       "to": 1
     },
@@ -638,42 +598,17 @@
       "to": 2
     },
     {
-      "domain": "liberation.fr",
-      "from": 0,
-      "to": 1
-    },
-    {
       "domain": "taipeitimes.com",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "amp.dw.com",
+      "domain": "beehive.govt.nz",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "un.org",
-      "from": 2,
-      "to": 3
-    },
-    {
-      "domain": "imemc.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "pcpsr.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "smh.com.au",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "canadafreepress.com",
+      "domain": "fair.org",
       "from": 1,
       "to": 2
     },
@@ -683,99 +618,19 @@
       "to": 1
     },
     {
-      "domain": "contendingmodernities.nd.edu",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "cbc.ca",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "franceculture.fr",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "dropsitenews.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "rfa.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "wanaen.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "motherjones.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "routledge.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "oed.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "washingtoninstitute.org",
-      "from": 2,
-      "to": 3
-    },
-    {
-      "domain": "english.palinfo.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "newhumanist.org.uk",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "almoqawma.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "thefreelibrary.com",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "ohchr.org",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "palestiniannews.net",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "kyivpost.com",
-      "from": 0,
-      "to": 1
-    },
-    {
       "domain": "unsettledpod.com",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "foreignaffairs.com",
-      "from": 1,
-      "to": 2
+      "domain": "smh.com.au",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "un.org",
+      "from": 2,
+      "to": 3
     },
     {
       "domain": "avalon.law.yale.edu",
@@ -783,67 +638,12 @@
       "to": 3
     },
     {
-      "domain": "fair.org",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "ar.timesofisrael.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "files.ethz.ch",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "apaimages.info",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "ara.tv",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "haaretz.co.il",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "books.google.co.ma",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "peacemaker.un.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "ft.com",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "theintercept.com",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "refworld.org",
-      "from": 0,
-      "to": 1
-    },
-    {
       "domain": "samanews.ps",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "thearabweekly.com",
+      "domain": "kyivpost.com",
       "from": 0,
       "to": 1
     },
@@ -853,12 +653,27 @@
       "to": 1
     },
     {
+      "domain": "scholarworks.law.ubalt.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
       "domain": "bloomsbury.com",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "voanews.com",
+      "domain": "newhumanist.org.uk",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "wanaen.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "foreignaffairs.com",
       "from": 1,
       "to": 2
     },
@@ -868,12 +683,17 @@
       "to": 2
     },
     {
-      "domain": "felesteen.news",
+      "domain": "haaretz.co.il",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "scholarworks.law.ubalt.edu",
+      "domain": "contendingmodernities.nd.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "thenation.com",
       "from": 0,
       "to": 1
     },
@@ -883,12 +703,192 @@
       "to": 1
     },
     {
-      "domain": "en.unav.edu",
+      "domain": "franceculture.fr",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "thenation.com",
+      "domain": "lusailnews.net",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "amp.dw.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "oed.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ghostarchive.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "palestiniannews.net",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "press.un.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "files.ethz.ch",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "theconversation.com",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "ft.com",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "abc.net.au",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ict.org.il",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "apaimages.info",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "english.palinfo.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "felesteen.news",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ar.timesofisrael.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "cbc.ca",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "thefreelibrary.com",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "ara.tv",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "refworld.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "peacemaker.un.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "almoqawma.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "dropsitenews.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "routledge.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "theintercept.com",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "books.google.co.ma",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "motherjones.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "canadafreepress.com",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "liberation.fr",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "rfa.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "imemc.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "thearabweekly.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "washingtoninstitute.org",
+      "from": 2,
+      "to": 3
+    },
+    {
+      "domain": "newyorker.com",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "voanews.com",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "swissinfo.ch",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ohchr.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "en.unav.edu",
       "from": 0,
       "to": 1
     }
@@ -910,13 +910,23 @@
       "to": 4
     },
     {
+      "domain": "maannews.net",
+      "from": 8,
+      "to": 0
+    },
+    {
       "domain": "news.bbc.co.uk",
       "from": 21,
       "to": 13
     },
     {
-      "domain": "maannews.net",
-      "from": 8,
+      "domain": "nytimes.com",
+      "from": 17,
+      "to": 11
+    },
+    {
+      "domain": "mfa.gov.il",
+      "from": 6,
       "to": 0
     },
     {
@@ -925,18 +935,28 @@
       "to": 0
     },
     {
-      "domain": "mfa.gov.il",
-      "from": 6,
+      "domain": "jta.org",
+      "from": 5,
       "to": 0
     },
     {
-      "domain": "nytimes.com",
-      "from": 17,
-      "to": 11
+      "domain": "al-monitor.com",
+      "from": 6,
+      "to": 2
     },
     {
-      "domain": "jta.org",
-      "from": 5,
+      "domain": "archive.org",
+      "from": 6,
+      "to": 2
+    },
+    {
+      "domain": "state.gov",
+      "from": 4,
+      "to": 0
+    },
+    {
+      "domain": "news.xinhuanet.com",
+      "from": 4,
       "to": 0
     },
     {
@@ -950,58 +970,18 @@
       "to": 0
     },
     {
-      "domain": "bbc.co.uk",
-      "from": 4,
-      "to": 0
-    },
-    {
-      "domain": "news.xinhuanet.com",
-      "from": 4,
-      "to": 0
-    },
-    {
-      "domain": "state.gov",
-      "from": 4,
-      "to": 0
-    },
-    {
       "domain": "telegraph.co.uk",
       "from": 9,
       "to": 5
     },
     {
-      "domain": "al-monitor.com",
-      "from": 6,
-      "to": 2
-    },
-    {
-      "domain": "eur-lex.europa.eu",
+      "domain": "bbc.co.uk",
       "from": 4,
       "to": 0
     },
     {
-      "domain": "archive.org",
-      "from": 6,
-      "to": 2
-    },
-    {
-      "domain": "jewishjournal.com",
-      "from": 3,
-      "to": 0
-    },
-    {
-      "domain": "reuters.com",
-      "from": 17,
-      "to": 14
-    },
-    {
-      "domain": "foxnews.com",
-      "from": 6,
-      "to": 3
-    },
-    {
-      "domain": "memritv.org",
-      "from": 3,
+      "domain": "eur-lex.europa.eu",
+      "from": 4,
       "to": 0
     },
     {
@@ -1010,72 +990,37 @@
       "to": 2
     },
     {
+      "domain": "jewishjournal.com",
+      "from": 3,
+      "to": 0
+    },
+    {
       "domain": "stopterrorfinance.org",
       "from": 3,
       "to": 0
     },
     {
-      "domain": "nationalsecurity.gov.au",
+      "domain": "memritv.org",
+      "from": 3,
+      "to": 0
+    },
+    {
+      "domain": "foxnews.com",
+      "from": 6,
+      "to": 3
+    },
+    {
+      "domain": "reuters.com",
+      "from": 17,
+      "to": 14
+    },
+    {
+      "domain": "fbi.gov",
       "from": 2,
       "to": 0
     },
     {
-      "domain": "vanityfair.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "cbsnews.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "m.aljazeera.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "unwatch.org",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "neurope.eu",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "ifj.org",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "todayszaman.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "b92.net",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "ajn.com.au",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "weekly.ahram.org.eg",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "therakyatpost.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "nation.co.ke",
+      "domain": "pqasb.pqarchiver.com",
       "from": 2,
       "to": 0
     },
@@ -1085,17 +1030,47 @@
       "to": 1
     },
     {
-      "domain": "cnsnews.com",
+      "domain": "jamestown.org",
       "from": 2,
       "to": 0
     },
     {
-      "domain": "english.aljazeera.net",
+      "domain": "europolitics.info",
       "from": 2,
       "to": 0
     },
     {
-      "domain": "unodc.org",
+      "domain": "palestinenote.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "unwatch.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "ifj.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "dw.com",
+      "from": 4,
+      "to": 2
+    },
+    {
+      "domain": "israelnationalnews.com",
+      "from": 3,
+      "to": 1
+    },
+    {
+      "domain": "sfgate.com",
+      "from": 3,
+      "to": 1
+    },
+    {
+      "domain": "onswipe.upi.com",
       "from": 2,
       "to": 0
     },
@@ -1110,26 +1085,6 @@
       "to": 0
     },
     {
-      "domain": "usdoj.gov",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "it.maannews.net",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "israelnationalnews.com",
-      "from": 3,
-      "to": 1
-    },
-    {
-      "domain": "globalsecurity.org",
-      "from": 2,
-      "to": 0
-    },
-    {
       "domain": "abcnews.go.com",
       "from": 2,
       "to": 0
@@ -1140,7 +1095,17 @@
       "to": 0
     },
     {
-      "domain": "islamonline.net",
+      "domain": "chinadaily.com.cn",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "vanityfair.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "tnp.no",
       "from": 2,
       "to": 0
     },
@@ -1150,37 +1115,42 @@
       "to": 0
     },
     {
-      "domain": "charlierose.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "onswipe.upi.com",
-      "from": 2,
-      "to": 0
-    },
-    {
       "domain": "iht.com",
       "from": 3,
       "to": 1
     },
     {
-      "domain": "middleeastfacts.com",
+      "domain": "en.rsf.org",
       "from": 2,
       "to": 0
     },
     {
-      "domain": "palestinenote.com",
+      "domain": "islamonline.net",
       "from": 2,
       "to": 0
     },
     {
-      "domain": "fbi.gov",
+      "domain": "todayszaman.com",
       "from": 2,
       "to": 0
     },
     {
-      "domain": "jamestown.org",
+      "domain": "nationalsecurity.gov.au",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "neurope.eu",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "ajn.com.au",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "cbsnews.com",
       "from": 2,
       "to": 0
     },
@@ -1195,62 +1165,77 @@
       "to": 0
     },
     {
-      "domain": "chinadaily.com.cn",
-      "from": 2,
-      "to": 0
-    },
-    {
       "domain": "thenational.ae",
       "from": 2,
       "to": 0
     },
     {
-      "domain": "pqasb.pqarchiver.com",
+      "domain": "middleeastfacts.com",
       "from": 2,
       "to": 0
     },
     {
-      "domain": "dw.com",
-      "from": 4,
-      "to": 2
-    },
-    {
-      "domain": "tnp.no",
+      "domain": "charlierose.com",
       "from": 2,
       "to": 0
     },
     {
-      "domain": "en.rsf.org",
+      "domain": "nation.co.ke",
       "from": 2,
       "to": 0
     },
     {
-      "domain": "sfgate.com",
-      "from": 3,
-      "to": 1
-    },
-    {
-      "domain": "europolitics.info",
+      "domain": "usdoj.gov",
       "from": 2,
       "to": 0
     },
     {
-      "domain": "jcpa.org",
+      "domain": "therakyatpost.com",
       "from": 2,
-      "to": 1
-    },
-    {
-      "domain": "csmonitor.com",
-      "from": 1,
       "to": 0
     },
     {
-      "domain": "google.com",
+      "domain": "it.maannews.net",
       "from": 2,
-      "to": 1
+      "to": 0
     },
     {
-      "domain": "translate.google.com",
+      "domain": "b92.net",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "m.aljazeera.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "globalsecurity.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "english.aljazeera.net",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "cnsnews.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "weekly.ahram.org.eg",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "unodc.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "newstatesman.com",
       "from": 1,
       "to": 0
     },
@@ -1260,47 +1245,22 @@
       "to": 0
     },
     {
-      "domain": "fpc.state.gov",
-      "from": 3,
-      "to": 2
-    },
-    {
-      "domain": "researchgate.net",
-      "from": 1,
-      "to": 0
-    },
-    {
       "domain": "palwatch.org",
       "from": 1,
       "to": 0
     },
     {
-      "domain": "guardian.co.uk",
+      "domain": "csmonitor.com",
       "from": 1,
       "to": 0
     },
     {
-      "domain": "hal-sciencespo.archives-ouvertes.fr",
+      "domain": "boston.com",
       "from": 1,
       "to": 0
     },
     {
-      "domain": "csis.org",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "publicsafety.gc.ca",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "religion.blogs.cnn.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "weeklystandard.com",
+      "domain": "timesofindia.indiatimes.com",
       "from": 1,
       "to": 0
     },
@@ -1315,147 +1275,12 @@
       "to": 0
     },
     {
-      "domain": "boston.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "ihrc.org.uk",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "unhcr.org",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "news.un.org",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "amnesty.org",
+      "domain": "jcpa.org",
       "from": 2,
       "to": 1
-    },
-    {
-      "domain": "usatoday30.usatoday.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "thestar.com",
-      "from": 3,
-      "to": 2
-    },
-    {
-      "domain": "thehill.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "eeas.europa.eu",
-      "from": 2,
-      "to": 1
-    },
-    {
-      "domain": "switch3.castup.net",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "usatoday.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "euractiv.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "wsj.com",
-      "from": 4,
-      "to": 3
-    },
-    {
-      "domain": "alaraby.co.uk",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "electronicintifada.net",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "aa.com.tr",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "hrw.org",
-      "from": 14,
-      "to": 13
-    },
-    {
-      "domain": "thejewishweek.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "danieldrezner.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "themoscowtimes.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "timesofindia.indiatimes.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "legislation.gov.uk",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "thetower.org",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "mlive.com",
-      "from": 1,
-      "to": 0
     },
     {
       "domain": "xinhuanet.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "expatica.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "justice.gc.ca",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "middleeastmonitor.com",
-      "from": 4,
-      "to": 3
-    },
-    {
-      "domain": "mofa.go.jp",
       "from": 1,
       "to": 0
     },
@@ -1465,7 +1290,17 @@
       "to": 0
     },
     {
-      "domain": "209.85.215.104",
+      "domain": "translate.google.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "ihrc.org.uk",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "usatoday30.usatoday.com",
       "from": 1,
       "to": 0
     },
@@ -1475,9 +1310,44 @@
       "to": 0
     },
     {
-      "domain": "news.yahoo.com",
+      "domain": "209.85.215.104",
       "from": 1,
       "to": 0
+    },
+    {
+      "domain": "middleeastmonitor.com",
+      "from": 4,
+      "to": 3
+    },
+    {
+      "domain": "guardian.co.uk",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "publicsafety.gc.ca",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "mlive.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "switch3.castup.net",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "google.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "hrw.org",
+      "from": 14,
+      "to": 13
     },
     {
       "domain": "wayback.archive-it.org",
@@ -1485,12 +1355,157 @@
       "to": 0
     },
     {
+      "domain": "alaraby.co.uk",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "news.yahoo.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "wsj.com",
+      "from": 4,
+      "to": 3
+    },
+    {
+      "domain": "aa.com.tr",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "thehill.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "danieldrezner.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "thetower.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "eeas.europa.eu",
+      "from": 2,
+      "to": 1
+    },
+    {
       "domain": "topics.nytimes.com",
       "from": 1,
       "to": 0
     },
     {
+      "domain": "articles.latimes.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "csis.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "mofa.go.jp",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "fpc.state.gov",
+      "from": 3,
+      "to": 2
+    },
+    {
+      "domain": "usatoday.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "thejewishweek.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "researchgate.net",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "euractiv.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "weeklystandard.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "thestar.com",
+      "from": 3,
+      "to": 2
+    },
+    {
+      "domain": "justice.gc.ca",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "religion.blogs.cnn.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "politico.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "journals.lib.unb.ca",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "news.un.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "unhcr.org",
+      "from": 1,
+      "to": 0
+    },
+    {
       "domain": "independent.co.uk",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "themoscowtimes.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "electronicintifada.net",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "legislation.gov.uk",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "hal-sciencespo.archives-ouvertes.fr",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "expatica.com",
       "from": 1,
       "to": 0
     },
@@ -1505,32 +1520,17 @@
       "to": 0
     },
     {
+      "domain": "amnesty.org",
+      "from": 2,
+      "to": 1
+    },
+    {
       "domain": "nbcnews.com",
       "from": 2,
       "to": 1
     },
     {
       "domain": "irishtimes.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "politico.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "articles.latimes.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "newstatesman.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "journals.lib.unb.ca",
       "from": 1,
       "to": 0
     }

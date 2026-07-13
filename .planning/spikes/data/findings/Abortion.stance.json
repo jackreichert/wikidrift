@@ -15,7 +15,7 @@
           "entity": "Abortion",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "is die vorzeitige Beendigung einer Schwangerschaft, die das Ungeborene gewolltermaßen nicht überlebt"
+          "evidence": "Ein Schwangerschaftsabbruch (auch Abtreibung; ... ist die vorzeitige Beendigung einer Schwangerschaft, die das Ungeborene gewolltermaßen nicht überlebt."
         }
       },
       "lead": {
@@ -23,7 +23,7 @@
           "entity": "Abortion",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "Die Zulässigkeit von Schwangerschaftsabbrüchen ist seit der Antike heftig umstritten... Daraus folgen sehr unterschiedliche ethische Beurteilungen und juristische Regelungen"
+          "evidence": "Die Zulässigkeit von Schwangerschaftsabbrüchen ist seit der Antike heftig umstritten... reichen von weitgehender Entscheidungsfreiheit der Schwangeren bis zu völligen Verboten mit harten Strafen."
         }
       }
     },
@@ -31,9 +31,9 @@
       "focal": {
         "Abortion": {
           "entity": "Abortion",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "Passage describes medical definitions, procedures, and history in clinical, encyclopedic terms such as 'Legala aborter är idag mycket säkra' presented as factual medical consensus rather than advocacy."
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "Laglig abort är mycket säkert och riskfritt oavsett när i graviditeten man gör den... Legala aborter är idag mycket säkra och de flesta komplikationer beror på en obehandlad sexuellt överförbar infektion."
         }
       },
       "lead": {
@@ -41,7 +41,7 @@
           "entity": "Abortion",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "Vilken abortmetod som används beror på vad som är bäst för patienten... Laglig abort är mycket säkert och riskfritt oavsett när i graviditeten man gör den"
+          "evidence": "Vilken abortmetod som används beror på vad som är bäst för patienten, och den väljs alltid i samråd med patienten så långt det är möjligt."
         }
       }
     },
@@ -51,21 +51,15 @@
           "entity": "Abortion",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "Abortion is the termination of a pregnancy by removal or expulsion of an embryo or fetus."
-        },
-        "Legal, safe abortion (medical/public health framing)": {
-          "entity": "Legal, safe abortion (medical/public health framing)",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "Public health data show that making safe abortion legal and accessible reduces maternal deaths."
+          "evidence": "Abortion laws and views of the procedure are different around the world... there remains debate with regard to moral, religious, ethical, and legal issues"
         }
       },
       "lead": {
         "Abortion": {
           "entity": "Abortion",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "Abortion is the termination of a pregnancy by removal or expulsion of an embryo or fetus."
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "an induced abortion does not increase the risk of long-term mental or physical problems... Public health data show that making safe abortion legal and accessible reduces maternal deaths."
         }
       }
     }

@@ -106,14 +106,19 @@
       "to": 3
     },
     {
+      "domain": "polska1918-89.pl",
+      "from": 1,
+      "to": 3
+    },
+    {
       "domain": "fpnp.pl",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "polska1918-89.pl",
-      "from": 1,
-      "to": 3
+      "domain": "czestochowa.wyborcza.pl",
+      "from": 0,
+      "to": 1
     },
     {
       "domain": "api.parliament.uk",
@@ -121,24 +126,14 @@
       "to": 1
     },
     {
-      "domain": "haaretz.com",
+      "domain": "mazowsze.hist.pl",
       "from": 1,
       "to": 2
     },
     {
-      "domain": "niniwa22.cba.pl",
+      "domain": "dzieje.pl",
       "from": 0,
       "to": 1
-    },
-    {
-      "domain": "archiwum.rp.pl",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "policjapanstwowa.pl",
-      "from": 1,
-      "to": 2
     },
     {
       "domain": "ceeol.com",
@@ -146,7 +141,12 @@
       "to": 1
     },
     {
-      "domain": "mazowsze.hist.pl",
+      "domain": "niniwa22.cba.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "haaretz.com",
       "from": 1,
       "to": 2
     },
@@ -161,14 +161,14 @@
       "to": 1
     },
     {
-      "domain": "czestochowa.wyborcza.pl",
+      "domain": "archiwum.rp.pl",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "dzieje.pl",
-      "from": 0,
-      "to": 1
+      "domain": "policjapanstwowa.pl",
+      "from": 1,
+      "to": 2
     },
     {
       "domain": "ora.ox.ac.uk",
@@ -188,12 +188,12 @@
       "to": 0
     },
     {
-      "domain": "grott.info",
+      "domain": "cbc.ca",
       "from": 2,
       "to": 0
     },
     {
-      "domain": "cbc.ca",
+      "domain": "grott.info",
       "from": 2,
       "to": 0
     },
@@ -203,42 +203,12 @@
       "to": 0
     },
     {
-      "domain": "arch.ipn.gov.pl",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "jstor.org",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "cristeros1.w.interia.pl",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "books.google.co.kr",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "michael-wildt.de",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "niniwa2.cba.pl",
-      "from": 2,
-      "to": 1
-    },
-    {
       "domain": "timesofisrael.com",
       "from": 2,
       "to": 1
     },
     {
-      "domain": "jhi.pl",
+      "domain": "jstor.org",
       "from": 1,
       "to": 0
     },
@@ -248,12 +218,42 @@
       "to": 0
     },
     {
+      "domain": "jhi.pl",
+      "from": 1,
+      "to": 0
+    },
+    {
       "domain": "hansard.millbanksystems.com",
       "from": 1,
       "to": 0
     },
     {
+      "domain": "cristeros1.w.interia.pl",
+      "from": 1,
+      "to": 0
+    },
+    {
       "domain": "msn.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "arch.ipn.gov.pl",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "niniwa2.cba.pl",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "michael-wildt.de",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "books.google.co.kr",
       "from": 1,
       "to": 0
     }

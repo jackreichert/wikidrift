@@ -1,0 +1,45 @@
+{
+  "article": "Fascism and ideology",
+  "run_ts": "2026-07-13T21:13:41.265594Z",
+  "category": "general",
+  "pivot_window": null,
+  "editions_compared": [
+    "en",
+    "sr",
+    "ko"
+  ],
+  "lead_chars": {
+    "en": 2591,
+    "sr": 2535,
+    "ko": 1190
+  },
+  "divergences": [
+    {
+      "topic": "nationalism subtypes",
+      "editions_differ": [
+        "EN",
+        "SR",
+        "KO"
+      ],
+      "en_says": "Common themes include nationalism as a general theme without specifying subtypes like racial or religious nationalism",
+      "other_says": "Nationalism is specified to include racial nationalism and religious nationalism",
+      "verdict": "differ",
+      "evidence_en": "Common themes among fascist movements include: authoritarianism, nationalism, hierarchy, elitism, and militarism.",
+      "evidence_other": "ауторитаризам, национализам (укључујући расни национализам и верски национализам), хијерархију, елитизам и милитаризам"
+    },
+    {
+      "topic": "non-racialized conceptions of nation",
+      "editions_differ": [
+        "EN",
+        "SR"
+      ],
+      "en_says": "other early forms of fascism concerned themselves with non-racialized conceptions of their respective nations",
+      "other_says": "other early forms of fascism concerned themselves with non-racist (нерасистичким) conceptions of their nations",
+      "verdict": "differ",
+      "evidence_en": "other early forms of fascism concerned themselves with non-racialized conceptions of their respective nations.",
+      "evidence_other": "други рани облици фашизма бавили нерасистичким концепцијама својих нација"
+    }
+  ],
+  "summary": "The three leads are substantively aligned in content, structure, and argument. The main divergence is that the SR and KO editions explicitly mention that fascist nationalism included racial nationalism and religious nationalism as subtypes, a specification absent in the EN lead. Additionally, the SR edition frames the non-racial conceptions of nationhood as 'non-racist' rather than EN's more neutral 'non-racialized,' a subtle difference in connotation. These are minor wording/emphasis differences rather than factual contradictions, and the overall narrative, causal attributions, and characterizations of fascism's ideological history remain consistent across editions.",
+  "model": "claude-sonnet-5"
+}

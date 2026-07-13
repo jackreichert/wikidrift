@@ -1,0 +1,301 @@
+{
+  "article": "UNRWA",
+  "span": "2014-07-01 -> 2015-01-01 (around L1 pivot ~2014-07-01)",
+  "pivot": "2014-07-01",
+  "before": {
+    "date": "2014-07-01",
+    "rev": 614640525,
+    "tokens": 5141
+  },
+  "after": {
+    "date": "2015-01-01",
+    "rev": 640818599,
+    "tokens": 6293
+  },
+  "js_divergence": 0.1245,
+  "overrepresented_after_terms": [
+    {
+      "term": "date",
+      "before": 0,
+      "after": 17,
+      "delta": 17,
+      "log_odds": 3.3559
+    },
+    {
+      "term": "accessed",
+      "before": 0,
+      "after": 14,
+      "delta": 14,
+      "log_odds": 3.1674
+    },
+    {
+      "term": "mopan",
+      "before": 0,
+      "after": 10,
+      "delta": 10,
+      "log_odds": 2.8439
+    },
+    {
+      "term": "page",
+      "before": 0,
+      "after": 8,
+      "delta": 8,
+      "log_odds": 2.6323
+    },
+    {
+      "term": "retrieved",
+      "before": 0,
+      "after": 8,
+      "delta": 8,
+      "log_odds": 2.6323
+    },
+    {
+      "term": "update",
+      "before": 0,
+      "after": 7,
+      "delta": 7,
+      "log_odds": 2.507
+    },
+    {
+      "term": "examples",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 2.3637
+    },
+    {
+      "term": "pages",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 2.3637
+    },
+    {
+      "term": "sub",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 2.3637
+    },
+    {
+      "term": "elections",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 2.1965
+    },
+    {
+      "term": "html",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 2.1965
+    },
+    {
+      "term": "problem",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 2.1965
+    },
+    {
+      "term": "related",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 2.1965
+    },
+    {
+      "term": "weapons",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 2.1965
+    },
+    {
+      "term": "concludes",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 1.9957
+    },
+    {
+      "term": "initiative",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 1.9957
+    },
+    {
+      "term": "khalil",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 1.9957
+    },
+    {
+      "term": "multilateral",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 1.9957
+    },
+    {
+      "term": "nine",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 1.9957
+    },
+    {
+      "term": "organisations",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 1.9957
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "lending",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.601
+    },
+    {
+      "term": "businesses",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.4002
+    },
+    {
+      "term": "enterprise",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.4002
+    },
+    {
+      "term": "household",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.4002
+    },
+    {
+      "term": "kilograms",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.4002
+    },
+    {
+      "term": "rocket",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.4002
+    },
+    {
+      "term": "amendment",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.1487
+    },
+    {
+      "term": "clients",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.1487
+    },
+    {
+      "term": "economy",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.1487
+    },
+    {
+      "term": "expand",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.1487
+    },
+    {
+      "term": "formal",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.1487
+    },
+    {
+      "term": "growth",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.1487
+    },
+    {
+      "term": "jordanian",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.1487
+    },
+    {
+      "term": "mec",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.1487
+    },
+    {
+      "term": "microenterprise",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.1487
+    },
+    {
+      "term": "product",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.1487
+    },
+    {
+      "term": "products",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.1487
+    },
+    {
+      "term": "repayment",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.1487
+    },
+    {
+      "term": "sgl",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.1487
+    },
+    {
+      "term": "unable",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.1487
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

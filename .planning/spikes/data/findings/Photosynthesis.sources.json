@@ -69,12 +69,12 @@
       "to": 5
     },
     {
-      "domain": "newscientist.com",
+      "domain": "perseus.tufts.edu",
       "from": 0,
       "to": 4
     },
     {
-      "domain": "perseus.tufts.edu",
+      "domain": "newscientist.com",
       "from": 0,
       "to": 4
     },
@@ -84,7 +84,17 @@
       "to": 3
     },
     {
+      "domain": "lexico.com",
+      "from": 0,
+      "to": 2
+    },
+    {
       "domain": "zfn.mpdl.mpg.de",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "pbs.org",
       "from": 0,
       "to": 2
     },
@@ -94,12 +104,7 @@
       "to": 2
     },
     {
-      "domain": "astrobio.net",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "eia.doe.gov",
+      "domain": "bbc.com",
       "from": 0,
       "to": 2
     },
@@ -109,12 +114,22 @@
       "to": 2
     },
     {
-      "domain": "escholarship.org",
+      "domain": "biodiversitylibrary.org",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "biodiversitylibrary.org",
+      "domain": "garfield.library.upenn.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "astrobio.net",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "escholarship.org",
       "from": 0,
       "to": 2
     },
@@ -134,27 +149,42 @@
       "to": 2
     },
     {
-      "domain": "pbs.org",
+      "domain": "eia.doe.gov",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "lexico.com",
+      "domain": "fao.org",
       "from": 0,
-      "to": 2
+      "to": 1
     },
     {
-      "domain": "garfield.library.upenn.edu",
+      "domain": "ucmp.berkeley.edu",
       "from": 0,
-      "to": 2
+      "to": 1
     },
     {
-      "domain": "bbc.com",
+      "domain": "cbc.ca",
       "from": 0,
-      "to": 2
+      "to": 1
     },
     {
-      "domain": "bcs.whfreeman.com",
+      "domain": "chemsoc.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "research.wur.nl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "scienceaid.co.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "doi.org",
       "from": 0,
       "to": 1
     },
@@ -169,37 +199,7 @@
       "to": 1
     },
     {
-      "domain": "research.wur.nl",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "ucmp.berkeley.edu",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "scienceaid.co.uk",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "chemsoc.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "cbc.ca",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "doi.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "fao.org",
+      "domain": "bcs.whfreeman.com",
       "from": 0,
       "to": 1
     }

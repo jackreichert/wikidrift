@@ -60,6 +60,9 @@ removal → PWR, addition → L2, churn → L2.</td></tr>
 <tr><td><b>L2 — Framing</b></td><td>Did stance on key entities shift?</td>
 <td><a href="glossary.html#stance">NPOV-axis</a> ratings over time (not generic sentiment). Prefer
 sampling the L1 pivot window.</td></tr>
+<tr><td><b>L2.5 — Lexical drift</b></td><td>Did vocabulary usage shift across the rewrite window?</td>
+<td>Term-distribution divergence (Jensen-Shannon) plus relative term keyness (smoothed log-odds).
+Signal only; no claim of intent.</td></tr>
 <tr><td><b>L3 — Visualization</b></td><td>What exactly changed, sentence by sentence?</td>
 <td>Before/after redline at the pivot revision; per-span blame overlay (who introduced which text).
 Rendered in the Diff and Blame tabs. Currently exported for selected articles.</td></tr>
@@ -68,26 +71,24 @@ Rendered in the Diff and Blame tabs. Currently exported for selected articles.</
 candidate on its own content. Graph never flags.</td></tr>
 <tr><td><b>L5 #1 — Cross-lingual</b></td><td>Do other editions frame it differently?</td>
 <td>Same stance read across editions, static and relative to the L1 pivot
-(<a href="glossary.html#cross-lingual">native, no translation</a>). When editions are not explicitly pinned,
-default runs auto-select established language editions for that topic. Pivot-relative mode currently
-applies one shared L1 pivot boundary across all compared editions in the run.</td></tr>
+(<a href="glossary.html#cross-lingual">native, no translation</a>). <b>Standalone instrument</b> —
+run via <code>wikidrift crosslingual</code>; not part of the pipeline.</td></tr>
+<tr><td><b>L5 Framing Lite</b></td><td>Does the pivot's lost framing survive in other editions?</td>
+<td>Pivot-gated: only runs when L1 finds a removal event. Compares lead sections across
+SLATE + top-2 editions by length; LLM flags divergences as differ / contradict / absent.
+A contradict corroborates that the English removal was contested, not corrective.
+Run via <code>wikidrift framing</code> or <code>wikidrift pipeline --framing</code>.</td></tr>
 <tr><td><b>L5 #2 — Facts</b></td><td>Do editions disagree on load-bearing facts?</td>
 <td>Fixed questions, as-of dated answers, adjudicated for
-<a href="glossary.html#fact-divergence">agree / differ / contradict</a>. In batch helper runs,
-the L5 language cap defaults to adaptive per-topic tuning from prior diagnostics (with fixed and no-cap
-overrides available).</td></tr>
-<tr><td><b>L2.5 — Lexical drift</b></td><td>Did vocabulary usage shift across the rewrite window?</td>
-<td>Term-distribution divergence (Jensen-Shannon) plus relative term keyness (smoothed log-odds).
-Signal only; no claim of intent.</td></tr>
+<a href="glossary.html#fact-divergence">agree / differ / contradict</a>. <b>Standalone instrument</b> —
+run via <code>wikidrift factcheck</code>; not part of the pipeline.</td></tr>
 <tr><td><b>L5 #3b — Sources</b></td><td>How did the citation mix change across the pivot?</td>
 <td>Cite-template types and domains (archive links unwrapped). Composition only —
 <a href="glossary.html#source-change">no reliability ratings</a>.</td></tr>
 </tbody></table></div>
 
 Pipeline defaults are now <b>self-determined and controversy-agnostic</b>: unless explicitly overridden,
-entity focus defaults to the article title itself (not a curated controversy list). In pipeline mode,
-L2 and L2.5 feed context forward into L5 (entity focus, detected stance shifts, lexical JS divergence),
-so external-reference checks are informed by lower-layer observations rather than run in isolation.
+entity focus defaults to the article title itself (not a curated controversy list).
 
 Edit-war intensity ([M-score](glossary.html#conflict)) is context only. High controversy is
 not capture; near-zero controversy on a large rewrite means the change was not fought over (route toward L5
@@ -144,6 +145,7 @@ Early metrics broke in predictable ways; the fixes define the current method.
 <tr><td>Percentage favored tiny old cohorts</td><td>Multi-episode ranking by absolute PWR-mass</td></tr>
 <tr><td>Hosted API gaps / load</td><td>Retry/backoff; local <code>wikiwho_rs</code> for coverage</td></tr>
 <tr><td>Medium reframe-by-churn missed</td><td>Relative-anomaly pre-rank lead → L2</td></tr>
+<tr><td>Slow sub-threshold losses undetected</td><td>12-month cumulative PWR-loss window (slow-bleed lead)</td></tr>
 </tbody></table></div>
 
 **Base rate:** contested articles and some benign rewrites (e.g. Climate change quality overhauls) both
@@ -180,13 +182,15 @@ Those cases route to L5 rather than a clean bill of health.
 ## Established and open
 
 **Established:** provenance pipeline; PWR metric; multi-pivot detection with persistent snapshots;
-attribution; metadata pre-ranking; L2 stance; L5 framing + facts + sources; L4 first probe; local engine
+slow-bleed cumulative-window detection; attribution; metadata pre-ranking (including addition-side editor
+concentration); L2 stance; L5 framing + facts + sources (standalone instruments); L4 first probe; local engine
 parity with hosted on neutral articles; benchmark on adjudicated must-flag set (removal-oriented cases and
-controls).
+controls); signal corroboration count.
 
 **Open / partial:** fuller L3 visualization across all articles; scaled L4 snowball; denser L2
 shift-localization (where in time the stance moves); cross-encyclopedia external reference beyond
-language editions; more benign-rewrite controls.
+language editions; more benign-rewrite controls; LLM calibration baseline for stance drift; co-edit
+clustering for sockpuppet-network detection; cross-lingual agreed-hoax detection.
 
 ## Limits
 
@@ -194,6 +198,12 @@ Blind to bias with no historical contrast unless L5 has coverage. Direction is u
 alone (correction vs capture). Attribution names accounts and actions; a same-day "dominant drop" can be a
 restructure — diffs should be read. Quiet editions and thin non-English coverage make some cross-lingual
 results inconclusive (reported as such).
+
+Three additional gaps are documented but not yet resolved: **sockpuppet evasion** (L4 footprint is blind
+to coordinated rotating accounts — co-edit clustering is the fix, not built yet); **cross-lingual agreed
+hoax** (if all editions carry the same distortion, L5 reads flat agreement — needs an external anchor);
+**LLM cultural bias** (L2 stance classifications may reflect model training-data bias on charged prose — a
+calibration baseline on neutral controls is needed to establish a jitter floor).
 
 ## Reproducibility
 

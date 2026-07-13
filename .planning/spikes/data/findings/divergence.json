@@ -345,15 +345,15 @@
     "Abortion": {
       "variants": {
         "lead": {
-          "divergence": 0.0,
+          "divergence": 1.0,
           "spreads": {
-            "Abortion": 0
+            "Abortion": 1
           }
         },
         "focal": {
-          "divergence": 0.0,
+          "divergence": 1.0,
           "spreads": {
-            "Abortion": 0
+            "Abortion": 1
           }
         }
       }
@@ -361,9 +361,9 @@
     "Ainu people": {
       "variants": {
         "lead": {
-          "divergence": 0.0,
+          "divergence": 1.0,
           "spreads": {
-            "Ainu people": 0
+            "Ainu people": 1
           }
         },
         "focal": {
@@ -926,15 +926,15 @@
     "Abortion": {
       "pivot": "2010-01-01",
       "pivot_source": "L1 (peak 46.7%, 46,141 PWR, age 14.0yr)",
-      "en_gap_before": 0.0,
-      "en_gap_after": 1.0,
-      "read": "PEELED AWAY",
+      "en_gap_before": 0.5,
+      "en_gap_after": 0.0,
+      "read": "converged",
       "before": {
         "de": {
           "Abortion": 0
         },
         "sv": {
-          "Abortion": 0
+          "Abortion": 1
         },
         "en": {
           "Abortion": 0
@@ -948,24 +948,24 @@
           "Abortion": 0
         },
         "en": {
-          "Abortion": 1
+          "Abortion": 0
         }
       }
     },
     "Ainu people": {
       "pivot": "2023-10-01",
       "pivot_source": "fallback (L1=HEALTHY — addition-side growth)",
-      "en_gap_before": 0.0,
-      "en_gap_after": 0.0,
+      "en_gap_before": 0.5,
+      "en_gap_after": 0.5,
       "read": "no net change",
       "before": {
         "en": {
           "Ainu people": 1
         },
-        "he": {
-          "Ainu people": 1
+        "ru": {
+          "Ainu people": 0
         },
-        "ar": {
+        "fr": {
           "Ainu people": 1
         }
       },
@@ -973,10 +973,10 @@
         "en": {
           "Ainu people": 1
         },
-        "he": {
-          "Ainu people": 1
+        "ru": {
+          "Ainu people": 0
         },
-        "ar": {
+        "fr": {
           "Ainu people": 1
         }
       }

@@ -107,22 +107,17 @@
       "to": 3
     },
     {
-      "domain": "lds.org",
+      "domain": "ies.berkeley.edu",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "zionism-israel.com",
-      "from": 0,
-      "to": 2
+      "domain": "mideastweb.org",
+      "from": 2,
+      "to": 4
     },
     {
-      "domain": "ajhs.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "passia.org",
+      "domain": "nytimes.com",
       "from": 0,
       "to": 2
     },
@@ -132,12 +127,22 @@
       "to": 2
     },
     {
-      "domain": "ies.berkeley.edu",
+      "domain": "ajhs.org",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "nytimes.com",
+      "domain": "zionism-israel.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "ess.uwe.ac.uk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "lds.org",
       "from": 0,
       "to": 2
     },
@@ -152,9 +157,9 @@
       "to": 2
     },
     {
-      "domain": "mideastweb.org",
-      "from": 2,
-      "to": 4
+      "domain": "passia.org",
+      "from": 0,
+      "to": 2
     },
     {
       "domain": "gemsinisrael.com",
@@ -167,102 +172,7 @@
       "to": 2
     },
     {
-      "domain": "ess.uwe.ac.uk",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "daccessdds.un.org",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "jewishmuseum.org.uk",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "jstandard.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "britannica.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "myjewishlearning.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "users.ox.ac.uk",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "friends-partners.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "ibiblio.org",
-      "from": 0,
-      "to": 1
-    },
-    {
       "domain": "tabletmag.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "zionistarchives.org.il",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "muse.jhu.edu",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "hebrewsongs.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "select.nytimes.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "jwa.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "ajcarchives.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "mfa.gov.il",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "historycooperative.org",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "memo.ru",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "jewishvirtuallibrary.org",
       "from": 0,
       "to": 1
     },
@@ -272,7 +182,52 @@
       "to": 2
     },
     {
+      "domain": "ibiblio.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "hebrewsongs.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "friends-partners.org",
+      "from": 0,
+      "to": 1
+    },
+    {
       "domain": "pewresearch.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "muse.jhu.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "jstandard.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "memo.ru",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ajcarchives.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "zionistarchives.org.il",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "jewishmuseum.org.uk",
       "from": 0,
       "to": 1
     },
@@ -280,21 +235,56 @@
       "domain": "zionism.co.il",
       "from": 0,
       "to": 1
+    },
+    {
+      "domain": "select.nytimes.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "myjewishlearning.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "mfa.gov.il",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "jewishvirtuallibrary.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "britannica.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "historycooperative.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "daccessdds.un.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "users.ox.ac.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "jwa.org",
+      "from": 0,
+      "to": 1
     }
   ],
   "dropped": [
     {
-      "domain": "classes.maxwell.syr.edu",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "yale.edu",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "marxists.de",
+      "domain": "religioustolerance.org",
       "from": 1,
       "to": 0
     },
@@ -304,12 +294,22 @@
       "to": 0
     },
     {
+      "domain": "classes.maxwell.syr.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "marxists.de",
+      "from": 1,
+      "to": 0
+    },
+    {
       "domain": "weizmann.ac.il",
       "from": 1,
       "to": 0
     },
     {
-      "domain": "religioustolerance.org",
+      "domain": "yale.edu",
       "from": 1,
       "to": 0
     }

@@ -29,7 +29,7 @@ import duckdb
 from . import config, provenance
 from .corpus import Corpus
 from .config import (MIN_COHORT, MIN_MATURE, MAG_FLOOR, CONFIRM_DROP,
-                     CREEP_MEAN, DURABLE_Q, RECENT_YEARS, ELEVATED)
+                     CREEP_MEAN, DURABLE_Q, RECENT_YEARS, ELEVATED, SLOW_BLEED_FLOOR)
 
 
 def load_membership(con, article):
@@ -258,6 +258,31 @@ def ranked_episodes(con, article):
     return snaps, members, present, idx_of_rev, series, stats, episodes
 
 
+def _cumulative_loss_windows(series, months=12, threshold=SLOW_BLEED_FLOOR):
+    """12-month rolling window slow-bleed detector: steady per-interval losses that never individually
+    trigger ELEVATED (and thus never form an episode) but accumulate to a large fraction of content mass.
+    ratio = sum(wlost) / peak_size across the window. Returns (start_date, end_date, ratio) of the worst
+    window that exceeds threshold, or None if no window qualifies."""
+    if len(series) < 2:
+        return None
+    delta_days = months * 30
+    best = None
+    for i in range(len(series)):
+        d0 = dt.date.fromisoformat(series[i][0])
+        cutoff = d0 + dt.timedelta(days=delta_days)
+        window = [s for s in series[i:] if dt.date.fromisoformat(s[0]) <= cutoff]
+        if len(window) < 2:
+            continue
+        peak_size = max(s[5] for s in window)
+        if not peak_size:
+            continue
+        total_wlost = sum(s[6] for s in window)
+        ratio = total_wlost / peak_size
+        if best is None or ratio > best[2]:
+            best = (window[0][0], window[-1][2], round(ratio, 3))
+    return best if (best and best[2] >= threshold) else None
+
+
 def verdict_dict(con, article):
     """Structured, machine-scorable OFFLINE verdict (no WikiWho): the coarse PWR metric, episodes ranked
     by PWR-mass with recency as a descriptor. UNCONFIRMED candidate — binary-search confirmation
@@ -281,6 +306,9 @@ def verdict_dict(con, article):
         out["verdict"] = "CREEP?"; out["top_mass"] = 0
     else:
         out["verdict"] = "HEALTHY"; out["top_mass"] = 0
+    slow = _cumulative_loss_windows(series)
+    if slow:
+        out["slow_bleed"] = {"start": slow[0], "end": slow[1], "ratio": slow[2]}
     return out
 
 

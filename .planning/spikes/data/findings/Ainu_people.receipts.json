@@ -9,19 +9,19 @@
       "timestamp": "2026-06-23T13:58:05Z",
       "prose_chars": 72110
     },
-    "he": {
+    "ru": {
       "present": true,
-      "revid": 40760772,
-      "title": "איינו",
-      "timestamp": "2025-03-27T09:07:54Z",
-      "prose_chars": 2272
+      "revid": 153941604,
+      "title": "Айны",
+      "timestamp": "2026-07-13T16:22:20Z",
+      "prose_chars": 53067
     },
-    "ar": {
+    "fr": {
       "present": true,
-      "revid": 75632404,
-      "title": "آينو",
-      "timestamp": "2026-06-23T14:43:55Z",
-      "prose_chars": 13366
+      "revid": 237739840,
+      "title": "Aïnous (ethnie du Japon et de Russie)",
+      "timestamp": "2026-07-11T18:20:12Z",
+      "prose_chars": 48466
     }
   }
 }

@@ -1,0 +1,301 @@
+{
+  "article": "Warsaw concentration camp",
+  "span": "2005-01-01 -> 2026-07-01 (no L1 pivot — whole history)",
+  "pivot": null,
+  "before": {
+    "date": "2005-01-01",
+    "rev": 16719062,
+    "tokens": 306
+  },
+  "after": {
+    "date": "2026-07-01",
+    "rev": 1357168907,
+    "tokens": 4865
+  },
+  "js_divergence": 0.4104,
+  "overrepresented_after_terms": [
+    {
+      "term": "jewish",
+      "before": 0,
+      "after": 26,
+      "delta": 26,
+      "log_odds": 1.2109
+    },
+    {
+      "term": "while",
+      "before": 0,
+      "after": 19,
+      "delta": 19,
+      "log_odds": 0.9028
+    },
+    {
+      "term": "kopka",
+      "before": 0,
+      "after": 16,
+      "delta": 16,
+      "log_odds": 0.7351
+    },
+    {
+      "term": "died",
+      "before": 0,
+      "after": 15,
+      "delta": 15,
+      "log_odds": 0.6724
+    },
+    {
+      "term": "due",
+      "before": 0,
+      "after": 15,
+      "delta": 15,
+      "log_odds": 0.6724
+    },
+    {
+      "term": "thumb",
+      "before": 0,
+      "after": 14,
+      "delta": 14,
+      "log_odds": 0.6055
+    },
+    {
+      "term": "alt",
+      "before": 0,
+      "after": 13,
+      "delta": 13,
+      "log_odds": 0.5338
+    },
+    {
+      "term": "army",
+      "before": 0,
+      "after": 13,
+      "delta": 13,
+      "log_odds": 0.5338
+    },
+    {
+      "term": "bogusław",
+      "before": 0,
+      "after": 13,
+      "delta": 13,
+      "log_odds": 0.5338
+    },
+    {
+      "term": "building",
+      "before": 0,
+      "after": 13,
+      "delta": 13,
+      "log_odds": 0.5338
+    },
+    {
+      "term": "used",
+      "before": 0,
+      "after": 13,
+      "delta": 13,
+      "log_odds": 0.5338
+    },
+    {
+      "term": "fact",
+      "before": 0,
+      "after": 12,
+      "delta": 12,
+      "log_odds": 0.4566
+    },
+    {
+      "term": "part",
+      "before": 0,
+      "after": 12,
+      "delta": 12,
+      "log_odds": 0.4566
+    },
+    {
+      "term": "prisoner",
+      "before": 0,
+      "after": 12,
+      "delta": 12,
+      "log_odds": 0.4566
+    },
+    {
+      "term": "buildings",
+      "before": 0,
+      "after": 11,
+      "delta": 11,
+      "log_odds": 0.3731
+    },
+    {
+      "term": "chamber",
+      "before": 0,
+      "after": 11,
+      "delta": 11,
+      "log_odds": 0.3731
+    },
+    {
+      "term": "crimes",
+      "before": 0,
+      "after": 11,
+      "delta": 11,
+      "log_odds": 0.3731
+    },
+    {
+      "term": "extermination",
+      "before": 0,
+      "after": 11,
+      "delta": 11,
+      "log_odds": 0.3731
+    },
+    {
+      "term": "nazi",
+      "before": 0,
+      "after": 11,
+      "delta": 11,
+      "log_odds": 0.3731
+    },
+    {
+      "term": "investigation",
+      "before": 0,
+      "after": 10,
+      "delta": 10,
+      "log_odds": 0.2819
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "grouped",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -4.7205
+    },
+    {
+      "term": "parts",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -3.6216
+    },
+    {
+      "term": "commander",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -3.2819
+    },
+    {
+      "term": "either",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -3.2819
+    },
+    {
+      "term": "gassed",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -3.2819
+    },
+    {
+      "term": "called",
+      "before": 3,
+      "after": 4,
+      "delta": 1,
+      "log_odds": -2.5224
+    },
+    {
+      "term": "railway",
+      "before": 3,
+      "after": 4,
+      "delta": 1,
+      "log_odds": -2.5224
+    },
+    {
+      "term": "city",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": -2.4342
+    },
+    {
+      "term": "complex",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": -2.4342
+    },
+    {
+      "term": "estimates",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": -2.4342
+    },
+    {
+      "term": "transferred",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": -2.4342
+    },
+    {
+      "term": "women",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": -2.4342
+    },
+    {
+      "term": "european",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -2.2567
+    },
+    {
+      "term": "exact",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -2.2567
+    },
+    {
+      "term": "factories",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -2.2567
+    },
+    {
+      "term": "group",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -2.2567
+    },
+    {
+      "term": "historian",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -2.2567
+    },
+    {
+      "term": "judge",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -2.2567
+    },
+    {
+      "term": "koło",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -2.2567
+    },
+    {
+      "term": "majority",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -2.2567
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}
