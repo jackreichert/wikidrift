@@ -152,6 +152,21 @@ class ArticlePageRendering(unittest.TestCase):
         pivot = build.pivot_page("Testland", findings.pivots["Testland"]["pivots"][0], 0)
         self.assertIn("Candidate rewrite", pivot)
 
+    def test_overview_lists_every_candidate_window(self):
+        findings = build.Findings(pivots={"Testland": {"pivots": [
+            {"start": "2007-01-01", "end": "2008-01-01", "peak_pct": 70.0,
+             "pwr_mass": 100, "before_text": "old", "after_text": "new"},
+            {"start": "2024-01-01", "end": "2025-01-01", "peak_pct": 68.0,
+             "pwr_mass": 1000, "before_text": "old", "after_text": "new"},
+        ]}})
+        out = build.article_page("Testland", findings)
+        self.assertIn("2 candidate windows", out)
+        self.assertIn('href="Testland.p0.html"', out)
+        self.assertIn('href="Testland.p1.html"', out)
+        self.assertIn("2007-01-01 → 2008-01-01", out)
+        self.assertIn("2024-01-01 → 2025-01-01", out)
+        self.assertNotIn("% of the article rewritten", out)
+
     def test_manual_diff_is_a_comparison_not_a_detected_large_rewrite(self):
         diff = {
             "before": {"date": "2018-01-01", "text": "old"},

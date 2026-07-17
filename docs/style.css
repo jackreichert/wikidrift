@@ -137,6 +137,15 @@ h3{font-weight:600;font-size:1rem;margin:0}
   margin:0;font-size:.86rem;font-weight:400;color:var(--faint);line-height:1.45;
 }
 .signal-note a{font-weight:600}
+.signal-windows{list-style:none;padding:0;margin:.35rem 0 .55rem}
+.signal-windows li{
+  display:flex;justify-content:space-between;align-items:baseline;gap:.75rem;
+  padding:.35rem 0;border-bottom:1px solid var(--line);font-size:.86rem;
+}
+.signal-windows li:last-child{border-bottom:0}
+.signal-windows a{text-decoration:none}
+.signal-windows a:hover{text-decoration:underline}
+.signal-windows span{color:var(--faint);white-space:nowrap}
 .brief-sum{font-size:1rem;line-height:1.5;margin:.55rem 0 1rem;max-width:48rem}
 h2.subhead{font-size:1rem;margin:1.4em 0 .45em}
 .sections-note{margin:.85rem 0 .35rem}

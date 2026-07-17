@@ -633,9 +633,9 @@ def render_pivots(pv, slug):
     for i, p in enumerate(pivs):
         pct = p.get("peak_pct")
         if pct is not None:
-            pct_s = f"about {pct:.0f}% of the article rewritten"
+            pct_s = _pwr_read(pct)
         else:
-            pct_s = "major rewrite"
+            pct_s = "high persistence-weighted loss"
         items.append(
             f'<a class="pv-link" href="{slug}.p{i}.html">'
             f'<span><b>{esc(p["start"])} → {esc(p["end"])}</b>'
@@ -800,12 +800,16 @@ def headline(article, f):
         n = len((f.pivots.get(article) or {}).get("pivots") or [])
         confirmed = _pivot_status(top) == "confirmed"
         kind = "confirmed" if confirmed else "candidate"
-        core = (
-            f"Long-lived wording was substantially replaced around {start} "
-            f"({kind} window; {_pwr_read(pct)} at the peak)"
-        )
         if n > 1:
-            core += f" — one of {n} candidate windows"
+            core = (
+                f"{n} candidate rewrite windows stood out; the largest by persistence-weighted mass "
+                f"began around {start} ({_pwr_read(pct)} at the peak)"
+            )
+        else:
+            core = (
+                f"Long-lived wording was substantially replaced around {start} "
+                f"({kind} window; {_pwr_read(pct)} at the peak)"
+            )
         bits.append(core)
     elif article in f.diffs:
         bits.append("Before-and-after comparison of two English versions")
@@ -924,14 +928,29 @@ def _signal_cards(article, f):
         status = _pivot_status(top)
         pct_s = _pwr_read(pct)
         n = len(pivs)
-        extra = f" ({n} candidate windows found in total)" if n > 1 else ""
-        cards.append(
-            f'<div class="signal-card hot">'
-            f'<div class="signal-label">{"Confirmed rewrite" if status == "confirmed" else "Candidate rewrite window"}</div>'
-            f'<div class="signal-value">{esc(top.get("start", "?"))} → {esc(top.get("end", "?"))}</div>'
-            f'<p class="signal-note">Peak interval: {esc(pct_s)}{esc(extra)}. '
-            f'Open <a href="#diff">Rewrite</a> to read the old and new text.</p></div>'
-        )
+        if n > 1:
+            windows = "".join(
+                f'<li><a href="{esc(slugify(article))}.p{i}.html">'
+                f'<b>{esc(p.get("start", "?"))} → {esc(p.get("end", "?"))}</b></a>'
+                f'<span>{esc(_pwr_read(p.get("peak_pct")))}</span></li>'
+                for i, p in enumerate(pivs)
+            )
+            cards.append(
+                f'<div class="signal-card hot">'
+                f'<div class="signal-label">Candidate rewrite windows</div>'
+                f'<div class="signal-value">{n} candidate windows</div>'
+                f'<ul class="signal-windows">{windows}</ul>'
+                f'<p class="signal-note">Open a window for its before-and-after text, or see '
+                f'<a href="#diff">Rewrite</a> for the full list.</p></div>'
+            )
+        else:
+            cards.append(
+                f'<div class="signal-card hot">'
+                f'<div class="signal-label">{"Confirmed rewrite" if status == "confirmed" else "Candidate rewrite window"}</div>'
+                f'<div class="signal-value">{esc(top.get("start", "?"))} → {esc(top.get("end", "?"))}</div>'
+                f'<p class="signal-note">Peak interval: {esc(pct_s)}. '
+                f'Open <a href="#diff">Rewrite</a> to read the old and new text.</p></div>'
+            )
     elif article in f.diffs:
         d = f.diffs[article]
         when = (d.get("before") or {}).get("date") or "a past version"

@@ -1,8 +1,8 @@
 # About WikiDrift
 
-<p class="summary">WikiDrift is a forensic tool to help readers inspect how a Wikipedia article changed over time and how language editions describe the same subject differently.</p>
+<p class="summary">WikiDrift is a forensic tool to help researchers understand how a Wikipedia article has changed over time.</p>
 
-The project began with a question: can public edit history show that an article was tampered with? No. Revision history records what changed, when it changed, and which public account made the edit. It does not establish motive, identify a neutral version, or decide whether an edit improved the article.
+The project began with a question: can public edit history show that an article was tampered with? The answer was, no. Revision history records what changed, when it changed, and which public account made the edit. It does not establish motive, identify a neutral version, or decide whether an edit improved the article.
 
 What the history *can* do is point out characteristics in an article that *may* point to tampering. WikiDrift looks for substantial changes to long-lived wording, then places those changes beside shifts in vocabulary, citations, cross-language framing, and basic factual claims. The result is a research lead with evidence a reader can inspect, not a verdict.
 
