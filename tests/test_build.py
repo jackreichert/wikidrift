@@ -118,6 +118,18 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("L1 rewrite scan ran", out)
         self.assertNotIn("Rewrite analysis is not available", out)
 
+    def test_current_rewrite_status_overrides_stale_lexical_marker(self):
+        findings = build.Findings(
+            lexical={"Testland": {
+                "span": "2002-01-01 -> 2004-01-01 (no L1 pivot — whole history)",
+                "pivot": None,
+            }},
+            rewrite_status={"Testland": "unavailable"},
+        )
+        out = build.article_page("Testland", findings)
+        self.assertIn("Rewrite analysis is not available", out)
+        self.assertNotIn("No candidate rewrite window was found", out)
+
     def test_coarse_pivot_is_a_candidate_with_pwr_metric(self):
         findings = build.Findings(pivots={"Testland": {"pivots": [{
             "start": "2024-01-01", "end": "2025-01-01", "peak_pct": 42.0,

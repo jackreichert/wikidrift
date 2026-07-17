@@ -180,6 +180,15 @@ uv run python viewer/check_contrast.py # verify the palette stays WCAG 2.1 AA
 open docs/index.html                    # preview
 ```
 
+On a machine with the token corpus, refresh the current L1 rewrite status and exact-revision diff artifacts
+before building. The exporter automatically discovers every published article from the committed profile
+findings; there is no article roster to maintain:
+
+```bash
+uv run python viewer/export_l3.py       # requires provenance.duckdb + public Wikipedia APIs
+uv run python viewer/build.py
+```
+
 Optional: auto-categorize topic filters with an LLM during site build (cached for repeat runs):
 
 ```bash

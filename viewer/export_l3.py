@@ -141,8 +141,11 @@ def export_pivots(article):
                      "authors_before": _word_authors(bt, authors), "authors_after": _word_authors(at, authors)})
     if not pivs:
         output.unlink(missing_ok=True)
-        state = "unavailable" if verdict.get("verdict") == "SKIP" else "none"
-        detail = verdict.get("reason") or verdict.get("verdict") or "unknown"
+        state = "unavailable" if verdict.get("verdict") == "SKIP" or eps else "none"
+        detail = (
+            "candidate artifact could not be materialized" if eps
+            else verdict.get("reason") or verdict.get("verdict") or "unknown"
+        )
         print(f"  pivots {article}: {'unavailable' if state == 'unavailable' else 'none'} (L1={detail})")
         return state
     DATA.mkdir(parents=True, exist_ok=True)
