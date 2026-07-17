@@ -19,6 +19,7 @@ import duckdb  # noqa: E402
 from wikidrift import config, drift, provenance  # noqa: E402
 from wikidrift.corpus import Corpus  # noqa: E402
 from wikidrift.l5_crosslingual import fetch_asof  # noqa: E402
+from wikidrift.stance import prose_at  # noqa: E402
 
 DATA = pathlib.Path(__file__).resolve().parent / "data"
 BLAME_TOKENS = 1500                        # blame the lead only (full-article is a v2 paginated view)
@@ -106,6 +107,7 @@ def _word_authors(toks, authors):
 
 
 def export_pivots(article):
+    output = DATA / f"{config.slugify(article)}.pivots.json"
     con = duckdb.connect(str(config.DB), read_only=True)
     try:
         corpus = Corpus(con)
@@ -122,17 +124,19 @@ def export_pivots(article):
         bt, at = provenance.tokens_at(article, br), provenance.tokens_at(article, ar)
         if not bt or not at:
             continue
-        _, _, _, before_text = fetch_asof("en", article, f"{e['start']}T00:00:00Z")
-        _, _, _, after_text = fetch_asof("en", article, f"{e['end']}T00:00:00Z")
+        before_text = prose_at(br)
+        after_text = prose_at(ar)
         pivs.append({"start": e["start"], "end": e["end"], "peak_pct": e["peak_pct"],
                      "pwr_mass": e["pwr_mass"], "before_rev": br, "after_rev": ar,
+                 "status": "candidate", "metric": "persistence_weighted_loss",
                      "before_text": before_text, "after_text": after_text,
                      "authors_before": _word_authors(bt, authors), "authors_after": _word_authors(at, authors)})
     if not pivs:
+        output.unlink(missing_ok=True)
         print(f"  pivots {article}: none (L1=HEALTHY) — will use simple diff")
         return False
     DATA.mkdir(parents=True, exist_ok=True)
-    (DATA / f"{config.slugify(article)}.pivots.json").write_text(
+    output.write_text(
         json.dumps({"article": article, "pivots": pivs}, ensure_ascii=False), encoding="utf-8")
     print(f"  pivots {article}: {len(pivs)} pivot(s)")
     return True

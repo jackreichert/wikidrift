@@ -102,6 +102,54 @@ class ArticlePageRendering(unittest.TestCase):
         main = out.split("<main", 1)[1].split("</main>", 1)[0]
         self.assertNotIn("glossary.html#", main)
 
+    def test_missing_rewrite_export_is_unavailable_not_a_negative_finding(self):
+        out = build.article_page("Unexported", build.Findings())
+        self.assertIn("Rewrite analysis is not available", out)
+        self.assertNotIn("None stood out", out)
+
+    def test_coarse_pivot_is_a_candidate_with_pwr_metric(self):
+        findings = build.Findings(pivots={"Testland": {"pivots": [{
+            "start": "2024-01-01", "end": "2025-01-01", "peak_pct": 42.0,
+            "pwr_mass": 120000, "before_text": "old", "after_text": "new",
+        }]}})
+        out = build.article_page("Testland", findings)
+        self.assertIn("Candidate rewrite window", out)
+        self.assertIn("42% persistence-weighted loss", out)
+        self.assertNotIn("42% of the article changed", out)
+        pivot = build.pivot_page("Testland", findings.pivots["Testland"]["pivots"][0], 0)
+        self.assertIn("Candidate rewrite", pivot)
+
+    def test_manual_diff_is_a_comparison_not_a_detected_large_rewrite(self):
+        diff = {
+            "before": {"date": "2018-01-01", "text": "old"},
+            "after": {"text": "new"},
+        }
+        out = build.article_page("Testland", build.Findings(diffs={"Testland": diff}))
+        self.assertIn("Before-and-after comparison", out)
+        self.assertNotIn("A large rewrite shows up", out)
+
+    def test_fact_summary_preserves_agree_differ_contradict_and_insufficient(self):
+        factcheck = {"claim": {"adjudication": [
+            {"question": "A?", "verdict": "agree", "note": "aligned"},
+            {"question": "B?", "verdict": "differ", "note": "extra compatible detail"},
+            {"question": "C?", "verdict": "contradict", "note": "incompatible"},
+            {"question": "D?", "verdict": "insufficient", "note": "not stated"},
+        ]}}
+        findings = build.Findings(factchecks={"Testland": {"now": factcheck}})
+        out = build.article_page("Testland", findings)
+        self.assertIn("1 contradict · 1 compatible difference · 1 agree · 1 not enough", out)
+        self.assertNotIn("3 of 4 basic facts", out)
+
+    def test_framing_headline_uses_cross_edition_divergence(self):
+        aligned = {
+            "static": {"Testland": {"variants": {"lead": {"divergence": 0.0}}}},
+            "pivot_relative": {},
+        }
+        findings = build.Findings(stances={"Testland": ST}, diver=aligned)
+        out = build.article_page("Testland", findings)
+        self.assertNotIn("language openings treat the topic differently", out)
+        self.assertIn("openings mostly line up", out)
+
 
 class SiteRouting(unittest.TestCase):
     def test_homepage_is_about(self):
@@ -110,6 +158,12 @@ class SiteRouting(unittest.TestCase):
         self.assertIn('href="findings.html"', about)
         self.assertIn("How it works", about)
         self.assertIn("Reading tips", about)
+
+    def test_editorial_copy_comes_from_templates(self):
+        self.assertIn("research lead", build.FINDINGS_BODY)
+        page = build.render_page(title="Test", body="<h1>Test</h1>", root="../")
+        self.assertIn('href="../findings.html"', page)
+        self.assertIn('<footer class="site">', page)
 
 
 if __name__ == "__main__":

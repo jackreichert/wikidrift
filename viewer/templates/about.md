@@ -1,57 +1,43 @@
 # About WikiDrift
 
-<p class="summary">WikiDrift shows how a Wikipedia article changed over time — and how versions in different languages tell the same story differently, or contradict each other. Almost everything you see is built from <b>public Wikipedia history</b> you can open and check yourself. WikiDrift leverages language models to compare <b>language editions</b>, how openings frame the topic, and whether basic facts agree.</p>
+<p class="summary">WikiDrift helps readers inspect how a Wikipedia article changed over time and how language editions describe the same subject differently.</p>
 
-<p class="summary">You cannot honestly prove “Wikipedia was captured by bad actors” with a tool that won’t show its work — or that quietly takes a side. A project of <a href="https://encyclopediae.org">encyclopediae.org</a>. <a href="https://github.com/jackreichert/wikidrift/" target="_blank" rel="noopener">Open source on GitHub.</a></p>
+The project began with a blunt question: can public edit history show that an article was tampered with? It cannot. Revision history records what changed, when it changed, and which public account made the edit. It does not establish motive, identify a neutral version, or decide whether an edit improved the article.
 
-<p class="disclaimer">Not built to pick a side or to hide the evidence. Judgments are for people — not for a black-box score.</p>
+What the history can do is narrow the search. WikiDrift looks for substantial changes to long-lived wording, then places those changes beside shifts in vocabulary, citations, cross-language framing, and basic factual claims. The result is a research lead with evidence a reader can inspect, not a verdict.
 
-## In one sentence
+The first case study was **Zionism**, an article already discussed publicly in connection with editorial disputes. That made it useful for developing the method, but outside reports are not proof and are not fed into the detector as a list of suspect editors. The project later added published approaches to text persistence, token authorship, controversy measurement, and cross-language comparison.
 
-WikiDrift finds and shows **when** a long-stable Wikipedia story was rewritten, **how much** changed, **who made the biggest cuts**, and whether **other languages still tell it differently**.
+The goal is not to make an “unbiased” machine. Every method reflects choices about inputs, thresholds, questions, and presentation. The goal is to make those choices visible, apply them consistently, and keep every claim smaller than the evidence behind it.
 
-## What comes from public history vs a language model
+A project of [encyclopediae.org](https://encyclopediae.org), [open source on GitHub](https://github.com/jackreichert/wikidrift/).
 
-**From public Wikipedia history alone** (no model):
+## What this tool does
 
-- **Rewrite** — when a large share of long-stable text was replaced, and the before-and-after wording
-- **Vocabulary** — which words became more or less common (simple counting across versions)
-- **Citations** — which websites and books the footnotes cited before vs after (we do **not** rate sources)
-- **Versions** — the exact Wikipedia revisions used, so anyone can verify
-- Edit-fight and “who wrote today’s text” context, when shown
+- **change detection** asks whether an article's established content was substantially replaced;
+- **change interpretation** asks whether wording or stance changed directionally;
+- **external comparison** asks whether a stable article differs from other language editions or from its own citation history;
+- **discovery** uses an already detected change to decide which other articles are worth testing.
 
-**From a language model comparing public text across languages** (only on some articles):
+No layer turns editor activity, controversy, or cross-language disagreement into proof of manipulation.
 
-- **Framing** — how openings in different languages treat the same topic (for example more critical, neutral, or more sympathetic), with short quotes from each edition
-- **Facts** — simple factual questions checked in each language, then agree / differ / contradict / not enough said
+For the full sequence, inputs, and limitations, read [How it works](methodology.html).
 
-The model is doing the cross-language reading for you; the editions themselves are still public Wikipedia pages you can open. These steps only appear when they were run for that article. If you do not see a **Framing** or **Facts** tab, that check was not run (or not saved) for this page.
+## What a candidate rewrite window is
 
-## What you will find on each article page
+The **Rewrite** tab shows **candidate rewrite windows**: stretches of time when the snapshot scan measured unusually high loss of wording that had persisted across earlier snapshots. These published windows have not gone through the full revision-by-revision confirmation step.
 
-- **Start here** — a short briefing built from the checks that exist for this article.
-- **Rewrite**, **Vocabulary**, **Citations**, **Versions** — public-history pieces (above).
-- **Framing**, **Facts** — model-assisted pieces when they were run (above).
+The percentage shown is **persistence-weighted loss**. Wording that survived in more snapshots receives more weight, so the number is not a literal percentage of all article text changed. The page pairs that metric with dates and a before-and-after view of the selected snapshot revisions.
 
-## What a rewrite window is (a “pivot”)
+A candidate window asks: **“When might a substantial amount of long-lived wording have disappeared?”** It does **not** establish that one revision caused the loss or answer whether the change was good, bad, capture, or cleanup. That requires confirmation and human review.
 
-The **Rewrite** tab shows major **rewrite windows**: stretches of time when a large share of wording that had been stable for a long time was removed and replaced — and the new version **stuck** (not just a one-day vandalism blank that got fixed).
-
-In the research notes and method docs, that window is often called a **pivot**. Same idea: dates (for example 2024-07 → 2026-01), roughly how much of the article changed, and a before-and-after view with struck-out old text and highlighted new text.
-
-A rewrite window answers: **“When did the long-stable story flip?”** It does **not** answer: **“Was that flip good, bad, capture, or cleanup?”** That judgment is yours after you read the change.
-
-Some pages have more than one window. Some have none large enough to show — those can still have gradual wording or footnote changes.
+Some pages have more than one candidate window. On other pages, rewrite analysis has not been exported; the site labels that as missing coverage rather than claiming no rewrite occurred.
 
 ## What this is not
 
 - It is **not** a “bias score” or a list of bad editors.
 - A big rewrite is **not** automatically proof that something was captured or distorted. Legitimate cleanups and real-world events also produce big rewrites.
 - Naming an account means “this public username made this public edit” — **not** “this person had bad intent.”
-
-## Why that caution matters
-
-Large rewrites are common. In our own tests, a normal science/history cleanup can look as large as a rewrite on a contested political topic. So the tool is built to **surface change and disagreement**, then leave judgment to a human reader who can open the diffs and sources. However, they aren't always done for those reasons, as you can see from our findings.
 
 ## How articles on this site were chosen
 
@@ -61,12 +47,10 @@ We also include **control** topics (like Photosynthesis) and other hot-button su
 
 The software itself can run on any English Wikipedia article. This site is just the published sample.
 
-## How to use it
+## A useful reading order
 
 1. Open the [findings list](findings.html).
 2. Pick an article and read **Start here** first.
-3. Open **Rewrite** and actually read the struck-out / highlighted text.
-4. Use **Framing**, **Facts**, and **Citations** only as extra context.
-5. Click through to the live Wikipedia versions when you want proof.
-
-For a longer explanation of the method, see [How it works](methodology.html).
+3. Open **Rewrite** and read the removed and added text.
+4. Treat **Framing**, **Facts**, and **Citations** as separate context, not corroborating votes.
+5. Follow the version links to Wikipedia when you need the original record.

@@ -1,17 +1,16 @@
 # How it works
 
-<p class="summary">A plain explanation of what WikiDrift measures, how a page is built, and what we
-refuse to claim. Same public inputs → same outputs.</p>
+<p class="summary">A plain explanation of what WikiDrift measures, how a page is built, and where the method stops.</p>
 
 <p class="disclaimer">Every result is something to inspect — not a verdict of guilt or bias.</p>
 
 ## The question we started with
 
-Can you measure, from the public edit history alone, when a Wikipedia article’s long-stable wording
-was torn out and replaced — without starting from a list of “suspect” editors?
+Can public edit history show when a Wikipedia article’s long-stable wording was substantially
+replaced, without starting from a list of editors or articles assumed to be problematic?
 
-That is the core of WikiDrift. Lists of people are optional background at most. The article’s own
-history is the evidence.
+That is the core of WikiDrift. Prior lists may provide validation cases, but they do not determine
+what the detector finds. The article’s own history supplies the primary evidence.
 
 ## Two different problems
 
@@ -30,10 +29,10 @@ shared facts), and honestly so.
 
 A finding is a **lead**: “look here.”
 
-It is **not**:
+By itself, it is **not**:
 
 - proof that editors colluded,
-- proof that the old text was “the truth,”
+- proof that the old text was more accurate,
 - proof that the new text is wrong,
 - or a score of how biased an article is.
 
@@ -52,7 +51,7 @@ revision introduced it. We store those snapshots so measurements are repeatable.
 Words that survived for years of readers and editors count more than last month’s churn. Deleting a
 sentence that lived for a decade is a bigger signal than deleting something that appeared last week.
 
-### 3. Find major rewrite windows
+### 3. Find candidate change windows
 
 We look for stretches of time where a large share of that long-lived text disappeared and stayed
 gone (not a one-day vandalism blank that was immediately fixed). Those windows appear on the site as
@@ -98,8 +97,8 @@ It is a reason to read carefully, not a scoreboard.
 ## Following the trail of large deletions
 
 After a confirmed big rewrite, we can look at where the same accounts made **other large deletions**
-on other articles, then **re-check each candidate on its own history**. Being on that trail never
-flags an article by itself; only the article’s own pattern can.
+on other articles, then **re-check each candidate on its own history**. Appearing in that search does
+not create a finding; the second article must independently meet the same change criteria.
 
 ## What we never do
 
@@ -152,6 +151,6 @@ political rewrite on raw size. That is why this site always says **change first,
 
 WikiDrift joins ideas that already exist in the research literature (token authorship, content
 survival, edit wars, cross-language comparison). Notes and paper links live in the repo’s
-`sources/` folder. The contribution is the **combination**: find the rewrite from content itself,
-attribute the public edits, then check direction with languages and facts — without starting from an
-enemies list.
+`sources/` folder. The contribution is the **combination**: find change from the article’s content
+history, attribute the public edits, then compare wording, sources, languages, and factual claims
+without presuming a conclusion in advance.
