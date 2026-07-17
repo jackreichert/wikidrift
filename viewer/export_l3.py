@@ -24,16 +24,23 @@ from wikidrift.stance import prose_at  # noqa: E402
 DATA = pathlib.Path(__file__).resolve().parent / "data"
 BLAME_TOKENS = 1500                        # blame the lead only (full-article is a v2 paginated view)
 
-# Articles to build a pivot-timeline + authored per-pivot diff for (need L1 episodes).
-# Expand as cache allows; the site shows an honest "not exported" note when missing.
-PIVOTS = [
-    "Zionism", "Nakba", "Warsaw concentration camp",
-    "Palestine", "UNRWA", "Bar Kokhba Revolt", "Anti-Zionism",
-    "Israeli–Palestinian conflict", "History of Zionism",
-]
 # Simple before/after diff fallback (articles with no L1 pivot). None = auto (2yr before onset).
 DIFF = {"Warsaw concentration camp": "2018-06-01"}
 BLAME = ["Zionism"]
+
+
+def published_articles(findings_dir=None):
+    """Use profile exports as the public-site roster; every rendered article has one."""
+    findings_dir = pathlib.Path(findings_dir or config.FINDINGS)
+    articles = set()
+    for path in findings_dir.glob("*.profile.json"):
+        try:
+            article = json.loads(path.read_text(encoding="utf-8")).get("article")
+        except (OSError, json.JSONDecodeError):
+            continue
+        if article:
+            articles.add(article)
+    return sorted(articles)
 
 
 def _before_date(article):
@@ -145,7 +152,9 @@ def export_pivots(article):
 if __name__ == "__main__":
     print("exporting L3 pivot timelines + authored diffs (WikiWho)...")
     have_pivots = set()
-    for a in PIVOTS:
+    articles = published_articles()
+    print(f"  public roster: {len(articles)} article(s) from profile findings")
+    for a in articles:
         if export_pivots(a):
             have_pivots.add(a)
     print("exporting L3 simple diff fallback...")

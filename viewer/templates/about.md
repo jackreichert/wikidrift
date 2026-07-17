@@ -1,10 +1,10 @@
 # About WikiDrift
 
-<p class="summary">WikiDrift helps readers inspect how a Wikipedia article changed over time and how language editions describe the same subject differently.</p>
+<p class="summary">WikiDrift is a forensic tool to help readers inspect how a Wikipedia article changed over time and how language editions describe the same subject differently.</p>
 
-The project began with a blunt question: can public edit history show that an article was tampered with? It cannot. Revision history records what changed, when it changed, and which public account made the edit. It does not establish motive, identify a neutral version, or decide whether an edit improved the article.
+The project began with a question: can public edit history show that an article was tampered with? No. Revision history records what changed, when it changed, and which public account made the edit. It does not establish motive, identify a neutral version, or decide whether an edit improved the article.
 
-What the history can do is narrow the search. WikiDrift looks for substantial changes to long-lived wording, then places those changes beside shifts in vocabulary, citations, cross-language framing, and basic factual claims. The result is a research lead with evidence a reader can inspect, not a verdict.
+What the history *can* do is point out characteristics in an article that *may* point to tampering. WikiDrift looks for substantial changes to long-lived wording, then places those changes beside shifts in vocabulary, citations, cross-language framing, and basic factual claims. The result is a research lead with evidence a reader can inspect, not a verdict.
 
 The first case study was **Zionism**, an article already discussed publicly in connection with editorial disputes. That made it useful for developing the method, but outside reports are not proof and are not fed into the detector as a list of suspect editors. The project later added published approaches to text persistence, token authorship, controversy measurement, and cross-language comparison.
 
