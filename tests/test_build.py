@@ -130,6 +130,16 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("Rewrite analysis is not available", out)
         self.assertNotIn("No candidate rewrite window was found", out)
 
+    def test_insufficient_snapshots_explains_why_rewrite_is_unavailable(self):
+        findings = build.Findings(rewrite_status={"Testland": {
+            "state": "unavailable",
+            "reason": "too few snapshots",
+        }})
+        out = build.article_page("Testland", findings)
+        self.assertIn("Too few snapshots for rewrite analysis", out)
+        self.assertIn("saved token corpus does not contain enough snapshots", out)
+        self.assertNotIn("No rewrite timeline was exported", out)
+
     def test_coarse_pivot_is_a_candidate_with_pwr_metric(self):
         findings = build.Findings(pivots={"Testland": {"pivots": [{
             "start": "2024-01-01", "end": "2025-01-01", "peak_pct": 42.0,

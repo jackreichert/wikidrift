@@ -740,18 +740,44 @@ def _top_pivot(article, f):
     return max(pivs, key=lambda p: int(p.get("pwr_mass") or 0))
 
 
-def _rewrite_state(article, f):
-    """Return finding, none, or unavailable without inferring a negative result from missing files."""
+def _rewrite_info(article, f):
+    """Return rewrite state and reason without inferring a negative result from missing files."""
     if article in f.pivots or article in f.diffs:
-        return "finding"
+        return "finding", None
     recorded = f.rewrite_status.get(article)
+    if isinstance(recorded, dict) and recorded.get("state") in {"none", "unavailable"}:
+        return recorded["state"], recorded.get("reason")
     if recorded in {"none", "unavailable"}:
-        return recorded
+        return recorded, None
     lexical = f.lexical.get(article) or {}
     span = str(lexical.get("span") or "").lower()
     if lexical.get("pivot") is None and "no l1 pivot" in span:
-        return "none"
-    return "unavailable"
+        return "none", None
+    return "unavailable", None
+
+
+def _rewrite_state(article, f):
+    return _rewrite_info(article, f)[0]
+
+
+def _unavailable_rewrite_copy(reason):
+    if reason == "too few snapshots":
+        return (
+            "Too few snapshots for rewrite analysis",
+            "The saved token corpus does not contain enough snapshots to run L1 for this article. "
+            "This is insufficient coverage, not a finding that no rewrite occurred.",
+        )
+    if reason == "candidate artifact could not be materialized":
+        return (
+            "Before-and-after evidence is unavailable",
+            "L1 found a candidate interval, but its exact revision text could not be exported. "
+            "The candidate should not be interpreted without that evidence.",
+        )
+    return (
+        "Rewrite analysis is not available",
+        "No current rewrite result is available for this article. This is missing coverage, "
+        "not a finding that no rewrite occurred.",
+    )
 
 
 def _lex_label(jsd):
@@ -925,12 +951,12 @@ def _signal_cards(article, f):
             f'This does not mean the article never changed.</p></div>'
         )
     else:
+        unavailable_title, unavailable_note = _unavailable_rewrite_copy(_rewrite_info(article, f)[1])
         cards.append(
             f'<div class="signal-card cool">'
             f'<div class="signal-label">Rewrite</div>'
-            f'<div class="signal-value">Analysis not available</div>'
-            f'<p class="signal-note">No rewrite timeline was exported for this article. '
-            f'This is missing coverage, not a finding that no rewrite occurred.</p></div>'
+            f'<div class="signal-value">{esc(unavailable_title)}</div>'
+            f'<p class="signal-note">{esc(unavailable_note)}</p></div>'
         )
 
     jsd = lexical_score(article, f)
@@ -1045,7 +1071,7 @@ def overview_section(article, f, layers):
     return "".join(p for p in parts if p)
 
 
-def missing_diff_section(state="unavailable"):
+def missing_diff_section(state="unavailable", reason=None):
     if state == "none":
         return (
             '<h2>No candidate rewrite window was found</h2>'
@@ -1053,11 +1079,8 @@ def missing_diff_section(state="unavailable"):
             'threshold. This is a completed negative result for that detector, not a claim that the '
             'article never changed.</p>'
         )
-    return (
-        '<h2>Rewrite analysis is not available</h2>'
-        '<p class="missing-note">No rewrite timeline was exported for this article. This is a coverage '
-        'gap, not evidence that no large or lasting rewrite occurred.</p>'
-    )
+    title, note = _unavailable_rewrite_copy(reason)
+    return f'<h2>{esc(title)}</h2><p class="missing-note">{esc(note)}</p>'
 
 
 def sources_section(article, src):
@@ -1306,7 +1329,8 @@ def article_page(article, f, categories=None):
     elif diff:
         panels.append(("Rewrite", diff_section(diff), "diff"))
     else:
-        panels.append(("Rewrite", missing_diff_section(_rewrite_state(article, f)), "diff"))
+        rewrite_state, rewrite_reason = _rewrite_info(article, f)
+        panels.append(("Rewrite", missing_diff_section(rewrite_state, rewrite_reason), "diff"))
     if lex:
         panels.append(("Vocabulary", lexical_section(lex), "lexical"))
     if src:

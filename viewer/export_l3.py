@@ -142,17 +142,17 @@ def export_pivots(article):
     if not pivs:
         output.unlink(missing_ok=True)
         state = "unavailable" if verdict.get("verdict") == "SKIP" or eps else "none"
-        detail = (
+        reason = (
             "candidate artifact could not be materialized" if eps
             else verdict.get("reason") or verdict.get("verdict") or "unknown"
         )
-        print(f"  pivots {article}: {'unavailable' if state == 'unavailable' else 'none'} (L1={detail})")
-        return state
+        print(f"  pivots {article}: {'unavailable' if state == 'unavailable' else 'none'} (L1={reason})")
+        return {"state": state, "reason": reason}
     DATA.mkdir(parents=True, exist_ok=True)
     output.write_text(
         json.dumps({"article": article, "pivots": pivs}, ensure_ascii=False), encoding="utf-8")
     print(f"  pivots {article}: {len(pivs)} pivot(s)")
-    return "finding"
+    return {"state": "finding", "reason": verdict.get("verdict") or "PIVOT?"}
 
 
 if __name__ == "__main__":
@@ -162,9 +162,9 @@ if __name__ == "__main__":
     articles = published_articles()
     print(f"  public roster: {len(articles)} article(s) from profile findings")
     for a in articles:
-        state = export_pivots(a)
-        rewrite_status[a] = state
-        if state == "finding":
+        status = export_pivots(a)
+        rewrite_status[a] = status
+        if status["state"] == "finding":
             have_pivots.add(a)
     DATA.mkdir(parents=True, exist_ok=True)
     (DATA / "rewrite_status.json").write_text(

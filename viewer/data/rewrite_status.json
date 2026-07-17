@@ -1,32 +1,122 @@
 {
-  "Abortion": "finding",
-  "Ainu people": "unavailable",
-  "Anti-Zionism": "finding",
-  "Bar Kokhba Revolt": "finding",
-  "Brontosaurus": "none",
-  "Chess": "none",
-  "Climate change": "finding",
-  "Collaboration in German-occupied Poland": "unavailable",
-  "Fascism and ideology": "unavailable",
-  "Gaza genocide": "unavailable",
-  "Gaza war": "finding",
-  "Genetic studies of Jews": "unavailable",
-  "Genocide of indigenous peoples": "unavailable",
-  "Hamas": "finding",
-  "History of Zionism": "unavailable",
-  "Israeli–Palestinian conflict": "finding",
-  "Jedwabne pogrom": "unavailable",
-  "Nakba": "none",
-  "Naliboki massacre": "unavailable",
-  "Palestine": "finding",
-  "Palestinian political violence": "unavailable",
-  "Photosynthesis": "none",
-  "Racial conceptions of Jewish identity in Zionism": "unavailable",
-  "Rafah offensive": "none",
-  "Rescue of Jews by Poles during the Holocaust": "unavailable",
-  "UNRWA": "finding",
-  "United Nations General Assembly observers": "unavailable",
-  "Warsaw concentration camp": "unavailable",
-  "Water": "none",
-  "Zionism": "unavailable"
+  "Abortion": {
+    "state": "finding",
+    "reason": "PIVOT?"
+  },
+  "Ainu people": {
+    "state": "unavailable",
+    "reason": "too few snapshots"
+  },
+  "Anti-Zionism": {
+    "state": "finding",
+    "reason": "PIVOT?"
+  },
+  "Bar Kokhba Revolt": {
+    "state": "finding",
+    "reason": "PIVOT?"
+  },
+  "Brontosaurus": {
+    "state": "none",
+    "reason": "HEALTHY"
+  },
+  "Chess": {
+    "state": "none",
+    "reason": "HEALTHY"
+  },
+  "Climate change": {
+    "state": "finding",
+    "reason": "PIVOT?"
+  },
+  "Collaboration in German-occupied Poland": {
+    "state": "unavailable",
+    "reason": "too few snapshots"
+  },
+  "Fascism and ideology": {
+    "state": "unavailable",
+    "reason": "too few snapshots"
+  },
+  "Gaza genocide": {
+    "state": "unavailable",
+    "reason": "too few snapshots"
+  },
+  "Gaza war": {
+    "state": "finding",
+    "reason": "PIVOT?"
+  },
+  "Genetic studies of Jews": {
+    "state": "unavailable",
+    "reason": "too few snapshots"
+  },
+  "Genocide of indigenous peoples": {
+    "state": "unavailable",
+    "reason": "too few snapshots"
+  },
+  "Hamas": {
+    "state": "finding",
+    "reason": "PIVOT?"
+  },
+  "History of Zionism": {
+    "state": "unavailable",
+    "reason": "too few snapshots"
+  },
+  "Israeli–Palestinian conflict": {
+    "state": "finding",
+    "reason": "PIVOT?"
+  },
+  "Jedwabne pogrom": {
+    "state": "unavailable",
+    "reason": "too few snapshots"
+  },
+  "Nakba": {
+    "state": "none",
+    "reason": "HEALTHY"
+  },
+  "Naliboki massacre": {
+    "state": "unavailable",
+    "reason": "too few snapshots"
+  },
+  "Palestine": {
+    "state": "finding",
+    "reason": "PIVOT?"
+  },
+  "Palestinian political violence": {
+    "state": "unavailable",
+    "reason": "too few snapshots"
+  },
+  "Photosynthesis": {
+    "state": "none",
+    "reason": "HEALTHY"
+  },
+  "Racial conceptions of Jewish identity in Zionism": {
+    "state": "unavailable",
+    "reason": "too few snapshots"
+  },
+  "Rafah offensive": {
+    "state": "none",
+    "reason": "HEALTHY"
+  },
+  "Rescue of Jews by Poles during the Holocaust": {
+    "state": "unavailable",
+    "reason": "too few snapshots"
+  },
+  "UNRWA": {
+    "state": "finding",
+    "reason": "PIVOT?"
+  },
+  "United Nations General Assembly observers": {
+    "state": "unavailable",
+    "reason": "too few snapshots"
+  },
+  "Warsaw concentration camp": {
+    "state": "unavailable",
+    "reason": "too few snapshots"
+  },
+  "Water": {
+    "state": "none",
+    "reason": "HEALTHY"
+  },
+  "Zionism": {
+    "state": "unavailable",
+    "reason": "too few snapshots"
+  }
 }
