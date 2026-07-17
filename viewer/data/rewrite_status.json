@@ -4,8 +4,8 @@
     "reason": "PIVOT?"
   },
   "Ainu people": {
-    "state": "unavailable",
-    "reason": "too few snapshots"
+    "state": "none",
+    "reason": "HEALTHY"
   },
   "Anti-Zionism": {
     "state": "finding",
@@ -28,95 +28,95 @@
     "reason": "PIVOT?"
   },
   "Collaboration in German-occupied Poland": {
-    "state": "unavailable",
-    "reason": "too few snapshots"
+    "state": "finding",
+    "reason": "PIVOT?"
   },
   "Fascism and ideology": {
-    "state": "unavailable",
-    "reason": "too few snapshots"
+    "state": "finding",
+    "reason": "PIVOT?"
   },
   "Gaza genocide": {
-    "state": "unavailable",
-    "reason": "too few snapshots"
+    "state": "finding",
+    "reason": "PIVOT?"
   },
   "Gaza war": {
     "state": "finding",
     "reason": "PIVOT?"
   },
   "Genetic studies of Jews": {
-    "state": "unavailable",
-    "reason": "too few snapshots"
+    "state": "none",
+    "reason": "HEALTHY"
   },
   "Genocide of indigenous peoples": {
-    "state": "unavailable",
-    "reason": "too few snapshots"
+    "state": "none",
+    "reason": "HEALTHY"
   },
   "Hamas": {
     "state": "finding",
     "reason": "PIVOT?"
   },
   "History of Zionism": {
-    "state": "unavailable",
-    "reason": "too few snapshots"
+    "state": "none",
+    "reason": "HEALTHY"
   },
   "Israeli–Palestinian conflict": {
     "state": "finding",
     "reason": "PIVOT?"
   },
   "Jedwabne pogrom": {
-    "state": "unavailable",
-    "reason": "too few snapshots"
+    "state": "finding",
+    "reason": "PIVOT?"
   },
   "Nakba": {
     "state": "none",
     "reason": "HEALTHY"
   },
   "Naliboki massacre": {
-    "state": "unavailable",
-    "reason": "too few snapshots"
+    "state": "none",
+    "reason": "HEALTHY"
   },
   "Palestine": {
     "state": "finding",
     "reason": "PIVOT?"
   },
   "Palestinian political violence": {
-    "state": "unavailable",
-    "reason": "too few snapshots"
+    "state": "none",
+    "reason": "HEALTHY"
   },
   "Photosynthesis": {
     "state": "none",
     "reason": "HEALTHY"
   },
   "Racial conceptions of Jewish identity in Zionism": {
-    "state": "unavailable",
-    "reason": "too few snapshots"
+    "state": "none",
+    "reason": "HEALTHY"
   },
   "Rafah offensive": {
     "state": "none",
     "reason": "HEALTHY"
   },
   "Rescue of Jews by Poles during the Holocaust": {
-    "state": "unavailable",
-    "reason": "too few snapshots"
+    "state": "none",
+    "reason": "HEALTHY"
   },
   "UNRWA": {
     "state": "finding",
     "reason": "PIVOT?"
   },
   "United Nations General Assembly observers": {
-    "state": "unavailable",
-    "reason": "too few snapshots"
-  },
-  "Warsaw concentration camp": {
-    "state": "unavailable",
-    "reason": "too few snapshots"
-  },
-  "Water": {
     "state": "none",
     "reason": "HEALTHY"
   },
+  "Warsaw concentration camp": {
+    "state": "none",
+    "reason": "HEALTHY"
+  },
+  "Water": {
+    "state": "finding",
+    "reason": "PIVOT?"
+  },
   "Zionism": {
-    "state": "unavailable",
-    "reason": "too few snapshots"
+    "state": "finding",
+    "reason": "PIVOT?"
   }
 }
