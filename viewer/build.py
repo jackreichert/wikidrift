@@ -1032,7 +1032,7 @@ def _signal_cards(article, f):
 def overview_section(article, f, layers):
     """First tab: briefing cards, Wikipedia link, context."""
     parts = [
-        '<h2>Start here</h2>',
+        '<h2>Overview</h2>',
         '<p class="lead">Use this briefing to choose what to inspect. The tabs contain the underlying comparisons.</p>',
         f'<a class="wiki-link" href="{esc(wiki_en_url(article))}" target="_blank" rel="noopener">'
         f'Open the live English Wikipedia article ↗</a>',
@@ -1323,7 +1323,7 @@ def article_page(article, f, categories=None):
     lex = f.lexical.get(article)
     lead = headline(article, f)
     layers = _layer_flags(article, f)
-    panels = [("Start here", overview_section(article, f, layers), "overview")]
+    panels = [("Overview", overview_section(article, f, layers), "overview")]
     if pv:
         panels.append(("Rewrite", render_pivots(pv, slugify(article)), "diff"))
     elif diff:

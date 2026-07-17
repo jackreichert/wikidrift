@@ -12,7 +12,7 @@ Something worth opening and checking. **Not** a conviction, and **not** proof of
 A stretch of time when a large share of wording that had been stable for a long time was replaced and
 the replacement stayed. Open the before-and-after view and read it yourself.
 
-## “Start here”
+## “Overview”
 
 The short briefing at the top of an article page. Begin there; use the other tabs only if you want
 detail.
@@ -59,6 +59,6 @@ looks like — and avoid treating every big rewrite as a scandal.
 
 ## If you only do three things
 
-1. Read **Start here**.
+1. Read **Overview**.
 2. Open **Rewrite** and read the actual text change.
 3. Click through to Wikipedia when you want the original version.

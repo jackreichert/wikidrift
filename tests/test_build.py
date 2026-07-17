@@ -88,7 +88,7 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("Framing", out)
         self.assertIn("more critical", out)
         self.assertIn("Israel", out)
-        self.assertIn("Start here", out)
+        self.assertIn("Overview", out)
 
     def test_index_lists_the_article_with_its_link(self):
         idx = _index_html()

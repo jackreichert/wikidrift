@@ -50,7 +50,7 @@ The software itself can run on any English Wikipedia article. This site is just 
 ## A useful reading order
 
 1. Open the [findings list](findings.html).
-2. Pick an article and read **Start here** first.
+2. Pick an article and read **Overview** first.
 3. Open **Rewrite** and read the removed and added text.
 4. Treat **Framing**, **Facts**, and **Citations** as separate context, not corroborating votes.
 5. Follow the version links to Wikipedia when you need the original record.

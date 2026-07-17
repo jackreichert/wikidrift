@@ -15,7 +15,7 @@
   document.querySelectorAll(".tabs").forEach(function (root) {
     var tabs = [].slice.call(root.querySelectorAll(".tabbar .tab"));
     var panels = [].slice.call(root.querySelectorAll(".panel"));
-    function activate(id, push) {
+    function activate(id, historyMode) {
       var found = false;
       tabs.forEach(function (t) {
         var on = t.dataset.slug === id || t.dataset.t === id;
@@ -37,17 +37,17 @@
         var on = p.dataset.slug === id || p.dataset.p === id;
         p.classList.toggle("active", on);
       });
-      if (push && history.replaceState) {
+      if (historyMode && history.pushState) {
         var slug = id;
         tabs.forEach(function (t) {
           if (t.classList.contains("active") && t.dataset.slug) slug = t.dataset.slug;
         });
-        history.replaceState(null, "", "#" + slug);
+        history[historyMode === "push" ? "pushState" : "replaceState"](null, "", "#" + slug);
       }
     }
     tabs.forEach(function (b) {
       b.addEventListener("click", function () {
-        activate(b.dataset.slug || b.dataset.t, true);
+        activate(b.dataset.slug || b.dataset.t, "push");
       });
       b.addEventListener("keydown", function (e) {
         var i = tabs.indexOf(b);
@@ -59,12 +59,30 @@
         if (next >= 0) {
           e.preventDefault();
           tabs[next].focus();
-          activate(tabs[next].dataset.slug || tabs[next].dataset.t, true);
+          activate(tabs[next].dataset.slug || tabs[next].dataset.t, "replace");
         }
       });
     });
     var hash = (location.hash || "").replace(/^#/, "");
     if (hash) activate(hash, false);
+
+    root.addEventListener("click", function (e) {
+      var link = e.target.closest('a[href^="#"]');
+      if (!link || !root.contains(link)) return;
+      var slug = link.getAttribute("href").slice(1);
+      if (!tabs.some(function (t) { return t.dataset.slug === slug; })) return;
+      e.preventDefault();
+      activate(slug, "push");
+      var activeTab = tabs.find(function (t) { return t.dataset.slug === slug; });
+      if (activeTab) activeTab.focus();
+    });
+
+    window.addEventListener("popstate", function () {
+      activate((location.hash || "#overview").slice(1), false);
+    });
+    window.addEventListener("hashchange", function () {
+      activate((location.hash || "#overview").slice(1), false);
+    });
   });
 
   // Stance evidence: expand quote on click (not title-only)
