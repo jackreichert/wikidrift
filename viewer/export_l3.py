@@ -118,7 +118,8 @@ def export_pivots(article):
     con = duckdb.connect(str(config.DB), read_only=True)
     try:
         corpus = Corpus(con)
-        eps = drift.verdict_dict(con, article).get("episodes", [])
+        verdict = drift.verdict_dict(con, article)
+        eps = verdict.get("episodes", [])
         snaprev = dict(corpus.snapshots(article))
         authors = corpus.revision_editor(article)
     finally:
@@ -140,23 +141,31 @@ def export_pivots(article):
                      "authors_before": _word_authors(bt, authors), "authors_after": _word_authors(at, authors)})
     if not pivs:
         output.unlink(missing_ok=True)
-        print(f"  pivots {article}: none (L1=HEALTHY) — will use simple diff")
-        return False
+        state = "unavailable" if verdict.get("verdict") == "SKIP" else "none"
+        detail = verdict.get("reason") or verdict.get("verdict") or "unknown"
+        print(f"  pivots {article}: {'unavailable' if state == 'unavailable' else 'none'} (L1={detail})")
+        return state
     DATA.mkdir(parents=True, exist_ok=True)
     output.write_text(
         json.dumps({"article": article, "pivots": pivs}, ensure_ascii=False), encoding="utf-8")
     print(f"  pivots {article}: {len(pivs)} pivot(s)")
-    return True
+    return "finding"
 
 
 if __name__ == "__main__":
     print("exporting L3 pivot timelines + authored diffs (WikiWho)...")
     have_pivots = set()
+    rewrite_status = {}
     articles = published_articles()
     print(f"  public roster: {len(articles)} article(s) from profile findings")
     for a in articles:
-        if export_pivots(a):
+        state = export_pivots(a)
+        rewrite_status[a] = state
+        if state == "finding":
             have_pivots.add(a)
+    DATA.mkdir(parents=True, exist_ok=True)
+    (DATA / "rewrite_status.json").write_text(
+        json.dumps(rewrite_status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print("exporting L3 simple diff fallback...")
     for a, b in DIFF.items():
         if a not in have_pivots:

@@ -201,6 +201,7 @@ class Findings:
     lexical: dict = field(default_factory=dict)
     profiles: dict = field(default_factory=dict)
     framings: dict = field(default_factory=dict)
+    rewrite_status: dict = field(default_factory=dict)
 
     l4: dict = field(default_factory=dict)
 
@@ -274,6 +275,7 @@ def gather():
             if t and t not in EXCLUDE_ARTICLES:
                 l4map.setdefault(t, {"seed": seed, "class": row.get("class") or row.get("label") or "L4 candidate"})
     diffs, blames, pivots, framings = {}, {}, {}, {}
+    rewrite_status = load(DATA / "rewrite_status.json") or {}
     if DATA.exists():
         for f in DATA.glob("*.diff.json"):
             d = load(f)
@@ -293,7 +295,7 @@ def gather():
                 framings[d["article"]] = d
     return Findings(receipts=receipts, stances=stances, factchecks=factchecks, diver=diver, mscore=mscore,
                     diffs=diffs, blames=blames, pivots=pivots, sources=sources, lexical=lexical,
-                    profiles=profiles, framings=framings, l4=l4map)
+                    profiles=profiles, framings=framings, rewrite_status=rewrite_status, l4=l4map)
 
 
 # ---- shared fragments -------------------------------------------------------
@@ -742,6 +744,9 @@ def _rewrite_state(article, f):
     """Return finding, none, or unavailable without inferring a negative result from missing files."""
     if article in f.pivots or article in f.diffs:
         return "finding"
+    recorded = f.rewrite_status.get(article)
+    if recorded in {"none", "unavailable"}:
+        return recorded
     lexical = f.lexical.get(article) or {}
     span = str(lexical.get("span") or "").lower()
     if lexical.get("pivot") is None and "no l1 pivot" in span:
