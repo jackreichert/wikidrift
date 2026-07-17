@@ -738,6 +738,17 @@ def _top_pivot(article, f):
     return max(pivs, key=lambda p: int(p.get("pwr_mass") or 0))
 
 
+def _rewrite_state(article, f):
+    """Return finding, none, or unavailable without inferring a negative result from missing files."""
+    if article in f.pivots or article in f.diffs:
+        return "finding"
+    lexical = f.lexical.get(article) or {}
+    span = str(lexical.get("span") or "").lower()
+    if lexical.get("pivot") is None and "no l1 pivot" in span:
+        return "none"
+    return "unavailable"
+
+
 def _lex_label(jsd):
     if jsd >= 0.35:
         return "wording changed a lot"
@@ -900,6 +911,14 @@ def _signal_cards(article, f):
             f'<p class="signal-note">These two selected English versions are shown side by side. '
             f'See <a href="#diff">Rewrite</a>.</p></div>'
         )
+    elif _rewrite_state(article, f) == "none":
+        cards.append(
+            f'<div class="signal-card cool">'
+            f'<div class="signal-label">Rewrite scan</div>'
+            f'<div class="signal-value">No candidate window found</div>'
+            f'<p class="signal-note">L1 ran on this article and did not cross the candidate threshold. '
+            f'This does not mean the article never changed.</p></div>'
+        )
     else:
         cards.append(
             f'<div class="signal-card cool">'
@@ -1021,7 +1040,14 @@ def overview_section(article, f, layers):
     return "".join(p for p in parts if p)
 
 
-def missing_diff_section():
+def missing_diff_section(state="unavailable"):
+    if state == "none":
+        return (
+            '<h2>No candidate rewrite window was found</h2>'
+            '<p class="missing-note">The L1 rewrite scan ran, but no interval crossed its candidate '
+            'threshold. This is a completed negative result for that detector, not a claim that the '
+            'article never changed.</p>'
+        )
     return (
         '<h2>Rewrite analysis is not available</h2>'
         '<p class="missing-note">No rewrite timeline was exported for this article. This is a coverage '
@@ -1246,13 +1272,14 @@ def framing_tab(article, f):
 
 def _layer_flags(article, f):
     has_lex = article in f.lexical
-    has_diff = article in f.pivots or article in f.diffs
+    rewrite_state = _rewrite_state(article, f)
     has_src = article in f.sources
     has_framing = bool(f.stances.get(article) or f.framings.get(article))
     has_facts = bool(f.factchecks.get(article))
     has_rev = bool(f.receipts.get(article))
     return [
-        ("Rewrite", has_diff, "none found"),
+        ("Rewrite" if rewrite_state != "none" else "Rewrite (no candidate found)",
+         rewrite_state != "unavailable", "not available"),
         ("Vocabulary", has_lex, "not available"),
         ("Citations", has_src, "not available"),
         ("Framing", has_framing, "not available"),
@@ -1274,7 +1301,7 @@ def article_page(article, f, categories=None):
     elif diff:
         panels.append(("Rewrite", diff_section(diff), "diff"))
     else:
-        panels.append(("Rewrite", missing_diff_section(), "diff"))
+        panels.append(("Rewrite", missing_diff_section(_rewrite_state(article, f)), "diff"))
     if lex:
         panels.append(("Vocabulary", lexical_section(lex), "lexical"))
     if src:

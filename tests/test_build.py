@@ -107,6 +107,17 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("Rewrite analysis is not available", out)
         self.assertNotIn("None stood out", out)
 
+    def test_completed_l1_scan_without_pivot_is_not_missing_coverage(self):
+        findings = build.Findings(lexical={"Testland": {
+            "span": "2002-01-01 -> 2004-01-01 (no L1 pivot — whole history)",
+            "pivot": None,
+            "js_divergence": 0.1,
+        }})
+        out = build.article_page("Testland", findings)
+        self.assertIn("No candidate rewrite window was found", out)
+        self.assertIn("L1 rewrite scan ran", out)
+        self.assertNotIn("Rewrite analysis is not available", out)
+
     def test_coarse_pivot_is_a_candidate_with_pwr_metric(self):
         findings = build.Findings(pivots={"Testland": {"pivots": [{
             "start": "2024-01-01", "end": "2025-01-01", "peak_pct": 42.0,
