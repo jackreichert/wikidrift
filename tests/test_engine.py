@@ -226,5 +226,41 @@ class RefineBinarySearch(unittest.TestCase):
         self.assertIsNone(self._run({11: set(range(1, 9))}))
 
 
+class AnalyzeConfirmationContract(unittest.TestCase):
+    def test_returns_and_persists_exact_confirmed_pair(self):
+        con = duckdb.connect(":memory:")
+        self.addCleanup(con.close)
+        episode = {
+            "start": ("2020-01-01", 10), "end": ("2021-01-01", 20),
+            "abs": 42000, "peak": 40.0, "age": 2.0,
+        }
+        ranked = (
+            [("2020-01-01", 10), ("2021-01-01", 20), ("2024-01-01", 900)],
+            [set(), set(), set()], {}, {}, [], (4.0, 2.0, 1.0), [episode],
+        )
+        confirmation = ((111, "2020-06-01T00:00:00Z", "Before"),
+                        (112, "2020-06-02T00:00:00Z", "After"), 0.4)
+
+        with mock.patch.object(provenance, "ensure_sizes"), \
+             mock.patch.object(provenance, "ensure_indexes"), \
+             mock.patch.object(provenance, "build_snapshots"), \
+             mock.patch.object(drift, "ranked_episodes", return_value=ranked), \
+             mock.patch.object(drift, "verdict_dict", return_value={"verdict": "PIVOT?"}), \
+             mock.patch.object(drift, "refine", return_value=confirmation), \
+             mock.patch.object(drift, "attribute"), \
+             mock.patch.object(drift, "print_coarse_report"), \
+             mock.patch.object(drift.config, "write_findings") as write_findings:
+            result = drift.analyze("A", con=con)
+
+        self.assertEqual(result["status"], "confirmed")
+        self.assertEqual(result["corpus_horizon"], {
+            "snapshot_date": "2024-01-01", "snapshot_revid": 900,
+        })
+        confirmed = result["confirmed_episodes"][0]
+        self.assertEqual((confirmed["before_revid"], confirmed["after_revid"]), (111, 112))
+        self.assertEqual(confirmed["durable_spine_drop"], 0.4)
+        write_findings.assert_called_once_with("A.l1-confirmation.json", result)
+
+
 if __name__ == "__main__":
     unittest.main()

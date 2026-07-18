@@ -233,17 +233,19 @@ The lightweight framing check compares lead sections from English and a selected
 language editions. It asks a language model to identify substantive differences, contradictions, or
 omissions.
 
-When L1 finds a candidate rewrite window, the pipeline and standalone `framing` command pass that
-window to Framing Lite. For every selected edition, it fetches the last revision at or before the
-window's start and the first revision at or after its end. It then compares how English changed with
-how the other editions changed over the same period. The result keeps the revision IDs, timestamps,
-lead text, supporting quotations, and links to the exact Wikipedia versions.
+Framing Lite first looks for a fresh L1 confirmation artifact. If one exists, English uses the exact
+revision pair where the durable text collapsed. Every other edition uses the last revision at or
+before the confirmed English "before" timestamp and the first revision at or after its "after"
+timestamp. This mode is labeled **pivot-relative**.
 
-This mode is labeled **candidate-relative** because the default pipeline reads the coarse offline L1
-candidate; it does not claim that the revision-level confirmation step has run. If L1 has no candidate
-window, Framing Lite compares current leads instead. That **static** mode is useful for articles that
-may have been framed consistently throughout their English history. The `--static` option requests it
-explicitly.
+The confirmation artifact records the corpus horizon and L1 thresholds used to create it. If either
+has changed, Framing Lite ignores the artifact rather than silently reusing stale evidence. It then
+falls back to the top coarse L1 candidate and labels the result **candidate-relative**. If L1 has no
+candidate window, it compares current leads in **static** mode. The `--static` option requests that
+mode explicitly.
+
+All temporal modes keep revision IDs, timestamps, lead text, supporting quotations, and links to the
+exact Wikipedia versions.
 
 ### Full cross-language stance
 
@@ -299,10 +301,11 @@ Analysis and publication are separate steps. The analysis commands create findin
 corpus and public APIs. The L3 export step then reads the local corpus and calls public Wikipedia and
 WikiWho services to build before-and-after and authorship artifacts.
 
-Framing findings have their own refresh path. Running `wikidrift framing "Article"` reuses the cached
-L1 candidate window, fetches the matched historical leads, calls the configured language model, and
-replaces that article's framing finding. It does not recompute L1, attribution, vocabulary, sources,
-or the other L5 checks. Existing framing files must be refreshed once to gain temporal receipts.
+Framing findings have their own refresh path. Run `wikidrift analyze "Article"` once to write the
+structured L1 confirmation, then run `wikidrift framing "Article"` to fetch matched historical leads
+and replace that article's framing finding. The second command does not recompute L1, attribution,
+vocabulary, sources, or the other L5 checks. Existing articles analyzed before confirmation artifacts
+were introduced need that one-time `analyze` rerun to receive confirmed pivot-relative framing.
 
 The site builder is a separate, read-only step. It reads the saved findings and L3 artifacts and
 renders static HTML; it does not rerun the analysis or query DuckDB. A published page therefore

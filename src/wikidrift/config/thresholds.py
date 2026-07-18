@@ -29,5 +29,15 @@ CHURN_MIN_BYTES = 15_000  # but require a non-trivial absolute removal (keeps PP
 # --- slow-bleed detector (12-month cumulative window) -----------------------
 SLOW_BLEED_FLOOR = 0.35  # cumulative wlost/peak_size ratio in a 12-month window to raise a slow_bleed lead
 
+
+def confirmation_thresholds():
+	"""Return the L1 settings that determine whether an exact revision pair is confirmed."""
+	return {
+		"confirm_drop": CONFIRM_DROP,
+		"durable_quantile": DURABLE_Q,
+		"min_cohort": MIN_COHORT,
+		"magnitude_floor": MAG_FLOOR,
+	}
+
 # --- benchmark (from 009-benchmark) -----------------------------------------
 MASS_FLOOR = 50_000     # PWR-mass above this = a substantive drift lead (age-agnostic)

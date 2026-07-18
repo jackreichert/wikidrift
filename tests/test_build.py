@@ -124,6 +124,28 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("oldid=11", out)
         self.assertIn("oldid=22", out)
 
+    def test_renders_confirmed_pivot_relative_label_and_exact_receipts(self):
+        framing = {
+            "mode": "pivot_relative",
+            "pivot_window": {
+                "start": "2020-06-01T00:00:00Z", "end": "2020-06-02T00:00:00Z",
+                "before_revid": 111, "after_revid": 112, "status": "confirmed",
+            },
+            "editions_compared": ["en"],
+            "snapshots": {
+                "before": {"en": {"revid": 111}},
+                "after": {"en": {"revid": 112}},
+            },
+            "divergences": [],
+        }
+
+        out = build.framing_lite_block(framing)
+
+        self.assertIn("confirmed rewrite", out)
+        self.assertIn("oldid=111", out)
+        self.assertIn("oldid=112", out)
+        self.assertNotIn("L1 candidate window", out)
+
     def test_index_lists_the_article_with_its_link(self):
         idx = _index_html()
         self.assertIn("Testland", idx)

@@ -1,6 +1,8 @@
 """Unit tests for pure engine functions (no network, no DB, no LLM)."""
 import importlib.util
+import json
 import pathlib
+import tempfile
 import unittest
 from unittest.mock import patch
 
@@ -14,6 +16,7 @@ from wikidrift import drift
 from wikidrift import benchmark
 from wikidrift import stance
 from wikidrift import pipeline
+from wikidrift import config
 from wikidrift.registry import focal_entities
 
 
@@ -111,6 +114,35 @@ class AdaptiveL5CapPolicy(unittest.TestCase):
         cap, note = cover_missing_topics._adaptive_l5_cap("Abortion", diagnostics, 6)
         self.assertEqual(cap, 6)
         self.assertIn("success=1.00", note)
+
+    def test_framing_mode_confirms_then_refreshes_each_topic(self):
+        commands, notes = cover_missing_topics._topic_commands(
+            "Testland", use_llm=True, include_mscore=False, include_framing=False,
+            mode="framing", l5_max_langs=None, required=set(), have=set(),
+        )
+        self.assertEqual([command[-2:] for command in commands], [
+            ["analyze", "Testland"], ["framing", "Testland"],
+        ])
+        self.assertEqual(notes, [])
+
+    def test_cost_report_combines_stage_time_and_framing_usage(self):
+        with tempfile.TemporaryDirectory() as directory:
+            findings = pathlib.Path(directory)
+            (findings / "Testland.framing.json").write_text(json.dumps({
+                "llm_usage": {
+                    "calls": 2, "input_tokens": 100, "output_tokens": 20,
+                    "estimated_usd": 0.0012, "all_calls_priced": True, "records": [],
+                }
+            }), encoding="utf-8")
+            report = cover_missing_topics._write_cost_report(findings, "Testland", [
+                {"command": "analyze", "elapsed_seconds": 2.5, "exit_code": 0},
+                {"command": "framing", "elapsed_seconds": 3.25, "exit_code": 0},
+            ])
+
+            saved = json.loads((findings / "Testland.cost.json").read_text(encoding="utf-8"))
+        self.assertEqual(report["elapsed_seconds"], 5.75)
+        self.assertEqual(saved["estimated_external_usd"], 0.0012)
+        self.assertIn("machine time", saved["estimate_scope"])
 
 
 class StanceValue(unittest.TestCase):
@@ -680,6 +712,40 @@ class FramingLiteEditionSelect(unittest.TestCase):
         self.assertEqual(record["lead"], "Historical lead.")
         self.assertEqual(mock_get.call_args.kwargs["params"]["rvdir"], "newer")
 
+    @patch.object(fl._S, "get")
+    def test_confirmed_english_fetch_uses_exact_revision(self, mock_get):
+        mock_get.return_value.json.return_value = {"query": {"pages": [{"revisions": [{
+            "revid": 456,
+            "timestamp": "2020-02-01T00:00:00Z",
+            "slots": {"main": {"content": "Confirmed lead."}},
+        }]}]}}
+
+        record = fl._fetch_lead_by_revid("en", "Article", 456)
+
+        self.assertEqual(record["revid"], 456)
+        self.assertEqual(mock_get.call_args.kwargs["params"]["revids"], 456)
+
+    def test_early_exit_persists_current_usage_instead_of_leaving_stale_finding(self):
+        client = type("Client", (), {"model": "m", "usage_records": []})()
+        record = {
+            "provider": "openai", "model": "m", "input_tokens": 8, "output_tokens": 2,
+            "estimated_usd": None, "pricing_key": None, "pricing_usd_per_million": None,
+        }
+
+        def categorize(_article, used_client):
+            used_client.usage_records.append(record)
+            return {"category": "general", "confidence": 1.0}
+
+        with patch.object(fl, "_categorize", side_effect=categorize), \
+             patch.object(fl, "sitelinks", side_effect=LookupError("missing")), \
+             patch.object(fl.config, "write_findings") as write_findings:
+            result = fl.framing_lite("Testland", client=client)
+        saved = write_findings.call_args.args[1]
+
+        self.assertEqual(result["error"], "missing")
+        self.assertEqual(saved["llm_usage"]["input_tokens"], 8)
+        self.assertEqual(saved["llm_usage"]["calls"], 1)
+
 
 class PipelinePivotWindow(unittest.TestCase):
     def test_top_l1_episode_becomes_explicit_candidate_context(self):
@@ -694,6 +760,49 @@ class PipelinePivotWindow(unittest.TestCase):
 
     def test_no_l1_episode_keeps_framing_static(self):
         self.assertIsNone(pipeline._pivot_window({"episodes": []}))
+
+    def test_fresh_confirmation_supplies_exact_pivot_pair(self):
+        confirmation = {
+            "status": "confirmed",
+            "corpus_horizon": {"snapshot_date": "2024-01-01", "snapshot_revid": 900},
+            "thresholds": {
+                "confirm_drop": config.CONFIRM_DROP, "durable_quantile": config.DURABLE_Q,
+                "min_cohort": config.MIN_COHORT, "magnitude_floor": config.MAG_FLOOR,
+            },
+            "confirmed_episodes": [{
+                "candidate_start": "2020-01-01", "candidate_end": "2021-01-01",
+                "before_revid": 111, "before_timestamp": "2020-06-01T00:00:00Z",
+                "after_revid": 112, "after_timestamp": "2020-06-02T00:00:00Z",
+                "durable_spine_drop": 0.4, "pwr_mass": 42000,
+            }],
+        }
+        window = pipeline._confirmed_window(confirmation, ("2024-01-01", 900))
+        self.assertEqual(window["status"], "confirmed")
+        self.assertEqual((window["before_revid"], window["after_revid"]), (111, 112))
+
+    def test_stale_confirmation_is_rejected(self):
+        confirmation = {
+            "status": "confirmed",
+            "corpus_horizon": {"snapshot_date": "2023-01-01", "snapshot_revid": 800},
+            "thresholds": {
+                "confirm_drop": config.CONFIRM_DROP, "durable_quantile": config.DURABLE_Q,
+                "min_cohort": config.MIN_COHORT, "magnitude_floor": config.MAG_FLOOR,
+            },
+            "confirmed_episodes": [{"candidate_start": "2020-01-01"}],
+        }
+        self.assertIsNone(pipeline._confirmed_window(confirmation, ("2024-01-01", 900)))
+
+    def test_confirmation_with_old_thresholds_is_rejected(self):
+        confirmation = {
+            "status": "confirmed",
+            "corpus_horizon": {"snapshot_date": "2024-01-01", "snapshot_revid": 900},
+            "thresholds": {
+                "confirm_drop": 0.1, "durable_quantile": config.DURABLE_Q,
+                "min_cohort": config.MIN_COHORT, "magnitude_floor": config.MAG_FLOOR,
+            },
+            "confirmed_episodes": [{"candidate_start": "2020-01-01"}],
+        }
+        self.assertIsNone(pipeline._confirmed_window(confirmation, ("2024-01-01", 900)))
 
 
 if __name__ == "__main__":

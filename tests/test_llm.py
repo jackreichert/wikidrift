@@ -25,18 +25,23 @@ class _Rec:
 
 def _anthropic_impl(rec):
     block = types.SimpleNamespace(type="text", text='{"ok": 1}')
-    rec.response = types.SimpleNamespace(content=[block])
+    rec.response = types.SimpleNamespace(
+        content=[block], usage=types.SimpleNamespace(input_tokens=10, output_tokens=4))
     return types.SimpleNamespace(messages=types.SimpleNamespace(create=rec))
 
 
 def _openai_impl(rec):
     msg = types.SimpleNamespace(message=types.SimpleNamespace(content='{"ok": 2}'))
-    rec.response = types.SimpleNamespace(choices=[msg])
+    rec.response = types.SimpleNamespace(
+        choices=[msg], usage=types.SimpleNamespace(prompt_tokens=12, completion_tokens=5))
     return types.SimpleNamespace(chat=types.SimpleNamespace(completions=types.SimpleNamespace(create=rec)))
 
 
 def _google_impl(rec):
-    rec.response = types.SimpleNamespace(text='{"ok": 3}')
+    rec.response = types.SimpleNamespace(
+        text='{"ok": 3}',
+        usage_metadata=types.SimpleNamespace(prompt_token_count=14, candidates_token_count=6),
+    )
     return types.SimpleNamespace(models=types.SimpleNamespace(generate_content=rec))
 
 
@@ -122,6 +127,7 @@ class Backends(unittest.TestCase):
         self.assertEqual(c.complete_json(SCHEMA, "hi", max_tokens=64), {"ok": 1})
         self.assertEqual(rec.kwargs["output_config"], {"format": {"type": "json_schema", "schema": SCHEMA}})
         self.assertEqual(rec.kwargs["max_tokens"], 64)
+        self.assertEqual(c.usage_records[0]["input_tokens"], 10)
 
     def test_openai_shape_and_parse(self):
         c, rec = self._client("openai", _openai_impl)
@@ -130,6 +136,7 @@ class Backends(unittest.TestCase):
         self.assertEqual(rf["type"], "json_schema")
         self.assertTrue(rf["json_schema"]["strict"])
         self.assertEqual(rf["json_schema"]["schema"], SCHEMA)
+        self.assertEqual(c.usage_records[0]["output_tokens"], 5)
 
     def test_xai_reuses_openai_wire_format(self):
         # Grok is OpenAI-compatible: same chat.completions + json_schema response_format path.
@@ -144,6 +151,38 @@ class Backends(unittest.TestCase):
         self.assertEqual(c.complete_json(SCHEMA, "hi"), {"ok": 3})
         self.assertEqual(rec.kwargs["config"]["response_mime_type"], "application/json")
         self.assertIn('"ok"', rec.kwargs["contents"])  # schema inlined into the prompt
+        self.assertEqual(c.usage_records[0]["input_tokens"], 14)
+
+    def test_usage_summary_applies_explicit_model_pricing(self):
+        previous = os.environ.get("WIKIDRIFT_LLM_PRICING_JSON")
+        os.environ["WIKIDRIFT_LLM_PRICING_JSON"] = (
+            '{"anthropic:m":{"input_per_million":3,"output_per_million":15}}'
+        )
+        try:
+            c, _ = self._client("anthropic", _anthropic_impl)
+            checkpoint = llm.usage_checkpoint(c)
+            c.complete_json(SCHEMA, "hi")
+            summary = llm.usage_summary(c, checkpoint)
+        finally:
+            if previous is None:
+                os.environ.pop("WIKIDRIFT_LLM_PRICING_JSON", None)
+            else:
+                os.environ["WIKIDRIFT_LLM_PRICING_JSON"] = previous
+        self.assertEqual(summary["calls"], 1)
+        self.assertEqual(summary["input_tokens"], 10)
+        self.assertEqual(summary["output_tokens"], 4)
+        self.assertEqual(summary["estimated_usd"], 0.00009)
+        self.assertTrue(summary["all_calls_priced"])
+        self.assertEqual(summary["records"][0]["pricing_usd_per_million"], {
+            "input": 3.0, "output": 15.0,
+        })
+
+    def test_usage_summary_does_not_present_missing_pricing_as_zero(self):
+        c, _ = self._client("openai", _openai_impl)
+        c.complete_json(SCHEMA, "hi")
+        summary = llm.usage_summary(c)
+        self.assertIsNone(summary["estimated_usd"])
+        self.assertFalse(summary["all_calls_priced"])
 
     def test_google_empty_output_raises_clear_error(self):
         # thinking models can spend the whole token budget → empty text; must be an actionable error,
@@ -244,6 +283,29 @@ class Failover(unittest.TestCase):
         out = fc.complete_json(SCHEMA, "hi")
         self.assertEqual(out, {"ok": 9})
         self.assertEqual(fc.provider, "openai")
+
+    def test_usage_is_attributed_once_to_successful_failover_provider(self):
+        first = llm.Client("anthropic", "m1")
+        second = llm.Client("openai", "m2")
+
+        def boom(*_args, **_kwargs):
+            raise _Boom(429)
+
+        def succeed(*_args, **_kwargs):
+            second.usage_records.append({
+                "provider": "openai", "model": "m2", "input_tokens": 12,
+                "output_tokens": 5, "estimated_usd": None, "pricing_key": None,
+                "pricing_usd_per_million": None,
+            })
+            return {"ok": 9}
+
+        first.complete_json = boom
+        second.complete_json = succeed
+        client = llm.FailoverClient([first, second])
+
+        self.assertEqual(client.complete_json(SCHEMA, "hi"), {"ok": 9})
+        self.assertEqual(len(client.usage_records), 1)
+        self.assertEqual(client.usage_records[0]["provider"], "openai")
 
 
 class DotEnv(unittest.TestCase):

@@ -16,6 +16,7 @@ Output: {slug}.framing.json in the findings directory, including oldid receipts 
 from __future__ import annotations
 
 import datetime as dt
+import time
 
 import mwparserfromhell
 
@@ -186,6 +187,27 @@ def _fetch_lead_revision(lang: str, title: str, timestamp: str, after: bool = Fa
         return None
 
 
+def _fetch_lead_by_revid(lang: str, title: str, revid: int) -> dict | None:
+    """Fetch one exact confirmed revision so the English evidence matches L1 precisely."""
+    params = {
+        "action": "query", "format": "json", "formatversion": "2", "prop": "revisions",
+        "revids": revid, "rvprop": "ids|timestamp|content", "rvslots": "main",
+    }
+    try:
+        response = _S.get(config.action(lang), params=params, timeout=30).json()
+        revision = response["query"]["pages"][0]["revisions"][0]
+        raw = revision["slots"]["main"]["content"]
+        lead = _lead_from_wikitext(raw)
+        if not lead:
+            return None
+        return {
+            "revid": revision["revid"], "timestamp": revision["timestamp"],
+            "title": title, "lead": lead[:MAX_LEAD_CHARS],
+        }
+    except Exception:  # noqa: BLE001 — unavailable receipt degrades this edition only
+        return None
+
+
 def _edition_lengths(links: dict[str, str]) -> dict[str, int]:
     """Fetch byte lengths for a set of {lang: title} links via action=query&prop=info."""
     lengths: dict[str, int] = {}
@@ -279,10 +301,11 @@ def _compare_temporal_leads(article: str, snapshots: dict, pivot_window: dict, c
                 f"{record['timestamp']} ===\n{record['lead']}"
             )
 
+    window_label = "confirmed rewrite" if pivot_window.get("status") == "confirmed" else "candidate rewrite window"
     prompt = (
         f"You are comparing matched historical lead sections from Wikipedia language editions.\n\n"
         f"Article: {article}\n"
-        f"English candidate rewrite window: {pivot_window['start']} to {pivot_window['end']} "
+        f"English {window_label}: {pivot_window['start']} to {pivot_window['end']} "
         f"(status: {pivot_window.get('status', 'candidate')}; "
         f"PWR mass: {pivot_window.get('pwr_mass', '?')}).\n\n"
         f"{chr(10).join(sections)}\n\n"
@@ -315,15 +338,32 @@ def framing_lite(
     client: pre-built LLM client (shared with pipeline); built from provider/model/base_url if omitted.
     recategorize: force re-run of the category LLM call (ignore cache).
     """
+    started = time.monotonic()
     if client is None:
         from . import llm as llm_backend
         client = llm_backend.make_client(provider, model, base_url)
+    else:
+        from . import llm as llm_backend
+    usage_start = llm_backend.usage_checkpoint(client)
 
     if pivot_window and not (pivot_window.get("start") and pivot_window.get("end")):
         raise ValueError("pivot_window requires start and end dates")
 
     slug = slugify(article)
     print(f"\n=== FRAMING LITE — {article} ===")
+
+    def finish(result):
+        usage = llm_backend.usage_summary(client, usage_start)
+        result.update({
+            "run_ts": dt.datetime.now(dt.timezone.utc).isoformat(),
+            "model": getattr(client, "model", None),
+            "llm_usage": usage,
+            "elapsed_seconds": round(time.monotonic() - started, 3),
+        })
+        config.write_findings(f"{slug}.framing.json", result)
+        print(f"  LLM usage: {llm_backend.format_usage(usage)}")
+        print(f"  wrote findings/{slug}.framing.json")
+        return result
 
     # 1. Categorize
     if recategorize:
@@ -339,7 +379,7 @@ def framing_lite(
         qid, links = sitelinks(article)
     except LookupError as e:
         print(f"  sitelinks: {e}")
-        return {"article": article, "error": str(e)}
+        return finish({"article": article, "error": str(e)})
     print(f"  editions available: {len(links)}")
 
     # 3. Fetch byte lengths for non-EN editions
@@ -349,10 +389,11 @@ def framing_lite(
     editions = _select_editions(category, links, lengths)
     if "en" not in editions:
         print("  warning: English edition not available — skipping")
-        return {"article": article, "error": "English edition unavailable"}
+        return finish({"article": article, "error": "English edition unavailable"})
     if len(editions) < 2:
         print("  only one edition available — nothing to compare")
-        return {"article": article, "editions_compared": editions, "divergences": [], "summary": "Only one edition available."}
+        return finish({"article": article, "editions_compared": editions, "divergences": [],
+                       "summary": "Only one edition available."})
     print(f"  comparing: {editions}")
 
     # 5. Fetch comparable lead sections, preserving historical revision receipts when pivot context exists.
@@ -366,8 +407,14 @@ def framing_lite(
         after_ts = f"{pivot_window['end']}T00:00:00Z"
         for lang in editions:
             title = links.get(lang, article) if lang != "en" else article
-            before = _fetch_lead_revision(lang, title, before_ts)
-            after = _fetch_lead_revision(lang, title, after_ts, after=True)
+            if lang == "en" and mode == "pivot_relative":
+                before = _fetch_lead_by_revid(lang, title, pivot_window["before_revid"])
+                after = _fetch_lead_by_revid(lang, title, pivot_window["after_revid"])
+            else:
+                match_before = pivot_window.get("before_timestamp", before_ts)
+                match_after = pivot_window.get("after_timestamp", after_ts)
+                before = _fetch_lead_revision(lang, title, match_before)
+                after = _fetch_lead_revision(lang, title, match_after, after=True)
             if before:
                 snapshots["before"][lang] = before
             if after:
@@ -376,9 +423,9 @@ def framing_lite(
         complete = set(snapshots["before"]) & set(snapshots["after"])
         if "en" not in complete or len(complete) < 2:
             print("  fewer than 2 editions have matched historical leads — skipping comparison")
-            return {"article": article, "mode": mode, "pivot_window": pivot_window,
-                    "editions_compared": sorted(complete), "snapshots": snapshots,
-                    "divergences": [], "summary": "Insufficient matched historical content."}
+            return finish({"article": article, "mode": mode, "pivot_window": pivot_window,
+                           "editions_compared": sorted(complete), "snapshots": snapshots,
+                           "divergences": [], "summary": "Insufficient matched historical content."})
         editions = [lang for lang in editions if lang in complete]
         comparison = _compare_temporal_leads(article, snapshots, pivot_window, client)
         lead_texts = {lang: snapshots["after"][lang]["lead"] for lang in editions}
@@ -393,8 +440,8 @@ def framing_lite(
                 print(f"  {lang}: empty — skipping")
         if len(lead_texts) < 2:
             print("  fewer than 2 editions have content — skipping comparison")
-            return {"article": article, "mode": mode, "editions_compared": editions,
-                    "divergences": [], "summary": "Insufficient edition content."}
+            return finish({"article": article, "mode": mode, "editions_compared": editions,
+                           "divergences": [], "summary": "Insufficient edition content."})
         comparison = _compare_leads(article, lead_texts, None, client)
 
     # 6. LLM divergence comparison
@@ -404,7 +451,6 @@ def framing_lite(
     # 7. Write findings
     out = {
         "article": article,
-        "run_ts": dt.datetime.utcnow().isoformat() + "Z",
         "category": category,
         "mode": mode,
         "pivot_window": pivot_window,
@@ -413,8 +459,5 @@ def framing_lite(
         "snapshots": snapshots,
         "divergences": divergences,
         "summary": comparison.get("summary", ""),
-        "model": getattr(client, "model", None),
     }
-    config.write_findings(f"{slug}.framing.json", out)
-    print(f"  wrote findings/{slug}.framing.json")
-    return out
+    return finish(out)

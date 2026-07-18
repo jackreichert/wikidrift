@@ -32,6 +32,15 @@ from .config import (MIN_COHORT, MIN_MATURE, MAG_FLOOR, CONFIRM_DROP,
                      CREEP_MEAN, DURABLE_Q, RECENT_YEARS, ELEVATED, SLOW_BLEED_FLOOR)
 
 
+def confirmation_name(article):
+    return f"{config.slugify(article)}.l1-confirmation.json"
+
+
+def load_confirmation(article):
+    """Load the last full-analysis confirmation artifact for an article, if one exists."""
+    return config.load_findings(confirmation_name(article))
+
+
 def load_membership(con, article):
     """Snapshot membership + PWR weights, computed once from rsnap (no WikiWho calls).
 
@@ -391,11 +400,12 @@ def profile_report(article, con=None, persist=True):
     return p
 
 
-def analyze(article, con=None):
-    """Full L1 pipeline for one article, with confirmation + attribution (prints a report).
+def analyze(article, con=None, persist=True):
+    """Full L1 pipeline for one article, with confirmation + attribution.
 
     Fetches sizes + snapshots (WikiWho/Action) as needed, then classifies. This is the confirmed
-    path (binary search); the offline candidate path is `verdict_dict`."""
+    path (binary search); the offline candidate path is `verdict_dict`. Prints a report, returns a
+    structured result, and persists it by default for downstream instruments."""
     owns = con is None
     if owns:
         con = duckdb.connect(str(config.DB))
@@ -404,10 +414,23 @@ def analyze(article, con=None):
     provenance.ensure_indexes(con)
     provenance.build_snapshots(con, article)
     snaps, members, present, idx_of_rev, series, (mean, med, std), episodes = ranked_episodes(con, article)
+    result = {
+        "article": article,
+        "run_ts": dt.datetime.now(dt.timezone.utc).isoformat(),
+        "corpus_horizon": {
+            "snapshot_date": snaps[-1][0], "snapshot_revid": snaps[-1][1],
+        } if snaps else None,
+        "thresholds": config.confirmation_thresholds(),
+        "coarse_verdict": "SKIP" if len(snaps) < 3 else verdict_dict(con, article)["verdict"],
+        "status": "unavailable" if len(snaps) < 3 else "not_confirmed",
+        "confirmed_episodes": [],
+    }
     if len(snaps) < 3:
         print("  too few snapshots to analyze")
+        if persist:
+            config.write_findings(confirmation_name(article), result)
         if owns: con.close()
-        return
+        return result
     print(f"  {len(snaps)} persistent snapshots {snaps[0][0]}..{snaps[-1][0]}", flush=True)
     print_coarse_report(snaps, members, present)
 
@@ -422,17 +445,33 @@ def analyze(article, con=None):
             print(f"\n-- confirming {e['start'][0]} → {e['end'][0]} --")
             conf = refine(article, con, snaps, members, present, idx_of_rev, span)
             if conf and conf[2] >= CONFIRM_DROP:
-                confirmed.append((e, span))
+                before, after, decline = conf
+                confirmed.append((e, span, {
+                    "candidate_start": e["start"][0],
+                    "candidate_end": e["end"][0],
+                    "candidate_before_revid": e["start"][1],
+                    "candidate_after_revid": e["end"][1],
+                    "before_revid": before[0],
+                    "before_timestamp": before[1],
+                    "after_revid": after[0],
+                    "after_timestamp": after[1],
+                    "durable_spine_drop": round(decline, 6),
+                    "pwr_mass": int(e["abs"]),
+                    "peak_pct": round(e["peak"], 2),
+                    "status": "confirmed",
+                }))
         if confirmed:
             confirmed.sort(key=lambda x: -x[0]["abs"])
             top = confirmed[0][0]
+            result["status"] = "confirmed"
+            result["confirmed_episodes"] = [record for _, _, record in confirmed]
             kind = ("recent retrofit" if top["age"] <= RECENT_YEARS
                     else f"standing distortion — persisted {top['age']:.0f}yr (a long-standing-distortion candidate)")
             print(f"\nVERDICT: PIVOT ({kind}) — {len(confirmed)} confirmed episode(s), by PWR-mass:")
-            for e, _ in confirmed:
+            for e, _, _ in confirmed:
                 print(f"  • {e['start'][0]} → {e['end'][0]}  (~{int(e['abs']):,} PWR, age {e['age']:.1f}yr, "
                       f"peak {e['peak']:.0f}%)  [{_recency_tag(e['age'])}]")
-            for e, span in confirmed[:2]:            # attribute the two largest (by PWR-mass)
+            for e, span, _ in confirmed[:2]:         # attribute the two largest (by PWR-mass)
                 attribute(article, con, span)
         else:                                        # candidate episodes existed but none binary-search-confirmed
             nuance = ("elevated destruction, no single episode binary-search-confirmed"
@@ -440,5 +479,8 @@ def analyze(article, con=None):
             print(f"\nVERDICT: {_creep_or_healthy_label(mean)} ({nuance})")
     else:                                            # no candidate episodes at all
         print(f"\nVERDICT: {_creep_or_healthy_label(mean)}")
+    if persist:
+        config.write_findings(confirmation_name(article), result)
     if owns:
         con.close()
+    return result

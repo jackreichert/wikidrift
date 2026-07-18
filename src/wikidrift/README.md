@@ -17,7 +17,7 @@ Full design + methodology live in the vault:
 | `stance.py` | **L2** LLM stance classifier (NPOV axis, not sentiment) | 010 |
 | `benchmark.py` | Adjudicated ground-truth roster + scoring | 009 |
 | `l5_crosslingual.py` | **L5 #1** cross-lingual framing divergence (static + pivot-relative) | 012a/b/c |
-| `l5_framing_lite.py` | **L5 Framing Lite** matched historical leads around the top cached L1 candidate; static fallback; oldid receipts | S09 |
+| `l5_framing_lite.py` | **L5 Framing Lite** exact confirmed L1 pair when fresh; candidate/static fallbacks; matched historical leads and oldid receipts | S09 |
 | `l5_factcheck.py` | **L5 #2** cross-edition citation + claim (fact) divergence, as-of aware | 014 |
 | `mscore.py` | Yasseri mutual-revert controversy corroborator (metadata-only) | 013 |
 | `ingest.py` | **Local `wikiwho_rs`-on-dumps** rsnap ingestion — coverage gaps + corpus-scale batch (Rust `tools/snapshot-tokens` helper) | 011 |
@@ -62,12 +62,27 @@ Single-article verbs accept either an article title or a Wikipedia URL (for exam
 with stronger article coverage; English kept when present for pivot-relative comparability). Pass
 `--langs` to pin an explicit comparison set.
 
-`framing` reuses the top candidate window from the cached L1 verdict. It fetches the last lead revision
-at or before the window start and the first one at or after the window end for each selected edition,
-then saves quotations and oldid receipts in the article's framing finding. The result is labeled
-candidate-relative because the cached `PIVOT?` is not a persisted confirmation. If no candidate exists,
-the command falls back to current leads; pass `--static` to request that mode directly. Rerunning this
-command refreshes only Framing Lite; it does not recompute L1 or the other analysis layers.
+`analyze` persists the exact pair from durable-spine confirmation with the corpus horizon and thresholds
+used. `framing` prefers that artifact while it remains current, uses the exact English revisions, and
+matches other editions to their timestamps. That result is pivot-relative. A missing or stale artifact
+falls back to the top coarse candidate and is labeled candidate-relative; no candidate falls back to
+current leads. Pass `--static` to request the last mode directly.
+
+Existing articles need one `analyze` rerun to create the confirmation artifact, followed by `framing` to
+refresh only Framing Lite. The latter does not recompute L1 or the other analysis layers.
+
+For every article already present in the local token corpus, dry-run and then execute the sequential
+refresh with:
+
+```bash
+uv run python tools/cover_missing_topics.py --all-corpus --mode framing
+uv run python tools/cover_missing_topics.py --all-corpus --mode framing --execute
+uv run python viewer/build.py
+```
+
+Executed framing batches also write one `<slug>.cost.json` per article with stage timings,
+provider-reported token usage, and an estimated LLM total when `WIKIDRIFT_LLM_PRICING_JSON` contains a
+rate for every model used. Each call record freezes its provider, model, and rates.
 
 `discover` seeds from editors attributed with removals in an article, follows *only their content-removing edits* elsewhere
 (a search prior — the graph never flags anything), subtracts the base-rate roster, and re-tests each fresh

@@ -52,15 +52,43 @@ def _pivot_window(verdict):
             "status": "candidate"}
 
 
-def candidate_window(article):
-    """Load the top cached L1 candidate for standalone downstream instruments, if available."""
+def _confirmed_window(confirmation, current_horizon):
+    """Return a confirmed framing window only when its corpus horizon is still current."""
+    if not confirmation or confirmation.get("status") != "confirmed":
+        return None
+    thresholds = confirmation.get("thresholds") or {}
+    if thresholds != config.confirmation_thresholds():
+        return None
+    saved = confirmation.get("corpus_horizon") or {}
+    if not current_horizon or (
+        saved.get("snapshot_date"), saved.get("snapshot_revid")
+    ) != tuple(current_horizon):
+        return None
+    episodes = confirmation.get("confirmed_episodes") or []
+    if not episodes:
+        return None
+    top = episodes[0]
+    return {
+        "start": top["candidate_start"], "end": top["candidate_end"],
+        "pwr_mass": top["pwr_mass"], "status": "confirmed",
+        "before_revid": top["before_revid"], "before_timestamp": top["before_timestamp"],
+        "after_revid": top["after_revid"], "after_timestamp": top["after_timestamp"],
+        "durable_spine_drop": top["durable_spine_drop"],
+    }
+
+
+def framing_window(article):
+    """Prefer a fresh confirmed L1 pair; otherwise return the top cached coarse candidate."""
     if not config.DB.exists():
         return None
     con = duckdb.connect(str(config.DB), read_only=True)
     try:
         if _snap_count(con, article) < 3:
             return None
-        return _pivot_window(drift.verdict_dict(con, article))
+        corpus = Corpus(con)
+        horizon = corpus.latest_snapshot(article)
+        confirmed = _confirmed_window(drift.load_confirmation(article), horizon)
+        return confirmed or _pivot_window(drift.verdict_dict(con, article))
     finally:
         con.close()
 
@@ -119,7 +147,8 @@ def run(article, llm=False, corroborate=False, framing=False, provider=None, mod
         con = duckdb.connect(str(config.DB), read_only=True)
     verdict = drift.verdict_dict(con, article) if _snap_count(con, article) >= 3 else None
     label = drift.candidate_verdict(con, article)[1] if verdict else "n/a (too few snapshots)"
-    pivot_window = _pivot_window(verdict)
+    horizon = Corpus(con).latest_snapshot(article) if verdict else None
+    pivot_window = _confirmed_window(drift.load_confirmation(article), horizon) or _pivot_window(verdict)
     print(f"\nL1 drift verdict: {label}")
 
     # ---- pre-rank router (metadata-only) ----

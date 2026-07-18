@@ -118,10 +118,10 @@ def main(argv=None):
     sp.add_argument("--llm", action="store_true", help="run L2 stance on routed leads (needs an LLM key)")
     sp.add_argument("--mscore", action="store_true", help="also run the M-score controversy corroborator")
     sp.add_argument("--framing", action="store_true",
-                    help="run L5 Framing Lite (matched historical leads when L1 has a candidate; needs an LLM key)")
+                    help="run L5 Framing Lite (prefers fresh confirmed L1 pair, else candidate; needs an LLM key)")
     add_llm_flags(sp)
 
-    sp = sub.add_parser("framing", help="L5 Framing Lite — matched historical leads around cached L1 candidate")
+    sp = sub.add_parser("framing", help="L5 Framing Lite — matched leads around confirmed L1 pair or candidate")
     sp.add_argument("article")
     sp.add_argument("--static", action="store_true",
                     help="compare current leads only, ignoring any cached L1 candidate window")
@@ -193,7 +193,7 @@ def main(argv=None):
     elif args.cmd == "framing":
         from . import l5_framing_lite
         article = _normalize_article_arg(args.article)
-        pivot_window = None if args.static else pipeline.candidate_window(article)
+        pivot_window = None if args.static else pipeline.framing_window(article)
         l5_framing_lite.framing_lite(article, pivot_window=pivot_window,
                                      recategorize=args.recategorize,
                                      provider=args.provider, model=args.model, base_url=args.base_url)

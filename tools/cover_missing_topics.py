@@ -19,15 +19,23 @@ Run examples:
     uv run python tools/cover_missing_topics.py --topics "Chess" "Water" --mode full --execute
     uv run python tools/cover_missing_topics.py --topics "Brontosaurus" "Abortion" --mode fill --execute
     uv run python tools/cover_missing_topics.py --only-controls --mode fill --execute
+    uv run python tools/cover_missing_topics.py --all-corpus --mode framing --execute
 """
 
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import json
 import subprocess
 import sys
+import time
 from pathlib import Path
+
+import duckdb
+
+from wikidrift import config
+from wikidrift.corpus import Corpus
 
 DEFAULT_REQUIRED_LAYERS = ["receipts", "stance", "sources", "profile"]
 DEFAULT_L5_MAX_LANGS = 6
@@ -158,6 +166,37 @@ def _run(cmd: list[str], execute: bool) -> int:
     return int(completed.returncode)
 
 
+def _write_cost_report(findings_dir: Path, topic: str, stages: list[dict]) -> dict:
+    """Persist measurable per-article cost without inventing infrastructure prices."""
+    framing_path = findings_dir / f"{config.slugify(topic)}.framing.json"
+    try:
+        framing = json.loads(framing_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        framing = {}
+    usage = framing.get("llm_usage") or {
+        "calls": 0, "input_tokens": 0, "output_tokens": 0,
+        "estimated_usd": None, "all_calls_priced": False, "records": [],
+    }
+    report = {
+        "article": topic,
+        "run_ts": dt.datetime.now(dt.timezone.utc).isoformat(),
+        "workflow": "confirmed_framing_refresh",
+        "elapsed_seconds": round(sum(stage["elapsed_seconds"] for stage in stages), 3),
+        "stages": stages,
+        "llm_usage": usage,
+        "estimated_external_usd": usage.get("estimated_usd"),
+        "estimate_scope": (
+            "LLM token charges only. Wikipedia and WikiWho APIs are public and unpriced here; "
+            "machine time, storage, payment fees, taxes, failed-response charges, and service margin "
+            "are excluded."
+        ),
+    }
+    findings_dir.mkdir(parents=True, exist_ok=True)
+    (findings_dir / f"{config.slugify(topic)}.cost.json").write_text(
+        json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+    return report
+
+
 def _pipeline_cmd(topic: str, use_llm: bool, include_mscore: bool, include_framing: bool = False,
                   l5_max_langs: int | None = None) -> list[str]:
     base = [sys.executable, "-m", "wikidrift.cli"]
@@ -178,6 +217,11 @@ def _topic_commands(topic: str, use_llm: bool, include_mscore: bool, include_fra
     base = [sys.executable, "-m", "wikidrift.cli"]
     cmds: list[list[str]] = []
     notes: list[str] = []
+
+    if mode == "framing":
+        cmds.append(base + ["analyze", topic])
+        cmds.append(base + ["framing", topic])
+        return cmds, notes
 
     if mode == "full":
         cmds.append(_pipeline_cmd(topic, use_llm=use_llm, include_mscore=include_mscore,
@@ -226,6 +270,11 @@ def main() -> int:
         help="Restrict targets to control topics only",
     )
     parser.add_argument(
+        "--all-corpus",
+        action="store_true",
+        help="Select every article with at least three snapshots in the local DuckDB corpus",
+    )
+    parser.add_argument(
         "--controls",
         nargs="*",
         default=DEFAULT_CONTROLS,
@@ -239,9 +288,10 @@ def main() -> int:
     )
     parser.add_argument(
         "--mode",
-        choices=["fill", "full"],
+        choices=["fill", "full", "framing"],
         default="fill",
-        help="fill: only run what is missing; full: run pipeline+sources+profile for each selected topic",
+        help=("fill: only run missing layers; full: run pipeline+sources+profile; "
+              "framing: run analyze then Framing Lite to create confirmed temporal receipts"),
     )
     parser.add_argument(
         "--execute",
@@ -280,9 +330,15 @@ def main() -> int:
     parser.add_argument(
         "--framing",
         action="store_true",
-        help="Run L5 Framing Lite (matched historical leads when L1 has a candidate) via pipeline --framing (opt-in; needs an LLM key)",
+        help="Run L5 Framing Lite via pipeline --framing in fill/full mode (opt-in; needs an LLM key)",
     )
     args = parser.parse_args()
+
+    selectors = bool(args.topics) + bool(args.topics_file) + bool(args.only_controls) + bool(args.all_corpus)
+    if selectors > 1:
+        parser.error("choose only one of --topics, --topics-file, --only-controls, or --all-corpus")
+    if args.mode == "framing" and args.no_llm:
+        parser.error("--mode framing requires an LLM; remove --no-llm")
 
     findings_dir = Path(args.findings_dir)
     if not findings_dir.exists():
@@ -308,7 +364,16 @@ def main() -> int:
             return 2
         explicit_topics.extend([ln.strip() for ln in p.read_text(encoding="utf-8").splitlines() if ln.strip()])
 
-    if explicit_topics:
+    if args.all_corpus:
+        if not config.DB.exists():
+            print(f"error: token corpus not found: {config.DB}", file=sys.stderr)
+            return 2
+        con = duckdb.connect(str(config.DB), read_only=True)
+        try:
+            candidates = set(Corpus(con).articles_with_snapshots(3))
+        finally:
+            con.close()
+    elif explicit_topics:
         candidates = set(explicit_topics)
     elif args.only_controls:
         candidates = set(args.controls)
@@ -337,7 +402,7 @@ def main() -> int:
         print(f"  have: {have}")
         print(f"  missing: {missing}")
         topic_l5_max_langs = args.l5_max_langs or None
-        if use_llm and topic_l5_max_langs and args.l5_cap_policy == "adaptive":
+        if args.mode != "framing" and use_llm and topic_l5_max_langs and args.l5_cap_policy == "adaptive":
             topic_l5_max_langs, cap_note = _adaptive_l5_cap(topic, factcheck_diagnostics, args.l5_max_langs)
             print(f"  note: {cap_note}")
         cmds, notes = _topic_commands(
@@ -352,11 +417,24 @@ def main() -> int:
         )
         for note in notes:
             print(f"  note: {note}")
+        stages = []
         for cmd in cmds:
+            started = time.monotonic()
             rc = _run(cmd, execute=args.execute)
+            if args.execute:
+                stages.append({
+                    "command": cmd[-2],
+                    "elapsed_seconds": round(time.monotonic() - started, 3),
+                    "exit_code": rc,
+                })
             if rc != 0:
                 failures += 1
                 print(f"  command failed with exit code {rc}")
+        if args.mode == "framing" and args.execute:
+            report = _write_cost_report(findings_dir, topic, stages)
+            estimate = report["estimated_external_usd"]
+            estimate_text = f"${estimate:.6f}" if estimate is not None else "unavailable (configure pricing)"
+            print(f"  cost report: {report['elapsed_seconds']:.1f}s, LLM estimate {estimate_text}")
 
     print(f"\nDone. failures={failures}")
     return 1 if failures else 0

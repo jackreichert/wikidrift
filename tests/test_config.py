@@ -17,6 +17,14 @@ class Slugify(unittest.TestCase):
     def test_preserves_unicode_letters(self):
         self.assertEqual(config.slugify("Israeli–Palestinian conflict"), "Israeli–Palestinian_conflict")
 
+    def test_confirmation_thresholds_exposes_persisted_contract(self):
+        self.assertEqual(config.confirmation_thresholds(), {
+            "confirm_drop": config.CONFIRM_DROP,
+            "durable_quantile": config.DURABLE_Q,
+            "min_cohort": config.MIN_COHORT,
+            "magnitude_floor": config.MAG_FLOOR,
+        })
+
 
 class CitationDomains(unittest.TestCase):
     def test_extracts_and_strips_www(self):

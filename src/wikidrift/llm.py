@@ -39,6 +39,106 @@ _BASE_DELAY = 2.0    # seconds; doubles each attempt
 _MAX_DELAY = 60.0    # cap on a single backoff wait
 
 
+def _pricing():
+    """Load optional USD-per-million-token rates keyed by ``provider:model``."""
+    raw = os.environ.get("WIKIDRIFT_LLM_PRICING_JSON", "").strip()
+    if not raw:
+        return {}
+    try:
+        prices = json.loads(raw)
+    except json.JSONDecodeError as exc:
+        raise ValueError("WIKIDRIFT_LLM_PRICING_JSON must be valid JSON") from exc
+    if not isinstance(prices, dict):
+        raise ValueError("WIKIDRIFT_LLM_PRICING_JSON must be a JSON object")
+    for key, rate in prices.items():
+        if not isinstance(rate, dict):
+            raise ValueError(f"pricing entry {key!r} must be an object")
+        for field in ("input_per_million", "output_per_million"):
+            value = rate.get(field)
+            if not isinstance(value, (int, float)) or value < 0:
+                raise ValueError(f"pricing entry {key!r} requires a nonnegative numeric {field}")
+    return prices
+
+
+def _usage_counts(provider, response):
+    """Extract provider-reported input/output tokens from an SDK response."""
+    usage = getattr(response, "usage", None)
+    if provider == "google":
+        usage = getattr(response, "usage_metadata", None)
+    if usage is None:
+        return None
+
+    def value(*names):
+        for name in names:
+            result = getattr(usage, name, None)
+            if result is not None:
+                return int(result)
+        return 0
+
+    if provider == "anthropic":
+        return value("input_tokens"), value("output_tokens")
+    if provider in ("openai", "xai"):
+        return value("prompt_tokens", "input_tokens"), value("completion_tokens", "output_tokens")
+    if provider == "google":
+        return value("prompt_token_count", "input_tokens"), value("candidates_token_count", "output_tokens")
+    return None
+
+
+def _usage_record(provider, model, response):
+    counts = _usage_counts(provider, response)
+    if counts is None:
+        return None
+    input_tokens, output_tokens = counts
+    rate = _pricing().get(f"{provider}:{model}")
+    estimated_usd = None
+    if isinstance(rate, dict):
+        input_rate = float(rate.get("input_per_million", 0))
+        output_rate = float(rate.get("output_per_million", 0))
+        estimated_usd = round(
+            (input_tokens * input_rate + output_tokens * output_rate) / 1_000_000,
+            8,
+        )
+    return {
+        "provider": provider,
+        "model": model,
+        "input_tokens": input_tokens,
+        "output_tokens": output_tokens,
+        "estimated_usd": estimated_usd,
+        "pricing_key": f"{provider}:{model}" if rate is not None else None,
+        "pricing_usd_per_million": {
+            "input": float(rate.get("input_per_million", 0)),
+            "output": float(rate.get("output_per_million", 0)),
+        } if isinstance(rate, dict) else None,
+    }
+
+
+def usage_checkpoint(client):
+    """Return a marker that can later isolate one operation's calls on a shared client."""
+    return len(getattr(client, "usage_records", []))
+
+
+def usage_summary(client, since=0):
+    """Summarize provider-reported usage since ``usage_checkpoint``."""
+    records = list(getattr(client, "usage_records", []))[since:]
+    priced = [record["estimated_usd"] for record in records if record.get("estimated_usd") is not None]
+    return {
+        "calls": len(records),
+        "input_tokens": sum(record.get("input_tokens", 0) for record in records),
+        "output_tokens": sum(record.get("output_tokens", 0) for record in records),
+        "estimated_usd": round(sum(priced), 8) if len(priced) == len(records) and records else None,
+        "all_calls_priced": bool(records) and len(priced) == len(records),
+        "records": records,
+    }
+
+
+def format_usage(summary):
+    """Render a concise per-operation cost line without implying an unconfigured estimate is zero."""
+    cost = summary.get("estimated_usd")
+    cost_text = f"${cost:.6f} estimated" if cost is not None else "cost unavailable (pricing not configured)"
+    return (f"{summary.get('calls', 0)} call(s), {summary.get('input_tokens', 0)} input + "
+            f"{summary.get('output_tokens', 0)} output tokens, {cost_text}")
+
+
 def _canonical_provider(provider):
     """Normalize provider aliases to a single internal identifier."""
     p = (provider or "").lower().strip()
@@ -111,6 +211,7 @@ class FailoverClient:
         self.provider = clients[0].provider
         self.model = clients[0].model
         self.base_url = clients[0].base_url
+        self.usage_records = []
 
     def complete_json(self, schema, prompt, max_tokens=1024):
         last = None
@@ -118,7 +219,9 @@ class FailoverClient:
             i = (self._idx + hop) % len(self._clients)
             c = self._clients[i]
             try:
+                checkpoint = usage_checkpoint(c)
                 out = c.complete_json(schema, prompt, max_tokens=max_tokens)
+                self.usage_records.extend(c.usage_records[checkpoint:])
                 self._idx = i
                 self.provider, self.model, self.base_url = c.provider, c.model, c.base_url
                 return out
@@ -166,6 +269,7 @@ class Client:
     def __init__(self, provider, model, base_url=None, api_key=None):
         self.provider, self.model, self.base_url, self.api_key = provider, model, base_url, api_key
         self._impl = None
+        self.usage_records = []
         self.max_retries = int(os.environ.get("WIKIDRIFT_LLM_MAX_RETRIES", _DEFAULT_MAX_RETRIES))
         self.min_interval = float(os.environ.get("WIKIDRIFT_LLM_MIN_INTERVAL", 0) or 0)  # pacing, seconds
         self._last_call = 0.0
@@ -233,6 +337,7 @@ class Client:
         if not text:  # e.g. max_tokens hit before any text; clearer than a bare StopIteration
             raise RuntimeError(
                 f"no text block from {self.model} (stop_reason={resp.stop_reason}); raise max_tokens")
+        self._record_usage(resp)
         return json.loads(text)
 
     def _openai(self, schema, prompt, max_tokens):
@@ -241,6 +346,7 @@ class Client:
             response_format={"type": "json_schema",
                              "json_schema": {"name": "response", "schema": schema, "strict": True}},
             messages=[{"role": "user", "content": prompt}]))
+        self._record_usage(resp)
         return json.loads(resp.choices[0].message.content)
 
     def _google(self, schema, prompt, max_tokens):
@@ -259,7 +365,13 @@ class Client:
             raise RuntimeError(
                 f"empty response from {self.model} (finish_reason={fr}); raise max_tokens "
                 "(Gemini thinking models consume the budget) or pick a lighter model")
+        self._record_usage(resp)
         return json.loads(text)
+
+    def _record_usage(self, response):
+        record = _usage_record(self.provider, self.model, response)
+        if record is not None:
+            self.usage_records.append(record)
 
 
 def make_client(provider=None, model=None, base_url=None, api_key=None):

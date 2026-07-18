@@ -83,7 +83,7 @@ uv run wikidrift analyze "Climate change"      # full L1: drift → pivots → b
 uv run wikidrift discover "Nakba"              # L4: seed → removal footprint → independent L1 re-test
 uv run wikidrift sources "Palestine"           # L5 #3b: citation-source change (from → to across the pivot)
 uv run wikidrift stance "Abortion"             # L2 framing/stance over time            (needs an LLM key)
-uv run wikidrift framing "Gaza war"            # L5 Lite: matched leads around cached L1 candidate (LLM key)
+uv run wikidrift framing "Gaza war"            # L5 Lite: prefers fresh confirmed L1 pair (LLM key)
 uv run wikidrift framing "Gaza war" --static   # L5 Lite: compare current leads only
 uv run wikidrift crosslingual "Anti-Zionism"   # L5 #1: cross-lingual framing divergence (needs an LLM key)
 uv run wikidrift factcheck "Warsaw concentration camp" --asof 2018-06-01   # L5 #2: fact divergence (LLM key)
@@ -114,15 +114,54 @@ Existing framing JSON does not gain historical evidence automatically after a co
 the Framing Lite result for each published article that needs matched revisions and oldid receipts:
 
 ```bash
+uv run wikidrift analyze "Gaza war"       # one-time: persist exact confirmed pair
 uv run wikidrift framing "Gaza war"
+uv run wikidrift analyze "Zionism"
 uv run wikidrift framing "Zionism"
 uv run python viewer/build.py
 ```
 
-This reuses the cached L1 candidate window. It does **not** rerun L1 confirmation, attribution, lexical
-analysis, source analysis, or the other L5 instruments. It does call public Wikipedia APIs and the
-configured LLM. If the token corpus is unavailable or L1 has no candidate for the article, `framing`
-falls back to a static current-lead comparison; use `--static` to choose that mode explicitly.
+`analyze` writes the exact confirmed revision pair plus the corpus horizon and thresholds used. `framing`
+trusts that artifact only while those values still match, then fetches exact English revisions and
+timestamp-matched revisions from the other editions. The framing command itself does **not** rerun L1,
+lexical analysis, source analysis, or the other L5 instruments. It does call public Wikipedia APIs and
+the configured LLM.
+
+If a fresh confirmation is unavailable, `framing` falls back to the coarse cached candidate and labels
+the result candidate-relative. If L1 has no candidate, it compares current leads in static mode. Use
+`--static` to choose that mode explicitly.
+
+To refresh confirmation and Framing Lite for every article already downloaded into the local DuckDB,
+first inspect the queue, then execute it:
+
+```bash
+uv run python tools/cover_missing_topics.py --all-corpus --mode framing
+uv run python tools/cover_missing_topics.py --all-corpus --mode framing --execute
+uv run python viewer/build.py
+```
+
+The first command is a dry run. The executing command processes articles sequentially, running full L1
+confirmation before Framing Lite for each one. It needs the existing token corpus, network access for
+revision retrieval, and a configured LLM key.
+
+Each executed article writes `<slug>.cost.json` beside its other findings. The report records elapsed
+time for `analyze` and `framing`, provider-reported input/output tokens for every successful LLM call,
+the provider and model that served each call, and an optional USD estimate. Configure estimates with
+rates from your actual provider account, expressed in USD per million tokens:
+
+```dotenv
+WIKIDRIFT_LLM_PRICING_JSON={"anthropic:claude-sonnet-5":{"input_per_million":YOUR_RATE,"output_per_million":YOUR_RATE}}
+```
+
+The report freezes the rates used for each call. Its dollar total covers LLM token charges only; local
+compute, storage, payment fees, taxes, service margin, and any charge not exposed in a successful
+provider response remain outside the estimate. Wikipedia and WikiWho public APIs are not assigned a
+made-up price.
+
+When the corpus lives on another computer, push this code branch from the development computer and pull
+it on the corpus computer. Do not add `provenance.duckdb` to Git; it is intentionally ignored and should
+stay on that machine. Run the commands above there, then commit and push the tracked findings and rebuilt
+`docs/` pages. Pull that result back on the development computer.
 
 ### Batch-fill missing or partial topics
 
