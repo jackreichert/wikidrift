@@ -51,9 +51,16 @@ header.site .top{
   display:flex;align-items:center;justify-content:space-between;gap:1.25rem;
   padding-top:.85rem;padding-bottom:.85rem;flex-wrap:wrap;
 }
+.brand{display:flex;flex-direction:column;align-items:flex-start;line-height:1.1}
 .brand .wordmark{
   font-weight:900;font-size:1.2rem;letter-spacing:.02em;text-decoration:none;color:#000;
 }
+.brand .project-credit{
+  margin-top:.2rem;color:var(--faint);font-size:.72rem;font-style:italic;font-weight:400;
+  white-space:nowrap;
+}
+.brand .project-credit a{color:inherit;text-decoration:none}
+.brand .project-credit a:hover{text-decoration:underline;text-underline-offset:2px}
 .nav-links{display:flex;gap:1.75rem;align-items:center;flex-wrap:wrap}
 .nav-links a{
   color:#000;text-decoration:none;font-weight:400;font-size:.95rem;

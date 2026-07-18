@@ -211,6 +211,11 @@ class SiteRouting(unittest.TestCase):
         self.assertIn("research lead", build.FINDINGS_BODY)
         page = build.render_page(title="Test", body="<h1>Test</h1>", root="../")
         self.assertIn('href="../findings.html"', page)
+        self.assertIn(
+            '<span class="project-credit">an <a href="https://encyclopediae.org">'
+            'encyclopediae.org</a> project</span>',
+            page,
+        )
         self.assertIn('<footer class="site">', page)
 
     def test_mermaid_runtime_is_loaded_only_for_pages_with_diagrams(self):
