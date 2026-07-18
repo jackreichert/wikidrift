@@ -196,6 +196,7 @@ h2.subhead{font-size:1rem;margin:1.4em 0 .45em}
 .prose p{margin:.7em 0}
 .prose .tablewrap{max-width:none} /* tables can spill wider if needed */
 .prose table{font-size:.9rem}
+.prose pre.mermaid{overflow-x:auto}
 .glossary dt{font-weight:700;margin-top:1.15em}
 .glossary dd{margin:.25em 0 0;color:var(--faint);font-weight:200}
 
@@ -435,4 +436,5 @@ footer.site{background:#000;color:#fff;margin-top:auto}
     padding-bottom:2px;
   }
   .prose{margin:0}
+  .prose pre.mermaid svg{min-width:620px}
 }

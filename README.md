@@ -80,7 +80,7 @@ uv run wikidrift benchmark                     # score the adjudicated roster (o
 uv run wikidrift validate                      # offline PWR candidate verdicts (no WikiWho)
 uv run wikidrift profile "Brontosaurus"        # descriptive L1 profile: recency + editor concentration (offline)
 uv run wikidrift analyze "Climate change"      # full L1: drift → pivots → binary-search confirm → attribution
-uv run wikidrift discover "Nakba"              # L4: seed → destructive footprint → independent L1 re-test
+uv run wikidrift discover "Nakba"              # L4: seed → removal footprint → independent L1 re-test
 uv run wikidrift sources "Palestine"           # L5 #3b: citation-source change (from → to across the pivot)
 uv run wikidrift stance "Abortion"             # L2 framing/stance over time            (needs an LLM key)
 uv run wikidrift framing "Gaza war"            # L5 Framing Lite: cross-lingual lead divergence (LLM key)

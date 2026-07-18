@@ -74,6 +74,9 @@ Besides the rewrite itself, we often show:
 
 - **Vocabulary** — which words became more or less common across the rewrite window. Useful for
   noticing topic or tone shifts; not a moral score.
+- **Framing over time** — when metadata points to substantial addition or unusual churn, an optional
+  semantic check asks whether the article’s stance changed. This requires a language model and is not
+  part of every run.
 - **Citations** — which domains and citation types (book, news, journal, web) grew or shrank. We
   report the mix **as-is**. We never label a domain “reliable” or “biased.”
 - **Edit fights** — whether the article saw lots of mutual reverts (editors undoing each other).
@@ -99,6 +102,29 @@ It is a reason to read carefully, not a scoreboard.
 After a confirmed big rewrite, we can look at where the same accounts made **other large deletions**
 on other articles, then **re-check each candidate on its own history**. Appearing in that search does
 not create a finding; the second article must independently meet the same change criteria.
+
+## How the checks fit together
+
+This is a map of the available checks, not a claim that every check runs for every article. The default
+pipeline runs the metadata router, L1, and vocabulary comparison. Stance, edit-fight, and lightweight
+other-language checks are optional; fuller language, fact, source, and discovery checks run separately.
+
+```mermaid
+flowchart TD
+  accTitle: How WikiDrift checks fit together
+  accDescr: Wikipedia revision history feeds default metadata and snapshot preparation, then L1 rewrite and vocabulary checks. Addition or churn can route to optional stance analysis. Other optional checks cover edit fights, languages, facts, and sources. A confirmed rewrite can seed discovery, but every discovered article receives an independent L1 test.
+  A[Wikipedia revision history] --> B[Default preparation:<br/>metadata router and persistent snapshots]
+  B --> C[Default checks:<br/>L1 durable rewrites and L2.5 vocabulary]
+  B -->|addition or churn lead| D[Optional L2 stance over time]
+  A -.->|optional| E[M-score edit-fight context]
+  A --> F[Optional or separate:<br/>language, fact, and source checks]
+  X[Other Wikipedia language editions] --> F
+  C -.->|pivot context when available| F
+  C -.->|confirmed rewrite seeds search| G[Separate L4 discovery]
+  G --> H[Independent L1 re-test<br/>of each candidate]
+```
+
+Every output remains a research lead for inspection, never an automatic judgment.
 
 ## What we never do
 

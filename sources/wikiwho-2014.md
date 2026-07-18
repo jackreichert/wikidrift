@@ -23,4 +23,4 @@ Establishes a practical, citable standard for Wikipedia token provenance. Later 
 
 ## Relation to WikiDrift
 
-**Primary engine.** L1 snapshots, deleted-token lifecycle, destroyers/replacers, and L3 redline authorship all depend on WikiWho-class provenance. WikiDrift does not reinvent attribution; it **joins** provenance to unsupervised pivot discovery and downstream layers.
+**Primary engine.** L1 snapshots, deleted-token lifecycle, removal attribution, post-pivot contributors, and L3 redline authorship all depend on WikiWho-class provenance. WikiDrift does not reinvent attribution; it **joins** provenance to unsupervised pivot discovery and downstream layers.

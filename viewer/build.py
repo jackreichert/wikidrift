@@ -881,6 +881,11 @@ PAGE = _asset("templates/page.html")
 FOOTER = _asset("templates/footer.html")
 
 NAV_KEYS = ("findings", "about", "methodology", "glossary")
+MERMAID_SCRIPT = (
+    '<script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js" '
+    'integrity="sha384-rbtjAdnIQE/aQJGEgXrVUlMibdfTSa4PQju4HDhN3sR2PmaKFzhEafuePsl9H/9I" '
+    'crossorigin="anonymous"></script>'
+)
 
 
 def render_page(*, title, body, root="", path="index.html", description=None, active=None):
@@ -890,9 +895,10 @@ def render_page(*, title, body, root="", path="index.html", description=None, ac
         "A diagnostic tool from encyclopediae.org.")
     canon = f"{SITE_ORIGIN}/{path.lstrip('/')}" if path != "index.html" else f"{SITE_ORIGIN}/"
     nav = {k: ' class="active" aria-current="page"' if k == active else "" for k in NAV_KEYS}
+    scripts = MERMAID_SCRIPT if 'class="language-mermaid"' in body else ""
     rendered = PAGE.format(
         title=title, description=esc(desc), canonical=canon, root=root, body=body,
-        footer=FOOTER.format(root=root),
+        footer=FOOTER.format(root=root), scripts=scripts,
         nav_findings=nav["findings"], nav_about=nav["about"],
         nav_methodology=nav["methodology"], nav_glossary=nav["glossary"],
     )

@@ -30,7 +30,7 @@ class EngineOnSyntheticCorpus(unittest.TestCase):
 
         # --- SynthPivot: 4 snapshots; a 20-token spine (mature at floor=10) collapses to 5 at 2021→2022 ---
         # deterministic PIVOT?: interval loses 15 of 20 tokens, each weight 2 (present in the first 2 snaps)
-        # ⇒ 75% persistence-weighted loss, PWR-mass destroyed = 15 × 2 = 30.
+        # ⇒ 75% persistence-weighted loss, PWR-mass removed = 15 × 2 = 30.
         spine = range(1, 21)
         survivors = range(1, 6)
         rows = []
@@ -144,34 +144,36 @@ class PrerankRouting(unittest.TestCase):
         self.assertNotIn("removal→PWR", leads)
 
 
-class DestroyerAttribution(unittest.TestCase):
-    """drift.destroyers — WHO removed the established spine — with WikiWho (tokens_at) mocked at the boundary."""
+class RemovalAttribution(unittest.TestCase):
+    """Attribute established-token removals with WikiWho (tokens_at) mocked at the boundary."""
     def setUp(self):
         self.con = duckdb.connect(":memory:")
         provenance.ensure_schema(self.con)
         self.con.executemany("INSERT INTO revisions VALUES (?,?,?,?)", [
             ("A", 100, "2019-01-01T00:00:00Z", "OldAuthor"),   # token origin — established BEFORE the window
-            ("A", 550, "2021-03-01T00:00:00Z", "Destroyer"),   # terminal 'out' rev — INSIDE the window
+            ("A", 550, "2021-03-01T00:00:00Z", "RemovingEditor"),  # terminal 'out' rev inside the window
         ])
-        # latest snapshot holds only token 2 (a survivor), so token 1's removal counts as destruction.
+        # Latest snapshot holds only token 2, so token 1 counts as persistently removed.
         self.con.execute("INSERT INTO rsnap VALUES (?,?,?,?,?)", ("A", "2021-07-01", 600, 2, 100))
         self.addCleanup(self.con.close)
 
     def test_attributes_removed_established_spine_to_the_deleting_editor(self):
         canned = [
-            {"token_id": 1, "o_rev_id": 100, "out": [550]},   # established, killed in-window, gone from cur → KILLED
+            {"token_id": 1, "o_rev_id": 100, "out": [550]},   # established, removed in-window, still absent
             {"token_id": 2, "o_rev_id": 100, "out": [550]},   # same but survives (still in latest snapshot) → skip
             {"token_id": 3, "o_rev_id": 100, "out": []},      # never removed → skip
             {"token_id": 4, "o_rev_id": 999, "out": [550]},   # unknown origin → not established → skip
         ]
         peak = ("2021-01-01", 500, "2021-07-01", 600, 50.0)
         with mock.patch.object(provenance, "tokens_at", lambda art, rev, io=False: canned):
-            killers, killed, origin_ts, editor_of, latest = drift.destroyers("A", con=self.con, peak=peak)
-        self.assertEqual(killed, 1)
-        self.assertEqual(killers, {"Destroyer": 1})
-        # the refactor contract: destroyers now returns the revision maps + latest row so attribute reuses them.
+            removals_by_editor, removed_count, origin_ts, editor_of, latest = drift.removal_attribution(
+                "A", con=self.con, peak=peak
+            )
+        self.assertEqual(removed_count, 1)
+        self.assertEqual(removals_by_editor, {"RemovingEditor": 1})
+        # The return contract includes revision maps + latest row so attribute can reuse them.
         self.assertEqual(latest, (600,))
-        self.assertEqual(editor_of[550], "Destroyer")
+        self.assertEqual(editor_of[550], "RemovingEditor")
 
 
 class RefineBinarySearch(unittest.TestCase):
@@ -185,7 +187,7 @@ class RefineBinarySearch(unittest.TestCase):
             ("A", 11, "2021-02-01T00:00:00Z", "u"),
             ("A", 12, "2021-03-01T00:00:00Z", "u"),
             ("A", 13, "2021-04-01T00:00:00Z", "u"),
-            ("A", 14, "2021-05-01T00:00:00Z", "Destroyer"),
+            ("A", 14, "2021-05-01T00:00:00Z", "RemovingEditor"),
             ("A", 15, "2021-06-01T00:00:00Z", "u"),
             ("A", 30, "2022-01-01T00:00:00Z", "after"),    # after the window — must be excluded
         ])

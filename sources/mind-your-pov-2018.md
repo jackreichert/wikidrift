@@ -30,6 +30,6 @@ Quantitative study of Wikipedia’s **NPOV tagging** as an intervention: does ta
 |---|---|
 | Change-point = **known** (tag date) | Change-point = **discovered** (PWR pivot) |
 | Lexicon bias markers | LLM NPOV-axis stance (L2) |
-| No pivot attribution | Destroyers/replacers from provenance |
+| No pivot attribution | Removal attribution and post-pivot contributors from provenance |
 
 Cite as: temporal framing measurement works; do not assume the intervention date is known a priori for untagged capture.

@@ -213,6 +213,16 @@ class SiteRouting(unittest.TestCase):
         self.assertIn('href="../findings.html"', page)
         self.assertIn('<footer class="site">', page)
 
+    def test_mermaid_runtime_is_loaded_only_for_pages_with_diagrams(self):
+        methodology = build.simple_page(
+            "How it works", build.METHODOLOGY_BODY, "methodology"
+        )
+        plain = build.render_page(title="Test", body="<h1>Test</h1>")
+
+        self.assertIn('class="language-mermaid"', methodology)
+        self.assertIn("mermaid@11.4.1/dist/mermaid.min.js", methodology)
+        self.assertNotIn("mermaid.min.js", plain)
+
 
 if __name__ == "__main__":
     unittest.main()

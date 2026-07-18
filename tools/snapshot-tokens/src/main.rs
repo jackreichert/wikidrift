@@ -2,7 +2,7 @@
 //!
 //! Why this exists: the hosted `wikiwho-cli` emits `all_tokens` = tokens surviving in the CURRENT
 //! revision (with in/out lifecycle). Reconstructing a historical snapshot from that would omit tokens
-//! deleted-and-never-restored — exactly the "spine destroyed" the drift metric measures. The wikiwho
+//! deleted-and-never-restored — exactly the persistent removal the drift metric measures. The wikiwho
 //! *library* retains every revision's token structure, so here we walk each target revision directly.
 //!
 //! Usage:

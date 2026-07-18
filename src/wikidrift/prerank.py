@@ -6,7 +6,7 @@ We cache the equivalent in DuckDB (revisions.ts/user + rev_size.size via the Act
 offline. Production would source the same columns in bulk from Quarry / Wiki Replicas / dumps.
 
 Signal: per time-bin byte deltas split into removed vs added bytes. `removed_bytes` (Σ of negative deltas)
-is a cheap metadata analog of PWR-mass "spine destroyed" — separating a retrofit (big removals) from pure
+is a cheap metadata analog of PWR-mass removed — separating a retrofit (big removals) from pure
 expansion (mostly additions). Robustness (from spike 005): raw deltas are dominated by transient vandalism
 (blank −30k / restore +30k), so deltas are computed on a ROLLING-MEDIAN-SMOOTHED size series — the metadata
 analog of 005's persistent-revision snapshot.

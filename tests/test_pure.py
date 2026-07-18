@@ -251,7 +251,7 @@ class L4Discovery(unittest.TestCase):
 
     def test_rank_prefers_co_occurrence_then_bytes(self):
         # a candidate touched by MORE seed editors outranks one with more bytes but fewer editors —
-        # co-occurrence is the real graph signal (safeguard #3 weights the destructive convergence).
+            # co-occurrence is the real graph signal (safeguard #3 weights convergent removals).
         agg = {
             "Two editors small": {"editors": {"a", "b"}, "removed": 2_000, "edits": 2},
             "One editor huge":   {"editors": {"a"},      "removed": 500_000, "edits": 1},
@@ -304,7 +304,7 @@ class DriftEpisodes(unittest.TestCase):
         self.assertEqual(drift._creep_or_healthy_label(drift.CREEP_MEAN - 1), "HEALTHY/stable")
 
     def test_build_episodes_groups_contiguous_and_ranks(self):
-        # rows: (d0, r0, d1, r1, ratio%, size, pwr_destroyed)
+        # rows: (d0, r0, d1, r1, ratio%, size, pwr_removed)
         series = [
             ("2020-01-01", 1, "2020-07-01", 2, 5.0, 1000, 50),    # below ELEVATED — ignored
             ("2020-07-01", 2, "2021-01-01", 3, 20.0, 1000, 200),  # starts an episode

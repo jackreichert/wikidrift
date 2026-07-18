@@ -2,7 +2,7 @@
 import re
 
 # An unregistered editor = an IPv4/IPv6 username; anon reverts skew disproportionately to vandalism.
-# One definition, shared by mscore (registered-only filter) and l4 (seed-destroyer filter).
+# One definition, shared by mscore (registered-only filter) and l4 (seed-editor filter).
 ANON_IP_RE = re.compile(r"^(\d{1,3}\.){3}\d{1,3}$|^[0-9A-Fa-f:]+:[0-9A-Fa-f:]+$")
 
 

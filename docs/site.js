@@ -1,5 +1,33 @@
 /* Shared chrome + article tabs for the static WikiDrift site. */
 (function () {
+  // Python-Markdown emits fenced Mermaid diagrams as code blocks. Promote them
+  // to Mermaid render targets only when the runtime was included by the renderer.
+  var diagrams = document.querySelectorAll("pre > code.language-mermaid");
+  if (diagrams.length && window.mermaid) {
+    diagrams.forEach(function (code) {
+      var target = document.createElement("pre");
+      target.className = "mermaid";
+      target.textContent = code.textContent;
+      target.tabIndex = 0;
+      target.setAttribute("role", "region");
+      target.setAttribute("aria-label", "Process diagram; use arrow keys to scroll when needed");
+      target.addEventListener("keydown", function (event) {
+        if (target.scrollWidth <= target.clientWidth || !["ArrowLeft", "ArrowRight"].includes(event.key)) return;
+        event.preventDefault();
+        target.scrollLeft += event.key === "ArrowRight" ? 80 : -80;
+      });
+      code.parentNode.replaceWith(target);
+    });
+    try {
+      window.mermaid.initialize({ startOnLoad: false, securityLevel: "strict", theme: "neutral" });
+      window.mermaid.run({ querySelector: ".mermaid" }).catch(function (error) {
+        console.error("Unable to render Mermaid diagram", error);
+      });
+    } catch (error) {
+      console.error("Unable to initialize Mermaid", error);
+    }
+  }
+
   // Mobile nav
   var burger = document.querySelector(".nav-burger");
   var links = document.getElementById("site-nav");

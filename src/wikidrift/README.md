@@ -1,10 +1,6 @@
 # wikidrift
 
-Editor-agnostic, temporal **narrative-drift detector** for Wikipedia. Reads an article against its *own*
-edit history to surface where a long-stable narrative was rewritten, and attributes who did it — from
-public data only. Every output is a **lead for a researcher, never a published verdict**. It is a *change*
-detector, not a *bias* detector (the base-rate finding); discriminating benign change from capture is the
-job of the L2/L5 layers.
+Editor-agnostic, temporal **narrative-drift detector** for Wikipedia. Reads an article against its *own* edit history to surface where a long-stable narrative was rewritten, and attributes the public edits — from public data only. Every output is a **lead for a researcher, never a published verdict**. It is a *change* detector, not a *bias* detector (the base-rate finding); discriminating benign change from capture is the job of the L2/L5 layers.
 
 Promoted from `.planning/spikes/` (001a/b, 005, 008, 009, 010), which remain the frozen experimental record.
 Full design + methodology live in the vault:
@@ -24,7 +20,7 @@ Full design + methodology live in the vault:
 | `l5_factcheck.py` | **L5 #2** cross-edition citation + claim (fact) divergence, as-of aware | 014 |
 | `mscore.py` | Yasseri mutual-revert controversy corroborator (metadata-only) | 013 |
 | `ingest.py` | **Local `wikiwho_rs`-on-dumps** rsnap ingestion — coverage gaps + corpus-scale batch (Rust `tools/snapshot-tokens` helper) | 011 |
-| `l4.py` | **L4** graph-guided discovery: seed from a confirmed article's destroyers → their destructive footprint (a *lead*) → independent L1 re-test of each fresh candidate | S08 |
+| `l4.py` | **L4** graph-guided discovery: seed from editors attributed with removals in a confirmed article → their removal footprint (a *lead*) → independent L1 re-test of each fresh candidate | S08 |
 | `l5_sources.py` | **L5 #3b** citation-source composition change (reference-agnostic): what the article's own citations changed *from → to* across the L1 pivot; rates no source | S08 |
 | `bootstrap.py` | Populate the token corpus (`provenance.duckdb`) for a slate (default: the roster), sequential single-writer — the onboarding/rebuild path | 007 |
 | `cli.py` | `wikidrift` command dispatch | — |
@@ -63,7 +59,7 @@ Single-article verbs accept either an article title or a Wikipedia URL (for exam
 with stronger article coverage; English kept when present for pivot-relative comparability). Pass
 `--langs` to pin an explicit comparison set.
 
-`discover` seeds from an article's confirmed destroyers, follows *only their content-removing edits* elsewhere
+`discover` seeds from editors attributed with removals in an article, follows *only their content-removing edits* elsewhere
 (a search prior — the graph never flags anything), subtracts the base-rate roster, and re-tests each fresh
 candidate by its **own** L1 content; a candidate is a lead only if its own trajectory confirms it (and
 born-in-contested pivots are separated from stable-then-retrofit ones). `sources` is reference-agnostic — it
@@ -154,9 +150,9 @@ base-rate batch → the `bootstrap` verb) landed in Session 08. Known gaps in th
 
 ### Built since (Session 08)
 
-- ✅ **L4 graph-guided discovery** (`l4.py`, `wikidrift discover`) — seed → destructive footprint → independent
+- ✅ **L4 graph-guided discovery** (`l4.py`, `wikidrift discover`) — seed → removal footprint → independent
   L1 re-test; the graph is a search prior only. *Not yet wired:* the iterate/snowball step (confirmed hits
-  recruit their own destroyers into the next round) and corpus-scale batch via `ingest`.
+  recruit their own removal-attributed editors into the next round) and corpus-scale batch via `ingest`.
 - ✅ **L5 #3b citation-source change** (`l5_sources.py`, `wikidrift sources`) — reference-agnostic, no source
   rated.
 

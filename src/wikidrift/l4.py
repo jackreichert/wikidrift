@@ -3,7 +3,7 @@
 The ADL ran the graph *forwards* (co-editing → conclusion of coordination — circular, no base rate).
 Here it runs strictly *downstream of content evidence and upstream only of more content testing*:
 
-    confirmed retrofit on X  →  its destroyers (§10.7)  →  their DESTRUCTIVE footprint elsewhere (LEAD)
+    confirmed retrofit on X  →  removal-attributed editors  →  their removal footprint elsewhere (LEAD)
         →  independent L1 re-test of each fresh candidate  →  report content-confirmed retrofits
 
 Hard safeguards, architectural not policy (§10.9):
@@ -11,8 +11,8 @@ Hard safeguards, architectural not policy (§10.9):
      The graph yields a to-check list, nothing more.
   2. False positives are expected and harmless — a prolific good editor enters the graph, their other
      articles test clean and drop out. No accusation attaches to a person from graph membership.
-  3. Expansion is bound to the DESTRUCTIVE action — we follow only footprint edits that themselves removed
-     substantial content (metadata `sizediff`), weighting editors by spine destroyed, not "everyone who
+  3. Expansion is bound to removal actions — we follow only footprint edits that themselves removed
+      substantial content (metadata `sizediff`), weighting editors by established tokens removed, not everyone who
      edited a flagged page".
   4. It flags articles (tamper areas), not people. Public data, reproducible, handed to a researcher.
 
@@ -30,10 +30,10 @@ from .benchmark import ROSTER
 from .config import MASS_FLOOR
 
 # --- L4 knobs (a first, deliberately NARROW probe; widen once the signal is trusted) ----------------
-SEED_TOP_N = 4          # seed from the top-N destroyers (by established-spine tokens removed)
+SEED_TOP_N = 4          # seed from the top-N removal-attributed editors (by established tokens removed)
 FOOTPRINT_SINCE = "2022-01-01T00:00:00Z"   # bound the footprint window (keeps the sweep polite + relevant)
 FOOTPRINT_MAX_PAGES = 10                    # usercontribs continue-pages per editor (500 each) — a cap, not a scan
-REMOVAL_BYTES = 1500    # a footprint edit counts as "destructive" only if it removed >= this many bytes
+REMOVAL_BYTES = 1500    # a footprint edit qualifies only if it removed at least this many bytes
 CANDIDATE_LIMIT = 12    # cap the to-check list re-tested with L1 (narrow probe)
 MATURE_PRIOR_YEARS = 2.0  # a PIVOT only counts as stable-then-RETROFIT if the article had this long a prior
                           # BEFORE the pivot began; younger ⇒ born-in-contested (the L5 gap, not a retrofit)
@@ -67,16 +67,16 @@ def top_episode(con, article):
     return peak, e
 
 
-def seed_destroyers(con, article, top_n=SEED_TOP_N):
-    """Seed actors = the top-N destroyers of `article`'s dominant pivot (bots + anon IPs excluded — the
-    §10.7 attribution, as structured data). Returns [(editor, tokens_removed)]."""
+def seed_removing_editors(con, article, top_n=SEED_TOP_N):
+    """Seed from the top editors attributed with removals in the dominant pivot, excluding bots and
+    anonymous IPs. Returns [(editor, tokens_removed)]."""
     peak, e = top_episode(con, article)
     if not peak:
         return [], None
-    killers, killed, *_ = drift.destroyers(article, con, peak)
-    ranked = [(u, n) for u, n in sorted(killers.items(), key=lambda x: -x[1])
+    removals_by_editor, removed_count, *_ = drift.removal_attribution(article, con, peak)
+    ranked = [(u, n) for u, n in sorted(removals_by_editor.items(), key=lambda x: -x[1])
               if u and u != "?" and not u.lower().endswith("bot") and not config.ANON_IP_RE.match(u)]
-    return ranked[:top_n], {"episode": e, "killed": killed}
+    return ranked[:top_n], {"episode": e, "removed_count": removed_count}
 
 
 def _usercontribs(editor, since=FOOTPRINT_SINCE, max_pages=FOOTPRINT_MAX_PAGES):
@@ -99,7 +99,7 @@ def _usercontribs(editor, since=FOOTPRINT_SINCE, max_pages=FOOTPRINT_MAX_PAGES):
 
 
 def footprint(editors, tested, seed_article):
-    """The DESTRUCTIVE footprint of the seed editors: per candidate article, how many seed editors removed
+    """The removal footprint of the seed editors: per candidate article, how many seed editors removed
     substantial content there and how much. REMOVAL_BYTES is applied as an aggregate per-editor-per-article
     threshold (not a per-edit floor) so coordinated small removes are not silently discarded.
     Returns {title: {"editors": set, "removed": int, "edits": int}} for FRESH titles only (tested set +
@@ -188,22 +188,22 @@ def _classify(r):
 
 
 def discover(article="Zionism", top_n=SEED_TOP_N, limit=CANDIDATE_LIMIT):
-    """Full L4 probe: seed → destructive footprint (LEAD) → subtract tested → independent L1 re-test.
+    """Full L4 probe: seed → removal footprint (LEAD) → subtract tested → independent L1 re-test.
     Prints a report and writes findings/l4_discovery.json. Every re-flag is content, never the graph."""
     con = duckdb.connect(str(config.DB))
     print(f"=== L4 GRAPH-GUIDED DISCOVERY — seed: {article} ===\n", flush=True)
 
-    editors, meta = seed_destroyers(con, article, top_n)
+    editors, meta = seed_removing_editors(con, article, top_n)
     if not editors:
-        print("  no confirmed pivot / destroyers to seed from — abort."); con.close(); return
+        print("  no confirmed pivot / attributed removing editors to seed from — abort."); con.close(); return
     ep = meta["episode"]
     print(f"seed pivot: {ep['start'][0]} → {ep['end'][0]}  (~{int(ep['abs']):,} PWR-mass, peak {ep['peak']:.0f}%); "
-          f"{meta['killed']:,} established-spine tokens removed")
-    print(f"seed destroyers (top {top_n}, bots/anon excluded) — the search prior, NOT a verdict:")
+          f"{meta['removed_count']:,} established tokens removed")
+    print(f"seed removing editors (top {top_n}, bots/anon excluded) — the search prior, NOT a verdict:")
     for u, n in editors:
         print(f"    {n:>6,}  {u}")
 
-    print(f"\ndestructive footprint (ns0 edits removing ≥{REMOVAL_BYTES}B since {FOOTPRINT_SINCE[:4]}):", flush=True)
+    print(f"\nremoval footprint (ns0 edits removing ≥{REMOVAL_BYTES}B since {FOOTPRINT_SINCE[:4]}):", flush=True)
     tested = tested_set()
     agg = footprint(editors, tested, article)
     ranked = rank_candidates(agg, limit)
@@ -270,8 +270,8 @@ def _build_findings(article, top_n, limit, ep, meta, editors, ranked, results, c
     return {
         "seed": article,
         "seed_episode": {"start": ep["start"][0], "end": ep["end"][0], "pwr_mass": int(ep["abs"]),
-                         "peak_pct": round(ep["peak"], 1), "tokens_removed": meta["killed"]},
-        "seed_destroyers": [{"editor": u, "tokens_removed": n} for u, n in editors],
+                         "peak_pct": round(ep["peak"], 1), "tokens_removed": meta["removed_count"]},
+        "seed_removing_editors": [{"editor": u, "tokens_removed": n} for u, n in editors],
         "params": {"top_n": top_n, "footprint_since": FOOTPRINT_SINCE, "removal_bytes": REMOVAL_BYTES,
                    "candidate_limit": limit},
         "candidates": [{"article": t, "seed_editors": sorted(a["editors"]), "removed_bytes": a["removed"],

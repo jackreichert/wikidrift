@@ -2,24 +2,22 @@
 
 <p class="summary">WikiDrift is a forensic tool to help researchers understand how a Wikipedia article has changed over time.</p>
 
-The project began with a question: can public edit history show that an article was tampered with? The answer was, no. Revision history records what changed, when it changed, and which public account made the edit. It does not establish motive, identify a neutral version, or decide whether an edit improved the article.
+Every Wikipedia page has a public history of all it's edits, tracked to who did what. This project began with the question: can public edit history show that an article was tampered with? The short answer was, no. Revision history records what changed, when it changed, and which public account made the edit. It does not establish motive, identify a neutral version, or decide whether an edit improved the article. 
 
-What the history *can* do is point out characteristics in an article that *may* point to tampering. WikiDrift looks for substantial changes to long-lived wording, then places those changes beside shifts in vocabulary, citations, cross-language framing, and basic factual claims. The result is a research lead with evidence a reader can inspect, not a verdict.
+However, what the history *can* do is point out characteristics in the way an article was edited that *may* point to tampering. Finding a smoking gun doens't mean there's a body hiding somewhere. If you're in a shooting range, you'll find plenty of smoking guns, none of which was used to hurt a soul. 
 
-The first case study was **Zionism**, an article already discussed publicly in connection with editorial disputes. That made it useful for developing the method, but outside reports are not proof and are not fed into the detector as a list of suspect editors. The project later added published approaches to text persistence, token authorship, controversy measurement, and cross-language comparison.
+WikiDrift looks for substantial changes to long-lived wording, then places those changes beside shifts in vocabulary, citations, cross-language framing, and basic factual claims. The result is a research lead with evidence a reader can inspect.
 
-The goal is not to make an “unbiased” machine. Every method reflects choices about inputs, thresholds, questions, and presentation. The goal is to make those choices visible, apply them consistently, and keep every claim smaller than the evidence behind it.
+The initial proof of concept was built off the **Zionism** article, an article already discussed publicly in connection with editorial disputes, which made it useful for developing the method. Later, existing published approaches to text persistence, token authorship, controversy measurement, and cross-language comparison were implemented.
 
 A project of [encyclopediae.org](https://encyclopediae.org), [open source on GitHub](https://github.com/jackreichert/wikidrift/).
 
-## What this tool does
+## What WikiDrift does
 
-- **change detection** asks whether an article's established content was substantially replaced;
+- **rewrite detection** asks whether an article's established content went through substantial rewrites;
 - **change interpretation** asks whether wording or stance changed directionally;
 - **external comparison** asks whether a stable article differs from other language editions or from its own citation history;
 - **discovery** uses an already detected change to decide which other articles are worth testing.
-
-No layer turns editor activity, controversy, or cross-language disagreement into proof of manipulation.
 
 For the full sequence, inputs, and limitations, read [How it works](methodology.html).
 

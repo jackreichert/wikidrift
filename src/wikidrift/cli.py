@@ -125,9 +125,10 @@ def main(argv=None):
     sp.add_argument("--recategorize", action="store_true", help="force re-run of the LLM category classification")
     add_llm_flags(sp)
 
-    sp = sub.add_parser("discover", help="L4 graph-guided discovery: seed → destructive footprint → L1 re-test")
+    sp = sub.add_parser("discover", help="L4 graph-guided discovery: seed → removal footprint → L1 re-test")
     sp.add_argument("article", nargs="?", default="Zionism", help="seed article (default: Zionism)")
-    sp.add_argument("--top-n", type=int, default=l4.SEED_TOP_N, help="seed from the top-N destroyers")
+    sp.add_argument("--top-n", type=int, default=l4.SEED_TOP_N,
+                    help="seed from the top-N editors attributed with established-token removals")
     sp.add_argument("--limit", type=int, default=l4.CANDIDATE_LIMIT, help="max fresh candidates to L1 re-test")
 
     sp = sub.add_parser("sources", help="L5 #3b — citation-source composition over time (reference-agnostic)")

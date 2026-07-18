@@ -6,8 +6,8 @@ Pipeline (analyze):
   3. coarse   — persistence-weighted content loss per interval (PWR); classify HEALTHY/CREEP/PIVOT.
   4. refine   — binary-search the peak interval for the exact drop revision, confirming the durable spine
                 actually collapsed.
-  5. attribute— WHO: destroyers (removed established spine, via each token's terminal `out`) + replacers
-                (origin editors of the current post-pivot text).
+    5. attribute— removal attribution (via each token's terminal `out`) + post-pivot contributors
+                                (origin editors of the current post-pivot text).
 
 Metric grounding: each token carries a persistence weight w(t) = snapshots survived since origin — a
 snapshot-sampled analog of Halfaker et al.'s Persistent-Word-Revisions (WikiSym 2009) and Adler & de
@@ -83,7 +83,7 @@ def coarse(snaps, members, present):
     presentation is `print_coarse_report`).
 
     ratio D = Σ w(t) over tokens lost in [k,k+1] / Σ w(t) over tokens present at k; absolute magnitude
-    = Σ w(t) destroyed (the episode-ranking key). Returns (series, (mean, med, std)) over MATURE intervals."""
+    = Σ w(t) removed (the episode-ranking key). Returns (series, (mean, med, std)) over MATURE intervals."""
     series = [(d0, r0, d1, r1, ratio, size, wlost)
               for d0, r0, d1, r1, ratio, size, wlost, mature in _intervals(snaps, members, present) if mature]
     vals = [row[4] for row in series]
@@ -96,7 +96,7 @@ def coarse(snaps, members, present):
 
 def print_coarse_report(snaps, members, present):
     """Print the human-readable per-interval PWR-loss table (the presentation half of `coarse`)."""
-    print(f"\n{'interval end':>12} | {'size':>7} | {'pwr_loss':>8} | {'pwr_destroyed':>13}")
+    print(f"\n{'interval end':>12} | {'size':>7} | {'pwr_loss':>8} | {'pwr_removed':>13}")
     print("-" * 52)
     vals = []
     for d0, r0, d1, r1, ratio, size, wlost, mature in _intervals(snaps, members, present):
@@ -113,7 +113,7 @@ def print_coarse_report(snaps, members, present):
 
 def build_episodes(series, elevated=ELEVATED):
     """Group time-contiguous intervals with persistence-weighted loss >= `elevated` into episodes.
-    `abs` accumulates PWR-mass destroyed (the ranking key); `peak` is the max interval loss %."""
+    `abs` accumulates PWR-mass removed (the ranking key); `peak` is the max interval loss %."""
     episodes, cur = [], None
     for d0, r0, d1, r1, ratio, size, absd in series:
         if ratio >= elevated:
@@ -160,16 +160,16 @@ def refine(article, con, snaps, members, present, idx_of_rev, peak):
     return revs[lo], revs[hi], interval_drop
 
 
-def destroyers(article, con, peak):
-    """WHO removed the established spine in the pivot window — {editor: tokens_removed}, and the total.
+def removal_attribution(article, con, peak):
+    """Attribute established-token removals in the pivot window — {editor: tokens_removed}, and the total.
 
     Structured extract shared by `attribute` (prints it) and L4 graph-guided discovery (seeds from it).
-    A token counts as destroyed if it was established *before* the window (origin < d0), its terminal
+    A token counts as removed if it was established *before* the window (origin < d0), its terminal
     `out` revision falls *inside* the window, and it is absent from the latest snapshot. One WikiWho call
     (tokens_at r0, io=True); everything else is the cached timeline.
 
-    Returns (killers, killed, origin_ts, editor_of, latest) — the revision maps + latest-snapshot row are
-    returned so `attribute` can reuse them instead of re-issuing the same full-table scans."""
+    Returns (removals_by_editor, removed_count, origin_ts, editor_of, latest) — the revision maps and
+    latest-snapshot row are returned so `attribute` can reuse them instead of re-issuing the same scans."""
     d0, r0, d1, r1, _ = peak
     corpus = Corpus(con)
     snap = provenance.tokens_at(article, r0, io=True)
@@ -179,8 +179,8 @@ def destroyers(article, con, peak):
     origin_ts = corpus.revision_ts(article)
     editor_of = corpus.revision_editor(article)
     d0ts = d0 + "T00:00:00Z"; d1ts = d1 + "T00:00:00Z"
-    killers = {}
-    killed = 0
+    removals_by_editor = {}
+    removed_count = 0
     for t in snap:
         o = t["o_rev_id"]; ots = origin_ts.get(o)
         if not ots or ots >= d0ts:  # not established before the interval
@@ -191,29 +191,31 @@ def destroyers(article, con, peak):
         death = max(outs)
         dts = origin_ts.get(death)
         if dts and d0ts < dts <= d1ts and t["token_id"] not in cur:
-            killers[editor_of.get(death, "?")] = killers.get(editor_of.get(death, "?"), 0) + 1
-            killed += 1
-    return killers, killed, origin_ts, editor_of, latest
+            editor = editor_of.get(death, "?")
+            removals_by_editor[editor] = removals_by_editor.get(editor, 0) + 1
+            removed_count += 1
+    return removals_by_editor, removed_count, origin_ts, editor_of, latest
 
 
 def attribute(article, con, peak):
-    """WHO did it — destroyers (removed established spine) and replacers (wrote the new text)."""
+    """Attribute established-token removals and current post-pivot contributions."""
     d0, r0, d1, r1, _ = peak
-    print(f"\n  ── WHO DID IT ({d0} → {d1}) ──")
-    killers, killed, origin_ts, editor_of, latest = destroyers(article, con, peak)
+    print(f"\n  ── ATTRIBUTION ({d0} → {d1}) ──")
+    removals_by_editor, removed_count, origin_ts, editor_of, latest = removal_attribution(article, con, peak)
     d0ts = d0 + "T00:00:00Z"
-    print(f"  DESTROYERS — editors who removed established-spine tokens in this window ({killed:,} tokens killed):")
-    for u, n in sorted(killers.items(), key=lambda x: -x[1])[:8]:
+    print(f"  REMOVALS — editors associated with terminal removals in this window ({removed_count:,} tokens removed):")
+    for u, n in sorted(removals_by_editor.items(), key=lambda x: -x[1])[:8]:
         print(f"    {n:>6,}  {u}")
-    reps = {}
+    post_pivot_by_editor = {}
     if latest:
         for tok_id, o_rev in Corpus(con).snapshot_tokens(article, latest[0]):
             ots = origin_ts.get(o_rev)
             if ots and ots > d0ts:
-                u = editor_of.get(o_rev, "?"); reps[u] = reps.get(u, 0) + 1
-    top = sorted(reps.items(), key=lambda x: -x[1])[:8]
+                u = editor_of.get(o_rev, "?")
+                post_pivot_by_editor[u] = post_pivot_by_editor.get(u, 0) + 1
+    top = sorted(post_pivot_by_editor.items(), key=lambda x: -x[1])[:8]
     total_new = sum(n for _, n in top)
-    print(f"  REPLACERS — top authors of current text written after {d0} ({total_new:,}+ tokens shown):")
+    print(f"  POST-PIVOT CONTRIBUTORS — top authors of current text written after {d0} ({total_new:,}+ tokens shown):")
     for u, n in top:
         print(f"    {n:>6,}  {u}")
 
@@ -410,7 +412,7 @@ def analyze(article, con=None):
     print_coarse_report(snaps, members, present)
 
     if episodes:
-        print(f"\ncandidate pivot episodes (ranked by PWR-mass destroyed; recency = context, NOT a demoter):")
+        print(f"\ncandidate pivot episodes (ranked by PWR-mass removed; recency = context, NOT a demoter):")
         for e in episodes:
             print(f"  {e['start'][0]} → {e['end'][0]}   peak {e['peak']:.0f}%   ~{int(e['abs']):,} PWR   "
                   f"age {e['age']:.1f}yr  [{_recency_tag(e['age'])}]")

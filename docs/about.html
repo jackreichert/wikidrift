@@ -41,19 +41,18 @@
 <main id="main"><div class="prose"><h1>About WikiDrift</h1>
 <p class="summary">WikiDrift is a forensic tool to help researchers understand how a Wikipedia article has changed over time.</p>
 
-<p>The project began with a question: can public edit history show that an article was tampered with? The answer was, no. Revision history records what changed, when it changed, and which public account made the edit. It does not establish motive, identify a neutral version, or decide whether an edit improved the article.</p>
-<p>What the history <em>can</em> do is point out characteristics in an article that <em>may</em> point to tampering. WikiDrift looks for substantial changes to long-lived wording, then places those changes beside shifts in vocabulary, citations, cross-language framing, and basic factual claims. The result is a research lead with evidence a reader can inspect, not a verdict.</p>
-<p>The first case study was <strong>Zionism</strong>, an article already discussed publicly in connection with editorial disputes. That made it useful for developing the method, but outside reports are not proof and are not fed into the detector as a list of suspect editors. The project later added published approaches to text persistence, token authorship, controversy measurement, and cross-language comparison.</p>
-<p>The goal is not to make an “unbiased” machine. Every method reflects choices about inputs, thresholds, questions, and presentation. The goal is to make those choices visible, apply them consistently, and keep every claim smaller than the evidence behind it.</p>
+<p>Every Wikipedia page has a public history of all it's edits, tracked to who did what. This project began with the question: can public edit history show that an article was tampered with? The short answer was, no. Revision history records what changed, when it changed, and which public account made the edit. It does not establish motive, identify a neutral version, or decide whether an edit improved the article. </p>
+<p>However, what the history <em>can</em> do is point out characteristics in the way an article was edited that <em>may</em> point to tampering. Finding a smoking gun doens't mean there's a body hiding somewhere. If you're in a shooting range, you'll find plenty of smoking guns, none of which was used to hurt a soul. </p>
+<p>WikiDrift looks for substantial changes to long-lived wording, then places those changes beside shifts in vocabulary, citations, cross-language framing, and basic factual claims. The result is a research lead with evidence a reader can inspect.</p>
+<p>The initial proof of concept was built off the <strong>Zionism</strong> article, an article already discussed publicly in connection with editorial disputes, which made it useful for developing the method. Later, existing published approaches to text persistence, token authorship, controversy measurement, and cross-language comparison were implemented.</p>
 <p>A project of <a href="https://encyclopediae.org">encyclopediae.org</a>, <a href="https://github.com/jackreichert/wikidrift/">open source on GitHub</a>.</p>
-<h2>What this tool does</h2>
+<h2>What WikiDrift does</h2>
 <ul>
 <li><strong>change detection</strong> asks whether an article's established content was substantially replaced;</li>
 <li><strong>change interpretation</strong> asks whether wording or stance changed directionally;</li>
 <li><strong>external comparison</strong> asks whether a stable article differs from other language editions or from its own citation history;</li>
 <li><strong>discovery</strong> uses an already detected change to decide which other articles are worth testing.</li>
 </ul>
-<p>No layer turns editor activity, controversy, or cross-language disagreement into proof of manipulation.</p>
 <p>For the full sequence, inputs, and limitations, read <a href="methodology.html">How it works</a>.</p>
 <h2>What a candidate rewrite window is</h2>
 <p>The <strong>Rewrite</strong> tab shows <strong>candidate rewrite windows</strong>: stretches of time when the snapshot scan measured unusually high loss of wording that had persisted across earlier snapshots. These published windows have not gone through the full revision-by-revision confirmation step.</p>
@@ -98,6 +97,7 @@
     <p>Built from public Wikipedia history. Each page is a place to investigate, not a label of bias or bad faith.</p>
   </div>
 </footer>
+
 
 <script src="site.js"></script>
 </body>
