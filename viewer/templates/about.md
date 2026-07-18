@@ -2,7 +2,7 @@
 
 <p class="summary">WikiDrift is a forensic tool to help researchers understand how a Wikipedia article has changed over time.</p>
 
-Every Wikipedia page has a public history of all it's edits, tracked to who did what. This project began with the question: can public edit history show that an article was tampered with? The short answer was, no. Revision history records what changed, when it changed, and which public account made the edit. It does not establish motive, identify a neutral version, or decide whether an edit improved the article. 
+Every Wikipedia page has a public history of all it's edits and tracks who did what. This project began with the question: can public edit history show that an article was tampered with? The short answer was, no. Revision history records what changed, when it changed, and which public account made the edit. It does not establish motive, identify a neutral version, or decide whether an edit improved the article. 
 
 However, what the history *can* do is point out characteristics in the way an article was edited that *may* point to tampering. Finding a smoking gun doens't mean there's a body hiding somewhere. If you're in a shooting range, you'll find plenty of smoking guns, none of which was used to hurt a soul. 
 

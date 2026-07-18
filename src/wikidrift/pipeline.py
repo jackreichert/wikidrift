@@ -49,7 +49,11 @@ def _corroboration(result):
     l1 = result.get("l1") or ""
     if l1 and not l1.startswith(("HEALTHY", "SKIP", "n/a")):
         signals.append("l1_pivot")
-    if result.get("l2_adjudicated"):
+    l2 = result.get("l2") or {}
+    shifts = (l2.get("shifts") if isinstance(l2, dict) else None) or {}
+    if isinstance(shifts, dict) and any(
+        isinstance(shift, dict) and shift.get("shifted") for shift in shifts.values()
+    ):
         signals.append("l2_shift")
     lex = result.get("lexical") or {}
     if isinstance(lex, dict) and (lex.get("js_divergence") or 0) > 0.05:
@@ -147,7 +151,17 @@ def run(article, llm=False, corroborate=False, framing=False, provider=None, mod
     print(f"  L1 drift : {label}")
     print(f"  router   : {', '.join(leads) if leads else 'no structural anomaly'}")
     if l2_leads:
-        print(f"  L2 stance: {'adjudicated above' if l2_done else 'PENDING (--llm) — a reframe-by-addition/churn is a semantic call'}")
+        shifted_entities = [
+            entity for entity, shift in ((l2_summary or {}).get("shifts") or {}).items()
+            if isinstance(shift, dict) and shift.get("shifted")
+        ]
+        if not l2_done:
+            l2_read = "PENDING (--llm) — a reframe-by-addition/churn is a semantic call"
+        elif shifted_entities:
+            l2_read = f"endpoint shift detected for {', '.join(shifted_entities)}"
+        else:
+            l2_read = "adjudicated — no endpoint shift detected"
+        print(f"  L2 stance: {l2_read}")
     if m is not None:
         refined = m.get("refined", {}).get("M") if isinstance(m.get("refined"), dict) else m.get("refined")
         read = "low ⇒ not fought-over" if not refined else "contested (controversy ≠ malice)"
@@ -161,6 +175,7 @@ def run(article, llm=False, corroborate=False, framing=False, provider=None, mod
     else:
         print("  L5 framing: run via `wikidrift framing` or `wikidrift pipeline --framing` (separate instrument)")
     result = {"article": article, "l1": label, "leads": leads, "l2_adjudicated": l2_done,
+              "l2": l2_summary,
               "mscore": m, "lexical": lex, "l5": framing_result}
     corr = _corroboration(result)
     print(f"  corroboration: {corr['count']} signal(s) — {corr['signals'] or '(none)'}")

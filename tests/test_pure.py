@@ -530,10 +530,17 @@ class PipelineCorroboration(unittest.TestCase):
                   "lexical": None, "mscore": None}
         self.assertIn("l1_pivot", pipeline._corroboration(result)["signals"])
 
-    def test_l2_adjudicated_adds_shift_signal(self):
+    def test_l2_adjudicated_with_shift_adds_shift_signal(self):
         result = {"l1": "HEALTHY (mean 2.0%)", "l2_adjudicated": True,
+                  "l2": {"shifts": {"Testland": {"start": 0, "end": -1, "shifted": True, "n": 2}}},
                   "lexical": None, "mscore": None}
         self.assertIn("l2_shift", pipeline._corroboration(result)["signals"])
+
+    def test_l2_adjudicated_but_flat_does_not_add_shift_signal(self):
+        result = {"l1": "HEALTHY (mean 2.0%)", "l2_adjudicated": True,
+                  "l2": {"shifts": {"Testland": {"start": 0, "end": 0, "shifted": False, "n": 2}}},
+                  "lexical": None, "mscore": None}
+        self.assertNotIn("l2_shift", pipeline._corroboration(result)["signals"])
 
     def test_lexical_drift_fires_above_threshold(self):
         result = {"l1": "HEALTHY", "l2_adjudicated": False,
@@ -547,6 +554,7 @@ class PipelineCorroboration(unittest.TestCase):
 
     def test_count_matches_signals_length(self):
         result = {"l1": "PIVOT?", "l2_adjudicated": True,
+                  "l2": {"shifts": {"Testland": {"start": -1, "end": 1, "shifted": True, "n": 2}}},
                   "lexical": {"js_divergence": 0.09}, "mscore": None}
         c = pipeline._corroboration(result)
         self.assertEqual(c["count"], len(c["signals"]))
