@@ -320,9 +320,25 @@ class Client:
 
     def complete_json(self, schema, prompt, max_tokens=1024):
         """Send `prompt`, return a dict conforming to `schema` (a strict JSON Schema)."""
-        if self.provider in ("openai", "xai"):
-            return self._openai(schema, prompt, max_tokens)
-        return getattr(self, f"_{self.provider}")(schema, prompt, max_tokens)
+        backend = self._openai if self.provider in ("openai", "xai") else getattr(self, f"_{self.provider}")
+        try:
+            return backend(schema, prompt, max_tokens)
+        except json.JSONDecodeError as exc:
+            retry_tokens = min(max_tokens * 2, 8192)
+            if retry_tokens <= max_tokens:
+                raise
+            print(
+                f"  [llm] {self.provider} returned incomplete JSON — retrying once with "
+                f"max_tokens={retry_tokens}",
+                file=sys.stderr,
+            )
+            try:
+                return backend(schema, prompt, retry_tokens)
+            except json.JSONDecodeError as retry_exc:
+                raise RuntimeError(
+                    f"{self.provider} returned invalid JSON twice; last response ended near "
+                    f"character {retry_exc.pos}"
+                ) from retry_exc
 
     def _anthropic(self, schema, prompt, max_tokens):
         # thinking disabled: these are structured JSON classifications, not reasoning tasks, and it matches

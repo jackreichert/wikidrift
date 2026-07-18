@@ -141,8 +141,17 @@ class AdaptiveL5CapPolicy(unittest.TestCase):
 
             saved = json.loads((findings / "Testland.cost.json").read_text(encoding="utf-8"))
         self.assertEqual(report["elapsed_seconds"], 5.75)
+        self.assertTrue(report["succeeded"])
         self.assertEqual(saved["estimated_external_usd"], 0.0012)
         self.assertIn("machine time", saved["estimate_scope"])
+
+    def test_cost_report_marks_failed_stage(self):
+        with tempfile.TemporaryDirectory() as directory:
+            report = cover_missing_topics._write_cost_report(pathlib.Path(directory), "Testland", [
+                {"command": "analyze", "elapsed_seconds": 2.5, "exit_code": 0},
+                {"command": "framing", "elapsed_seconds": 3.25, "exit_code": 1},
+            ])
+        self.assertFalse(report["succeeded"])
 
 
 class StanceValue(unittest.TestCase):
@@ -745,6 +754,34 @@ class FramingLiteEditionSelect(unittest.TestCase):
         self.assertEqual(result["error"], "missing")
         self.assertEqual(saved["llm_usage"]["input_tokens"], 8)
         self.assertEqual(saved["llm_usage"]["calls"], 1)
+
+    def test_comparison_failure_persists_error_and_usage_before_reraising(self):
+        record = {
+            "provider": "anthropic", "model": "m", "input_tokens": 20, "output_tokens": 10,
+            "estimated_usd": None, "pricing_key": None, "pricing_usd_per_million": None,
+        }
+
+        class FailingClient:
+            model = "m"
+            usage_records = []
+
+            def complete_json(self, _schema, _prompt, max_tokens=0):
+                self.usage_records.append(record)
+                raise RuntimeError("invalid JSON twice")
+
+        client = FailingClient()
+        with patch.object(fl, "_categorize", return_value={"category": "general", "confidence": 1.0}), \
+             patch.object(fl, "sitelinks", return_value=("Q1", {"en": "Testland", "fr": "Testland"})), \
+             patch.object(fl, "_edition_lengths", return_value={"fr": 5000}), \
+             patch.object(fl, "_fetch_lead", side_effect=["English lead", "French lead"]), \
+             patch.object(fl.config, "write_findings") as write_findings:
+            with self.assertRaisesRegex(RuntimeError, "invalid JSON twice"):
+                fl.framing_lite("Testland", client=client)
+
+        saved = write_findings.call_args.args[1]
+        self.assertEqual(saved["error"], "invalid JSON twice")
+        self.assertEqual(saved["llm_usage"]["calls"], 1)
+        self.assertEqual(saved["summary"], "LLM comparison failed; no framing result was produced.")
 
 
 class PipelinePivotWindow(unittest.TestCase):

@@ -181,6 +181,7 @@ def _write_cost_report(findings_dir: Path, topic: str, stages: list[dict]) -> di
         "article": topic,
         "run_ts": dt.datetime.now(dt.timezone.utc).isoformat(),
         "workflow": "confirmed_framing_refresh",
+        "succeeded": bool(stages) and all(stage["exit_code"] == 0 for stage in stages),
         "elapsed_seconds": round(sum(stage["elapsed_seconds"] for stage in stages), 3),
         "stages": stages,
         "llm_usage": usage,
@@ -434,7 +435,8 @@ def main() -> int:
             report = _write_cost_report(findings_dir, topic, stages)
             estimate = report["estimated_external_usd"]
             estimate_text = f"${estimate:.6f}" if estimate is not None else "unavailable (configure pricing)"
-            print(f"  cost report: {report['elapsed_seconds']:.1f}s, LLM estimate {estimate_text}")
+            outcome = "succeeded" if report["succeeded"] else "failed"
+            print(f"  cost report: {outcome}, {report['elapsed_seconds']:.1f}s, LLM estimate {estimate_text}")
 
     print(f"\nDone. failures={failures}")
     return 1 if failures else 0

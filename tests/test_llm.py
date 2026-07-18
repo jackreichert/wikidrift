@@ -184,6 +184,31 @@ class Backends(unittest.TestCase):
         self.assertIsNone(summary["estimated_usd"])
         self.assertFalse(summary["all_calls_priced"])
 
+    def test_truncated_json_retries_once_with_double_output_budget(self):
+        responses = [
+            types.SimpleNamespace(
+                content=[types.SimpleNamespace(type="text", text='{"ok":')],
+                usage=types.SimpleNamespace(input_tokens=10, output_tokens=64),
+            ),
+            types.SimpleNamespace(
+                content=[types.SimpleNamespace(type="text", text='{"ok": 1}')],
+                usage=types.SimpleNamespace(input_tokens=10, output_tokens=4),
+            ),
+        ]
+        calls = []
+
+        def create(**kwargs):
+            calls.append(kwargs)
+            return responses.pop(0)
+
+        client = llm.make_client("anthropic", "m")
+        client._impl = types.SimpleNamespace(messages=types.SimpleNamespace(create=create))
+
+        self.assertEqual(client.complete_json(SCHEMA, "hi", max_tokens=64), {"ok": 1})
+        self.assertEqual([call["max_tokens"] for call in calls], [64, 128])
+        self.assertEqual(len(client.usage_records), 2)
+        self.assertEqual(llm.usage_summary(client)["output_tokens"], 68)
+
     def test_google_empty_output_raises_clear_error(self):
         # thinking models can spend the whole token budget → empty text; must be an actionable error,
         # not a cryptic json.loads("") failure.

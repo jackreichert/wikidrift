@@ -427,7 +427,14 @@ def framing_lite(
                            "editions_compared": sorted(complete), "snapshots": snapshots,
                            "divergences": [], "summary": "Insufficient matched historical content."})
         editions = [lang for lang in editions if lang in complete]
-        comparison = _compare_temporal_leads(article, snapshots, pivot_window, client)
+        try:
+            comparison = _compare_temporal_leads(article, snapshots, pivot_window, client)
+        except Exception as exc:
+            finish({"article": article, "mode": mode, "pivot_window": pivot_window,
+                    "editions_compared": editions, "snapshots": snapshots,
+                    "divergences": [], "error": str(exc),
+                    "summary": "LLM comparison failed; no framing result was produced."})
+            raise
         lead_texts = {lang: snapshots["after"][lang]["lead"] for lang in editions}
     else:
         for lang in editions:
@@ -442,7 +449,14 @@ def framing_lite(
             print("  fewer than 2 editions have content — skipping comparison")
             return finish({"article": article, "mode": mode, "editions_compared": editions,
                            "divergences": [], "summary": "Insufficient edition content."})
-        comparison = _compare_leads(article, lead_texts, None, client)
+        try:
+            comparison = _compare_leads(article, lead_texts, None, client)
+        except Exception as exc:
+            finish({"article": article, "mode": mode, "editions_compared": editions,
+                    "lead_chars": {lang: len(text) for lang, text in lead_texts.items()},
+                    "divergences": [], "error": str(exc),
+                    "summary": "LLM comparison failed; no framing result was produced."})
+            raise
 
     # 6. LLM divergence comparison
     divergences = comparison.get("divergences") or []
