@@ -1,93 +1,100 @@
 {
   "article": "Collaboration in German-occupied Poland",
-  "run_ts": "2026-07-13T21:11:23.741328Z",
+  "run_ts": "2026-07-18T20:13:42.863083Z",
   "category": "polish-wwii",
-  "pivot_window": null,
+  "mode": "candidate_relative",
+  "pivot_window": {
+    "start": "2018-07-01",
+    "end": "2019-01-01",
+    "pwr_mass": 5822,
+    "status": "candidate"
+  },
   "editions_compared": [
     "en",
-    "ru",
-    "ar"
+    "ru"
   ],
   "lead_chars": {
-    "en": 531,
-    "ru": 979,
-    "ar": 438
+    "en": 509,
+    "ru": 201
+  },
+  "snapshots": {
+    "before": {
+      "en": {
+        "revid": 848275255,
+        "timestamp": "2018-06-30T22:24:53Z",
+        "title": "Collaboration in German-occupied Poland",
+        "lead": "Throughout World War II, Poland was a member of the Allied coalition that fought Nazi Germany. During the German occupation of Poland, some Polish citizens of diverse ethnicities collaborated with the Germans. Estimates of the number of collaborators vary. The main collaborators were members of Poland's German minority.Ryszard Kaczmarek Kolaboracja na terenach wcielonych do Rzeszy Niemieckiej Pamięć i Sprawiedliwość 7/1 (12), page 166, 2008 During and after the war, the Polish State and the Resistance movement executed collaborators. \n\nDue to differences in Nazi Germany's aims in Western, Central, and Eastern Europe, and due to Germany's historical Drang nach Osten (\"Drive to the East\") and Lebensraum (\"living space\") policies, collaboration in Poland was much less widespread and institutionalized than in Western Europe. Compared to the situations in other German-occupied countries, collaboration in Poland was marginal."
+      },
+      "ru": {
+        "revid": 92806665,
+        "timestamp": "2018-05-22T07:50:36Z",
+        "title": "Польский коллаборационизм во Второй мировой войне",
+        "lead": "Польский коллаборационизм во Второй мировой войне — сотрудничество польских организаций, польских граждан и отдельных этнических поляков с Третьим рейхом и странами \"оси\" во время Второй мировой войны."
+      }
+    },
+    "after": {
+      "en": {
+        "revid": 878606067,
+        "timestamp": "2019-01-15T21:06:14Z",
+        "title": "Collaboration in German-occupied Poland",
+        "lead": "Throughout World War II, Poland was a member of the Allied coalition that fought Nazi Germany. During the German occupation of Poland, some Polish citizens of diverse ethnicities collaborated with the Germans. Estimates of the number of collaborators vary. During and after the war, the Polish State and the Resistance movement punished collaborators, with thousands sentenced to death. \n\nCollaboration in Poland was less institutionalized than elsewhere in Europe, and has been described by some as marginal."
+      },
+      "ru": {
+        "revid": 97624831,
+        "timestamp": "2019-01-21T15:08:06Z",
+        "title": "Польский коллаборационизм во Второй мировой войне",
+        "lead": "Польский коллаборационизм во Второй мировой войне — сотрудничество польских организаций, польских граждан и отдельных этнических поляков с Третьим рейхом и странами \"оси\" во время Второй мировой войны."
+      },
+      "ar": {
+        "revid": 53459373,
+        "timestamp": "2021-04-16T02:57:56Z",
+        "title": "التواطؤ في بولندا المحتلة من ألمانيا",
+        "lead": "طوال الحرب العالمية الثانية، كانت بولندا عضوًا في تحالف الحلفاء الذي حارب ضد ألمانيا النازية. وأثناء الاحتلال الألماني لبولندا، تواطأ بعض المواطنين من جميع مجموعاتها العرقية الرئيسية مع الألمان. تختلف تقديرات عدد المتواطئين. وقد كان التواطؤ في بولندا أقل تنظيمًا مما هو عليه في بعض البلدان الأخرى ووُصف بأنه هامشي. وعاقبت الحكومة البولندية في المنفى وحركة المقاومة البولندية المتواطئين، وحُكم بالإعدام على الآلاف منهم، أثناء الحرب وبعدها."
+      }
+    }
   },
   "divergences": [
     {
-      "topic": "pride framing of marginality",
+      "topic": "Attribution of main collaborators to German minority",
       "editions_differ": [
-        "EN",
-        "RU",
-        "AR"
+        "ru"
       ],
-      "en_says": "Collaboration has been described as marginal, a point of pride with the Polish people",
-      "other_says": "not mentioned as a point of pride; RU frames it via Madajczyk's 5% estimate compared to 25% resistance; AR only says it was less institutionalized and marginal without the pride framing",
+      "en_says": "During and after the war, the Polish State and the Resistance movement punished collaborators, with thousands sentenced to death.\n\nCollaboration in Poland was less institutionalized than elsewhere in Europe, and has been described by some as marginal.",
+      "other_says": "Польский коллаборационизм во Второй мировой войне — сотрудничество польских организаций, польских граждан и отдельных этнических поляков с Третьим рейхом и странами \"оси\" во время Второй мировой войны.",
       "verdict": "differ",
-      "evidence_en": "has been described as marginal, a point of pride with the Polish people",
-      "evidence_other": null
+      "evidence_en": "During and after the war, the Polish State and the Resistance movement punished collaborators, with thousands sentenced to death.",
+      "evidence_other": "Польский коллаборационизм во Второй мировой войне — сотрудничество польских организаций, польских граждан и отдельных этнических поляков с Третьим рейхом и странами \"оси\" во время Второй мировой войны.",
+      "temporal_read": "english_moved_away",
+      "en_before": "The main collaborators were members of Poland's German minority, and the Polish State and Resistance executed collaborators during and after the war.",
+      "en_after": "The specific claim about German minority being the main collaborators was removed; instead it states thousands were sentenced to death by the Polish State and Resistance.",
+      "other_before": "Definitional statement about Polish collaboration with the Third Reich and Axis powers, no mention of German minority or punishment.",
+      "other_after": "Unchanged definitional statement, no mention of German minority or punishment.",
+      "evidence_en_before": "The main collaborators were members of Poland's German minority.Ryszard Kaczmarek Kolaboracja na terenach wcielonych do Rzeszy Niemieckiej Pamięć i Sprawiedliwość 7/1 (12), page 166, 2008 During and after the war, the Polish State and the Resistance movement executed collaborators.",
+      "evidence_en_after": "During and after the war, the Polish State and the Resistance movement punished collaborators, with thousands sentenced to death.",
+      "evidence_other_before": "Польский коллаборационизм во Второй мировой войне — сотрудничество польских организаций, польских граждан и отдельных этнических поляков с Третьим рейхом и странами \"оси\" во время Второй мировой войны.",
+      "evidence_other_after": "Польский коллаборационизм во Второй мировой войне — сотрудничество польских организаций, польских граждан и отдельных этнических поляков с Третьим рейхом и странами \"оси\" во время Второй мировой войны."
     },
     {
-      "topic": "quantitative estimate of collaborators",
+      "topic": "Comparative scale of collaboration versus Western Europe",
       "editions_differ": [
-        "EN",
-        "RU"
+        "ru"
       ],
-      "en_says": "Estimates of the number of collaborators vary (no specific figure given in lead)",
-      "other_says": "Czesław Madajczyk estimated about 5% of Polish citizens actively collaborated with the occupation regime, contrasted with 25% actively resisting",
-      "verdict": "absent_en",
-      "evidence_en": "Estimates of the number of collaborators vary.",
-      "evidence_other": "Чеслав Мадайчик подсчитал, что около 5 % польских граждан активно сотрудничали с оккупационным режимом... 25 % активно сопротивляющегося населения"
-    },
-    {
-      "topic": "structural collaboration / indifference to Jews",
-      "editions_differ": [
-        "EN",
-        "RU"
-      ],
-      "en_says": "not mentioned",
-      "other_says": "Historian John Connelly criticizes the population for indifference to the plight of Jews, calling it 'structural collaboration', a phenomenon that plagued Poland throughout the occupation",
-      "verdict": "absent_en",
-      "evidence_en": null,
-      "evidence_other": "историк Джон Коннелли критикует то же население за безразличие к тяжёлому положению евреев, это он называл «структурным сотрудничеством»"
-    },
-    {
-      "topic": "forms/types of collaboration",
-      "editions_differ": [
-        "EN",
-        "RU"
-      ],
-      "en_says": "not mentioned in lead",
-      "other_says": "Collaboration manifested in various forms: industrial, political, military and cultural",
-      "verdict": "absent_en",
-      "evidence_en": null,
-      "evidence_other": "Коллаборационизм проявлялся в разных формах: начиная от промышленного и политического, заканчивая военным и культурным."
-    },
-    {
-      "topic": "scope of collaborators (individuals vs organizations)",
-      "editions_differ": [
-        "EN",
-        "RU"
-      ],
-      "en_says": "citizens of all its major ethnic groups collaborated with the Germans",
-      "other_says": "cooperation of Polish organizations, Polish citizens, and individual ethnic Poles with Nazi Germany and the Axis countries",
-      "verdict": "differ",
-      "evidence_en": "citizens of all its major ethnic groups collaborated with the Germans",
-      "evidence_other": "сотрудничество польских организаций, польских граждан и отдельных этнических поляков с нацистской Германией и странами «оси»"
-    },
-    {
-      "topic": "Poland's Allied membership placement",
-      "editions_differ": [
-        "EN",
-        "AR"
-      ],
-      "en_says": "mentions Polish government in exile as a member of the Allied coalition in the context of punishing collaborators",
-      "other_says": "AR opens the lead by stating Poland was a member of the Allied coalition throughout WWII fighting Nazi Germany, as a separate opening statement",
-      "verdict": "differ",
-      "evidence_en": "the Polish government in exile (a member of the Allied coalition that fought Nazi Germany)",
-      "evidence_other": "طوال الحرب العالمية الثانية، كانت بولندا عضوًا في تحالف الحلفاء الذي حارب ضد ألمانيا النازية"
+      "en_says": "Collaboration in Poland was less institutionalized than elsewhere in Europe, and has been described by some as marginal.",
+      "other_says": "Польский коллаборационизм во Второй мировой войне — сотрудничество польских организаций, польских граждан и отдельных этнических поляков с Третьим рейхом и странами \"оси\" во время Второй мировой войны.",
+      "verdict": "absent_other",
+      "evidence_en": "Collaboration in Poland was less institutionalized than elsewhere in Europe, and has been described by some as marginal.",
+      "evidence_other": "Польский коллаборационизм во Второй мировой войне — сотрудничество польских организаций, польских граждан и отдельных этнических поляков с Третьим рейхом и странами \"оси\" во время Второй мировой войны.",
+      "temporal_read": "difference_persisted",
+      "en_before": "Due to differences in Nazi Germany's aims... collaboration in Poland was much less widespread and institutionalized than in Western Europe. Compared to the situations in other German-occupied countries, collaboration in Poland was marginal.",
+      "en_after": "Collaboration in Poland was less institutionalized than elsewhere in Europe, and has been described by some as marginal.",
+      "other_before": "No comparative statement about institutionalization or marginality present in the RU lead.",
+      "other_after": "No comparative statement about institutionalization or marginality present in the RU lead.",
+      "evidence_en_before": "Due to differences in Nazi Germany's aims in Western, Central, and Eastern Europe, and due to Germany's historical Drang nach Osten (\"Drive to the East\") and Lebensraum (\"living space\") policies, collaboration in Poland was much less widespread and institutionalized than in Western Europe. Compared to the situations in other German-occupied countries, collaboration in Poland was marginal.",
+      "evidence_en_after": "Collaboration in Poland was less institutionalized than elsewhere in Europe, and has been described by some as marginal.",
+      "evidence_other_before": null,
+      "evidence_other_after": null
     }
   ],
-  "summary": "The EN lead emphasizes marginality of collaboration as a point of national pride and frames punishment by the government-in-exile and resistance. The RU lead is more analytical, providing Madajczyk's specific 5% estimate compared to 25% resistance, categorizing collaboration into industrial/political/military/cultural forms, and introducing John Connelly's critique of 'structural collaboration' regarding indifference to Jewish suffering—none of which appear in the EN lead. The AR lead closely mirrors EN but restructures the opening to foreground Poland's Allied membership and omits the 'point of pride' framing. Overall, RU diverges most significantly by adding analytical depth and a critical perspective absent from EN and AR leads.",
+  "summary": "Over the 2018-2019 window, the English lead dropped the specific claim that the German minority were the main collaborators and reframed punishment as 'thousands sentenced to death' rather than simple 'execution'; it also softened the comparative claim about Poland's marginal collaboration relative to Western Europe into a vaguer, attributed statement ('described by some'). The Russian lead remained a static one-sentence definition throughout the window, with no comparative or punishment content, so it never contained the material English changed—meaning the German-minority/execution claim is absent in RU both before and after (an already-existing difference that persisted), while the comparative marginality claim was also absent in RU throughout, again a persisting difference despite English's own softening.",
   "model": "claude-sonnet-5"
 }
