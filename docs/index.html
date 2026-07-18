@@ -43,7 +43,7 @@
 <p class="summary">WikiDrift is a forensic tool built to help researchers understand how a Wikipedia article has changed over time.</p>
 <p>Every Wikipedia page has a public revision history. This project began with a question: can that history show the patterns we would expect to see when an article has been substantially rewritten? Revision history records what changed, when it changed, and which public account made the edit. It does not establish motive, identify a neutral version, or decide whether an edit improved the article.</p>
 <p>A suspicious pattern is not the same thing as a conclusion. Large removals happen during good-faith rewrites. Edit fights can form around accurate material. Quiet pages can still change in important ways. WikiDrift finds the change and gathers the record around it; a reader still has to judge what the change means.</p>
-<p>WikiDrift looks for substantial changes to long-lived wording. Its other checks can place those changes beside shifts in vocabulary and citations, differences in cross-language framing, changes to basic factual claims, and the level of edit conflict around the article. The result is a research lead with evidence a reader can inspect.</p>
+<p>WikiDrift looks for substantial changes to long-lived wording. Its other checks place those changes beside shifts in vocabulary and citations, differences in cross-language framing, changes to basic factual claims, and the level of edit conflict around the article. The result is a research lead with evidence a reader can inspect.</p>
 <p>The initial proof of concept used the Zionism article. It had already been discussed publicly in connection with editorial disputes, which made it a useful development case.</p>
 <p>The method draws on published work about text persistence, token authorship, controversy measurement, and cross-language comparison. We test it against articles with publicly documented disputes, quiet control topics, and contested subjects where a large rewrite may be entirely legitimate.</p>
 <p>WikiDrift is an <a href="https://github.com/jackreichert/wikidrift/">open source</a> research project of <a href="https://encyclopediae.org">encyclopediae.org</a>.</p>
@@ -100,7 +100,7 @@
 </tr>
 <tr>
 <td><strong>L5: Compare framing across languages</strong></td>
-<td>Checks whether other-language editions frame the same subject differently and, when history is available, whether English moved away from them around a rewrite.</td>
+<td>Checks whether other-language editions frame the same subject differently. When L1 finds a candidate rewrite window, the lightweight check compares matched before-and-after revisions in each edition and links to every version used. Without a candidate window, it compares current leads.</td>
 <td><a href="https://doi.org/10.1145/2207676.2208553">Omnipedia (Bao et al., 2012)</a> and <a href="https://doi.org/10.1145/2462932.2462960">Manypedia (Massa &amp; Scrinzi, 2012)</a></td>
 </tr>
 <tr>

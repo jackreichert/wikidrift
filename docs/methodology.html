@@ -223,10 +223,16 @@ editions, factual claims, citations, and the article's own sourcing trajectory.<
 <p>The lightweight framing check compares lead sections from English and a selected group of other
 language editions. It asks a language model to identify substantive differences, contradictions, or
 omissions.</p>
-<p>When a caller supplies an L1 pivot window, the check can ask whether other editions retain framing
-that English lost around that period. In the normal pipeline, that pivot window is not currently
-passed, so the lightweight result is a present-day comparison. That mode is still useful for cases
-that may have been framed consistently throughout their English history.</p>
+<p>When L1 finds a candidate rewrite window, the pipeline and standalone <code>framing</code> command pass that
+window to Framing Lite. For every selected edition, it fetches the last revision at or before the
+window's start and the first revision at or after its end. It then compares how English changed with
+how the other editions changed over the same period. The result keeps the revision IDs, timestamps,
+lead text, supporting quotations, and links to the exact Wikipedia versions.</p>
+<p>This mode is labeled <strong>candidate-relative</strong> because the default pipeline reads the coarse offline L1
+candidate; it does not claim that the revision-level confirmation step has run. If L1 has no candidate
+window, Framing Lite compares current leads instead. That <strong>static</strong> mode is useful for articles that
+may have been framed consistently throughout their English history. The <code>--static</code> option requests it
+explicitly.</p>
 <h3>Full cross-language stance</h3>
 <p>The fuller framing check applies the L2 stance categories to the same subject in several editions. It
 can compare present-day stance and ask whether English moved away from the other editions around its
@@ -266,6 +272,10 @@ disagreement can be useful:</p>
 <p>Analysis and publication are separate steps. The analysis commands create findings from the local
 corpus and public APIs. The L3 export step then reads the local corpus and calls public Wikipedia and
 WikiWho services to build before-and-after and authorship artifacts.</p>
+<p>Framing findings have their own refresh path. Running <code>wikidrift framing "Article"</code> reuses the cached
+L1 candidate window, fetches the matched historical leads, calls the configured language model, and
+replaces that article's framing finding. It does not recompute L1, attribution, vocabulary, sources,
+or the other L5 checks. Existing framing files must be refreshed once to gain temporal receipts.</p>
 <p>The site builder is a separate, read-only step. It reads the saved findings and L3 artifacts and
 renders static HTML; it does not rerun the analysis or query DuckDB. A published page therefore
 reflects the findings and artifacts available when the site was built.</p>
