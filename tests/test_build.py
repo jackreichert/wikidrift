@@ -246,7 +246,7 @@ class SiteRouting(unittest.TestCase):
         page = build.render_page(title="Test", body="<h1>Test</h1>", root="../")
         self.assertIn('href="../findings.html"', page)
         self.assertIn(
-            '<span class="project-credit">an <a href="https://encyclopediae.org">'
+            '<span class="project-credit">an <a href="https://encyclopediae.org/">'
             'encyclopediae.org</a> project</span>',
             page,
         )
