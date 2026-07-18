@@ -42,6 +42,29 @@ def _pipeline_entities(article, l2_summary):
     return [title] if title else []
 
 
+def _pivot_window(verdict):
+    """Top coarse L1 episode as explicit candidate context for downstream evidence collection."""
+    episodes = (verdict or {}).get("episodes") or []
+    if not episodes:
+        return None
+    top = episodes[0]
+    return {"start": top["start"], "end": top["end"], "pwr_mass": top["pwr_mass"],
+            "status": "candidate"}
+
+
+def candidate_window(article):
+    """Load the top cached L1 candidate for standalone downstream instruments, if available."""
+    if not config.DB.exists():
+        return None
+    con = duckdb.connect(str(config.DB), read_only=True)
+    try:
+        if _snap_count(con, article) < 3:
+            return None
+        return _pivot_window(drift.verdict_dict(con, article))
+    finally:
+        con.close()
+
+
 def _corroboration(result):
     """Count how many independent layers corroborate an anomaly — a lead count, not a verdict.
     Each signal is an independent instrument; agreement adds confidence without compounding errors."""
@@ -77,7 +100,8 @@ def run(article, llm=False, corroborate=False, framing=False, provider=None, mod
     """Orchestrate the layers for one article. Returns a consolidated result dict.
 
     provider/model/base_url select the LLM backend for the opt-in L2 + framing layers (see llm.py).
-    Cross-lingual framing lite (L5) is opt-in via --framing; it runs after L1 only when a pivot exists."""
+    Cross-lingual framing lite (L5) is opt-in via --framing. It uses matched historical revisions when
+    L1 supplies a candidate window and falls back to a current static comparison otherwise."""
     # Build the LLM client ONCE and share it across L2 + L5 (was threaded as 3 loose params into each verb).
     # NB the `llm` parameter here is the bool opt-in flag, so import the module under an alias.
     client = None
@@ -93,7 +117,9 @@ def run(article, llm=False, corroborate=False, framing=False, provider=None, mod
         print("(no cached snapshots — running full L1 analyze)\n")
         drift.analyze(article)
         con = duckdb.connect(str(config.DB), read_only=True)
-    label = drift.candidate_verdict(con, article)[1] if _snap_count(con, article) >= 3 else "n/a (too few snapshots)"
+    verdict = drift.verdict_dict(con, article) if _snap_count(con, article) >= 3 else None
+    label = drift.candidate_verdict(con, article)[1] if verdict else "n/a (too few snapshots)"
+    pivot_window = _pivot_window(verdict)
     print(f"\nL1 drift verdict: {label}")
 
     # ---- pre-rank router (metadata-only) ----
@@ -142,7 +168,9 @@ def run(article, llm=False, corroborate=False, framing=False, provider=None, mod
     if framing:
         try:
             from . import l5_framing_lite
-            framing_result = l5_framing_lite.framing_lite(article, client=client)
+            framing_result = l5_framing_lite.framing_lite(
+                article, pivot_window=pivot_window, client=client
+            )
         except Exception as e:                              # noqa: BLE001
             print(f"Framing Lite skipped: {e}")
 

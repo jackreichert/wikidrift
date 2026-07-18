@@ -17,6 +17,7 @@ Full design + methodology live in the vault:
 | `stance.py` | **L2** LLM stance classifier (NPOV axis, not sentiment) | 010 |
 | `benchmark.py` | Adjudicated ground-truth roster + scoring | 009 |
 | `l5_crosslingual.py` | **L5 #1** cross-lingual framing divergence (static + pivot-relative) | 012a/b/c |
+| `l5_framing_lite.py` | **L5 Framing Lite** matched historical leads around the top cached L1 candidate; static fallback; oldid receipts | S09 |
 | `l5_factcheck.py` | **L5 #2** cross-edition citation + claim (fact) divergence, as-of aware | 014 |
 | `mscore.py` | Yasseri mutual-revert controversy corroborator (metadata-only) | 013 |
 | `ingest.py` | **Local `wikiwho_rs`-on-dumps** rsnap ingestion — coverage gaps + corpus-scale batch (Rust `tools/snapshot-tokens` helper) | 011 |
@@ -44,6 +45,8 @@ uv run wikidrift prerank              # metadata pre-ranker (offline)
 uv run wikidrift profile "Brontosaurus" # descriptive L1 drift profile: recency + editor concentration (offline)
 uv run wikidrift analyze "Climate change" # full L1 pipeline (+ WikiWho for confirm/attribute)
 uv run wikidrift stance "Abortion"    # L2 stance over time (needs an LLM key)
+uv run wikidrift framing "Gaza war"   # L5 Lite matched historical leads (needs an LLM key)
+uv run wikidrift framing "Gaza war" --static  # L5 Lite current-lead comparison
 uv run wikidrift crosslingual "Zionism"                     # L5 #1 framing divergence (needs key)
 uv run wikidrift factcheck "Warsaw concentration camp" --asof 2018-06-01   # L5 #2 fact divergence (needs key)
 uv run wikidrift mscore                                        # controversy corroborator (offline fetch)
@@ -58,6 +61,13 @@ Single-article verbs accept either an article title or a Wikipedia URL (for exam
 `crosslingual` defaults to a topic-specific, auto-selected established-edition set (targeting editions
 with stronger article coverage; English kept when present for pivot-relative comparability). Pass
 `--langs` to pin an explicit comparison set.
+
+`framing` reuses the top candidate window from the cached L1 verdict. It fetches the last lead revision
+at or before the window start and the first one at or after the window end for each selected edition,
+then saves quotations and oldid receipts in the article's framing finding. The result is labeled
+candidate-relative because the cached `PIVOT?` is not a persisted confirmation. If no candidate exists,
+the command falls back to current leads; pass `--static` to request that mode directly. Rerunning this
+command refreshes only Framing Lite; it does not recompute L1 or the other analysis layers.
 
 `discover` seeds from editors attributed with removals in an article, follows *only their content-removing edits* elsewhere
 (a search prior — the graph never flags anything), subtracts the base-rate roster, and re-tests each fresh

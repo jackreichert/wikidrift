@@ -40,42 +40,103 @@
   </nav>
 </header>
 <main id="main"><div class="prose"><h1>About WikiDrift</h1>
-<p class="summary">WikiDrift is a forensic tool to help researchers understand how a Wikipedia article has changed over time.</p>
-
-<p>Every Wikipedia page has a public history of all it's edits and tracks who did what. This project began with the question: can public edit history show that an article was tampered with? Revision history records what changed, when it changed, and which public account made the edit. However, it does not establish motive, identify a neutral version, or decide whether an edit improved the article. </p>
-<p>This means that we can point out characteristics in the way an article was edited that <em>may</em> point to tampering. Finding a smoking gun doens't mean there's a body hiding somewhere. If you're in a shooting range, you'll find plenty of smoking guns, none of which was used to hurt a soul. </p>
-<p>WikiDrift looks for substantial changes to long-lived wording, then places those changes beside shifts in vocabulary, citations, cross-language framing, and basic factual claims. The result is a research lead with evidence a reader can inspect.</p>
-<p>The initial proof of concept was built off the <strong>Zionism</strong> article, an article already discussed publicly in connection with editorial disputes, which made it useful for developing the method. Later, existing published approaches to text persistence, token authorship, controversy measurement, and cross-language comparison were implemented.</p>
-<p>A project of <a href="https://encyclopediae.org">encyclopediae.org</a>, <a href="https://github.com/jackreichert/wikidrift/">open source on GitHub</a>.</p>
+<p class="summary">WikiDrift is a forensic tool built to help researchers understand how a Wikipedia article has changed over time.</p>
+<p>Every Wikipedia page has a public revision history. This project began with a question: can that history show the patterns we would expect to see when an article has been substantially rewritten? Revision history records what changed, when it changed, and which public account made the edit. It does not establish motive, identify a neutral version, or decide whether an edit improved the article.</p>
+<p>A suspicious pattern is not the same thing as a conclusion. Large removals happen during good-faith rewrites. Edit fights can form around accurate material. Quiet pages can still change in important ways. WikiDrift finds the change and gathers the record around it; a reader still has to judge what the change means.</p>
+<p>WikiDrift looks for substantial changes to long-lived wording. Its other checks can place those changes beside shifts in vocabulary and citations, differences in cross-language framing, changes to basic factual claims, and the level of edit conflict around the article. The result is a research lead with evidence a reader can inspect.</p>
+<p>The initial proof of concept used the Zionism article. It had already been discussed publicly in connection with editorial disputes, which made it a useful development case.</p>
+<p>The method draws on published work about text persistence, token authorship, controversy measurement, and cross-language comparison. We test it against articles with publicly documented disputes, quiet control topics, and contested subjects where a large rewrite may be entirely legitimate.</p>
+<p>WikiDrift is an <a href="https://github.com/jackreichert/wikidrift/">open source</a> research project of <a href="https://encyclopediae.org">encyclopediae.org</a>.</p>
 <h2>What WikiDrift does</h2>
-<ul>
-<li><strong>rewrite detection</strong> asks whether an article's established content went through substantial rewrites;</li>
-<li><strong>change interpretation</strong> asks whether wording or stance changed directionally;</li>
-<li><strong>external comparison</strong> asks whether a stable article differs from other language editions or from its own citation history;</li>
-<li><strong>discovery</strong> uses an already detected change to decide which other articles are worth testing.</li>
-</ul>
-<p>For the full sequence, inputs, and limitations, read <a href="methodology.html">How it works</a>.</p>
-<h2>What a candidate rewrite window is</h2>
-<p>The <strong>Rewrite</strong> tab shows <strong>candidate rewrite windows</strong>: stretches of time when the snapshot scan measured unusually high loss of wording that had persisted across earlier snapshots. These published windows have not gone through the full revision-by-revision confirmation step.</p>
-<p>The percentage shown is <strong>persistence-weighted loss</strong>. Wording that survived in more snapshots receives more weight, so the number is not a literal percentage of all article text changed. The page pairs that metric with dates and a before-and-after view of the selected snapshot revisions.</p>
-<p>A candidate window asks: <strong>“When might a substantial amount of long-lived wording have disappeared?”</strong> It does <strong>not</strong> establish that one revision caused the loss or answer whether the change was good, bad, capture, or cleanup. That requires confirmation and human review.</p>
-<p>Some pages have more than one candidate window. On other pages, rewrite analysis has not been exported; the site labels that as missing coverage rather than claiming no rewrite occurred.</p>
-<h2>What this is not</h2>
-<ul>
-<li>It is <strong>not</strong> a “bias score” or a list of bad editors.</li>
-<li>A big rewrite is <strong>not</strong> automatically proof that something was captured or distorted. Legitimate cleanups and real-world events also produce big rewrites.</li>
-<li>Naming an account means “this public username made this public edit” — <strong>not</strong> “this person had bad intent.”</li>
-</ul>
+<p>WikiDrift analyzes an article in layers. Not every layer runs for every article, and no layer decides whether an edit was good, bad, or biased.</p>
+<table>
+<thead>
+<tr>
+<th>Layer or check</th>
+<th>What it does</th>
+<th>Research sources</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Foundation: Track the words</strong></td>
+<td>Records where passages came from, when they disappeared, and whether they later returned. This gives every later layer a repeatable history to inspect.</td>
+<td><a href="https://doi.org/10.1145/2566486.2568026">WikiWho (Flöck &amp; Acosta, 2014)</a>, <a href="https://arxiv.org/abs/1703.08244">TokTrack (Flöck, Erdogan &amp; Acosta, 2017)</a>, and <a href="https://github.com/Schuwi/wikiwho_rs">wikiwho_rs</a></td>
+</tr>
+<tr>
+<td><strong>Pre-check: Choose what to inspect</strong></td>
+<td>Looks for unusual bursts of additions, removals, or churn in the revision metadata. These are routing leads for deeper checks, not findings about the prose.</td>
+<td><a href="https://doi.org/10.1007/978-981-15-8731-3_4">Detection of Editing Bursts and Extraction of Significant Keyphrases from Wikipedia Edit History (2020)</a></td>
+</tr>
+<tr>
+<td><strong>L1: Find the rewrite</strong></td>
+<td>Looks for large, lasting removal of wording that had been stable for a long time. A full analysis then narrows the strongest candidate windows to the dominant revision pair and attributes the public edits.</td>
+<td><a href="https://doi.org/10.1145/1641309.1641332">Persistent Word Revisions (Halfaker et al., 2009)</a>, <a href="https://archives.iw3c2.org/www2007/papers/paper692.pdf">WikiTrust (Adler &amp; de Alfaro, 2007)</a>, <a href="https://doi.org/10.1145/2566486.2568026">WikiWho</a>, and <a href="https://arxiv.org/abs/1703.08244">TokTrack</a></td>
+</tr>
+<tr>
+<td><strong>L2: Understand the change</strong></td>
+<td>Uses an optional language-model check to compare the article's stance toward a focal subject across snapshots. By default, the focal subject is the article title.</td>
+<td><a href="https://arxiv.org/abs/1809.06951">Mind Your POV (Pavalanathan, Han &amp; Eisenstein, 2018)</a> and <a href="https://arxiv.org/abs/2510.21526">Johnson et al. on Wikipedia's neutral-point-of-view practices (2025)</a></td>
+</tr>
+<tr>
+<td><strong>L2.5: Compare the vocabulary</strong></td>
+<td>Shows how different the before-and-after vocabularies are and which terms became more or less common. It does not label those terms as good, bad, or biased.</td>
+<td>Standard Jensen-Shannon divergence and smoothed log-odds methods; <a href="https://arxiv.org/abs/1809.06951">Mind Your POV</a> is the nearest Wikipedia-specific precedent used by the project</td>
+</tr>
+<tr>
+<td><strong>Context: Measure the edit fight</strong></td>
+<td>Measures sustained mutual reverts to show how openly contested the article was. A high or low score is context, not evidence of manipulation.</td>
+<td><a href="https://arxiv.org/abs/1107.3689">Sumi and Yasseri et al. on mutual reverts and Wikipedia conflict</a></td>
+</tr>
+<tr>
+<td><strong>L3: Show the evidence</strong></td>
+<td>Turns an L1 candidate window into a before-and-after reading view. Where provenance is available, it also connects wording to the public revisions and accounts that introduced it.</td>
+<td>Token-level evidence from <a href="https://doi.org/10.1145/2566486.2568026">WikiWho</a> and <a href="https://arxiv.org/abs/1703.08244">TokTrack</a></td>
+</tr>
+<tr>
+<td><strong>L4: Follow the trail</strong></td>
+<td>Uses a confirmed rewrite to find other articles worth checking, then runs L1 independently on each one. Shared editors can suggest where to look, but never supply the result.</td>
+<td>Attribution methods from <a href="https://doi.org/10.1145/2566486.2568026">WikiWho</a> and <a href="https://arxiv.org/abs/1703.08244">TokTrack</a>; the content-first discovery sequence is WikiDrift's composition</td>
+</tr>
+<tr>
+<td><strong>L5: Compare framing across languages</strong></td>
+<td>Checks whether other-language editions frame the same subject differently and, when history is available, whether English moved away from them around a rewrite.</td>
+<td><a href="https://doi.org/10.1145/2207676.2208553">Omnipedia (Bao et al., 2012)</a> and <a href="https://doi.org/10.1145/2462932.2462960">Manypedia (Massa &amp; Scrinzi, 2012)</a></td>
+</tr>
+<tr>
+<td><strong>L5: Compare facts across languages</strong></td>
+<td>Checks a small set of important claims, such as dates, places, or counts, and reports where editions agree, differ, or contradict one another.</td>
+<td><a href="https://arxiv.org/abs/2410.04282">InfoGap (Samir et al., 2024)</a></td>
+</tr>
+<tr>
+<td><strong>L5: Compare citations</strong></td>
+<td>Shows how cited domains and source types differ across languages or change across a rewrite. WikiDrift reports the mix but does not rate a source as reliable or biased.</td>
+<td><a href="https://arxiv.org/abs/2309.00196">Baigutanova et al. (2023)</a> and <a href="https://doi.org/10.1108/OIR-02-2023-0084">Yang &amp; Colavizza (2024)</a></td>
+</tr>
+<tr>
+<td><strong>Final reading: Put the signals together</strong></td>
+<td>Places the separate checks side by side and records which thresholds fired. That count can strengthen a lead, but it is not a calibrated probability, bias score, or verdict.</td>
+<td><a href="https://www.aeaweb.org/articles?id=10.1257/aer.102.3.343">Greenstein &amp; Zhu on Wikipedia slant</a>, their <a href="https://doi.org/10.25300/MISQ/2018/14084">Wikipedia-Britannica comparison</a>, and <a href="https://arxiv.org/abs/2510.21526">Johnson et al.</a></td>
+</tr>
+</tbody>
+</table>
+<p>No one publication supplies the entire pipeline. This project's contribution is the composition:
+- Discover content displacement without a seed list
+- Refine a coarse change window to the dominant revision pair by binary-searching the survival of long-lived wording
+- Attribute the measured change through provenance
+- Add semantic and external-reference checks
+- Keep editor graphs downstream of content evidence</p>
 <h2>How articles on this site were chosen</h2>
 <p>The topics here are a <strong>test set</strong>, not a hit list. We picked clusters that outside sources already discuss (for example Wikipedia’s own arbitration cases, academic papers, and public reports) so we could ask: does the tool notice the same places without being fed those lists?</p>
 <p>We also include <strong>control</strong> topics (like Photosynthesis) and other hot-button subjects (like Climate change) to check that ordinary big edits do not get treated as automatic proof of wrongdoing.</p>
 <p>The software itself can run on any English Wikipedia article. This site is just the published sample.</p>
+<p>For a deeper walkthrough of the process, see <a href="methodology.html">How it works</a>.</p>
 <h2>A useful reading order</h2>
 <ol>
 <li>Open the <a href="findings.html">findings list</a>.</li>
 <li>Pick an article and read <strong>Overview</strong> first.</li>
 <li>Open <strong>Rewrite</strong> and read the removed and added text.</li>
-<li>Treat <strong>Framing</strong>, <strong>Facts</strong>, and <strong>Citations</strong> as separate context, not corroborating votes.</li>
+<li>Read <strong>Framing</strong>, <strong>Facts</strong>, and <strong>Citations</strong> as different kinds of evidence, not interchangeable votes.</li>
 <li>Follow the version links to Wikipedia when you need the original record.</li>
 </ol></div></main>
 <footer class="site">

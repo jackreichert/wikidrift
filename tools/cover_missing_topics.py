@@ -280,7 +280,7 @@ def main() -> int:
     parser.add_argument(
         "--framing",
         action="store_true",
-        help="Run L5 Framing Lite (cross-lingual lead divergence) via pipeline --framing (opt-in; needs an LLM key)",
+        help="Run L5 Framing Lite (matched historical leads when L1 has a candidate) via pipeline --framing (opt-in; needs an LLM key)",
     )
     args = parser.parse_args()
 

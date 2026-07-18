@@ -90,6 +90,40 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("Israel", out)
         self.assertIn("Overview", out)
 
+    def test_renders_temporal_framing_evidence_and_receipts(self):
+        framing = {
+            "mode": "candidate_relative",
+            "pivot_window": {
+                "start": "2020-01-01", "end": "2021-01-01", "pwr_mass": 42000,
+                "status": "candidate",
+            },
+            "editions_compared": ["en", "he"],
+            "snapshots": {
+                "before": {
+                    "en": {"revid": 11}, "he": {"revid": 21},
+                },
+                "after": {
+                    "en": {"revid": 12}, "he": {"revid": 22},
+                },
+            },
+            "divergences": [{
+                "topic": "cause", "verdict": "differ", "temporal_read": "english_moved_away",
+                "editions_differ": ["en", "he"],
+                "en_before": "Earlier account", "en_after": "Later account",
+                "other_before": "Stable account", "other_after": "Stable account",
+                "evidence_en_before": "English before", "evidence_en_after": "English after",
+                "evidence_other_before": "Hebrew before", "evidence_other_after": "Hebrew after",
+            }],
+        }
+
+        out = build.framing_lite_block(framing)
+
+        self.assertIn("L1 candidate window", out)
+        self.assertIn("English moved away", out)
+        self.assertIn("<b>Before:</b> Earlier account", out)
+        self.assertIn("oldid=11", out)
+        self.assertIn("oldid=22", out)
+
     def test_index_lists_the_article_with_its_link(self):
         idx = _index_html()
         self.assertIn("Testland", idx)

@@ -40,172 +40,289 @@
   </nav>
 </header>
 <main id="main"><div class="prose"><h1>How it works</h1>
-<p class="summary">A plain explanation of what WikiDrift measures, how a page is built, and where the method stops.</p>
-
-<p class="disclaimer">Every result is something to inspect — not a verdict of guilt or bias.</p>
-
-<h2>The question we started with</h2>
-<p>Can public edit history show when a Wikipedia article’s long-stable wording was substantially
-replaced, without starting from a list of editors or articles assumed to be problematic?</p>
-<p>That is the core of WikiDrift. Prior lists may provide validation cases, but they do not determine
-what the detector finds. The article’s own history supplies the primary evidence.</p>
-<h2>Two different problems</h2>
-<p>Problems on Wikipedia do not all look the same:</p>
+<p class="summary">WikiDrift reads an article's public history in layers. Each layer answers a different question, and
+the result is evidence to inspect rather than a single bias score.</p>
+<p>The method separates four questions that are easy to blur together:</p>
+<ul>
+<li><strong>Change detection:</strong> Was a substantial amount of established content replaced?</li>
+<li><strong>Change interpretation:</strong> Did the wording or stance move in a particular direction?</li>
+<li><strong>External comparison:</strong> Does the article differ from other language editions or from its own
+  citation history?</li>
+<li><strong>Discovery:</strong> Once a change has been found, which other articles are worth testing?</li>
+</ul>
+<p>Editor activity, controversy, and disagreement between languages add context. They do not tell us by
+themselves why a change happened or which version is correct.</p>
+<h2>Two kinds of article history</h2>
+<p>The tool has to handle two very different cases.</p>
 <ol>
-<li><strong>The story changed later.</strong> Text that had sat for years was removed, and the new version stuck.
-   You can often see that by comparing the article to <strong>its own past</strong>.</li>
-<li><strong>The story was always framed that way.</strong> There is no earlier “neutral baseline” in the history.
-   Comparing only to the past will miss it. You need <strong>something outside the English history</strong> —
-   usually other language editions, or a careful fact check across languages.</li>
+<li><strong>The story changed later.</strong> Wording that had remained for years was removed or replaced, and the
+   replacement lasted. The article's own history may reveal that change.</li>
+<li><strong>The story was framed that way from the beginning.</strong> There is no earlier baseline to recover.
+   Historical change detection may show nothing, so the useful comparisons are outside the English
+   article: other language editions, factual claims, and sources.</li>
 </ol>
-<p>WikiDrift is strongest on the first problem. The second is only partly covered (other languages and
-shared facts), and honestly so.</p>
-<h2>What “a finding” means</h2>
-<p>A finding is a <strong>lead</strong>: “look here.”</p>
-<p>By itself, it is <strong>not</strong>:</p>
-<ul>
-<li>proof that editors colluded,</li>
-<li>proof that the old text was more accurate,</li>
-<li>proof that the new text is wrong,</li>
-<li>or a score of how biased an article is.</li>
-</ul>
-<p>Big, honest rewrites happen all the time (style overhauls, new sources, real-world events). That is
-why we also test quiet science articles: so we know what ordinary change looks like.</p>
-<h2>How we read one article’s history</h2>
-<h3>1. Track who wrote which words</h3>
-<p>Wikipedia keeps every past version. Tools such as WikiWho can say, for each bit of text, which
-revision introduced it. We store those snapshots so measurements are repeatable.</p>
-<h3>2. Prefer long-lived text</h3>
-<p>Words that survived for years of readers and editors count more than last month’s churn. Deleting a
-sentence that lived for a decade is a bigger signal than deleting something that appeared last week.</p>
-<h3>3. Find candidate change windows</h3>
-<p>We look for stretches of time where a large share of that long-lived text disappeared and stayed
-gone (not a one-day vandalism blank that was immediately fixed). Those windows appear on the site as
-<strong>Rewrite</strong> pages you can open and read.</p>
-<h3>4. Show before and after</h3>
-<p>For those windows we build a tracked-changes view: removed text struck out, new text highlighted.
-Where we can, we also note which accounts added the new wording.</p>
-<h3>5. Note who wrote today’s text</h3>
-<p>Separately, we describe how much of the <strong>current</strong> article comes from a small set of accounts, and
-how much of it is recent. That is background — concentrated authorship is common and is <strong>not</strong> by
-itself evidence of a plot.</p>
-<h2>Words, sources, and “how hard was the fight?”</h2>
-<p>Besides the rewrite itself, we often show:</p>
-<ul>
-<li><strong>Vocabulary</strong> — which words became more or less common across the rewrite window. Useful for
-  noticing topic or tone shifts; not a moral score.</li>
-<li><strong>Framing over time</strong> — when metadata points to substantial addition or unusual churn, an optional
-  semantic check asks whether the article’s stance changed. This requires a language model and is not
-  part of every run.</li>
-<li><strong>Citations</strong> — which domains and citation types (book, news, journal, web) grew or shrank. We
-  report the mix <strong>as-is</strong>. We never label a domain “reliable” or “biased.”</li>
-<li><strong>Edit fights</strong> — whether the article saw lots of mutual reverts (editors undoing each other).
-  A quiet rewrite can matter <em>more</em>, not less: it means the change was not loudly contested on the page.</li>
-</ul>
-<h2>Other languages</h2>
-<p>English is only one Wikipedia. For many topics we also compare:</p>
-<ul>
-<li><strong>Framing in the opening</strong> — does the lead sound more critical, neutral, or sympathetic toward the
-  same subject in Hebrew, Arabic, German, Polish, and so on?</li>
-<li><strong>Basic facts</strong> — for a short list of load-bearing questions (dates, places, counts), do editions
-  agree, differ, or contradict?</li>
-</ul>
-<p>When we can, we also ask a sharper question: did English <strong>move away</strong> from other languages around
-the same time as a big rewrite — or have the languages disagreed for a long time?</p>
-<p>Disagreement has many causes (different audiences, different sources, translation lag, real debate).
-It is a reason to read carefully, not a scoreboard.</p>
-<h2>Following the trail of large deletions</h2>
-<p>After a confirmed big rewrite, we can look at where the same accounts made <strong>other large deletions</strong>
-on other articles, then <strong>re-check each candidate on its own history</strong>. Appearing in that search does
-not create a finding; the second article must independently meet the same change criteria.</p>
-<h2>How the checks fit together</h2>
-<p>This is a map of the available checks, not a claim that every check runs for every article. The default
-pipeline runs the metadata router, L1, and vocabulary comparison. Stance, edit-fight, and lightweight
-other-language checks are optional; fuller language, fact, source, and discovery checks run separately.</p>
+<p>The core detector is built for the first case. Cross-language, fact, and source checks provide partial
+coverage of the second. A stable article is not necessarily neutral, and a heavily rewritten article
+is not necessarily wrong.</p>
+<h2>The tool at a glance</h2>
 <pre><code class="language-mermaid">flowchart TD
-  accTitle: How WikiDrift checks fit together
-  accDescr: Wikipedia revision history feeds default metadata and snapshot preparation, then L1 rewrite and vocabulary checks. Addition or churn can route to optional stance analysis. Other optional checks cover edit fights, languages, facts, and sources. A confirmed rewrite can seed discovery, but every discovered article receives an independent L1 test.
-  A[Wikipedia revision history] --&gt; B[Default preparation:&lt;br/&gt;metadata router and persistent snapshots]
-  B --&gt; C[Default checks:&lt;br/&gt;L1 durable rewrites and L2.5 vocabulary]
-  B --&gt;|addition or churn lead| D[Optional L2 stance over time]
-  A -.-&gt;|optional| E[M-score edit-fight context]
-  A --&gt; F[Optional or separate:&lt;br/&gt;language, fact, and source checks]
-  X[Other Wikipedia language editions] --&gt; F
-  C -.-&gt;|pivot context when available| F
-  C -.-&gt;|confirmed rewrite seeds search| G[Separate L4 discovery]
-  G --&gt; H[Independent L1 re-test&lt;br/&gt;of each candidate]
+  accTitle: WikiDrift analysis layers
+  accDescr: Wikipedia revision history feeds persistent snapshots, a metadata router, and controversy context. Persistent snapshots feed the main rewrite detector. Detected changes can be interpreted with stance and vocabulary checks, used to discover other candidates for independent testing, or compared with other languages and citation history. All outputs become research leads.
+  A[Wikipedia revision history] --&gt; B[Persistent snapshots&lt;br/&gt;and token provenance]
+  A --&gt; C[Metadata pre-ranker]
+  B --&gt; D[L1 durable-content drift]
+  C --&gt;|addition or churn lead| E[L2 stance over time]
+  D --&gt; F[L2.5 vocabulary change]
+  A -.-&gt;|optional| G[M-score controversy context]
+  D --&gt; H[L4 candidate discovery]
+  H --&gt; I[Independent L1 test&lt;br/&gt;for every candidate]
+  D --&gt; J[L5 language, fact,&lt;br/&gt;and source comparisons]
+  E --&gt; J
+  F --&gt; K[Combined research lead]
+  G --&gt; K
+  J --&gt; K
 </code></pre>
-<p>Every output remains a research lead for inspection, never an automatic judgment.</p>
-<h2>What we never do</h2>
+<p>The default <code>pipeline</code> command runs L1, the metadata pre-ranker, and L2.5. It does not run every box in
+the diagram. L2 runs only when the pre-ranker produces an addition or churn lead and the user enables
+the language-model option. M-score and Framing Lite also require explicit options. L4 discovery and
+the fuller language, fact, and source checks are separate commands. This is why one published article
+may have more tabs or evidence than another.</p>
+<h2>Preparing an article history</h2>
+<p>The analysis starts with a local corpus built from public Wikipedia revision data. It stores revision
+metadata, selected versions of each article, and token provenance: which revision introduced each
+token and, where available, which revisions removed it.</p>
+<p>For each sampling date, WikiDrift looks within 21 days and prefers the nearest revision whose byte size
+is within 25% of the local median. This rejects many short-lived blankings and vandalism-and-revert
+cycles. If none of the revisions in that window meet the size rule, it uses the nearest one. If the
+window is empty, it uses the latest revision before the sampling date. The selected versions become
+<strong>snapshots</strong>.</p>
+<p>For every snapshot, the corpus records which provenance-tracked tokens are present. Later checks can
+then distinguish established wording from newly added text and connect a lasting removal to the
+revision in which it occurred.</p>
+<p>This is why the core measurement is not an edit count or a raw byte difference. It asks how much text
+with a demonstrated history of survival was lost.</p>
+<h2>The metadata pre-ranker: deciding what to inspect</h2>
+<p>The pre-ranker is a fast routing step. It reads timestamps, article sizes, and editors, but not the
+prose itself.</p>
+<p>It smooths the revision-size history to suppress isolated blank-and-restore events, groups activity
+into time windows, and compares additions, removals, and churn with the article's usual activity. It
+can produce three kinds of lead:</p>
 <ul>
-<li>Claim an editor’s private motives.</li>
-<li>Publish “the neutral truth.”</li>
-<li>Rate news sites or books as good or bad.</li>
-<li>Treat a rewrite as automatic proof of capture.</li>
-<li>Tie a public username to a real-world identity.</li>
+<li><strong>Removal:</strong> an unusually large deletion should go to the token-level L1 detector.</li>
+<li><strong>Addition:</strong> substantial growth may have changed the framing without removing much text, so it is
+  better examined with stance analysis.</li>
+<li><strong>Churn:</strong> an unusual amount of replacement, even if the net size barely changes, may also warrant
+  a semantic check.</li>
 </ul>
-<h2>Why these topics appear on the site</h2>
-<p>This site is a <strong>validation sample</strong>, not a complete encyclopedia audit.</p>
+<p>This is a broad filter on purpose. It points the more expensive checks toward useful windows; it does
+not decide what happened.</p>
+<h2>L1: detecting durable rewrites</h2>
+<p>L1 is the main offline change detector. It compares consecutive mature snapshots and measures the
+established text present before an interval but absent afterward.</p>
+<p>Each token is weighted by the number of snapshots it had survived up to that point. The calculation
+for one interval is:</p>
+<p><code>D_k = sum(weight of each lost token) / sum(weight of each token present before the interval)</code></p>
+<p>In plain terms: removing wording that had survived across many snapshots counts more than removing
+wording that had just appeared. L1 also keeps the absolute amount of persistence-weighted text lost,
+so a tiny article does not outrank a large one merely because its percentage is dramatic.</p>
+<h3>Finding candidate episodes</h3>
+<p>L1 measures every eligible interval after the article reaches the minimum mature size. An interval
+with at least 15% persistence-weighted loss can start or extend an episode, and an episode needs a
+peak of at least 25% to become a pivot candidate. L1 ranks candidates by the total persistence-weighted
+text they removed, not by percentage alone.</p>
+<p>It also records a <strong>slow bleed</strong> when losses across a rolling twelve-month window add up to at least
+35% of the largest article size in that window. This catches a series of changes that may be too small
+to form one obvious pivot.</p>
+<p>The initial outcomes are:</p>
 <ul>
-<li>Some topics appear because <strong>outside</strong> reports and research already discuss them. Those sources help
-  us define what a working detector <em>ought</em> to notice — they are <strong>not</strong> fed into the detector as a
-  list of people to watch.</li>
-<li><strong>Quiet control</strong> articles (for example Photosynthesis) check for false alarms.</li>
-<li><strong>Other contested</strong> topics (for example Climate change) check that large legitimate rewrites still
-  look like <em>change</em>, not automatic scandal.</li>
-<li>Some pages are expected to be hard for history-only tools (story shaped from the start). Those show
-  why other-language checks matter.</li>
+<li><strong>PIVOT?</strong> A large candidate episode exists, but the revision-level check has not confirmed it.</li>
+<li><strong>CREEP?</strong> No single episode clears the pivot rules, but sustained loss is elevated.</li>
+<li><strong>HEALTHY.</strong> Neither pattern was detected under the current thresholds.</li>
+<li><strong>SKIP.</strong> There are too few snapshots for the measurement.</li>
 </ul>
-<p>Any English Wikipedia article can be run through the same pipeline. What you see here is the published
-test set.</p>
-<h2>Lessons that shaped the method</h2>
-<p>Early versions made familiar mistakes. The fixes are part of the product:</p>
-<table>
-<thead>
-<tr>
-<th>What went wrong</th>
-<th>What we do now</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Counting every edit as drama</td>
-<td>Weight long-lived wording more than short-lived churn</td>
-</tr>
-<tr>
-<td>Vandalism blankings looking like rewrites</td>
-<td>Ignore short-lived blankings; require the change to stick</td>
-</tr>
-<tr>
-<td>Tiny old pages looking “more rewritten” in percentages</td>
-<td>Rank by absolute amount of long-lived text lost, not just percentages</td>
-</tr>
-<tr>
-<td>Missing articles that <em>grew</em> while swapping tone</td>
-<td>Also look at vocabulary, framing, and other languages — not only pure deletion</td>
-</tr>
-<tr>
-<td>Treating one big rewrite as proof</td>
-<td>Always compare with control topics; never publish a bias label</td>
-</tr>
-</tbody>
-</table>
-<p>One result that still guides us: a benign overhaul on a well-known science topic can outrank a
-political rewrite on raw size. That is why this site always says <strong>change first, judgment later</strong>.</p>
+<p>These labels describe the detector's result, not the quality or neutrality of the article. An old
+rewrite is not discounted simply because it is old; its age is reported as context.</p>
+<h3>Confirming the collapse</h3>
+<p>For a full analysis, WikiDrift checks up to the three candidates with the most persistence-weighted
+loss. It takes the more persistent half of the text present at the start of each episode and searches
+the underlying revisions for the pair where survival of that text drops most sharply.</p>
+<p>The durable text must decline by at least 20 percentage points across the interval to confirm the
+pivot. This keeps a coarse snapshot gap from looking decisive when the revisions inside it do not
+show the same collapse.</p>
+<h3>Attributing public edits</h3>
+<p>For a confirmed episode, L1 can describe two groups:</p>
+<ul>
+<li><strong>Removal attribution:</strong> accounts whose edits removed established text during the window. The text
+  must still be absent from the latest snapshot.</li>
+<li><strong>Post-pivot contributors:</strong> leading origin accounts for current text introduced after the pivot
+  began.</li>
+</ul>
+<p>The full analysis attributes up to the two largest confirmed episodes. It reports public editing
+actions, not motive, off-wiki identity, or coordination. Concentrated authorship is context, not a
+finding on its own.</p>
+<h3>What L1 can and cannot say</h3>
+<p>L1 detects durable replacement. It does not determine whether the replacement was more accurate,
+better sourced, more neutral, or worse. A legitimate reorganization can produce a large pivot. A
+consistently slanted article can produce no pivot at all. The other layers exist because structural
+change and editorial judgment are different questions.</p>
+<h2>L2: comparing stance over time</h2>
+<p>L2 is an optional language-model check. It takes prose from stored snapshots, extracts passages that
+mention a focal entity, and classifies how each passage treats that entity:</p>
+<ul>
+<li>critical;</li>
+<li>neutral;</li>
+<li>sympathetic;</li>
+<li>absent.</li>
+</ul>
+<p>If the user does not name an entity, L2 uses the article title. It also records whether the passage
+appears to depart from an encyclopedic neutrality standard and keeps a short supporting quotation.
+It compares the first and last usable observations in the selected time range; the user can narrow
+that range with a start date.</p>
+<p>This check is useful when the article grew or churned without a large net deletion. It can also help
+separate a structural overhaul with broadly stable stance from one accompanied by a semantic shift.</p>
+<p>Because L2 uses a language model, its output is inspectable evidence rather than a final label. It is
+a temporal comparison, so it may also miss framing that was stable from the article's beginning.</p>
+<h2>L2.5: showing which vocabulary changed</h2>
+<p>L2.5 is an offline vocabulary comparison. When L1 finds a pivot, it compares snapshots immediately
+before and after the episode. Otherwise, it compares the oldest and newest usable snapshots.</p>
+<p>After lowercasing, tokenizing, and removing common stop words, it calculates:</p>
+<ul>
+<li><strong>Jensen-Shannon divergence:</strong> an overall measure of how different the two word distributions are;</li>
+<li><strong>smoothed log-odds:</strong> terms that are unusually common after the change and terms that were more
+  common before it.</li>
+</ul>
+<p>This gives the rewrite a readable vocabulary signature. It shows what changed in emphasis or topic,
+but it does not assign an ideology, sentiment, or neutrality score to those words.</p>
+<h2>M-score: measuring edit conflict</h2>
+<p>The optional M-score examines reverts rather than prose. Matching revision hashes reveal when one
+editor restored an earlier version. The refined score keeps registered, non-bot editor pairs with at
+least two reverts in each direction.</p>
+<p>A high score means the page saw sustained mutual reverts. It does not mean a rewrite was malicious.
+A low score does not clear an article either: it may indicate that a large change happened without an
+edit war. M-score is context for a content finding, not a content finding itself.</p>
+<h2>L4: using a finding to discover other candidates</h2>
+<p>L4 uses a confirmed change as a starting point for finding other articles worth testing. It does not
+extend the seed article's verdict to other pages.</p>
+<p>The process is:</p>
+<ol>
+<li>Take leading non-bot, non-anonymous accounts associated with durable-text removal in the seed
+   article's main L1 episode.</li>
+<li>Examine their recent public contributions to other main-namespace articles.</li>
+<li>Keep articles where those accounts made substantial aggregate deletions.</li>
+<li>Rank candidates by shared accounts and bytes removed.</li>
+<li>Build each candidate's own history and run an independent L1 analysis.</li>
+</ol>
+<p>Editor overlap chooses where to look. It does not decide the result. L4 keeps a candidate only when
+that article's own history produces an L1 signal. It also distinguishes a later rewrite after a
+substantial prior history from a large change early in a young article. The second case is better
+treated as a framing question than as a retrofit.</p>
+<h2>L5: comparisons outside the English article's timeline</h2>
+<p>Internal history cannot answer every question. L5 is a family of checks that compare language
+editions, factual claims, citations, and the article's own sourcing trajectory.</p>
+<h3>Lead framing across languages</h3>
+<p>The lightweight framing check compares lead sections from English and a selected group of other
+language editions. It asks a language model to identify substantive differences, contradictions, or
+omissions.</p>
+<p>When a caller supplies an L1 pivot window, the check can ask whether other editions retain framing
+that English lost around that period. In the normal pipeline, that pivot window is not currently
+passed, so the lightweight result is a present-day comparison. That mode is still useful for cases
+that may have been framed consistently throughout their English history.</p>
+<h3>Full cross-language stance</h3>
+<p>The fuller framing check applies the L2 stance categories to the same subject in several editions. It
+can compare present-day stance and ask whether English moved away from the other editions around its
+own L1 pivot. When no L1 pivot is available, the current implementation can use a configured fallback
+date for the historical comparison.</p>
+<p>Different editions have different communities, source pools, scopes, and update schedules. A
+cross-language difference shows divergent framing; it does not decide which edition is right.</p>
+<h3>Facts and citation domains across editions</h3>
+<p>For articles with researcher-configured factual questions, the fact check extracts a normalized
+answer and supporting quotation from each edition. A second language-model pass classifies the
+answers as agreeing, differing, contradicting, or providing too little information. The questions are
+chosen in advance and cover load-bearing details such as dates, places, or counts.</p>
+<p>The same check compares overlap among cited domains. Low overlap is reported as context because
+different language communities often use different sources. It is not treated as a reliability
+ranking.</p>
+<p>This stage produces a queue of claims and sources to inspect, not an automated truth judgment.</p>
+<h3>Citation composition through time</h3>
+<p>The source-composition check reads the raw wikitext of stored English revisions without a language
+model. It tracks reference counts, source domains, top-level-domain mix, and declared citation types
+such as books, news, journals, and websites.</p>
+<p>It compares the snapshots before and after an L1 pivot, or the oldest and newest snapshots when no
+pivot exists. This can show that a rewrite coincided with a change in sourcing without assigning a
+political or quality score to any domain.</p>
+<h2>Combining the checks</h2>
+<p>The pipeline brings the available outputs together and records which signal thresholds fired. These
+include an L1 anomaly, an adjudicated stance shift, Jensen-Shannon divergence above 0.05, a nonzero
+refined M-score, or a cross-language framing difference.</p>
+<p>That count is corroboration, not a probability. The checks measure different things, and their
+disagreement can be useful:</p>
+<ul>
+<li>A large L1 pivot with little stance movement may be mainly structural.</li>
+<li>A stable L1 result with a cross-language difference may be a born-framed case.</li>
+<li>A large rewrite with little revert activity may be a quiet change rather than a contested one.</li>
+</ul>
+<p>The underlying evidence remains more important than the number of checks that fired.</p>
+<h2>How published pages are produced</h2>
+<p>Analysis and publication are separate steps. The analysis commands create findings from the local
+corpus and public APIs. The L3 export step then reads the local corpus and calls public Wikipedia and
+WikiWho services to build before-and-after and authorship artifacts.</p>
+<p>The site builder is a separate, read-only step. It reads the saved findings and L3 artifacts and
+renders static HTML; it does not rerun the analysis or query DuckDB. A published page therefore
+reflects the findings and artifacts available when the site was built.</p>
+<h2>Reading a result</h2>
+<p>The most useful reading order is:</p>
+<ol>
+<li>Start with the before-and-after text and the size and timing of the change.</li>
+<li>Use vocabulary, stance, controversy, and source changes to understand what kind of change it was.</li>
+<li>Use other language editions and factual questions as comparisons, not as a scoreboard.</li>
+<li>Treat editor attribution as a record of public actions, separate from claims about intent.</li>
+</ol>
+<p>A result is a lead for inspection. <strong>PIVOT?</strong> means the offline detector found a candidate window;
+only the full <code>analyze</code> path performs revision-level confirmation. Neither label says that the earlier
+wording was better. A check that does not fire is useful context, not a clean bill of health.</p>
+<h2>Why these topics are on the site</h2>
+<p>The published articles are a validation sample, not a complete audit of Wikipedia.</p>
+<ul>
+<li>Some are discussed in outside reporting or research and provide known, difficult cases. Those
+  sources help evaluate the detector; they are not fed in as lists of editors to watch.</li>
+<li>Quiet science articles test whether normal editing produces false alarms.</li>
+<li>Other contested subjects test whether large, legitimate rewrites still register as change without
+  being mislabeled as misconduct.</li>
+<li>Articles likely to have been framed from the beginning test the limits of history-only analysis and
+  the value of external comparisons.</li>
+</ul>
+<p>Any English Wikipedia article can be processed by the same pipeline. The site shows the current test
+set, not a claim about the encyclopedia as a whole.</p>
+<h2>Research lineage</h2>
+<p>WikiDrift combines several established lines of research:</p>
+<ul>
+<li><a href="https://doi.org/10.1145/2566486.2568026">WikiWho</a> and
+  <a href="https://arxiv.org/abs/1703.08244">TokTrack</a> provide the token-provenance lineage.</li>
+<li><a href="https://doi.org/10.1145/1641309.1641332">Persistent Word Revisions</a> and
+  <a href="https://archives.iw3c2.org/www2007/papers/paper692.pdf">WikiTrust</a> motivate treating survival as
+  meaningful evidence about text.</li>
+<li><a href="https://arxiv.org/abs/1809.06951">Mind Your POV</a> is the closest temporal-framing precedent for
+  measuring language change around Wikipedia neutrality disputes.</li>
+<li><a href="https://arxiv.org/abs/1107.3689">Mutual-revert research</a> supplies the controversy-measure family.</li>
+<li><a href="https://doi.org/10.1145/2207676.2208553">Omnipedia</a>,
+  <a href="https://doi.org/10.1145/2462932.2462960">Manypedia</a>, and
+  <a href="https://arxiv.org/abs/2410.04282">InfoGap</a> establish cross-language framing and fact comparison as
+  useful, inspectable problems.</li>
+</ul>
+<p>No single publication supplies the whole pipeline. WikiDrift's contribution is the composition:
+detect durable content displacement without beginning from an editor list, attribute the public
+changes through provenance, add semantic and external checks, and keep editor graphs downstream of
+content evidence. More detailed paper notes are available in the repository's
+<a href="https://github.com/jackreichert/wikidrift/tree/main/sources"><code>sources/</code> directory</a>.</p>
 <h2>Reproducibility</h2>
 <ul>
-<li>Article text and revision IDs come from public Wikipedia APIs and related open tooling.</li>
-<li>Framing and fact checks, when present, use a language model with a fixed question format — still
-  treated as leads, not oracles.</li>
-<li>The site is static HTML generated from saved result files; you can rebuild it from the
+<li>Article text and revision identifiers come from public Wikipedia APIs and open provenance tooling.</li>
+<li>Offline measurements use stored snapshots so they can be rerun against the same inputs.</li>
+<li>Language-model checks use structured prompts and retain quotations, but remain model-assisted
+  interpretations rather than oracles.</li>
+<li>The published site is static HTML built from saved result files in the
   <a href="https://github.com/jackreichert/wikidrift/">open-source repository</a>.</li>
-</ul>
-<h2>For readers who want the research trail</h2>
-<p>WikiDrift joins ideas that already exist in the research literature (token authorship, content
-survival, edit wars, cross-language comparison). Notes and paper links live in the repo’s
-<code>sources/</code> folder. The contribution is the <strong>combination</strong>: find change from the article’s content
-history, attribute the public edits, then compare wording, sources, languages, and factual claims
-without presuming a conclusion in advance.</p></div></main>
+</ul></div></main>
 <footer class="site">
   <div class="footer-inner">
     <div class="footer-brand">

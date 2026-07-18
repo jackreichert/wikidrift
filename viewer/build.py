@@ -1244,10 +1244,13 @@ def framing_lite_block(fr):
     editions = fr.get("editions_compared") or []
     summary = fr.get("summary") or ""
     pivot = fr.get("pivot_window")
+    mode = fr.get("mode") or ("pivot_informed_static" if pivot else "static")
+    temporal = mode in ("candidate_relative", "pivot_relative")
     pivot_note = ""
     if pivot:
+        window_label = "confirmed rewrite" if mode == "pivot_relative" else "L1 candidate window"
         pivot_note = (
-            f'<p class="muted">Compared around the rewrite from '
+            f'<p class="muted">Compared matched historical revisions around the {window_label} from '
             f'{esc(pivot.get("start", "?"))} to {esc(pivot.get("end", "?"))}.</p>'
         )
     head = (
@@ -1259,6 +1262,25 @@ def framing_lite_block(fr):
     head += pivot_note
     if editions:
         head += f'<p class="muted">Languages compared: {esc(", ".join(editions))}.</p>'
+    snapshots = fr.get("snapshots") or {}
+    if temporal and snapshots:
+        receipt_bits = []
+        for lang in editions:
+            before = (snapshots.get("before") or {}).get(lang) or {}
+            after = (snapshots.get("after") or {}).get(lang) or {}
+            links = []
+            if before.get("revid"):
+                links.append(
+                    f'<a href="{oldid(lang, before["revid"])}" target="_blank" rel="noopener">before</a>'
+                )
+            if after.get("revid"):
+                links.append(
+                    f'<a href="{oldid(lang, after["revid"])}" target="_blank" rel="noopener">after</a>'
+                )
+            if links:
+                receipt_bits.append(f'{esc(lang)}: {" / ".join(links)}')
+        if receipt_bits:
+            head += f'<p class="muted">Version receipts: {" · ".join(receipt_bits)}</p>'
     if not divs:
         return head + '<p class="muted">No clear differences were recorded in this check.</p>'
 
@@ -1274,36 +1296,59 @@ def framing_lite_block(fr):
         "agree": "agree",
     }
     rows = ""
+    temporal_plain = {
+        "english_moved_away": "English moved away",
+        "english_converged": "English converged",
+        "parallel_change": "parallel change",
+        "difference_persisted": "difference persisted",
+        "unclear": "unclear change",
+    }
     for d in divs:
         v = d.get("verdict", "differ")
         cls = verdict_cls.get(v, "v-i")
-        other_says = esc(d.get("other_says") or "")
-        ev_other = d.get("evidence_other")
-        if ev_other:
-            other_says += f'<br><span class="muted">&ldquo;{esc(ev_other)}&rdquo;</span>'
-        en_says = esc(d.get("en_says") or "")
-        ev_en = d.get("evidence_en")
-        if ev_en:
-            en_says += f'<br><span class="muted">&ldquo;{esc(ev_en)}&rdquo;</span>'
+        if temporal:
+            en_says = (
+                f'<b>Before:</b> {esc(d.get("en_before") or "not stated")}<br>'
+                f'<span class="muted">&ldquo;{esc(d.get("evidence_en_before") or "no quotation")}&rdquo;</span><br>'
+                f'<b>After:</b> {esc(d.get("en_after") or "not stated")}<br>'
+                f'<span class="muted">&ldquo;{esc(d.get("evidence_en_after") or "no quotation")}&rdquo;</span>'
+            )
+            other_says = (
+                f'<b>Before:</b> {esc(d.get("other_before") or "not stated")}<br>'
+                f'<span class="muted">&ldquo;{esc(d.get("evidence_other_before") or "no quotation")}&rdquo;</span><br>'
+                f'<b>After:</b> {esc(d.get("other_after") or "not stated")}<br>'
+                f'<span class="muted">&ldquo;{esc(d.get("evidence_other_after") or "no quotation")}&rdquo;</span>'
+            )
+        else:
+            other_says = esc(d.get("other_says") or "")
+            ev_other = d.get("evidence_other")
+            if ev_other:
+                other_says += f'<br><span class="muted">&ldquo;{esc(ev_other)}&rdquo;</span>'
+            en_says = esc(d.get("en_says") or "")
+            ev_en = d.get("evidence_en")
+            if ev_en:
+                en_says += f'<br><span class="muted">&ldquo;{esc(ev_en)}&rdquo;</span>'
         eds = ", ".join(d.get("editions_differ") or [])
+        comparison = temporal_plain.get(d.get("temporal_read"), "unclear change") if temporal else v_plain.get(v, v)
         rows += (
             f'<tr><td>{esc(d.get("topic", ""))}</td>'
-            f'<td><span class="badge {cls}">{esc(v_plain.get(v, v))}</span></td>'
+            f'<td><span class="badge {cls}">{esc(comparison)}</span></td>'
             f'<td>{en_says}</td><td>{other_says}</td>'
             f'<td class="muted" style="font-size:.82rem">{esc(eds)}</td></tr>'
         )
     table = (
         f'<div class="tablewrap"><table>'
         f'<thead><tr><th scope="col">topic</th><th scope="col">how they compare</th>'
-        f'<th scope="col">English says</th><th scope="col">other language(s) say</th>'
+        f'<th scope="col">English {"change" if temporal else "says"}</th>'
+        f'<th scope="col">other language(s) {"change" if temporal else "say"}</th>'
         f'<th scope="col">languages</th></tr></thead>'
         f'<tbody>{rows}</tbody></table></div>'
     )
     return (
         head
-        + '<p class="legend"><span class="badge v-c">contradict</span> opposite claims · '
-        '<span class="badge v-d">differ</span> different emphasis · '
-        '<span class="badge v-i">missing</span> only one side mentions it</p>'
+          + ('' if temporal else '<p class="legend"><span class="badge v-c">contradict</span> opposite claims · '
+              '<span class="badge v-d">differ</span> different emphasis · '
+              '<span class="badge v-i">missing</span> only one side mentions it</p>')
         + table
         + '<p class="muted">Differences are invitations to read both sides — not a score of who is right.</p>'
     )

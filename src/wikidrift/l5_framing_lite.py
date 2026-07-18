@@ -1,21 +1,23 @@
-"""L5 Framing Lite — pivot-gated cross-lingual lead-section divergence.
+"""L5 Framing Lite — cross-lingual lead-section divergence.
 
-Asks: when the English article had a pivot event (long-stable content removed), did other language
-editions keep the framing English lost? A divergence corroborates the pivot as a contested edit,
-not a corrective one.
+With an L1 candidate window, compares matched historical revisions before and after the window. Without
+one, compares current leads as a static born-framing check. Either mode produces research leads, not a
+judgment about which edition is correct.
 
-Lighter than L5 #1 (crosslingual): lead sections only, pivot-gated, Haiku-capable.
+Lighter than L5 #1 (crosslingual): lead sections only, candidate-relative or static, Haiku-capable.
 
 Language selection (per article):
   1. Categorize via LLM (cached as {slug}.category.json) → SLATE editions for that category
-  2. Add top-2 non-EN editions by byte length (MediaWiki action=query&prop=info)
+    2. Add top-2 non-EN editions by byte length (MediaWiki action=query&prop=info)
   3. Deduplicate, cap at 5 total, skip stubs (< 2 kB)
 
-Output: {slug}.framing.json in the findings directory.
+Output: {slug}.framing.json in the findings directory, including oldid receipts in temporal mode.
 """
 from __future__ import annotations
 
 import datetime as dt
+
+import mwparserfromhell
 
 from . import config
 from .config.parsing import slugify
@@ -75,6 +77,41 @@ _DIVERGENCE_SCHEMA = {
     "additionalProperties": False,
 }
 
+_TEMPORAL_DIVERGENCE_ITEM = {
+    "type": "object",
+    "properties": {
+        **_DIVERGENCE_ITEM["properties"],
+        "temporal_read": {
+            "type": "string",
+            "enum": ["english_moved_away", "english_converged", "parallel_change",
+                     "difference_persisted", "unclear"],
+        },
+        "en_before": {"type": "string"},
+        "en_after": {"type": "string"},
+        "other_before": {"type": "string"},
+        "other_after": {"type": "string"},
+        "evidence_en_before": {"type": ["string", "null"]},
+        "evidence_en_after": {"type": ["string", "null"]},
+        "evidence_other_before": {"type": ["string", "null"]},
+        "evidence_other_after": {"type": ["string", "null"]},
+    },
+    "required": _DIVERGENCE_ITEM["required"] + [
+        "temporal_read", "en_before", "en_after", "other_before", "other_after",
+        "evidence_en_before", "evidence_en_after", "evidence_other_before", "evidence_other_after",
+    ],
+    "additionalProperties": False,
+}
+
+_TEMPORAL_DIVERGENCE_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "divergences": {"type": "array", "items": _TEMPORAL_DIVERGENCE_ITEM},
+        "summary": {"type": "string"},
+    },
+    "required": ["divergences", "summary"],
+    "additionalProperties": False,
+}
+
 
 # --- helpers ---------------------------------------------------------------------
 
@@ -113,6 +150,40 @@ def _fetch_lead(lang: str, title: str) -> str:
     except Exception:  # noqa: BLE001
         pass
     return ""
+
+
+def _lead_from_wikitext(raw: str) -> str:
+    """Extract plain-text lead prose from one historical revision's wikitext."""
+    if not raw:
+        return ""
+    sections = mwparserfromhell.parse(raw).get_sections(include_lead=True, include_headings=False)
+    return (sections[0].strip_code() if sections else "").strip()
+
+
+def _fetch_lead_revision(lang: str, title: str, timestamp: str, after: bool = False) -> dict | None:
+    """Fetch the last revision <= timestamp, or the first revision >= it, with an oldid receipt."""
+    params = {
+        "action": "query", "format": "json", "formatversion": "2", "prop": "revisions",
+        "titles": title, "rvprop": "ids|timestamp|content", "rvslots": "main",
+        "rvstart": timestamp, "rvlimit": 1, "redirects": 1,
+    }
+    if after:
+        params["rvdir"] = "newer"
+    try:
+        response = _S.get(config.action(lang), params=params, timeout=30).json()
+        revision = response["query"]["pages"][0]["revisions"][0]
+        raw = revision["slots"]["main"]["content"]
+        lead = _lead_from_wikitext(raw)
+        if not lead:
+            return None
+        return {
+            "revid": revision["revid"],
+            "timestamp": revision["timestamp"],
+            "title": title,
+            "lead": lead[:MAX_LEAD_CHARS],
+        }
+    except Exception:  # noqa: BLE001 — one unavailable edition must not abort the whole comparison
+        return None
 
 
 def _edition_lengths(links: dict[str, str]) -> dict[str, int]:
@@ -196,6 +267,37 @@ def _compare_leads(article: str, lead_texts: dict[str, str], pivot_window: dict 
     return client.complete_json(_DIVERGENCE_SCHEMA, prompt, max_tokens=1500)
 
 
+def _compare_temporal_leads(article: str, snapshots: dict, pivot_window: dict, client) -> dict:
+    """Compare matched before/after lead revisions across editions."""
+    sections = []
+    complete_langs = sorted(set(snapshots["before"]) & set(snapshots["after"]), key=lambda l: (l != "en", l))
+    for lang in complete_langs:
+        for when in ("before", "after"):
+            record = snapshots[when][lang]
+            sections.append(
+                f"=== {lang.upper()} {when.upper()} | revision {record['revid']} | "
+                f"{record['timestamp']} ===\n{record['lead']}"
+            )
+
+    prompt = (
+        f"You are comparing matched historical lead sections from Wikipedia language editions.\n\n"
+        f"Article: {article}\n"
+        f"English candidate rewrite window: {pivot_window['start']} to {pivot_window['end']} "
+        f"(status: {pivot_window.get('status', 'candidate')}; "
+        f"PWR mass: {pivot_window.get('pwr_mass', '?')}).\n\n"
+        f"{chr(10).join(sections)}\n\n"
+        f"Identify only changes supported by direct quotations. Compare how English changed from BEFORE "
+        f"to AFTER with how the other editions changed over the same window. Distinguish English moving "
+        f"away, English converging, parallel change, and a difference that already existed and persisted. "
+        f"Do not infer missing historical text. Ignore style and length alone.\n\n"
+        f"For compatibility, copy en_after to en_says, other_after to other_says, evidence_en_after to "
+        f"evidence_en, and evidence_other_after to evidence_other. The before/after fields must describe "
+        f"the temporal evidence explicitly. Return an empty list when "
+        f"the supplied revisions do not support a genuine temporal or cross-edition difference."
+    )
+    return client.complete_json(_TEMPORAL_DIVERGENCE_SCHEMA, prompt, max_tokens=2400)
+
+
 # --- main entry point ------------------------------------------------------------
 
 def framing_lite(
@@ -216,6 +318,9 @@ def framing_lite(
     if client is None:
         from . import llm as llm_backend
         client = llm_backend.make_client(provider, model, base_url)
+
+    if pivot_window and not (pivot_window.get("start") and pivot_window.get("end")):
+        raise ValueError("pivot_window requires start and end dates")
 
     slug = slugify(article)
     print(f"\n=== FRAMING LITE — {article} ===")
@@ -250,23 +355,49 @@ def framing_lite(
         return {"article": article, "editions_compared": editions, "divergences": [], "summary": "Only one edition available."}
     print(f"  comparing: {editions}")
 
-    # 5. Fetch lead sections
+    # 5. Fetch comparable lead sections, preserving historical revision receipts when pivot context exists.
+    snapshots = None
     lead_texts: dict[str, str] = {}
-    for lang in editions:
-        title = links.get(lang, article) if lang != "en" else article
-        text = _fetch_lead(lang, title)
-        if text:
-            lead_texts[lang] = text
-            print(f"  {lang}: {len(text)} chars")
-        else:
-            print(f"  {lang}: empty — skipping")
-
-    if len(lead_texts) < 2:
-        print("  fewer than 2 editions have content — skipping comparison")
-        return {"article": article, "editions_compared": editions, "divergences": [], "summary": "Insufficient edition content."}
+    mode = "static"
+    if pivot_window:
+        mode = "pivot_relative" if pivot_window.get("status") == "confirmed" else "candidate_relative"
+        snapshots = {"before": {}, "after": {}}
+        before_ts = f"{pivot_window['start']}T00:00:00Z"
+        after_ts = f"{pivot_window['end']}T00:00:00Z"
+        for lang in editions:
+            title = links.get(lang, article) if lang != "en" else article
+            before = _fetch_lead_revision(lang, title, before_ts)
+            after = _fetch_lead_revision(lang, title, after_ts, after=True)
+            if before:
+                snapshots["before"][lang] = before
+            if after:
+                snapshots["after"][lang] = after
+            print(f"  {lang}: before={'yes' if before else 'missing'}, after={'yes' if after else 'missing'}")
+        complete = set(snapshots["before"]) & set(snapshots["after"])
+        if "en" not in complete or len(complete) < 2:
+            print("  fewer than 2 editions have matched historical leads — skipping comparison")
+            return {"article": article, "mode": mode, "pivot_window": pivot_window,
+                    "editions_compared": sorted(complete), "snapshots": snapshots,
+                    "divergences": [], "summary": "Insufficient matched historical content."}
+        editions = [lang for lang in editions if lang in complete]
+        comparison = _compare_temporal_leads(article, snapshots, pivot_window, client)
+        lead_texts = {lang: snapshots["after"][lang]["lead"] for lang in editions}
+    else:
+        for lang in editions:
+            title = links.get(lang, article) if lang != "en" else article
+            text = _fetch_lead(lang, title)
+            if text:
+                lead_texts[lang] = text
+                print(f"  {lang}: {len(text)} chars")
+            else:
+                print(f"  {lang}: empty — skipping")
+        if len(lead_texts) < 2:
+            print("  fewer than 2 editions have content — skipping comparison")
+            return {"article": article, "mode": mode, "editions_compared": editions,
+                    "divergences": [], "summary": "Insufficient edition content."}
+        comparison = _compare_leads(article, lead_texts, None, client)
 
     # 6. LLM divergence comparison
-    comparison = _compare_leads(article, lead_texts, pivot_window, client)
     divergences = comparison.get("divergences") or []
     print(f"  divergences: {len(divergences)} ({sum(1 for d in divergences if d.get('verdict') == 'contradict')} contradict)")
 
@@ -275,9 +406,11 @@ def framing_lite(
         "article": article,
         "run_ts": dt.datetime.utcnow().isoformat() + "Z",
         "category": category,
+        "mode": mode,
         "pivot_window": pivot_window,
         "editions_compared": editions,
         "lead_chars": {lang: len(text) for lang, text in lead_texts.items()},
+        "snapshots": snapshots,
         "divergences": divergences,
         "summary": comparison.get("summary", ""),
         "model": getattr(client, "model", None),

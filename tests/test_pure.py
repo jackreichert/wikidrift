@@ -662,6 +662,39 @@ class FramingLiteEditionSelect(unittest.TestCase):
         eds = fl._select_editions("israeli-palestinian", links, lengths)
         self.assertEqual(len(eds), len(set(eds)))
 
+    def test_historical_lead_uses_only_lead_section(self):
+        raw = "Lead text with [[Link|label]].\n\n== History ==\nBody text."
+        self.assertEqual(fl._lead_from_wikitext(raw), "Lead text with label.")
+
+    @patch.object(fl._S, "get")
+    def test_historical_fetch_selects_first_revision_after_window(self, mock_get):
+        mock_get.return_value.json.return_value = {"query": {"pages": [{"revisions": [{
+            "revid": 123,
+            "timestamp": "2020-02-01T00:00:00Z",
+            "slots": {"main": {"content": "Historical lead.\n\n== Body ==\nLater text."}},
+        }]}]}}
+
+        record = fl._fetch_lead_revision("en", "Article", "2020-01-01T00:00:00Z", after=True)
+
+        self.assertEqual(record["revid"], 123)
+        self.assertEqual(record["lead"], "Historical lead.")
+        self.assertEqual(mock_get.call_args.kwargs["params"]["rvdir"], "newer")
+
+
+class PipelinePivotWindow(unittest.TestCase):
+    def test_top_l1_episode_becomes_explicit_candidate_context(self):
+        verdict = {"episodes": [
+            {"start": "2019-01-01", "end": "2020-01-01", "pwr_mass": 42000},
+            {"start": "2021-01-01", "end": "2022-01-01", "pwr_mass": 10000},
+        ]}
+        self.assertEqual(pipeline._pivot_window(verdict), {
+            "start": "2019-01-01", "end": "2020-01-01", "pwr_mass": 42000,
+            "status": "candidate",
+        })
+
+    def test_no_l1_episode_keeps_framing_static(self):
+        self.assertIsNone(pipeline._pivot_window({"episodes": []}))
+
 
 if __name__ == "__main__":
     unittest.main()

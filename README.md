@@ -83,7 +83,8 @@ uv run wikidrift analyze "Climate change"      # full L1: drift → pivots → b
 uv run wikidrift discover "Nakba"              # L4: seed → removal footprint → independent L1 re-test
 uv run wikidrift sources "Palestine"           # L5 #3b: citation-source change (from → to across the pivot)
 uv run wikidrift stance "Abortion"             # L2 framing/stance over time            (needs an LLM key)
-uv run wikidrift framing "Gaza war"            # L5 Framing Lite: cross-lingual lead divergence (LLM key)
+uv run wikidrift framing "Gaza war"            # L5 Lite: matched leads around cached L1 candidate (LLM key)
+uv run wikidrift framing "Gaza war" --static   # L5 Lite: compare current leads only
 uv run wikidrift crosslingual "Anti-Zionism"   # L5 #1: cross-lingual framing divergence (needs an LLM key)
 uv run wikidrift factcheck "Warsaw concentration camp" --asof 2018-06-01   # L5 #2: fact divergence (LLM key)
 uv run wikidrift mscore                         # controversy corroborator (metadata only)
@@ -106,6 +107,22 @@ selected editions in a run (not separate per-language pivot dates).
 Cross-lingual edition defaults are now auto-selected per topic from established language editions with
 available prose depth (English kept when available for pivot-relative comparability). Pass `--langs` to
 pin an explicit set.
+
+### Refresh Framing Lite findings
+
+Existing framing JSON does not gain historical evidence automatically after a code update. Refresh only
+the Framing Lite result for each published article that needs matched revisions and oldid receipts:
+
+```bash
+uv run wikidrift framing "Gaza war"
+uv run wikidrift framing "Zionism"
+uv run python viewer/build.py
+```
+
+This reuses the cached L1 candidate window. It does **not** rerun L1 confirmation, attribution, lexical
+analysis, source analysis, or the other L5 instruments. It does call public Wikipedia APIs and the
+configured LLM. If the token corpus is unavailable or L1 has no candidate for the article, `framing`
+falls back to a static current-lead comparison; use `--static` to choose that mode explicitly.
 
 ### Batch-fill missing or partial topics
 
