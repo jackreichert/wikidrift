@@ -245,7 +245,9 @@ candidate window, it compares current leads in **static** mode. The `--static` o
 mode explicitly.
 
 All temporal modes keep revision IDs, timestamps, lead text, supporting quotations, and links to the
-exact Wikipedia versions.
+exact Wikipedia versions. To keep structured responses complete and reviewable, Framing Lite retains
+at most the six strongest non-duplicative divergences and bounds the length of descriptions and direct
+quotations. This is a ranked research lead, not an exhaustive catalog of every wording difference.
 
 ### Full cross-language stance
 

@@ -30,6 +30,10 @@ MAX_LEAD_CHARS = 3000    # per-edition lead cap (keeps Haiku token budget sane)
 MAX_EDITIONS = 5
 MIN_EDITION_BYTES = 2000
 TOP_N_BY_LENGTH = 2
+MAX_DIVERGENCES = 6
+MAX_SUMMARY_CHARS = 800
+MAX_DESCRIPTION_CHARS = 400
+MAX_EVIDENCE_CHARS = 300
 
 CATEGORIES = ["israeli-palestinian", "polish-wwii", "general"]
 
@@ -41,6 +45,15 @@ CATEGORY_SLATE: dict[str, list[str]] = {
 }
 
 # --- JSON Schemas ----------------------------------------------------------------
+
+
+def _nullable_bounded_string(max_length):
+    return {
+        "anyOf": [
+            {"type": "string", "maxLength": max_length},
+            {"type": "null"},
+        ]
+    }
 
 _CATEGORIZE_SCHEMA = {
     "type": "object",
@@ -56,13 +69,16 @@ _CATEGORIZE_SCHEMA = {
 _DIVERGENCE_ITEM = {
     "type": "object",
     "properties": {
-        "topic": {"type": "string"},
-        "editions_differ": {"type": "array", "items": {"type": "string"}},
-        "en_says": {"type": "string"},
-        "other_says": {"type": "string"},
+        "topic": {"type": "string", "maxLength": 100},
+        "editions_differ": {
+            "type": "array", "items": {"type": "string", "maxLength": 12},
+            "maxItems": MAX_EDITIONS,
+        },
+        "en_says": {"type": "string", "maxLength": MAX_DESCRIPTION_CHARS},
+        "other_says": {"type": "string", "maxLength": MAX_DESCRIPTION_CHARS},
         "verdict": {"type": "string", "enum": ["differ", "contradict", "absent_en", "absent_other", "agree"]},
-        "evidence_en": {"type": ["string", "null"]},
-        "evidence_other": {"type": ["string", "null"]},
+        "evidence_en": _nullable_bounded_string(MAX_EVIDENCE_CHARS),
+        "evidence_other": _nullable_bounded_string(MAX_EVIDENCE_CHARS),
     },
     "required": ["topic", "editions_differ", "en_says", "other_says", "verdict", "evidence_en", "evidence_other"],
     "additionalProperties": False,
@@ -71,8 +87,8 @@ _DIVERGENCE_ITEM = {
 _DIVERGENCE_SCHEMA = {
     "type": "object",
     "properties": {
-        "divergences": {"type": "array", "items": _DIVERGENCE_ITEM},
-        "summary": {"type": "string"},
+        "divergences": {"type": "array", "items": _DIVERGENCE_ITEM, "maxItems": MAX_DIVERGENCES},
+        "summary": {"type": "string", "maxLength": MAX_SUMMARY_CHARS},
     },
     "required": ["divergences", "summary"],
     "additionalProperties": False,
@@ -87,14 +103,14 @@ _TEMPORAL_DIVERGENCE_ITEM = {
             "enum": ["english_moved_away", "english_converged", "parallel_change",
                      "difference_persisted", "unclear"],
         },
-        "en_before": {"type": "string"},
-        "en_after": {"type": "string"},
-        "other_before": {"type": "string"},
-        "other_after": {"type": "string"},
-        "evidence_en_before": {"type": ["string", "null"]},
-        "evidence_en_after": {"type": ["string", "null"]},
-        "evidence_other_before": {"type": ["string", "null"]},
-        "evidence_other_after": {"type": ["string", "null"]},
+        "en_before": {"type": "string", "maxLength": MAX_DESCRIPTION_CHARS},
+        "en_after": {"type": "string", "maxLength": MAX_DESCRIPTION_CHARS},
+        "other_before": {"type": "string", "maxLength": MAX_DESCRIPTION_CHARS},
+        "other_after": {"type": "string", "maxLength": MAX_DESCRIPTION_CHARS},
+        "evidence_en_before": _nullable_bounded_string(MAX_EVIDENCE_CHARS),
+        "evidence_en_after": _nullable_bounded_string(MAX_EVIDENCE_CHARS),
+        "evidence_other_before": _nullable_bounded_string(MAX_EVIDENCE_CHARS),
+        "evidence_other_after": _nullable_bounded_string(MAX_EVIDENCE_CHARS),
     },
     "required": _DIVERGENCE_ITEM["required"] + [
         "temporal_read", "en_before", "en_after", "other_before", "other_after",
@@ -106,8 +122,10 @@ _TEMPORAL_DIVERGENCE_ITEM = {
 _TEMPORAL_DIVERGENCE_SCHEMA = {
     "type": "object",
     "properties": {
-        "divergences": {"type": "array", "items": _TEMPORAL_DIVERGENCE_ITEM},
-        "summary": {"type": "string"},
+        "divergences": {
+            "type": "array", "items": _TEMPORAL_DIVERGENCE_ITEM, "maxItems": MAX_DIVERGENCES,
+        },
+        "summary": {"type": "string", "maxLength": MAX_SUMMARY_CHARS},
     },
     "required": ["divergences", "summary"],
     "additionalProperties": False,
@@ -283,10 +301,12 @@ def _compare_leads(article: str, lead_texts: dict[str, str], pivot_window: dict 
         f"  verdict: differ | contradict | absent_en | absent_other | agree\n"
         f"  evidence_en: direct quote from EN (or null)\n"
         f"  evidence_other: direct quote from the other edition (or null)\n\n"
-        f"Return empty divergences list if editions are substantively aligned. "
+        f"Return at most {MAX_DIVERGENCES} strongest non-duplicative divergences. Keep descriptions "
+        f"concise and quotations to the shortest passage that proves the point. "
+        f"Return an empty divergences list if editions are substantively aligned. "
         f"A divergence is a lead for a researcher, never a verdict about manipulation."
     )
-    return client.complete_json(_DIVERGENCE_SCHEMA, prompt, max_tokens=1500)
+    return client.complete_json(_DIVERGENCE_SCHEMA, prompt, max_tokens=4096)
 
 
 def _compare_temporal_leads(article: str, snapshots: dict, pivot_window: dict, client) -> dict:
@@ -315,10 +335,12 @@ def _compare_temporal_leads(article: str, snapshots: dict, pivot_window: dict, c
         f"Do not infer missing historical text. Ignore style and length alone.\n\n"
         f"For compatibility, copy en_after to en_says, other_after to other_says, evidence_en_after to "
         f"evidence_en, and evidence_other_after to evidence_other. The before/after fields must describe "
-        f"the temporal evidence explicitly. Return an empty list when "
+        f"the temporal evidence explicitly. Return at most {MAX_DIVERGENCES} strongest non-duplicative "
+        f"divergences; keep descriptions concise and use the shortest supporting quotations. "
+        f"Return an empty list when "
         f"the supplied revisions do not support a genuine temporal or cross-edition difference."
     )
-    return client.complete_json(_TEMPORAL_DIVERGENCE_SCHEMA, prompt, max_tokens=2400)
+    return client.complete_json(_TEMPORAL_DIVERGENCE_SCHEMA, prompt, max_tokens=4096)
 
 
 # --- main entry point ------------------------------------------------------------

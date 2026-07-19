@@ -218,14 +218,15 @@ class FailoverClient:
         for hop in range(len(self._clients)):
             i = (self._idx + hop) % len(self._clients)
             c = self._clients[i]
+            checkpoint = usage_checkpoint(c)
             try:
-                checkpoint = usage_checkpoint(c)
                 out = c.complete_json(schema, prompt, max_tokens=max_tokens)
                 self.usage_records.extend(c.usage_records[checkpoint:])
                 self._idx = i
                 self.provider, self.model, self.base_url = c.provider, c.model, c.base_url
                 return out
             except Exception as exc:  # noqa: BLE001 — pass through unless failover-eligible
+                self.usage_records.extend(c.usage_records[checkpoint:])
                 last = exc
                 if hop == len(self._clients) - 1 or not _quota_or_rate_limited(exc):
                     raise

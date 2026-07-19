@@ -650,6 +650,43 @@ class FramingLiteEditionSelect(unittest.TestCase):
     def _links(self, langs):
         return {l: f"Title_{l}" for l in langs}
 
+    def test_divergence_schemas_bound_items_and_text(self):
+        for schema in (fl._DIVERGENCE_SCHEMA, fl._TEMPORAL_DIVERGENCE_SCHEMA):
+            self.assertEqual(schema["properties"]["divergences"]["maxItems"], fl.MAX_DIVERGENCES)
+            self.assertEqual(schema["properties"]["summary"]["maxLength"], fl.MAX_SUMMARY_CHARS)
+        temporal = fl._TEMPORAL_DIVERGENCE_SCHEMA["properties"]["divergences"]["items"]
+        self.assertEqual(
+            temporal["properties"]["evidence_en_before"]["anyOf"][0]["maxLength"],
+            fl.MAX_EVIDENCE_CHARS,
+        )
+        self.assertEqual(
+            temporal["properties"]["evidence_en_before"]["anyOf"][1],
+            {"type": "null"},
+        )
+
+    def test_temporal_prompt_requests_bounded_concise_output(self):
+        class CapturingClient:
+            prompt = None
+
+            def complete_json(self, _schema, prompt, max_tokens=0):
+                self.prompt = prompt
+                return {"divergences": [], "summary": "aligned"}
+
+        client = CapturingClient()
+        snapshots = {
+            "before": {"en": {"revid": 1, "timestamp": "2020-01-01", "lead": "before"},
+                       "fr": {"revid": 2, "timestamp": "2020-01-01", "lead": "avant"}},
+            "after": {"en": {"revid": 3, "timestamp": "2021-01-01", "lead": "after"},
+                      "fr": {"revid": 4, "timestamp": "2021-01-01", "lead": "apres"}},
+        }
+        fl._compare_temporal_leads(
+            "Testland", snapshots,
+            {"start": "2020-01-01", "end": "2021-01-01", "status": "candidate"},
+            client,
+        )
+        self.assertIn(f"at most {fl.MAX_DIVERGENCES}", client.prompt)
+        self.assertIn("shortest supporting quotations", client.prompt)
+
     def test_slate_langs_always_included(self):
         links = self._links(["en", "ar", "he", "fr", "de"])
         lengths = {"ar": 5000, "he": 4000, "fr": 3000, "de": 2000}

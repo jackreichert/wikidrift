@@ -332,6 +332,25 @@ class Failover(unittest.TestCase):
         self.assertEqual(len(client.usage_records), 1)
         self.assertEqual(client.usage_records[0]["provider"], "openai")
 
+    def test_failed_response_usage_is_retained_before_error_propagates(self):
+        child = llm.Client("anthropic", "m1")
+        record = {
+            "provider": "anthropic", "model": "m1", "input_tokens": 20,
+            "output_tokens": 100, "estimated_usd": None, "pricing_key": None,
+            "pricing_usd_per_million": None,
+        }
+
+        def fail(*_args, **_kwargs):
+            child.usage_records.append(record)
+            raise RuntimeError("invalid JSON twice")
+
+        child.complete_json = fail
+        client = llm.FailoverClient([child])
+
+        with self.assertRaisesRegex(RuntimeError, "invalid JSON twice"):
+            client.complete_json(SCHEMA, "hi")
+        self.assertEqual(client.usage_records, [record])
+
 
 class DotEnv(unittest.TestCase):
     def _write(self, body):
