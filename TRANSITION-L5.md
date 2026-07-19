@@ -4,6 +4,10 @@ Current defaults are controversy-agnostic for entity focus in L2/L5. Two remaini
 still explicit by design: `crosslingual` language slate defaults and `factcheck` per-article question sets.
 This checklist tracks the transition from curated defaults to generated defaults.
 
+**Status:** Phase 1 is partially implemented. Cross-language checks now discover available editions and
+rank additional languages by article size, but configured topic slates are still pinned. Phases 2–4 have
+not been implemented and remain the active roadmap.
+
 ## Operator checklist (what you do)
 
 Now:
@@ -21,9 +25,19 @@ Later (during this transition):
 
 ## Phase 1: Crosslingual language auto-selection
 
-- [ ] Derive candidate editions from Wikidata sitelinks for each article.
-- [ ] Keep `en` plus top-N editions by prose length (substance proxy).
+- [x] Derive candidate editions from Wikidata sitelinks for each article.
+- [x] Keep `en` and fill available slots with established editions ranked by prose/article length.
+- [ ] Remove article-specific `SLATE` pins after calibration shows the automatic set is sufficient.
 - [ ] Add minimum-prose and availability thresholds; return `insufficient` when thresholds fail.
+
+Current behavior:
+
+- `crosslingual` pins any configured `SLATE` editions, then adds two established editions ranked by prose
+  length and retains English as the anchor.
+- Framing Lite pins a category slate, adds up to two non-English editions ranked by article byte length,
+  excludes articles below 2,000 bytes, and caps the candidate set at five including English.
+- Temporal framing drops an edition if either matched historical lead is unavailable. It does not yet
+  backfill the next-ranked language.
 
 Acceptance criteria:
 
