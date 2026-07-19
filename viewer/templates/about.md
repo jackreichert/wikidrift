@@ -3,15 +3,15 @@
 WikiDrift is a forensic tool built to help researchers understand how a Wikipedia article has changed over time.
 {: .summary}
 
-Every Wikipedia page has a public revision history. This project began with a question: can that history show the patterns we would expect to see when an article has been substantially rewritten? Revision history records what changed, when it changed, and which public account made the edit. It does not establish motive, identify a neutral version, or decide whether an edit improved the article.
+Every Wikipedia page has a public revision history. This project began with the question: can the history of a Wikipedia article show the patterns we would expect to see when an article has been substantially rewritten? 
 
-A suspicious pattern is not the same thing as a conclusion. Large removals happen during good-faith rewrites. Edit fights can form around accurate material. Quiet pages can still change in important ways. WikiDrift finds the change and gathers the record around it; a reader still has to judge what the change means.
+Revision history records what changed, when it changed, and which public account made the edit. A suspicious pattern is not the same thing as a conclusion. Large removals happen during good-faith rewrites. Edit fights can form around accurate material. Quiet pages can still change in important ways. Yet it *has* been demonstrated that articles have been edited in bad faith. WikiDrift finds the change and gathers the record around it so a reader can judge what the change means.
 
-WikiDrift looks for substantial changes to long-lived wording. Its other checks place those changes beside shifts in vocabulary and citations, differences in cross-language framing, changes to basic factual claims, and the level of edit conflict around the article. The result is a research lead with evidence a reader can inspect.
+WikiDrift looks for substantial changes to long-lived wording. Its other checks place those changes beside shifts in vocabulary and citations, differences in cross-language framing, changes to basic factual claims, and the level of edit conflict around the article. The result is a research indicator with evidence a reader can inspect.
 
 The initial proof of concept used the Zionism article. It had already been discussed publicly in connection with editorial disputes, which made it a useful development case.
 
-The method draws on published work about text persistence, token authorship, controversy measurement, and cross-language comparison. We test it against articles with publicly documented disputes, quiet control topics, and contested subjects where a large rewrite may be entirely legitimate.
+The method draws on published work about text persistence, token authorship, controversy measurement, and cross-language comparison. The method was tested against articles with publicly documented disputes, quiet control topics, and contested subjects where a large rewrite may be entirely legitimate.
 
 WikiDrift is an [open source](https://github.com/jackreichert/wikidrift/) research project of [encyclopediae.org](https://encyclopediae.org).
 
