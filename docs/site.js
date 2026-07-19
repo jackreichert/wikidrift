@@ -4,6 +4,83 @@
   // to Mermaid render targets only when the runtime was included by the renderer.
   var diagrams = document.querySelectorAll("pre > code.language-mermaid");
   if (diagrams.length && window.mermaid) {
+    function enableDiagramZoom(target, index) {
+      var frame = document.createElement("div");
+      frame.className = "mermaid-frame";
+      target.parentNode.insertBefore(frame, target);
+      frame.appendChild(target);
+
+      var expand = document.createElement("button");
+      expand.type = "button";
+      expand.className = "diagram-expand";
+      expand.textContent = "Enlarge diagram";
+      frame.appendChild(expand);
+
+      var dialog = document.createElement("dialog");
+      var dialogId = "diagram-dialog-" + (index + 1);
+      var titleId = dialogId + "-title";
+      dialog.id = dialogId;
+      dialog.className = "diagram-dialog";
+      dialog.setAttribute("aria-labelledby", titleId);
+      dialog.setAttribute("aria-modal", "true");
+      expand.setAttribute("aria-haspopup", "dialog");
+      expand.setAttribute("aria-controls", dialogId);
+
+      var header = document.createElement("div");
+      header.className = "diagram-dialog-head";
+      var title = document.createElement("h2");
+      var renderedTitle = target.querySelector("svg title");
+      title.id = titleId;
+      title.textContent = renderedTitle ? renderedTitle.textContent : "Enlarged diagram";
+      var close = document.createElement("button");
+      close.type = "button";
+      close.className = "diagram-close";
+      close.textContent = "Close";
+      header.appendChild(title);
+      header.appendChild(close);
+
+      var viewport = document.createElement("div");
+      viewport.className = "diagram-dialog-body";
+      dialog.appendChild(header);
+      dialog.appendChild(viewport);
+      document.body.appendChild(dialog);
+
+      function openDialog() {
+        if (dialog.open) return;
+        viewport.appendChild(target);
+        target.classList.add("is-expanded");
+        document.body.classList.add("dialog-open");
+        dialog.showModal();
+        close.focus();
+      }
+
+      function closeDialog() {
+        if (dialog.open) dialog.close();
+      }
+
+      function restoreDiagram() {
+        if (target.parentNode === viewport) frame.insertBefore(target, expand);
+        target.classList.remove("is-expanded");
+        document.body.classList.remove("dialog-open");
+        expand.focus();
+      }
+
+      expand.addEventListener("click", openDialog);
+      target.addEventListener("click", function () {
+        if (!dialog.open) openDialog();
+      });
+      close.addEventListener("click", closeDialog);
+      dialog.addEventListener("keydown", function (event) {
+        if (event.key !== "Escape") return;
+        event.preventDefault();
+        closeDialog();
+      });
+      dialog.addEventListener("click", function (event) {
+        if (event.target === dialog) closeDialog();
+      });
+      dialog.addEventListener("close", restoreDiagram);
+    }
+
     diagrams.forEach(function (code) {
       var target = document.createElement("pre");
       target.className = "mermaid";
@@ -20,9 +97,13 @@
     });
     try {
       window.mermaid.initialize({ startOnLoad: false, securityLevel: "strict", theme: "neutral" });
-      window.mermaid.run({ querySelector: ".mermaid" }).catch(function (error) {
-        console.error("Unable to render Mermaid diagram", error);
-      });
+      window.mermaid.run({ querySelector: ".mermaid" })
+        .then(function () {
+          document.querySelectorAll(".mermaid").forEach(enableDiagramZoom);
+        })
+        .catch(function (error) {
+          console.error("Unable to render Mermaid diagram", error);
+        });
     } catch (error) {
       console.error("Unable to initialize Mermaid", error);
     }

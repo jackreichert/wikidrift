@@ -470,6 +470,16 @@ class SiteRouting(unittest.TestCase):
         self.assertIn("mermaid@11.4.1/dist/mermaid.min.js", methodology)
         self.assertNotIn("mermaid.min.js", plain)
 
+    def test_mermaid_runtime_has_accessible_enlarge_dialog(self):
+        runtime = (build.VIEWER / "site.js").read_text(encoding="utf-8")
+
+        self.assertIn('expand.textContent = "Enlarge diagram"', runtime)
+        self.assertIn('expand.setAttribute("aria-haspopup", "dialog")', runtime)
+        self.assertIn('dialog.setAttribute("aria-labelledby", titleId)', runtime)
+        self.assertIn("dialog.showModal()", runtime)
+        self.assertIn('if (event.key !== "Escape") return', runtime)
+        self.assertIn('dialog.addEventListener("close", restoreDiagram)', runtime)
+
 
 if __name__ == "__main__":
     unittest.main()

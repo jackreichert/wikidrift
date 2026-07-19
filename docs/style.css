@@ -203,7 +203,34 @@ h2.subhead{font-size:1rem;margin:1.4em 0 .45em}
 .prose p{margin:.7em 0}
 .prose .tablewrap{max-width:none} /* tables can spill wider if needed */
 .prose table{font-size:.9rem}
-.prose pre.mermaid{overflow-x:auto}
+.mermaid-frame{position:relative;margin:1rem 0}
+.prose .mermaid-frame pre.mermaid{
+  overflow-x:auto;margin:0;cursor:zoom-in;border:1px solid var(--line);border-radius:var(--r);
+  padding:2.75rem .75rem .75rem;background:var(--surface);
+}
+.diagram-expand,.diagram-close{
+  min-height:44px;padding:9px 12px;border:1px solid var(--line-strong);border-radius:var(--r);
+  background:#fff;color:var(--ink);font:600 .82rem/1 var(--sans);cursor:pointer;
+}
+.diagram-expand{position:absolute;top:.55rem;right:.55rem}
+.diagram-expand:hover,.diagram-close:hover{border-color:var(--ink)}
+body.dialog-open{overflow:hidden}
+.diagram-dialog{
+  width:min(96vw,90rem);max-width:none;height:min(92vh,60rem);max-height:none;padding:0;
+  border:1px solid var(--line-strong);border-radius:var(--r);background:var(--paper);color:var(--ink);
+}
+.diagram-dialog[open]{display:flex;flex-direction:column}
+.diagram-dialog::backdrop{background:rgba(0,0,0,.72)}
+.diagram-dialog-head{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;flex:0 0 auto;
+  padding:.75rem 1rem;border-bottom:1px solid var(--line);background:var(--paper);
+}
+.diagram-dialog-head h2{font-size:1rem;line-height:1.25;margin:0}
+.diagram-dialog-body{flex:1 1 auto;min-height:0;overflow:auto;padding:1rem}
+.diagram-dialog .mermaid{margin:0;min-width:100%;cursor:default}
+.diagram-dialog .mermaid svg{
+  display:block;width:max(1100px,100%);max-width:none!important;height:auto;margin:auto;
+}
 .glossary dt{font-weight:700;margin-top:1.15em}
 .glossary dd{margin:.25em 0 0;color:var(--faint);font-weight:200}
 
@@ -444,4 +471,6 @@ footer.site{background:#000;color:#fff;margin-top:auto}
   }
   .prose{margin:0}
   .prose pre.mermaid svg{min-width:620px}
+  .diagram-dialog{width:100vw;height:100dvh;max-height:none;border:0;border-radius:0}
+  .diagram-dialog-body{padding:.75rem}
 }

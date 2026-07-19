@@ -246,6 +246,18 @@ The cross-language lead comparison compares lead sections from English and a sel
 language editions. It asks a language model to identify substantive differences, contradictions, or
 omissions.
 
+English is always the anchor. A cached, model-assisted topic category first adds a small comparison
+slate: Arabic and Hebrew for Israeli–Palestinian topics, Polish and German for Polish World War II
+topics, and no preset editions for general topics. The tool then adds up to two more non-English
+editions with the largest current articles by byte length. These additions do not replace the category
+slate. Editions below 2,000 bytes are treated as stubs, duplicates are removed, and the final candidate
+set is capped at five editions including English.
+
+In a temporal comparison, an edition reaches the final result only when WikiDrift can retrieve both a
+usable "before" lead and a usable "after" lead around the English timestamps. An edition missing either
+side is dropped. The current implementation does not backfill another language after that point, so the
+published comparison can contain fewer than five editions even when the initial candidate set was full.
+
 The lead comparison first looks for a fresh L1 confirmation artifact. If one exists, English uses the exact
 revision pair where the durable text collapsed. Every other edition uses the last revision at or
 before the confirmed English "before" timestamp and the first revision at or after its "after"
@@ -261,13 +273,6 @@ All temporal modes keep revision IDs, timestamps, lead text, supporting quotatio
 exact Wikipedia versions. To keep structured responses complete and reviewable, the lead comparison retains
 at most the six strongest non-duplicative divergences and bounds the length of descriptions and direct
 quotations. This is a ranked research lead, not an exhaustive catalog of every wording difference.
-
-### Cross-language stance comparison
-
-The stance comparison applies the L2 stance categories to the same subject in several editions. It
-can compare present-day stance and ask whether English moved away from the other editions around its
-own L1 pivot. When no L1 pivot is available, the current implementation can use a configured fallback
-date for the historical comparison.
 
 Different editions have different communities, source pools, scopes, and update schedules. A
 cross-language difference shows divergent framing; it does not decide which edition is right.
