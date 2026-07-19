@@ -94,11 +94,82 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("Q42", out)
         self.assertIn("Versions", out)
 
+    def test_versions_prefer_current_framing_receipts(self):
+        legacy = {
+            "article": "Testland", "qid": "Q42",
+            "editions": {
+                "en": {"present": True, "revid": 1, "title": "Testland"},
+                "ar": {"present": True, "revid": 2, "title": "اختبار"},
+            },
+        }
+        framing = {
+            "mode": "pivot_relative",
+            "editions_compared": ["en", "sr", "ko"],
+            "snapshots": {
+                "before": {
+                    "en": {"revid": 11, "title": "Testland", "lead": "before"},
+                    "sr": {"revid": 21, "title": "Тест", "lead": "pre"},
+                    "ko": {"revid": 31, "title": "테스트", "lead": "pre"},
+                },
+                "after": {
+                    "en": {"revid": 12, "title": "Testland", "lead": "after"},
+                    "sr": {"revid": 22, "title": "Тест", "lead": "post"},
+                    "ko": {"revid": 32, "title": "테스트", "lead": "post"},
+                },
+            },
+            "divergences": [{"topic": "x", "verdict": "differ"}],
+        }
+        findings = build.Findings(
+            receipts={"Testland": legacy},
+            framings={"Testland": framing},
+        )
+
+        out = build.article_page("Testland", findings)
+
+        self.assertNotIn('oldid=2"', out)
+        self.assertNotIn("اختبار", out)
+        for revid in (11, 12, 21, 22, 31, 32):
+            self.assertIn(f"oldid={revid}", out)
+        self.assertIn("<td><b>sr</b></td><td>before</td>", out)
+        self.assertIn("<td><b>ko</b></td><td>after</td>", out)
+
+    def test_static_framing_filters_legacy_receipts_to_current_languages(self):
+        legacy = {
+            "editions": {
+                "en": {"present": True, "revid": 1},
+                "ar": {"present": True, "revid": 2},
+                "sr": {"present": True, "revid": 3},
+            },
+        }
+        framing = {
+            "mode": "static", "editions_compared": ["en", "sr"],
+            "divergences": [], "llm_usage": {"calls": 1},
+        }
+
+        records = build._version_records(legacy, framing)
+
+        self.assertEqual([lang for lang, _, _ in records], ["en", "sr"])
+
+    def test_failed_or_language_less_framing_keeps_legacy_receipts(self):
+        legacy = {
+            "editions": {
+                "en": {"present": True, "revid": 1},
+                "ar": {"present": True, "revid": 2},
+            },
+        }
+        failed = {"error": "provider failed", "editions_compared": ["en", "sr"]}
+        no_languages = {"divergences": [{"topic": "x"}]}
+
+        self.assertEqual(len(build._version_records(legacy, failed)), 2)
+        self.assertEqual(len(build._version_records(legacy, no_languages)), 2)
+
     def test_renders_framing_stance_grid(self):
         out = _article_html()
         self.assertIn("Framing", out)
         self.assertIn("Cross-language stance comparison", out)
         self.assertIn("more critical", out)
+        self.assertNotIn("more critical!", out)
+        self.assertNotIn("A “!” means", out)
         self.assertIn("Israel", out)
         self.assertIn("Overview", out)
 
@@ -357,7 +428,7 @@ class SiteRouting(unittest.TestCase):
         self.assertIn("About WikiDrift", about)
         self.assertIn('href="findings.html"', about)
         self.assertIn("How it works", about)
-        self.assertIn("Reading tips", about)
+        self.assertIn('<a href="index.html" class="active" aria-current="page">About</a>', about)
 
     def test_editorial_copy_comes_from_templates(self):
         self.assertIn("research lead", build.FINDINGS_BODY)

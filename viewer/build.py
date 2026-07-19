@@ -305,31 +305,66 @@ def oldid(lang, revid):
     return f"https://{esc(lang)}.wikipedia.org/w/index.php?oldid={esc(revid)}"
 
 
-def receipts_section(rec):
+def _version_records(rec, framing):
+    """Return versions aligned with the newest completed cross-language comparison.
+
+    Temporal framing supplies exact before/after snapshots. Static framing has no revision receipts,
+    so its language list filters the older receipt artifact when one exists.
+    """
+    rec = rec or {}
+    framing = framing or {}
+    editions = framing.get("editions_compared") or []
+    snapshots = framing.get("snapshots") or {}
+    if _framing_result_available(framing) and snapshots and editions:
+        records = []
+        for lang in editions:
+            for phase in ("before", "after"):
+                version = (snapshots.get(phase) or {}).get(lang)
+                if version and version.get("revid"):
+                    records.append((lang, phase, version))
+        if records:
+            return records
+
+    current_langs = set(editions) if _framing_result_available(framing) and editions else None
+    return [
+        (lang, None, version)
+        for lang, version in rec.get("editions", {}).items()
+        if version.get("present") and version.get("revid") and (current_langs is None or lang in current_langs)
+    ]
+
+
+def receipts_section(rec, framing=None):
+    rec = rec or {}
     rows = []
-    for lang, e in rec.get("editions", {}).items():
-        if not e.get("present"):
-            continue
+    for lang, phase, e in _version_records(rec, framing):
         link = (
             f'<a href="{oldid(lang, e["revid"])}" target="_blank" rel="noopener">'
             f'open version {esc(e["revid"])}</a>'
         )
+        text_length = e.get("prose_chars")
+        if text_length is None:
+            text_length = len(e.get("lead") or "")
         rows.append(
-            f"<tr><td><b>{esc(lang)}</b></td><td>{esc(e['title'])}</td>"
+            f"<tr><td><b>{esc(lang)}</b></td><td>{esc(phase or 'saved')}</td>"
+            f"<td>{esc(e.get('title', ''))}</td>"
             f"<td>{link}</td><td>{esc(e.get('timestamp', ''))}</td>"
-            f"<td>{e.get('prose_chars', 0):,}</td></tr>"
+            f"<td>{text_length:,}</td></tr>"
         )
-    qid = esc(rec.get("qid", ""))
+    qid = rec.get("qid")
+    wikidata = (
+        ' Wikidata item: <a href="https://www.wikidata.org/wiki/' + esc(qid) + '" target="_blank" '
+        f'rel="noopener">{esc(qid)}</a>.'
+        if qid else ""
+    )
     return (
         '<h2>Versions we used</h2>'
         '<p class="lead">These are the exact public Wikipedia versions behind the checks on this page. '
-        'Open any link to read the original. '
-        'Wikidata item: <a href="https://www.wikidata.org/wiki/' + qid + '" target="_blank" '
-        f'rel="noopener">{qid}</a>.</p>'
+        f'Open any link to read the original.{wikidata}</p>'
         '<div class="tablewrap"><table><thead><tr>'
-        '<th scope="col">language</th><th scope="col">article title</th>'
+        '<th scope="col">language</th><th scope="col">comparison point</th>'
+        '<th scope="col">article title</th>'
         '<th scope="col">version</th><th scope="col">when</th>'
-        '<th scope="col">length (chars)</th></tr></thead>'
+        '<th scope="col">text used (chars)</th></tr></thead>'
         f'<tbody>{"".join(rows)}</tbody></table></div>'
     )
 
@@ -351,7 +386,6 @@ def stance_grid(st):
                 "neutral": "neutral",
                 "absent": "not mentioned",
             }.get(s, s)
-            npov = "!" if r.get("npov_departure") else ""
             quote = (r.get("evidence") or "").strip()
             eid += 1
             cid = f"ev{eid}"
@@ -361,13 +395,13 @@ def stance_grid(st):
                     f'<button type="button" class="cell-ev sc-{SCLASS.get(s, "a")}" '
                     f'aria-expanded="false" aria-controls="{cid}" '
                     f'aria-label="Show evidence for {esc(e)} in {esc(l)}: {esc(s_label)}">'
-                    f'{esc(s_label)}{npov}</button></td>')
+                    f'{esc(s_label)}</button></td>')
                 ev_rows.append(
                     f'<tr class="ev-row" id="{cid}" hidden><td colspan="{len(langs)+1}" class="ev-panel">'
                     f'<b>{esc(l)} · {esc(e)}</b> — {esc(quote)}</td></tr>')
             else:
                 cells.append(
-                    f'<td class="cell sc-{SCLASS.get(s, "a")}">{esc(s_label)}{npov}</td>'
+                    f'<td class="cell sc-{SCLASS.get(s, "a")}">{esc(s_label)}</td>'
                 )
         rows.append(f'<tr><th scope="row">{esc(e)}</th>{"".join(cells)}</tr>')
         rows.extend(ev_rows)
@@ -381,8 +415,7 @@ def stance_grid(st):
         f'<div class="tablewrap"><table class="grid"><thead><tr><th></th>{head}</tr></thead>'
         f'<tbody>{"".join(rows)}</tbody></table></div>'
         f'<p class="legend">{legend} '
-        f'<span class="muted">A “!” means the opening clearly leans away from neutral. '
-        f'Click a cell for the short quote.</span></p>'
+        f'<span class="muted">Click a cell for the short quote.</span></p>'
     )
 
 
@@ -1297,11 +1330,13 @@ def framing_lite_block(fr):
             links = []
             if before.get("revid"):
                 links.append(
-                    f'<a href="{oldid(lang, before["revid"])}" target="_blank" rel="noopener">before</a>'
+                    f'<a href="{oldid(lang, before["revid"])}" target="_blank" rel="noopener">'
+                    f'{esc(lang)} before</a>'
                 )
             if after.get("revid"):
                 links.append(
-                    f'<a href="{oldid(lang, after["revid"])}" target="_blank" rel="noopener">after</a>'
+                    f'<a href="{oldid(lang, after["revid"])}" target="_blank" rel="noopener">'
+                    f'{esc(lang)} after</a>'
                 )
             if links:
                 receipt_bits.append(f'{esc(lang)}: {" / ".join(links)}')
@@ -1404,7 +1439,7 @@ def _layer_flags(article, f):
     framing = f.framings.get(article) or {}
     has_framing = bool(_current_stance(article, f) or _framing_result_available(framing))
     has_facts = bool(f.factchecks.get(article))
-    has_rev = bool(f.receipts.get(article))
+    has_rev = bool(_version_records(f.receipts.get(article), framing))
     return [
         ("Rewrite" if rewrite_state != "none" else "Rewrite (no candidate found)",
          rewrite_state != "unavailable", "not available"),
@@ -1442,8 +1477,8 @@ def article_page(article, f, categories=None):
     if fcs:
         panels.append(("Facts", fact_section(article, fcs), "facts"))
     rec = f.receipts.get(article)
-    if rec:
-        panels.append(("Versions", receipts_section(rec), "revisions"))
+    if _version_records(rec, f.framings.get(article)):
+        panels.append(("Versions", receipts_section(rec, f.framings.get(article)), "revisions"))
     cat = _category_for(article, categories)
     body = (
         f'<div class="page-intro"><p class="kicker">{esc(cat)}</p><h1>{esc(article)}</h1>'
