@@ -12,7 +12,7 @@ Layers by cost (so the default stays offline and keyless):
   L2 stance                  — LLM (needs an LLM key; default Anthropic, --provider/--model/--base-url for a
                                cheaper/local backend); opt-in (`--llm`).
 
-Cross-lingual framing (L5 #1) and fact divergence (L5 #2) are available as standalone instruments
+Cross-language stance comparison and fact divergence are available as standalone instruments
 (`wikidrift crosslingual` / `wikidrift factcheck`) but are not part of the pipeline — they address
 born-biased detection (a separate problem from drift/pivot detection) and add significant cost and
 language-selection complexity. See METHODOLOGY.md §7 for the known-limits note.
@@ -128,7 +128,7 @@ def run(article, llm=False, corroborate=False, framing=False, provider=None, mod
     """Orchestrate the layers for one article. Returns a consolidated result dict.
 
     provider/model/base_url select the LLM backend for the opt-in L2 + framing layers (see llm.py).
-    Cross-lingual framing lite (L5) is opt-in via --framing. It uses matched historical revisions when
+    The cross-language lead comparison (L5) is opt-in via --framing. It uses matched historical revisions when
     L1 supplies a candidate window and falls back to a current static comparison otherwise."""
     # Build the LLM client ONCE and share it across L2 + L5 (was threaded as 3 loose params into each verb).
     # NB the `llm` parameter here is the bool opt-in flag, so import the module under an alias.
@@ -191,7 +191,7 @@ def run(article, llm=False, corroborate=False, framing=False, provider=None, mod
     except Exception as e:                                  # noqa: BLE001
         print(f"lexical drift skipped: {e}")
 
-    # ---- L5 Framing Lite (opt-in; LLM) ----
+    # ---- L5 cross-language lead comparison (opt-in; LLM) ----
     # Runs regardless of L1 verdict: pivot articles → drift corroborator; healthy articles → static born-bias check.
     framing_result = None
     if framing:
@@ -201,7 +201,7 @@ def run(article, llm=False, corroborate=False, framing=False, provider=None, mod
                 article, pivot_window=pivot_window, client=client
             )
         except Exception as e:                              # noqa: BLE001
-            print(f"Framing Lite skipped: {e}")
+            print(f"Cross-language lead comparison skipped: {e}")
 
     # ---- consolidated lead ----
     print("\n── CONSOLIDATED LEAD (not a verdict) ──")

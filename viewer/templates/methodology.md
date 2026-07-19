@@ -52,7 +52,7 @@ flowchart TD
 
 The default `pipeline` command runs L1, the metadata pre-ranker, and L2.5. It does not run every box in
 the diagram. L2 runs only when the pre-ranker produces an addition or churn lead and the user enables
-the language-model option. M-score and Framing Lite also require explicit options. L4 discovery and
+the language-model option. M-score and the cross-language lead comparison also require explicit options. L4 discovery and
 the fuller language, fact, and source checks are separate commands. This is why one published article
 may have more tabs or evidence than another.
 
@@ -227,31 +227,31 @@ treated as a framing question than as a retrofit.
 Internal history cannot answer every question. L5 is a family of checks that compare language
 editions, factual claims, citations, and the article's own sourcing trajectory.
 
-### Lead framing across languages
+### Cross-language lead comparison
 
-The lightweight framing check compares lead sections from English and a selected group of other
+The cross-language lead comparison compares lead sections from English and a selected group of other
 language editions. It asks a language model to identify substantive differences, contradictions, or
 omissions.
 
-Framing Lite first looks for a fresh L1 confirmation artifact. If one exists, English uses the exact
+The lead comparison first looks for a fresh L1 confirmation artifact. If one exists, English uses the exact
 revision pair where the durable text collapsed. Every other edition uses the last revision at or
 before the confirmed English "before" timestamp and the first revision at or after its "after"
 timestamp. This mode is labeled **pivot-relative**.
 
 The confirmation artifact records the corpus horizon and L1 thresholds used to create it. If either
-has changed, Framing Lite ignores the artifact rather than silently reusing stale evidence. It then
+has changed, the lead comparison ignores the artifact rather than silently reusing stale evidence. It then
 falls back to the top coarse L1 candidate and labels the result **candidate-relative**. If L1 has no
 candidate window, it compares current leads in **static** mode. The `--static` option requests that
 mode explicitly.
 
 All temporal modes keep revision IDs, timestamps, lead text, supporting quotations, and links to the
-exact Wikipedia versions. To keep structured responses complete and reviewable, Framing Lite retains
+exact Wikipedia versions. To keep structured responses complete and reviewable, the lead comparison retains
 at most the six strongest non-duplicative divergences and bounds the length of descriptions and direct
 quotations. This is a ranked research lead, not an exhaustive catalog of every wording difference.
 
-### Full cross-language stance
+### Cross-language stance comparison
 
-The fuller framing check applies the L2 stance categories to the same subject in several editions. It
+The stance comparison applies the L2 stance categories to the same subject in several editions. It
 can compare present-day stance and ask whether English moved away from the other editions around its
 own L1 pivot. When no L1 pivot is available, the current implementation can use a configured fallback
 date for the historical comparison.

@@ -16,8 +16,8 @@ Full design + methodology live in the vault:
 | `prerank.py` | Metadata-only candidate pre-ranker (`removal→PWR` / `addition→L2`) | 008 |
 | `stance.py` | **L2** LLM stance classifier (NPOV axis, not sentiment) | 010 |
 | `benchmark.py` | Adjudicated ground-truth roster + scoring | 009 |
-| `l5_crosslingual.py` | **L5 #1** cross-lingual framing divergence (static + pivot-relative) | 012a/b/c |
-| `l5_framing_lite.py` | **L5 Framing Lite** exact confirmed L1 pair when fresh; candidate/static fallbacks; matched historical leads and oldid receipts | S09 |
+| `l5_crosslingual.py` | **L5 cross-language stance comparison** (static + pivot-relative stance spread) | 012a/b/c |
+| `l5_framing_lite.py` | **L5 cross-language lead comparison** using an exact confirmed L1 pair when fresh, with candidate/static fallbacks and oldid receipts | S09 |
 | `l5_factcheck.py` | **L5 #2** cross-edition citation + claim (fact) divergence, as-of aware | 014 |
 | `mscore.py` | Yasseri mutual-revert controversy corroborator (metadata-only) | 013 |
 | `ingest.py` | **Local `wikiwho_rs`-on-dumps** rsnap ingestion — coverage gaps + corpus-scale batch (Rust `tools/snapshot-tokens` helper) | 011 |
@@ -47,7 +47,7 @@ uv run wikidrift analyze "Climate change" # full L1 pipeline (+ WikiWho for conf
 uv run wikidrift stance "Abortion"    # L2 stance over time (needs an LLM key)
 uv run wikidrift framing "Gaza war"   # L5 Lite matched historical leads (needs an LLM key)
 uv run wikidrift framing "Gaza war" --static  # L5 Lite current-lead comparison
-uv run wikidrift crosslingual "Zionism"                     # L5 #1 framing divergence (needs key)
+uv run wikidrift crosslingual "Zionism"                     # L5 cross-language stance comparison (needs key)
 uv run wikidrift factcheck "Warsaw concentration camp" --asof 2018-06-01   # L5 #2 fact divergence (needs key)
 uv run wikidrift mscore                                        # controversy corroborator (offline fetch)
 uv run wikidrift discover "Nakba"                              # L5→L4 graph-guided discovery (seed → footprint → re-test)
@@ -69,7 +69,7 @@ falls back to the top coarse candidate and is labeled candidate-relative; no can
 current leads. Pass `--static` to request the last mode directly.
 
 Existing articles need one `analyze` rerun to create the confirmation artifact, followed by `framing` to
-refresh only Framing Lite. The latter does not recompute L1 or the other analysis layers.
+refresh only the cross-language lead comparison. The latter does not recompute L1 or the other analysis layers.
 
 For every article already present in the local token corpus, dry-run and then execute the sequential
 refresh with:

@@ -95,7 +95,7 @@
       "other_says": "مصطلح يشار به إلى الخلاف السياسي والتاريخي والمشكلة الإنسانية في فلسطين بدءاً من عام 1897 (المؤتمر الصهيوني الأول) وحتى الوقت الحالي، وهي تعدّ جزءاً جوهرياً من الصراع العربي الإسرائيلي",
       "verdict": "differ",
       "evidence_en": "an ongoing military and political conflict about land and self-determination within the territory of the former Mandatory Palestine",
-      "evidence_other": "القضية الفلسطينية... جزءاً جوهرياً من الصراع العربي الإسرائيلي",
+      "evidence_other": null,
       "temporal_read": "difference_persisted",
       "en_before": "The Israeli–Palestinian conflict is an ongoing military and political conflict about land and self-determination within the territory of the former Mandatory Palestine.",
       "en_after": "The Israeli–Palestinian conflict is an ongoing military and political conflict about land and self-determination within the territory of the former Mandatory Palestine.",
@@ -124,8 +124,8 @@
       "other_after": "بدءاً من عام 1897 (المؤتمر الصهيوني الأول)",
       "evidence_en_before": "the rise of Zionism in Europe and the arrival of Jewish settlers to Ottoman Palestine",
       "evidence_en_after": "the rise of Zionism in Europe and the arrival of Jewish settlers to Ottoman Palestine",
-      "evidence_other_before": "مصطلح يشار به... بدءاً من عام 1897",
-      "evidence_other_after": "مصطلح يشار به... بدءاً من عام 1897"
+      "evidence_other_before": null,
+      "evidence_other_after": null
     },
     {
       "topic": "Characterization of Israeli actions/statehood legitimacy",
@@ -136,7 +136,7 @@
       "other_says": "شرعية دولة إسرائيل واحتلالها للأراضي الفلسطينية بعدة مراحل. وما نتج عن ذلك من ارتكابها للمجازر بحق الفلسطينيين",
       "verdict": "contradict",
       "evidence_en": "Key aspects of the conflict include the Israeli occupation of the West Bank and Gaza Strip",
-      "evidence_other": "شرعية دولة إسرائيل واحتلالها للأراضي الفلسطينية بعدة مراحل... ارتكابها للمجازر بحق الفلسطينيين",
+      "evidence_other": null,
       "temporal_read": "difference_persisted",
       "en_before": "Key aspects of the conflict include the Israeli occupation of the West Bank and Gaza Strip, the status of Jerusalem, Israeli settlements, borders, security, water rights, the permit regime, Palestinian freedom of movement, and the Palestinian right of return.",
       "en_after": "Key aspects of the conflict include the Israeli occupation of the West Bank and Gaza Strip, the status of Jerusalem, Israeli settlements, borders, security, water rights, the permit regime, Palestinian freedom of movement, and the Palestinian right of return.",

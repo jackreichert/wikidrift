@@ -27,7 +27,7 @@
       "en_says": "The Nakba is defined outright as the ethnic cleansing of Palestinian Arabs by Zionists.",
       "other_says": "The Hebrew edition presents the causes of the exodus as a matter of deep historiographical dispute, citing the Zionist-establishment narrative (voluntary flight, institutional collapse, fear, calls by Arab leaders to evacuate) alongside Palestinian/critical historiography (systematic ethnic cleansing, Plan D) and New Historians' views.",
       "verdict": "contradict",
-      "evidence_en": "The Nakba...is the ethnic cleansing of Palestinian Arabs by Zionists through their violent displacement and dispossession",
+      "evidence_en": null,
       "evidence_other": "לפי הנרטיב הציוני-ממסדי, מרבית העזיבה הייתה בריחה מרצון שנבעה מהתמוטטות המוסדות החברתיים הפלסטיניים, פחד מפעולות מלחמה"
     },
     {
@@ -39,7 +39,7 @@
       "other_says": "Estimates range from 650,000 to 760,000, with 156,000–170,000 Arabs remaining within Israel's borders after the war.",
       "verdict": "differ",
       "evidence_en": "around 750,000 people – were expelled from their homes or made to flee",
-      "evidence_other": "כ־650 אלף עד 760 אלף ערבים פלסטינים...בין 156,000 עד כ-170,000 ערבים נותרו בגבולות מדינת ישראל"
+      "evidence_other": null
     },
     {
       "topic": "Biological warfare claim",
@@ -63,8 +63,8 @@
       "en_says": "The term describes the events of the 1948 Palestine war and Israel's ongoing persecution and displacement of Palestinians.",
       "other_says": "Arabic edition cites Joseph Massad's argument that the Nakba began in 1881 with Jewish colonization of Palestine, not in 1947/48, and that it is an ongoing process rather than a past event.",
       "verdict": "absent_en",
-      "evidence_en": "not mentioned",
-      "evidence_other": "الكل يعلم أن بداية النكبة كانت في 1881 وليس 1947 كما يشاع"
+      "evidence_en": null,
+      "evidence_other": null
     },
     {
       "topic": "UN General Assembly commemoration of Nakba Day",
@@ -86,7 +86,7 @@
       "other_says": "Arabic edition specifies that Yasser Arafat proposed in 1998 that Palestinians commemorate the 50th anniversary as Nakba Day, formalizing a date informally used since 1949.",
       "verdict": "absent_en",
       "evidence_en": "Palestinians observe Nakba Day on 15 May",
-      "evidence_other": "في عام 1998، اقترح ياسر عرفات أن يحيي الفلسطينيون الذكرى السنوية الخمسين للنكبة...يوم النكبة، مما أضفى الطابع الرسمي على تاريخ استخدم بصورة غير رسمية منذ عام 1949"
+      "evidence_other": null
     }
   ],
   "summary": "The English, Hungarian, and Armenian leads closely mirror each other, framing the Nakba unambiguously as ethnic cleansing with specific figures (750,000 expelled, 500+ towns depopulated, 78% land control, biological warfare via well poisoning). The Hebrew edition diverges substantially, presenting the causes as a contested historiographical debate between Zionist, Palestinian, and New Historian perspectives, using a range of refugee estimates, and omitting claims like biological warfare while adding details like the 2023 UN commemoration. The Arabic edition uses starker language ('ethnic cleansing war'), includes additional details absent from EN such as Arafat's 1998 formalization of Nakba Day, Bedouin expulsion from the Negev, and Joseph Massad's argument that the Nakba's true origin dates to 1881, framing it as an ongoing colonial process rather than a bounded historical event.",

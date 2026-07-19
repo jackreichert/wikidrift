@@ -45,8 +45,8 @@ upper layers add language and meaning. **All are leads.**
 | **L1.6 — attribution** | Which edits removed the spine / wrote the replacement? *Action only, from public data.* | internal |
 | **L2 — framing (stance)** | Did the meaning shift — not just the words — on a neutrality (NPOV) axis, whether by adding slanted text or removing critical text? | internal (temporal) |
 | **L4 — discovery** | Where else to look? Use a confirmed article's actors as a *search prior* → re-test each candidate by its own content. | prior → internal |
-| **L5 #1 — cross-lingual framing** | Do other-language editions frame it differently — and did English *peel away* from a prior cross-lingual consensus at the pivot? | **external** — standalone instrument (`wikidrift crosslingual`) |
-| **L5 Framing Lite** | Prefer the exact pair from a fresh persisted L1 confirmation, match other editions to its timestamps, and retain oldid receipts. Fall back to the coarse candidate, then to current leads. | **external** — `wikidrift framing` or `pipeline --framing`; category slate + top-2 by length; pivot-relative, candidate-relative, or static |
+| **L5 cross-language stance comparison** | Does entity-relative stance differ across editions, and did English *peel away* around the pivot? | **external** — standalone instrument (`wikidrift crosslingual`) |
+| **L5 cross-language lead comparison** | Which concrete claims, omissions, or contradictions differ across edition leads? Prefer the exact pair from a fresh persisted L1 confirmation, then fall back to the coarse candidate or current leads. | **external** — `wikidrift framing` or `pipeline --framing`; category slate + top-2 by length; pivot-relative, candidate-relative, or static |
 | **L5 #2 — fact/claim** | Do the editions disagree on load-bearing *facts* (as-of aware)? | **external** — standalone instrument (`wikidrift factcheck`) |
 | **L5 #3b — citation-source change** | What did the article's *own citations* change **from → to** across the pivot? Reference-agnostic; **rates no source.** | internal (own refs) |
 

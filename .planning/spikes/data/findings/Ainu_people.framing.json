@@ -57,7 +57,7 @@
       "en_says": "Details forced assimilation during Japanese colonization of Hokkaido since 18th century, land dispossession, banning of religion and language in schools",
       "other_says": "KA omits colonization/assimilation history entirely; JA only briefly implies assimilation via Jomon/Yayoi cultural absorption framing, not explicit policy history",
       "verdict": "absent_other",
-      "evidence_en": "The Ainu were subject to forced assimilation during the Japanese colonization of Hokkaido since at least the 18th century... Ainu people were not allowed to practice their religion and were placed into Japanese-language schools",
+      "evidence_en": null,
       "evidence_other": null
     },
     {
@@ -81,7 +81,7 @@
       "other_says": "Emphasizes that Ainu practiced hunting, fishing and agriculture, distinguishing them from neighboring Japanese, Koreans, and Chinese only in that others focused solely on agriculture for millennia",
       "verdict": "differ",
       "evidence_en": null,
-      "evidence_other": "ისინი მისდევენ ნადირობას, თევზაობასა და მიწათმოქმედებას. ეს ხალხი მეზობელი იაპონელებისგან, კორეელებისა და ჩინელებისგან... მხოლოდ ნადირობითა და შემგროვებლობით არ განსხვავდებოდნენ."
+      "evidence_other": null
     }
   ],
   "summary": "The EN edition provides extensive detail on forced assimilation, colonization history, language suppression, and specific population statistics, none of which appear in the KA or JA versions. The JA edition instead emphasizes Jomon ancestry theory and cultural continuity with mainland Japanese and Ryukyuans, and cites specific 2019 legislation and a 2020 cultural institution absent from EN. The KA edition is the briefest, characterizing Ainu primarily through subsistence practices (hunting, fishing, agriculture) and omits nearly all modern political, demographic, and historical assimilation context found in EN and JA. Overall, the editions diverge mainly through omission and differing thematic emphasis rather than direct contradiction, though this reflects distinct editorial priorities in origin narrative versus modern political/historical framing.",

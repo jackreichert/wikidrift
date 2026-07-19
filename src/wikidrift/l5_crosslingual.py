@@ -1,4 +1,4 @@
-"""L5 instrument #1 — cross-lingual framing divergence (promoted from spikes 012a/b/c).
+"""L5 cross-language stance comparison (promoted from spikes 012a/b/c).
 
 Catches *framing* capture the internal engine (L1 change-detector, L2 temporal stance) is blind
 to, by comparing the SAME article across language editions. Reuses the L2 NPOV classifier
@@ -262,7 +262,7 @@ def emit_findings(article, qid, langs, ents, meta, stat, pr=None):
 
 def crosslingual(article, langs=None, pivot=True, persist=True, provider=None, model=None, base_url=None,
                  client=None, context=None):
-    """Run the cross-lingual framing instrument for one article; print + return the report.
+    """Run the cross-language stance comparison for one article; print + return the report.
     Persists viewer-shaped findings unless persist=False (tests). `client` is the injectable LLM port —
     built from provider/model/base_url when None (CLI path), injected by the pipeline (shared client)."""
     requested_langs = list(langs) if langs else None
@@ -283,7 +283,7 @@ def crosslingual(article, langs=None, pivot=True, persist=True, provider=None, m
         from . import llm
         client = llm.make_client(provider, model, base_url)
 
-    print(f"=== L5 cross-lingual (framing) — {article}  ({'/'.join(langs)}) ===")
+    print(f"=== CROSS-LANGUAGE STANCE COMPARISON — {article}  ({'/'.join(langs)}) ===")
     if not requested_langs:
         print("  default editions: auto-selected established languages for this topic")
     if context:

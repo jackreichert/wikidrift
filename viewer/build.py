@@ -391,7 +391,7 @@ def stance_section(st, diver=None, article=None):
     if not st:
         return ""
     parts = [
-        '<h2>How different languages open the topic</h2>',
+        '<h2>Cross-language stance comparison</h2>',
         f'<p class="lead">{WHAT["stance"]}</p>',
     ]
     diver = diver or {}
@@ -1265,7 +1265,7 @@ def framing_lite_block(fr):
             f'{esc(pivot.get("start", "?"))} to {esc(pivot.get("end", "?"))}.</p>'
         )
     head = (
-        f'<h3 class="col-h">Where the openings part ways</h3>'
+        f'<h3 class="col-h">Cross-language lead comparison</h3>'
         f'<p class="lead">{WHAT["framing"]}</p>'
     )
     if summary:
@@ -1368,7 +1368,7 @@ def framing_lite_block(fr):
 
 
 def framing_tab(article, f):
-    """Combine L2 stance grid + Framing Lite when either is present."""
+    """Combine the stance grid and cross-language lead comparison when either is present."""
     st = f.stances.get(article)
     fr = f.framings.get(article)
     if not st and not fr:

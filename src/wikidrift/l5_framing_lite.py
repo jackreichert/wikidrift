@@ -1,10 +1,10 @@
-"""L5 Framing Lite — cross-lingual lead-section divergence.
+"""L5 cross-language lead comparison.
 
 With an L1 candidate window, compares matched historical revisions before and after the window. Without
 one, compares current leads as a static born-framing check. Either mode produces research leads, not a
 judgment about which edition is correct.
 
-Lighter than L5 #1 (crosslingual): lead sections only, candidate-relative or static, Haiku-capable.
+Compares lead sections directly; distinct from the entity-stance comparison in l5_crosslingual.
 
 Language selection (per article):
   1. Categorize via LLM (cached as {slug}.category.json) → SLATE editions for that category
@@ -16,7 +16,9 @@ Output: {slug}.framing.json in the findings directory, including oldid receipts 
 from __future__ import annotations
 
 import datetime as dt
+import re
 import time
+import unicodedata
 
 import mwparserfromhell
 
@@ -143,6 +145,27 @@ def _bound_comparison(result: dict) -> dict:
         divergences.append(item)
     bounded["divergences"] = divergences
     return bounded
+
+
+def _normalized_quote(text: str) -> str:
+    text = unicodedata.normalize("NFKC", text or "")
+    text = text.translate(str.maketrans({"“": '"', "”": '"', "’": "'", "–": "-", "—": "-"}))
+    return re.sub(r"\s+", " ", text).strip().casefold()
+
+
+def _ground_evidence(result: dict, evidence_sources: dict[str, list[str]]) -> dict:
+    """Drop purported quotations that do not occur in the exact source text supplied to the model."""
+    grounded = dict(result)
+    divergences = []
+    for divergence in result.get("divergences") or []:
+        item = dict(divergence)
+        for field, sources in evidence_sources.items():
+            quote = item.get(field)
+            if quote and not any(_normalized_quote(quote) in _normalized_quote(source) for source in sources):
+                item[field] = None
+        divergences.append(item)
+    grounded["divergences"] = divergences
+    return grounded
 
 def _categorize(article: str, client) -> dict:
     """LLM classification of article into a topic category. Cached."""
@@ -314,9 +337,14 @@ def _compare_leads(article: str, lead_texts: dict[str, str], pivot_window: dict 
         f"Return at most {MAX_DIVERGENCES} strongest non-duplicative divergences. Keep descriptions "
         f"concise and quotations to the shortest passage that proves the point. "
         f"Return an empty divergences list if editions are substantively aligned. "
-        f"A divergence is a lead for a researcher, never a verdict about manipulation."
+        f"A divergence is a lead for a researcher, never a verdict about manipulation. "
+        f"Do not label any edition biased, correct, incorrect, misleading, or propagandistic."
     )
-    return _bound_comparison(client.complete_json(_DIVERGENCE_SCHEMA, prompt, max_tokens=4096))
+    comparison = _bound_comparison(client.complete_json(_DIVERGENCE_SCHEMA, prompt, max_tokens=4096))
+    return _ground_evidence(comparison, {
+        "evidence_en": [lead_texts.get("en", "")],
+        "evidence_other": [text for lang, text in lead_texts.items() if lang != "en"],
+    })
 
 
 def _compare_temporal_leads(article: str, snapshots: dict, pivot_window: dict, client) -> dict:
@@ -348,9 +376,24 @@ def _compare_temporal_leads(article: str, snapshots: dict, pivot_window: dict, c
         f"the temporal evidence explicitly. Return at most {MAX_DIVERGENCES} strongest non-duplicative "
         f"divergences; keep descriptions concise and use the shortest supporting quotations. "
         f"Return an empty list when "
-        f"the supplied revisions do not support a genuine temporal or cross-edition difference."
+        f"the supplied revisions do not support a genuine temporal or cross-edition difference. "
+        f"Do not label any edition biased, correct, incorrect, misleading, or propagandistic."
     )
-    return _bound_comparison(client.complete_json(_TEMPORAL_DIVERGENCE_SCHEMA, prompt, max_tokens=4096))
+    comparison = _bound_comparison(client.complete_json(_TEMPORAL_DIVERGENCE_SCHEMA, prompt, max_tokens=4096))
+    return _ground_evidence(comparison, {
+        "evidence_en": [(snapshots["after"].get("en") or {}).get("lead", "")],
+        "evidence_other": [
+            record.get("lead", "") for lang, record in snapshots["after"].items() if lang != "en"
+        ],
+        "evidence_en_before": [(snapshots["before"].get("en") or {}).get("lead", "")],
+        "evidence_en_after": [(snapshots["after"].get("en") or {}).get("lead", "")],
+        "evidence_other_before": [
+            record.get("lead", "") for lang, record in snapshots["before"].items() if lang != "en"
+        ],
+        "evidence_other_after": [
+            record.get("lead", "") for lang, record in snapshots["after"].items() if lang != "en"
+        ],
+    })
 
 
 # --- main entry point ------------------------------------------------------------
@@ -364,7 +407,7 @@ def framing_lite(
     model: str | None = None,
     base_url: str | None = None,
 ) -> dict:
-    """Run Framing Lite for one article. Returns and writes the findings dict.
+    """Run the cross-language lead comparison for one article. Returns and writes the findings dict.
 
     pivot_window: optional {"start": "YYYY-MM-DD", "end": "YYYY-MM-DD", "pwr_mass": N}
     client: pre-built LLM client (shared with pipeline); built from provider/model/base_url if omitted.
@@ -382,7 +425,7 @@ def framing_lite(
         raise ValueError("pivot_window requires start and end dates")
 
     slug = slugify(article)
-    print(f"\n=== FRAMING LITE — {article} ===")
+    print(f"\n=== CROSS-LANGUAGE LEAD COMPARISON — {article} ===")
 
     def finish(result):
         usage = llm_backend.usage_summary(client, usage_start)

@@ -26,7 +26,7 @@
       "other_says": "UK: chess reached Europe in the 9th century via the Umayyad conquests in Spain. FR: introduced to southern Europe from the 10th century by the Arabs.",
       "verdict": "contradict",
       "evidence_en": "After its introduction to Persia, it spread to the Arab world and then to Europe.",
-      "evidence_other": "Шахи потрапили до Європи в 9 столітті внаслідок завоювань Омеядів в Іспанії. / Le jeu a été introduit dans le sud de l'Europe à partir du Xe siècle par les Arabes"
+      "evidence_other": null
     },
     {
       "topic": "origin century of chaturanga/chess",
@@ -87,7 +87,7 @@
       "other_says": "UK provides detailed explanation of time control formats: classical, rapid, blitz, bullet, and increment systems, including specific time examples.",
       "verdict": "absent_en",
       "evidence_en": null,
-      "evidence_other": "«Класика» передбачає доволі великий ліміт часу... Бліц — це партія тривалістю традиційно 5 хвилин... Партія з найменшою кількістю часу... називають «куля»."
+      "evidence_other": null
     }
   ],
   "summary": "The three editions largely agree on core facts (rules, pieces, objective, FIDE, Steinitz as first champion, Gukesh as current champion) but diverge notably on historical framing: EN and FR disagree on the century and route by which chess reached Europe and on how far back organized competition dates (FR citing 8th-century Baghdad and an 1851 London tournament, EN citing only the 19th century). UK gives a distinctly different account of chess's European arrival (9th century via Umayyad Spain) and omits the Deep Blue/Kasparov narrative entirely, while adding extensive detail on time controls (blitz, rapid, bullet) absent from EN and FR. FR is the most concise on computer chess, lacking the detailed history EN provides.",

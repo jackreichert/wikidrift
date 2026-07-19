@@ -25,7 +25,7 @@
       "en_says": "Describes archaeal non-carbon-fixing anoxygenic photosynthesis using retinal/rhodopsin, possibly the earliest form of photosynthesis on Earth (Purple Earth hypothesis).",
       "other_says": "DE and GU do not mention archaea performing photosynthesis at all; GU explicitly states photosynthesis does not occur in archaea.",
       "verdict": "contradict",
-      "evidence_en": "Archaea such as Halobacterium also perform a type of non-carbon-fixing anoxygenic photosynthesis...",
+      "evidence_en": null,
       "evidence_other": "પ્રકાશસંશ્લેષણની પ્રક્રિયા છોડ, શેવાળ અને બૅક્ટેરિયાની ઘણી પ્રજાતિમાં જોવા મળે છે, પરંતુ તે આર્કીયામાં થતી નથી."
     },
     {
@@ -38,7 +38,7 @@
       "other_says": "GU states photosynthesis releases about 100 terawatts, six times human electricity consumption, and converts about 100 billion tons of carbon into biomass annually.",
       "verdict": "absent_en",
       "evidence_en": null,
-      "evidence_other": "તે લગભગ 100 ટેરાવોટ છે... પ્રકાશસંશ્લેષણ વાર્ષિક 10,00,00,00,00,000 ટન કાર્બનનું બાયોમાસમાં રૂપાંતરણ કરે છે."
+      "evidence_other": null
     },
     {
       "topic": "origin of photosynthesis and evolutionary history",
@@ -73,7 +73,7 @@
       "en_says": "Defines photosynthesis primarily as a biological process performed by photopigment-bearing autotrophic organisms.",
       "other_says": "DE defines it primarily as a physiological/biochemical process for producing energy-rich biomolecules from lower-energy substances using light energy, emphasizing the chemical transformation and 'photosynthetic efficiency' concept.",
       "verdict": "differ",
-      "evidence_en": "Photosynthesis is a system of biological processes by which photopigment-bearing autotrophic organisms...convert light energy...into the chemical energy",
+      "evidence_en": null,
       "evidence_other": "ist ein physiologischer Prozess zur Erzeugung energiereicher Biomoleküle aus energieärmeren Stoffen mit Hilfe von Lichtenergie."
     },
     {

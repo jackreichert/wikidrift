@@ -5,7 +5,7 @@
   wikidrift prerank ["Zionism" ...]    # metadata pre-ranker (offline)
   wikidrift benchmark [--json]         # score the adjudicated roster
   wikidrift stance "Nakba" [--entities a,b,c] [--max-snaps N]   # L2 stance classifier (needs an LLM key)
-  wikidrift crosslingual "Zionism" [--langs en,he,ar] [--no-pivot]  # L5 #1 framing divergence (needs key)
+    wikidrift crosslingual "Zionism" [--langs en,he,ar] [--no-pivot]  # cross-language stance (needs key)
   wikidrift factcheck "Warsaw concentration camp" [--langs ..] [--asof 2018-06-01]  # L5 #2 fact divergence (needs key)
   wikidrift mscore ["Zionism" ...]      # Yasseri mutual-revert controversy corroborator (offline fetch)
   wikidrift ingest "Naliboki massacre" [...] [--force]   # local wikiwho_rs-on-dumps rsnap ingestion
@@ -91,7 +91,7 @@ def main(argv=None):
     sp.add_argument("--since", default=None, help="ISO date; only snapshots on/after it (target the L1 pivot window)")
     add_llm_flags(sp)
 
-    sp = sub.add_parser("crosslingual", help="L5 #1 — cross-lingual framing divergence")
+    sp = sub.add_parser("crosslingual", help="L5 cross-language stance comparison")
     sp.add_argument("article")
     sp.add_argument("--langs", default=None, help="comma-separated editions (default: auto established set)")
     sp.add_argument("--no-pivot", action="store_true", help="static divergence only (skip pivot-relative)")
@@ -118,10 +118,10 @@ def main(argv=None):
     sp.add_argument("--llm", action="store_true", help="run L2 stance on routed leads (needs an LLM key)")
     sp.add_argument("--mscore", action="store_true", help="also run the M-score controversy corroborator")
     sp.add_argument("--framing", action="store_true",
-                    help="run L5 Framing Lite (prefers fresh confirmed L1 pair, else candidate; needs an LLM key)")
+                    help="run L5 cross-language lead comparison (prefers fresh confirmed L1 pair; needs an LLM key)")
     add_llm_flags(sp)
 
-    sp = sub.add_parser("framing", help="L5 Framing Lite — matched leads around confirmed L1 pair or candidate")
+    sp = sub.add_parser("framing", help="L5 cross-language lead comparison around confirmed L1 pair or candidate")
     sp.add_argument("article")
     sp.add_argument("--static", action="store_true",
                     help="compare current leads only, ignoring any cached L1 candidate window")

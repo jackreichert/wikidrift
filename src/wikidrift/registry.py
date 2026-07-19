@@ -1,6 +1,6 @@
 """Cross-layer per-article study config — the single home for study config more than one layer reads.
 
-Today that is FOCAL (which entities to watch): L2 stance (stance.py) and L5 cross-lingual framing
+Today that is FOCAL (which entities to watch): L2 stance (stance.py) and the L5 cross-language stance comparison
 (l5_crosslingual.py) BOTH classify the same entities, but l5_crosslingual imports stance (an import cycle),
 so they couldn't share the list directly — it lived duplicated in both, and the two copies had already
 drifted (same entity SETS, different order). One definition here, imported by both, ends that.

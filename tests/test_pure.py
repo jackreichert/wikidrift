@@ -679,6 +679,32 @@ class FramingLiteEditionSelect(unittest.TestCase):
         self.assertEqual(len(source["divergences"]), fl.MAX_DIVERGENCES + 2)
         self.assertEqual(len(source["divergences"][0]["editions_differ"]), fl.MAX_EDITIONS + 1)
 
+    def test_ground_evidence_keeps_exact_quotes_and_drops_unsupported_text(self):
+        source = {
+            "divergences": [{
+                "evidence_en": "An exact quotation",
+                "evidence_other": "A model paraphrase",
+            }],
+            "summary": "comparison",
+        }
+
+        result = fl._ground_evidence(source, {
+            "evidence_en": ["Lead containing an exact quotation here."],
+            "evidence_other": ["The source says something else."],
+        })
+
+        self.assertEqual(result["divergences"][0]["evidence_en"], "An exact quotation")
+        self.assertIsNone(result["divergences"][0]["evidence_other"])
+        self.assertEqual(source["divergences"][0]["evidence_other"], "A model paraphrase")
+
+    def test_ground_evidence_normalizes_unicode_punctuation_and_whitespace(self):
+        result = fl._ground_evidence(
+            {"divergences": [{"evidence_en": "A “quoted” phrase — here"}]},
+            {"evidence_en": ['A  "quoted" phrase - here']},
+        )
+
+        self.assertEqual(result["divergences"][0]["evidence_en"], "A “quoted” phrase — here")
+
     def test_temporal_prompt_requests_bounded_concise_output(self):
         class CapturingClient:
             prompt = None
@@ -701,6 +727,7 @@ class FramingLiteEditionSelect(unittest.TestCase):
         )
         self.assertIn(f"at most {fl.MAX_DIVERGENCES}", client.prompt)
         self.assertIn("shortest supporting quotations", client.prompt)
+        self.assertIn("Do not label any edition biased", client.prompt)
 
     def test_slate_langs_always_included(self):
         links = self._links(["en", "ar", "he", "fr", "de"])

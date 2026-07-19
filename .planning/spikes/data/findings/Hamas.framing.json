@@ -123,7 +123,7 @@
       "other_says": "Le développement du Hamas est d'abord soutenu par le gouvernement israélien, lequel entend ainsi affaiblir l'Organisation de libération de la Palestine.",
       "verdict": "absent_en",
       "evidence_en": null,
-      "evidence_other": "Le développement du Hamas est d'abord soutenu par le gouvernement israélien, lequel entend ainsi affaiblir l'Organisation de libération de la Palestine.",
+      "evidence_other": null,
       "temporal_read": "english_moved_away",
       "en_before": "Hamas was established soon after the first Intifada in 1987. Campaigning on using armed resistance to end the Israeli occupation, it won the 2006 Palestinian legislative election...",
       "en_after": "Hamas was established soon after the first Intifada in 1987. Campaigning on using armed resistance to end the Israeli occupation, it won the 2006 Palestinian legislative election...",
@@ -132,7 +132,7 @@
       "evidence_en_before": null,
       "evidence_en_after": null,
       "evidence_other_before": null,
-      "evidence_other_after": "Le développement du Hamas est d'abord soutenu par le gouvernement israélien, lequel entend ainsi affaiblir l'Organisation de libération de la Palestine."
+      "evidence_other_after": null
     },
     {
       "topic": "Framing of Hamas as terrorist organization vs. political/resistance movement",

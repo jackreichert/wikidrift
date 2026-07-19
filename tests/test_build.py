@@ -97,6 +97,7 @@ class ArticlePageRendering(unittest.TestCase):
     def test_renders_framing_stance_grid(self):
         out = _article_html()
         self.assertIn("Framing", out)
+        self.assertIn("Cross-language stance comparison", out)
         self.assertIn("more critical", out)
         self.assertIn("Israel", out)
         self.assertIn("Overview", out)
@@ -129,6 +130,7 @@ class ArticlePageRendering(unittest.TestCase):
 
         out = build.framing_lite_block(framing)
 
+        self.assertIn("Cross-language lead comparison", out)
         self.assertIn("L1 candidate window", out)
         self.assertIn("English moved away", out)
         self.assertIn("<b>Before:</b> Earlier account", out)

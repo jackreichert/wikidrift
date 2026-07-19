@@ -85,10 +85,10 @@ uv run wikidrift sources "Palestine"           # L5 #3b: citation-source change 
 uv run wikidrift stance "Abortion"             # L2 framing/stance over time            (needs an LLM key)
 uv run wikidrift framing "Gaza war"            # L5 Lite: prefers fresh confirmed L1 pair (LLM key)
 uv run wikidrift framing "Gaza war" --static   # L5 Lite: compare current leads only
-uv run wikidrift crosslingual "Anti-Zionism"   # L5 #1: cross-lingual framing divergence (needs an LLM key)
+uv run wikidrift crosslingual "Anti-Zionism"   # L5 cross-language stance comparison (needs an LLM key)
 uv run wikidrift factcheck "Warsaw concentration camp" --asof 2018-06-01   # L5 #2: fact divergence (LLM key)
 uv run wikidrift mscore                         # controversy corroborator (metadata only)
-uv run wikidrift pipeline "Hamas" --llm --framing  # L1 → router → L2 + Framing Lite orchestration
+uv run wikidrift pipeline "Hamas" --llm --framing  # L1 → router → L2 + cross-language lead comparison
 ```
 
 Single-article verbs (`analyze`, `stance`, `framing`, `crosslingual`, `factcheck`, `pipeline`, `discover`, `sources`,
@@ -108,10 +108,10 @@ Cross-lingual edition defaults are now auto-selected per topic from established 
 available prose depth (English kept when available for pivot-relative comparability). Pass `--langs` to
 pin an explicit set.
 
-### Refresh Framing Lite findings
+### Refresh cross-language lead findings
 
 Existing framing JSON does not gain historical evidence automatically after a code update. Refresh only
-the Framing Lite result for each published article that needs matched revisions and oldid receipts:
+the cross-language lead result for each published article that needs matched revisions and oldid receipts:
 
 ```bash
 uv run wikidrift analyze "Gaza war"       # one-time: persist exact confirmed pair
@@ -131,7 +131,7 @@ If a fresh confirmation is unavailable, `framing` falls back to the coarse cache
 the result candidate-relative. If L1 has no candidate, it compares current leads in static mode. Use
 `--static` to choose that mode explicitly.
 
-To refresh confirmation and Framing Lite for every article already downloaded into the local DuckDB,
+To refresh confirmation and the cross-language lead comparison for every article already downloaded into the local DuckDB,
 first inspect the queue, then execute it:
 
 ```bash
@@ -141,7 +141,7 @@ uv run python viewer/build.py
 ```
 
 The first command is a dry run. The executing command processes articles sequentially, running full L1
-confirmation before Framing Lite for each one. It needs the existing token corpus, network access for
+confirmation before the lead comparison for each one. It needs the existing token corpus, network access for
 revision retrieval, and a configured LLM key.
 
 Each executed article writes `<slug>.cost.json` beside its other findings. The report records elapsed
@@ -174,7 +174,7 @@ Current helper defaults for pipeline invocations:
 
 - LLM path is enabled by default (use `--no-llm` to disable),
 - M-score is enabled by default (use `--no-mscore` to disable),
-- Framing Lite is opt-in: add `--framing` to batch-run cross-lingual lead comparison,
+- The cross-language lead comparison is opt-in: add `--framing` to the batch pipeline,
 - L5 factcheck language cap defaults to `--l5-max-langs 6` with `--l5-cap-policy adaptive`
   (per-topic auto-tuning from latest factcheck diagnostics),
 - set `--l5-cap-policy fixed` to always use the configured cap,

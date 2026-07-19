@@ -51,7 +51,7 @@
       "en_says": "Does not specify a historical starting date, focuses on modern Israeli-Palestinian conflict era with named groups like PLO, Fatah, Hamas.",
       "other_says": "AR traces the concept back to 1918 British occupation and 1936 revolt; HE mentions Arab attacks on Jews during the British Mandate period even before the term 'Palestinian terrorism' existed.",
       "verdict": "absent_en",
-      "evidence_en": "not mentioned",
+      "evidence_en": null,
       "evidence_other": "يستخدم المصطلح للإشارة إلى الفترة بين بدء الاحتلال البريطاني لفلسطين عام 1918م وحتى اليوم"
     },
     {
@@ -65,7 +65,7 @@
       "en_says": "Provides specific statistics: suicide bombings were 0.5% of attacks but caused half of Israeli deaths in first two years of Second Intifada; 59% of Palestinians as of 2022 believe armed attacks are effective, 56% support them.",
       "other_says": "No statistical data provided in any other edition's lead.",
       "verdict": "absent_other",
-      "evidence_en": "Suicide bombings constituted 0.5% of Palestinian attacks against Israelis in the first two years of the Second Intifada... As of 2022, a majority of Palestinians, 59%, believe armed attacks against Israelis inside Israel are an effective measure",
+      "evidence_en": null,
       "evidence_other": null
     },
     {
@@ -79,7 +79,7 @@
       "en_says": "Lists specific organizations (PLO, Fatah, PFLP, Hamas, etc.) and detailed tactics (hijacking, suicide bombings, rocket attacks, October 7 attacks).",
       "other_says": "HE and FR give only general definitional statements without naming specific organizations or tactics; AR mentions only Hamas by name; SIMPLE gives no organizations or tactics.",
       "verdict": "absent_other",
-      "evidence_en": "Palestinian groups that have been involved in politically motivated violence include the Palestine Liberation Organization (PLO), Fatah, the Popular Front for the Liberation of Palestine (PFLP)...",
+      "evidence_en": null,
       "evidence_other": "Le terrorisme palestinien fait référence aux actes de terrorisme perpétrés par des individus ou des organisations palestiniennes"
     },
     {
