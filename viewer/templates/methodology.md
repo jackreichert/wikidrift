@@ -34,26 +34,37 @@ is not necessarily wrong.
 ```mermaid
 flowchart TD
   accTitle: WikiDrift analysis layers
-  accDescr: Wikipedia revision history feeds persistent snapshots, a metadata router, and controversy context. Persistent snapshots feed the main rewrite detector. Detected changes can be interpreted with stance and vocabulary checks, used to discover other candidates for independent testing, or compared with other languages and citation history. All outputs become research leads.
+  accDescr: Wikipedia revision history feeds persistent snapshots, a metadata router, and optional controversy context. Snapshots feed durable-content, stance, vocabulary, and citation-history checks. Durable-content findings can anchor temporal comparisons and, through public edit attribution, candidate discovery. Other language editions support language and fact comparisons even without a detected rewrite. All outputs become research leads.
   A[Wikipedia revision history] --> B[Persistent snapshots<br/>and token provenance]
   A --> C[Metadata pre-ranker]
   B --> D[L1 durable-content drift]
-  C -->|addition or churn lead| E[L2 stance over time]
-  D --> F[L2.5 vocabulary change]
+  B --> E[L2 stance over time]
+  C -.->|addition or churn route| E
+  B --> F[L2.5 vocabulary change]
+  D -.->|optional pivot window| F
   A -.->|optional| G[M-score controversy context]
-  D --> H[L4 candidate discovery]
+  D --> N[L1.6 public edit attribution]
+  N --> H[L4 candidate discovery]
   H --> I[Independent L1 test<br/>for every candidate]
-  D --> J[L5 language, fact,<br/>and source comparisons]
-  E --> J
-  F --> K[Combined research lead]
+  L[Wikipedia language editions] --> J[L5 language and<br/>fact comparisons]
+  D -.->|optional temporal anchor| J
+  B --> M[L5 citation history]
+  D -.->|optional pivot window| M
+  D --> K[Research leads]
+  E --> K
+  F --> K
   G --> K
+  I --> K
   J --> K
+  M --> K
 ```
 
 The default `pipeline` command runs L1, the metadata pre-ranker, and L2.5. It does not run every box in
 the diagram. L2 runs only when the pre-ranker produces an addition or churn lead and the user enables
-the language-model option. M-score and the cross-language lead comparison also require explicit options. L4 discovery and
-the fuller language, fact, and source checks are separate commands. This is why one published article
+the language-model option. M-score and the cross-language lead comparison also require explicit options.
+L1 supplies a temporal anchor to L2.5 and cross-language comparison when it has a usable candidate or
+confirmed window; those checks can still use whole-history or static comparisons without one. L4 discovery
+and the fuller language, fact, and source checks are separate commands. This is why one published article
 may have more tabs or evidence than another.
 
 ## Preparing an article history
@@ -81,13 +92,14 @@ The pre-ranker is a fast routing step. It reads timestamps, article sizes, and e
 prose itself.
 
 It smooths the revision-size history to suppress isolated blank-and-restore events, groups activity
-into time windows, and compares additions, removals, and churn with the article's usual activity. It
-can produce three kinds of lead:
+into time windows, and compares additions and removals with the article's usual activity. It can
+produce three kinds of lead:
 
 - **Removal:** an unusually large deletion should go to the token-level L1 detector.
 - **Addition:** substantial growth may have changed the framing without removing much text, so it is
   better examined with stance analysis.
-- **Churn:** an unusual amount of replacement, even if the net size barely changes, may also warrant
+- **Churn:** a medium-sized removal that is unusually large relative to the article's own removal
+  baseline may indicate replacement that the absolute removal threshold misses, so it is routed to
   a semantic check.
 
 This is a broad filter on purpose. It points the more expensive checks toward useful windows; it does
@@ -114,15 +126,16 @@ with at least 15% persistence-weighted loss can start or extend an episode, and 
 peak of at least 25% to become a pivot candidate. L1 ranks candidates by the total persistence-weighted
 text they removed, not by percentage alone.
 
-It also records a **slow bleed** when losses across a rolling twelve-month window add up to at least
-35% of the largest article size in that window. This catches a series of changes that may be too small
-to form one obvious pivot.
+It also records a **slow bleed** when persistence-weighted losses across a rolling twelve-month window
+add up to at least 35% of the largest snapshot token count in that window. This catches a series of
+changes that may be too small to form one obvious pivot. Slow bleed is a separate annotation; it does
+not determine the main outcome below.
 
 The initial outcomes are:
 
 - **PIVOT?** A large candidate episode exists, but the revision-level check has not confirmed it.
-- **CREEP?** No single episode clears the pivot rules, but sustained loss is elevated.
-- **HEALTHY.** Neither pattern was detected under the current thresholds.
+- **CREEP?** No single episode clears the pivot rules, but mean interval loss is elevated.
+- **HEALTHY.** No pivot exists and mean interval loss is below the creep threshold.
 - **SKIP.** There are too few snapshots for the measurement.
 
 These labels describe the detector's result, not the quality or neutrality of the article. An old
@@ -205,8 +218,8 @@ edit war. M-score is context for a content finding, not a content finding itself
 
 ## L4: using a finding to discover other candidates
 
-L4 uses a confirmed change as a starting point for finding other articles worth testing. It does not
-extend the seed article's verdict to other pages.
+L4 uses the top coarse L1 candidate episode as a starting point for finding other articles worth
+testing. It does not extend the seed article's result to other pages.
 
 The process is:
 
@@ -217,10 +230,10 @@ The process is:
 4. Rank candidates by shared accounts and bytes removed.
 5. Build each candidate's own history and run an independent L1 analysis.
 
-Editor overlap chooses where to look. It does not decide the result. L4 keeps a candidate only when
-that article's own history produces an L1 signal. It also distinguishes a later rewrite after a
-substantial prior history from a large change early in a young article. The second case is better
-treated as a framing question than as a retrofit.
+Editor overlap chooses where to look. It does not decide the result. L4 promotes a candidate to a
+retrofit lead only when that article's own history produces the required L1 signal and shows at least
+two years of prior history. It retains the other retest results as negative or insufficient evidence.
+A large change earlier in a young article is treated as a framing question rather than a retrofit.
 
 ## L5: comparisons outside the English article's timeline
 

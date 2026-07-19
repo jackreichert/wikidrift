@@ -67,25 +67,36 @@ is not necessarily wrong.</p>
 <h2>The tool at a glance</h2>
 <pre><code class="language-mermaid">flowchart TD
   accTitle: WikiDrift analysis layers
-  accDescr: Wikipedia revision history feeds persistent snapshots, a metadata router, and controversy context. Persistent snapshots feed the main rewrite detector. Detected changes can be interpreted with stance and vocabulary checks, used to discover other candidates for independent testing, or compared with other languages and citation history. All outputs become research leads.
+  accDescr: Wikipedia revision history feeds persistent snapshots, a metadata router, and optional controversy context. Snapshots feed durable-content, stance, vocabulary, and citation-history checks. Durable-content findings can anchor temporal comparisons and, through public edit attribution, candidate discovery. Other language editions support language and fact comparisons even without a detected rewrite. All outputs become research leads.
   A[Wikipedia revision history] --&gt; B[Persistent snapshots&lt;br/&gt;and token provenance]
   A --&gt; C[Metadata pre-ranker]
   B --&gt; D[L1 durable-content drift]
-  C --&gt;|addition or churn lead| E[L2 stance over time]
-  D --&gt; F[L2.5 vocabulary change]
+  B --&gt; E[L2 stance over time]
+  C -.-&gt;|addition or churn route| E
+  B --&gt; F[L2.5 vocabulary change]
+  D -.-&gt;|optional pivot window| F
   A -.-&gt;|optional| G[M-score controversy context]
-  D --&gt; H[L4 candidate discovery]
+  D --&gt; N[L1.6 public edit attribution]
+  N --&gt; H[L4 candidate discovery]
   H --&gt; I[Independent L1 test&lt;br/&gt;for every candidate]
-  D --&gt; J[L5 language, fact,&lt;br/&gt;and source comparisons]
-  E --&gt; J
-  F --&gt; K[Combined research lead]
+  L[Wikipedia language editions] --&gt; J[L5 language and&lt;br/&gt;fact comparisons]
+  D -.-&gt;|optional temporal anchor| J
+  B --&gt; M[L5 citation history]
+  D -.-&gt;|optional pivot window| M
+  D --&gt; K[Research leads]
+  E --&gt; K
+  F --&gt; K
   G --&gt; K
+  I --&gt; K
   J --&gt; K
+  M --&gt; K
 </code></pre>
 <p>The default <code>pipeline</code> command runs L1, the metadata pre-ranker, and L2.5. It does not run every box in
 the diagram. L2 runs only when the pre-ranker produces an addition or churn lead and the user enables
-the language-model option. M-score and the cross-language lead comparison also require explicit options. L4 discovery and
-the fuller language, fact, and source checks are separate commands. This is why one published article
+the language-model option. M-score and the cross-language lead comparison also require explicit options.
+L1 supplies a temporal anchor to L2.5 and cross-language comparison when it has a usable candidate or
+confirmed window; those checks can still use whole-history or static comparisons without one. L4 discovery
+and the fuller language, fact, and source checks are separate commands. This is why one published article
 may have more tabs or evidence than another.</p>
 <h2>Preparing an article history</h2>
 <p>The analysis starts with a local corpus built from public Wikipedia revision data. It stores revision
@@ -105,13 +116,14 @@ with a demonstrated history of survival was lost.</p>
 <p>The pre-ranker is a fast routing step. It reads timestamps, article sizes, and editors, but not the
 prose itself.</p>
 <p>It smooths the revision-size history to suppress isolated blank-and-restore events, groups activity
-into time windows, and compares additions, removals, and churn with the article's usual activity. It
-can produce three kinds of lead:</p>
+into time windows, and compares additions and removals with the article's usual activity. It can
+produce three kinds of lead:</p>
 <ul>
 <li><strong>Removal:</strong> an unusually large deletion should go to the token-level L1 detector.</li>
 <li><strong>Addition:</strong> substantial growth may have changed the framing without removing much text, so it is
   better examined with stance analysis.</li>
-<li><strong>Churn:</strong> an unusual amount of replacement, even if the net size barely changes, may also warrant
+<li><strong>Churn:</strong> a medium-sized removal that is unusually large relative to the article's own removal
+  baseline may indicate replacement that the absolute removal threshold misses, so it is routed to
   a semantic check.</li>
 </ul>
 <p>This is a broad filter on purpose. It points the more expensive checks toward useful windows; it does
@@ -130,14 +142,15 @@ so a tiny article does not outrank a large one merely because its percentage is 
 with at least 15% persistence-weighted loss can start or extend an episode, and an episode needs a
 peak of at least 25% to become a pivot candidate. L1 ranks candidates by the total persistence-weighted
 text they removed, not by percentage alone.</p>
-<p>It also records a <strong>slow bleed</strong> when losses across a rolling twelve-month window add up to at least
-35% of the largest article size in that window. This catches a series of changes that may be too small
-to form one obvious pivot.</p>
+<p>It also records a <strong>slow bleed</strong> when persistence-weighted losses across a rolling twelve-month window
+add up to at least 35% of the largest snapshot token count in that window. This catches a series of
+changes that may be too small to form one obvious pivot. Slow bleed is a separate annotation; it does
+not determine the main outcome below.</p>
 <p>The initial outcomes are:</p>
 <ul>
 <li><strong>PIVOT?</strong> A large candidate episode exists, but the revision-level check has not confirmed it.</li>
-<li><strong>CREEP?</strong> No single episode clears the pivot rules, but sustained loss is elevated.</li>
-<li><strong>HEALTHY.</strong> Neither pattern was detected under the current thresholds.</li>
+<li><strong>CREEP?</strong> No single episode clears the pivot rules, but mean interval loss is elevated.</li>
+<li><strong>HEALTHY.</strong> No pivot exists and mean interval loss is below the creep threshold.</li>
 <li><strong>SKIP.</strong> There are too few snapshots for the measurement.</li>
 </ul>
 <p>These labels describe the detector's result, not the quality or neutrality of the article. An old
@@ -201,8 +214,8 @@ least two reverts in each direction.</p>
 A low score does not clear an article either: it may indicate that a large change happened without an
 edit war. M-score is context for a content finding, not a content finding itself.</p>
 <h2>L4: using a finding to discover other candidates</h2>
-<p>L4 uses a confirmed change as a starting point for finding other articles worth testing. It does not
-extend the seed article's verdict to other pages.</p>
+<p>L4 uses the top coarse L1 candidate episode as a starting point for finding other articles worth
+testing. It does not extend the seed article's result to other pages.</p>
 <p>The process is:</p>
 <ol>
 <li>Take leading non-bot, non-anonymous accounts associated with durable-text removal in the seed
@@ -212,10 +225,10 @@ extend the seed article's verdict to other pages.</p>
 <li>Rank candidates by shared accounts and bytes removed.</li>
 <li>Build each candidate's own history and run an independent L1 analysis.</li>
 </ol>
-<p>Editor overlap chooses where to look. It does not decide the result. L4 keeps a candidate only when
-that article's own history produces an L1 signal. It also distinguishes a later rewrite after a
-substantial prior history from a large change early in a young article. The second case is better
-treated as a framing question than as a retrofit.</p>
+<p>Editor overlap chooses where to look. It does not decide the result. L4 promotes a candidate to a
+retrofit lead only when that article's own history produces the required L1 signal and shows at least
+two years of prior history. It retains the other retest results as negative or insufficient evidence.
+A large change earlier in a young article is treated as a framing question rather than a retrofit.</p>
 <h2>L5: comparisons outside the English article's timeline</h2>
 <p>Internal history cannot answer every question. L5 is a family of checks that compare language
 editions, factual claims, citations, and the article's own sourcing trajectory.</p>

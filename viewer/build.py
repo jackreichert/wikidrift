@@ -1022,7 +1022,7 @@ def _signal_cards(article, f):
             f'See <a href="#facts">Facts</a>.</p></div>'
         )
 
-    st = f.stances.get(article)
+    st = _current_stance(article, f)
     if st:
         langs = st.get("langs") or list((st.get("editions") or {}).keys())
         lead_div = _lead_divergence(article, f)
@@ -1247,6 +1247,19 @@ def _framing_result_available(fr):
     return bool(fr.get("divergences") or calls)
 
 
+def _current_stance(article, findings):
+    """Ignore a legacy stance run when a newer framing run selected wholly different editions."""
+    stance = findings.stances.get(article)
+    framing = findings.framings.get(article)
+    if not stance or not framing:
+        return stance
+    stance_langs = set(stance.get("langs") or stance.get("editions") or {}) - {"en"}
+    framing_langs = set(framing.get("editions_compared") or []) - {"en"}
+    if stance_langs and framing_langs and stance_langs.isdisjoint(framing_langs):
+        return None
+    return stance
+
+
 def framing_lite_block(fr):
     """Extra cross-language opening comparisons (when present)."""
     if not fr:
@@ -1369,7 +1382,7 @@ def framing_lite_block(fr):
 
 def framing_tab(article, f):
     """Combine the stance grid and cross-language lead comparison when either is present."""
-    st = f.stances.get(article)
+    st = _current_stance(article, f)
     fr = f.framings.get(article)
     if not st and not fr:
         return ""

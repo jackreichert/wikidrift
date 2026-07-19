@@ -102,6 +102,28 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("Israel", out)
         self.assertIn("Overview", out)
 
+    def test_new_framing_languages_supersede_disjoint_legacy_stance(self):
+        framing = {
+            "mode": "pivot_relative",
+            "editions_compared": ["en", "sr", "ko"],
+            "divergences": [{
+                "topic": "nationalism", "verdict": "differ",
+                "editions_differ": ["sr", "ko"],
+            }],
+        }
+        findings = build.Findings(
+            stances={"Testland": ST},
+            framings={"Testland": framing},
+            diver=DIVER,
+        )
+
+        out = build.article_page("Testland", findings, categories={"Testland": "Other"})
+
+        self.assertNotIn("Cross-language stance comparison", out)
+        self.assertNotIn("Languages checked: en, he", out)
+        self.assertIn("Cross-language lead comparison", out)
+        self.assertIn("Languages compared: en, sr, ko", out)
+
     def test_renders_temporal_framing_evidence_and_receipts(self):
         framing = {
             "mode": "candidate_relative",
