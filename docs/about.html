@@ -45,7 +45,7 @@
 <p>Revision history records what changed, when it changed, and which public account made the edit. A suspicious pattern is not the same thing as a conclusion. Large removals happen during good-faith rewrites. Edit fights can form around accurate material. Quiet pages can still change in important ways. Yet it <em>has</em> been demonstrated that articles have been edited in bad faith. WikiDrift finds the change and gathers the record around it so a reader can judge what the change means.</p>
 <p>WikiDrift looks for substantial changes to long-lived wording. Its other checks place those changes beside shifts in vocabulary and citations, differences in cross-language framing, changes to basic factual claims, and the level of edit conflict around the article. The result is a research indicator with evidence a reader can inspect.</p>
 <p>The initial proof of concept used the Zionism article. It had already been discussed publicly in connection with editorial disputes, which made it a useful development case.</p>
-<p>The method draws on published work about text persistence, token authorship, controversy measurement, and cross-language comparison. The method was tested against articles with publicly documented disputes, quiet control topics, and contested subjects where a large rewrite may be entirely legitimate.</p>
+<p>The method draws on published work about text persistence, token authorship, controversy measurement, and cross-language comparison. During development, it was checked against a curated regression set containing articles with publicly documented disputes, quiet control topics, and contested subjects where a large rewrite may be entirely legitimate. This is not an independent accuracy benchmark.</p>
 <p>WikiDrift is an <a href="https://github.com/jackreichert/wikidrift/">open source</a> research project of <a href="https://encyclopediae.org">encyclopediae.org</a>.</p>
 <h2>What WikiDrift does</h2>
 <p>WikiDrift analyzes an article in layers. Not every layer runs for every article, and no layer decides whether an edit was good, bad, or biased.</p>
@@ -127,7 +127,7 @@
 - Add semantic and external-reference checks
 - Keep editor graphs downstream of content evidence</p>
 <h2>How articles on this site were chosen</h2>
-<p>The topics here are a <strong>test set</strong>, not a hit list. We picked clusters that outside sources already discuss (for example Wikipedia’s own arbitration cases, academic papers, and public reports) so we could ask: does the tool notice the same places without being fed those lists?</p>
+<p>The topics here are a <strong>curated development and regression set</strong>, not a hit list or an independent accuracy benchmark. We picked clusters that outside sources already discuss (for example Wikipedia’s own arbitration cases, academic papers, and public reports) so we could ask: does the tool notice the same places without being fed those lists?</p>
 <p>We also include <strong>control</strong> topics (like Photosynthesis) and other hot-button subjects (like Climate change) to check that ordinary big edits do not get treated as automatic proof of wrongdoing.</p>
 <p>The software itself can run on any English Wikipedia article. This site is just the published sample.</p>
 <p>For a deeper walkthrough of the process, see <a href="methodology.html">How it works</a>.</p>

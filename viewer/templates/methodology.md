@@ -328,10 +328,11 @@ wording was better. A check that does not fire is useful context, not a clean bi
 
 ## Why these topics are on the site
 
-The published articles are a validation sample, not a complete audit of Wikipedia.
+The published articles are a curated development and regression sample, not an independent validation
+set or a complete audit of Wikipedia.
 
 - Some are discussed in outside reporting or research and provide known, difficult cases. Those
-  sources help evaluate the detector; they are not fed in as lists of editors to watch.
+  sources help exercise the detector; they are not fed in as lists of editors to watch.
 - Quiet science articles test whether normal editing produces false alarms.
 - Other contested subjects test whether large, legitimate rewrites still register as change without
   being mislabeled as misconduct.

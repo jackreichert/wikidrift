@@ -11,7 +11,7 @@ WikiDrift looks for substantial changes to long-lived wording. Its other checks 
 
 The initial proof of concept used the Zionism article. It had already been discussed publicly in connection with editorial disputes, which made it a useful development case.
 
-The method draws on published work about text persistence, token authorship, controversy measurement, and cross-language comparison. The method was tested against articles with publicly documented disputes, quiet control topics, and contested subjects where a large rewrite may be entirely legitimate.
+The method draws on published work about text persistence, token authorship, controversy measurement, and cross-language comparison. During development, it was checked against a curated regression set containing articles with publicly documented disputes, quiet control topics, and contested subjects where a large rewrite may be entirely legitimate. This is not an independent accuracy benchmark.
 
 WikiDrift is an [open source](https://github.com/jackreichert/wikidrift/) research project of [encyclopediae.org](https://encyclopediae.org).
 
@@ -43,7 +43,7 @@ No one publication supplies the entire pipeline. This project's contribution is 
 
 ## How articles on this site were chosen
 
-The topics here are a **test set**, not a hit list. We picked clusters that outside sources already discuss (for example Wikipedia’s own arbitration cases, academic papers, and public reports) so we could ask: does the tool notice the same places without being fed those lists?
+The topics here are a **curated development and regression set**, not a hit list or an independent accuracy benchmark. We picked clusters that outside sources already discuss (for example Wikipedia’s own arbitration cases, academic papers, and public reports) so we could ask: does the tool notice the same places without being fed those lists?
 
 We also include **control** topics (like Photosynthesis) and other hot-button subjects (like Climate change) to check that ordinary big edits do not get treated as automatic proof of wrongdoing.
 

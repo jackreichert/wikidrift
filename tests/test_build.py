@@ -76,6 +76,17 @@ def _index_html():
 
 
 class ArticlePageRendering(unittest.TestCase):
+    def test_profile_discloses_snapshot_horizon(self):
+        profile = {
+            "horizon": "2026-01-01", "median_age_yrs": 4.2, "pct_recent": 25,
+            "recent_years": 3.0, "top10_editor_share": 60, "distinct_editors": 42,
+        }
+
+        out = build.profile_line(profile)
+
+        self.assertIn("Snapshot data on this page runs through", out)
+        self.assertIn("2026-01-01", out)
+
     def test_renders_title_and_versions(self):
         out = _article_html()
         self.assertIn("Testland", out)
@@ -145,6 +156,46 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("oldid=111", out)
         self.assertIn("oldid=112", out)
         self.assertNotIn("L1 candidate window", out)
+
+    def test_failed_framing_is_unavailable_not_a_no_difference_result(self):
+        framing = {
+            "error": "provider request failed",
+            "summary": "LLM comparison failed; no framing result was produced.",
+            "divergences": [],
+        }
+        findings = build.Findings(framings={"Testland": framing})
+
+        block = build.framing_lite_block(framing)
+        flags = {name: available for name, available, _ in build._layer_flags("Testland", findings)}
+
+        self.assertIn("No comparison result is available", block)
+        self.assertNotIn("No clear differences", block)
+        self.assertFalse(flags["Framing"])
+
+    def test_zero_call_insufficient_framing_is_unavailable(self):
+        framing = {
+            "summary": "Insufficient matched historical content.",
+            "divergences": [],
+            "llm_usage": {"calls": 0},
+        }
+
+        block = build.framing_lite_block(framing)
+
+        self.assertFalse(build._framing_result_available(framing))
+        self.assertIn("No comparison result is available", block)
+        self.assertNotIn("No clear differences", block)
+
+    def test_completed_empty_framing_is_a_valid_no_difference_result(self):
+        framing = {
+            "summary": "The supplied openings are substantively aligned.",
+            "divergences": [],
+            "llm_usage": {"calls": 1},
+        }
+
+        block = build.framing_lite_block(framing)
+
+        self.assertTrue(build._framing_result_available(framing))
+        self.assertIn("No clear differences", block)
 
     def test_index_lists_the_article_with_its_link(self):
         idx = _index_html()

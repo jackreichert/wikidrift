@@ -1225,6 +1225,8 @@ def profile_line(prof):
         conc_note = "a fairly small group of accounts wrote much of the current text"
     else:
         conc_note = "authorship is more spread out"
+    horizon = prof.get("horizon")
+    horizon_note = f' Snapshot data on this page runs through <b>{esc(horizon)}</b>.' if horizon else ""
     return (
         f'<p class="profile">Half of the wording still on the page is about '
         f'<b>{prof["median_age_yrs"]} years</b> old or newer. '
@@ -1232,8 +1234,17 @@ def profile_line(prof):
         f'{prof["recent_years"]:.0f} years. '
         f'The ten most active accounts wrote <b>{conc}%</b> of what is there now '
         f'({conc_note}; {prof["distinct_editors"]} different accounts overall). '
+        f'{horizon_note}'
         f'<span class="muted">This is background only — a small group of writers is common on specialist pages.</span></p>'
     )
+
+
+def _framing_result_available(fr):
+    """A file records an available comparison only after inference produced a result."""
+    if not fr or fr.get("error"):
+        return False
+    calls = (fr.get("llm_usage") or {}).get("calls", 0)
+    return bool(fr.get("divergences") or calls)
 
 
 def framing_lite_block(fr):
@@ -1281,6 +1292,8 @@ def framing_lite_block(fr):
                 receipt_bits.append(f'{esc(lang)}: {" / ".join(links)}')
         if receipt_bits:
             head += f'<p class="muted">Version receipts: {" · ".join(receipt_bits)}</p>'
+    if not _framing_result_available(fr):
+        return head + '<p class="muted">No comparison result is available for this run.</p>'
     if not divs:
         return head + '<p class="muted">No clear differences were recorded in this check.</p>'
 
@@ -1372,7 +1385,8 @@ def _layer_flags(article, f):
     has_lex = article in f.lexical
     rewrite_state = _rewrite_state(article, f)
     has_src = article in f.sources
-    has_framing = bool(f.stances.get(article) or f.framings.get(article))
+    framing = f.framings.get(article) or {}
+    has_framing = bool(f.stances.get(article) or _framing_result_available(framing))
     has_facts = bool(f.factchecks.get(article))
     has_rev = bool(f.receipts.get(article))
     return [
