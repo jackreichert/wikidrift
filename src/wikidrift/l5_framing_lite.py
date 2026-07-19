@@ -72,7 +72,6 @@ _DIVERGENCE_ITEM = {
         "topic": {"type": "string", "maxLength": 100},
         "editions_differ": {
             "type": "array", "items": {"type": "string", "maxLength": 12},
-            "maxItems": MAX_EDITIONS,
         },
         "en_says": {"type": "string", "maxLength": MAX_DESCRIPTION_CHARS},
         "other_says": {"type": "string", "maxLength": MAX_DESCRIPTION_CHARS},
@@ -87,7 +86,7 @@ _DIVERGENCE_ITEM = {
 _DIVERGENCE_SCHEMA = {
     "type": "object",
     "properties": {
-        "divergences": {"type": "array", "items": _DIVERGENCE_ITEM, "maxItems": MAX_DIVERGENCES},
+        "divergences": {"type": "array", "items": _DIVERGENCE_ITEM},
         "summary": {"type": "string", "maxLength": MAX_SUMMARY_CHARS},
     },
     "required": ["divergences", "summary"],
@@ -123,7 +122,7 @@ _TEMPORAL_DIVERGENCE_SCHEMA = {
     "type": "object",
     "properties": {
         "divergences": {
-            "type": "array", "items": _TEMPORAL_DIVERGENCE_ITEM, "maxItems": MAX_DIVERGENCES,
+            "type": "array", "items": _TEMPORAL_DIVERGENCE_ITEM,
         },
         "summary": {"type": "string", "maxLength": MAX_SUMMARY_CHARS},
     },
@@ -133,6 +132,17 @@ _TEMPORAL_DIVERGENCE_SCHEMA = {
 
 
 # --- helpers ---------------------------------------------------------------------
+
+def _bound_comparison(result: dict) -> dict:
+    """Enforce array limits locally because Anthropic structured outputs reject maxItems."""
+    bounded = dict(result)
+    divergences = []
+    for divergence in (result.get("divergences") or [])[:MAX_DIVERGENCES]:
+        item = dict(divergence)
+        item["editions_differ"] = (divergence.get("editions_differ") or [])[:MAX_EDITIONS]
+        divergences.append(item)
+    bounded["divergences"] = divergences
+    return bounded
 
 def _categorize(article: str, client) -> dict:
     """LLM classification of article into a topic category. Cached."""
@@ -306,7 +316,7 @@ def _compare_leads(article: str, lead_texts: dict[str, str], pivot_window: dict 
         f"Return an empty divergences list if editions are substantively aligned. "
         f"A divergence is a lead for a researcher, never a verdict about manipulation."
     )
-    return client.complete_json(_DIVERGENCE_SCHEMA, prompt, max_tokens=4096)
+    return _bound_comparison(client.complete_json(_DIVERGENCE_SCHEMA, prompt, max_tokens=4096))
 
 
 def _compare_temporal_leads(article: str, snapshots: dict, pivot_window: dict, client) -> dict:
@@ -340,7 +350,7 @@ def _compare_temporal_leads(article: str, snapshots: dict, pivot_window: dict, c
         f"Return an empty list when "
         f"the supplied revisions do not support a genuine temporal or cross-edition difference."
     )
-    return client.complete_json(_TEMPORAL_DIVERGENCE_SCHEMA, prompt, max_tokens=4096)
+    return _bound_comparison(client.complete_json(_TEMPORAL_DIVERGENCE_SCHEMA, prompt, max_tokens=4096))
 
 
 # --- main entry point ------------------------------------------------------------

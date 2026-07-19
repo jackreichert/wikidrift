@@ -650,10 +650,11 @@ class FramingLiteEditionSelect(unittest.TestCase):
     def _links(self, langs):
         return {l: f"Title_{l}" for l in langs}
 
-    def test_divergence_schemas_bound_items_and_text(self):
+    def test_divergence_schemas_bound_text_without_unsupported_max_items(self):
         for schema in (fl._DIVERGENCE_SCHEMA, fl._TEMPORAL_DIVERGENCE_SCHEMA):
-            self.assertEqual(schema["properties"]["divergences"]["maxItems"], fl.MAX_DIVERGENCES)
+            self.assertNotIn("maxItems", schema["properties"]["divergences"])
             self.assertEqual(schema["properties"]["summary"]["maxLength"], fl.MAX_SUMMARY_CHARS)
+        self.assertNotIn("maxItems", fl._DIVERGENCE_ITEM["properties"]["editions_differ"])
         temporal = fl._TEMPORAL_DIVERGENCE_SCHEMA["properties"]["divergences"]["items"]
         self.assertEqual(
             temporal["properties"]["evidence_en_before"]["anyOf"][0]["maxLength"],
@@ -663,6 +664,20 @@ class FramingLiteEditionSelect(unittest.TestCase):
             temporal["properties"]["evidence_en_before"]["anyOf"][1],
             {"type": "null"},
         )
+
+    def test_bound_comparison_caps_divergences_and_editions_without_mutating_input(self):
+        source = {
+            "divergences": [
+                {"topic": str(index), "editions_differ": ["en", "ar", "he", "ja", "ur", "de"]}
+                for index in range(fl.MAX_DIVERGENCES + 2)
+            ],
+            "summary": "bounded",
+        }
+        result = fl._bound_comparison(source)
+        self.assertEqual(len(result["divergences"]), fl.MAX_DIVERGENCES)
+        self.assertEqual(len(result["divergences"][0]["editions_differ"]), fl.MAX_EDITIONS)
+        self.assertEqual(len(source["divergences"]), fl.MAX_DIVERGENCES + 2)
+        self.assertEqual(len(source["divergences"][0]["editions_differ"]), fl.MAX_EDITIONS + 1)
 
     def test_temporal_prompt_requests_bounded_concise_output(self):
         class CapturingClient:
