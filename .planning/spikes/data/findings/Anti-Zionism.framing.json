@@ -1,0 +1,143 @@
+{
+  "article": "Anti-Zionism",
+  "category": "israeli-palestinian",
+  "mode": "pivot_relative",
+  "pivot_window": {
+    "start": "2022-01-01",
+    "end": "2023-01-01",
+    "pwr_mass": 278907,
+    "status": "confirmed",
+    "before_revid": 1094082453,
+    "before_timestamp": "2022-06-20T16:59:04Z",
+    "after_revid": 1094083062,
+    "after_timestamp": "2022-06-20T17:03:39Z",
+    "durable_spine_drop": 0.738419
+  },
+  "editions_compared": [
+    "en",
+    "ar",
+    "he",
+    "fr",
+    "ru"
+  ],
+  "lead_chars": {
+    "en": 935,
+    "ar": 709,
+    "he": 431,
+    "fr": 860,
+    "ru": 311
+  },
+  "snapshots": {
+    "before": {
+      "en": {
+        "revid": 1094082453,
+        "timestamp": "2022-06-20T16:59:04Z",
+        "title": "Anti-Zionism",
+        "lead": "Anti-Zionism is opposition to Zionism.  The term is broadly defined in the modern era as opposition to the State of Israel or, prior to 1948, opposition to the establishment of a Jewish state in Palestine.\n\nAnti-Zionism has supporters and detractors, both within and beyond the broader Jewish community. Critics of anti-Zionism claim that it often serves as a cover for modern-day antisemitism, may be motivated by prejudices against Jews in general, or tends to create a climate where antisemitism is viewed as acceptable.\"What Is… Anti-Israel, Anti-Semitic, Anti-Zionist?\" ADL.  8 February 2019. Exponents of anti-Zionism have rejected these claims and have in turn asserted that their critics, in linking opposition to Israeli practices to enmity for the Jewish people, are effectively engaged in attempts to stifle legitimate criticisms of Israeli policies, particularly of Israeli military actions and occupation of the West Bank."
+      },
+      "ar": {
+        "revid": 58160319,
+        "timestamp": "2022-05-18T18:27:55Z",
+        "title": "معاداة الصهيونية",
+        "lead": "تصغير|يسار|ظهرت هذه الكتابة في الجواز السفر الباكستاني \"يسمح المرور لأقطار العالم عدا إسرائيل\" باللغتين الأوردية والإنجليزية.\nمعاداة الصهيونية مصطلح يمثل رفض أو محاربة الصهيونية بناء على موقف سياسي أو معتقد ديني.\"Left Handed Compliments ....\"The Tel Aviv Review, TLV1 Podcasts.  17 November 2017.  See discussion beginning at 22:33.  تختلف دوافع رفض الصهيونية، بين رفض مشروعها الدولي في فلسطين بصفته مشروعا استعماريا، ورفضها في قطاعات يهودية علمانية فضّلت الاندماج في المجتمعات التي تعيش فيها ورفضت ربط الهوية اليهودية ببعد قومي أو دولي، وترى المعتقدات الدينية اليهودية أنه العودة إلى «أرض الميعاد» مرتبطة بقدوم المسيح. وتختلف معاداة الصهيونية عن معاداة اليهود أو اللاسامية الأوروبية التي تعادي اليهود لذاتهم."
+      },
+      "he": {
+        "revid": 33974007,
+        "timestamp": "2022-05-29T08:31:09Z",
+        "title": "אנטי-ציונות",
+        "lead": "ממוזער|שמאל|250px|מפגינים ערבים כנגד התנועה הציונית בארץ ישראל ליד שער שכם בירושלים, במאורעות תר\"ף 1920\nאנטי-ציונות הוא מונח מורכב ורב-פנים, שמשמעותו התנגדות לתנועה הציונית. אנטי-ציונות הייתה חלק מהמערך הרעיוני של תנועות חברתיות ופוליטיות רבות, לדוגמה בברית המועצות ובמדינות ערב. כיום נעשה שימוש במונח זה גם בשיח הפנים-ישראלי. לאחר הקמת מדינת ישראל נעשה שימוש במונח גם כציון מביע התנגדות לקיומה, אך גם כהתנגדות להיותה מדינה יהודית."
+      },
+      "fr": {
+        "revid": 192715766,
+        "timestamp": "2022-04-09T07:57:56Z",
+        "title": "Antisionisme",
+        "lead": "vignette|350x350px|Manifestation antisioniste à Dar es Salam (Tanzanie) en 2009.\n\nL'antisionisme (ou anti-sionisme) désigne l'opposition au sionisme. Le terme est utilisé dans différents contextes et pour décrire différentes positions politiques caractérisées par de l'hostilité qui peut être : à l'État d'Israël, à sa création, à son caractère juif, à son territoire, à l'autodétermination du peuple juif, à une perception du mouvement sioniste ou à d'autres sujets comme le statut des territoires palestiniens. Au cours de l'histoire, le concept a fait partie de la réflexion politique juive, puis il a été repris dans le monde arabe, par le nationalisme palestinien, par l'URSS et plus récemment dans la rhétorique anti-israélienne. Les liens entre l'antisionisme (ses idéologies et ses conséquences) et l'antisémitisme sont étudiés par divers spécialistes."
+      },
+      "ru": {
+        "revid": 122921553,
+        "timestamp": "2022-05-29T20:22:46Z",
+        "title": "Антисионизм",
+        "lead": "thumb|Антисионистская символика\nАнтисиони́зм — идеологическое и практическое противодействие целям сионизма или методам их достижения со стороны представителей различных (в том числе еврейских) идейных и религиозных течений, политических организаций, общественных институтов, отвергающих и критикующих его."
+      }
+    },
+    "after": {
+      "en": {
+        "revid": 1094083062,
+        "timestamp": "2022-06-20T17:03:39Z",
+        "title": "Anti-Zionism",
+        "lead": "Anti-Zionism is opposition to Zionism.  The term is broadly defined in the modern era as opposition to the State of Israel or, prior to 1948, opposition to the establishment of a Jewish state in Palestine.\n\nAnti-Zionism has supporters and detractors, both within and beyond the broader Jewish community. Critics of anti-Zionism claim that it often serves as a cover for modern-day antisemitism, may be motivated by prejudices against Jews in general, or tends to create a climate where antisemitism is viewed as acceptable.\"What Is… Anti-Israel, Anti-Semitic, Anti-Zionist?\" ADL.  8 February 2019. Exponents of anti-Zionism have rejected these claims and have in turn asserted that their critics, in linking opposition to Israeli practices to enmity for the Jewish people, are effectively engaged in attempts to stifle legitimate criticisms of Israeli policies, particularly of Israeli military actions and occupation of the West Bank."
+      },
+      "ar": {
+        "revid": 58626470,
+        "timestamp": "2022-07-08T15:19:15Z",
+        "title": "معاداة الصهيونية",
+        "lead": "تصغير|يسار|ظهرت هذه الكتابة في الجواز السفر الباكستاني \"يسمح المرور لأقطار العالم عدا إسرائيل\" باللغتين الأوردية والإنجليزية.\nمعاداة الصهيونية مصطلح يمثل رفض أو محاربة الصهيونية بناء على موقف سياسي أو معتقد ديني.\"Left Handed Compliments ....\"The Tel Aviv Review, TLV1 Podcasts.  17 November 2017.  See discussion beginning at 22:33.  تختلف دوافع رفض الصهيونية، بين رفض مشروعها الدولي في فلسطين بصفته مشروعا استعماريا، ورفضها في قطاعات يهودية علمانية فضّلت الاندماج في المجتمعات التي تعيش فيها ورفضت ربط الهوية اليهودية ببعد قومي أو دولي، وترى المعتقدات الدينية اليهودية أنه العودة إلى «أرض الميعاد» مرتبطة بقدوم المسيح. وتختلف معاداة الصهيونية عن معاداة اليهود أو اللاسامية الأوروبية التي تعادي اليهود لذاتهم."
+      },
+      "he": {
+        "revid": 34372981,
+        "timestamp": "2022-07-27T05:40:52Z",
+        "title": "אנטי-ציונות",
+        "lead": "ממוזער|שמאל|250px|מפגינים ערבים כנגד התנועה הציונית בארץ ישראל ליד שער שכם בירושלים, במאורעות תר\"ף 1920\nאנטי-ציונות הוא מונח מורכב ורב-פנים, שמשמעותו התנגדות לתנועה הציונית. אנטי-ציונות הייתה חלק מהמערך הרעיוני של תנועות חברתיות ופוליטיות רבות, לדוגמה בברית המועצות ובמדינות ערב. כיום נעשה שימוש במונח זה גם בשיח הפנים-ישראלי. לאחר הקמת מדינת ישראל נעשה שימוש במונח גם כציון מביע התנגדות לקיומה, אך גם כהתנגדות להיותה מדינה יהודית."
+      },
+      "fr": {
+        "revid": 196060071,
+        "timestamp": "2022-08-12T14:08:11Z",
+        "title": "Antisionisme",
+        "lead": "vignette|350x350px|Manifestation antisioniste à Dar es Salam (Tanzanie) en 2009.\n\nL'antisionisme (ou anti-sionisme) désigne l'opposition au sionisme. Le terme est utilisé dans différents contextes et pour décrire différentes positions politiques caractérisées par de l'hostilité qui peut être : à l'État d'Israël, à sa création, à son caractère juif, à son territoire, à l'autodétermination du peuple juif, à une perception du mouvement sioniste ou à d'autres sujets comme le statut des territoires palestiniens. Au cours de l'histoire, le concept a fait partie de la réflexion politique juive, puis il a été repris dans le monde arabe, par le nationalisme palestinien, par l'URSS et plus récemment dans la rhétorique anti-israélienne. Les liens entre l'antisionisme (ses idéologies et ses conséquences) et l'antisémitisme sont étudiés par divers spécialistes."
+      },
+      "ru": {
+        "revid": 124070919,
+        "timestamp": "2022-07-15T22:15:42Z",
+        "title": "Антисионизм",
+        "lead": "thumb|Антисионистская символика\nАнтисиони́зм — идеологическое и практическое противодействие целям сионизма или методам их достижения со стороны представителей различных (в том числе еврейских) идейных и религиозных течений, политических организаций, общественных институтов, отвергающих и критикующих его. Куку"
+      }
+    }
+  },
+  "divergences": [
+    {
+      "topic": "Definition and framing of anti-Zionism",
+      "editions_differ": [
+        "AR",
+        "FR",
+        "HE",
+        "RU"
+      ],
+      "en_says": "Anti-Zionism is opposition to Zionism. The term is broadly defined in the modern era as opposition to the State of Israel or, prior to 1948, opposition to the establishment of a Jewish state in Palestine. Discusses supporters/detractors and antisemitism debate.",
+      "other_says": "L'antisionisme désigne l'opposition au sionisme, utilisé dans différents contextes pour décrire diverses positions politiques d'hostilité à l'État d'Israël, sa création, son caractère juif, son territoire, l'autodétermination du peuple juif, etc., avec un historique impliquant la pensée politique juive, le monde arabe, le nationalisme palestinien et l'URSS.",
+      "verdict": "agree",
+      "evidence_en": "Anti-Zionism is opposition to Zionism. The term is broadly defined in the modern era as opposition to the State of Israel or, prior to 1948, opposition to the establishment of a Jewish state in Palestine.",
+      "evidence_other": "L'antisionisme (ou anti-sionisme) désigne l'opposition au sionisme. Le terme est utilisé dans différents contextes et pour décrire différentes positions politiques caractérisées par de l'hostilité qui peut être : à l'État d'Israël, à sa création, à son caractère juif, à son territoire, à l'autodétermination du peuple juif...",
+      "temporal_read": "difference_persisted",
+      "en_before": "Anti-Zionism is opposition to Zionism. The term is broadly defined in the modern era as opposition to the State of Israel or, prior to 1948, opposition to the establishment of a Jewish state in Palestine. Anti-Zionism has supporters and detractors...",
+      "en_after": "Anti-Zionism is opposition to Zionism. The term is broadly defined in the modern era as opposition to the State of Israel or, prior to 1948, opposition to the establishment of a Jewish state in Palestine. Anti-Zionism has supporters and detractors...",
+      "other_before": "L'antisionisme (ou anti-sionisme) désigne l'opposition au sionisme. Le terme est utilisé dans différents contextes et pour décrire différentes positions politiques caractérisées par de l'hostilité qui peut être : à l'État d'Israël, à sa création, à son caractère juif, à son territoire, à l'autodétermination du peuple juif...",
+      "other_after": "L'antisionisme (ou anti-sionisme) désigne l'opposition au sionisme. Le terme est utilisé dans différents contextes et pour décrire différentes positions politiques caractérisées par de l'hostilité qui peut être : à l'État d'Israël, à sa création, à son caractère juif, à son territoire, à l'autodétermination du peuple juif...",
+      "evidence_en_before": "Anti-Zionism is opposition to Zionism. The term is broadly defined in the modern era as opposition to the State of Israel or, prior to 1948, opposition to the establishment of a Jewish state in Palestine.",
+      "evidence_en_after": "Anti-Zionism is opposition to Zionism. The term is broadly defined in the modern era as opposition to the State of Israel or, prior to 1948, opposition to the establishment of a Jewish state in Palestine.",
+      "evidence_other_before": "L'antisionisme (ou anti-sionisme) désigne l'opposition au sionisme. Le terme est utilisé dans différents contextes et pour décrire différentes positions politiques caractérisées par de l'hostilité...",
+      "evidence_other_after": "L'antisionisme (ou anti-sionisme) désigne l'opposition au sionisme. Le terme est utilisé dans différents contextes et pour décrire différentes positions politiques caractérisées par de l'hostilité..."
+    }
+  ],
+  "summary": "No genuine content changes occurred in any edition during this window. The English, Arabic, French, and Hebrew leads are textually identical before and after the specified revisions, showing no edits to substantive content. The Russian edition's only change is the addition of the nonsensical word 'Куку' (likely vandalism or a test edit) at the end of the after-text, which is not a meaningful content divergence and lacks quotable substantive content to compare. Since no edition shows a genuine temporal or cross-edition change in meaning within this window, only a persistent baseline difference in framing/scope between English and the other editions (all present in both before and after states) is noted; this reflects pre-existing structural differences rather than any change during the observed period.",
+  "run_ts": "2026-07-18T23:43:33.254035+00:00",
+  "model": "claude-sonnet-5",
+  "llm_usage": {
+    "calls": 1,
+    "input_tokens": 4582,
+    "output_tokens": 1549,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 4582,
+        "output_tokens": 1549,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
+  },
+  "elapsed_seconds": 27.081
+}

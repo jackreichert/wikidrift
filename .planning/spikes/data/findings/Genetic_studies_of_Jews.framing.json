@@ -1,0 +1,141 @@
+{
+  "article": "Genetic studies of Jews",
+  "category": "general",
+  "mode": "static",
+  "pivot_window": null,
+  "editions_compared": [
+    "en",
+    "mk",
+    "ar"
+  ],
+  "lead_chars": {
+    "en": 1803,
+    "mk": 2403,
+    "ar": 1491
+  },
+  "snapshots": null,
+  "divergences": [
+    {
+      "topic": "field classification/context",
+      "editions_differ": [
+        "MK",
+        "AR"
+      ],
+      "en_says": "Framed simply as genetic studies investigating origins and shared ancestry; medical genetics studied for population-specific diseases.",
+      "other_says": "Both MK and AR frame the studies explicitly as part of population genetics used to analyze the chronology of Jewish migration, corroborating research in history, linguistics, archaeology, and paleontology.",
+      "verdict": "absent_en",
+      "evidence_en": "Genetic studies investigate the origins of various Jewish ethnic divisions by using DNA to investigate whether different Jewish and non-Jewish populations have shared ancestry or not.",
+      "evidence_other": "Генетските проучувања на Евреите — дел од популациона генетика и се користи за анализа на хронологијата на еврејската миграција придружена со истражувања во други области, како што се историјата, лингвистиката, археологијата и палеонтологијата."
+    },
+    {
+      "topic": "specific populations showing genetic closeness to Middle Eastern groups",
+      "editions_differ": [
+        "MK"
+      ],
+      "en_says": "General statement of significant shared Middle Eastern ancestry among Ashkenazi, Sephardi, and Mizrahi Jews.",
+      "other_says": "Adds specific named populations showing genetic closeness: Lebanese, Palestinians, Bedouins, Druze, plus Southern Europeans including Cypriots and Italians.",
+      "verdict": "absent_en",
+      "evidence_en": "show significant amounts of shared Middle Eastern ancestry, as well as admixture from local populations.",
+      "evidence_other": "Неколку еврејски групи покажуваат генетска близина со Либанците, Палестинците, Бедуините и Друзите, покрај јужноевропските популации, вклучувајќи ги Кипарците и Италијанците."
+    },
+    {
+      "topic": "researcher attribution for Middle Eastern ancestry claim",
+      "editions_differ": [
+        "AR"
+      ],
+      "en_says": "States the finding as a general scientific consensus without specific attribution to a named researcher for the historical narrative connection.",
+      "other_says": "Explicitly attributes the interpretation to researcher Behar and colleagues (2010), quoting them as saying this corresponds to a historical formula of the Jewish people descending from ancient Hebrews and Israelites in the Levant, and their dispersal.",
+      "verdict": "absent_en",
+      "evidence_en": "Studies on the genetic composition of Ashkenazi, Sephardi, and Mizrahi Jewish populations of the Jewish diaspora show significant amounts of shared Middle Eastern ancestry, as well as admixture from local populations.",
+      "evidence_other": "وفقًا لما قاله الباحث بيهار وزملاؤه (2010)، فإن هذا «يتوافق مع صيغة تاريخية للشعب اليهودي باعتباره ينحدر من العبرانيين والإسرائيليين القدماء في بلاد الشام» ومن ثم «تشتت شعب بنو إسرائيل القدماء في جميع أنحاء العالم القديم»."
+    },
+    {
+      "topic": "Ashkenazi closeness to Southern Europeans",
+      "editions_differ": [
+        "EN",
+        "MK",
+        "AR"
+      ],
+      "en_says": "Notes especially close relationship between Ashkenazi Jews and modern Italians, Greeks, and other Southern Europeans.",
+      "other_says": "MK and AR mention only Italians specifically, omitting Greeks and broader Southern Europeans in this specific sentence.",
+      "verdict": "differ",
+      "evidence_en": "Some researchers have remarked on an especially close relationship between Ashkenazi Jews and modern Italians, Greeks, and other Southern Europeans.",
+      "evidence_other": "Некои истражувачи забележале особено блиска врска помеѓу Ашкеназите Евреи и современите Италијанци."
+    },
+    {
+      "topic": "Bene Israel, Cochin Jews, Beta Israel ancestry characterization",
+      "editions_differ": [
+        "EN",
+        "MK",
+        "AR"
+      ],
+      "en_says": "States these groups resemble their local populations but may have some admixture, without asserting ancient Jewish ancestry as a conclusion.",
+      "other_says": "MK states some studies show they may have some ancient Jewish origin despite resembling local populations; AR asserts more definitively that they descend from ancient Jewish origins despite resembling local populations.",
+      "verdict": "contradict",
+      "evidence_en": "Bene Israel and the Cochin Jews of India, and Beta Israel of Ethiopia, resemble their local populations but also may have some admixture.",
+      "evidence_other": "تُظهر بعض الدراسات أن بني إسرائيل وإيهود كوشين في الهند وبيتا إسرائيل في إثيوبيا، رغم أنهم يشبهون السكان الأصليين في بلدانهم الأصلية؛ إلَّا أنهم ينحدرون من أصول يهودية قديمة."
+    },
+    {
+      "topic": "scope of medical genetics discussion",
+      "editions_differ": [
+        "MK"
+      ],
+      "en_says": "Mentions medical genetics studied for population-specific diseases AND disease commonalities with other ethnicities.",
+      "other_says": "MK only mentions diseases specific to the population, omitting the comparative aspect with other ethnicities.",
+      "verdict": "differ",
+      "evidence_en": "The medical genetics of Jews are studied for population-specific diseases and disease commonalities with other ethnicities.",
+      "evidence_other": "Медицинската генетика на Евреите се проучува за болести кои се специфични за населението."
+    },
+    {
+      "topic": "AR omission of medical genetics topic",
+      "editions_differ": [
+        "AR"
+      ],
+      "en_says": "Explicitly mentions medical genetics of Jews studied for diseases.",
+      "other_says": "AR lead does not mention medical genetics or disease studies at all.",
+      "verdict": "absent_other",
+      "evidence_en": "The medical genetics of Jews are studied for population-specific diseases and disease commonalities with other ethnicities.",
+      "evidence_other": null
+    }
+  ],
+  "summary": "The EN, MK, and AR leads largely agree on the core narrative that genetic studies show shared Middle Eastern ancestry among diaspora Jewish groups with regional admixture, and that autosomal/mtDNA/Y-DNA testing reveals genetic isolate formation. However, MK and AR add contextual framing (population genetics, migration chronology, links to history/archaeology/linguistics) absent in EN. MK includes additional named comparator populations (Lebanese, Palestinians, Bedouins, Druze, Cypriots) not found in EN or AR. AR uniquely attributes key claims to a specific researcher (Behar et al. 2010) and asserts a firmer conclusion about the ancient Jewish ancestry of Bene Israel, Cochin Jews, and Beta Israel, which contrasts with EN's more hedged phrasing ('may have some admixture'). EN uniquely includes Greeks in the Ashkenazi-Southern European closeness claim and explicitly extends medical genetics discussion to disease commonalities with other ethnicities, a point missing entirely from AR's lead.",
+  "run_ts": "2026-07-18T23:59:38.168290+00:00",
+  "model": "claude-sonnet-5",
+  "llm_usage": {
+    "calls": 3,
+    "input_tokens": 7390,
+    "output_tokens": 3953,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 440,
+        "output_tokens": 82,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      },
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 3475,
+        "output_tokens": 1500,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      },
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 3475,
+        "output_tokens": 2371,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
+  },
+  "elapsed_seconds": 61.475
+}

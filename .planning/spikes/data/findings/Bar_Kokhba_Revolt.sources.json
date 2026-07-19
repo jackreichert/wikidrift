@@ -117,22 +117,22 @@
       "to": 3
     },
     {
-      "domain": "yalebooks.yale.edu",
-      "from": 0,
-      "to": 2
-    },
-    {
       "domain": "mohrsiebeck.com",
       "from": 1,
       "to": 3
     },
     {
-      "domain": "tandfonline.com",
+      "domain": "yalebooks.yale.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "hup.harvard.edu",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "books.google.co.il",
+      "domain": "d1wqtxts1xzle7.cloudfront.net",
       "from": 0,
       "to": 1
     },
@@ -147,22 +147,22 @@
       "to": 1
     },
     {
-      "domain": "global.oup.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "hup.harvard.edu",
-      "from": 0,
-      "to": 1
-    },
-    {
       "domain": "ruj.uj.edu.pl",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "d1wqtxts1xzle7.cloudfront.net",
+      "domain": "global.oup.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "books.google.co.il",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "tandfonline.com",
       "from": 0,
       "to": 1
     }
@@ -189,36 +189,6 @@
       "to": 0
     },
     {
-      "domain": "halakhah.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "sefaria.org",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "mechon-mamre.org",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "oxfordre.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "archive.today",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "jpost.com",
-      "from": 2,
-      "to": 0
-    },
-    {
       "domain": "rsy-netzer.org.uk",
       "from": 2,
       "to": 0
@@ -229,7 +199,12 @@
       "to": 0
     },
     {
-      "domain": "cojs.org",
+      "domain": "halakhah.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "mechon-mamre.org",
       "from": 2,
       "to": 0
     },
@@ -239,9 +214,69 @@
       "to": 0
     },
     {
+      "domain": "oxfordre.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "jpost.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "sefaria.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "archive.today",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "cojs.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "ceeol.com",
+      "from": 1,
+      "to": 0
+    },
+    {
       "domain": "archive.org",
       "from": 3,
       "to": 2
+    },
+    {
+      "domain": "knesset.gov.il",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "israelhayom.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "haaretz.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "nrg.co.il",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "penelope.uchicago.edu",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "bbc.com",
+      "from": 1,
+      "to": 0
     },
     {
       "domain": "israelnationalnews.com",
@@ -254,22 +289,7 @@
       "to": 0
     },
     {
-      "domain": "instonebrewer.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "cnn.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "hebrewbooks.org",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "bbc.com",
+      "domain": "sacred-texts.com",
       "from": 1,
       "to": 0
     },
@@ -279,47 +299,27 @@
       "to": 0
     },
     {
-      "domain": "nrg.co.il",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "haaretz.com",
-      "from": 2,
-      "to": 1
-    },
-    {
-      "domain": "penelope.uchicago.edu",
-      "from": 2,
-      "to": 1
-    },
-    {
       "domain": "gibsoncondo.com",
       "from": 1,
       "to": 0
     },
     {
-      "domain": "israelhayom.com",
+      "domain": "hebrewbooks.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "cnn.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "instonebrewer.com",
       "from": 1,
       "to": 0
     },
     {
       "domain": "youtube.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "ceeol.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "sacred-texts.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "knesset.gov.il",
       "from": 1,
       "to": 0
     },

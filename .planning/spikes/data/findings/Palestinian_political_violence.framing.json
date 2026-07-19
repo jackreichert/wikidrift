@@ -1,0 +1,42 @@
+{
+  "article": "Palestinian political violence",
+  "mode": "static",
+  "editions_compared": [
+    "en",
+    "ar",
+    "he",
+    "fr",
+    "simple"
+  ],
+  "lead_chars": {
+    "en": 2245,
+    "ar": 805,
+    "he": 344,
+    "fr": 190,
+    "simple": 349
+  },
+  "divergences": [],
+  "error": "anthropic returned invalid JSON twice; last response ended near character 7344",
+  "summary": "LLM comparison failed; no framing result was produced.",
+  "run_ts": "2026-07-19T00:22:14.417843+00:00",
+  "model": "claude-sonnet-5",
+  "llm_usage": {
+    "calls": 1,
+    "input_tokens": 438,
+    "output_tokens": 69,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 438,
+        "output_tokens": 69,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
+  },
+  "elapsed_seconds": 60.791
+}

@@ -1,0 +1,42 @@
+{
+  "article": "Rafah offensive",
+  "mode": "static",
+  "editions_compared": [
+    "en",
+    "ar",
+    "he",
+    "bn",
+    "de"
+  ],
+  "lead_chars": {
+    "en": 1218,
+    "ar": 1153,
+    "he": 546,
+    "bn": 1150,
+    "de": 1411
+  },
+  "divergences": [],
+  "error": "anthropic returned invalid JSON twice; last response ended near character 6449",
+  "summary": "LLM comparison failed; no framing result was produced.",
+  "run_ts": "2026-07-19T00:26:16.515785+00:00",
+  "model": "claude-sonnet-5",
+  "llm_usage": {
+    "calls": 1,
+    "input_tokens": 437,
+    "output_tokens": 78,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 437,
+        "output_tokens": 78,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
+  },
+  "elapsed_seconds": 67.968
+}

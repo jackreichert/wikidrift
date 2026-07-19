@@ -97,17 +97,17 @@
       "to": 5
     },
     {
-      "domain": "jstor.org",
-      "from": 6,
-      "to": 9
-    },
-    {
       "domain": "researchgate.net",
       "from": 0,
       "to": 3
     },
     {
-      "domain": "haaretz.com",
+      "domain": "jstor.org",
+      "from": 6,
+      "to": 9
+    },
+    {
+      "domain": "infocenters.co.il",
       "from": 0,
       "to": 2
     },
@@ -117,7 +117,7 @@
       "to": 3
     },
     {
-      "domain": "infocenters.co.il",
+      "domain": "brill.com",
       "from": 0,
       "to": 2
     },
@@ -127,12 +127,17 @@
       "to": 2
     },
     {
-      "domain": "brill.com",
+      "domain": "haaretz.com",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "columbia.edu",
+      "domain": "dro.dur.ac.uk",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "quest-cdecjournal.it",
       "from": 0,
       "to": 1
     },
@@ -140,21 +145,6 @@
       "domain": "avotaynuonline.com",
       "from": 0,
       "to": 1
-    },
-    {
-      "domain": "ia800901.us.archive.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "archive.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "dro.dur.ac.uk",
-      "from": 1,
-      "to": 2
     },
     {
       "domain": "forward.com",
@@ -167,12 +157,7 @@
       "to": 1
     },
     {
-      "domain": "isita-org.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "pure.manchester.ac.uk",
+      "domain": "rosenberglab.stanford.edu",
       "from": 0,
       "to": 1
     },
@@ -182,7 +167,7 @@
       "to": 1
     },
     {
-      "domain": "quest-cdecjournal.it",
+      "domain": "archive.org",
       "from": 0,
       "to": 1
     },
@@ -192,12 +177,27 @@
       "to": 1
     },
     {
+      "domain": "columbia.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
       "domain": "smithsonianmag.com",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "rosenberglab.stanford.edu",
+      "domain": "pure.manchester.ac.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ia800901.us.archive.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "isita-org.com",
       "from": 0,
       "to": 1
     }

@@ -1,0 +1,46 @@
+{
+  "article": "Abortion",
+  "run_ts": "2026-07-18T22:49:09.499205+00:00",
+  "corpus_horizon": {
+    "snapshot_date": "2026-01-01",
+    "snapshot_revid": 1329686405
+  },
+  "thresholds": {
+    "confirm_drop": 0.2,
+    "durable_quantile": 0.5,
+    "min_cohort": 500,
+    "magnitude_floor": 25.0
+  },
+  "coarse_verdict": "PIVOT?",
+  "status": "confirmed",
+  "confirmed_episodes": [
+    {
+      "candidate_start": "2010-01-01",
+      "candidate_end": "2012-01-01",
+      "candidate_before_revid": 335280912,
+      "candidate_after_revid": 469018003,
+      "before_revid": 368233003,
+      "before_timestamp": "2010-06-15T19:36:58Z",
+      "after_revid": 368233142,
+      "after_timestamp": "2010-06-15T19:37:47Z",
+      "durable_spine_drop": 0.642327,
+      "pwr_mass": 46141,
+      "peak_pct": 46.69,
+      "status": "confirmed"
+    },
+    {
+      "candidate_start": "2007-01-01",
+      "candidate_end": "2009-01-01",
+      "candidate_before_revid": 98043772,
+      "candidate_after_revid": 261808618,
+      "before_revid": 171274305,
+      "before_timestamp": "2007-11-13T20:22:06Z",
+      "after_revid": 171274458,
+      "after_timestamp": "2007-11-13T20:22:48Z",
+      "durable_spine_drop": 0.53331,
+      "pwr_mass": 18988,
+      "peak_pct": 39.1,
+      "status": "confirmed"
+    }
+  ]
+}

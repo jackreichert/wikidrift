@@ -132,6 +132,11 @@
       "to": 5
     },
     {
+      "domain": "focus.pl",
+      "from": 0,
+      "to": 4
+    },
+    {
       "domain": "warsawvoice.pl",
       "from": 0,
       "to": 4
@@ -142,9 +147,9 @@
       "to": 4
     },
     {
-      "domain": "focus.pl",
+      "domain": "zyciezazycie.pl",
       "from": 0,
-      "to": 4
+      "to": 3
     },
     {
       "domain": "ipn.gov.pl",
@@ -152,62 +157,12 @@
       "to": 7
     },
     {
-      "domain": "zyciezazycie.pl",
-      "from": 0,
-      "to": 3
-    },
-    {
       "domain": "forum-znak.org.pl",
       "from": 1,
       "to": 4
     },
     {
-      "domain": "spranceana.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "msz.gov.pl",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "chicago.mfa.gov.pl",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "znak.org.pl",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "rcin.org.pl",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "lsic.us",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "dac.neu.edu",
-      "from": 0,
-      "to": 2
-    },
-    {
       "domain": "prezydent.pl",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "findarticles.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "pacwashmetrodiv.org",
       "from": 0,
       "to": 2
     },
@@ -217,7 +172,52 @@
       "to": 2
     },
     {
+      "domain": "znak.org.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
       "domain": "humboldt.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "findarticles.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "spranceana.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "dac.neu.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "msz.gov.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "rcin.org.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "pacwashmetrodiv.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "lsic.us",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "chicago.mfa.gov.pl",
       "from": 0,
       "to": 2
     },
@@ -227,7 +227,7 @@
       "to": 2
     },
     {
-      "domain": "db.yadvashem.org",
+      "domain": "kulturapolshi.ru",
       "from": 0,
       "to": 1
     },
@@ -237,19 +237,49 @@
       "to": 1
     },
     {
-      "domain": "sru.edu",
-      "from": 1,
-      "to": 2
-    },
-    {
       "domain": "icj.huji.ac.il",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "aleteia.org",
+      "domain": "tygodniksolidarnosc.com",
       "from": 0,
       "to": 1
+    },
+    {
+      "domain": "aapjs.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "fear.piastinstitute.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "fzp.net.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "muzeumulmow.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "niedziela.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "holocaust-trc.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "polishresistance-ak.org",
+      "from": 1,
+      "to": 2
     },
     {
       "domain": "uamoderna.com",
@@ -257,12 +287,37 @@
       "to": 1
     },
     {
-      "domain": "archive.today",
+      "domain": "sicsa.huji.ac.il",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "sru.edu",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "dollartimes.com",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "kulturapolshi.ru",
+      "domain": "haaretz.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "krakow-info.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "tandfonline.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "infocenters.co.il",
       "from": 0,
       "to": 1
     },
@@ -277,24 +332,9 @@
       "to": 2
     },
     {
-      "domain": "krakow-info.com",
+      "domain": "archive.today",
       "from": 0,
       "to": 1
-    },
-    {
-      "domain": "infocenters.co.il",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "sicsa.huji.ac.il",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "fear.piastinstitute.org",
-      "from": 1,
-      "to": 2
     },
     {
       "domain": "muse.jhu.edu",
@@ -302,57 +342,7 @@
       "to": 1
     },
     {
-      "domain": "polishresistance-ak.org",
-      "from": 1,
-      "to": 2
-    },
-    {
       "domain": "google.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "aapjs.org",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "niedziela.pl",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "swissinfo.ch",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "instytutpileckiego.pl",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "fzp.net.pl",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "tandfonline.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "israelhayom.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "tygodniksolidarnosc.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "muzeumulmow.pl",
       "from": 0,
       "to": 1
     },
@@ -362,7 +352,17 @@
       "to": 1
     },
     {
-      "domain": "haaretz.com",
+      "domain": "aleteia.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "swissinfo.ch",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "israelhayom.com",
       "from": 0,
       "to": 1
     },
@@ -372,12 +372,7 @@
       "to": 1
     },
     {
-      "domain": "holocaust-trc.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "nowysacz.pl",
+      "domain": "instytutpileckiego.pl",
       "from": 0,
       "to": 1
     },
@@ -387,7 +382,12 @@
       "to": 1
     },
     {
-      "domain": "dollartimes.com",
+      "domain": "nowysacz.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "db.yadvashem.org",
       "from": 0,
       "to": 1
     }
@@ -404,27 +404,17 @@
       "to": 0
     },
     {
-      "domain": "jstor.org",
-      "from": 2,
-      "to": 0
-    },
-    {
       "domain": "jewishgen.org",
       "from": 2,
       "to": 0
     },
     {
+      "domain": "jstor.org",
+      "from": 2,
+      "to": 0
+    },
+    {
       "domain": "massorti.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "wilk.wpk.p.lodz.pl",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "209.85.173.104",
       "from": 1,
       "to": 0
     },
@@ -435,6 +425,16 @@
     },
     {
       "domain": "yad-vashem.org.il",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "wilk.wpk.p.lodz.pl",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "209.85.173.104",
       "from": 1,
       "to": 0
     }

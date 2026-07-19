@@ -1,0 +1,42 @@
+{
+  "article": "Nakba",
+  "mode": "static",
+  "editions_compared": [
+    "en",
+    "ar",
+    "he",
+    "hu",
+    "hy"
+  ],
+  "lead_chars": {
+    "en": 2807,
+    "ar": 2551,
+    "he": 1633,
+    "hu": 2583,
+    "hy": 2508
+  },
+  "divergences": [],
+  "error": "anthropic returned invalid JSON twice; last response ended near character 6762",
+  "summary": "LLM comparison failed; no framing result was produced.",
+  "run_ts": "2026-07-19T00:13:53.570097+00:00",
+  "model": "claude-sonnet-5",
+  "llm_usage": {
+    "calls": 1,
+    "input_tokens": 434,
+    "output_tokens": 74,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 434,
+        "output_tokens": 74,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
+  },
+  "elapsed_seconds": 78.655
+}

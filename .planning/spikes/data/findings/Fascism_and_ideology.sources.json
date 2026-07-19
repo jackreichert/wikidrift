@@ -98,32 +98,12 @@
       "to": 0
     },
     {
-      "domain": "aljazeera.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "newyorker.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "jstor.org",
-      "from": 3,
-      "to": 1
-    },
-    {
-      "domain": "theprint.in",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "washingtoninstitute.org",
-      "from": 2,
-      "to": 0
-    },
-    {
       "domain": "iht.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "en.qantara.de",
       "from": 2,
       "to": 0
     },
@@ -133,9 +113,29 @@
       "to": 13
     },
     {
-      "domain": "en.qantara.de",
+      "domain": "aljazeera.com",
       "from": 2,
       "to": 0
+    },
+    {
+      "domain": "washingtoninstitute.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "newyorker.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "theprint.in",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "jstor.org",
+      "from": 3,
+      "to": 1
     },
     {
       "domain": "brill.com",
@@ -148,12 +148,12 @@
       "to": 0
     },
     {
-      "domain": "academia.edu",
+      "domain": "derechos.org",
       "from": 1,
       "to": 0
     },
     {
-      "domain": "derechos.org",
+      "domain": "journals.openedition.org",
       "from": 1,
       "to": 0
     },
@@ -163,17 +163,12 @@
       "to": 0
     },
     {
-      "domain": "nytimes.com",
-      "from": 1,
-      "to": 0
-    },
-    {
       "domain": "politico.com",
       "from": 1,
       "to": 0
     },
     {
-      "domain": "journals.openedition.org",
+      "domain": "nytimes.com",
       "from": 1,
       "to": 0
     },
@@ -184,6 +179,11 @@
     },
     {
       "domain": "newsweek.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "academia.edu",
       "from": 1,
       "to": 0
     }

@@ -97,12 +97,7 @@
       "to": 5
     },
     {
-      "domain": "bip.warszawa.pl",
-      "from": 0,
-      "to": 4
-    },
-    {
-      "domain": "dzieje.pl",
+      "domain": "youtube.com",
       "from": 0,
       "to": 4
     },
@@ -112,7 +107,12 @@
       "to": 4
     },
     {
-      "domain": "youtube.com",
+      "domain": "dzieje.pl",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "bip.warszawa.pl",
       "from": 0,
       "to": 4
     },
@@ -132,52 +132,7 @@
       "to": 3
     },
     {
-      "domain": "warszawa.wyborcza.pl",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "researchgate.net",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "cairn.info",
-      "from": 0,
-      "to": 2
-    },
-    {
       "domain": "czasopisma.uni.lodz.pl",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "ushmm.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "warszawaexpress.pl",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "hsozkult.de",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "sehepunkte.de",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "polska1918-89.pl",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "discovery.ucl.ac.uk",
       "from": 0,
       "to": 2
     },
@@ -187,32 +142,7 @@
       "to": 2
     },
     {
-      "domain": "yadvashem.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "orka.sejm.gov.pl",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "gesiowka.adactio.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "nbp.pl",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "scholarlycommons.law.cwsl.edu",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "1943.pl",
+      "domain": "tvnwarszawa.tvn24.pl",
       "from": 0,
       "to": 2
     },
@@ -222,32 +152,7 @@
       "to": 2
     },
     {
-      "domain": "tvnwarszawa.tvn24.pl",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "jstor.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "suche-briefmarken.de",
-      "from": 0,
-      "to": 2
-    },
-    {
       "domain": "inquirer.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "warszawa.ipn.gov.pl",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "eupsycho.com",
       "from": 0,
       "to": 2
     },
@@ -262,17 +167,42 @@
       "to": 2
     },
     {
-      "domain": "timesofisrael.com",
+      "domain": "1943.pl",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "metrowarszawa.gazeta.pl",
+      "domain": "discovery.ucl.ac.uk",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "wola.waw.pl",
+      "domain": "researchgate.net",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "yadvashem.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "suche-briefmarken.de",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "digisam.ub.uni-giessen.de",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "warszawa.wyborcza.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "hsozkult.de",
       "from": 0,
       "to": 2
     },
@@ -287,7 +217,77 @@
       "to": 2
     },
     {
-      "domain": "digisam.ub.uni-giessen.de",
+      "domain": "timesofisrael.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "metrowarszawa.gazeta.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "orka.sejm.gov.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "sehepunkte.de",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "polska1918-89.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "wola.waw.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "cairn.info",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "warszawa.ipn.gov.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "nbp.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "eupsycho.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "ushmm.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "warszawaexpress.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "gesiowka.adactio.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "jstor.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "scholarlycommons.law.cwsl.edu",
       "from": 0,
       "to": 2
     },
@@ -297,47 +297,17 @@
       "to": 1
     },
     {
-      "domain": "cambridge.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "sephardichorizons.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "wiadomosci.wp.pl",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "www1.jur.uva.nl",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "academia.edu",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "deathcamps.org",
-      "from": 0,
-      "to": 1
-    },
-    {
       "domain": "tustolica.pl",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "1.bp.blogspot.com",
+      "domain": "zdjecia.korzeniemiasta.pl",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "pap.pl",
+      "domain": "deathcamps.org",
       "from": 0,
       "to": 1
     },
@@ -352,12 +322,22 @@
       "to": 1
     },
     {
-      "domain": "klwarschau.pl.eu.org",
+      "domain": "www1.jur.uva.nl:80",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "www1.jur.uva.nl:80",
+      "domain": "wiadomosci.wp.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "academia.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "pap.pl",
       "from": 0,
       "to": 1
     },
@@ -367,7 +347,27 @@
       "to": 1
     },
     {
-      "domain": "zdjecia.korzeniemiasta.pl",
+      "domain": "klwarschau.pl.eu.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "sephardichorizons.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "www1.jur.uva.nl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "cambridge.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "1.bp.blogspot.com",
       "from": 0,
       "to": 1
     }

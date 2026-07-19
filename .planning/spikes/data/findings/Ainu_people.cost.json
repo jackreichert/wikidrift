@@ -1,0 +1,28 @@
+{
+  "article": "Ainu people",
+  "run_ts": "2026-07-18T22:53:53.874468+00:00",
+  "workflow": "confirmed_framing_refresh",
+  "elapsed_seconds": 50.52,
+  "stages": [
+    {
+      "command": "analyze",
+      "elapsed_seconds": 1.647,
+      "exit_code": 0
+    },
+    {
+      "command": "framing",
+      "elapsed_seconds": 48.873,
+      "exit_code": 1
+    }
+  ],
+  "llm_usage": {
+    "calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": []
+  },
+  "estimated_external_usd": null,
+  "estimate_scope": "LLM token charges only. Wikipedia and WikiWho APIs are public and unpriced here; machine time, storage, payment fees, taxes, failed-response charges, and service margin are excluded."
+}

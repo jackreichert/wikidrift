@@ -1,0 +1,28 @@
+{
+  "article": "Brontosaurus",
+  "mode": "static",
+  "editions_compared": [
+    "en",
+    "mk",
+    "it"
+  ],
+  "lead_chars": {
+    "en": 3111,
+    "mk": 2311,
+    "it": 1305
+  },
+  "divergences": [],
+  "error": "anthropic returned invalid JSON twice; last response ended near character 6787",
+  "summary": "LLM comparison failed; no framing result was produced.",
+  "run_ts": "2026-07-18T23:47:05.240462+00:00",
+  "model": "claude-sonnet-5",
+  "llm_usage": {
+    "calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": []
+  },
+  "elapsed_seconds": 58.928
+}

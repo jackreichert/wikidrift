@@ -51,22 +51,17 @@
       "to": 2
     },
     {
-      "domain": "forward.com",
-      "from": 0,
-      "to": 2
-    },
-    {
       "domain": "books.google.com",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "radzima.org",
+      "domain": "forward.com",
       "from": 0,
-      "to": 1
+      "to": 2
     },
     {
-      "domain": "zagladazydow.pl",
+      "domain": "shtetlroutes.eu",
       "from": 0,
       "to": 1
     },
@@ -81,6 +76,11 @@
       "to": 1
     },
     {
+      "domain": "radzima.org",
+      "from": 0,
+      "to": 1
+    },
+    {
       "domain": "naukawpolsce.pl",
       "from": 0,
       "to": 1
@@ -91,7 +91,7 @@
       "to": 1
     },
     {
-      "domain": "shtetlroutes.eu",
+      "domain": "zagladazydow.pl",
       "from": 0,
       "to": 1
     }

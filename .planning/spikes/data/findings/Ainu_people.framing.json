@@ -1,0 +1,152 @@
+{
+  "article": "Ainu people",
+  "category": "general",
+  "mode": "static",
+  "pivot_window": null,
+  "editions_compared": [
+    "en",
+    "ka",
+    "ja"
+  ],
+  "lead_chars": {
+    "en": 2174,
+    "ka": 895,
+    "ja": 304
+  },
+  "snapshots": null,
+  "divergences": [
+    {
+      "topic": "Origin/ethnogenesis claims",
+      "editions_differ": [
+        "JA"
+      ],
+      "en_says": "not mentioned",
+      "other_says": "Ainu are considered descendants of the Jōmon people who were not assimilated into the Yayoi culture brought by migrants, and are grouped with mainland Japanese and Ryukyuans as part of the Jōmon cultural sphere",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": "渡来系弥生人の文化（日本語など）に同化吸収されずに残った縄文人の系統だと考えられている。本土日本人（大和）、琉球人（沖縄）と共に縄文文化圏に含まれる。"
+    },
+    {
+      "topic": "Legal recognition and cultural institutions",
+      "editions_differ": [
+        "JA"
+      ],
+      "en_says": "not mentioned",
+      "other_says": "Mentions the 2019 Ainu Policy Promotion Act which explicitly designates Ainu as indigenous to northern Japan/Hokkaido, and the 2020 opening of the National Ainu Museum and Upopoy symbolic space in Shiraoi, Hokkaido",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": "2019年5月に施行された「アイヌ施策推進法」では「日本列島北部周辺、とりわけ北海道の先住民族である」と明記されている。2020年には文化復興の拠点として国立アイヌ民族博物館を含む「民族共生象徴空間（ウポポイ）」が北海道白老町に開設された。"
+    },
+    {
+      "topic": "Population statistics",
+      "editions_differ": [
+        "JA",
+        "KA"
+      ],
+      "en_says": "Provides specific figures: 11,450 in Hokkaido survey (2023), 300 in Russia (2021), unofficial estimate of 200,000+ in Japan (2002)",
+      "other_says": "JA states most Ainu currently reside within Japan but gives no numeric figures; KA gives no population figures at all",
+      "verdict": "absent_other",
+      "evidence_en": "Official surveys of the known Ainu population in Hokkaido received 11,450 responses in 2023, and the Ainu population in Russia was estimated at 300 in 2021.",
+      "evidence_other": "現在は日本国内に大部分が居住している。"
+    },
+    {
+      "topic": "Forced assimilation and colonization history",
+      "editions_differ": [
+        "JA",
+        "KA"
+      ],
+      "en_says": "Details forced assimilation during Japanese colonization of Hokkaido since the 18th century, Meiji-era land seizures, banning of religion and language in schools",
+      "other_says": "JA and KA do not mention colonization, forced assimilation, land seizures, or suppression of religion/language",
+      "verdict": "absent_other",
+      "evidence_en": "The Ainu were subject to forced assimilation during the Japanese colonization of Hokkaido since at least the 18th century. Japanese assimilation policies in the 19th century around the Meiji Restoration included forcing Ainu peoples off their land.",
+      "evidence_other": null
+    },
+    {
+      "topic": "Language endangerment and extinction",
+      "editions_differ": [
+        "JA",
+        "KA"
+      ],
+      "en_says": "Details decline of Hokkaido Ainu language speakers (300 in 1966, fewer than 100 in 1980s, likely extinct today) and extinction of Sakhalin and Kuril Ainu languages, plus revitalization efforts",
+      "other_says": "JA and KA do not discuss the Ainu language's status, decline, or revitalization",
+      "verdict": "absent_other",
+      "evidence_en": "In 1966, there were about 300 native Ainu speakers. In the 1980s, there were fewer than 100 native Ainu speakers, with only 15 using the language daily. The Hokkaido Ainu language is likely extinct today, as there remain no known native speakers.",
+      "evidence_other": null
+    },
+    {
+      "topic": "Geographic range and historical terms (Ezochi/Emishi)",
+      "editions_differ": [
+        "KA"
+      ],
+      "en_says": "Details specific regions (Hokkaido, Tōhoku, Sakhalin, Kuril Islands, Kamchatka, Khabarovsk Krai) and historical Japanese terms Ezochi and Emishi",
+      "other_says": "KA only broadly says Ainu are a group in the Far East, without specifying these regions or historical terminology",
+      "verdict": "absent_other",
+      "evidence_en": "These regions are often referred to as Ezochi (蝦夷地) and its inhabitants as Emishi (蝦夷) in historical Japanese texts.",
+      "evidence_other": "აინუ — ადამიანთა ჯგუფი შორეულ აღმოსავლეთში."
+    },
+    {
+      "topic": "Subsistence lifestyle characterization",
+      "editions_differ": [
+        "KA"
+      ],
+      "en_says": "not mentioned in lead (focuses on identity, geography, assimilation)",
+      "other_says": "Describes Ainu lifestyle as based on hunting, fishing, and agriculture, contrasting them with neighboring Japanese, Koreans, and Chinese who focused on agriculture for millennia, and claims Ainu were the first people to settle in Japan",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": "ისინი მისდევენ ნადირობას, თევზაობასა და მიწათმოქმედებას. ეს ხალხი მეზობელი იაპონელებისგან, კორეელებისა და ჩინელებისგან... აინუ იყო პირველი ხალხი, რომელიც დასახლდა იაპონიის ტერიტორიაზე."
+    },
+    {
+      "topic": "Subgroup terminology disputes (Kuril Ainu definition)",
+      "editions_differ": [
+        "KA"
+      ],
+      "en_says": "not mentioned",
+      "other_says": "Discusses disagreement over whether the term 'Kuril Ainu' refers only to those on central/northern Kuril islands or also includes southern groups similar to Hokkaido Ainu",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": "რაც შეეხება კურილიის აინუს, ზოგი იყენებს ამ ტერმინს მხოლოდ იმ აინუს აღსანიშნავად, რომელთაც ოკუპირებული აქვთ კურილიის ცენტრალური და ჩრდილოეთ კუნძულები..."
+    },
+    {
+      "topic": "Status as indigenous minority",
+      "editions_differ": [
+        "JA"
+      ],
+      "en_says": "Explicitly states Ainu are one of the few ethnic minorities native to the Japanese archipelago, alongside Ryukyuans and Bonin Islanders",
+      "other_says": "JA references this only via the quoted 2019 law text calling them indigenous to northern Japan, without the broader comparative framing including Bonin Islanders",
+      "verdict": "differ",
+      "evidence_en": "one of the few ethnic minorities native to the Japanese archipelago",
+      "evidence_other": "「日本列島北部周辺、とりわけ北海道の先住民族である」と明記されている"
+    }
+  ],
+  "summary": "The English edition provides a substantially more detailed and historically framed account, emphasizing forced assimilation, colonization, population statistics, and the decline/extinction of Ainu languages. The Japanese edition instead emphasizes ethnogenesis (Jōmon lineage), legal recognition status, and modern cultural institutions (Upopoy, national museum), largely omitting the colonization and language-suppression narrative found in EN. The Georgian edition is the most divergent, offering a brief and somewhat different characterization centered on subsistence lifestyle, first-settler claims, and internal terminological disputes about Kuril Ainu, while omitting nearly all modern historical, political, and demographic content present in EN and JA.",
+  "run_ts": "2026-07-18T23:42:58.043443+00:00",
+  "model": "claude-sonnet-5",
+  "llm_usage": {
+    "calls": 2,
+    "input_tokens": 5360,
+    "output_tokens": 4053,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 2680,
+        "output_tokens": 1500,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      },
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 2680,
+        "output_tokens": 2553,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
+  },
+  "elapsed_seconds": 75.675
+}

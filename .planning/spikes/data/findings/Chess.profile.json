@@ -1,10 +1,10 @@
 {
   "article": "Chess",
-  "horizon": "2004-01-01",
-  "n_tokens": 1463,
-  "median_age_yrs": 1.2,
-  "pct_recent": 100.0,
+  "horizon": "2005-01-01",
+  "n_tokens": 1661,
+  "median_age_yrs": 0.9,
+  "pct_recent": 90.1,
   "recent_years": 3.0,
-  "top10_editor_share": 77.6,
-  "distinct_editors": 38
+  "top10_editor_share": 56.9,
+  "distinct_editors": 79
 }

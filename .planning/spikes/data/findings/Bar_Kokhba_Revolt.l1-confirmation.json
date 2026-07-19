@@ -1,0 +1,32 @@
+{
+  "article": "Bar Kokhba Revolt",
+  "run_ts": "2026-07-18T23:35:31.789020+00:00",
+  "corpus_horizon": {
+    "snapshot_date": "2026-07-01",
+    "snapshot_revid": 1362729298
+  },
+  "thresholds": {
+    "confirm_drop": 0.2,
+    "durable_quantile": 0.5,
+    "min_cohort": 500,
+    "magnitude_floor": 25.0
+  },
+  "coarse_verdict": "PIVOT?",
+  "status": "confirmed",
+  "confirmed_episodes": [
+    {
+      "candidate_start": "2025-01-01",
+      "candidate_end": "2026-07-01",
+      "candidate_before_revid": 1264634404,
+      "candidate_after_revid": 1362729298,
+      "before_revid": 1300661489,
+      "before_timestamp": "2025-07-15T17:38:17Z",
+      "after_revid": 1300666578,
+      "after_timestamp": "2025-07-15T18:22:34Z",
+      "durable_spine_drop": 0.876579,
+      "pwr_mass": 311631,
+      "peak_pct": 60.96,
+      "status": "confirmed"
+    }
+  ]
+}

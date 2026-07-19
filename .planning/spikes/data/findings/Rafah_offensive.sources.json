@@ -237,19 +237,14 @@
       "to": 16
     },
     {
-      "domain": "washingtonpost.com",
-      "from": 10,
-      "to": 14
-    },
-    {
       "domain": "haaretz.com",
       "from": 8,
       "to": 12
     },
     {
-      "domain": "france24.com",
-      "from": 4,
-      "to": 8
+      "domain": "washingtonpost.com",
+      "from": 10,
+      "to": 14
     },
     {
       "domain": "nytimes.com",
@@ -257,13 +252,13 @@
       "to": 20
     },
     {
-      "domain": "newarab.com",
-      "from": 1,
-      "to": 4
+      "domain": "france24.com",
+      "from": 4,
+      "to": 8
     },
     {
-      "domain": "middleeasteye.net",
-      "from": 2,
+      "domain": "newarab.com",
+      "from": 1,
       "to": 4
     },
     {
@@ -272,14 +267,29 @@
       "to": 7
     },
     {
-      "domain": "allisrael.com",
+      "domain": "israelnationalnews.com",
+      "from": 2,
+      "to": 4
+    },
+    {
+      "domain": "middleeasteye.net",
+      "from": 2,
+      "to": 4
+    },
+    {
+      "domain": "acleddata.com",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "israelnationalnews.com",
+      "domain": "archive.today",
       "from": 2,
       "to": 4
+    },
+    {
+      "domain": "allisrael.com",
+      "from": 0,
+      "to": 2
     },
     {
       "domain": "shafaq.com",
@@ -292,14 +302,9 @@
       "to": 11
     },
     {
-      "domain": "archive.today",
-      "from": 2,
-      "to": 4
-    },
-    {
-      "domain": "acleddata.com",
+      "domain": "dailynewsegypt.com",
       "from": 0,
-      "to": 2
+      "to": 1
     },
     {
       "domain": "english.alarabiya.net",
@@ -307,7 +312,37 @@
       "to": 1
     },
     {
-      "domain": "tps.co.il",
+      "domain": "news.sky.com",
+      "from": 3,
+      "to": 4
+    },
+    {
+      "domain": "middleeastmonitor.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "theguardian.com",
+      "from": 7,
+      "to": 8
+    },
+    {
+      "domain": "longwarjournal.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "timesofindia.indiatimes.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "khaleejtimes.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "asharq.com",
       "from": 0,
       "to": 1
     },
@@ -317,7 +352,17 @@
       "to": 1
     },
     {
-      "domain": "asharq.com",
+      "domain": "israelhayom.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "stripes.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "tps.co.il",
       "from": 0,
       "to": 1
     },
@@ -332,64 +377,19 @@
       "to": 1
     },
     {
-      "domain": "stripes.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "israelhayom.com",
-      "from": 0,
-      "to": 1
-    },
-    {
       "domain": "misbar.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "news.sky.com",
-      "from": 3,
-      "to": 4
-    },
-    {
-      "domain": "longwarjournal.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "dailynewsegypt.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "khaleejtimes.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "theguardian.com",
-      "from": 7,
-      "to": 8
-    },
-    {
-      "domain": "timesofindia.indiatimes.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "middleeastmonitor.com",
       "from": 0,
       "to": 1
     }
   ],
   "dropped": [
     {
-      "domain": "aje.io",
-      "from": 1,
-      "to": 0
+      "domain": "amp.theguardian.com",
+      "from": 2,
+      "to": 1
     },
     {
-      "domain": "archive.is",
+      "domain": "aje.io",
       "from": 1,
       "to": 0
     },
@@ -399,9 +399,9 @@
       "to": 4
     },
     {
-      "domain": "amp.theguardian.com",
-      "from": 2,
-      "to": 1
+      "domain": "archive.is",
+      "from": 1,
+      "to": 0
     }
   ],
   "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD."

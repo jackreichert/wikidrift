@@ -96,12 +96,12 @@
       "to": 17
     },
     {
-      "domain": "books.google.com",
+      "domain": "jpost.com",
       "from": 0,
       "to": 16
     },
     {
-      "domain": "jpost.com",
+      "domain": "books.google.com",
       "from": 0,
       "to": 16
     },
@@ -131,32 +131,7 @@
       "to": 6
     },
     {
-      "domain": "un.org",
-      "from": 0,
-      "to": 4
-    },
-    {
       "domain": "jmcc.org",
-      "from": 0,
-      "to": 4
-    },
-    {
-      "domain": "eur-lex.europa.eu",
-      "from": 0,
-      "to": 4
-    },
-    {
-      "domain": "btselem.org",
-      "from": 0,
-      "to": 4
-    },
-    {
-      "domain": "reuters.com",
-      "from": 0,
-      "to": 4
-    },
-    {
-      "domain": "phrmg.org",
       "from": 0,
       "to": 4
     },
@@ -176,9 +151,39 @@
       "to": 4
     },
     {
+      "domain": "phrmg.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "eur-lex.europa.eu",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "un.org",
+      "from": 0,
+      "to": 4
+    },
+    {
       "domain": "nytimes.com",
       "from": 0,
       "to": 4
+    },
+    {
+      "domain": "reuters.com",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "btselem.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "telegraph.co.uk",
+      "from": 0,
+      "to": 3
     },
     {
       "domain": "theatlantic.com",
@@ -191,37 +196,7 @@
       "to": 3
     },
     {
-      "domain": "telegraph.co.uk",
-      "from": 0,
-      "to": 3
-    },
-    {
-      "domain": "abc.net.au",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "legislation.gov.uk",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "accessmylibrary.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "jewishvirtuallibrary.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "academic.oup.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "thehumanist.org",
+      "domain": "country-studies.com",
       "from": 0,
       "to": 2
     },
@@ -231,32 +206,12 @@
       "to": 2
     },
     {
-      "domain": "rand.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "www2.warwick.ac.uk",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "thefreelibrary.com",
-      "from": 0,
-      "to": 2
-    },
-    {
       "domain": "police.govt.nz",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "humanities.uci.edu",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "mofa.go.jp",
+      "domain": "archive.org",
       "from": 0,
       "to": 2
     },
@@ -266,7 +221,37 @@
       "to": 2
     },
     {
+      "domain": "thefreelibrary.com",
+      "from": 0,
+      "to": 2
+    },
+    {
       "domain": "wsvn.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "accessmylibrary.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "ipcri.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "www2.warwick.ac.uk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "publicsafety.gc.ca",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "abc.net.au",
       "from": 0,
       "to": 2
     },
@@ -276,17 +261,37 @@
       "to": 2
     },
     {
-      "domain": "un.int",
+      "domain": "jewishvirtuallibrary.org",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "archive.today",
+      "domain": "ucpress.edu",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "asiapacific.amnesty.org",
+      "domain": "amnesty.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "rand.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "thehumanist.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "johnpilger.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "elwatannews.com",
       "from": 0,
       "to": 2
     },
@@ -301,37 +306,12 @@
       "to": 2
     },
     {
-      "domain": "country-studies.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "elwatannews.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "johnpilger.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "amnesty.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "ucpress.edu",
-      "from": 0,
-      "to": 2
-    },
-    {
       "domain": "cfr.org",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "ipcri.org",
+      "domain": "academic.oup.com",
       "from": 0,
       "to": 2
     },
@@ -341,29 +321,34 @@
       "to": 2
     },
     {
-      "domain": "archive.org",
+      "domain": "asiapacific.amnesty.org",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "publicsafety.gc.ca",
+      "domain": "mofa.go.jp",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "link.springer.com",
+      "domain": "archive.today",
       "from": 0,
-      "to": 1
+      "to": 2
     },
     {
-      "domain": "carnegieendowment.org",
+      "domain": "un.int",
       "from": 0,
-      "to": 1
+      "to": 2
     },
     {
-      "domain": "mgimo.ru",
+      "domain": "humanities.uci.edu",
       "from": 0,
-      "to": 1
+      "to": 2
+    },
+    {
+      "domain": "legislation.gov.uk",
+      "from": 0,
+      "to": 2
     },
     {
       "domain": "nybooks.com",
@@ -371,12 +356,22 @@
       "to": 1
     },
     {
-      "domain": "routledge.com",
+      "domain": "link.springer.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "degruyter.com",
       "from": 0,
       "to": 1
     },
     {
       "domain": "foxnews.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "carnegieendowment.org",
       "from": 0,
       "to": 1
     },
@@ -391,7 +386,12 @@
       "to": 1
     },
     {
-      "domain": "degruyter.com",
+      "domain": "mgimo.ru",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "routledge.com",
       "from": 0,
       "to": 1
     }

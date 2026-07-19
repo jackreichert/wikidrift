@@ -1,0 +1,248 @@
+{
+  "article": "Palestine",
+  "category": "israeli-palestinian",
+  "mode": "candidate_relative",
+  "pivot_window": {
+    "start": "2015-07-01",
+    "end": "2016-01-01",
+    "pwr_mass": 238535,
+    "status": "candidate"
+  },
+  "editions_compared": [
+    "en",
+    "ar",
+    "he",
+    "fr",
+    "el"
+  ],
+  "lead_chars": {
+    "en": 929,
+    "ar": 1167,
+    "he": 708,
+    "fr": 1182,
+    "el": 1060
+  },
+  "snapshots": {
+    "before": {
+      "en": {
+        "revid": 668847171,
+        "timestamp": "2015-06-27T01:51:45Z",
+        "title": "Palestine",
+        "lead": "The State of Palestine ( ) is a de jure sovereign state in the Middle East. Its independence was declared on 15 November 1988 by the Palestine Liberation Organization (PLO) in Algiers as a government-in-exile. The State of Palestine claims the West Bank and Gaza Strip, (Note that the current version of the page displays an incorrect photograph above a caption reading, \"President Mahmoud Abbas of the Palestinian Authority with UN Secretary-General Ban Ki-moon after Mr. Abbas submits formal application for UN membership\"; the original photo is available in the archived version.) with Jerusalem as the designated capital,,  with partial control of those areas assumed in 1994 as the Palestinian Authority. Most of the areas claimed by the State of Palestine have been occupied by Israel since 1967 in the aftermath of the Six-Day War. The State of Palestine applied for United Nations (UN) membership in 2011 and in 2012 was granted a non-member observer state status.\n\nThe October 1974 Arab League summit designated the PLO as the \"sole legitimate representative of the Palestinian people\" and reaffirmed \"their right to establish an independent state of urgency.\" In November 1974, the PLO was recognized as competent on all matters concerning the question of Palestine by the UN General Assembly granting them observer status as a \"non-state entity\" at the UN. After the 1988 Declaration of Independence, the UN General Assembly officially \"acknowledged\" the proclamation and decided to use the designation \"Palestine\" instead of \"Palestine Liberation Organization\" in the UN. In spite of this decision, the PLO did not participate at the UN in its capacity of the State of Palestine's government. \"Moreover, we are confident that in the near future we will truly be able to join the international community, represented in the Organization as Palestine, the State that encompasses Bethlehem.\"\n\nIn 1993, in the Oslo Accords, Israel acknowledged the PLO negotiating team as \"representing the Palestinian people\", in return for the PLO recognizing Israel's right to exist in peace, acceptance of UN Security Council resolutions 242 and 338, and its rejection of \"violence and terrorism\". As a result, in 1994 the PLO established the Palestinian National Authority (PNA or PA) territorial administration, that exercises some governmental functions in parts of the West Bank and the Gaza Strip., in , referred to the ICJ by  In 2007, the Hamas takeover of Gaza Strip politically and territorially divided the Palestinians, with Abbas's Fatah left largely ruling the West Bank and recognized internationally as the official Palestinian Authority, while Hamas has secured its control over the Gaza Strip. In April 2011, the Palestinian parties signed an agreement of reconciliation, but its implementation had stalled until a unity government was formed on 2 June 2014.\n\nOn 29 November 2012, in a 138–9 vote (with 41 abstentions and 5 absences), the United Nations General Assembly passed resolution"
+      },
+      "ar": {
+        "revid": 16250292,
+        "timestamp": "2015-06-30T16:23:36Z",
+        "title": "دولة فلسطين",
+        "lead": "دولة فلسطين هو مصطلح يشير إلى كيانات سياسية سالفة في فلسطين أو كيانات سياسية تُنادي جهات مختلفة بها، أو تتسمى بها كيانات سياسية غير مستقلة حاليا وتطالب بإنشائه على جزء أو كل أرض فلسطين التاريخية. وهو الأمر الذي يطمح إليه كثير من الفلسطينيين. لم تكن أي من تلك الكيانات مستقلة حتى الآن. حاليا تطالب منظمة التحرير الفلسطينية بإنشائه على جزء من أرض فلسطين التاريخية، منذ إعلان الاستقلال الفلسطيني عام 1988 بالجزائر. حيث بدأت تفاوض السلطة الفلسطينية رسميا منذ 1994 على إنشاءها على حدود الأراضي المحتلة عام 1967 وهي الضفة الغربية وقطاع غزة وبتحديد القدس الشرقية عاصمة لهذه الدولة، هو مايشكل فعليا 22% من أرض فلسطين التاريخية. ويقطنها قرابة 40% من الشعب الفلسطيني في العالم.\n\nبدأت السلطة الفلسطينية بإستخدام \"دولة فلسطين\" على وثائق حكومية، حيث أصدر رئيس سلطة الحكم الذاتي الفلسطينية محمود عباس في بداية يناير 2013 مجموعة مراسيم تقضي باعتماد اسم «دولة فلسطين» رسمياً في الوثائق والأختام والأوراق الحكومية وشعار دولة فلسطين عليه كلمة «فلسطين» بدلا من \"السلطة الفلسطينية\" و\"السلطة الوطنية الفلسطينية\".\n\nيمثل مشروع قيام دولة فلسطينية المشروع  خلال تاريخ فلسطين لاقامة دولة، والأول من نوعه في العصر الحديث. حيث  ولم يقم لها دولة في العصر الحديث وهو ما يطالب به الفلسطينيين اليوم."
+      },
+      "he": {
+        "revid": 17112591,
+        "timestamp": "2015-06-21T00:02:34Z",
+        "title": "מדינה פלסטינית",
+        "lead": "מדינה פלסטינית, או מדינת פלסטין (בערבית: دولة فلسطين), היא מדינה שאותה שואפים להקים חלק ניכר מהפלסטינים, באמצעות הארגונים הלאומיים הפלסטינים, כגון אש\"ף וארגונים אסלאמיים שאינם כלולים באש\"ף, כמו הארגונים חמאס והג'יהאד האיסלאמי. בפועל, בחלק משטחי יהודה ושומרון ישנה אוטונומיה הנשלטת על ידי הרשות הפלסטינית, שהוקמה בעקבות הסכם אוסלו וממונה רשמית על ניהול האוטונומיה ואילו ברצועת עזה שולט החמאס מאז יוני 2007. \n\nקודם להכרה בה באו\"ם כמדינה משקיפה, זכתה פלסטין, בייצוג אש\"ף, במעמד של מדינה בליגה הערבית ובכמה ארגונים בינלאומיים אחרים. באוקטובר 2011 החליט אונסק\"ו לקבל את פלסטין לארגון וכך לראשונה הפכה לחברה מלאה באחד ממוסדות האו\"ם. ב-29 בנובמבר 2012 הכירה העצרת הכללית של האו\"ם בפלסטין כמדינה משקיפה שאינה חברה בארגון."
+      },
+      "fr": {
+        "revid": 116350377,
+        "timestamp": "2015-06-27T13:57:43Z",
+        "title": "Palestine (État)",
+        "lead": "La Palestine, en forme longue l’État de Palestine, en arabe , est un État observateur non-membre de l'ONU situé au Proche-Orient, dans la région géographique de la Palestine. \n\nDans le contexte du conflit israélo-palestinien, les frontières, la capitale et la reconnaissance internationale de cet État font l'objet de nombreux débats et controverses. Le conseil palestinien a proclamé Jérusalem-Est comme étant la capitale de la Palestine bien qu'il n'administre pas la ville. Les frontières revendiquées sont celles qui prévalent depuis le 5 juin 1967 entre Israël, l'Égypte et la Jordanie avant la guerre des Six Jours mais leur tracé définitif doit depuis lors toujours faire l'objet de pourparlers entre Israël et la Palestine.\n\nLa Palestine est actuellement présidée par Mahmoud Abbas, secrétaire général de l’OLP et président de l’Autorité palestinienne."
+      },
+      "el": {
+        "revid": 5317850,
+        "timestamp": "2015-06-24T09:59:09Z",
+        "title": "Κράτος της Παλαιστίνης",
+        "lead": "Με το όνομα Παλαιστίνη, γενικά, ονομάζεται περιοχή της ανατολικής Μεσογείου που περιλαμβάνει τμήμα του σημερινού Ισραήλ και εκτείνεται από τα σύνορα της Αιγύπτου, (νότια), μέχρι τα σύνορα του Λιβάνου (βόρεια), και ανατολικά μέχρι τον Ιορδάνη ποταμό. \nΑπό τις αρχές του 20ου αιώνα η περιοχή αυτή αποτελεί πεδίο εθνικών διεκδικήσεων και συγκρούσεων μεταξύ Εβραίων και Αράβων.\n\nΚατά τους βιβλικούς χρόνους στην περιοχή αυτή εγκαταστάθηκαν τελικά οι περιφερόμενοι μέχρι τότε Εβραίοι, καθοδηγούμενοι από τον Γιαχβέ ως μοναδικός \"τόπος Επαγγελίας\" όλης της Υδρογείου. Έτσι ξεκινώντας οι Εβραίοι τους πρώτους πολέμους με άλλους βιβλικούς λαούς της περιοχής δημιούργησαν δύο βασίλεια, του Ιούδα και του Ιακώβ (που μετονομάστηκε από τον Γιαχβέ σε Ισραήλ), υπό τη κυριαρχία των οποίων περιήλθε όλη η περιοχή. Και για τον Χριστιανισμό η ίδια αυτή περιοχή χαρακτηρίζεται ως \"Άγιοι Τόποι\" επειδή εκεί έζησαν και δίδαξαν ο Ιησούς Χριστός και οι Απόστολοι. Αλλά ακόμη και για το Ισλάμ αυτός ο τόπος είναι επίσης ιερός αφού κάποιες τοποθεσίες συνδέονται με τον Προφήτη Μωάμεθ."
+      }
+    },
+    "after": {
+      "en": {
+        "revid": 697770966,
+        "timestamp": "2016-01-01T20:34:54Z",
+        "title": "Palestine",
+        "lead": "The State of Palestine ( ), also known simply as Palestine, is a disputed and partially recognized state in the Middle East. Its independence was declared on 15 November 1988 by the Palestine Liberation Organization (PLO), then recognized as a terrorist organization by the United States and many countries, in Algiers as a government-in-exile. The State of Palestine claims the West Bank and Gaza Strip, with eastern Jerusalem as the designated capital,  although the State of Israel claims Jerusalem as its capital  ,with partial control of disputed areas assumed in 1994 as the Palestinian Authority. Most of the areas claimed by the State of Palestine have been controlled by Israel since 1967, after Jordan had occupied and annexed the West Bank, then attacked Israel in the Six-Day War. The Palestinian Authority applied for United Nations (UN) membership in 2011 and in 2012 was granted a non-member observer state status."
+      },
+      "ar": {
+        "revid": 17915620,
+        "timestamp": "2016-01-03T16:32:14Z",
+        "title": "دولة فلسطين",
+        "lead": "دولة فلسطين هو مصطلح يشير إلى كيانات سياسية سالفة في فلسطين أو كيانات سياسية تُنادي جهات مختلفة بها، أو تتسمى بها كيانات سياسية غير مستقلة حاليا وتطالب بإنشائه على جزء أو كل أرض فلسطين التاريخية. وهو الأمر الذي يطمح إليه كثير من الفلسطينيين. لم تكن أي من تلك الكيانات مستقلة حتى الآن. حاليا تطالب منظمة التحرير الفلسطينية بإنشائه على جزء من أرض فلسطين التاريخية، منذ إعلان الاستقلال الفلسطيني عام 1988 بالجزائر. حيث بدأت تفاوض السلطة الفلسطينية رسميا منذ 1994 على إنشاءها على حدود الأراضي المحتلة عام 1967 وهي الضفة الغربية وقطاع غزة وبتحديد القدس الشرقية عاصمة لهذه الدولة، هو مايشكل فعليا 22% من أرض فلسطين التاريخية. ويقطنها قرابة 40% من الشعب الفلسطيني في العالم.\n\nبدأت السلطة الفلسطينية بإستخدام \"دولة فلسطين\" على وثائق حكومية، حيث أصدر رئيس سلطة الحكم الذاتي الفلسطينية محمود عباس في بداية يناير 2013 مجموعة مراسيم تقضي باعتماد اسم «دولة فلسطين» رسمياً في الوثائق والأختام والأوراق الحكومية وشعار دولة فلسطين عليه كلمة «فلسطين» بدلا من \"السلطة الفلسطينية\" و\"السلطة الوطنية الفلسطينية\".\n\nيمثل مشروع قيام دولة فلسطينية المشروع  خلال تاريخ فلسطين لاقامة دولة، والأول من نوعه في العصر الحديث. حيث  ولم يقم لها دولة في العصر الحديث وهو ما يطالب به الفلسطينيين اليوم."
+      },
+      "he": {
+        "revid": 18041842,
+        "timestamp": "2016-01-23T06:51:25Z",
+        "title": "מדינה פלסטינית",
+        "lead": "מדינה פלסטינית, או מדינת פלסטין (בערבית: دولة فلسطين), היא מדינה שאותה שואפים להקים חלק ניכר מהפלסטינים, באמצעות הארגונים הלאומיים הפלסטינים, כגון אש\"ף וארגונים אסלאמיים שאינם כלולים באש\"ף, ארגוני: חמאס והג'יהאד האיסלאמי. בפועל, בחלק משטחי יהודה ושומרון ישנה אוטונומיה הנשלטת על ידי הרשות הפלסטינית, שהוקמה בעקבות הסכם אוסלו וממונה רשמית על ניהול האוטונומיה ואילו ברצועת עזה שולט החמאס מאז יוני 2007. \n\nקודם להכרה בה באו\"ם כמדינה משקיפה, זכתה פלסטין, בייצוג אש\"ף, במעמד של מדינה בליגה הערבית ובכמה ארגונים בינלאומיים אחרים. באוקטובר 2011 החליט אונסק\"ו לקבל את פלסטין לארגון וכך לראשונה הפכה לחברה מלאה באחד ממוסדות האו\"ם. ב-29 בנובמבר 2012 הכירה העצרת הכללית של האו\"ם בפלסטין כמדינה משקיפה שאינה חברה בארגון."
+      },
+      "fr": {
+        "revid": 121817556,
+        "timestamp": "2016-01-02T10:28:16Z",
+        "title": "Palestine (État)",
+        "lead": "La Palestine, en forme longue l’État de Palestine, en arabe , est un État partiellement reconnu du Proche-OrientLa Palestine, un proto-État en morceaux, Le Figaro, 20 septembre 2011..  \n\nDans le contexte du conflit israélo-palestinien, les frontières, la capitale et la reconnaissance internationale de la Palestine font l'objet de nombreux débats et controverses. Actuellement l'État palestinien est reconnu par 136 des 193 membres de l'Organisation des Nations unies (70,5%).\n\nLes frontières revendiquées par la Palestine sont celles de la Cisjordanie, gouvernée partiellement depuis 1994 par l'Autorité Palestinienne ; et de la bande de Gaza, sous contrôle du Hamas depuis 2007. Le reste du territoire cisjordanien est occupé par l'État israélien depuis 1967 et la fin de la Guerre des Six Jours. La Palestine considère Jérusalem-Est comme étant sa capitale bien qu'elle n'administre pas la ville dans les faits, le siège du gouvernement étant à Ramallah.\n\nDéclarant son indépendance en 1988 à travers l'OLP en exil à Alger, l'État de Palestine est depuis le 29 novembre 2012 reconnu en tant qu'État observateur non-membre de l'ONU. Il est actuellement présidé par Mahmoud Abbas."
+      },
+      "el": {
+        "revid": 5620846,
+        "timestamp": "2016-01-04T16:16:23Z",
+        "title": "Κράτος της Παλαιστίνης",
+        "lead": "Με το όνομα Παλαιστίνη, γενικά, ονομάζεται περιοχή της ανατολικής Μεσογείου που περιλαμβάνει τμήμα του σημερινού Ισραήλ και εκτείνεται από τα σύνορα της Αιγύπτου, (νότια), μέχρι τα σύνορα του Λιβάνου (βόρεια), και ανατολικά μέχρι τον Ιορδάνη ποταμό. \nΑπό τις αρχές του 20ου αιώνα η περιοχή αυτή αποτελεί πεδίο εθνικών διεκδικήσεων και συγκρούσεων μεταξύ Εβραίων και Αράβων.\n\nΚατά τους βιβλικούς χρόνους στην περιοχή αυτή εγκαταστάθηκαν τελικά οι περιφερόμενοι μέχρι τότε Εβραίοι, καθοδηγούμενοι από τον Γιαχβέ ως μοναδικός \"τόπος Επαγγελίας\" όλης της Υδρογείου. Έτσι ξεκινώντας οι Εβραίοι τους πρώτους πολέμους με άλλους βιβλικούς λαούς της περιοχής δημιούργησαν δύο βασίλεια, του Ιούδα και του Ιακώβ (που μετονομάστηκε από τον Γιαχβέ σε Ισραήλ), υπό τη κυριαρχία των οποίων περιήλθε όλη η περιοχή. Και για τον Χριστιανισμό η ίδια αυτή περιοχή χαρακτηρίζεται ως \"Άγιοι Τόποι\" επειδή εκεί έζησαν και δίδαξαν ο Ιησούς Χριστός και οι Απόστολοι. Αλλά ακόμη και για το Ισλάμ αυτός ο τόπος είναι επίσης ιερός αφού κάποιες τοποθεσίες συνδέονται με τον Προφήτη Μωάμεθ."
+      }
+    }
+  },
+  "divergences": [
+    {
+      "topic": "Statehood status characterization",
+      "editions_differ": [
+        "FR",
+        "AR",
+        "EL",
+        "HE"
+      ],
+      "en_says": "is a disputed and partially recognized state in the Middle East",
+      "other_says": "est un État partiellement reconnu du Proche-Orient",
+      "verdict": "differ",
+      "evidence_en": "The State of Palestine ( ), also known simply as Palestine, is a disputed and partially recognized state in the Middle East.",
+      "evidence_other": "La Palestine, en forme longue l’État de Palestine, en arabe , est un État partiellement reconnu du Proche-Orient",
+      "temporal_read": "parallel_change",
+      "en_before": "is a de jure sovereign state in the Middle East",
+      "en_after": "is a disputed and partially recognized state in the Middle East",
+      "other_before": "est un État observateur non-membre de l'ONU situé au Proche-Orient",
+      "other_after": "est un État partiellement reconnu du Proche-Orient",
+      "evidence_en_before": "The State of Palestine ( ) is a de jure sovereign state in the Middle East.",
+      "evidence_en_after": "The State of Palestine ( ), also known simply as Palestine, is a disputed and partially recognized state in the Middle East.",
+      "evidence_other_before": "La Palestine, en forme longue l’État de Palestine, en arabe , est un État observateur non-membre de l'ONU situé au Proche-Orient, dans la région géographique de la Palestine.",
+      "evidence_other_after": "La Palestine, en forme longue l’État de Palestine, en arabe , est un État partiellement reconnu du Proche-Orient"
+    },
+    {
+      "topic": "PLO's designation as terrorist organization",
+      "editions_differ": [
+        "FR",
+        "AR",
+        "EL",
+        "HE"
+      ],
+      "en_says": "then recognized as a terrorist organization by the United States and many countries",
+      "other_says": "not mentioned",
+      "verdict": "absent_other",
+      "evidence_en": "Its independence was declared on 15 November 1988 by the Palestine Liberation Organization (PLO), then recognized as a terrorist organization by the United States and many countries, in Algiers as a government-in-exile.",
+      "evidence_other": null,
+      "temporal_read": "english_moved_away",
+      "en_before": "does not mention PLO terrorist designation",
+      "en_after": "explicitly notes PLO was recognized as a terrorist organization by the US and many countries",
+      "other_before": "does not mention PLO terrorist designation",
+      "other_after": "does not mention PLO terrorist designation",
+      "evidence_en_before": "Its independence was declared on 15 November 1988 by the Palestine Liberation Organization (PLO) in Algiers as a government-in-exile.",
+      "evidence_en_after": "Its independence was declared on 15 November 1988 by the Palestine Liberation Organization (PLO), then recognized as a terrorist organization by the United States and many countries, in Algiers as a government-in-exile.",
+      "evidence_other_before": null,
+      "evidence_other_after": null
+    },
+    {
+      "topic": "Jerusalem as capital and competing Israeli claim",
+      "editions_differ": [
+        "FR"
+      ],
+      "en_says": "eastern Jerusalem as the designated capital, although the State of Israel claims Jerusalem as its capital",
+      "other_says": "La Palestine considère Jérusalem-Est comme étant sa capitale bien qu'elle n'administre pas la ville",
+      "verdict": "differ",
+      "evidence_en": "The State of Palestine claims the West Bank and Gaza Strip, with eastern Jerusalem as the designated capital, although the State of Israel claims Jerusalem as its capital",
+      "evidence_other": "La Palestine considère Jérusalem-Est comme étant sa capitale bien qu'elle n'administre pas la ville dans les faits, le siège du gouvernement étant à Ramallah.",
+      "temporal_read": "parallel_change",
+      "en_before": "with Jerusalem as the designated capital",
+      "en_after": "with eastern Jerusalem as the designated capital, although the State of Israel claims Jerusalem as its capital",
+      "other_before": "Le conseil palestinien a proclamé Jérusalem-Est comme étant la capitale de la Palestine bien qu'il n'administre pas la ville.",
+      "other_after": "La Palestine considère Jérusalem-Est comme étant sa capitale bien qu'elle n'administre pas la ville dans les faits, le siège du gouvernement étant à Ramallah.",
+      "evidence_en_before": "The State of Palestine claims the West Bank and Gaza Strip, ... with Jerusalem as the designated capital,,",
+      "evidence_en_after": "The State of Palestine claims the West Bank and Gaza Strip, with eastern Jerusalem as the designated capital, although the State of Israel claims Jerusalem as its capital",
+      "evidence_other_before": "Le conseil palestinien a proclamé Jérusalem-Est comme étant la capitale de la Palestine bien qu'il n'administre pas la ville.",
+      "evidence_other_after": "La Palestine considère Jérusalem-Est comme étant sa capitale bien qu'elle n'administre pas la ville dans les faits, le siège du gouvernement étant à Ramallah."
+    },
+    {
+      "topic": "Cause of Israeli control since 1967",
+      "editions_differ": [
+        "FR"
+      ],
+      "en_says": "after Jordan had occupied and annexed the West Bank, then attacked Israel in the Six-Day War",
+      "other_says": "occupé par l'État israélien depuis 1967 et la fin de la Guerre des Six Jours",
+      "verdict": "differ",
+      "evidence_en": "Most of the areas claimed by the State of Palestine have been controlled by Israel since 1967, after Jordan had occupied and annexed the West Bank, then attacked Israel in the Six-Day War.",
+      "evidence_other": "Le reste du territoire cisjordanien est occupé par l'État israélien depuis 1967 et la fin de la Guerre des Six Jours.",
+      "temporal_read": "english_moved_away",
+      "en_before": "occupied by Israel since 1967 in the aftermath of the Six-Day War",
+      "en_after": "controlled by Israel since 1967, after Jordan had occupied and annexed the West Bank, then attacked Israel in the Six-Day War",
+      "other_before": "not present in this form",
+      "other_after": "occupé par l'État israélien depuis 1967 et la fin de la Guerre des Six Jours",
+      "evidence_en_before": "Most of the areas claimed by the State of Palestine have been occupied by Israel since 1967 in the aftermath of the Six-Day War.",
+      "evidence_en_after": "Most of the areas claimed by the State of Palestine have been controlled by Israel since 1967, after Jordan had occupied and annexed the West Bank, then attacked Israel in the Six-Day War.",
+      "evidence_other_before": null,
+      "evidence_other_after": "Le reste du territoire cisjordanien est occupé par l'État israélien depuis 1967 et la fin de la Guerre des Six Jours."
+    },
+    {
+      "topic": "Who applied for UN membership",
+      "editions_differ": [
+        "FR"
+      ],
+      "en_says": "The Palestinian Authority applied for United Nations (UN) membership in 2011",
+      "other_says": "l'État de Palestine est depuis le 29 novembre 2012 reconnu en tant qu'État observateur non-membre de l'ONU",
+      "verdict": "differ",
+      "evidence_en": "The Palestinian Authority applied for United Nations (UN) membership in 2011 and in 2012 was granted a non-member observer state status.",
+      "evidence_other": "Déclarant son indépendance en 1988 à travers l'OLP en exil à Alger, l'État de Palestine est depuis le 29 novembre 2012 reconnu en tant qu'État observateur non-membre de l'ONU.",
+      "temporal_read": "english_moved_away",
+      "en_before": "The State of Palestine applied for United Nations (UN) membership in 2011",
+      "en_after": "The Palestinian Authority applied for United Nations (UN) membership in 2011",
+      "other_before": "is an État observateur non-membre de l'ONU (status stated, not application actor)",
+      "other_after": "l'État de Palestine est depuis le 29 novembre 2012 reconnu en tant qu'État observateur non-membre de l'ONU",
+      "evidence_en_before": "The State of Palestine applied for United Nations (UN) membership in 2011 and in 2012 was granted a non-member observer state status.",
+      "evidence_en_after": "The Palestinian Authority applied for United Nations (UN) membership in 2011 and in 2012 was granted a non-member observer state status.",
+      "evidence_other_before": "La Palestine, en forme longue l’État de Palestine, en arabe , est un État observateur non-membre de l'ONU situé au Proche-Orient",
+      "evidence_other_after": "l'État de Palestine est depuis le 29 novembre 2012 reconnu en tant qu'État observateur non-membre de l'ONU."
+    },
+    {
+      "topic": "AR, EL, HE lead text stability",
+      "editions_differ": [],
+      "en_says": "n/a",
+      "other_says": "n/a",
+      "verdict": "agree",
+      "evidence_en": null,
+      "evidence_other": null,
+      "temporal_read": "unclear",
+      "en_before": "n/a",
+      "en_after": "n/a",
+      "other_before": "text unchanged across window",
+      "other_after": "text unchanged across window",
+      "evidence_en_before": null,
+      "evidence_en_after": null,
+      "evidence_other_before": null,
+      "evidence_other_after": null
+    }
+  ],
+  "summary": "Over this window, the English lead shifted substantially toward a more contested framing: it downgraded Palestine from a 'de jure sovereign state' to a 'disputed and partially recognized state', added mention of the PLO's terrorist-organization designation, reattributed the 1967 territorial situation to Jordan's prior occupation/annexation and its attack on Israel rather than simple Israeli occupation after the Six-Day War, and reassigned the 2011 UN membership application from the 'State of Palestine' to the 'Palestinian Authority'. The French edition also moved in a similar contested direction (adopting 'partiellement reconnu' and citing Jordanian-era control), representing a parallel change, though its actor for the UN application differs from English's revised claim. The Arabic, Greek, and Hebrew leads remained essentially textually static across the same period, so no comparable shift occurred there, meaning the observed divergences are mostly cases of English moving away from earlier neutral state-status language while non-English editions (except French) did not follow or already lacked comparable content.",
+  "run_ts": "2026-07-19T00:18:38.964593+00:00",
+  "model": "claude-sonnet-5",
+  "llm_usage": {
+    "calls": 2,
+    "input_tokens": 15260,
+    "output_tokens": 5971,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 7630,
+        "output_tokens": 2400,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      },
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 7630,
+        "output_tokens": 3571,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
+  },
+  "elapsed_seconds": 115.907
+}

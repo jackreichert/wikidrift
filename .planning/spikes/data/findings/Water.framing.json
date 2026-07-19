@@ -1,0 +1,28 @@
+{
+  "article": "Water",
+  "mode": "candidate_relative",
+  "pivot_window": {
+    "start": "2007-07-01",
+    "end": "2008-01-01",
+    "pwr_mass": 17570,
+    "status": "candidate"
+  },
+  "editions_compared": [],
+  "snapshots": {
+    "before": {},
+    "after": {}
+  },
+  "divergences": [],
+  "summary": "Insufficient matched historical content.",
+  "run_ts": "2026-07-19T00:35:53.662203+00:00",
+  "model": "claude-sonnet-5",
+  "llm_usage": {
+    "calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": []
+  },
+  "elapsed_seconds": 69.562
+}

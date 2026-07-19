@@ -64,22 +64,22 @@
       "to": 21
     },
     {
-      "domain": "un.int",
-      "from": 0,
-      "to": 5
-    },
-    {
       "domain": "reuters.com",
       "from": 0,
       "to": 5
     },
     {
-      "domain": "books.google.com",
+      "domain": "un.int",
+      "from": 0,
+      "to": 5
+    },
+    {
+      "domain": "euobserver.com",
       "from": 0,
       "to": 4
     },
     {
-      "domain": "digitallibrary.un.org",
+      "domain": "books.google.com",
       "from": 0,
       "to": 4
     },
@@ -89,7 +89,7 @@
       "to": 4
     },
     {
-      "domain": "euobserver.com",
+      "domain": "digitallibrary.un.org",
       "from": 0,
       "to": 4
     },
@@ -104,11 +104,6 @@
       "to": 3
     },
     {
-      "domain": "unispal.un.org",
-      "from": 0,
-      "to": 2
-    },
-    {
       "domain": "treaties.un.org",
       "from": 0,
       "to": 2
@@ -119,7 +114,7 @@
       "to": 2
     },
     {
-      "domain": "europa-eu-un.org",
+      "domain": "unispal.un.org",
       "from": 0,
       "to": 2
     },
@@ -139,47 +134,17 @@
       "to": 2
     },
     {
-      "domain": "edition.cnn.com",
+      "domain": "europa-eu-un.org",
       "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "theguardian.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "mcgill.ca",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "thehindu.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "sknc.qdnd.vn",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "lib-unique.un.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "archive.wikiwix.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "brookings.edu",
-      "from": 0,
-      "to": 1
+      "to": 2
     },
     {
       "domain": "news.un.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "edition.cnn.com",
       "from": 0,
       "to": 1
     },
@@ -189,7 +154,42 @@
       "to": 1
     },
     {
+      "domain": "theguardian.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "sknc.qdnd.vn",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "thehindu.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "mcgill.ca",
+      "from": 0,
+      "to": 1
+    },
+    {
       "domain": "baltimoresun.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "archive.wikiwix.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "lib-unique.un.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "brookings.edu",
       "from": 0,
       "to": 1
     }

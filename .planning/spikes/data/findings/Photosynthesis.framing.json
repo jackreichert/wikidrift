@@ -1,0 +1,28 @@
+{
+  "article": "Photosynthesis",
+  "mode": "static",
+  "editions_compared": [
+    "en",
+    "de",
+    "gu"
+  ],
+  "lead_chars": {
+    "en": 4089,
+    "de": 1757,
+    "gu": 2980
+  },
+  "divergences": [],
+  "error": "anthropic returned invalid JSON twice; last response ended near character 6120",
+  "summary": "LLM comparison failed; no framing result was produced.",
+  "run_ts": "2026-07-19T00:24:20.986711+00:00",
+  "model": "claude-sonnet-5",
+  "llm_usage": {
+    "calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": []
+  },
+  "elapsed_seconds": 118.715
+}

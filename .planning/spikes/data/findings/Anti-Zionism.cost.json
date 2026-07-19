@@ -1,0 +1,38 @@
+{
+  "article": "Anti-Zionism",
+  "run_ts": "2026-07-18T22:55:30.969153+00:00",
+  "workflow": "confirmed_framing_refresh",
+  "elapsed_seconds": 97.093,
+  "stages": [
+    {
+      "command": "analyze",
+      "elapsed_seconds": 67.567,
+      "exit_code": 0
+    },
+    {
+      "command": "framing",
+      "elapsed_seconds": 29.526,
+      "exit_code": 0
+    }
+  ],
+  "llm_usage": {
+    "calls": 1,
+    "input_tokens": 4582,
+    "output_tokens": 1246,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 4582,
+        "output_tokens": 1246,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
+  },
+  "estimated_external_usd": null,
+  "estimate_scope": "LLM token charges only. Wikipedia and WikiWho APIs are public and unpriced here; machine time, storage, payment fees, taxes, failed-response charges, and service margin are excluded."
+}

@@ -1,0 +1,42 @@
+{
+  "article": "Warsaw concentration camp",
+  "mode": "static",
+  "editions_compared": [
+    "en",
+    "pl",
+    "de",
+    "ar",
+    "fr"
+  ],
+  "lead_chars": {
+    "en": 2763,
+    "pl": 1624,
+    "de": 589,
+    "ar": 2201,
+    "fr": 1315
+  },
+  "divergences": [],
+  "error": "anthropic returned invalid JSON twice; last response ended near character 7044",
+  "summary": "LLM comparison failed; no framing result was produced.",
+  "run_ts": "2026-07-19T00:34:36.221574+00:00",
+  "model": "claude-sonnet-5",
+  "llm_usage": {
+    "calls": 1,
+    "input_tokens": 440,
+    "output_tokens": 74,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 440,
+        "output_tokens": 74,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
+  },
+  "elapsed_seconds": 54.791
+}
