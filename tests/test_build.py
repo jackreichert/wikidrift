@@ -124,6 +124,27 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("Cross-language lead comparison", out)
         self.assertIn("Languages compared: en, sr, ko", out)
 
+    def test_superseded_stance_does_not_create_empty_framing_tab(self):
+        unavailable_framing = {
+            "mode": "pivot_relative",
+            "editions_compared": ["en", "sr", "ko"],
+            "divergences": [],
+            "error": "provider request failed",
+        }
+        findings = build.Findings(
+            stances={"Testland": ST},
+            framings={"Testland": unavailable_framing},
+            diver=DIVER,
+        )
+
+        layers = dict((name, available) for name, available, _ in build._layer_flags("Testland", findings))
+        out = build.article_page("Testland", findings, categories={"Testland": "Other"})
+
+        self.assertFalse(layers["Framing"])
+        self.assertNotIn('data-slug="framing"', out)
+        self.assertNotIn("Cross-language stance comparison", out)
+        self.assertNotIn("Language openings treat the topic differently", out)
+
     def test_renders_temporal_framing_evidence_and_receipts(self):
         framing = {
             "mode": "candidate_relative",

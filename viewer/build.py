@@ -703,6 +703,8 @@ def _fact_counts(fcs):
 
 def _lead_divergence(article, f):
     """Cross-edition lead stance spread, or None when that comparison was not computed."""
+    if article in f.stances and not _current_stance(article, f):
+        return None
     try:
         return float(f.diver["static"][article]["variants"]["lead"]["divergence"])
     except (KeyError, TypeError, ValueError):
@@ -1384,12 +1386,13 @@ def framing_tab(article, f):
     """Combine the stance grid and cross-language lead comparison when either is present."""
     st = _current_stance(article, f)
     fr = f.framings.get(article)
-    if not st and not fr:
+    framing_available = _framing_result_available(fr)
+    if not st and not framing_available:
         return ""
     parts = []
     if st:
         parts.append(stance_section(st, f.diver, article))
-    if fr:
+    if fr and (framing_available or st):
         parts.append(framing_lite_block(fr))
     return "".join(parts)
 
@@ -1399,7 +1402,7 @@ def _layer_flags(article, f):
     rewrite_state = _rewrite_state(article, f)
     has_src = article in f.sources
     framing = f.framings.get(article) or {}
-    has_framing = bool(f.stances.get(article) or _framing_result_available(framing))
+    has_framing = bool(_current_stance(article, f) or _framing_result_available(framing))
     has_facts = bool(f.factchecks.get(article))
     has_rev = bool(f.receipts.get(article))
     return [
@@ -1556,7 +1559,7 @@ def index_page(articles, f, categories=None):
             "rewrite" if pwr_sc or a in f.diffs else "",
             "vocabulary" if a in f.lexical else "",
             "facts" if f.factchecks.get(a) else "",
-            "framing" if f.stances.get(a) or f.framings.get(a) else "",
+            "framing" if _current_stance(a, f) or _framing_result_available(f.framings.get(a)) else "",
         ]).lower()
         rows.append(
             f'<a class="finding" href="article/{slugify(a)}.html" data-cat="{esc(cat)}" '
