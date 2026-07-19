@@ -37,8 +37,7 @@ WikiDrift analyzes an article in layers. Not every layer runs for every article,
 | **L5: Compare citations** | Shows how cited domains and source types differ across languages or change across a rewrite. WikiDrift reports the mix but does not rate a source as reliable or biased. | [Baigutanova et al. (2023)](https://arxiv.org/abs/2309.00196) and [Yang & Colavizza (2024)](https://doi.org/10.1108/OIR-02-2023-0084) |
 | **Final reading: Put the signals together** | Places the separate checks side by side and records which thresholds fired. That count can strengthen a lead, but it is not a calibrated probability, bias score, or verdict. | [Greenstein & Zhu on Wikipedia slant](https://www.aeaweb.org/articles?id=10.1257/aer.102.3.343), their [Wikipedia-Britannica comparison](https://doi.org/10.25300/MISQ/2018/14084), and [Johnson et al.](https://arxiv.org/abs/2510.21526) |
 
-
-### What's Novel?
+## What's Novel?
 
 No one publication supplies the entire pipeline. This project's contribution is the composition:
 - Discover content displacement without a seed list
