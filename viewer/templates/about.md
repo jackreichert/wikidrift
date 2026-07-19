@@ -8,7 +8,7 @@ The nature of Wikipedia's governing body makes it easy for capture as well. Beca
 
 I built WikiDrift as a forensic analysis tool to help shine a light on what is happening.
 
-Some of the criticism against [organizations calling this out] (https://www.adl.org/resources/press-release/new-adl-report-finds-evidence-biased-coordinated-campaign-wikipedia-related) has been that they themselves are partial. 
+Some of the criticism against [organizations calling this out](https://www.adl.org/resources/press-release/new-adl-report-finds-evidence-biased-coordinated-campaign-wikipedia-related) has been that they themselves are partial. 
 
 So I started with the question: Is there a way to discover bias in an article from its own history? Can an impartial analysis uncover bad actors?
 

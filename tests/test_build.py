@@ -163,15 +163,12 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertEqual(len(build._version_records(legacy, failed)), 2)
         self.assertEqual(len(build._version_records(legacy, no_languages)), 2)
 
-    def test_renders_framing_stance_grid(self):
+    def test_legacy_stance_does_not_render_framing(self):
         out = _article_html()
-        self.assertIn("Framing", out)
-        self.assertIn("Cross-language stance comparison", out)
-        self.assertIn("more critical", out)
-        self.assertNotIn("more critical!", out)
-        self.assertNotIn("A “!” means", out)
-        self.assertIn("Israel", out)
-        self.assertIn("Overview", out)
+        self.assertNotIn('data-slug="framing"', out)
+        self.assertNotIn("Cross-language stance comparison", out)
+        self.assertNotIn("Languages checked: en, he", out)
+        self.assertNotIn("language openings treat the topic differently", out)
 
     def test_new_framing_languages_supersede_disjoint_legacy_stance(self):
         framing = {
@@ -194,6 +191,28 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertNotIn("Languages checked: en, he", out)
         self.assertIn("Cross-language lead comparison", out)
         self.assertIn("Languages compared: en, sr, ko", out)
+
+    def test_new_framing_supersedes_overlapping_legacy_stance(self):
+        framing = {
+            "mode": "pivot_relative",
+            "editions_compared": ["en", "ar", "he", "de"],
+            "divergences": [{
+                "topic": "mandate", "verdict": "differ",
+                "editions_differ": ["de"],
+            }],
+        }
+        findings = build.Findings(
+            stances={"Testland": ST},
+            framings={"Testland": framing},
+            diver=DIVER,
+        )
+
+        out = build.article_page("Testland", findings, categories={"Testland": "Other"})
+
+        self.assertNotIn("Cross-language stance comparison", out)
+        self.assertNotIn("Languages checked: en, he", out)
+        self.assertIn("Cross-language lead comparison", out)
+        self.assertIn("Languages compared: en, ar, he, de", out)
 
     def test_superseded_stance_does_not_create_empty_framing_tab(self):
         unavailable_framing = {
@@ -411,7 +430,7 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("1 contradict · 1 compatible difference · 1 agree · 1 not enough", out)
         self.assertNotIn("3 of 4 basic facts", out)
 
-    def test_framing_headline_uses_cross_edition_divergence(self):
+    def test_legacy_stance_divergence_does_not_affect_headline(self):
         aligned = {
             "static": {"Testland": {"variants": {"lead": {"divergence": 0.0}}}},
             "pivot_relative": {},
@@ -419,7 +438,7 @@ class ArticlePageRendering(unittest.TestCase):
         findings = build.Findings(stances={"Testland": ST}, diver=aligned)
         out = build.article_page("Testland", findings)
         self.assertNotIn("language openings treat the topic differently", out)
-        self.assertIn("openings mostly line up", out)
+        self.assertNotIn("openings mostly line up", out)
 
 
 class SiteRouting(unittest.TestCase):

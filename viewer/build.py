@@ -42,8 +42,6 @@ def _md_asset(stem):
 # Editor tints for the (opt-in) blame overlay — light backgrounds, dark text (AA-safe).
 BLAME_PALETTE = ["#f6dede", "#dde6f4", "#dfeede", "#f4eccf", "#e7ddf2", "#d5ecec",
                  "#f4e2cf", "#e4e4e6", "#efdde8", "#dcecdf"]
-# Stance / verdict rendered as CSS classes — kept for any future L5 re-integration.
-SCLASS = {"critical": "c", "sympathetic": "s", "neutral": "n", "absent": "a"}
 VCLASS = {"contradict": "c", "differ": "d", "agree": "a", "insufficient": "i"}
 
 # Short section intros (article pages). No glossary required — explain in place.
@@ -369,102 +367,6 @@ def receipts_section(rec, framing=None):
     )
 
 
-def stance_grid(st):
-    langs, ents = st["langs"], st["entities"]
-    head = "".join(f'<th scope="col">{esc(l)}</th>' for l in langs)
-    rows = []
-    eid = 0
-    for e in ents:
-        cells = []
-        ev_rows = []
-        for l in langs:
-            r = st["editions"][l]["lead"].get(e) or {}
-            s = r.get("stance", "absent")
-            s_label = {
-                "critical": "more critical",
-                "sympathetic": "more sympathetic",
-                "neutral": "neutral",
-                "absent": "not mentioned",
-            }.get(s, s)
-            quote = (r.get("evidence") or "").strip()
-            eid += 1
-            cid = f"ev{eid}"
-            if quote:
-                cells.append(
-                    f'<td class="sc-{SCLASS.get(s, "a")}" style="padding:0">'
-                    f'<button type="button" class="cell-ev sc-{SCLASS.get(s, "a")}" '
-                    f'aria-expanded="false" aria-controls="{cid}" '
-                    f'aria-label="Show evidence for {esc(e)} in {esc(l)}: {esc(s_label)}">'
-                    f'{esc(s_label)}</button></td>')
-                ev_rows.append(
-                    f'<tr class="ev-row" id="{cid}" hidden><td colspan="{len(langs)+1}" class="ev-panel">'
-                    f'<b>{esc(l)} · {esc(e)}</b> — {esc(quote)}</td></tr>')
-            else:
-                cells.append(
-                    f'<td class="cell sc-{SCLASS.get(s, "a")}">{esc(s_label)}</td>'
-                )
-        rows.append(f'<tr><th scope="row">{esc(e)}</th>{"".join(cells)}</tr>')
-        rows.extend(ev_rows)
-    legend = (
-        '<span class="chip sc-c">more critical</span>'
-        '<span class="chip sc-n">neutral</span>'
-        '<span class="chip sc-s">more sympathetic</span>'
-        '<span class="chip sc-a">not mentioned</span>'
-    )
-    return (
-        f'<div class="tablewrap"><table class="grid"><thead><tr><th></th>{head}</tr></thead>'
-        f'<tbody>{"".join(rows)}</tbody></table></div>'
-        f'<p class="legend">{legend} '
-        f'<span class="muted">Click a cell for the short quote.</span></p>'
-    )
-
-
-def stance_section(st, diver=None, article=None):
-    """How language openings frame the topic."""
-    if not st:
-        return ""
-    parts = [
-        '<h2>Cross-language stance comparison</h2>',
-        f'<p class="lead">{WHAT["stance"]}</p>',
-    ]
-    diver = diver or {}
-    if article:
-        stat = diver.get("static", {}).get(article)
-        if stat:
-            try:
-                d = stat["variants"]["lead"]["divergence"]
-                word = (
-                    "mostly line up"
-                    if d < 0.4
-                    else ("differ somewhat" if d < 1.2 else "differ a lot")
-                )
-                parts.append(
-                    f'<p>Overall, the openings <b>{word}</b> across languages.</p>'
-                )
-            except (KeyError, TypeError):
-                pass
-    parts.append(stance_grid(st))
-    if article:
-        pr = diver.get("pivot_relative", {}).get(article)
-        if pr:
-            read = pr.get("read")
-            if read == "PEELED AWAY":
-                msg = (
-                    "Before the big English rewrite, the languages mostly agreed. Afterward, "
-                    "English moved away from the others. That pattern is worth reading carefully — "
-                    "it is still not proof of bad intent."
-                )
-            elif read == "no net change":
-                msg = (
-                    "The languages already disagreed by about the same amount before and after "
-                    "the rewrite, so the gap may be older than that one overhaul."
-                )
-            else:
-                msg = "Across the rewrite, the languages moved closer together."
-            parts.append(f'<div class="callout"><b>Around the rewrite.</b> {msg}</div>')
-    return "".join(parts)
-
-
 def fact_section(article, fcs):
     if not fcs:
         return ""
@@ -734,16 +636,6 @@ def _fact_counts(fcs):
     return Counter(q.get("verdict", "insufficient") for q in adj)
 
 
-def _lead_divergence(article, f):
-    """Cross-edition lead stance spread, or None when that comparison was not computed."""
-    if article in f.stances and not _current_stance(article, f):
-        return None
-    try:
-        return float(f.diver["static"][article]["variants"]["lead"]["divergence"])
-    except (KeyError, TypeError, ValueError):
-        return None
-
-
 def _pivot_status(pivot):
     """Legacy exports came from verdict_dict and are therefore coarse candidates."""
     return pivot.get("status") or "candidate"
@@ -887,12 +779,6 @@ def headline(article, f):
             bits.append("language openings contradict each other on something important")
         else:
             bits.append("language openings emphasize different things")
-
-    lead_div = _lead_divergence(article, f)
-    if lead_div is not None and lead_div >= 0.4 and not divs:
-        bits.append("language openings treat the topic differently")
-    elif lead_div is not None and lead_div < 0.4 and not bits:
-        bits.append("Compared language openings mostly line up")
 
     if not bits:
         src = f.sources.get(article)
@@ -1057,25 +943,9 @@ def _signal_cards(article, f):
             f'See <a href="#facts">Facts</a>.</p></div>'
         )
 
-    st = _current_stance(article, f)
-    if st:
-        langs = st.get("langs") or list((st.get("editions") or {}).keys())
-        lead_div = _lead_divergence(article, f)
-        differs = lead_div is not None and lead_div >= 0.4
-        stance_value = "differs by language" if differs else (
-            "openings mostly line up" if lead_div is not None else "comparison available"
-        )
-        cards.append(
-            f'<div class="signal-card {"hot" if differs else "cool"}">'
-            f'<div class="signal-label">How openings sound</div>'
-            f'<div class="signal-value">{stance_value}</div>'
-            f'<p class="signal-note">Languages checked: {esc(", ".join(langs))}. '
-            f'See <a href="#framing">Framing</a>.</p></div>'
-        )
-
     fr = f.framings.get(article) or {}
     divs = fr.get("divergences") or []
-    if divs and not st:
+    if divs:
         n_c = sum(1 for d in divs if d.get("verdict") == "contradict")
         cards.append(
             f'<div class="signal-card hot">'
@@ -1282,19 +1152,6 @@ def _framing_result_available(fr):
     return bool(fr.get("divergences") or calls)
 
 
-def _current_stance(article, findings):
-    """Ignore a legacy stance run when a newer framing run selected wholly different editions."""
-    stance = findings.stances.get(article)
-    framing = findings.framings.get(article)
-    if not stance or not framing:
-        return stance
-    stance_langs = set(stance.get("langs") or stance.get("editions") or {}) - {"en"}
-    framing_langs = set(framing.get("editions_compared") or []) - {"en"}
-    if stance_langs and framing_langs and stance_langs.isdisjoint(framing_langs):
-        return None
-    return stance
-
-
 def framing_lite_block(fr):
     """Extra cross-language opening comparisons (when present)."""
     if not fr:
@@ -1418,18 +1275,11 @@ def framing_lite_block(fr):
 
 
 def framing_tab(article, f):
-    """Combine the stance grid and cross-language lead comparison when either is present."""
-    st = _current_stance(article, f)
+    """Render the current cross-language lead comparison when available."""
     fr = f.framings.get(article)
-    framing_available = _framing_result_available(fr)
-    if not st and not framing_available:
+    if not _framing_result_available(fr):
         return ""
-    parts = []
-    if st:
-        parts.append(stance_section(st, f.diver, article))
-    if fr and (framing_available or st):
-        parts.append(framing_lite_block(fr))
-    return "".join(parts)
+    return framing_lite_block(fr)
 
 
 def _layer_flags(article, f):
@@ -1437,7 +1287,7 @@ def _layer_flags(article, f):
     rewrite_state = _rewrite_state(article, f)
     has_src = article in f.sources
     framing = f.framings.get(article) or {}
-    has_framing = bool(_current_stance(article, f) or _framing_result_available(framing))
+    has_framing = _framing_result_available(framing)
     has_facts = bool(f.factchecks.get(article))
     has_rev = bool(_version_records(f.receipts.get(article), framing))
     return [
@@ -1538,8 +1388,6 @@ def signal_badges(article, f, score=None):
         badge_cls = "sig framing-c" if has_contradict else "sig framing"
         label = "openings contradict" if has_contradict else "openings differ"
         badges.append(f'<span class="{badge_cls}">{label}</span>')
-    elif (_lead_divergence(article, f) or 0) >= 0.4:
-        badges.append('<span class="sig framing">openings differ</span>')
 
     prof = f.profiles.get(article) or {}
     conc = prof.get("top10_editor_share") or 0
@@ -1594,7 +1442,7 @@ def index_page(articles, f, categories=None):
             "rewrite" if pwr_sc or a in f.diffs else "",
             "vocabulary" if a in f.lexical else "",
             "facts" if f.factchecks.get(a) else "",
-            "framing" if _current_stance(a, f) or _framing_result_available(f.framings.get(a)) else "",
+            "framing" if _framing_result_available(f.framings.get(a)) else "",
         ]).lower()
         rows.append(
             f'<a class="finding" href="article/{slugify(a)}.html" data-cat="{esc(cat)}" '
