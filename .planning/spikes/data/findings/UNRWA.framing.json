@@ -1,5 +1,6 @@
 {
   "article": "UNRWA",
+  "category": "israeli-palestinian",
   "mode": "pivot_relative",
   "pivot_window": {
     "start": "2014-07-01",
@@ -18,6 +19,12 @@
     "he",
     "de"
   ],
+  "lead_chars": {
+    "en": 1417,
+    "ar": 396,
+    "he": 328,
+    "de": 516
+  },
   "snapshots": {
     "before": {
       "en": {
@@ -78,18 +85,88 @@
       }
     }
   },
-  "divergences": [],
-  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAgE99G8SZ6Y42qJJDRQ'}",
-  "summary": "LLM comparison failed; no framing result was produced.",
-  "run_ts": "2026-07-19T03:06:15.213548+00:00",
+  "divergences": [
+    {
+      "topic": "Refugee count figure",
+      "editions_differ": [
+        "AR"
+      ],
+      "en_says": "5 million registered Palestinian refugees",
+      "other_says": "حوالي 4.7 مليون لاجئ فلسطيني مسجلين",
+      "verdict": "differ",
+      "evidence_en": "Today it provides education, health care, social services and military aid to 5 million registered Palestinian refugees",
+      "evidence_other": "لحوالي 4.7 مليون لاجئ فلسطيني مسجلين لديها",
+      "temporal_read": "difference_persisted",
+      "en_before": "5 million registered Palestinian refugees",
+      "en_after": "5 million registered Palestinian refugees",
+      "other_before": "حوالي 4.7 مليون لاجئ فلسطيني مسجلين",
+      "other_after": "حوالي 4.7 مليون لاجئ فلسطيني مسجلين",
+      "evidence_en_before": "Today it provides education, health care, social services and military aid to 5 million registered Palestinian refugees",
+      "evidence_en_after": "Today it provides education, health care, social services and military aid to 5 million registered Palestinian refugees",
+      "evidence_other_before": "لحوالي 4.7 مليون لاجئ فلسطيني مسجلين لديها",
+      "evidence_other_after": "لحوالي 4.7 مليون لاجئ فلسطيني مسجلين لديها"
+    },
+    {
+      "topic": "Relation to UNHCR",
+      "editions_differ": [
+        "HE"
+      ],
+      "en_says": "It is separate from UNHCR...which is the only other UN agency aiding refugees, dedicated to aiding all refugees in the world",
+      "other_says": "היא גוף של האומות המאוחדות שהוקם בנפרד מנציבות האו\"ם לפליטים שמטרתה לטפל בכל הפליטים",
+      "verdict": "agree",
+      "evidence_en": "It is separate from UNHCR...the UN Refugee Agency, which is the only other UN agency aiding refugees, dedicated to aiding all refugees in the world",
+      "evidence_other": "היא גוף של האומות המאוחדות שהוקם בנפרד מנציבות האו\"ם לפליטים שמטרתה לטפל בכל הפליטים, ועוסק רק בפליטים פלסטינים",
+      "temporal_read": "difference_persisted",
+      "en_before": "It is separate from UNHCR...dedicated to aiding all refugees in the world",
+      "en_after": "It is separate from UNHCR...dedicated to aiding all refugees in the world",
+      "other_before": "היא גוף של האומות המאוחדות שהוקם בנפרד מנציבות האו\"ם לפליטים",
+      "other_after": "היא גוף של האומות המאוחדות שהוקם בנפרד מנציבות האו\"ם לפליטים",
+      "evidence_en_before": "It is separate from UNHCR...dedicated to aiding all refugees in the world",
+      "evidence_en_after": "It is separate from UNHCR...dedicated to aiding all refugees in the world",
+      "evidence_other_before": "היא גוף של האומות המאוחדות שהוקם בנפרד מנציבות האו\"ם לפליטים",
+      "evidence_other_after": "היא גוף של האומות המאוחדות שהוקם בנפרד מנציבות האו\"ם לפליטים"
+    },
+    {
+      "topic": "Headquarters location detail",
+      "editions_differ": [
+        "DE"
+      ],
+      "en_says": "[No mention of headquarters location in English lead]",
+      "other_says": "Der Hauptsitz des Hilfswerkes war zunächst Beirut, wurde 1978...nach Wien und 1996 weiter nach Gaza verlegt",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": "Der Hauptsitz des Hilfswerkes war zunächst Beirut, wurde 1978 aufgrund der Unruhen im Libanon nach Wien und 1996 weiter nach Gaza verlegt",
+      "temporal_read": "difference_persisted",
+      "en_before": "[No mention of headquarters location]",
+      "en_after": "[No mention of headquarters location]",
+      "other_before": "Der Hauptsitz des Hilfswerkes war zunächst Beirut, wurde 1978...nach Wien und 1996 weiter nach Gaza verlegt",
+      "other_after": "Der Hauptsitz des Hilfswerkes war zunächst Beirut, wurde 1978...nach Wien und 1996 weiter nach Gaza verlegt",
+      "evidence_en_before": null,
+      "evidence_en_after": null,
+      "evidence_other_before": "Der Hauptsitz des Hilfswerkes war zunächst Beirut, wurde 1978 aufgrund der Unruhen im Libanon nach Wien und 1996 weiter nach Gaza verlegt",
+      "evidence_other_after": "Der Hauptsitz des Hilfswerkes war zunächst Beirut, wurde 1978 aufgrund der Unruhen im Libanon nach Wien und 1996 weiter nach Gaza verlegt"
+    }
+  ],
+  "summary": "No edits occurred to the English lead's substantive content between the before and after revisions in this window (text identical), and the same holds for AR, DE, and HE leads, which also remained unchanged. Pre-existing cross-edition differences persisted throughout: the Arabic lead cites ~4.7 million refugees versus English's 5 million; the German lead omits refugee counts but adds headquarters history absent in English; and the Hebrew lead frames UNRWA's separation from UNHCR similarly to English but with less detail on numbers. No temporal divergence was introduced by English's edit in this window.",
+  "run_ts": "2026-07-19T17:51:24.748495+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 0,
-    "input_tokens": 0,
-    "output_tokens": 0,
+    "calls": 1,
+    "input_tokens": 4228,
+    "output_tokens": 1883,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": []
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 4228,
+        "output_tokens": 1883,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
   },
-  "elapsed_seconds": 15.028
+  "elapsed_seconds": 35.498
 }

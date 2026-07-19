@@ -1,6 +1,8 @@
 {
   "article": "Naliboki massacre",
+  "category": "polish-wwii",
   "mode": "static",
+  "pivot_window": null,
   "editions_compared": [
     "en",
     "pl",
@@ -13,18 +15,85 @@
     "ru": 317,
     "it": 264
   },
-  "divergences": [],
-  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAfoS7GwDUiEP2VF8G6k'}",
-  "summary": "LLM comparison failed; no framing result was produced.",
-  "run_ts": "2026-07-19T03:00:40.033601+00:00",
+  "snapshots": null,
+  "divergences": [
+    {
+      "topic": "death toll",
+      "editions_differ": [
+        "RU",
+        "EN"
+      ],
+      "en_says": "127 or 128 Poles killed",
+      "other_says": "129 people killed, including three women and several teenagers",
+      "verdict": "differ",
+      "evidence_en": "mass killing of 127 or 128 Poles",
+      "evidence_other": "убиты 129 человек, включая трёх женщин и нескольких подростков"
+    },
+    {
+      "topic": "specificity of victim count",
+      "editions_differ": [
+        "PL"
+      ],
+      "en_says": "127 or 128 Poles",
+      "other_says": "no specific number given, only 'polskich mieszkańców wsi Naliboki' (Polish residents of the village)",
+      "verdict": "absent_other",
+      "evidence_en": "mass killing of 127 or 128 Poles",
+      "evidence_other": "masakra polskich mieszkańców wsi Naliboki"
+    },
+    {
+      "topic": "date of massacre",
+      "editions_differ": [
+        "PL"
+      ],
+      "en_says": "8 May 1943",
+      "other_says": "no date mentioned in lead",
+      "verdict": "absent_other",
+      "evidence_en": "the 8 May 1943 mass killing",
+      "evidence_other": "dokonana przez oddziały radzieckich partyzantów"
+    },
+    {
+      "topic": "location context / occupation status",
+      "editions_differ": [
+        "RU"
+      ],
+      "en_says": "town in German-occupied Poland, now in Belarus",
+      "other_says": "village located in the Naliboki forest (Налибокской пуще), now territory of Belarus, no mention of German occupation",
+      "verdict": "differ",
+      "evidence_en": "in the small town of Naliboki in German-occupied Poland",
+      "evidence_other": "деревни Налибоки (в Налибокской пуще, ныне территория Беларуси)"
+    },
+    {
+      "topic": "settlement type",
+      "editions_differ": [
+        "PL"
+      ],
+      "en_says": "described as a 'small town'",
+      "other_says": "described as a 'wieś' (village)",
+      "verdict": "differ",
+      "evidence_en": "in the small town of Naliboki",
+      "evidence_other": "masakra polskich mieszkańców wsi Naliboki"
+    }
+  ],
+  "summary": "The editions largely agree on the core event—a massacre of Polish civilians by Soviet partisans in Naliboki—but diverge on details. RU gives a precise death toll of 129 including demographic breakdown, while EN gives an approximate range of 127-128 and PL omits a number entirely. PL also omits the specific date. Descriptions of the settlement differ (town vs. village), and RU emphasizes the forest location without noting German occupation, which EN and IT explicitly state.",
+  "run_ts": "2026-07-19T17:43:31.962140+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 0,
-    "input_tokens": 0,
-    "output_tokens": 0,
+    "calls": 1,
+    "input_tokens": 1512,
+    "output_tokens": 833,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": []
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 1512,
+        "output_tokens": 833,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
   },
-  "elapsed_seconds": 3.566
+  "elapsed_seconds": 12.812
 }

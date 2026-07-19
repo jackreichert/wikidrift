@@ -1,28 +1,109 @@
 {
   "article": "Ainu people",
+  "category": "general",
   "mode": "static",
+  "pivot_window": null,
   "editions_compared": [
     "en",
     "ka",
     "ja"
   ],
   "lead_chars": {
-    "en": 2174,
+    "en": 2173,
     "ka": 895,
     "ja": 304
   },
-  "divergences": [],
-  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAbtrTB8nhtuh51jPVuR'}",
-  "summary": "LLM comparison failed; no framing result was produced.",
-  "run_ts": "2026-07-19T02:09:26.320317+00:00",
+  "snapshots": null,
+  "divergences": [
+    {
+      "topic": "origin/ethnogenesis of Ainu",
+      "editions_differ": [
+        "JA"
+      ],
+      "en_says": "Describes Ainu as indigenous group occupying regions since before arrival of Yamato and Russians, without specifying Jomon ancestry theory",
+      "other_says": "States Ainu are believed to be descendants of Jomon people who were not assimilated into the Yayoi-derived culture, grouped with mainland Japanese and Ryukyuans under 'Jomon cultural sphere'",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": "渡来系弥生人の文化（日本語など）に同化吸収されずに残った縄文人の系統だと考えられている。本土日本人（大和）、琉球人（沖縄）と共に縄文文化圏に含まれる。"
+    },
+    {
+      "topic": "legal recognition as indigenous people",
+      "editions_differ": [
+        "JA"
+      ],
+      "en_says": "Does not mention specific 2019 legislation by name",
+      "other_says": "Cites the 2019 'Ainu Policy Promotion Act' which explicitly designates Ainu as indigenous people of northern Japan, especially Hokkaido",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": "2019年5月に施行された「アイヌ施策推進法」では「日本列島北部周辺、とりわけ北海道の先住民族である」と明記されている。"
+    },
+    {
+      "topic": "cultural revitalization institutions",
+      "editions_differ": [
+        "JA"
+      ],
+      "en_says": "Mentions general 'increasing efforts to revitalize the Hokkaido Ainu language' without naming institutions",
+      "other_says": "Names specific 2020 institution: National Ainu Museum and 'Upopoy' symbolic space for ethnic coexistence in Shiraoi, Hokkaido",
+      "verdict": "absent_en",
+      "evidence_en": "In recent years, there have been increasing efforts to revitalize the Hokkaido Ainu language.",
+      "evidence_other": "2020年には文化復興の拠点として国立アイヌ民族博物館を含む「民族共生象徴空間（ウポポイ）」が北海道白老町に開設された。"
+    },
+    {
+      "topic": "forced assimilation and colonization history",
+      "editions_differ": [
+        "KA",
+        "JA"
+      ],
+      "en_says": "Details forced assimilation during Japanese colonization of Hokkaido since 18th century, land dispossession, banning of religion and language in schools",
+      "other_says": "KA omits colonization/assimilation history entirely; JA only briefly implies assimilation via Jomon/Yayoi cultural absorption framing, not explicit policy history",
+      "verdict": "absent_other",
+      "evidence_en": "The Ainu were subject to forced assimilation during the Japanese colonization of Hokkaido since at least the 18th century... Ainu people were not allowed to practice their religion and were placed into Japanese-language schools",
+      "evidence_other": null
+    },
+    {
+      "topic": "population statistics",
+      "editions_differ": [
+        "KA",
+        "JA"
+      ],
+      "en_says": "Gives specific population figures: 11,450 in Hokkaido (2023 survey), 300 in Russia (2021), unofficial estimate 200,000+ in Japan (2002)",
+      "other_says": "KA and JA do not provide specific population statistics",
+      "verdict": "absent_other",
+      "evidence_en": "Official surveys of the known Ainu population in Hokkaido received 11,450 responses in 2023, and the Ainu population in Russia was estimated at 300 in 2021.",
+      "evidence_other": null
+    },
+    {
+      "topic": "subsistence lifestyle characterization",
+      "editions_differ": [
+        "KA"
+      ],
+      "en_says": "Does not emphasize hunting/fishing/agriculture as defining feature",
+      "other_says": "Emphasizes that Ainu practiced hunting, fishing and agriculture, distinguishing them from neighboring Japanese, Koreans, and Chinese only in that others focused solely on agriculture for millennia",
+      "verdict": "differ",
+      "evidence_en": null,
+      "evidence_other": "ისინი მისდევენ ნადირობას, თევზაობასა და მიწათმოქმედებას. ეს ხალხი მეზობელი იაპონელებისგან, კორეელებისა და ჩინელებისგან... მხოლოდ ნადირობითა და შემგროვებლობით არ განსხვავდებოდნენ."
+    }
+  ],
+  "summary": "The EN edition provides extensive detail on forced assimilation, colonization history, language suppression, and specific population statistics, none of which appear in the KA or JA versions. The JA edition instead emphasizes Jomon ancestry theory and cultural continuity with mainland Japanese and Ryukyuans, and cites specific 2019 legislation and a 2020 cultural institution absent from EN. The KA edition is the briefest, characterizing Ainu primarily through subsistence practices (hunting, fishing, agriculture) and omits nearly all modern political, demographic, and historical assimilation context found in EN and JA. Overall, the editions diverge mainly through omission and differing thematic emphasis rather than direct contradiction, though this reflects distinct editorial priorities in origin narrative versus modern political/historical framing.",
+  "run_ts": "2026-07-19T16:59:29.469391+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 0,
-    "input_tokens": 0,
-    "output_tokens": 0,
+    "calls": 1,
+    "input_tokens": 2837,
+    "output_tokens": 1719,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": []
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 2837,
+        "output_tokens": 1719,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
   },
-  "elapsed_seconds": 26.026
+  "elapsed_seconds": 47.947
 }

@@ -1,28 +1,38 @@
 {
   "article": "Abortion",
-  "run_ts": "2026-07-19T02:08:58.112439+00:00",
+  "run_ts": "2026-07-19T16:58:39.360281+00:00",
   "workflow": "confirmed_framing_refresh",
-  "succeeded": false,
-  "elapsed_seconds": 223.395,
+  "succeeded": true,
+  "elapsed_seconds": 227.076,
   "stages": [
     {
       "command": "analyze",
-      "elapsed_seconds": 166.156,
+      "elapsed_seconds": 160.885,
       "exit_code": 0
     },
     {
       "command": "framing",
-      "elapsed_seconds": 57.239,
-      "exit_code": 1
+      "elapsed_seconds": 66.191,
+      "exit_code": 0
     }
   ],
   "llm_usage": {
-    "calls": 0,
-    "input_tokens": 0,
-    "output_tokens": 0,
+    "calls": 1,
+    "input_tokens": 5759,
+    "output_tokens": 1355,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": []
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 5759,
+        "output_tokens": 1355,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
   },
   "estimated_external_usd": null,
   "estimate_scope": "LLM token charges only. Wikipedia and WikiWho APIs are public and unpriced here; machine time, storage, payment fees, taxes, failed-response charges, and service margin are excluded."

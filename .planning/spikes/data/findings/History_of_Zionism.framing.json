@@ -53,7 +53,7 @@
   },
   "divergences": [],
   "summary": "Insufficient matched historical content.",
-  "run_ts": "2026-07-19T02:54:52.109640+00:00",
+  "run_ts": "2026-07-19T17:37:42.168560+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
     "calls": 0,
@@ -63,5 +63,5 @@
     "all_calls_priced": false,
     "records": []
   },
-  "elapsed_seconds": 5.37
+  "elapsed_seconds": 3.75
 }

@@ -1,6 +1,8 @@
 {
   "article": "Genocide of indigenous peoples",
+  "category": "general",
   "mode": "static",
+  "pivot_window": null,
   "editions_compared": [
     "en",
     "bn",
@@ -11,18 +13,101 @@
     "bn": 1544,
     "tr": 2037
   },
-  "divergences": [],
-  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAeej7c1Pi6JCc9Rr5T3'}",
-  "summary": "LLM comparison failed; no framing result was produced.",
-  "run_ts": "2026-07-19T02:45:35.158883+00:00",
+  "snapshots": null,
+  "divergences": [
+    {
+      "topic": "Continents/regions affected by genocidal violence",
+      "editions_differ": [
+        "EN",
+        "TR"
+      ],
+      "en_says": "Colonial genocidal violence occurred against indigenous groups in Europe, the Americas, Africa, Asia, and Oceania",
+      "other_says": "Genocidal violence occurred against indigenous groups in the Americas, Australia, Africa, and Asia",
+      "verdict": "differ",
+      "evidence_en": "acts of genocidal violence against indigenous groups in Europe, the Americas, Africa, Asia, and Oceania",
+      "evidence_other": "Amerika, Avustralya, Afrika ve Asya'daki yerli gruplara yönelik soykırımcı şiddet eylemleri"
+    },
+    {
+      "topic": "Patrick Wolfe's theory on settler colonialism",
+      "editions_differ": [
+        "EN",
+        "TR"
+      ],
+      "en_says": "Not mentioned; EN only says other scholars view genocide as associated with but distinct from settler colonialism, without naming Wolfe",
+      "other_says": "Explicitly cites Patrick Wolfe arguing genocide of indigenous populations is especially likely in cases of settler colonialism, with some scholars calling settler colonialism inherently genocidal and others disputing the term's applicability",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": "Patrick Wolfe'a göre yerli nüfusun soykırımı özellikle yerleşimci sömürgecilik vakalarında muhtemeldir"
+    },
+    {
+      "topic": "David Maybury-Lewis on mechanisms of colonial genocide",
+      "editions_differ": [
+        "EN",
+        "TR"
+      ],
+      "en_says": "Not mentioned in the lead",
+      "other_says": "Cites David Maybury-Lewis describing two main mechanisms: deliberate clearing of land's original inhabitants for resource extraction/settlement, or forced labor of indigenous peoples in colonial/imperial resource extraction projects",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": "David Maybury-Lewis'e göre, soykırımın emperyal ve sömürgeci biçimleri iki ana yolla hayata geçirilir"
+    },
+    {
+      "topic": "Cultural genocide/ethnocide and specific modern examples",
+      "editions_differ": [
+        "EN",
+        "TR"
+      ],
+      "en_says": "Not mentioned in the lead; EN discusses cultural vs physical/biological destruction only in context of the 1948 Genocide Convention's narrowing of Lemkin's definition, without citing modern examples",
+      "other_says": "Discusses cultural genocide (ethnocide) as a form scholars argue should be recognized, and gives specific modern examples: treatment of Tibetans and Uyghurs by the Chinese government, treatment of Native Americans by the US government/citizens, and treatment of First Nations by the Canadian government",
+      "verdict": "absent_en",
+      "evidence_en": "he narrowed his definition to physical and biological destruction (as opposed to cultural genocide)",
+      "evidence_other": "Çin Hükûmeti tarafından Tibetlilere ve Uygurlara yapılan muamele, Amerika Birleşik Devletleri vatandaşları ve Birleşik Devletler hükûmetinin ajanları tarafından Yerli Amerikalılara yapılan muamele ve Kanada hükûmeti tarafından Birinci Milletler halklarına yapılan muamele"
+    },
+    {
+      "topic": "Criticism of the Genocide Convention's definition",
+      "editions_differ": [
+        "EN",
+        "TR"
+      ],
+      "en_says": "Details the specific criticisms of the Convention's definition: overemphasis on intent, imprecision of 'destruction in whole or in part', and narrow exclusivity of protected groups",
+      "other_says": "Not mentioned; TR lead omits discussion of criticisms of the Genocide Convention's legal definition",
+      "verdict": "absent_other",
+      "evidence_en": "criticized [it] as a highly flawed law for its overemphasis on intent, the imprecision of a key phrase 'destruction in whole or in part', and the narrow exclusivity of the groups protected",
+      "evidence_other": null
+    },
+    {
+      "topic": "Framing of colonization as 'inherently genocidal'",
+      "editions_differ": [
+        "EN",
+        "TR"
+      ],
+      "en_says": "States Lemkin saw genocide as a two-stage process without directly quoting him as calling colonization itself genocidal",
+      "other_says": "Directly attributes to Lemkin the phrase that colonization was in itself 'essentially genocide'",
+      "verdict": "differ",
+      "evidence_en": "Lemkin saw genocide as a two-stage process: (1) the destruction of the targeted group's way of life, followed by (2) the perpetrators' imposition of their own national pattern",
+      "evidence_other": "Lemkin'e göre, kolonizasyon kendi içinde \"özünde soykırım\" idi"
+    }
+  ],
+  "summary": "The EN and TR (and BN, which closely mirrors EN) leads diverge mainly in scope and emphasis. TR omits EN's detailed discussion of criticisms of the 1948 Genocide Convention's definition, while EN omits TR's citations of Patrick Wolfe and David Maybury-Lewis and TR's specific modern examples of alleged cultural genocide (Uyghurs, Tibetans, Native Americans, First Nations). The editions also differ slightly on which continents/regions are cited as sites of colonial genocidal violence, and TR presents a more direct quote attributing to Lemkin the view that colonization was 'essentially genocide,' whereas EN frames this more abstractly as a two-stage process. BN is essentially a direct translation of EN with no substantive divergences found.",
+  "run_ts": "2026-07-19T17:30:07.504187+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 0,
-    "input_tokens": 0,
-    "output_tokens": 0,
+    "calls": 1,
+    "input_tokens": 4030,
+    "output_tokens": 1887,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": []
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 4030,
+        "output_tokens": 1887,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
   },
-  "elapsed_seconds": 4.586
+  "elapsed_seconds": 23.417
 }

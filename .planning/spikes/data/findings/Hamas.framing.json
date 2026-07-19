@@ -1,5 +1,6 @@
 {
   "article": "Hamas",
+  "category": "israeli-palestinian",
   "mode": "pivot_relative",
   "pivot_window": {
     "start": "2023-01-01",
@@ -19,6 +20,13 @@
     "ru",
     "fr"
   ],
+  "lead_chars": {
+    "en": 2081,
+    "ar": 1848,
+    "he": 2735,
+    "ru": 1075,
+    "fr": 2250
+  },
   "snapshots": {
     "before": {
       "en": {
@@ -85,18 +93,91 @@
       }
     }
   },
-  "divergences": [],
-  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAfB83aWCwmbvhWNdaQz'}",
-  "summary": "LLM comparison failed; no framing result was produced.",
-  "run_ts": "2026-07-19T02:52:27.444219+00:00",
+  "divergences": [
+    {
+      "topic": "AR edition briefly added vandalism/editorial statement predicting Hamas's disappearance",
+      "editions_differ": [
+        "AR"
+      ],
+      "en_says": "Hamas (, ; , ; an acronym of  , ) is a Palestinian political and terrorist organization that currently governs the Gaza Strip...",
+      "other_says": "حماس منظمة إرهابية، وسوف تختفي قريبا من الإنسانية. (Hamas is a terrorist organization, and will soon disappear from humanity.)",
+      "verdict": "contradict",
+      "evidence_en": "Hamas (, ; , ; an acronym of  , ) is a Palestinian political and terrorist organization that currently governs the Gaza Strip",
+      "evidence_other": "حماس منظمة إرهابية، وسوف تختفي قريبا من الإنسانية.",
+      "temporal_read": "difference_persisted",
+      "en_before": "Hamas (, ; , ; an acronym of  , ) is a Palestinian political and terrorist organization that currently governs the Gaza Strip, one of the two Palestinian territories...",
+      "en_after": "Hamas (, ; , ; an acronym of  , ) is a Palestinian political and terrorist organization that currently governs the Gaza Strip, one of the two Palestinian territories...",
+      "other_before": "حركة حماس أو (حركة المقاومة الإسلامية...) هي حركة، إسلامية سياسية سُنية، فلسطينية، مسلحة، مقاومة للاحتلال الصهيوني...",
+      "other_after": "حماس منظمة إرهابية، وسوف تختفي قريبا من الإنسانية. حركة حماس أو (حركة المقاومة الإسلامية...)",
+      "evidence_en_before": "Hamas (, ; , ; an acronym of  , ) is a Palestinian political and terrorist organization that currently governs the Gaza Strip",
+      "evidence_en_after": "Hamas (, ; , ; an acronym of  , ) is a Palestinian political and terrorist organization that currently governs the Gaza Strip",
+      "evidence_other_before": "حركة حماس أو (حركة المقاومة الإسلامية، وتسمى اختصاراً حماس) هي حركة، إسلامية سياسية سُنية، فلسطينية، مسلحة، مقاومة للاحتلال الصهيوني",
+      "evidence_other_after": "حماس منظمة إرهابية، وسوف تختفي قريبا من الإنسانية."
+    },
+    {
+      "topic": "FR edition added detail on Israeli government's early support for Hamas to weaken PLO",
+      "editions_differ": [
+        "FR"
+      ],
+      "en_says": "Hamas was established soon after the first Intifada in 1987. Campaigning on using armed resistance to end the Israeli occupation, it won the 2006 Palestinian legislative election...",
+      "other_says": "Le développement du Hamas est d'abord soutenu par le gouvernement israélien, lequel entend ainsi affaiblir l'Organisation de libération de la Palestine.",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": "Le développement du Hamas est d'abord soutenu par le gouvernement israélien, lequel entend ainsi affaiblir l'Organisation de libération de la Palestine.",
+      "temporal_read": "english_moved_away",
+      "en_before": "Hamas was established soon after the first Intifada in 1987. Campaigning on using armed resistance to end the Israeli occupation, it won the 2006 Palestinian legislative election...",
+      "en_after": "Hamas was established soon after the first Intifada in 1987. Campaigning on using armed resistance to end the Israeli occupation, it won the 2006 Palestinian legislative election...",
+      "other_before": "Créé en 1987 par Sheikh Ahmed Yassin, Abdel Aziz al-Rantissi et Mohammed Taha, tous trois issus des Frères musulmans, sa charte affirme que...",
+      "other_after": "Le développement du Hamas est d'abord soutenu par le gouvernement israélien, lequel entend ainsi affaiblir l'Organisation de libération de la Palestine.",
+      "evidence_en_before": null,
+      "evidence_en_after": null,
+      "evidence_other_before": null,
+      "evidence_other_after": "Le développement du Hamas est d'abord soutenu par le gouvernement israélien, lequel entend ainsi affaiblir l'Organisation de libération de la Palestine."
+    },
+    {
+      "topic": "Framing of Hamas as terrorist organization vs. political/resistance movement",
+      "editions_differ": [
+        "AR",
+        "HE",
+        "RU",
+        "FR"
+      ],
+      "en_says": "Hamas...is a Palestinian political and terrorist organization that currently governs the Gaza Strip",
+      "other_says": "حركة، إسلامية سياسية سُنية، فلسطينية، مسلحة، مقاومة للاحتلال الصهيوني (an Islamic political Sunni, Palestinian, armed movement resisting Zionist occupation)",
+      "verdict": "contradict",
+      "evidence_en": "Hamas (, ; , ; an acronym of  , ) is a Palestinian political and terrorist organization that currently governs the Gaza Strip",
+      "evidence_other": "هي حركة، إسلامية سياسية سُنية، فلسطينية، مسلحة، مقاومة للاحتلال الصهيوني",
+      "temporal_read": "difference_persisted",
+      "en_before": "Hamas (, ; , ; an acronym of  , ) is a Palestinian political and terrorist organization that currently governs the Gaza Strip",
+      "en_after": "Hamas (, ; , ; an acronym of  , ) is a Palestinian political and terrorist organization that currently governs the Gaza Strip",
+      "other_before": "حركة حماس أو (حركة المقاومة الإسلامية، وتسمى اختصاراً حماس) هي حركة، إسلامية سياسية سُنية، فلسطينية، مسلحة، مقاومة للاحتلال الصهيوني",
+      "other_after": "حركة حماس أو (حركة المقاومة الإسلامية، وتسمى اختصاراً حماس) هي حركة، إسلامية سياسية سُنية، فلسطينية، مسلحة، مقاومة للاحتلال الصهيوني",
+      "evidence_en_before": "is a Palestinian political and terrorist organization that currently governs the Gaza Strip",
+      "evidence_en_after": "is a Palestinian political and terrorist organization that currently governs the Gaza Strip",
+      "evidence_other_before": "هي حركة، إسلامية سياسية سُنية، فلسطينية، مسلحة، مقاومة للاحتلال الصهيوني",
+      "evidence_other_after": "هي حركة، إسلامية سياسية سُنية، فلسطينية، مسلحة، مقاومة للاحتلال الصهيوني"
+    }
+  ],
+  "summary": "Across this narrow window (surrounding the October 7, 2023 attack), the English lead remained textually unchanged between the BEFORE and AFTER revisions. Other editions showed brief, mostly transient edits: Arabic saw a vandalism-like insertion predicting Hamas's disappearance, later presumably reverted, which sits outside and contradicts the stable English framing. French added a substantive historical claim about Israeli support for Hamas's early development to weaken the PLO, a detail absent from English. Hebrew and Russian showed no substantive textual change in this window. A persistent cross-edition divergence unrelated to the time window is the framing of Hamas as 'terrorist' in English versus more neutral 'resistance movement' framing in Arabic, reflecting differing national/political perspectives rather than temporal drift within this snapshot.",
+  "run_ts": "2026-07-19T17:37:14.072940+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 0,
-    "input_tokens": 0,
-    "output_tokens": 0,
+    "calls": 1,
+    "input_tokens": 12271,
+    "output_tokens": 2585,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": []
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 12271,
+        "output_tokens": 2585,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
   },
-  "elapsed_seconds": 35.315
+  "elapsed_seconds": 56.367
 }

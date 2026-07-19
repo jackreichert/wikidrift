@@ -1,5 +1,6 @@
 {
   "article": "Gaza war",
+  "category": "israeli-palestinian",
   "mode": "pivot_relative",
   "pivot_window": {
     "start": "2024-01-01",
@@ -19,6 +20,13 @@
     "es",
     "fr"
   ],
+  "lead_chars": {
+    "en": 3000,
+    "ar": 3000,
+    "he": 1400,
+    "es": 3000,
+    "fr": 3000
+  },
   "snapshots": {
     "before": {
       "en": {
@@ -85,18 +93,112 @@
       }
     }
   },
-  "divergences": [],
-  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAeTC22mZS65MriuxVWZ'}",
-  "summary": "LLM comparison failed; no framing result was produced.",
-  "run_ts": "2026-07-19T02:42:58.557091+00:00",
+  "divergences": [
+    {
+      "topic": "Israeli deaths/hostages count in initial attack",
+      "editions_differ": [
+        "AR",
+        "ES"
+      ],
+      "en_says": "1,139 Israelis and foreign nationals including 766 civilians and 373 security personnel were killed, while 252 Israelis and foreigners were taken captive",
+      "other_says": "مقتل ما لا يقل عن 1400 إسرائيلي بما في ذلك 260 شخصًا في مهرجان رعيم الموسيقي",
+      "verdict": "contradict",
+      "evidence_en": "1,139 Israelis and foreign nationals including 766 civilians and 373 security personnel were killed",
+      "evidence_other": "أدى الهجوم إلى مقتل ما لا يقل عن 1400 إسرائيلي",
+      "temporal_read": "difference_persisted",
+      "en_before": "1,139 Israelis and foreign nationals including 766 civilians and 373 security personnel were killed, while 252 Israelis and foreigners were taken captive",
+      "en_after": "1,139 Israelis and foreign nationals including 766 civilians and 373 security personnel were killed, while 252 Israelis and foreigners were taken captive",
+      "other_before": "أدى الهجوم إلى مقتل ما لا يقل عن 1400 إسرائيلي بما في ذلك 260 شخصًا في مهرجان رعيم الموسيقي",
+      "other_after": "أدى الهجوم إلى مقتل ما لا يقل عن 1400 إسرائيلي بما في ذلك 260 شخصًا في مهرجان رعيم الموسيقي",
+      "evidence_en_before": "1,139 Israelis and foreign nationals including 766 civilians and 373 security personnel were killed",
+      "evidence_en_after": "1,139 Israelis and foreign nationals including 766 civilians and 373 security personnel were killed",
+      "evidence_other_before": "أدى الهجوم إلى مقتل ما لا يقل عن 1400 إسرائيلي",
+      "evidence_other_after": "أدى الهجوم إلى مقتل ما لا يقل عن 1400 إسرائيلي"
+    },
+    {
+      "topic": "Palestinian death toll in Gaza",
+      "editions_differ": [
+        "AR",
+        "ES"
+      ],
+      "en_says": "more than 34,000 Palestinians in Gaza have been killed, with a majority consisting of over 14,000 children and 9,000 women",
+      "other_says": "أدى الهجوم الإسرائيلي إلى مقتل 34,622 فلسطينيًا في غزة، منهم 14,944 طفلًا و9,849 إمرأة",
+      "verdict": "agree",
+      "evidence_en": "more than 34,000 Palestinians in Gaza have been killed, with a majority consisting of over 14,000 children and 9,000 women",
+      "evidence_other": "أدى الهجوم الإسرائيلي إلى مقتل 34,622 فلسطينيًا في غزة، منهم 14,944 طفلًا و9,849 إمرأة",
+      "temporal_read": "parallel_change",
+      "en_before": "more than 34,000 Palestinians in Gaza have been killed, with a majority consisting of over 14,000 children and 9,000 women",
+      "en_after": "more than 34,000 Palestinians in Gaza have been killed, with a majority consisting of over 14,000 children and 9,000 women",
+      "other_before": "إرتفع قتلى غزة إلى34000 بينهم 19324 طفلاً و9823 امرأة",
+      "other_after": "أدى الهجوم الإسرائيلي إلى مقتل 34,622 فلسطينيًا في غزة، منهم 14,944 طفلًا و9,849 إمرأة",
+      "evidence_en_before": "more than 34,000 Palestinians in Gaza have been killed, with a majority consisting of over 14,000 children and 9,000 women",
+      "evidence_en_after": "more than 34,000 Palestinians in Gaza have been killed, with a majority consisting of over 14,000 children and 9,000 women",
+      "evidence_other_before": "إرتفع قتلى غزة إلى34000 بينهم 19324 طفلاً و9823 امرأة",
+      "evidence_other_after": "أدى الهجوم الإسرائيلي إلى مقتل 34,622 فلسطينيًا في غزة، منهم 14,944 طفلًا و9,849 إمرأة"
+    },
+    {
+      "topic": "Arabic edition added causal/response framing and updated casualty synthesis",
+      "editions_differ": [
+        "AR"
+      ],
+      "en_says": "In response, Israel declared a state of war, tightened its blockade and launched one of the deadliest and most destructive bombing campaigns in modern history",
+      "other_says": "ردًا على ذلك، بدأت قوات إسرائيل هجومها... وأعلنت حالة الحرب وشددت حصارها وشنت واحدة من أكثر حملات القصف دموية وتدميرًا في التاريخ الحديث",
+      "verdict": "agree",
+      "evidence_en": "In response, Israel declared a state of war, tightened its blockade and launched one of the deadliest and most destructive bombing campaigns in modern history",
+      "evidence_other": "وأعلنت حالة الحرب وشددت حصارها وشنت واحدة من أكثر حملات القصف دموية وتدميرًا في التاريخ الحديث",
+      "temporal_read": "english_converged",
+      "en_before": "In response, Israel declared a state of war, tightened its blockade and launched one of the deadliest and most destructive bombing campaigns in modern history",
+      "en_after": "In response, Israel declared a state of war, tightened its blockade and launched one of the deadliest and most destructive bombing campaigns in modern history",
+      "other_before": "بدأت قوات إسرائيل هجومها باستعادة السيطرة على المستوطنات التي سبق لقوات حماس السيطرة عليها كما نَفَّذَت غارات جوية على قطاع غزة، أدى الهجوم إلى مقتل 2,750 فلسطينيًا",
+      "other_after": "ردًا على ذلك، بدأت قوات إسرائيل هجومها باستعادة السيطرة على المستوطنات... وأعلنت حالة الحرب وشددت حصارها وشنت واحدة من أكثر حملات القصف دموية وتدميرًا في التاريخ الحديث",
+      "evidence_en_before": "In response, Israel declared a state of war, tightened its blockade",
+      "evidence_en_after": "In response, Israel declared a state of war, tightened its blockade",
+      "evidence_other_before": "أدى الهجوم إلى مقتل 2,750 فلسطينيًا إلى حدود 15 أكتوبر/تشرين الأول",
+      "evidence_other_after": "وأعلنت حالة الحرب وشددت حصارها وشنت واحدة من أكثر حملات القصف دموية وتدميرًا في التاريخ الحديث"
+    },
+    {
+      "topic": "English and other editions unchanged in this snapshot window",
+      "editions_differ": [
+        "ES",
+        "FR",
+        "HE"
+      ],
+      "en_says": "An armed conflict between Israel and Hamas-led Palestinian militant groups has been taking place chiefly in and around the Gaza Strip since 7 October 2023.",
+      "other_says": "No textual change detected between before and after revisions for ES, FR, and HE leads in this window.",
+      "verdict": "agree",
+      "evidence_en": "An armed conflict between Israel and Hamas-led Palestinian militant groups has been taking place chiefly in and around the Gaza Strip since 7 October 2023.",
+      "evidence_other": "La guerre Israël-Hamas de 2023-2024... est un conflit opposant originellement Israël au Hamas",
+      "temporal_read": "unclear",
+      "en_before": "An armed conflict between Israel and Hamas-led Palestinian militant groups has been taking place chiefly in and around the Gaza Strip since 7 October 2023.",
+      "en_after": "An armed conflict between Israel and Hamas-led Palestinian militant groups has been taking place chiefly in and around the Gaza Strip since 7 October 2023.",
+      "other_before": "La guerre Israël-Hamas de 2023-2024... est un conflit opposant originellement Israël au Hamas",
+      "other_after": "La guerre Israël-Hamas de 2023-2024... est un conflit opposant originellement Israël au Hamas",
+      "evidence_en_before": "An armed conflict between Israel and Hamas-led Palestinian militant groups",
+      "evidence_en_after": "An armed conflict between Israel and Hamas-led Palestinian militant groups",
+      "evidence_other_before": "La guerre Israël-Hamas de 2023-2024",
+      "evidence_other_after": "La guerre Israël-Hamas de 2023-2024"
+    }
+  ],
+  "summary": "The English lead text is byte-identical between the before and after revisions in this window, showing no substantive change. The Arabic edition, however, updated its Gaza casualty figures (from ~34,000/19,324 children/9,823 women to 34,622/14,944 children/9,849 women, closer to the English figures) and added explicit causal framing ('in response') linking Israel's declaration of war, blockade, and bombing campaign to the initial Hamas attack, converging its structure toward the English narrative. Spanish, French, and Hebrew leads show no textual changes across their respective before/after snapshots. A persistent contradiction exists between English (1,139 killed, 252 hostages) and Arabic (at least 1,400 killed, 260 at the festival) regarding initial Israeli casualties, unresolved by either edition's edits in this window.",
+  "run_ts": "2026-07-19T17:29:11.692367+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 0,
-    "input_tokens": 0,
-    "output_tokens": 0,
+    "calls": 1,
+    "input_tokens": 14969,
+    "output_tokens": 3194,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": []
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 14969,
+        "output_tokens": 3194,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
   },
-  "elapsed_seconds": 30.471
+  "elapsed_seconds": 56.347
 }

@@ -1,6 +1,8 @@
 {
   "article": "United Nations General Assembly observers",
+  "category": "general",
   "mode": "static",
+  "pivot_window": null,
   "editions_compared": [
     "en",
     "ko",
@@ -11,18 +13,62 @@
     "ko": 482,
     "fr": 1630
   },
-  "divergences": [],
-  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAgEprChegYMAr6Ashc4'}",
-  "summary": "LLM comparison failed; no framing result was produced.",
-  "run_ts": "2026-07-19T03:06:24.489033+00:00",
+  "snapshots": null,
+  "divergences": [
+    {
+      "topic": "specific non-member states named",
+      "editions_differ": [
+        "EN"
+      ],
+      "en_says": "Names the two non-member observer states explicitly as the Holy See and the State of Palestine",
+      "other_says": "KO and FR refer generically to non-member sovereign states without naming which ones currently hold this status",
+      "verdict": "differ",
+      "evidence_en": "granted observer status to two non-member states (the Holy See and the State of Palestine)",
+      "evidence_other": "유엔 총회는 국제기구, 단체 및 비회원 주권국이... / aux États non membres de l'Organisation des Nations unies"
+    },
+    {
+      "topic": "non-state observers composition detail",
+      "editions_differ": [
+        "FR"
+      ],
+      "en_says": "Describes non-state observers simply as international organizations and other entities, without subdividing further",
+      "other_says": "FR specifies that non-state observers include both intergovernmental organizations and non-governmental organizations, plus other entities",
+      "verdict": "absent_en",
+      "evidence_en": "Non-state observers are the international organizations and other entities.",
+      "evidence_other": "Les observateurs non étatiques sont des organisations internationales, tant les organisations intergouvernementales que les organisations non gouvernementales, et d’autres entités."
+    },
+    {
+      "topic": "EU enhanced rights uniqueness qualifier",
+      "editions_differ": [
+        "KO"
+      ],
+      "en_says": "States 'As of May 2011, the EU is the only international organization to hold these enhanced rights', explicitly time-stamping the claim",
+      "other_says": "KO also includes the May 2011 timestamp similarly, while FR states the EU is the only organization without the explicit date qualifier",
+      "verdict": "differ",
+      "evidence_en": "As of May 2011, the EU is the only international organization to hold these enhanced rights",
+      "evidence_other": "L'UE est la seule organisation internationale à détenir ces droits renforcés"
+    }
+  ],
+  "summary": "The three editions are largely aligned in structure and core content regarding UNGA observer status, the 1986 treaty conference, and the EU's exceptional 2011 rights grant. The main divergences are: EN uniquely names the two specific non-member observer states (Holy See and State of Palestine), which KO and FR leave unspecified; FR adds more granularity by distinguishing intergovernmental from non-governmental organizations among non-state observers, a detail absent in EN and KO; and there is a minor difference in whether the 'as of May 2011' temporal qualifier is retained when describing the EU's uniqueness, with FR omitting it while EN and KO include it.",
+  "run_ts": "2026-07-19T17:51:43.899483+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 0,
-    "input_tokens": 0,
-    "output_tokens": 0,
+    "calls": 1,
+    "input_tokens": 2532,
+    "output_tokens": 833,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": []
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 2532,
+        "output_tokens": 833,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
   },
-  "elapsed_seconds": 8.025
+  "elapsed_seconds": 17.941
 }

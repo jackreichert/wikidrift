@@ -1,5 +1,6 @@
 {
   "article": "Jedwabne pogrom",
+  "category": "polish-wwii",
   "mode": "pivot_relative",
   "pivot_window": {
     "start": "2020-01-01",
@@ -18,6 +19,12 @@
     "de",
     "zh"
   ],
+  "lead_chars": {
+    "en": 452,
+    "pl": 3000,
+    "de": 419,
+    "zh": 703
+  },
   "snapshots": {
     "before": {
       "en": {
@@ -78,18 +85,89 @@
       }
     }
   },
-  "divergences": [],
-  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAfmfZ7DEv7B88jsYdHC'}",
-  "summary": "LLM comparison failed; no framing result was produced.",
-  "run_ts": "2026-07-19T03:00:16.043306+00:00",
+  "divergences": [
+    {
+      "topic": "Attribution of responsibility: Polish citizens vs German inspiration/occupation",
+      "editions_differ": [
+        "DE",
+        "PL"
+      ],
+      "en_says": "About 40 ethnic Poles were implicated in the murders. German police were present in the town.",
+      "other_says": "war ein Pogrom polnischer Bürger von Jedwabne...an jüdischen Einwohnern...Es fand während der Besatzung Jedwabnes durch die Wehrmacht statt und gilt als gemeinsames Verbrechen einer Gruppe von polnischen Einwohnern und deutscher Besatzungsmacht.",
+      "verdict": "differ",
+      "evidence_en": "About 40 ethnic Poles were implicated in the murders. German police were present in the town.",
+      "evidence_other": "gilt als gemeinsames Verbrechen einer Gruppe von polnischen Einwohnern und deutscher Besatzungsmacht",
+      "temporal_read": "difference_persisted",
+      "en_before": "About 40 ethnic Poles were implicated in the murders. German police were present in the town.",
+      "en_after": "About 40 ethnic Poles were implicated in the murders. German police were present in the town.",
+      "other_before": "Das Massaker von Jedwabne war ein Pogrom polnischer Bürger...gilt als gemeinsames Verbrechen einer Gruppe von polnischen Einwohnern und deutscher Besatzungsmacht.",
+      "other_after": "Das Massaker von Jedwabne war ein Pogrom polnischer Bürger...gilt als gemeinsames Verbrechen einer Gruppe von polnischen Einwohnern und deutscher Besatzungsmacht.",
+      "evidence_en_before": "About 40 ethnic Poles were implicated in the murders. German police were present in the town.",
+      "evidence_en_after": "About 40 ethnic Poles were implicated in the murders. German police were present in the town.",
+      "evidence_other_before": "gilt als gemeinsames Verbrechen einer Gruppe von polnischen Einwohnern und deutscher Besatzungsmacht",
+      "evidence_other_after": "gilt als gemeinsames Verbrechen einer Gruppe von polnischen Einwohnern und deutscher Besatzungsmacht"
+    },
+    {
+      "topic": "German role: inspiration vs occupying force (PL) vs mere police presence (EN)",
+      "editions_differ": [
+        "PL"
+      ],
+      "en_says": "German police were present in the town.",
+      "other_says": "masowe morderstwo dokonane z niemieckiej inspiracji",
+      "verdict": "differ",
+      "evidence_en": "German police were present in the town.",
+      "evidence_other": "masowe morderstwo dokonane z niemieckiej inspiracji",
+      "temporal_read": "difference_persisted",
+      "en_before": "German police were present in the town.",
+      "en_after": "German police were present in the town.",
+      "other_before": "masowe morderstwo dokonane z niemieckiej inspiracji",
+      "other_after": "masowe morderstwo dokonane z niemieckiej inspiracji",
+      "evidence_en_before": "German police were present in the town.",
+      "evidence_en_after": "German police were present in the town.",
+      "evidence_other_before": "masowe morderstwo dokonane z niemieckiej inspiracji",
+      "evidence_other_after": "masowe morderstwo dokonane z niemieckiej inspiracji"
+    },
+    {
+      "topic": "Removal of footnote citation for German police presence in English lead",
+      "editions_differ": [
+        "EN"
+      ],
+      "en_says": "German police were present in the town.",
+      "other_says": "German police were present in the town.",
+      "verdict": "differ",
+      "evidence_en": "German police were present in the town.",
+      "evidence_other": null,
+      "temporal_read": "english_moved_away",
+      "en_before": "German police were present in the town.\"Pogrom in Jedwabne: Course of Events. Polin Museum, 9 July 2016; accessed 2 April 2018",
+      "en_after": "German police were present in the town.",
+      "other_before": "n/a",
+      "other_after": "n/a",
+      "evidence_en_before": "German police were present in the town.\"Pogrom in Jedwabne: Course of Events. Polin Museum, 9 July 2016; accessed 2 April 2018",
+      "evidence_en_after": "German police were present in the town.",
+      "evidence_other_before": null,
+      "evidence_other_after": null
+    }
+  ],
+  "summary": "The English lead's factual content did not change between the before and after revisions in this window; only a footnote/citation marker was removed. In contrast, DE and PL retained their pre-existing framing that persisted unchanged across the same period: DE emphasizes joint Polish-German responsibility under Wehrmacht occupation, while PL foregrounds German inspiration for the massacre. ZH also remained essentially unchanged, matching EN's core facts (340 killed, 300 burned, ~40 Poles implicated, German police present) without added attribution language. These attributional divergences between EN and DE/PL predate and persist through the observed edit window, rather than resulting from the English edit itself.",
+  "run_ts": "2026-07-19T17:42:40.257597+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 0,
-    "input_tokens": 0,
-    "output_tokens": 0,
+    "calls": 1,
+    "input_tokens": 6819,
+    "output_tokens": 1645,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": []
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 6819,
+        "output_tokens": 1645,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
   },
-  "elapsed_seconds": 9.657
+  "elapsed_seconds": 23.909
 }

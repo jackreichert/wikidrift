@@ -1,5 +1,6 @@
 {
   "article": "Israeli–Palestinian conflict",
+  "category": "israeli-palestinian",
   "mode": "pivot_relative",
   "pivot_window": {
     "start": "2024-01-01",
@@ -18,6 +19,12 @@
     "ja",
     "or"
   ],
+  "lead_chars": {
+    "en": 3000,
+    "ar": 1691,
+    "ja": 1166,
+    "or": 3000
+  },
   "snapshots": {
     "before": {
       "en": {
@@ -78,18 +85,98 @@
       }
     }
   },
-  "divergences": [],
-  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAfiiPgCKofudjpvoTUo'}",
-  "summary": "LLM comparison failed; no framing result was produced.",
-  "run_ts": "2026-07-19T02:59:36.017607+00:00",
+  "divergences": [
+    {
+      "topic": "Framing of the conflict's origin and terminology",
+      "editions_differ": [
+        "AR"
+      ],
+      "en_says": "The Israeli–Palestinian conflict is an ongoing military and political conflict about land and self-determination within the territory of the former Mandatory Palestine.",
+      "other_says": "مصطلح يشار به إلى الخلاف السياسي والتاريخي والمشكلة الإنسانية في فلسطين بدءاً من عام 1897 (المؤتمر الصهيوني الأول) وحتى الوقت الحالي، وهي تعدّ جزءاً جوهرياً من الصراع العربي الإسرائيلي",
+      "verdict": "differ",
+      "evidence_en": "an ongoing military and political conflict about land and self-determination within the territory of the former Mandatory Palestine",
+      "evidence_other": "القضية الفلسطينية... جزءاً جوهرياً من الصراع العربي الإسرائيلي",
+      "temporal_read": "difference_persisted",
+      "en_before": "The Israeli–Palestinian conflict is an ongoing military and political conflict about land and self-determination within the territory of the former Mandatory Palestine.",
+      "en_after": "The Israeli–Palestinian conflict is an ongoing military and political conflict about land and self-determination within the territory of the former Mandatory Palestine.",
+      "other_before": "مصطلح يشار به إلى الخلاف السياسي والتاريخي والمشكلة الإنسانية في فلسطين بدءاً من عام 1897",
+      "other_after": "مصطلح يشار به إلى الخلاف السياسي والتاريخي والمشكلة الإنسانية في فلسطين بدءاً من عام 1897",
+      "evidence_en_before": "an ongoing military and political conflict about land and self-determination",
+      "evidence_en_after": "an ongoing military and political conflict about land and self-determination",
+      "evidence_other_before": "القضية الفلسطينية أو الصراع الفلسطيني الإسرائيلي مصطلح يشار به إلى الخلاف السياسي والتاريخي والمشكلة الإنسانية",
+      "evidence_other_after": "القضية الفلسطينية أو الصراع الفلسطيني الإسرائيلي مصطلح يشار به إلى الخلاف السياسي والتاريخي والمشكلة الإنسانية"
+    },
+    {
+      "topic": "Starting point/date of the conflict",
+      "editions_differ": [
+        "AR",
+        "OR"
+      ],
+      "en_says": "The conflict has its origins in the rise of Zionism in Europe and the arrival of Jewish settlers to Ottoman Palestine in the late 19th and early 20th centuries.",
+      "other_says": "بدءاً من عام 1897 (المؤتمر الصهيوني الأول)",
+      "verdict": "agree",
+      "evidence_en": "the rise of Zionism in Europe and the arrival of Jewish settlers to Ottoman Palestine in the late 19th and early 20th centuries",
+      "evidence_other": "بدءاً من عام 1897 (المؤتمر الصهيوني الأول)",
+      "temporal_read": "difference_persisted",
+      "en_before": "The conflict has its origins in the rise of Zionism in Europe and the arrival of Jewish settlers to Ottoman Palestine in the late 19th and early 20th centuries.",
+      "en_after": "The conflict has its origins in the rise of Zionism in Europe and the arrival of Jewish settlers to Ottoman Palestine in the late 19th and early 20th centuries.",
+      "other_before": "بدءاً من عام 1897 (المؤتمر الصهيوني الأول)",
+      "other_after": "بدءاً من عام 1897 (المؤتمر الصهيوني الأول)",
+      "evidence_en_before": "the rise of Zionism in Europe and the arrival of Jewish settlers to Ottoman Palestine",
+      "evidence_en_after": "the rise of Zionism in Europe and the arrival of Jewish settlers to Ottoman Palestine",
+      "evidence_other_before": "مصطلح يشار به... بدءاً من عام 1897",
+      "evidence_other_after": "مصطلح يشار به... بدءاً من عام 1897"
+    },
+    {
+      "topic": "Characterization of Israeli actions/statehood legitimacy",
+      "editions_differ": [
+        "AR"
+      ],
+      "en_says": "Key aspects of the conflict include the Israeli occupation of the West Bank and Gaza Strip, the status of Jerusalem, Israeli settlements, borders, security, water rights, the permit regime, Palestinian freedom of movement, and the Palestinian right of return.",
+      "other_says": "شرعية دولة إسرائيل واحتلالها للأراضي الفلسطينية بعدة مراحل. وما نتج عن ذلك من ارتكابها للمجازر بحق الفلسطينيين",
+      "verdict": "contradict",
+      "evidence_en": "Key aspects of the conflict include the Israeli occupation of the West Bank and Gaza Strip",
+      "evidence_other": "شرعية دولة إسرائيل واحتلالها للأراضي الفلسطينية بعدة مراحل... ارتكابها للمجازر بحق الفلسطينيين",
+      "temporal_read": "difference_persisted",
+      "en_before": "Key aspects of the conflict include the Israeli occupation of the West Bank and Gaza Strip, the status of Jerusalem, Israeli settlements, borders, security, water rights, the permit regime, Palestinian freedom of movement, and the Palestinian right of return.",
+      "en_after": "Key aspects of the conflict include the Israeli occupation of the West Bank and Gaza Strip, the status of Jerusalem, Israeli settlements, borders, security, water rights, the permit regime, Palestinian freedom of movement, and the Palestinian right of return.",
+      "other_before": "شرعية دولة إسرائيل واحتلالها للأراضي الفلسطينية بعدة مراحل. وما نتج عن ذلك من ارتكابها للمجازر بحق الفلسطينيين",
+      "other_after": "شرعية دولة إسرائيل واحتلالها للأراضي الفلسطينية بعدة مراحل. وما نتج عن ذلك من ارتكابها للمجازر بحق الفلسطينيين",
+      "evidence_en_before": "Israeli occupation of the West Bank and Gaza Strip, the status of Jerusalem, Israeli settlements",
+      "evidence_en_after": "Israeli occupation of the West Bank and Gaza Strip, the status of Jerusalem, Israeli settlements",
+      "evidence_other_before": "شرعية دولة إسرائيل واحتلالها للأراضي الفلسطينية بعدة مراحل",
+      "evidence_other_after": "شرعية دولة إسرائيل واحتلالها للأراضي الفلسطينية بعدة مراحل"
+    }
+  ],
+  "summary": "Across this window, the English lead text is byte-identical before and after (no substantive edit occurred despite the revision timestamps), so no genuine temporal change occurred in English. The Arabic, Japanese, and Odia leads are also unchanged between their respective before/after snapshots. Therefore, all identified divergences reflect persistent, pre-existing differences between English and other editions (particularly Arabic, which frames the conflict as originating in 1897 Zionist Congress and centers on Israeli statehood legitimacy and alleged massacres, versus English's framing centered on occupation, settlements, and specific final-status issues) rather than any convergence, divergence, or parallel change during the specified period.",
+  "run_ts": "2026-07-19T17:41:55.786639+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 0,
-    "input_tokens": 0,
-    "output_tokens": 0,
+    "calls": 2,
+    "input_tokens": 31816,
+    "output_tokens": 6618,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": []
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 15908,
+        "output_tokens": 4096,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      },
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 15908,
+        "output_tokens": 2522,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
   },
-  "elapsed_seconds": 30.85
+  "elapsed_seconds": 85.177
 }

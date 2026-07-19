@@ -1,5 +1,6 @@
 {
   "article": "Palestine",
+  "category": "israeli-palestinian",
   "mode": "pivot_relative",
   "pivot_window": {
     "start": "2015-07-01",
@@ -19,6 +20,13 @@
     "fr",
     "el"
   ],
+  "lead_chars": {
+    "en": 3000,
+    "ar": 1167,
+    "he": 717,
+    "fr": 847,
+    "el": 1060
+  },
   "snapshots": {
     "before": {
       "en": {
@@ -85,18 +93,90 @@
       }
     }
   },
-  "divergences": [],
-  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAg3JFPcrHFkmmZsRXTt'}",
-  "summary": "LLM comparison failed; no framing result was produced.",
-  "run_ts": "2026-07-19T03:03:48.108323+00:00",
+  "divergences": [
+    {
+      "topic": "Statehood status: partially recognized state vs. aspirational/proto-state concept",
+      "editions_differ": [
+        "FR",
+        "AR",
+        "HE"
+      ],
+      "en_says": "The State of Palestine ( ), also known simply as Palestine, is a partially recognized de jure sovereign state in the Middle East.",
+      "other_says": "La Palestine, en forme longue l’État de Palestine... est un proto-État du Proche-Orient",
+      "verdict": "contradict",
+      "evidence_en": "is a partially recognized de jure sovereign state in the Middle East",
+      "evidence_other": "est un proto-État du Proche-Orient",
+      "temporal_read": "english_moved_away",
+      "en_before": "The State of Palestine ( ), also known simply as Palestine, is a partially recognized de jure sovereign state in the Middle East.",
+      "en_after": "The State of Palestine ( ), also known simply as Palestine, is a partially recognized de jure sovereign state in the Middle East.",
+      "other_before": "La Palestine... est un État observateur non-membre de l'ONU situé au Proche-Orient",
+      "other_after": "La Palestine... est un proto-État du Proche-Orient",
+      "evidence_en_before": "is a partially recognized de jure sovereign state in the Middle East",
+      "evidence_en_after": "is a partially recognized de jure sovereign state in the Middle East",
+      "evidence_other_before": "est un État observateur non-membre de l'ONU situé au Proche-Orient",
+      "evidence_other_after": "est un proto-État du Proche-Orient"
+    },
+    {
+      "topic": "Terminology for Islamic militant groups (Hamas, Islamic Jihad)",
+      "editions_differ": [
+        "HE"
+      ],
+      "en_says": "(unchanged; no equivalent characterization in EN text)",
+      "other_says": "ארגוני הטרור חמאס והג'יהאד האיסלאמי",
+      "verdict": "differ",
+      "evidence_en": null,
+      "evidence_other": "ארגוני הטרור חמאס והג'יהאד האיסלאמי",
+      "temporal_read": "parallel_change",
+      "en_before": "(no equivalent passage)",
+      "en_after": "(no equivalent passage)",
+      "other_before": "וארגונים אסלאמיים שאינם כלולים באש\"ף, כמו הארגונים חמאס והג'יהאד האיסלאמי",
+      "other_after": "וארגונים אסלאמיים שאינם כלולים באש\"ף, כמו ארגוני הטרור חמאס והג'יהאד האיסלאמי",
+      "evidence_en_before": null,
+      "evidence_en_after": null,
+      "evidence_other_before": "כמו הארגונים חמאס והג'יהאד האיסלאמי",
+      "evidence_other_after": "כמו ארגוני הטרור חמאס והג'יהאד האיסלאמי"
+    },
+    {
+      "topic": "Characterization of State of Palestine's independence/statehood (AR: undefined political entity vs EN: partially recognized sovereign state)",
+      "editions_differ": [
+        "AR"
+      ],
+      "en_says": "The State of Palestine ( ), also known simply as Palestine, is a partially recognized de jure sovereign state in the Middle East.",
+      "other_says": "دولة فلسطين هو مصطلح يشير إلى كيانات سياسية سالفة في فلسطين... وتطالب بإنشائه على جزء أو كل أرض فلسطين التاريخية",
+      "verdict": "contradict",
+      "evidence_en": "is a partially recognized de jure sovereign state",
+      "evidence_other": "لم تكن أي من تلك الكيانات مستقلة حتى الآن",
+      "temporal_read": "difference_persisted",
+      "en_before": "The State of Palestine ( ), also known simply as Palestine, is a partially recognized de jure sovereign state in the Middle East.",
+      "en_after": "The State of Palestine ( ), also known simply as Palestine, is a partially recognized de jure sovereign state in the Middle East.",
+      "other_before": "دولة فلسطين هو مصطلح يشير إلى كيانات سياسية سالفة في فلسطين... لم تكن أي من تلك الكيانات مستقلة حتى الآن",
+      "other_after": "دولة فلسطين هو مصطلح يشير إلى كيانات سياسية سالفة في فلسطين... لم تكن أي من تلك الكيانات مستقلة حتى الآن",
+      "evidence_en_before": "is a partially recognized de jure sovereign state in the Middle East",
+      "evidence_en_after": "is a partially recognized de jure sovereign state in the Middle East",
+      "evidence_other_before": "لم تكن أي من تلك الكيانات مستقلة حتى الآن",
+      "evidence_other_after": "لم تكن أي من تلك الكيانات مستقلة حتى الآن"
+    }
+  ],
+  "summary": "Across this narrow window, the English lead remained textually unchanged, so no genuine temporal shift occurred within EN itself. However, comparing EN to other editions reveals persistent and, in one case, newly widened divergences: French shifted during this window from calling Palestine a 'non-member observer state' to explicitly downgrading it to a 'proto-État,' moving further from English's 'partially recognized de jure sovereign state' framing. Hebrew's edit added the loaded term 'terror organizations' to describe Hamas and Islamic Jihad, a framing absent from English. Arabic's description of Palestine as a non-independent, aspirational entity contradicts English's sovereign-state framing, and this contradiction persisted unchanged across the window. Greek showed no substantive lead changes in this period.“",
+  "run_ts": "2026-07-19T17:46:44.254210+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 0,
-    "input_tokens": 0,
-    "output_tokens": 0,
+    "calls": 1,
+    "input_tokens": 8499,
+    "output_tokens": 1849,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": []
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 8499,
+        "output_tokens": 1849,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
   },
-  "elapsed_seconds": 57.576
+  "elapsed_seconds": 70.702
 }

@@ -1,5 +1,6 @@
 {
   "article": "Fascism and ideology",
+  "category": "general",
   "mode": "pivot_relative",
   "pivot_window": {
     "start": "2026-01-01",
@@ -17,6 +18,11 @@
     "sr",
     "ko"
   ],
+  "lead_chars": {
+    "en": 2705,
+    "sr": 2666,
+    "ko": 1268
+  },
   "snapshots": {
     "before": {
       "en": {
@@ -59,18 +65,49 @@
       }
     }
   },
-  "divergences": [],
-  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAdigRsQeG3vxJyzp5kM'}",
-  "summary": "LLM comparison failed; no framing result was produced.",
-  "run_ts": "2026-07-19T02:33:21.891129+00:00",
+  "divergences": [
+    {
+      "topic": "Nationalism subtypes mentioned in common fascist themes",
+      "editions_differ": [
+        "KO",
+        "SR"
+      ],
+      "en_says": "authoritarianism, nationalism, hierarchy, elitism, and militarism",
+      "other_says": "ауторитаризам, национализам (укључујући расни национализам и верски национализам), хијерархију, елитизам и милитаризам",
+      "verdict": "differ",
+      "evidence_en": "Common themes among fascist movements include: authoritarianism, nationalism, hierarchy, elitism, and militarism.",
+      "evidence_other": "национализам (укључујући расни национализам и верски национализам)",
+      "temporal_read": "difference_persisted",
+      "en_before": "authoritarianism, nationalism, hierarchy, elitism, and militarism",
+      "en_after": "authoritarianism, nationalism, hierarchy, elitism, and militarism",
+      "other_before": "национализам (укључујући расни национализам и верски национализам)",
+      "other_after": "национализам (укључујући расни национализам и верски национализам)",
+      "evidence_en_before": "Common themes among fascist movements include: authoritarianism, nationalism, hierarchy, elitism, and militarism.",
+      "evidence_en_after": "Common themes among fascist movements include: authoritarianism, nationalism, hierarchy, elitism, and militarism.",
+      "evidence_other_before": "национализам (укључујући расни национализам и верски национализам)",
+      "evidence_other_after": "национализам (укључујући расни национализам и верски национализам)"
+    }
+  ],
+  "summary": "No genuine temporal divergence emerged in this window: the EN before/after texts are identical, as are the KO and SR before/after texts. The only cross-edition difference found—KO and SR specifying 'nationalism (including racial nationalism and religious nationalism)' versus EN's plain 'nationalism'—predates and persists through the entire comparison window, with no edits made to either side during this period.",
+  "run_ts": "2026-07-19T17:19:38.969765+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 0,
-    "input_tokens": 0,
-    "output_tokens": 0,
+    "calls": 1,
+    "input_tokens": 8180,
+    "output_tokens": 638,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": []
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 8180,
+        "output_tokens": 638,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
   },
-  "elapsed_seconds": 4.76
+  "elapsed_seconds": 13.707
 }

@@ -1,5 +1,6 @@
 {
   "article": "Anti-Zionism",
+  "category": "israeli-palestinian",
   "mode": "pivot_relative",
   "pivot_window": {
     "start": "2022-01-01",
@@ -19,6 +20,13 @@
     "fr",
     "ru"
   ],
+  "lead_chars": {
+    "en": 935,
+    "ar": 709,
+    "he": 431,
+    "fr": 860,
+    "ru": 311
+  },
   "snapshots": {
     "before": {
       "en": {
@@ -85,18 +93,51 @@
       }
     }
   },
-  "divergences": [],
-  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAbyMxZKnDFAk66ArTPQ'}",
-  "summary": "LLM comparison failed; no framing result was produced.",
-  "run_ts": "2026-07-19T02:10:27.597438+00:00",
+  "divergences": [
+    {
+      "topic": "English lead unchanged while other editions show no comparable substantive edits either",
+      "editions_differ": [
+        "AR",
+        "FR",
+        "HE",
+        "RU"
+      ],
+      "en_says": "Anti-Zionism is opposition to Zionism. The term is broadly defined in the modern era as opposition to the State of Israel or, prior to 1948, opposition to the establishment of a Jewish state in Palestine.",
+      "other_says": "Антисиони́зм — идеологическое и практическое противодействие целям сионизма или методам их достижения со стороны представителей различных (в том числе еврейских) идейных и религиозных течений, политических организаций, общественных институтов, отвергающих и критикующих его. Куку",
+      "verdict": "differ",
+      "evidence_en": "Anti-Zionism is opposition to Zionism.",
+      "evidence_other": "отвергающих и критикующих его. Куку",
+      "temporal_read": "parallel_change",
+      "en_before": "Anti-Zionism is opposition to Zionism. The term is broadly defined in the modern era as opposition to the State of Israel or, prior to 1948, opposition to the establishment of a Jewish state in Palestine.",
+      "en_after": "Anti-Zionism is opposition to Zionism. The term is broadly defined in the modern era as opposition to the State of Israel or, prior to 1948, opposition to the establishment of a Jewish state in Palestine.",
+      "other_before": "Антисиони́зм — идеологическое и практическое противодействие целям сионизма или методам их достижения со стороны представителей различных (в том числе еврейских) идейных и религиозных течений, политических организаций, общественных институтов, отвергающих и критикующих его.",
+      "other_after": "Антисиони́зм — идеологическое и практическое противодействие целям сионизма или методам их достижения со стороны представителей различных (в том числе еврейских) идейных и религиозных течений, политических организаций, общественных институтов, отвергающих и критикующих его. Куку",
+      "evidence_en_before": "Anti-Zionism is opposition to Zionism.",
+      "evidence_en_after": "Anti-Zionism is opposition to Zionism.",
+      "evidence_other_before": "отвергающих и критикующих его.",
+      "evidence_other_after": "отвергающих и критикующих его. Куку"
+    }
+  ],
+  "summary": "The English lead text is identical before and after the compared revisions, showing no substantive change in this window. The other language editions (AR, FR, HE, RU) also show essentially no substantive change to their lead text, with the sole exception of RU which added a trivial, nonsensical word ('Куку') that does not constitute a meaningful content edit. No genuine cross-edition divergence or temporal shift in content is supported by the quoted text.",
+  "run_ts": "2026-07-19T17:00:38.767893+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 0,
-    "input_tokens": 0,
-    "output_tokens": 0,
+    "calls": 1,
+    "input_tokens": 4899,
+    "output_tokens": 903,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": []
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 4899,
+        "output_tokens": 903,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
   },
-  "elapsed_seconds": 13.065
+  "elapsed_seconds": 22.71
 }

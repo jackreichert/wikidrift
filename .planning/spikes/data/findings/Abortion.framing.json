@@ -1,5 +1,6 @@
 {
   "article": "Abortion",
+  "category": "general",
   "mode": "pivot_relative",
   "pivot_window": {
     "start": "2010-01-01",
@@ -16,6 +17,10 @@
     "en",
     "de"
   ],
+  "lead_chars": {
+    "en": 2058,
+    "de": 3000
+  },
   "snapshots": {
     "before": {
       "en": {
@@ -52,18 +57,68 @@
       }
     }
   },
-  "divergences": [],
-  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAbrmbAvBDtQv81buLsL'}",
-  "summary": "LLM comparison failed; no framing result was produced.",
-  "run_ts": "2026-07-19T02:08:58.042254+00:00",
+  "divergences": [
+    {
+      "topic": "Global annual abortion statistics figure",
+      "editions_differ": [
+        "DE"
+      ],
+      "en_says": "Worldwide 42 million abortions are estimated to take place annually with 22 million of these occurring safely and 20 million unsafely.",
+      "other_says": "Nach Schätzung der Weltgesundheitsorganisation (WHO) sterben bei den jährlich auf 40 Millionen geschätzten Abbrüchen 70.000 Frauen",
+      "verdict": "contradict",
+      "evidence_en": "Worldwide 42 million abortions are estimated to take place annually with 22 million of these occurring safely and 20 million unsafely.",
+      "evidence_other": "jährlich auf 40 Millionen geschätzten Abbrüchen 70.000 Frauen",
+      "temporal_read": "difference_persisted",
+      "en_before": "Worldwide 42 million abortions are estimated to take place annually with 22 million of these occurring safely and 20 million unsafely.",
+      "en_after": "Worldwide 42 million abortions are estimated to take place annually with 22 million of these occurring safely and 20 million unsafely.",
+      "other_before": "jährlich auf 40 Millionen geschätzten Abbrüchen 70.000 Frauen",
+      "other_after": "jährlich auf 40 Millionen geschätzten Abbrüchen 70.000 Frauen",
+      "evidence_en_before": "Worldwide 42 million abortions are estimated to take place annually",
+      "evidence_en_after": "Worldwide 42 million abortions are estimated to take place annually",
+      "evidence_other_before": "jährlich auf 40 Millionen geschätzten Abbrüchen",
+      "evidence_other_after": "jährlich auf 40 Millionen geschätzten Abbrüchen"
+    },
+    {
+      "topic": "Definition of abortion term scope",
+      "editions_differ": [
+        "DE"
+      ],
+      "en_says": "Abortion is the termination of a pregnancy by the removal or expulsion from the uterus of a fetus or embryo, resulting in or caused by its death.",
+      "other_says": "bezeichnet die absichtliche Beendigung einer Schwangerschaft vor der selbständigen Lebensfähigkeit des Menschen im Entwicklungsstadium als Embryo bzw. Fötus.",
+      "verdict": "differ",
+      "evidence_en": "Abortion is the termination of a pregnancy by the removal or expulsion from the uterus of a fetus or embryo, resulting in or caused by its death.",
+      "evidence_other": "bezeichnet die absichtliche Beendigung einer Schwangerschaft vor der selbständigen Lebensfähigkeit des Menschen",
+      "temporal_read": "difference_persisted",
+      "en_before": "Abortion is the termination of a pregnancy by the removal or expulsion from the uterus of a fetus or embryo, resulting in or caused by its death.",
+      "en_after": "Abortion is the termination of a pregnancy by the removal or expulsion from the uterus of a fetus or embryo, resulting in or caused by its death.",
+      "other_before": "bezeichnet die absichtliche Beendigung einer Schwangerschaft vor der selbständigen Lebensfähigkeit des Menschen",
+      "other_after": "bezeichnet die absichtliche Beendigung einer Schwangerschaft vor der selbständigen Lebensfähigkeit des Menschen",
+      "evidence_en_before": "Abortion is the termination of a pregnancy",
+      "evidence_en_after": "Abortion is the termination of a pregnancy",
+      "evidence_other_before": "absichtliche Beendigung einer Schwangerschaft",
+      "evidence_other_after": "absichtliche Beendigung einer Schwangerschaft"
+    }
+  ],
+  "summary": "No substantive change occurred in either the English or German lead texts between the before and after revisions in this window; both are textually identical across the pair. The two pre-existing cross-edition divergences (differing global abortion statistics and differing conceptual definitions of abortion) persisted unchanged, so no genuine temporal convergence, divergence, or parallel change can be attributed to this edit window.",
+  "run_ts": "2026-07-19T16:58:39.300114+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 0,
-    "input_tokens": 0,
-    "output_tokens": 0,
+    "calls": 1,
+    "input_tokens": 5759,
+    "output_tokens": 1355,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": []
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 5759,
+        "output_tokens": 1355,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
   },
-  "elapsed_seconds": 57.015
+  "elapsed_seconds": 66.021
 }

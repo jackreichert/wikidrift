@@ -1,6 +1,8 @@
 {
   "article": "Rescue of Jews by Poles during the Holocaust",
+  "category": "polish-wwii",
   "mode": "static",
+  "pivot_window": null,
   "editions_compared": [
     "en",
     "pl",
@@ -13,18 +15,100 @@
     "zh": 493,
     "es": 2268
   },
-  "divergences": [],
-  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAgBLQbY5kta2jwq6gyn'}",
-  "summary": "LLM comparison failed; no framing result was produced.",
-  "run_ts": "2026-07-19T03:05:37.139875+00:00",
+  "snapshots": null,
+  "divergences": [
+    {
+      "topic": "How the world was informed of the Holocaust",
+      "editions_differ": [
+        "EN",
+        "ZH"
+      ],
+      "en_says": "Information came from a report by Jewish Labour Bund leadership smuggled out by Home Army couriers, made public June 9, 1942",
+      "other_says": "Information came from a report by Polish officer Witold Pilecki about the Holocaust and concentration camps, delivered via courier Jan Karski",
+      "verdict": "contradict",
+      "evidence_en": "following a report from the Jewish Labour Bund leadership smuggled out of the occupied Poland by Home Army couriers",
+      "evidence_other": "波兰军官威托德·皮雷茨基撰写了关于大屠杀和集中营的报告，经流亡政府信使扬·卡尔斯基传递"
+    },
+    {
+      "topic": "Number of Righteous Among the Nations",
+      "editions_differ": [
+        "EN",
+        "ZH"
+      ],
+      "en_says": "7,280 people recognized by January 2023",
+      "other_says": "6,992 Poles recognized (no date given)",
+      "verdict": "differ",
+      "evidence_en": "By January 2023, 7,280 people in Poland have been recognized by the State of Israel as Righteous among the Nations.",
+      "evidence_other": "已有6,992名波兰人被以色列认定为国际义人"
+    },
+    {
+      "topic": "Severity of punishment/obstacles compared to other occupied countries",
+      "editions_differ": [
+        "EN",
+        "ZH"
+      ],
+      "en_says": "General mention of death penalty for rescuers and hostile environment, comparison via Paldiel quote about unequalled courage",
+      "other_says": "Explicit claim that Polish rescue efforts faced the harshest obstruction of all Nazi-occupied territories, plus specific casualty figures for Poles killed for helping Jews",
+      "verdict": "differ",
+      "evidence_en": "Any kind of help to Jews was punishable by death, for the rescuer and their family",
+      "evidence_other": "波兰人对犹太人的援助遭到了所有纳粹占领区中最严苛的阻碍...其中可能有多达5万人仅因救援犹太人而被德国处决"
+    },
+    {
+      "topic": "Allied response to bombing request",
+      "editions_differ": [
+        "EN",
+        "ZH"
+      ],
+      "en_says": "Polish government and Jewish groups asked Allies to bomb rail tracks to Auschwitz; Allies did not do so for debated reasons",
+      "other_says": "Polish government-in-exile and Underground State pleaded with US and UK to help stop the Holocaust generally, but to no avail",
+      "verdict": "differ",
+      "evidence_en": "pleaded for Allied forces to bomb train tracks leading to the Auschwitz concentration camp, although, for debated reasons, the Allies did not do so",
+      "evidence_other": "波兰流亡政府和波兰地下国恳求美国和英国帮助制止大屠杀，但无济于事"
+    },
+    {
+      "topic": "Scope and framing of article topic",
+      "editions_differ": [
+        "PL"
+      ],
+      "en_says": "Focuses narrowly on rescue of Jews by Poles, individual risk, Righteous Among Nations recognition, and specific organizations like Żegota",
+      "other_says": "Defines the topic broadly as all Polish aid to Jews during WWII, including humanitarian organizations, government-in-exile, underground state structures, and civilian population's informational and material assistance",
+      "verdict": "differ",
+      "evidence_en": "Jews were rescued from the Holocaust by Polish people, at risk to their lives and the lives of their families",
+      "evidence_other": "ogół pomocy polskich organizacji humanitarnych, rządu polskiego na uchodźstwie, struktur państwa podziemnego oraz ludności cywilnej RP"
+    },
+    {
+      "topic": "Żegota branch locations",
+      "editions_differ": [
+        "EN",
+        "ZH"
+      ],
+      "en_says": "Branches in Kraków, Wilno, and Lwów",
+      "other_says": "Branches in Kraków, Wilno (Vilnius), and Lwów (Lviv), described as located within ghettos",
+      "verdict": "differ",
+      "evidence_en": "with branches in Kraków, Wilno, and Lwów",
+      "evidence_other": "在克拉科夫、维尔纽斯和利沃夫等地设有分支机构"
+    }
+  ],
+  "summary": "The EN, ES, and ZH leads largely agree on the core narrative: Poles were the most numerous Righteous Among the Nations, faced death penalties for helping Jews, and were supported by the Underground State and Żegota. However, ZH diverges significantly by attributing the world's awareness of the Holocaust to Witold Pilecki's report via Jan Karski rather than the Bund report via Home Army couriers, citing a different (lower) count of Righteous Among the Nations, adding specific casualty statistics for Polish rescuers, and describing Allied appeals differently. The PL edition defines the topic much more broadly, encompassing all forms of Polish aid to Jews (informational, material, institutional) rather than focusing specifically on individual rescue efforts and recognition by Yad Vashem, making direct comparison difficult since PL's lead is a general definition rather than a narrative summary.",
+  "run_ts": "2026-07-19T17:50:25.355551+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 0,
-    "input_tokens": 0,
-    "output_tokens": 0,
+    "calls": 1,
+    "input_tokens": 3513,
+    "output_tokens": 1684,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": []
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 3513,
+        "output_tokens": 1684,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
   },
-  "elapsed_seconds": 2.548
+  "elapsed_seconds": 21.575
 }

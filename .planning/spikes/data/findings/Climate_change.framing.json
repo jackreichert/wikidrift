@@ -1,5 +1,6 @@
 {
   "article": "Climate change",
+  "category": "general",
   "mode": "pivot_relative",
   "pivot_window": {
     "start": "2018-01-01",
@@ -17,6 +18,11 @@
     "gu",
     "zh"
   ],
+  "lead_chars": {
+    "en": 3000,
+    "gu": 3000,
+    "zh": 16
+  },
   "snapshots": {
     "before": {
       "en": {
@@ -59,18 +65,69 @@
       }
     }
   },
-  "divergences": [],
-  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAdeLmL5ERCvksHWk8SV'}",
-  "summary": "LLM comparison failed; no framing result was produced.",
-  "run_ts": "2026-07-19T02:32:23.237290+00:00",
+  "divergences": [
+    {
+      "topic": "English lead text unchanged; Gujarati and Chinese versions remain outdated or are redirects rather than parallel articles",
+      "editions_differ": [
+        "gu",
+        "zh"
+      ],
+      "en_says": "Global warming, also referred to as climate change, is the observed century-scale rise in the average temperature of the Earth's climate system...In 2013, the IPCC Fifth Assessment Report concluded that 'It is extremely likely that human influence has been the dominant cause...'",
+      "other_says": "પૃથ્વીના તાપમાનમા થઇ રહેલા સતત વધારાને વૈશ્વિક ઉષ્ણતા કહેવામાં આવે છે...(references 2005/2007 IPCC Fourth Assessment Report data, unchanged)",
+      "verdict": "differ",
+      "evidence_en": "It is extremely likely that human influence has been the dominant cause of the observed warming since the mid-20th century.",
+      "evidence_other": "વૈશ્વિક સપાટી તાપમાનની આઇપીસીસી ફોર્થ એસેસમેન્ટ રિપોર્ટમાં વ્યાખ્યા આપવામાં આવી છે",
+      "temporal_read": "difference_persisted",
+      "en_before": "Global warming...is the observed century-scale rise...In 2013, the IPCC Fifth Assessment Report concluded that 'It is extremely likely that human influence has been the dominant cause of the observed warming since the mid-20th century.'",
+      "en_after": "Global warming...is the observed century-scale rise...In 2013, the IPCC Fifth Assessment Report concluded that 'It is extremely likely that human influence has been the dominant cause of the observed warming since the mid-20th century.'",
+      "other_before": "પૃથ્વીના તાપમાનમા થઇ રહેલા સતત વધારાને વૈશ્વિક ઉષ્ણતા કહેવામાં આવે છે...IPCC Fourth Assessment Report...2005ના નિવેદનમાં...2007ના નિવેદનમાં",
+      "other_after": "પૃથ્વીના તાપમાનમા થઇ રહેલા સતત વધારાને વૈશ્વિક ઉષ્ણતા કહેવામાં આવે છે...IPCC Fourth Assessment Report...2005ના નિવેદનમાં...2007ના નિવેદનમાં",
+      "evidence_en_before": "It is extremely likely that human influence has been the dominant cause of the observed warming since the mid-20th century.",
+      "evidence_en_after": "It is extremely likely that human influence has been the dominant cause of the observed warming since the mid-20th century.",
+      "evidence_other_before": "વૈશ્વિક સપાટી તાપમાનની આઇપીસીસી ફોર્થ એસેસમેન્ટ રિપોર્ટમાં વ્યાખ્યા આપવામાં આવી છે",
+      "evidence_other_after": "વૈશ્વિક સપાટી તાપમાનની આઇપીસીસી ફોર્થ એસેસમેન્ટ રિપોર્ટમાં વ્યાખ્યા આપવામાં આવી છે"
+    },
+    {
+      "topic": "Chinese article status: redirect target changed from 'climate change' to 'climate variability and change'",
+      "editions_differ": [
+        "zh"
+      ],
+      "en_says": "Global warming, also referred to as climate change, is the observed century-scale rise in the average temperature of the Earth's climate system, and its related effects.",
+      "other_says": "REDIRECT 氣候變率與變化",
+      "verdict": "differ",
+      "evidence_en": "Global warming, also referred to as climate change, is the observed century-scale rise in the average temperature of the Earth's climate system, and its related effects.",
+      "evidence_other": "REDIRECT 氣候變率與變化",
+      "temporal_read": "unclear",
+      "en_before": "Global warming, also referred to as climate change, is the observed century-scale rise in the average temperature of the Earth's climate system, and its related effects.",
+      "en_after": "Global warming, also referred to as climate change, is the observed century-scale rise in the average temperature of the Earth's climate system, and its related effects.",
+      "other_before": "重定向 氣候變遷",
+      "other_after": "REDIRECT 氣候變率與變化",
+      "evidence_en_before": "Global warming, also referred to as climate change, is the observed century-scale rise in the average temperature of the Earth's climate system, and its related effects.",
+      "evidence_en_after": "Global warming, also referred to as climate change, is the observed century-scale rise in the average temperature of the Earth's climate system, and its related effects.",
+      "evidence_other_before": "重定向 氣候變遷",
+      "evidence_other_after": "REDIRECT 氣候變率與變化"
+    }
+  ],
+  "summary": "The English lead text is identical between the BEFORE and AFTER revisions in this short window (2018-05-12 to 2018-05-15), showing no substantive change. The Gujarati article also shows no textual change between its BEFORE (2017) and AFTER (2018) revisions, remaining anchored to older IPCC Fourth Assessment Report content (2005/2007 statements) rather than the Fifth Assessment Report cited in English, so the divergence between English and Gujarani content persisted across the window rather than changing. The Chinese entry is merely a redirect in both revisions, but the redirect target itself changed from 'climate change' (氣候變遷) to 'climate variability and change' (氣候變率與變化), a structural/title change with no comparable content to assess against English's stable lead. No genuine convergence or divergence in substantive content can be established from these snapshots beyond the persistence of the Gujarati/English gap and the Chinese redirect retargeting.",
+  "run_ts": "2026-07-19T17:18:17.160275+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 0,
-    "input_tokens": 0,
-    "output_tokens": 0,
+    "calls": 1,
+    "input_tokens": 8945,
+    "output_tokens": 1916,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": []
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 8945,
+        "output_tokens": 1916,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
   },
-  "elapsed_seconds": 35.63
+  "elapsed_seconds": 72.772
 }

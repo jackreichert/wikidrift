@@ -1,6 +1,8 @@
 {
   "article": "Genetic studies of Jews",
+  "category": "general",
   "mode": "static",
+  "pivot_window": null,
   "editions_compared": [
     "en",
     "mk",
@@ -11,18 +13,102 @@
     "mk": 2403,
     "ar": 1491
   },
-  "divergences": [],
-  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAeeDgJYH2p8WX4W2Ciu'}",
-  "summary": "LLM comparison failed; no framing result was produced.",
-  "run_ts": "2026-07-19T02:45:28.185643+00:00",
+  "snapshots": null,
+  "divergences": [
+    {
+      "topic": "Field of study framing",
+      "editions_differ": [
+        "MK",
+        "AR"
+      ],
+      "en_says": "Presented simply as genetic studies investigating Jewish origins and shared ancestry, plus medical genetics for disease study.",
+      "other_says": "Both MK and AR explicitly frame the studies as part of 'population genetics' used alongside history, linguistics, archaeology, and paleontology to reconstruct migration chronology.",
+      "verdict": "absent_en",
+      "evidence_en": "Genetic studies investigate the origins of various Jewish ethnic divisions by using DNA to investigate whether different Jewish and non-Jewish populations have shared ancestry or not.",
+      "evidence_other": "дел од популациона генетика и се користи за анализа на хронологијата на еврејската миграција придружена со истражувања во други области, како што се историјата, лингвистиката, археологијата и палеонтологијата"
+    },
+    {
+      "topic": "Specific comparative populations for Middle Eastern ancestry",
+      "editions_differ": [
+        "EN",
+        "MK"
+      ],
+      "en_says": "Notes especially close relationship between Ashkenazi Jews and modern Italians, Greeks, and other Southern Europeans, without listing Levantine ethnic comparators.",
+      "other_says": "MK adds specific named groups: genetic closeness to Lebanese, Palestinians, Bedouins, and Druze, in addition to Cypriots and Italians.",
+      "verdict": "absent_en",
+      "evidence_en": "Some researchers have remarked on an especially close relationship between Ashkenazi Jews and modern Italians, Greeks, and other Southern Europeans.",
+      "evidence_other": "Неколку еврејски групи покажуваат генетска близина со Либанците, Палестинците, Бедуините и Друзите, покрај јужноевропските популации, вклучувајќи ги Кипарците и Италијанците."
+    },
+    {
+      "topic": "Origin of Bene Israel, Cochin Jews, Beta Israel",
+      "editions_differ": [
+        "EN",
+        "MK",
+        "AR"
+      ],
+      "en_says": "States they resemble local populations but 'may have some admixture', without asserting ancient Jewish ancestry as established.",
+      "other_says": "MK says they may have 'some ancient Jewish origin' (античко еврејско потекло); AR asserts more definitively that despite resembling local populations, they 'descend from ancient Jewish origins' (ينحدرون من أصول يهودية قديمة).",
+      "verdict": "contradict",
+      "evidence_en": "Bene Israel and the Cochin Jews of India, and Beta Israel of Ethiopia, resemble their local populations but also may have some admixture.",
+      "evidence_other": "رغم أنهم يشبهون السكان الأصليين في بلدانهم الأصلية؛ إلَّا أنهم ينحدرون من أصول يهودية قديمة"
+    },
+    {
+      "topic": "Attribution to specific researcher (Behar et al.)",
+      "editions_differ": [
+        "EN",
+        "AR"
+      ],
+      "en_says": "Does not name Behar et al. or quote a specific causal formulation linking genetic findings to biblical/historical narrative of Israelite descent.",
+      "other_says": "AR explicitly cites Behar et al. (2010) with a direct quoted claim that findings are consistent with a historical formulation of the Jewish people descending from ancient Hebrews/Israelites in the Levant, later dispersed.",
+      "verdict": "absent_en",
+      "evidence_en": "Studies on the genetic composition of Ashkenazi, Sephardi, and Mizrahi Jewish populations of the Jewish diaspora show significant amounts of shared Middle Eastern ancestry, as well as admixture from local populations.",
+      "evidence_other": "وفقًا لما قاله الباحث بيهار وزملاؤه (2010)، فإن هذا «يتوافق مع صيغة تاريخية للشعب اليهودي باعتباره ينحدر من العبرانيين والإسرائيليين القدماء في بلاد الشام»"
+    },
+    {
+      "topic": "Types of DNA tests and autosomal explanation",
+      "editions_differ": [
+        "EN",
+        "AR"
+      ],
+      "en_says": "Explicitly describes three test types (autosomal, mitochondrial, Y-chromosome) and explains each type's role (maternal/paternal ancestry) in detail.",
+      "other_says": "AR mentions only genetic/DNA mixture analysis broadly ('يستكشفون ما إذا كان هناك أصل وراثي مشترك') without explicitly breaking down the three distinct test types or explaining mtDNA/Y-DNA separately.",
+      "verdict": "absent_other",
+      "evidence_en": "Studies on Jewish populations have been principally conducted using three types of genealogical DNA tests: autosomal (atDNA), mitochondrial (mtDNA), and Y-chromosome (Y-DNA).",
+      "evidence_other": "تُظهر دراسات الحمض النووي الوراثي، الذي ينظر إلى مزيج الحمض النووي بأكمله، أن السكان اليهود كانوا يميلون إلى تكوين مجموعات وثيقة الصلة"
+    },
+    {
+      "topic": "Named Southern European comparators",
+      "editions_differ": [
+        "EN",
+        "AR"
+      ],
+      "en_says": "Mentions Italians, Greeks, and other Southern Europeans as showing close relationship with Ashkenazi Jews.",
+      "other_says": "AR mentions only modern Italians as the comparator, omitting Greeks and broader Southern Europeans.",
+      "verdict": "differ",
+      "evidence_en": "Some researchers have remarked on an especially close relationship between Ashkenazi Jews and modern Italians, Greeks, and other Southern Europeans.",
+      "evidence_other": "لاحظ الباحث بيهار وزملاؤه علاقة وثيقة خاصة بين اليهود الأشكناز والإيطاليين الحديثين."
+    }
+  ],
+  "summary": "The three editions largely agree on the core findings (shared Middle Eastern ancestry, genetic isolates, Ashkenazi as largest group, Southern European admixture), but diverge in framing and specific details. MK and AR situate the topic more explicitly within population genetics methodology tied to historical/linguistic research, which EN omits. MK adds specific named comparator populations (Lebanese, Palestinians, Bedouins, Druze) not found in EN. AR attributes specific causal historical claims to Behar et al. connecting genetics to biblical Israelite descent, a framing absent in EN. Most notably, EN and MK hedge on the ancestry of Bene Israel, Cochin Jews, and Beta Israel ('may have some admixture'), while AR asserts more definitively that they descend from ancient Jewish origins, a subtle but meaningful contradiction in certainty of claims.",
+  "run_ts": "2026-07-19T17:29:41.697374+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 0,
-    "input_tokens": 0,
-    "output_tokens": 0,
+    "calls": 1,
+    "input_tokens": 3634,
+    "output_tokens": 2248,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": []
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 3634,
+        "output_tokens": 2248,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
   },
-  "elapsed_seconds": 3.062
+  "elapsed_seconds": 27.901
 }

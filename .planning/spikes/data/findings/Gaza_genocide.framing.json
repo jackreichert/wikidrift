@@ -1,5 +1,6 @@
 {
   "article": "Gaza genocide",
+  "category": "israeli-palestinian",
   "mode": "candidate_relative",
   "pivot_window": {
     "start": "2024-07-01",
@@ -11,6 +12,10 @@
     "en",
     "ar"
   ],
+  "lead_chars": {
+    "en": 3000,
+    "ar": 1292
+  },
   "snapshots": {
     "before": {
       "en": {
@@ -59,18 +64,157 @@
       }
     }
   },
-  "divergences": [],
-  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAe2qVLQ37V4fhyzW4Sw'}",
-  "summary": "LLM comparison failed; no framing result was produced.",
-  "run_ts": "2026-07-19T02:37:28.239785+00:00",
+  "divergences": [
+    {
+      "topic": "Definitional framing: accusation vs. established fact",
+      "editions_differ": [
+        "ar"
+      ],
+      "en_says": "The Gaza genocide is the ongoing, intentional, and systematic destruction of the Palestinian people in the Gaza Strip carried out by Israel during the Gaza war.",
+      "other_says": "الإبادة الجماعية لغزة هي التدمير والاستهداف الممنهج والمتعمد والمستمر للشعب الفلسطيني في قطاع غزة، والذي تنفذه إسرائيل خلال حرب غزة.",
+      "verdict": "agree",
+      "evidence_en": "The Gaza genocide is the ongoing, intentional, and systematic destruction of the Palestinian people in the Gaza Strip carried out by Israel during the Gaza war.",
+      "evidence_other": "الإبادة الجماعية لغزة هي التدمير والاستهداف الممنهج والمتعمد والمستمر للشعب الفلسطيني في قطاع غزة، والذي تنفذه إسرائيل خلال حرب غزة.",
+      "temporal_read": "parallel_change",
+      "en_before": "The State of Israel has been accused of genocide against Palestinians during its invasion and bombing of the Gaza Strip.",
+      "en_after": "The Gaza genocide is the ongoing, intentional, and systematic destruction of the Palestinian people in the Gaza Strip carried out by Israel during the Gaza war.",
+      "other_before": "اتُهمت إسرائيل بارتكاب جرائم إبادة جماعية ضد الشعب الفلسطيني في قطاع غزة خلال الحرب بين إسرائيل وحماس.",
+      "other_after": "الإبادة الجماعية لغزة هي التدمير والاستهداف الممنهج والمتعمد والمستمر للشعب الفلسطيني في قطاع غزة، والذي تنفذه إسرائيل خلال حرب غزة.",
+      "evidence_en_before": "The State of Israel has been accused of genocide against Palestinians during its invasion and bombing of the Gaza Strip.",
+      "evidence_en_after": "The Gaza genocide is the ongoing, intentional, and systematic destruction of the Palestinian people in the Gaza Strip carried out by Israel during the Gaza war.",
+      "evidence_other_before": "اتُهمت إسرائيل بارتكاب جرائم إبادة جماعية ضد الشعب الفلسطيني في قطاع غزة خلال الحرب بين إسرائيل وحماس.",
+      "evidence_other_after": "الإبادة الجماعية لغزة هي التدمير والاستهداف الممنهج والمتعمد والمستمر للشعب الفلسطيني في قطاع غزة، والذي تنفذه إسرائيل خلال حرب غزة."
+    },
+    {
+      "topic": "Death toll figures",
+      "editions_differ": [
+        "ar"
+      ],
+      "en_says": "By October 2025, the Gaza Health Ministry had reported that at least 66,148 people in Gaza had been killed.",
+      "other_says": "بحلول اكتوبر/2025 قتلت القوات الإسرائيلية أكثر من 80 الف فلسطيني",
+      "verdict": "contradict",
+      "evidence_en": "By October 2025, the Gaza Health Ministry had reported that at least 66,148 people in Gaza had been killed.",
+      "evidence_other": "بحلول اكتوبر/2025 قتلت القوات الإسرائيلية أكثر من 80 الف فلسطيني",
+      "temporal_read": "parallel_change",
+      "en_before": "By mid-March 2024, the war had killed over 31,500 Palestinians",
+      "en_after": "By October 2025, the Gaza Health Ministry had reported that at least 66,148 people in Gaza had been killed.",
+      "other_before": "بحلول منتصف مارس/آذار 2024، قتلت القوات الإسرائيلية أكثر من 31,500 فلسطيني",
+      "other_after": "بحلول اكتوبر/2025 قتلت القوات الإسرائيلية أكثر من 80 الف فلسطيني",
+      "evidence_en_before": "By mid-March 2024, the war had killed over 31,500 Palestinians",
+      "evidence_en_after": "By October 2025, the Gaza Health Ministry had reported that at least 66,148 people in Gaza had been killed.",
+      "evidence_other_before": "بحلول منتصف مارس/آذار 2024، قتلت القوات الإسرائيلية أكثر من 31,500 فلسطيني",
+      "evidence_other_after": "بحلول اكتوبر/2025 قتلت القوات الإسرائيلية أكثر من 80 الف فلسطيني"
+    },
+    {
+      "topic": "Healthcare worker death toll",
+      "editions_differ": [
+        "ar"
+      ],
+      "en_says": "As of May 2024, 84% of Gaza's health centres have been destroyed or damaged.",
+      "other_says": "وبحلول اكتوبر/2025، قُتل 723 من العاملين في مجال الرعاية الصحية في غزة.",
+      "verdict": "differ",
+      "evidence_en": null,
+      "evidence_other": "وبحلول اكتوبر/2025، قُتل 723 من العاملين في مجال الرعاية الصحية في غزة.",
+      "temporal_read": "parallel_change",
+      "en_before": "By March 2024, 374 healthcare workers in Gaza had been killed.",
+      "en_after": "As of May 2024, 84% of Gaza's health centres have been destroyed or damaged.",
+      "other_before": "وبحلول مارس/آذار 2024، قُتل 374 من العاملين في مجال الرعاية الصحية في غزة.",
+      "other_after": "وبحلول اكتوبر/2025، قُتل 723 من العاملين في مجال الرعاية الصحية في غزة.",
+      "evidence_en_before": "By March 2024, 374 healthcare workers in Gaza had been killed.",
+      "evidence_en_after": null,
+      "evidence_other_before": "وبحلول مارس/آذار 2024، قُتل 374 من العاملين في مجال الرعاية الصحية في غزة.",
+      "evidence_other_after": "وبحلول اكتوبر/2025، قُتل 723 من العاملين في مجال الرعاية الصحية في غزة."
+    },
+    {
+      "topic": "ICJ plausibility ruling wording",
+      "editions_differ": [
+        "ar"
+      ],
+      "en_says": "In January 2024, the court ordered Israel to take all measures within its power to prevent the commis",
+      "other_says": "وفي حكم مؤقت وجدت محكمة العدل الدولية أن إسرائيل سعت في ظل نية معقولة لارتكاب أعمال الإبادة الجماعية",
+      "verdict": "contradict",
+      "evidence_en": "In January 2024, the court ordered Israel to take all measures within its power to prevent the commis",
+      "evidence_other": "وفي حكم مؤقت وجدت محكمة العدل الدولية أن إسرائيل سعت في ظل نية معقولة لارتكاب أعمال الإبادة الجماعية",
+      "temporal_read": "english_moved_away",
+      "en_before": "Palestinians were recognised to have \"plausible rights to protection from genocide\" that faced a real risk of irreparable damage.",
+      "en_after": "In January 2024, the court ordered Israel to take all measures within its power to prevent the commis",
+      "other_before": "وفي حكم مؤقت وجدت محكمة العدل الدولية أن إسرائيل كانت تعمل في ظل نية معقولة لارتكاب أعمال الإبادة الجماعية",
+      "other_after": "وفي حكم مؤقت وجدت محكمة العدل الدولية أن إسرائيل سعت في ظل نية معقولة لارتكاب أعمال الإبادة الجماعية",
+      "evidence_en_before": "Palestinians were recognised to have \"plausible rights to protection from genocide\"",
+      "evidence_en_after": "In January 2024, the court ordered Israel to take all measures within its power to prevent the commis",
+      "evidence_other_before": "وفي حكم مؤقت وجدت محكمة العدل الدولية أن إسرائيل كانت تعمل في ظل نية معقولة لارتكاب أعمال الإبادة الجماعية",
+      "evidence_other_after": "وفي حكم مؤقت وجدت محكمة العدل الدولية أن إسرائيل سعت في ظل نية معقولة لارتكاب أعمال الإبادة الجماعية"
+    },
+    {
+      "topic": "Recognition of genocide by institutions",
+      "editions_differ": [
+        "ar"
+      ],
+      "en_says": "The genocide has been recognised by a United Nations special committee and commission of inquiry, the International Association of Genocide Scholars, multiple human rights groups, numerous genocide studies and international law scholars, and other experts.",
+      "other_says": "absent",
+      "verdict": "absent_other",
+      "evidence_en": "The genocide has been recognised by a United Nations special committee and commission of inquiry, the International Association of Genocide Scholars, multiple human rights groups, numerous genocide studies and international law scholars, and other experts.",
+      "evidence_other": null,
+      "temporal_read": "english_moved_away",
+      "en_before": "",
+      "en_after": "The genocide has been recognised by a United Nations special committee and commission of inquiry, the International Association of Genocide Scholars, multiple human rights groups, numerous genocide studies and international law scholars, and other experts.",
+      "other_before": "",
+      "other_after": "",
+      "evidence_en_before": null,
+      "evidence_en_after": "The genocide has been recognised by a United Nations special committee and commission of inquiry, the International Association of Genocide Scholars, multiple human rights groups, numerous genocide studies and international law scholars, and other experts.",
+      "evidence_other_before": null,
+      "evidence_other_after": null
+    },
+    {
+      "topic": "Famine and starvation details",
+      "editions_differ": [
+        "ar"
+      ],
+      "en_says": "An Israeli blockade has heavily contributed to ongoing starvation and confirmed famine. As of August 2025, projections show about 641,000 people experiencing catastrophic levels",
+      "other_says": "absent",
+      "verdict": "absent_other",
+      "evidence_en": "An Israeli blockade has heavily contributed to ongoing starvation and confirmed famine.",
+      "evidence_other": null,
+      "temporal_read": "english_moved_away",
+      "en_before": "",
+      "en_after": "An Israeli blockade has heavily contributed to ongoing starvation and confirmed famine. As of August 2025, projections show about 641,000 people experiencing catastrophic levels",
+      "other_before": "",
+      "other_after": "",
+      "evidence_en_before": null,
+      "evidence_en_after": "An Israeli blockade has heavily contributed to ongoing starvation and confirmed famine.",
+      "evidence_other_before": null,
+      "evidence_other_after": null
+    }
+  ],
+  "summary": "Both editions moved from an 'accusation' framing to a declarative genocide framing, showing parallel change. However, they now diverge sharply on core facts: English reports a Gaza Health Ministry toll of 66,148 by October 2025, while Arabic claims over 80,000 killed by the same date—a direct numeric contradiction. Healthcare worker deaths also diverge (Arabic cites 723 by Oct 2025; English's equivalent figure is absent, replaced by a health-centre destruction statistic). The ICJ ruling description diverges: English now omits the 'plausible intent' language present in Arabic, describing measures ordered instead. English has also expanded substantially with new content absent from Arabic—institutional genocide recognition and detailed famine/starvation data—reflecting English's greater elaboration during this window while Arabic retained more of the original 2024 structure with only date/number updates.",
+  "run_ts": "2026-07-19T17:23:33.429428+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 0,
-    "input_tokens": 0,
-    "output_tokens": 0,
+    "calls": 2,
+    "input_tokens": 9952,
+    "output_tokens": 8005,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": []
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 4976,
+        "output_tokens": 4096,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      },
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 4976,
+        "output_tokens": 3909,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
   },
-  "elapsed_seconds": 26.842
+  "elapsed_seconds": 86.634
 }

@@ -1,5 +1,6 @@
 {
   "article": "Collaboration in German-occupied Poland",
+  "category": "polish-wwii",
   "mode": "candidate_relative",
   "pivot_window": {
     "start": "2018-07-01",
@@ -11,6 +12,10 @@
     "en",
     "ru"
   ],
+  "lead_chars": {
+    "en": 509,
+    "ru": 201
+  },
   "snapshots": {
     "before": {
       "en": {
@@ -47,18 +52,88 @@
       }
     }
   },
-  "divergences": [],
-  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAdfd77NjUHr3LpM6AVo'}",
-  "summary": "LLM comparison failed; no framing result was produced.",
-  "run_ts": "2026-07-19T02:32:40.419752+00:00",
+  "divergences": [
+    {
+      "topic": "Attribution of collaboration to German minority",
+      "editions_differ": [
+        "RU"
+      ],
+      "en_says": "Collaboration in Poland was less institutionalized than elsewhere in Europe, and has been described by some as marginal.",
+      "other_says": "сотрудничество польских организаций, польских граждан и отдельных этнических поляков с Третьим рейхом и странами \"оси\"",
+      "verdict": "differ",
+      "evidence_en": "During and after the war, the Polish State and the Resistance movement punished collaborators, with thousands sentenced to death.",
+      "evidence_other": "сотрудничество польских организаций, польских граждан и отдельных этнических поляков с Третьим рейхом и странами \"оси\" во время Второй мировой войны",
+      "temporal_read": "english_moved_away",
+      "en_before": "The main collaborators were members of Poland's German minority. During and after the war, the Polish State and the Resistance movement executed collaborators.",
+      "en_after": "During and after the war, the Polish State and the Resistance movement punished collaborators, with thousands sentenced to death.",
+      "other_before": "Польский коллаборационизм во Второй мировой войне — сотрудничество польских организаций, польских граждан и отдельных этнических поляков с Третьим рейхом и странами \"оси\" во время Второй мировой войны.",
+      "other_after": "Польский коллаборационизм во Второй мировой войне — сотрудничество польских организаций, польских граждан и отдельных этнических поляков с Третьим рейхом и странами \"оси\" во время Второй мировой войны.",
+      "evidence_en_before": "The main collaborators were members of Poland's German minority.",
+      "evidence_en_after": "Collaboration in Poland was less institutionalized than elsewhere in Europe, and has been described by some as marginal.",
+      "evidence_other_before": "сотрудничество польских организаций, польских граждан и отдельных этнических поляков с Третьим рейхом и странами \"оси\"",
+      "evidence_other_after": "сотрудничество польских организаций, польских граждан и отдельных этнических поляков с Третьим рейхом и странами \"оси\""
+    },
+    {
+      "topic": "Punishment vs execution of collaborators",
+      "editions_differ": [
+        "RU"
+      ],
+      "en_says": "During and after the war, the Polish State and the Resistance movement punished collaborators, with thousands sentenced to death.",
+      "other_says": "No equivalent statement present in RU lead.",
+      "verdict": "absent_other",
+      "evidence_en": "During and after the war, the Polish State and the Resistance movement punished collaborators, with thousands sentenced to death.",
+      "evidence_other": null,
+      "temporal_read": "english_moved_away",
+      "en_before": "During and after the war, the Polish State and the Resistance movement executed collaborators.",
+      "en_after": "During and after the war, the Polish State and the Resistance movement punished collaborators, with thousands sentenced to death.",
+      "other_before": "No equivalent statement present in RU lead.",
+      "other_after": "No equivalent statement present in RU lead.",
+      "evidence_en_before": "During and after the war, the Polish State and the Resistance movement executed collaborators.",
+      "evidence_en_after": "During and after the war, the Polish State and the Resistance movement punished collaborators, with thousands sentenced to death.",
+      "evidence_other_before": null,
+      "evidence_other_after": null
+    },
+    {
+      "topic": "Characterization of collaboration's scale relative to Europe",
+      "editions_differ": [
+        "RU"
+      ],
+      "en_says": "Collaboration in Poland was less institutionalized than elsewhere in Europe, and has been described by some as marginal.",
+      "other_says": "No comparative statement about scale relative to other countries in RU lead.",
+      "verdict": "absent_other",
+      "evidence_en": "Collaboration in Poland was less institutionalized than elsewhere in Europe, and has been described by some as marginal.",
+      "evidence_other": null,
+      "temporal_read": "difference_persisted",
+      "en_before": "Compared to the situations in other German-occupied countries, collaboration in Poland was marginal.",
+      "en_after": "Collaboration in Poland was less institutionalized than elsewhere in Europe, and has been described by some as marginal.",
+      "other_before": "No comparative statement about scale relative to other countries in RU lead.",
+      "other_after": "No comparative statement about scale relative to other countries in RU lead.",
+      "evidence_en_before": "Compared to the situations in other German-occupied countries, collaboration in Poland was marginal.",
+      "evidence_en_after": "Collaboration in Poland was less institutionalized than elsewhere in Europe, and has been described by some as marginal.",
+      "evidence_other_before": null,
+      "evidence_other_after": null
+    }
+  ],
+  "summary": "The English lead was substantially revised between June 2018 and January 2019, removing the specific claim that the German minority were the main collaborators, softening 'executed' to 'punished... with thousands sentenced to death,' and rephrasing the comparative claim about marginality using hedged attribution ('described by some'). The Russian lead's brief definitional lead remained completely unchanged across the same window, containing no equivalent statements about collaborator identity, punishment specifics, or comparative marginality, making these purely English-side edits with no cross-edition convergence or divergence pattern in RU to compare against.",
+  "run_ts": "2026-07-19T17:18:48.778564+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 0,
-    "input_tokens": 0,
-    "output_tokens": 0,
+    "calls": 1,
+    "input_tokens": 2322,
+    "output_tokens": 1731,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": []
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 2322,
+        "output_tokens": 1731,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
   },
-  "elapsed_seconds": 2.256
+  "elapsed_seconds": 17.003
 }

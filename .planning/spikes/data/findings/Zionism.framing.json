@@ -1,5 +1,6 @@
 {
   "article": "Zionism",
+  "category": "israeli-palestinian",
   "mode": "pivot_relative",
   "pivot_window": {
     "start": "2024-07-01",
@@ -19,6 +20,13 @@
     "ja",
     "ur"
   ],
+  "lead_chars": {
+    "en": 2743,
+    "ar": 3000,
+    "he": 1875,
+    "ja": 3000,
+    "ur": 3000
+  },
   "snapshots": {
     "before": {
       "en": {
@@ -85,18 +93,118 @@
       }
     }
   },
-  "divergences": [],
-  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAgmBGsQyPAevauew1ns'}",
-  "summary": "LLM comparison failed; no framing result was produced.",
-  "run_ts": "2026-07-19T03:13:16.267291+00:00",
+  "divergences": [
+    {
+      "topic": "Definition of Zionism as movement vs establishment framing",
+      "editions_differ": [
+        "AR",
+        "HE",
+        "JA",
+        "UR"
+      ],
+      "en_says": "Zionism is an ethnocultural nationalist movement that emerged in Europe in the late 19th century and aimed for the establishment of a national home for the Jewish people through the colonization of Palestine",
+      "other_says": "הציונות היא תנועה לאומית ואידאולוגיה שמטרתה קיום מדינת בית לאומי לעם היהודי בארץ ישראל",
+      "verdict": "differ",
+      "evidence_en": "Zionism is an ethnocultural nationalist movement that emerged in Europe in the late 19th century and aimed for the establishment of a national home for the Jewish people through the colonization of Palestine",
+      "evidence_other": "הציונות היא תנועה לאומית ואידאולוגיה שמטרתה קיום מדינת בית לאומי לעם היהודי בארץ ישראל",
+      "temporal_read": "difference_persisted",
+      "en_before": "Zionism is an ethnocultural nationalist movement that emerged in Europe in the late 19th century and aimed for the establishment of a national home for the Jewish people through the colonization of Palestine",
+      "en_after": "Zionism is an ethnocultural nationalist movement that emerged in Europe in the late 19th century and aimed for the establishment of a national home for the Jewish people through the colonization of Palestine",
+      "other_before": "הציונות היא תנועה לאומית ואידאולוגיה שמטרתה קיום מדינת בית לאומי לעם היהודי בארץ ישראל",
+      "other_after": "הציונות היא תנועה לאומית ואידאולוגיה שמטרתה קיום מדינת בית לאומי לעם היהודי בארץ ישראל",
+      "evidence_en_before": "Zionism is an ethnocultural nationalist movement that emerged in Europe in the late 19th century",
+      "evidence_en_after": "Zionism is an ethnocultural nationalist movement that emerged in Europe in the late 19th century",
+      "evidence_other_before": "הציונות היא תנועה לאומית ואידאולוגיה שמטרתה קיום מדינת בית לאומי לעם היהודי בארץ ישראל",
+      "evidence_other_after": "הציונות היא תנועה לאומית ואידאולוגיה שמטרתה קיום מדינת בית לאומי לעם היהודי בארץ ישראל"
+    },
+    {
+      "topic": "Zionist goal regarding Palestinian Arabs",
+      "editions_differ": [
+        "AR",
+        "HE",
+        "JA",
+        "UR"
+      ],
+      "en_says": "Zionists wanted to create a Jewish state in Palestine with as much land, as many Jews, and as few Palestinian Arabs as possible",
+      "other_says": "صهيونية (صياغة هوية يهودية قومية)... ورأت أن السبيل الوحيد للنجاة والتحرر هو إنشاء والإنتقال إلى دولة قومية جديدة منفصلة لهم",
+      "verdict": "absent_other",
+      "evidence_en": "Zionists wanted to create a Jewish state in Palestine with as much land, as many Jews, and as few Palestinian Arabs as possible",
+      "evidence_other": "ورأت أن السبيل الوحيد للنجاة والتحرر هو إنشاء والإنتقال إلى دولة قومية جديدة منفصلة لهم",
+      "temporal_read": "difference_persisted",
+      "en_before": "Zionists wanted to create a Jewish state in Palestine with as much land, as many Jews, and as few Palestinian Arabs as possible",
+      "en_after": "Zionists wanted to create a Jewish state in Palestine with as much land, as many Jews, and as few Palestinian Arabs as possible",
+      "other_before": "ورأت أن السبيل الوحيد للنجاة والتحرر هو إنشاء والإنتقال إلى دولة قومية جديدة منفصلة لهم",
+      "other_after": "ورأت أن السبيل الوحيد للنجاة والتحرر هو إنشاء والإنتقال إلى دولة قومية جديدة منفصلة لهم",
+      "evidence_en_before": "as few Palestinian Arabs as possible",
+      "evidence_en_after": "as few Palestinian Arabs as possible",
+      "evidence_other_before": null,
+      "evidence_other_after": null
+    },
+    {
+      "topic": "Framing of 1948 events and Palestinian expulsion",
+      "editions_differ": [
+        "AR",
+        "HE",
+        "JA",
+        "UR"
+      ],
+      "en_says": "As a result of the 1948 Palestinian expulsion and flight, an estimated 160,000 of 870,000 Palestinians in the territory remained, forming a Palestinian minority in Israel",
+      "other_says": "جس نے فلسطینی نکبت اور انھیں آج تک مسلسل 1948ءکی جنگ کے دوران چھینے گئے فلسطینی جائداد اور املاک کی واپسی سے محروم رکھا",
+      "verdict": "differ",
+      "evidence_en": "As a result of the 1948 Palestinian expulsion and flight, an estimated 160,000 of 870,000 Palestinians in the territory remained",
+      "evidence_other": "جس نے فلسطینی نکبت اور انھیں آج تک مسلسل 1948ءکی جنگ کے دوران چھینے گئے فلسطینی جائداد اور املاک کی واپسی سے محروم رکھا",
+      "temporal_read": "difference_persisted",
+      "en_before": "As a result of the 1948 Palestinian expulsion and flight, an estimated 160,000 of 870,000 Palestinians in the territory remained, forming a Palestinian minority in Israel",
+      "en_after": "As a result of the 1948 Palestinian expulsion and flight, an estimated 160,000 of 870,000 Palestinians in the territory remained, forming a Palestinian minority in Israel",
+      "other_before": "جس نے فلسطینی نکبت اور انھیں آج تک مسلسل 1948ءکی جنگ کے دوران چھینے گئے فلسطینی جائداد اور املاک کی واپسی سے محروم رکھا",
+      "other_after": "جس نے فلسطینی نکبت اور انھیں آج تک مسلسل 1948ءکی جنگ کے دوران چھینے گئے فلسطینی جائداد اور املاک کی واپسی سے محروم رکھا",
+      "evidence_en_before": "an estimated 160,000 of 870,000 Palestinians in the territory remained",
+      "evidence_en_after": "an estimated 160,000 of 870,000 Palestinians in the territory remained",
+      "evidence_other_before": null,
+      "evidence_other_after": null
+    },
+    {
+      "topic": "Anti-Zionism characterization",
+      "editions_differ": [
+        "UR",
+        "JA"
+      ],
+      "en_says": "anti-Zionism has many aspects, which include criticism of Zionism as a colonialist, racist, or exceptionalist ideology or as a settler colonialist movement",
+      "other_says": "صیہونیت کے ناقدین اسے استعمار پسندی نسل پرستی اور امتیاز پسندی کے نظریے... کے طور پر جانتے ہیں",
+      "verdict": "agree",
+      "evidence_en": "anti-Zionism has many aspects, which include criticism of Zionism as a colonialist, racist, or exceptionalist ideology",
+      "evidence_other": "صیہونیت کے ناقدین اسے استعمار پسندی نسل پرستی اور امتیاز پسندی کے نظریے... کے طور پر جانتے ہیں",
+      "temporal_read": "difference_persisted",
+      "en_before": "anti-Zionism has many aspects, which include criticism of Zionism as a colonialist, racist, or exceptionalist ideology or as a settler colonialist movement",
+      "en_after": "anti-Zionism has many aspects, which include criticism of Zionism as a colonialist, racist, or exceptionalist ideology or as a settler colonialist movement",
+      "other_before": "صیہونیت کے ناقدین اسے استعمار پسندی نسل پرستی اور امتیاز پسندی کے نظریے... کے طور پر جانتے ہیں",
+      "other_after": "صیہونیت کے ناقدین اسے استعمار پسندی نسل پرستی اور امتیاز پسندی کے نظریے... کے طور پر جانتے ہیں",
+      "evidence_en_before": "colonialist, racist, or exceptionalist ideology",
+      "evidence_en_after": "colonialist, racist, or exceptionalist ideology",
+      "evidence_other_before": "استعمار پسندی نسل پرستی اور امتیاز پسندی",
+      "evidence_other_after": "استعمار پسندی نسل پرستی اور امتیاز پسندی"
+    }
+  ],
+  "summary": "No genuine temporal divergence was found: the English lead text is byte-identical between the BEFORE and AFTER revisions in this window, and the same holds for Arabic, Hebrew, Japanese, and Urdu editions (only a stray link was added in Hebrew, with no textual change). Thus any cross-edition differences identified—such as the AR/HE/JA/UR articles' differing framing of Zionism's origins, goals regarding Palestinian Arabs, characterization of 1948 events, and treatment of anti-Zionism—are static, pre-existing divergences rather than changes driven by the English rewrite. These reflect long-standing editorial differences in emphasis (e.g., Urdu and Arabic framing Zionism more critically via colonialism/ethnic cleansing language, while English's stable phrasing on 'as few Palestinian Arabs as possible' has no equivalent in the other editions) that persisted unchanged across the compared revisions.",
+  "run_ts": "2026-07-19T17:58:57.723999+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 0,
-    "input_tokens": 0,
-    "output_tokens": 0,
+    "calls": 1,
+    "input_tokens": 18264,
+    "output_tokens": 3254,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": []
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 18264,
+        "output_tokens": 3254,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
   },
-  "elapsed_seconds": 31.511
+  "elapsed_seconds": 59.188
 }

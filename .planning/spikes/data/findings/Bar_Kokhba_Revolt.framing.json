@@ -1,5 +1,6 @@
 {
   "article": "Bar Kokhba Revolt",
+  "category": "israeli-palestinian",
   "mode": "pivot_relative",
   "pivot_window": {
     "start": "2025-01-01",
@@ -19,6 +20,13 @@
     "de",
     "fa"
   ],
+  "lead_chars": {
+    "en": 2986,
+    "ar": 3000,
+    "he": 2239,
+    "de": 2982,
+    "fa": 3000
+  },
   "snapshots": {
     "before": {
       "en": {
@@ -85,18 +93,146 @@
       }
     }
   },
-  "divergences": [],
-  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAc2oscpXsPYxeA2ktsq'}",
-  "summary": "LLM comparison failed; no framing result was produced.",
-  "run_ts": "2026-07-19T02:11:14.227249+00:00",
+  "divergences": [
+    {
+      "topic": "Casualty figures: scale of deaths",
+      "editions_differ": [
+        "AR",
+        "DE",
+        "HE",
+        "FA"
+      ],
+      "en_says": "Ancient and contemporary sources estimate that hundreds of thousands were killed, while many others were enslaved or exiled.",
+      "other_says": "HE: 'רבבות, אם לא מאות אלפי מורדים ואזרחים יהודיים נהרגו' (tens of thousands, if not hundreds of thousands); FA: 'نیم میلیون از آنها کشته شدند' (half a million killed, in unrevised portion)",
+      "verdict": "differ",
+      "evidence_en": "Ancient and contemporary sources estimate that hundreds of thousands were killed",
+      "evidence_other": "רבבות, אם לא מאות אלפי מורדים ואזרחים יהודיים נהרגו",
+      "temporal_read": "difference_persisted",
+      "en_before": "Ancient and contemporary sources estimate that hundreds of thousands were killed, while many others were enslaved or exiled.",
+      "en_after": "Ancient and contemporary sources estimate that hundreds of thousands were killed, while many others were enslaved or exiled.",
+      "other_before": "רבבות, אם לא מאות אלפי מורדים ואזרחים יהודיים נהרגו במהלך דיכוי המרד",
+      "other_after": "רבבות, אם לא מאות אלפי מורדים ואזרחים יהודיים נהרגו במהלך דיכוי המרד",
+      "evidence_en_before": "Ancient and contemporary sources estimate that hundreds of thousands were killed",
+      "evidence_en_after": "Ancient and contemporary sources estimate that hundreds of thousands were killed",
+      "evidence_other_before": "רבבות, אם לא מאות אלפי מורדים ואזרחים יהודיים נהרגו",
+      "evidence_other_after": "רבבות, אם לא מאות אלפי מורדים ואזרחים יהודיים נהרגו"
+    },
+    {
+      "topic": "Cause of revolt: circumcision ban and Aelia Capitolina as triggers",
+      "editions_differ": [
+        "DE",
+        "HE",
+        "AR"
+      ],
+      "en_says": "Emperor Hadrian's decision to build Aelia Capitolina ... as well as a possible ban on circumcision, a central Jewish practice.",
+      "other_says": "DE lead does not mention circumcision ban as a trigger at all, focusing instead on the founding of Aelia Capitolina alone as pre-revolt context; HE lead similarly omits circumcision as a stated cause.",
+      "verdict": "absent_other",
+      "evidence_en": "as well as a possible ban on circumcision, a central Jewish practice",
+      "evidence_other": null,
+      "temporal_read": "difference_persisted",
+      "en_before": "as well as a possible ban on circumcision, a central Jewish practice",
+      "en_after": "as well as a possible ban on circumcision, a central Jewish practice",
+      "other_before": "die Kolonie Aelia Capitolina gegründet. Die Planungen für den Aufstand begannen, bald nachdem der Kaiser die Region verlassen hatte.",
+      "other_after": "die Kolonie Aelia Capitolina gegründet. Die Planungen für den Aufstand begannen, bald nachdem der Kaiser die Region verlassen hatte.",
+      "evidence_en_before": "as well as a possible ban on circumcision, a central Jewish practice",
+      "evidence_en_after": "as well as a possible ban on circumcision, a central Jewish practice",
+      "evidence_other_before": null,
+      "evidence_other_after": null
+    },
+    {
+      "topic": "Religious prohibitions after the revolt (Sabbath, circumcision, Jerusalem entry restriction)",
+      "editions_differ": [
+        "DE",
+        "HE",
+        "AR"
+      ],
+      "en_says": "The Romans imposed harsh religious prohibitions, including bans on circumcision and Sabbath observance, expelled Jews from Jerusalem, restricted their entry to one annual visit, and repopulated the city with foreigners.",
+      "other_says": "DE and HE leads do not mention post-revolt religious prohibitions on circumcision/Sabbath or the one-annual-visit restriction; AR lead does not mention this either in the compared text.",
+      "verdict": "absent_other",
+      "evidence_en": "bans on circumcision and Sabbath observance ... restricted their entry to one annual visit",
+      "evidence_other": null,
+      "temporal_read": "difference_persisted",
+      "en_before": "The Romans imposed harsh religious prohibitions, including bans on circumcision and Sabbath observance, expelled Jews from Jerusalem, restricted their entry to one annual visit, and repopulated the city with foreigners.",
+      "en_after": "The Romans imposed harsh religious prohibitions, including bans on circumcision and Sabbath observance, expelled Jews from Jerusalem, restricted their entry to one annual visit, and repopulated the city with foreigners.",
+      "other_before": "Ihr Landbesitz fiel an den kaiserlichen Fiskus und wurde teils verkauft, teils an Veteranen vergeben.",
+      "other_after": "Ihr Landbesitz fiel an den kaiserlichen Fiskus und wurde teils verkauft, teils an Veteranen vergeben.",
+      "evidence_en_before": "bans on circumcision and Sabbath observance",
+      "evidence_en_after": "bans on circumcision and Sabbath observance",
+      "evidence_other_before": null,
+      "evidence_other_after": null
+    },
+    {
+      "topic": "FA lead restructured to closely mirror EN narrative",
+      "editions_differ": [
+        "FA"
+      ],
+      "en_says": "Resentment toward Roman rule in Judaea and nationalistic aspirations remained high following the destruction of Jerusalem during the First Jewish Revolt in 70 AD. The immediate triggers of the Bar Kokhba revolt included Emperor Hadrian's decision to build Aelia Capitolina...",
+      "other_says": "نارضایتی از حکومت روم در یهودیه و آرمان‌های ملی‌گرایانه پس از ویرانی اورشلیم در جریان شورش بزرگ یهود در سال ۷۰ میلادی همچنان بسیار شدید باقی ماند. عوامل مستقیم شورش بار کوخبا شامل تصمیم امپراتور هادریان برای ساخت «آیلیا کاپیتولینا»...",
+      "verdict": "agree",
+      "evidence_en": "Resentment toward Roman rule in Judaea and nationalistic aspirations remained high following the destruction of Jerusalem during the First Jewish Revolt in 70 AD.",
+      "evidence_other": "نارضایتی از حکومت روم در یهودیه و آرمان‌های ملی‌گرایانه پس از ویرانی اورشلیم در جریان شورش بزرگ یهود در سال ۷۰ میلادی همچنان بسیار شدید باقی ماند.",
+      "temporal_read": "english_converged",
+      "en_before": "Resentment toward Roman rule in Judaea and nationalistic aspirations remained high following the destruction of Jerusalem during the First Jewish Revolt in 70 AD.",
+      "en_after": "Resentment toward Roman rule in Judaea and nationalistic aspirations remained high following the destruction of Jerusalem during the First Jewish Revolt in 70 AD.",
+      "other_before": "درگیری به دلیل مسائل سیاسی و مذهبی رخ داد. شمعون بارکوخبا که توسط یهودیان به عنوان مسیحا شناخته می‌شد رهبر شورشیان بود",
+      "other_after": "نارضایتی از حکومت روم در یهودیه و آرمان‌های ملی‌گرایانه پس از ویرانی اورشلیم در جریان شورش بزرگ یهود در سال ۷۰ میلادی همچنان بسیار شدید باقی ماند.",
+      "evidence_en_before": "Resentment toward Roman rule in Judaea and nationalistic aspirations remained high following the destruction of Jerusalem during the First Jewish Revolt in 70 AD.",
+      "evidence_en_after": "Resentment toward Roman rule in Judaea and nationalistic aspirations remained high following the destruction of Jerusalem during the First Jewish Revolt in 70 AD.",
+      "evidence_other_before": "درگیری به دلیل مسائل سیاسی و مذهبی رخ داد.",
+      "evidence_other_after": "نارضایتی از حکومت روم در یهودیه و آرمان‌های ملی‌گرایانه پس از ویرانی اورشلیم در جریان شورش بزرگ یهود در سال ۷۰ میلادی همچنان بسیار شدید باقی ماند."
+    },
+    {
+      "topic": "Deepening divide between Judaism and early Christianity",
+      "editions_differ": [
+        "HE",
+        "DE",
+        "AR"
+      ],
+      "en_says": "The divide between Judaism and early Christianity also deepened.",
+      "other_says": "HE, DE, and AR leads (in the compared portions) do not state this claim about Judaism-Christianity divide deepening as a consequence.",
+      "verdict": "absent_other",
+      "evidence_en": "The divide between Judaism and early Christianity also deepened.",
+      "evidence_other": null,
+      "temporal_read": "difference_persisted",
+      "en_before": "The divide between Judaism and early Christianity also deepened.",
+      "en_after": "The divide between Judaism and early Christianity also deepened.",
+      "other_before": "המרכז הרוחני, הדמוגרפי והתרבותי של יהדות ארץ ישראל נדד אל הגליל",
+      "other_after": "המרכז הרוחני, הדמוגרפי והתרבותי של יהדות ארץ ישראל נדד אל הגליל",
+      "evidence_en_before": "The divide between Judaism and early Christianity also deepened.",
+      "evidence_en_after": "The divide between Judaism and early Christianity also deepened.",
+      "evidence_other_before": null,
+      "evidence_other_after": null
+    }
+  ],
+  "summary": "Across this window, the EN, AR, DE, and HE lead texts were unchanged verbatim (no textual edits within the compared revisions), while FA underwent a substantial rewrite that added several paragraphs closely paralleling EN's structure (resentment after 70 AD, Aelia Capitolina, circumcision ban, Betar, consequences) while retaining its older paragraph about mass killings and expulsion. No genuine new divergence was introduced by EN itself since its text is identical before/after; the flagged differences are long-standing cross-edition differences (e.g., casualty figures, unmentioned religious prohibitions, Christianity-Judaism divide) that persisted through this period rather than emerging from an EN edit. FA's revision represents convergence toward the EN framing without resolving all divergences.",
+  "run_ts": "2026-07-19T17:02:36.937087+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 0,
-    "input_tokens": 0,
-    "output_tokens": 0,
+    "calls": 2,
+    "input_tokens": 32644,
+    "output_tokens": 7696,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": []
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 16322,
+        "output_tokens": 4096,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      },
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 16322,
+        "output_tokens": 3600,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
   },
-  "elapsed_seconds": 16.143
+  "elapsed_seconds": 88.633
 }

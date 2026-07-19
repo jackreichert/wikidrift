@@ -1,6 +1,8 @@
 {
   "article": "Brontosaurus",
+  "category": "general",
   "mode": "static",
+  "pivot_window": null,
   "editions_compared": [
     "en",
     "mk",
@@ -11,18 +13,102 @@
     "mk": 2311,
     "it": 1305
   },
-  "divergences": [],
-  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAcDVjmLSBt1DtdvXoXc'}",
-  "summary": "LLM comparison failed; no framing result was produced.",
-  "run_ts": "2026-07-19T02:13:39.226060+00:00",
+  "snapshots": null,
+  "divergences": [
+    {
+      "topic": "study attribution for 2015 reclassification",
+      "editions_differ": [
+        "EN",
+        "IT"
+      ],
+      "en_says": "Study by Emmanuel Tschopp and colleagues found Brontosaurus distinct",
+      "other_says": "Study conducted by a joint English-Portuguese research group",
+      "verdict": "differ",
+      "evidence_en": "a 2015 study by Emmanuel Tschopp and colleagues found it to be distinct",
+      "evidence_other": "uno studio sui sauropodi del 2015, condotto da un gruppo di ricerca congiunto tra Inghilterra e Portogallo"
+    },
+    {
+      "topic": "1903 reclassification history",
+      "editions_differ": [
+        "EN",
+        "IT"
+      ],
+      "en_says": "Not mentioned specifically; only notes it was long considered synonym of Apatosaurus for decades",
+      "other_says": "States specifically that in 1903 B. excelsus was reclassified as A. excelsus",
+      "verdict": "absent_en",
+      "evidence_en": "For decades, the animal was thought to have been a taxonomic synonym of its close relative Apatosaurus",
+      "evidence_other": "nel 1903, la specie tipo di Brontosaurus, B. excelsus fu riclassificata come A. excelsus"
+    },
+    {
+      "topic": "number and naming of species",
+      "editions_differ": [
+        "EN",
+        "MK"
+      ],
+      "en_says": "Three species named over time: B. excelsus (1879), B. parvus (1902), B. yahnahpin (1994)",
+      "other_says": "States researchers in 2015 proposed three species: B. excelsus, B. yahnahpin, and B. parvus, without individual dates",
+      "verdict": "agree",
+      "evidence_en": "B. parvus in 1902 and B. yahnahpin in 1994",
+      "evidence_other": "содржи три вида: B. excelsus, B. yahnahpin, и B. parvus"
+    },
+    {
+      "topic": "geographic range described",
+      "editions_differ": [
+        "EN",
+        "MK"
+      ],
+      "en_says": "Lived in what is now Utah and Wyoming, specifically Como Bluff, Wyoming for type specimen",
+      "other_says": "States it lived in the Morrison Formation of present-day North America generally",
+      "verdict": "differ",
+      "evidence_en": "in the Morrison Formation of what is now Utah and Wyoming",
+      "evidence_other": "во Морисоновата формација на денешна Северна Америка"
+    },
+    {
+      "topic": "size estimates",
+      "editions_differ": [
+        "EN",
+        "MK"
+      ],
+      "en_says": "B. excelsus reached 21–23 m and 15–20 t; B. parvus up to 19 m",
+      "other_says": "States adults estimated up to 15 tons and up to 22 meters long, without species distinction",
+      "verdict": "differ",
+      "evidence_en": "largest species B. excelsus reaching up to 21–23 m (69–75 ft)... and weighing in at 15–20 t",
+      "evidence_other": "Возрасните единки на Бронтосаурусот се проценува дека тежеле до 15 тони и биле долги до 22 метри"
+    },
+    {
+      "topic": "taxonomic classification detail (Diplodocidae/Apatosaurinae)",
+      "editions_differ": [
+        "EN",
+        "IT",
+        "MK"
+      ],
+      "en_says": "Detailed classification within Diplodocidae family and Apatosaurinae subfamily, including 1929 naming and 2015 validation",
+      "other_says": "IT and MK do not mention Diplodocidae or Apatosaurinae subfamily classification at all",
+      "verdict": "absent_other",
+      "evidence_en": "Brontosaurus is a genus in the subfamily Apatosaurinae, which includes only it and Apatosaurus",
+      "evidence_other": null
+    }
+  ],
+  "summary": "The EN Wikipedia lead is the most detailed, including specific paleontological attribution (Tschopp et al.), precise geographic and stratigraphic data, detailed size estimates per species, and taxonomic classification within Diplodocidae/Apatosaurinae. The IT edition attributes the 2015 reclassification study to an England-Portugal research group rather than naming Tschopp, and adds historical detail about the 1903 reclassification not found in EN. The MK edition (largely garbled with template code) offers a more generalized, less precise account, omitting specific dates, locations narrowed to Utah/Wyoming, and detailed taxonomic subfamily discussion, while giving broader size and geographic claims lacking species-level distinction found in EN.",
+  "run_ts": "2026-07-19T17:05:22.028098+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 0,
-    "input_tokens": 0,
-    "output_tokens": 0,
+    "calls": 1,
+    "input_tokens": 3848,
+    "output_tokens": 1438,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": []
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 3848,
+        "output_tokens": 1438,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
   },
-  "elapsed_seconds": 11.071
+  "elapsed_seconds": 28.541
 }

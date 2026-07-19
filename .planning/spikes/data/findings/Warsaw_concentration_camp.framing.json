@@ -1,5 +1,6 @@
 {
   "article": "Warsaw concentration camp",
+  "category": "polish-wwii",
   "mode": "candidate_relative",
   "pivot_window": {
     "start": "2026-07-01",
@@ -9,8 +10,14 @@
   },
   "editions_compared": [
     "en",
-    "de"
+    "de",
+    "fr"
   ],
+  "lead_chars": {
+    "en": 2741,
+    "de": 846,
+    "fr": 1901
+  },
   "snapshots": {
     "before": {
       "en": {
@@ -56,21 +63,100 @@
         "timestamp": "2026-07-09T13:29:46Z",
         "title": "KZ Warschau",
         "lead": "Das Konzentrationslager Warschau wurde im Sommer 1943 auf den Ruinen des Warschauer Ghettos errichtet. Das Konzentrationslager wurde ab Ende April 1944 als Außenlager des KZ Majdanek geführt, war aber zu diesem Zeitpunkt schon in Auflösung begriffen. Am 28. Juli 1944 wurde das Konzentrationslager „evakuiert“.Nach den Erkenntnissen des Polnischen Instituts für Nationales Gedenken starben im Lager etwa 20.000 Menschen.\n\nBehauptungen, es habe sich beim Konzentrationslager Warschau um ein Vernichtungslager mit Gaskammer und ca. 200.000 Todesopfern gehandelt, sind historisch nicht belegt.The Fake Nazi Death Camp: Wikipedia’s Longest Hoax, Exposed. Haaretz, 4. Oktober 2019.Pavel Richter: Jubiläum der Online-Enzyklopädie. Die erfundenen Gaskammern in der Wikipedia. In: Der Spiegel, 25. November 2020.\n\nmini|US-Luftbild-Aufnahme (ca. Nov 1944)"
+      },
+      "fr": {
+        "revid": 237942504,
+        "timestamp": "2026-07-19T13:37:57Z",
+        "title": "Camp de concentration de Varsovie",
+        "lead": "Le camp de concentration de Varsovie (,  ou encore \"The GesiówkaStory: A Little Known Page of Jewish Fighting History.\", Edward Kossoy, Yad Vashem Studies 32 (2004): 323-350. The United States Holocaust Memorial Museum Encyclopedia of Camps and Ghettos, 1933–1945, Geoffrey P. Megargee, Martin Dean, and Mel Hecker, Volume I, part B, pages 1512-1515 ) était un camp de concentration construit sur les ruines du ghetto de Varsovie, autour de la prison de Gęsiówka. Considéré comme un camp mineur, le camp de Varsovie est absent de la plupart des rapports classiques sur la Shoah. Entre  et  prisonniers y auraient été engagés dans des travaux forcés, dont  à  seraient morts dans le camp ou pendant la marche de la mort depuis le camp, ou pendant l'insurrection de Varsovie, ou en étant cachés après l'insurrection.\n\nL'historien polonais  estime que les Allemands ont tué lors des exécutions dans les ruines du ghetto de Varsovie (autour du camp de concentration), environ , y compris des détenus du camp, des Juifs polonais pris du côté aryen de Varsovie et des prisonniers politiques polonais Bogusław Kopka: Konzentrationslager Warschau... op.cit, p. 16 and 120.Review: New Polish Research on German Violent Crimes in the Second World War, Sehepunkte 2010 no. 6, Stephan Lehnstaedt. L'Institut de la mémoire nationale estime à  le nombre de Polonais assassinés sur le site du camp et exécutés dans son voisinage Bogusław Kopka: Konzentrationslager Warschau. Historia i następstwa. Warszawa: Instytut Pamięci Narodowej, 2007. . Page 16.\n\nLe camp, peu couvert par l’historiographie traditionnelle est au centre d’une théorie du complot selon laquelle une gigantesque chambre à gaz aurait été construite dans un tunnel près de la station Warszawa Zachodnia et que  Polonais non juifs y auraient été exterminés Under the Railway Line, London Review of Books, Christian Davies, Vol. 41 No. 9, 9 May 2019."
       }
     }
   },
-  "divergences": [],
-  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAgGY6hKApi8WjtX4naM'}",
-  "summary": "LLM comparison failed; no framing result was produced.",
-  "run_ts": "2026-07-19T03:06:47.730184+00:00",
+  "divergences": [
+    {
+      "topic": "Liberator of the camp",
+      "editions_differ": [
+        "DE",
+        "FR"
+      ],
+      "en_says": "On 5 August 1944, KL Warschau was captured by Battalion Zośka during the Warsaw Uprising, liberating 348 Jews who were still left on its premises. It was the only German camp in Poland to be liberated by anti-Nazi resistance forces",
+      "other_says": "Absent in DE and FR versions; no mention of Battalion Zośka or liberation by resistance forces",
+      "verdict": "absent_other",
+      "evidence_en": "On 5 August 1944, KL Warschau was captured by Battalion Zośka during the Warsaw Uprising, liberating 348 Jews",
+      "evidence_other": null,
+      "temporal_read": "difference_persisted",
+      "en_before": "On 5 August 1944, KL Warschau was captured by Battalion Zośka during the Warsaw Uprising, liberating 348 Jews who were still left on its premises.",
+      "en_after": "On 5 August 1944, KL Warschau was captured by Battalion Zośka during the Warsaw Uprising, liberating 348 Jews who were still left on its premises.",
+      "other_before": "Am 28. Juli 1944 wurde das Konzentrationslager „evakuiert“.",
+      "other_after": "Am 28. Juli 1944 wurde das Konzentrationslager „evakuiert“.",
+      "evidence_en_before": "On 5 August 1944, KL Warschau was captured by Battalion Zośka",
+      "evidence_en_after": "On 5 August 1944, KL Warschau was captured by Battalion Zośka",
+      "evidence_other_before": "Am 28. Juli 1944 wurde das Konzentrationslager „evakuiert“.",
+      "evidence_other_after": "Am 28. Juli 1944 wurde das Konzentrationslager „evakuiert“."
+    },
+    {
+      "topic": "Death toll estimate",
+      "editions_differ": [
+        "DE",
+        "FR"
+      ],
+      "en_says": "the total number of people murdered in the camp is estimated at 20,000",
+      "other_says": "Nach den Erkenntnissen des Polnischen Instituts für Nationales Gedenken starben im Lager etwa 20.000 Menschen",
+      "verdict": "agree",
+      "evidence_en": "the total number of people murdered in the camp is estimated at 20,000",
+      "evidence_other": "starben im Lager etwa 20.000 Menschen",
+      "temporal_read": "difference_persisted",
+      "en_before": "the total number of people murdered in the camp is estimated at 20,000.",
+      "en_after": "the total number of people murdered in the camp is estimated at 20,000.",
+      "other_before": "Nach den Erkenntnissen des Polnischen Instituts für Nationales Gedenken starben im Lager etwa 20.000 Menschen.",
+      "other_after": "Nach den Erkenntnissen des Polnischen Instituts für Nationales Gedenken starben im Lager etwa 20.000 Menschen.",
+      "evidence_en_before": "the total number of people murdered in the camp is estimated at 20,000",
+      "evidence_en_after": "the total number of people murdered in the camp is estimated at 20,000",
+      "evidence_other_before": "starben im Lager etwa 20.000 Menschen",
+      "evidence_other_after": "starben im Lager etwa 20.000 Menschen"
+    },
+    {
+      "topic": "Attribution of conspiracy theory origin",
+      "editions_differ": [
+        "DE",
+        "FR"
+      ],
+      "en_says": "it has been at the centre of a conspiracy theory, first promoted by Maria Trzcińska, a Polish judge who served for 22 years as a member of the Chief Commission for the Prosecution of Crimes against the Polish Nation",
+      "other_says": "Behauptungen... sind historisch nicht belegt (no mention of Maria Trzcińska as originator)",
+      "verdict": "absent_other",
+      "evidence_en": "first promoted by Maria Trzcińska, a Polish judge",
+      "evidence_other": null,
+      "temporal_read": "difference_persisted",
+      "en_before": "it has been at the centre of a conspiracy theory, first promoted by Maria Trzcińska",
+      "en_after": "it has been at the centre of a conspiracy theory, first promoted by Maria Trzcińska",
+      "other_before": "Behauptungen, es habe sich beim Konzentrationslager Warschau um ein Vernichtungslager mit Gaskammer und ca. 200.000 Todesopfern gehandelt, sind historisch nicht belegt.",
+      "other_after": "Behauptungen, es habe sich beim Konzentrationslager Warschau um ein Vernichtungslager mit Gaskammer und ca. 200.000 Todesopfern gehandelt, sind historisch nicht belegt.",
+      "evidence_en_before": "first promoted by Maria Trzcińska, a Polish judge",
+      "evidence_en_after": "first promoted by Maria Trzcińska, a Polish judge",
+      "evidence_other_before": "sind historisch nicht belegt",
+      "evidence_other_after": "sind historisch nicht belegt"
+    }
+  ],
+  "summary": "No genuine temporal or cross-edition divergence emerged from this comparison window: the EN, DE, and FR lead sections are textually identical before and after the specified dates. The listed items reflect pre-existing, persistent differences in coverage (e.g., EN's detail on Battalion Zośka's liberation and Maria Trzcińska's role versus DE/FR's silence on these points) rather than any change occurring within the 2026-07-01 window. All editions show zero edits to the relevant content during the specified timeframe.",
+  "run_ts": "2026-07-19T17:52:07.996116+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 0,
-    "input_tokens": 0,
-    "output_tokens": 0,
+    "calls": 1,
+    "input_tokens": 6131,
+    "output_tokens": 1841,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": []
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 6131,
+        "output_tokens": 1841,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
   },
-  "elapsed_seconds": 7.712
+  "elapsed_seconds": 22.776
 }
