@@ -37,6 +37,9 @@ WikiDrift analyzes an article in layers. Not every layer runs for every article,
 | **L5: Compare citations** | Shows how cited domains and source types differ across languages or change across a rewrite. WikiDrift reports the mix but does not rate a source as reliable or biased. | [Baigutanova et al. (2023)](https://arxiv.org/abs/2309.00196) and [Yang & Colavizza (2024)](https://doi.org/10.1108/OIR-02-2023-0084) |
 | **Final reading: Put the signals together** | Places the separate checks side by side and records which thresholds fired. That count can strengthen a lead, but it is not a calibrated probability, bias score, or verdict. | [Greenstein & Zhu on Wikipedia slant](https://www.aeaweb.org/articles?id=10.1257/aer.102.3.343), their [Wikipedia-Britannica comparison](https://doi.org/10.25300/MISQ/2018/14084), and [Johnson et al.](https://arxiv.org/abs/2510.21526) |
 
+
+### What's Novel?
+
 No one publication supplies the entire pipeline. This project's contribution is the composition:
 - Discover content displacement without a seed list
 - Refine a coarse change window to the dominant revision pair by binary-searching the survival of long-lived wording
@@ -46,9 +49,9 @@ No one publication supplies the entire pipeline. This project's contribution is 
 
 ## How articles on this site were chosen
 
-The topics here are a **curated development and regression set**, not a hit list or an independent accuracy benchmark. We picked clusters that outside sources already discuss (for example Wikipedia’s own arbitration cases, academic papers, and public reports) so we could ask: does the tool notice the same places without being fed those lists?
+The topics here are a **curated development and regression set**, not a hit list or an independent accuracy benchmark. I picked clusters that outside sources already discuss (for example Wikipedia’s own arbitration cases, academic papers, and public reports) so I could ask: does the tool notice the same places without being fed those lists?
 
-We also include **control** topics (like Photosynthesis) and other hot-button subjects (like Climate change) to check that ordinary big edits do not get treated as automatic proof of wrongdoing.
+I also include **control** topics (like Photosynthesis) and other hot-button subjects (like Climate change) to check that ordinary big edits do not get treated as automatic proof of wrongdoing.
 
 The software itself can run on any English Wikipedia article. This site is just the published sample.
 
