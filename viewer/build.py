@@ -1586,12 +1586,12 @@ def simple_page(title, body, active, path=None):
     page_title = {
         "about": "About WikiDrift",
         "methodology": "How WikiDrift works",
-        "glossary": "Reading tips — WikiDrift",
+        "glossary": "Glossary — WikiDrift",
     }.get(active, f"{title} — WikiDrift")
     desc = {
         "about": "What WikiDrift is: a plain look at how Wikipedia articles change over time.",
         "methodology": "How WikiDrift measures rewrites and language differences — in plain language.",
-        "glossary": "Short reading tips for WikiDrift pages.",
+        "glossary": "Glossary of terms for WikiDrift pages.",
     }.get(active, f"{title} — WikiDrift.")
     return render_page(
         title=page_title,
@@ -1663,9 +1663,9 @@ def main(argv=None):
     (SITE / "findings.html").write_text(index_page(articles, f, categories), encoding="utf-8")
     (SITE / "methodology.html").write_text(
         simple_page("How it works", METHODOLOGY_BODY, "methodology"), encoding="utf-8")
-    # Still published at glossary.html so old bookmarks work; page is "Reading tips."
+    # Still published at glossary.html so old bookmarks work; page is "Glossary."
     (SITE / "glossary.html").write_text(
-        simple_page("Reading tips", GLOSSARY_BODY, "glossary"), encoding="utf-8")
+        simple_page("Glossary", GLOSSARY_BODY, "glossary"), encoding="utf-8")
     for a in articles:
         (SITE / "article" / f"{slugify(a)}.html").write_text(article_page(a, f, categories), encoding="utf-8")
         if a in f.pivots:

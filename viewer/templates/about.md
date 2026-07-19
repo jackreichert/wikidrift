@@ -1,23 +1,26 @@
 # About WikiDrift
 
-WikiDrift is a forensic tool built to help researchers understand how a Wikipedia article has changed over time.
-{: .summary}
+Wikipedia was briliant idea. It was a platform for the world to collaborate together to build a single corpus of human knowledge, and it worked a little too well. Due to it's success the competition went out of buisness leaving only one place for disagreement to happen. 
 
-Every Wikipedia page has a public revision history. This project began with the question: can the history of a Wikipedia article show the patterns we would expect to see when an article has been substantially rewritten? 
+It also became the source of truth for most people. Google weighs it at the top of search rankings, so every time someone searches, they get the Wikipedia version. AIs are trained off its text, so every time someone asks a question, the answer they get has been weighted towards that "truth" as well.
 
-Revision history records what changed, when it changed, and which public account made the edit. A suspicious pattern is not the same thing as a conclusion. Large removals happen during good-faith rewrites. Edit fights can form around accurate material. Quiet pages can still change in important ways. Yet it *has* been demonstrated that articles have been edited in bad faith. WikiDrift finds the change and gathers the record around it so a reader can judge what the change means.
+The nature of Wikipedia's governing body makes it easy for capture as well. Because of all this, Wikipedia has become an [attack vector to sway public discourse](https://www.bloomberg.com/news/articles/2025-03-07/wikipedia-editors-struggle-to-moderate-conflict-in-gaza) and opinion. History is getting rewritten with little recourse. [The co-founder of Wikipedia was banned from the site he created](https://www.washingtonexaminer.com/op-eds/4638304/larry-sanger-wikipedia-co-founder-banned-anonymous-mob/). In his words: "Wikipedia is ruled by a few hundred anonymous demagogues who dominate the rest."
 
-WikiDrift looks for substantial changes to long-lived wording. Its other checks place those changes beside shifts in vocabulary and citations, differences in cross-language framing, changes to basic factual claims, and the level of edit conflict around the article. The result is a research indicator with evidence a reader can inspect.
+I built WikiDrift as a forensic analysis tool to help shine a light on what is happening.
 
-The initial proof of concept used the Zionism article. It had already been discussed publicly in connection with editorial disputes, which made it a useful development case.
+Some of the criticism against [organizations calling this out] (https://www.adl.org/resources/press-release/new-adl-report-finds-evidence-biased-coordinated-campaign-wikipedia-related) has been that they themselves are partial. 
 
-The method draws on published work about text persistence, token authorship, controversy measurement, and cross-language comparison. During development, it was checked against a curated regression set containing articles with publicly documented disputes, quiet control topics, and contested subjects where a large rewrite may be entirely legitimate. This is not an independent accuracy benchmark.
+So I started with the question: Is there a way to discover bias in an article from its own history? Can an impartial analysis uncover bad actors?
+
+WikiDrift is a result of that quesiton. 
+
+To do this the tool itself had to be impartial. It doesn't uncover bias, it *does*, however, find patterns that may or may not indicate suspicious behavior.
 
 WikiDrift is an [open source](https://github.com/jackreichert/wikidrift/) research project of [encyclopediae.org](https://encyclopediae.org).
 
 ## What WikiDrift does
 
-WikiDrift analyzes an article in layers. Not every layer runs for every article, and no layer decides whether an edit was good, bad, or biased.
+Once I proved that I could discover these patterns I built into the tool the research of other brilliant minds. WikiDrift analyzes an article in layers. Not every layer runs for every article, and no layer decides whether an edit was good, bad, or biased.
 
 | Layer or check | What it does | Research sources |
 |---|---|---|
