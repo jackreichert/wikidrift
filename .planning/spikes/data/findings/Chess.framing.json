@@ -1,8 +1,6 @@
 {
   "article": "Chess",
-  "category": "general",
   "mode": "static",
-  "pivot_window": null,
   "editions_compared": [
     "en",
     "uk",
@@ -13,143 +11,18 @@
     "uk": 6636,
     "fr": 1994
   },
-  "snapshots": null,
-  "divergences": [
-    {
-      "topic": "chess arrival in Europe",
-      "editions_differ": [
-        "EN",
-        "UK",
-        "FR"
-      ],
-      "en_says": "After its introduction to Persia, it spread to the Arab world and then to Europe; modern rules emerged end of 15th century",
-      "other_says": "UK: chess arrived in Europe in the 9th century as a result of Umayyad conquests in Spain. FR: introduced to southern Europe from the 10th century by the Arabs, derived from shatranj (Persian version of chaturanga); exact origin unknown",
-      "verdict": "differ",
-      "evidence_en": "After its introduction to Persia, it spread to the Arab world and then to Europe. The modern rules of chess emerged in Europe at the end of the 15th century",
-      "evidence_other": "Шахи потрапили до Європи в 9 столітті внаслідок завоювань Омеядів в Іспанії. / Le jeu a été introduit dans le sud de l'Europe à partir du Xe siècle par les Arabes, mais on ignore où il fut inventé exactement."
-    },
-    {
-      "topic": "origin of chaturanga / date",
-      "editions_differ": [
-        "EN",
-        "UK"
-      ],
-      "en_says": "Recorded history of chess dates back to the emergence of chaturanga in 7th-century India",
-      "other_says": "UK states chess originates from ancient Indian game chaturanga without specifying a century, and notes initial piece placement is asymmetric unlike Eastern games",
-      "verdict": "differ",
-      "evidence_en": "The recorded history of chess dates back to the emergence of chaturanga in 7th-century India.",
-      "evidence_other": "Походить від стародавньої індійської гри чатуранґа, яка, крім того, є ймовірним предком східних стратегічних ігор сянці, чангі і сьоґі. На відміну від східних ігор, початкове розташування фігур є асиметричним щодо вертикальної осі."
-    },
-    {
-      "topic": "time controls and clocks",
-      "editions_differ": [
-        "UK"
-      ],
-      "en_says": "not mentioned",
-      "other_says": "UK gives detailed explanation of time controls: classical, rapid, blitz, bullet, and increments, with specific examples",
-      "verdict": "absent_en",
-      "evidence_en": null,
-      "evidence_other": "«Класика» передбачає доволі великий ліміт часу кожному гравцеві (наприклад, 1,5 години на 40 ходів, потім ще 30 хвилин на певну кількість ходів тощо)... Партія з найменшою кількістю часу — 1 хв. кожному гравцю на всю партію — називають \"куля\"."
-    },
-    {
-      "topic": "history of competitive chess",
-      "editions_differ": [
-        "FR"
-      ],
-      "en_says": "Organized chess arose in the 19th century; first World Champion Steinitz in 1886",
-      "other_says": "FR mentions competition traces back to the court of Harun al-Rashid in the 8th century, and first modern tournament in London during the 1851 Great Exhibition",
-      "verdict": "absent_en",
-      "evidence_en": null,
-      "evidence_other": "On en trouverait trace à la cour d'Hâroun ar-Rachîd au VIIIe siècle. Le premier tournoi de l'ère moderne a lieu à Londres lors de l'Exposition universelle de 1851."
-    },
-    {
-      "topic": "Association of Chess Professionals",
-      "editions_differ": [
-        "FR"
-      ],
-      "en_says": "not mentioned",
-      "other_says": "FR notes the Association of Chess Professionals defends interests of professional players alongside FIDE",
-      "verdict": "absent_en",
-      "evidence_en": null,
-      "evidence_other": "Parallèlement, l'Association of Chess Professionals défend les intérêts des joueurs professionnels."
-    },
-    {
-      "topic": "Deep Blue and computer chess history",
-      "editions_differ": [
-        "UK",
-        "FR"
-      ],
-      "en_says": "In 1997, Deep Blue became the first computer to win a match against a reigning World Champion when it defeated Garry Kasparov; modern chess engines are significantly stronger than humans; chess is not a solved game",
-      "other_says": "UK does not mention Deep Blue or computers at all; FR only briefly states modern chess programs are incomparably better than human players, without historical detail",
-      "verdict": "absent_other",
-      "evidence_en": "In 1997, Deep Blue became the first computer to win a match against a reigning World Champion when it defeated Garry Kasparov.",
-      "evidence_other": "Aujourd'hui les programmes informatiques d'échecs sont incomparablement meilleurs que les joueurs humains."
-    },
-    {
-      "topic": "chess as art/science/sport characterization",
-      "editions_differ": [
-        "UK"
-      ],
-      "en_says": "Aspects of art are found in chess composition, and chess has influenced Western culture, arts, mathematics, computer science, and psychology",
-      "other_says": "UK characterizes chess as combining elements of art (imagination), science (precise logical calculation), and sport, being the most widespread board game today",
-      "verdict": "differ",
-      "evidence_en": "Aspects of art are found in chess composition, and chess has in turn influenced Western culture and the arts, and has relevance to other fields such as mathematics, computer science, and psychology.",
-      "evidence_other": "Будучи найпоширенішою настольною грою сучасності, поєднує в собі елементи мистецтва (уяви), науки (логічно-точний розрахунок) і спорту."
-    },
-    {
-      "topic": "game phases and strategy explanation",
-      "editions_differ": [
-        "UK"
-      ],
-      "en_says": "not mentioned in lead",
-      "other_says": "UK lead includes detailed explanation of opening, middlegame, endgame, positional play, tactical play, and resignation",
-      "verdict": "absent_en",
-      "evidence_en": null,
-      "evidence_other": "Дебют — початкова стадія гри. Міттельшпіль — середина гри. Ендшпіль — кінцева стадія... тоді гравець «складає зброю» — здається."
-    },
-    {
-      "topic": "current World Champion",
-      "editions_differ": [
-        "EN",
-        "UK",
-        "FR"
-      ],
-      "en_says": "Gukesh Dommaraju is the current World Champion, having won the title in 2024",
-      "other_says": "FR: le champion en titre est l'Indien Dommaraju Gukesh depuis décembre 2024. UK does not mention the current champion at all.",
-      "verdict": "absent_other",
-      "evidence_en": "Gukesh Dommaraju is the current World Champion, having won the title in 2024.",
-      "evidence_other": "le champion en titre est l'Indien Dommaraju Gukesh depuis décembre 2024."
-    }
-  ],
-  "summary": "The EN, UK, and FR leads share the basic definition of chess and its historical link to chaturanga, but diverge notably on framing and detail. EN emphasizes computer chess history (Deep Blue, Kasparov) and modern relevance to science/psychology, none of which UK mentions and FR only briefly touches. UK omits the current World Champion and Deep Blue entirely, but uniquely includes detailed practical information on time controls (classical, rapid, blitz, bullet) and game phases (opening, middlegame, endgame) not found in EN or FR. FR and UK both offer different accounts of chess's arrival in Europe (Umayyad conquest in Spain in the 9th century vs. Arab introduction in the 10th century) that diverge from EN's more general Persia-to-Arab-world-to-Europe narrative. FR alone cites early competitive chess history (Harun al-Rashid's court, 1851 London tournament) and the Association of Chess Professionals, absent from EN and UK.",
-  "run_ts": "2026-07-18T23:49:04.947065+00:00",
+  "divergences": [],
+  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAcn7wkvxQGSp1dNi4Pt'}",
+  "summary": "LLM comparison failed; no framing result was produced.",
+  "run_ts": "2026-07-19T02:21:01.808184+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 2,
-    "input_tokens": 7426,
-    "output_tokens": 3968,
+    "calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": [
-      {
-        "provider": "anthropic",
-        "model": "claude-sonnet-5",
-        "input_tokens": 3713,
-        "output_tokens": 1500,
-        "estimated_usd": null,
-        "pricing_key": null,
-        "pricing_usd_per_million": null
-      },
-      {
-        "provider": "anthropic",
-        "model": "claude-sonnet-5",
-        "input_tokens": 3713,
-        "output_tokens": 2468,
-        "estimated_usd": null,
-        "pricing_key": null,
-        "pricing_usd_per_million": null
-      }
-    ]
+    "records": []
   },
-  "elapsed_seconds": 112.783
+  "elapsed_seconds": 68.791
 }

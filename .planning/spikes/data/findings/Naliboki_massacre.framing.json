@@ -1,8 +1,6 @@
 {
   "article": "Naliboki massacre",
-  "category": "polish-wwii",
   "mode": "static",
-  "pivot_window": null,
   "editions_compared": [
     "en",
     "pl",
@@ -15,117 +13,18 @@
     "ru": 317,
     "it": 264
   },
-  "snapshots": null,
-  "divergences": [
-    {
-      "topic": "exact death toll",
-      "editions_differ": [
-        "EN",
-        "RU"
-      ],
-      "en_says": "127 or 128 Poles killed",
-      "other_says": "129 people killed, including three women and several teenagers",
-      "verdict": "differ",
-      "evidence_en": "mass killing of 127 or 128 Poles by Soviet partisans",
-      "evidence_other": "В результате были убиты 129 человек, включая трёх женщин и нескольких подростков."
-    },
-    {
-      "topic": "date of massacre",
-      "editions_differ": [
-        "PL"
-      ],
-      "en_says": "8 May 1943",
-      "other_says": "not mentioned (no date given in lead)",
-      "verdict": "absent_other",
-      "evidence_en": "was the 8 May 1943 mass killing",
-      "evidence_other": "Zbrodnia w Nalibokach – masakra polskich mieszkańców wsi Naliboki dokonana przez oddziały radzieckich partyzantów."
-    },
-    {
-      "topic": "location/administrative context",
-      "editions_differ": [
-        "PL"
-      ],
-      "en_says": "town in German-occupied Poland, now in Belarus",
-      "other_says": "described simply as village (wieś), no mention of German occupation or current country",
-      "verdict": "differ",
-      "evidence_en": "in the small town of Naliboki in German-occupied Poland (the town is now in Belarus)",
-      "evidence_other": "masakra polskich mieszkańców wsi Naliboki"
-    },
-    {
-      "topic": "settlement type designation",
-      "editions_differ": [
-        "PL",
-        "RU"
-      ],
-      "en_says": "small town (Naliboki)",
-      "other_says": "PL calls it a village (wieś); RU calls it a village (деревня) located in the Naliboki forest",
-      "verdict": "differ",
-      "evidence_en": "in the small town of Naliboki",
-      "evidence_other": "деревни Налибоки (в Налибокской пуще, ныне территория Беларуси)"
-    },
-    {
-      "topic": "geographic detail - Naliboki forest",
-      "editions_differ": [
-        "RU"
-      ],
-      "en_says": "not mentioned",
-      "other_says": "specifies location within the Naliboki forest (Налибокской пуще)",
-      "verdict": "absent_en",
-      "evidence_en": null,
-      "evidence_other": "деревни Налибоки (в Налибокской пуще, ныне территория Беларуси)"
-    },
-    {
-      "topic": "victim demographic breakdown",
-      "editions_differ": [
-        "RU"
-      ],
-      "en_says": "not mentioned",
-      "other_says": "specifies three women and several teenagers among the dead",
-      "verdict": "absent_en",
-      "evidence_en": null,
-      "evidence_other": "включая трёх женщин и нескольких подростков"
-    },
-    {
-      "topic": "perpetrator identification",
-      "editions_differ": [
-        "PL"
-      ],
-      "en_says": "Soviet partisans explicitly named as perpetrators with date and casualty figures",
-      "other_says": "Soviet partisan units (oddziały radzieckich partyzantów) named as perpetrators but lacks date and specific casualty numbers",
-      "verdict": "differ",
-      "evidence_en": "mass killing of 127 or 128 Poles by Soviet partisans",
-      "evidence_other": "masakra polskich mieszkańców wsi Naliboki dokonana przez oddziały radzieckich partyzantów"
-    }
-  ],
-  "summary": "All four editions agree on the core fact: Soviet partisans killed Polish civilians in Naliboki. However, EN and IT are closely aligned, providing a precise date (8 May 1943), casualty estimate (127 or 128), and geopolitical context (German-occupied Poland, now Belarus). RU provides a slightly different casualty figure (129) with demographic detail (three women, several teenagers) and adds geographic specificity (Naliboki forest), while omitting the German occupation context. PL's lead is the most minimal, omitting the date, precise casualty numbers, and occupation context, and refers to Naliboki as a village rather than a town.",
-  "run_ts": "2026-07-19T00:14:21.286209+00:00",
+  "divergences": [],
+  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAfoS7GwDUiEP2VF8G6k'}",
+  "summary": "LLM comparison failed; no framing result was produced.",
+  "run_ts": "2026-07-19T03:00:40.033601+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 2,
-    "input_tokens": 1791,
-    "output_tokens": 1330,
+    "calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": [
-      {
-        "provider": "anthropic",
-        "model": "claude-sonnet-5",
-        "input_tokens": 438,
-        "output_tokens": 82,
-        "estimated_usd": null,
-        "pricing_key": null,
-        "pricing_usd_per_million": null
-      },
-      {
-        "provider": "anthropic",
-        "model": "claude-sonnet-5",
-        "input_tokens": 1353,
-        "output_tokens": 1248,
-        "estimated_usd": null,
-        "pricing_key": null,
-        "pricing_usd_per_million": null
-      }
-    ]
+    "records": []
   },
-  "elapsed_seconds": 21.334
+  "elapsed_seconds": 3.566
 }

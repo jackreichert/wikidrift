@@ -12,9 +12,9 @@
     "gu": 2980
   },
   "divergences": [],
-  "error": "anthropic returned invalid JSON twice; last response ended near character 6120",
+  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAgALVmq3eAE59gc2E4y'}",
   "summary": "LLM comparison failed; no framing result was produced.",
-  "run_ts": "2026-07-19T00:24:20.986711+00:00",
+  "run_ts": "2026-07-19T03:05:23.592687+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
     "calls": 0,
@@ -24,5 +24,5 @@
     "all_calls_priced": false,
     "records": []
   },
-  "elapsed_seconds": 118.715
+  "elapsed_seconds": 41.586
 }

@@ -1,6 +1,5 @@
 {
   "article": "Bar Kokhba Revolt",
-  "category": "israeli-palestinian",
   "mode": "pivot_relative",
   "pivot_window": {
     "start": "2025-01-01",
@@ -20,13 +19,6 @@
     "de",
     "fa"
   ],
-  "lead_chars": {
-    "en": 2986,
-    "ar": 3000,
-    "he": 2239,
-    "de": 2982,
-    "fa": 3000
-  },
   "snapshots": {
     "before": {
       "en": {
@@ -94,26 +86,17 @@
     }
   },
   "divergences": [],
-  "summary": "The English lead text is byte-for-byte identical between the BEFORE and AFTER revisions supplied, indicating no substantive content change occurred in this diff window (only a non-content edit, e.g. metadata or a citation/template change not reflected in the lead text itself). Similarly, the AR and DE leads are unchanged between their BEFORE and AFTER revisions. The FA edition did undergo a substantial expansion (adding several new paragraphs largely mirroring the English content), and HE is unchanged. However, since the English text itself shows no change across the window, there is no genuine temporal divergence to report for English relative to any other edition: any pre-existing differences between English and AR/DE/HE/FA are not attributable to a change in this window, and the FA expansion represents FA moving toward the (unchanged) English content rather than English diverging or converging. Per instructions to report only changes supported by direct quotations of an actual English shift, no qualifying divergences are identified.",
-  "run_ts": "2026-07-18T23:45:59.099614+00:00",
+  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAc2oscpXsPYxeA2ktsq'}",
+  "summary": "LLM comparison failed; no framing result was produced.",
+  "run_ts": "2026-07-19T02:11:14.227249+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 1,
-    "input_tokens": 16005,
-    "output_tokens": 327,
+    "calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": [
-      {
-        "provider": "anthropic",
-        "model": "claude-sonnet-5",
-        "input_tokens": 16005,
-        "output_tokens": 327,
-        "estimated_usd": null,
-        "pricing_key": null,
-        "pricing_usd_per_million": null
-      }
-    ]
+    "records": []
   },
-  "elapsed_seconds": 22.56
+  "elapsed_seconds": 16.143
 }

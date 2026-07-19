@@ -1,0 +1,60 @@
+{
+  "article": "Climate change",
+  "run_ts": "2026-07-19T02:21:03.019466+00:00",
+  "corpus_horizon": {
+    "snapshot_date": "2026-01-01",
+    "snapshot_revid": 1330693782
+  },
+  "thresholds": {
+    "confirm_drop": 0.2,
+    "durable_quantile": 0.5,
+    "min_cohort": 500,
+    "magnitude_floor": 25.0
+  },
+  "coarse_verdict": "PIVOT?",
+  "status": "confirmed",
+  "confirmed_episodes": [
+    {
+      "candidate_start": "2018-01-01",
+      "candidate_end": "2022-01-01",
+      "candidate_before_revid": 817863662,
+      "candidate_after_revid": 1063123677,
+      "before_revid": 840836880,
+      "before_timestamp": "2018-05-12T14:00:31Z",
+      "after_revid": 841297450,
+      "after_timestamp": "2018-05-15T00:34:18Z",
+      "durable_spine_drop": 0.874049,
+      "pwr_mass": 358747,
+      "peak_pct": 68.44,
+      "status": "confirmed"
+    },
+    {
+      "candidate_start": "2009-01-01",
+      "candidate_end": "2012-01-01",
+      "candidate_before_revid": 260872821,
+      "candidate_after_revid": 468729122,
+      "before_revid": 289351976,
+      "before_timestamp": "2009-05-11T23:29:50Z",
+      "after_revid": 289402573,
+      "after_timestamp": "2009-05-12T05:12:01Z",
+      "durable_spine_drop": 0.687142,
+      "pwr_mass": 59131,
+      "peak_pct": 42.15,
+      "status": "confirmed"
+    },
+    {
+      "candidate_start": "2007-01-01",
+      "candidate_end": "2008-01-01",
+      "candidate_before_revid": 97639967,
+      "candidate_after_revid": 181731015,
+      "before_revid": 100930239,
+      "before_timestamp": "2007-01-15T19:38:36Z",
+      "after_revid": 100938167,
+      "after_timestamp": "2007-01-15T20:13:08Z",
+      "durable_spine_drop": 0.767017,
+      "pwr_mass": 19360,
+      "peak_pct": 73.43,
+      "status": "confirmed"
+    }
+  ]
+}

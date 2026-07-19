@@ -1,6 +1,5 @@
 {
   "article": "Gaza genocide",
-  "category": "israeli-palestinian",
   "mode": "candidate_relative",
   "pivot_window": {
     "start": "2024-07-01",
@@ -12,10 +11,6 @@
     "en",
     "ar"
   ],
-  "lead_chars": {
-    "en": 3000,
-    "ar": 1292
-  },
   "snapshots": {
     "before": {
       "en": {
@@ -64,137 +59,18 @@
       }
     }
   },
-  "divergences": [
-    {
-      "topic": "Framing of the topic (accusation vs. established fact)",
-      "editions_differ": [
-        "ar"
-      ],
-      "en_says": "The Gaza genocide is the ongoing, intentional, and systematic destruction of the Palestinian people in the Gaza Strip carried out by Israel during the Gaza war.",
-      "other_says": "الإبادة الجماعية لغزة هي التدمير والاستهداف الممنهج والمتعمد والمستمر للشعب الفلسطيني في قطاع غزة، والذي تنفذه إسرائيل خلال حرب غزة.",
-      "verdict": "agree",
-      "evidence_en": "The Gaza genocide is the ongoing, intentional, and systematic destruction of the Palestinian people in the Gaza Strip carried out by Israel during the Gaza war.",
-      "evidence_other": "الإبادة الجماعية لغزة هي التدمير والاستهداف الممنهج والمتعمد والمستمر للشعب الفلسطيني في قطاع غزة، والذي تنفذه إسرائيل خلال حرب غزة.",
-      "temporal_read": "parallel_change",
-      "en_before": "The State of Israel has been accused of genocide against Palestinians during its invasion and bombing of the Gaza Strip.",
-      "en_after": "The Gaza genocide is the ongoing, intentional, and systematic destruction of the Palestinian people in the Gaza Strip carried out by Israel during the Gaza war.",
-      "other_before": "اتُهمت إسرائيل بارتكاب جرائم إبادة جماعية ضد الشعب الفلسطيني في قطاع غزة خلال الحرب بين إسرائيل وحماس.",
-      "other_after": "الإبادة الجماعية لغزة هي التدمير والاستهداف الممنهج والمتعمد والمستمر للشعب الفلسطيني في قطاع غزة، والذي تنفذه إسرائيل خلال حرب غزة.",
-      "evidence_en_before": "The State of Israel has been accused of genocide against Palestinians during its invasion and bombing of the Gaza Strip.",
-      "evidence_en_after": "The Gaza genocide is the ongoing, intentional, and systematic destruction of the Palestinian people in the Gaza Strip carried out by Israel during the Gaza war.",
-      "evidence_other_before": "اتُهمت إسرائيل بارتكاب جرائم إبادة جماعية ضد الشعب الفلسطيني في قطاع غزة خلال الحرب بين إسرائيل وحماس.",
-      "evidence_other_after": "الإبادة الجماعية لغزة هي التدمير والاستهداف الممنهج والمتعمد والمستمر للشعب الفلسطيني في قطاع غزة، والذي تنفذه إسرائيل خلال حرب غزة."
-    },
-    {
-      "topic": "Death toll figures",
-      "editions_differ": [
-        "ar"
-      ],
-      "en_says": "By October 2025, the Gaza Health Ministry had reported that at least 66,148 people in Gaza had been killed.",
-      "other_says": "بحلول اكتوبر/2025 قتلت القوات الإسرائيلية أكثر من 80 الف فلسطيني – واحد من كل 75 شخصًا في غزة – بمتوسط 195 حالة قتل يوميًا.",
-      "verdict": "contradict",
-      "evidence_en": "By October 2025, the Gaza Health Ministry had reported that at least 66,148 people in Gaza had been killed.",
-      "evidence_other": "بحلول اكتوبر/2025 قتلت القوات الإسرائيلية أكثر من 80 الف فلسطيني – واحد من كل 75 شخصًا في غزة – بمتوسط 195 حالة قتل يوميًا.",
-      "temporal_read": "difference_persisted",
-      "en_before": "By mid-March 2024, the war had killed over 31,500 Palestinians – one out of every 75 people in Gaza – averaging 195 killings a day.",
-      "en_after": "By October 2025, the Gaza Health Ministry had reported that at least 66,148 people in Gaza had been killed.",
-      "other_before": "بحلول منتصف مارس/آذار 2024، قتلت القوات الإسرائيلية أكثر من 31,500 فلسطيني – واحد من كل 75 شخصًا في غزة – بمتوسط 195 حالة قتل يوميًا.",
-      "other_after": "بحلول اكتوبر/2025 قتلت القوات الإسرائيلية أكثر من 80 الف فلسطيني – واحد من كل 75 شخصًا في غزة – بمتوسط 195 حالة قتل يوميًا.",
-      "evidence_en_before": "By mid-March 2024, the war had killed over 31,500 Palestinians – one out of every 75 people in Gaza – averaging 195 killings a day.",
-      "evidence_en_after": "By October 2025, the Gaza Health Ministry had reported that at least 66,148 people in Gaza had been killed.",
-      "evidence_other_before": "بحلول منتصف مارس/آذار 2024، قتلت القوات الإسرائيلية أكثر من 31,500 فلسطيني – واحد من كل 75 شخصًا في غزة – بمتوسط 195 حالة قتل يوميًا.",
-      "evidence_other_after": "بحلول اكتوبر/2025 قتلت القوات الإسرائيلية أكثر من 80 الف فلسطيني – واحد من كل 75 شخصًا في غزة – بمتوسط 195 حالة قتل يوميًا."
-    },
-    {
-      "topic": "Journalist death toll",
-      "editions_differ": [
-        "ar"
-      ],
-      "en_says": "Compared to other recent global conflicts, the numbers of known deaths of journalists, humanitarian and health workers, and children are among the highest.",
-      "other_says": "وقرابة 122 صحفيًا",
-      "verdict": "differ",
-      "evidence_en": "Compared to other recent global conflicts, the numbers of known deaths of journalists, humanitarian and health workers, and children are among the highest.",
-      "evidence_other": "وكان غالبية الضحايا من المدنيين، بما في ذلك أكثر من 25000 امرأة وطفل، وقرابة 122 صحفيًا.",
-      "temporal_read": "difference_persisted",
-      "en_before": "Most of the victims were civilians, including over 25,000 women and children and 95 journalists.",
-      "en_after": "Compared to other recent global conflicts, the numbers of known deaths of journalists, humanitarian and health workers, and children are among the highest.",
-      "other_before": "وكان غالبية الضحايا من المدنيين، بما في ذلك أكثر من 25000 امرأة وطفل، وقرابة 122 صحفيًا.",
-      "other_after": "وكان غالبية الضحايا من المدنيين، بما في ذلك أكثر من 25000 امرأة وطفل، وقرابة 122 صحفيًا.",
-      "evidence_en_before": "Most of the victims were civilians, including over 25,000 women and children and 95 journalists.",
-      "evidence_en_after": "Compared to other recent global conflicts, the numbers of known deaths of journalists, humanitarian and health workers, and children are among the highest.",
-      "evidence_other_before": "وكان غالبية الضحايا من المدنيين، بما في ذلك أكثر من 25000 امرأة وطفل، وقرابة 122 صحفيًا.",
-      "evidence_other_after": "وكان غالبية الضحايا من المدنيين، بما في ذلك أكثر من 25000 امرأة وطفل، وقرابة 122 صحفيًا."
-    },
-    {
-      "topic": "Healthcare workers killed count",
-      "editions_differ": [
-        "ar"
-      ],
-      "en_says": "By May 2024, 84% of Gaza's health centres have been destroyed or damaged.",
-      "other_says": "وبحلول اكتوبر/2025، قُتل 723 من العاملين في مجال الرعاية الصحية في غزة.",
-      "verdict": "differ",
-      "evidence_en": "As of May 2024, 84% of Gaza's health centres have been destroyed or damaged.",
-      "evidence_other": "وبحلول اكتوبر/2025، قُتل 723 من العاملين في مجال الرعاية الصحية في غزة.",
-      "temporal_read": "unclear",
-      "en_before": "By March 2024, 374 healthcare workers in Gaza had been killed.",
-      "en_after": "As of May 2024, 84% of Gaza's health centres have been destroyed or damaged.",
-      "other_before": "وبحلول مارس/آذار 2024، قُتل 374 من العاملين في مجال الرعاية الصحية في غزة.",
-      "other_after": "وبحلول اكتوبر/2025، قُتل 723 من العاملين في مجال الرعاية الصحية في غزة.",
-      "evidence_en_before": "By March 2024, 374 healthcare workers in Gaza had been killed.",
-      "evidence_en_after": "As of May 2024, 84% of Gaza's health centres have been destroyed or damaged.",
-      "evidence_other_before": "وبحلول مارس/آذار 2024، قُتل 374 من العاملين في مجال الرعاية الصحية في غزة.",
-      "evidence_other_after": "وبحلول اكتوبر/2025، قُتل 723 من العاملين في مجال الرعاية الصحية في غزة."
-    },
-    {
-      "topic": "ICJ ruling characterization: 'operating under plausible intent' vs 'plausible rights to protection'",
-      "editions_differ": [
-        "ar"
-      ],
-      "en_says": "In January 2024, the court ordered Israel to take all measures within its power to prevent the commis",
-      "other_says": "وفي حكم مؤقت وجدت محكمة العدل الدولية أن إسرائيل سعت في ظل نية معقولة لارتكاب أعمال الإبادة الجماعية",
-      "verdict": "differ",
-      "evidence_en": "In December 2023, the government of South Africa instituted proceedings, South Africa v. Israel, against Israel at the International Court of Justice (ICJ), alleging a violation of the Genocide Convention. In January 2024, the court ordered Israel to take all measures within its power to prevent the commis",
-      "evidence_other": "وفي حكم مؤقت وجدت محكمة العدل الدولية أن إسرائيل سعت في ظل نية معقولة لارتكاب أعمال الإبادة الجماعية، وأمرت إسرائيل بمراعاة التزاماتها بموجب اتفاقية الإبادة الجماعية",
-      "temporal_read": "english_moved_away",
-      "en_before": "In an initial ruling, the ICJ held that South Africa was entitled to bring its case against Israel, while Palestinians were recognised to have \"plausible rights to protection from genocide\" that faced a real risk of irreparable damage.",
-      "en_after": "In January 2024, the court ordered Israel to take all measures within its power to prevent the commis",
-      "other_before": "وفي حكم مؤقت وجدت محكمة العدل الدولية أن إسرائيل كانت تعمل في ظل نية معقولة لارتكاب أعمال الإبادة الجماعية",
-      "other_after": "وفي حكم مؤقت وجدت محكمة العدل الدولية أن إسرائيل سعت في ظل نية معقولة لارتكاب أعمال الإبادة الجماعية",
-      "evidence_en_before": "In an initial ruling, the ICJ held that South Africa was entitled to bring its case against Israel, while Palestinians were recognised to have \"plausible rights to protection from genocide\" that faced a real risk of irreparable damage.",
-      "evidence_en_after": "In January 2024, the court ordered Israel to take all measures within its power to prevent the commis",
-      "evidence_other_before": "وفي حكم مؤقت وجدت محكمة العدل الدولية أن إسرائيل كانت تعمل في ظل نية معقولة لارتكاب أعمال الإبادة الجماعية",
-      "evidence_other_after": "وفي حكم مؤقت وجدت محكمة العدل الدولية أن إسرائيل سعت في ظل نية معقولة لارتكاب أعمال الإبادة الجماعية"
-    }
-  ],
-  "summary": "Both English and Arabic Wikipedia leads shifted from an 'accusation' framing to an assertive statement that a genocide is occurring, showing parallel movement toward more definitive language, including similar catalogues of alleged genocidal acts (starvation, forced displacement, destruction of healthcare/education/cultural sites). However, the editions diverge sharply and persistently in casualty statistics: the English version updated to a October 2025 Gaza Health Ministry figure of 66,148 killed, while the Arabic version reports 'more than 80,000' killed with outdated context (e.g., retaining the '195 killings a day' and '1 in 75' statistics from March 2024, and the persisted journalist toll of ~122 despite the date change). The Arabic version also updated healthcare worker deaths to 723, a figure absent from the English text, which instead shifted to reporting on percentage of destroyed health centres. Additionally, the ICJ paragraph diverges: English removed the 'plausible rights to protection' language while Arabic retained a similar 'plausible intent' framing carried over from before, indicating differing textual evolutions of the same legal event.",
-  "run_ts": "2026-07-18T23:56:44.291308+00:00",
+  "divergences": [],
+  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAe2qVLQ37V4fhyzW4Sw'}",
+  "summary": "LLM comparison failed; no framing result was produced.",
+  "run_ts": "2026-07-19T02:37:28.239785+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 2,
-    "input_tokens": 9318,
-    "output_tokens": 6887,
+    "calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": [
-      {
-        "provider": "anthropic",
-        "model": "claude-sonnet-5",
-        "input_tokens": 4659,
-        "output_tokens": 2400,
-        "estimated_usd": null,
-        "pricing_key": null,
-        "pricing_usd_per_million": null
-      },
-      {
-        "provider": "anthropic",
-        "model": "claude-sonnet-5",
-        "input_tokens": 4659,
-        "output_tokens": 4487,
-        "estimated_usd": null,
-        "pricing_key": null,
-        "pricing_usd_per_million": null
-      }
-    ]
+    "records": []
   },
-  "elapsed_seconds": 78.73
+  "elapsed_seconds": 26.842
 }

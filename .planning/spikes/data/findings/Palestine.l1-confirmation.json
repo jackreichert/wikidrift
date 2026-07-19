@@ -1,0 +1,46 @@
+{
+  "article": "Palestine",
+  "run_ts": "2026-07-19T03:01:13.319680+00:00",
+  "corpus_horizon": {
+    "snapshot_date": "2026-07-01",
+    "snapshot_revid": 1362384011
+  },
+  "thresholds": {
+    "confirm_drop": 0.2,
+    "durable_quantile": 0.5,
+    "min_cohort": 500,
+    "magnitude_floor": 25.0
+  },
+  "coarse_verdict": "PIVOT?",
+  "status": "confirmed",
+  "confirmed_episodes": [
+    {
+      "candidate_start": "2015-07-01",
+      "candidate_end": "2016-01-01",
+      "candidate_before_revid": 668845786,
+      "candidate_after_revid": 697777807,
+      "before_revid": 682622162,
+      "before_timestamp": "2015-09-24T22:12:56Z",
+      "after_revid": 682622387,
+      "after_timestamp": "2015-09-24T22:15:04Z",
+      "durable_spine_drop": 0.728199,
+      "pwr_mass": 238535,
+      "peak_pct": 70.16,
+      "status": "confirmed"
+    },
+    {
+      "candidate_start": "2010-07-01",
+      "candidate_end": "2011-07-01",
+      "candidate_before_revid": 371161458,
+      "candidate_after_revid": 437224148,
+      "before_revid": 398030599,
+      "before_timestamp": "2010-11-21T10:20:39Z",
+      "after_revid": 398133907,
+      "after_timestamp": "2010-11-21T22:26:06Z",
+      "durable_spine_drop": 0.382225,
+      "pwr_mass": 28648,
+      "peak_pct": 32.72,
+      "status": "confirmed"
+    }
+  ]
+}

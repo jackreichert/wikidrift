@@ -1,0 +1,29 @@
+{
+  "article": "History of Zionism",
+  "run_ts": "2026-07-19T02:54:52.143953+00:00",
+  "workflow": "confirmed_framing_refresh",
+  "succeeded": true,
+  "elapsed_seconds": 144.63,
+  "stages": [
+    {
+      "command": "analyze",
+      "elapsed_seconds": 139.114,
+      "exit_code": 0
+    },
+    {
+      "command": "framing",
+      "elapsed_seconds": 5.516,
+      "exit_code": 0
+    }
+  ],
+  "llm_usage": {
+    "calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": []
+  },
+  "estimated_external_usd": null,
+  "estimate_scope": "LLM token charges only. Wikipedia and WikiWho APIs are public and unpriced here; machine time, storage, payment fees, taxes, failed-response charges, and service margin are excluded."
+}

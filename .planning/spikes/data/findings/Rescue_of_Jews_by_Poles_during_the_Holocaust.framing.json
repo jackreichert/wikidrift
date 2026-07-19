@@ -14,27 +14,17 @@
     "es": 2268
   },
   "divergences": [],
-  "error": "anthropic returned invalid JSON twice; last response ended near character 5935",
+  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAgBLQbY5kta2jwq6gyn'}",
   "summary": "LLM comparison failed; no framing result was produced.",
-  "run_ts": "2026-07-19T00:27:19.682786+00:00",
+  "run_ts": "2026-07-19T03:05:37.139875+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 1,
-    "input_tokens": 449,
-    "output_tokens": 65,
+    "calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": [
-      {
-        "provider": "anthropic",
-        "model": "claude-sonnet-5",
-        "input_tokens": 449,
-        "output_tokens": 65,
-        "estimated_usd": null,
-        "pricing_key": null,
-        "pricing_usd_per_million": null
-      }
-    ]
+    "records": []
   },
-  "elapsed_seconds": 48.858
+  "elapsed_seconds": 2.548
 }

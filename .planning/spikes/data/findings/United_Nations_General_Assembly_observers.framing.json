@@ -1,8 +1,6 @@
 {
   "article": "United Nations General Assembly observers",
-  "category": "general",
   "mode": "static",
-  "pivot_window": null,
   "editions_compared": [
     "en",
     "ko",
@@ -13,63 +11,18 @@
     "ko": 482,
     "fr": 1630
   },
-  "snapshots": null,
-  "divergences": [
-    {
-      "topic": "number/specificity of non-member observer states",
-      "editions_differ": [
-        "EN",
-        "KO",
-        "FR"
-      ],
-      "en_says": "Specifies exactly two non-member states granted observer status: the Holy See and the State of Palestine.",
-      "other_says": "KO and FR refer generically to non-member states without naming them specifically.",
-      "verdict": "differ",
-      "evidence_en": "granted observer status to two non-member states (the Holy See and the State of Palestine)",
-      "evidence_other": "국제기구, 단체 및 비회원 주권국이 유엔 총회의 업무에 참여할 수 있도록 / aux organisations internationales, aux entités et aux États non membres de l'Organisation des Nations unies"
-    },
-    {
-      "topic": "non-state observer categorization detail",
-      "editions_differ": [
-        "EN",
-        "FR"
-      ],
-      "en_says": "Describes non-state observers simply as 'the international organizations and other entities.'",
-      "other_says": "FR further specifies that non-state observers include both intergovernmental organizations and non-governmental organizations, plus other entities.",
-      "verdict": "differ",
-      "evidence_en": "Non-state observers are the international organizations and other entities.",
-      "evidence_other": "Les observateurs non étatiques sont des organisations internationales, tant les organisations intergouvernementales que les organisations non gouvernementales, et d'autres entités."
-    }
-  ],
-  "summary": "The EN, KO, and FR leads are largely aligned in content and structure, covering the same core facts about observer status, the EU's enhanced rights granted in 2011, and the distinction between state and non-state observers. The main divergences are: (1) EN explicitly names the two non-member observer states (Holy See and State of Palestine), while KO and FR omit these specific names and speak more generally of non-member states; and (2) FR provides additional granularity by specifying that non-state observers include both intergovernmental and non-governmental organizations, a distinction not made explicit in EN or KO.",
-  "run_ts": "2026-07-19T00:31:35.900378+00:00",
+  "divergences": [],
+  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAgEprChegYMAr6Ashc4'}",
+  "summary": "LLM comparison failed; no framing result was produced.",
+  "run_ts": "2026-07-19T03:06:24.489033+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 2,
-    "input_tokens": 2814,
-    "output_tokens": 727,
+    "calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": [
-      {
-        "provider": "anthropic",
-        "model": "claude-sonnet-5",
-        "input_tokens": 441,
-        "output_tokens": 77,
-        "estimated_usd": null,
-        "pricing_key": null,
-        "pricing_usd_per_million": null
-      },
-      {
-        "provider": "anthropic",
-        "model": "claude-sonnet-5",
-        "input_tokens": 2373,
-        "output_tokens": 650,
-        "estimated_usd": null,
-        "pricing_key": null,
-        "pricing_usd_per_million": null
-      }
-    ]
+    "records": []
   },
-  "elapsed_seconds": 19.202
+  "elapsed_seconds": 8.025
 }

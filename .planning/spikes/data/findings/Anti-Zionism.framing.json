@@ -1,6 +1,5 @@
 {
   "article": "Anti-Zionism",
-  "category": "israeli-palestinian",
   "mode": "pivot_relative",
   "pivot_window": {
     "start": "2022-01-01",
@@ -20,13 +19,6 @@
     "fr",
     "ru"
   ],
-  "lead_chars": {
-    "en": 935,
-    "ar": 709,
-    "he": 431,
-    "fr": 860,
-    "ru": 311
-  },
   "snapshots": {
     "before": {
       "en": {
@@ -93,51 +85,18 @@
       }
     }
   },
-  "divergences": [
-    {
-      "topic": "Definition and framing of anti-Zionism",
-      "editions_differ": [
-        "AR",
-        "FR",
-        "HE",
-        "RU"
-      ],
-      "en_says": "Anti-Zionism is opposition to Zionism. The term is broadly defined in the modern era as opposition to the State of Israel or, prior to 1948, opposition to the establishment of a Jewish state in Palestine. Discusses supporters/detractors and antisemitism debate.",
-      "other_says": "L'antisionisme désigne l'opposition au sionisme, utilisé dans différents contextes pour décrire diverses positions politiques d'hostilité à l'État d'Israël, sa création, son caractère juif, son territoire, l'autodétermination du peuple juif, etc., avec un historique impliquant la pensée politique juive, le monde arabe, le nationalisme palestinien et l'URSS.",
-      "verdict": "agree",
-      "evidence_en": "Anti-Zionism is opposition to Zionism. The term is broadly defined in the modern era as opposition to the State of Israel or, prior to 1948, opposition to the establishment of a Jewish state in Palestine.",
-      "evidence_other": "L'antisionisme (ou anti-sionisme) désigne l'opposition au sionisme. Le terme est utilisé dans différents contextes et pour décrire différentes positions politiques caractérisées par de l'hostilité qui peut être : à l'État d'Israël, à sa création, à son caractère juif, à son territoire, à l'autodétermination du peuple juif...",
-      "temporal_read": "difference_persisted",
-      "en_before": "Anti-Zionism is opposition to Zionism. The term is broadly defined in the modern era as opposition to the State of Israel or, prior to 1948, opposition to the establishment of a Jewish state in Palestine. Anti-Zionism has supporters and detractors...",
-      "en_after": "Anti-Zionism is opposition to Zionism. The term is broadly defined in the modern era as opposition to the State of Israel or, prior to 1948, opposition to the establishment of a Jewish state in Palestine. Anti-Zionism has supporters and detractors...",
-      "other_before": "L'antisionisme (ou anti-sionisme) désigne l'opposition au sionisme. Le terme est utilisé dans différents contextes et pour décrire différentes positions politiques caractérisées par de l'hostilité qui peut être : à l'État d'Israël, à sa création, à son caractère juif, à son territoire, à l'autodétermination du peuple juif...",
-      "other_after": "L'antisionisme (ou anti-sionisme) désigne l'opposition au sionisme. Le terme est utilisé dans différents contextes et pour décrire différentes positions politiques caractérisées par de l'hostilité qui peut être : à l'État d'Israël, à sa création, à son caractère juif, à son territoire, à l'autodétermination du peuple juif...",
-      "evidence_en_before": "Anti-Zionism is opposition to Zionism. The term is broadly defined in the modern era as opposition to the State of Israel or, prior to 1948, opposition to the establishment of a Jewish state in Palestine.",
-      "evidence_en_after": "Anti-Zionism is opposition to Zionism. The term is broadly defined in the modern era as opposition to the State of Israel or, prior to 1948, opposition to the establishment of a Jewish state in Palestine.",
-      "evidence_other_before": "L'antisionisme (ou anti-sionisme) désigne l'opposition au sionisme. Le terme est utilisé dans différents contextes et pour décrire différentes positions politiques caractérisées par de l'hostilité...",
-      "evidence_other_after": "L'antisionisme (ou anti-sionisme) désigne l'opposition au sionisme. Le terme est utilisé dans différents contextes et pour décrire différentes positions politiques caractérisées par de l'hostilité..."
-    }
-  ],
-  "summary": "No genuine content changes occurred in any edition during this window. The English, Arabic, French, and Hebrew leads are textually identical before and after the specified revisions, showing no edits to substantive content. The Russian edition's only change is the addition of the nonsensical word 'Куку' (likely vandalism or a test edit) at the end of the after-text, which is not a meaningful content divergence and lacks quotable substantive content to compare. Since no edition shows a genuine temporal or cross-edition change in meaning within this window, only a persistent baseline difference in framing/scope between English and the other editions (all present in both before and after states) is noted; this reflects pre-existing structural differences rather than any change during the observed period.",
-  "run_ts": "2026-07-18T23:43:33.254035+00:00",
+  "divergences": [],
+  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAbyMxZKnDFAk66ArTPQ'}",
+  "summary": "LLM comparison failed; no framing result was produced.",
+  "run_ts": "2026-07-19T02:10:27.597438+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 1,
-    "input_tokens": 4582,
-    "output_tokens": 1549,
+    "calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": [
-      {
-        "provider": "anthropic",
-        "model": "claude-sonnet-5",
-        "input_tokens": 4582,
-        "output_tokens": 1549,
-        "estimated_usd": null,
-        "pricing_key": null,
-        "pricing_usd_per_million": null
-      }
-    ]
+    "records": []
   },
-  "elapsed_seconds": 27.081
+  "elapsed_seconds": 13.065
 }

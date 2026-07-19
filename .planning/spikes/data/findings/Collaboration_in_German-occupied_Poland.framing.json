@@ -1,6 +1,5 @@
 {
   "article": "Collaboration in German-occupied Poland",
-  "category": "polish-wwii",
   "mode": "candidate_relative",
   "pivot_window": {
     "start": "2018-07-01",
@@ -12,10 +11,6 @@
     "en",
     "ru"
   ],
-  "lead_chars": {
-    "en": 509,
-    "ru": 201
-  },
   "snapshots": {
     "before": {
       "en": {
@@ -52,68 +47,18 @@
       }
     }
   },
-  "divergences": [
-    {
-      "topic": "Main collaborators identification",
-      "editions_differ": [
-        "ru"
-      ],
-      "en_says": "During and after the war, the Polish State and the Resistance movement punished collaborators, with thousands sentenced to death.",
-      "other_says": "Польский коллаборационизм во Второй мировой войне — сотрудничество польских организаций, польских граждан и отдельных этнических поляков с Третьим рейхом и странами \"оси\" во время Второй мировой войны.",
-      "verdict": "differ",
-      "evidence_en": "During and after the war, the Polish State and the Resistance movement punished collaborators, with thousands sentenced to death.",
-      "evidence_other": "Польский коллаборационизм во Второй мировой войне — сотрудничество польских организаций, польских граждан и отдельных этнических поляков с Третьим рейхом и странами \"оси\" во время Второй мировой войны.",
-      "temporal_read": "english_moved_away",
-      "en_before": "The main collaborators were members of Poland's German minority. During and after the war, the Polish State and the Resistance movement executed collaborators.",
-      "en_after": "During and after the war, the Polish State and the Resistance movement punished collaborators, with thousands sentenced to death.",
-      "other_before": "Польский коллаборационизм во Второй мировой войне — сотрудничество польских организаций, польских граждан и отдельных этнических поляков с Третьим рейхом и странами \"оси\" во время Второй мировой войны.",
-      "other_after": "Польский коллаборационизм во Второй мировой войне — сотрудничество польских организаций, польских граждан и отдельных этнических поляков с Третьим рейхом и странами \"оси\" во время Второй мировой войны.",
-      "evidence_en_before": "The main collaborators were members of Poland's German minority.",
-      "evidence_en_after": "During and after the war, the Polish State and the Resistance movement punished collaborators, with thousands sentenced to death.",
-      "evidence_other_before": "Польский коллаборационизм во Второй мировой войне — сотрудничество польских организаций, польских граждан и отдельных этнических поляков с Третьим рейхом и странами \"оси\" во время Второй мировой войны.",
-      "evidence_other_after": "Польский коллаборационизм во Второй мировой войне — сотрудничество польских организаций, польских граждан и отдельных этнических поляков с Третьим рейхом и странами \"оси\" во время Второй мировой войны."
-    },
-    {
-      "topic": "Scale/marginality of collaboration and comparison to Western Europe",
-      "editions_differ": [
-        "ru"
-      ],
-      "en_says": "Collaboration in Poland was less institutionalized than elsewhere in Europe, and has been described by some as marginal.",
-      "other_says": "Польский коллаборационизм во Второй мировой войне — сотрудничество польских организаций, польских граждан и отдельных этнических поляков с Третьим рейхом и странами \"оси\" во время Второй мировой войны.",
-      "verdict": "absent_other",
-      "evidence_en": "Collaboration in Poland was less institutionalized than elsewhere in Europe, and has been described by some as marginal.",
-      "evidence_other": "Польский коллаборационизм во Второй мировой войне — сотрудничество польских организаций, польских граждан и отдельных этнических поляков с Третьим рейхом и странами \"оси\" во время Второй мировой войны.",
-      "temporal_read": "difference_persisted",
-      "en_before": "Due to differences in Nazi Germany's aims in Western, Central, and Eastern Europe, and due to Germany's historical Drang nach Osten (\"Drive to the East\") and Lebensraum (\"living space\") policies, collaboration in Poland was much less widespread and institutionalized than in Western Europe. Compared to the situations in other German-occupied countries, collaboration in Poland was marginal.",
-      "en_after": "Collaboration in Poland was less institutionalized than elsewhere in Europe, and has been described by some as marginal.",
-      "other_before": "Польский коллаборационизм во Второй мировой войне — сотрудничество польских организаций, польских граждан и отдельных этнических поляков с Третьим рейхом и странами \"оси\" во время Второй мировой войны.",
-      "other_after": "Польский коллаборационизм во Второй мировой войне — сотрудничество польских организаций, польских граждан и отдельных этнических поляков с Третьим рейхом и странами \"оси\" во время Второй мировой войны.",
-      "evidence_en_before": "Due to differences in Nazi Germany's aims in Western, Central, and Eastern Europe, and due to Germany's historical Drang nach Osten (\"Drive to the East\") and Lebensraum (\"living space\") policies, collaboration in Poland was much less widespread and institutionalized than in Western Europe. Compared to the situations in other German-occupied countries, collaboration in Poland was marginal.",
-      "evidence_en_after": "Collaboration in Poland was less institutionalized than elsewhere in Europe, and has been described by some as marginal.",
-      "evidence_other_before": "Польский коллаборационизм во Второй мировой войне — сотрудничество польских организаций, польских граждан и отдельных этнических поляков с Третьим рейхом и странами \"оси\" во время Второй мировой войны.",
-      "evidence_other_after": "Польский коллаборационизм во Второй мировой войне — сотрудничество польских организаций, польских граждан и отдельных этнических поляков с Третьим рейхом и странами \"оси\" во время Второй мировой войны."
-    }
-  ],
-  "summary": "The English lead changed substantially between the before and after revisions: it removed the specific claim that 'the main collaborators were members of Poland's German minority,' softened 'executed' to 'punished... with thousands sentenced to death,' and replaced the detailed explanation involving Drang nach Osten/Lebensraum policies and comparison to Western Europe with a shorter, more hedged statement that collaboration was 'less institutionalized' and 'described by some as marginal.' The Russian article, in contrast, showed no textual change at all between the before and after revisions in the supplied window—it remains a single short definitional sentence about Polish collaboration with the Third Reich and Axis powers, lacking any of the specific claims found in either English version (about the German minority, executions/punishments, or comparative marginality). Thus the divergence between English and Russian on these topics existed before the window and persisted through it, with English content still narrowing/softening its claims while Russian's minimal lead did not engage with these topics at all.",
-  "run_ts": "2026-07-18T23:53:36.123654+00:00",
+  "divergences": [],
+  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAdfd77NjUHr3LpM6AVo'}",
+  "summary": "LLM comparison failed; no framing result was produced.",
+  "run_ts": "2026-07-19T02:32:40.419752+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 1,
-    "input_tokens": 2005,
-    "output_tokens": 2187,
+    "calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": [
-      {
-        "provider": "anthropic",
-        "model": "claude-sonnet-5",
-        "input_tokens": 2005,
-        "output_tokens": 2187,
-        "estimated_usd": null,
-        "pricing_key": null,
-        "pricing_usd_per_million": null
-      }
-    ]
+    "records": []
   },
-  "elapsed_seconds": 19.609
+  "elapsed_seconds": 2.256
 }

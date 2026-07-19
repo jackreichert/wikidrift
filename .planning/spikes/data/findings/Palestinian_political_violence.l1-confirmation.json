@@ -1,0 +1,17 @@
+{
+  "article": "Palestinian political violence",
+  "run_ts": "2026-07-19T03:04:32.649576+00:00",
+  "corpus_horizon": {
+    "snapshot_date": "2026-07-01",
+    "snapshot_revid": 1362071472
+  },
+  "thresholds": {
+    "confirm_drop": 0.2,
+    "durable_quantile": 0.5,
+    "min_cohort": 500,
+    "magnitude_floor": 25.0
+  },
+  "coarse_verdict": "HEALTHY",
+  "status": "not_confirmed",
+  "confirmed_episodes": []
+}

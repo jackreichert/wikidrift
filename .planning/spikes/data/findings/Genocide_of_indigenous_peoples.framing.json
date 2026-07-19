@@ -1,8 +1,6 @@
 {
   "article": "Genocide of indigenous peoples",
-  "category": "general",
   "mode": "static",
-  "pivot_window": null,
   "editions_compared": [
     "en",
     "bn",
@@ -13,138 +11,18 @@
     "bn": 1544,
     "tr": 2037
   },
-  "snapshots": null,
-  "divergences": [
-    {
-      "topic": "Patrick Wolfe's claim on settler colonialism",
-      "editions_differ": [
-        "TR"
-      ],
-      "en_says": "not mentioned",
-      "other_says": "According to Patrick Wolfe, genocide of indigenous populations is particularly likely in cases of settler colonialism; some scholars argue settler colonialism is inherently genocidal, while others argue the genocide term does not apply.",
-      "verdict": "absent_en",
-      "evidence_en": null,
-      "evidence_other": "Patrick Wolfe'a göre yerli nüfusun soykırımı özellikle yerleşimci sömürgecilik vakalarında muhtemeldir, bazı akademisyenler yerleşimci sömürgeciliğin doğası gereği soykırımcı olduğunu savunurken diğerleri soykırım teriminin geçerli olmadığını savunmaktadır."
-    },
-    {
-      "topic": "Regions affected by genocidal colonial violence",
-      "editions_differ": [
-        "EN",
-        "TR"
-      ],
-      "en_says": "Genocidal violence occurred in Europe, the Americas, Africa, Asia, and Oceania.",
-      "other_says": "Genocidal violence occurred in the Americas, Australia, Africa, and Asia (no mention of Europe; Oceania specified as Australia).",
-      "verdict": "differ",
-      "evidence_en": "acts of genocidal violence against indigenous groups in Europe, the Americas, Africa, Asia, and Oceania",
-      "evidence_other": "Amerika, Avustralya, Afrika ve Asya'daki yerli gruplara yönelik soykırımcı şiddet eylemlerini sıklıkla içeriyordu"
-    },
-    {
-      "topic": "Lemkin's characterization of colonization",
-      "editions_differ": [
-        "EN",
-        "TR"
-      ],
-      "en_says": "Lemkin saw genocide as a two-stage process: destruction of the group's way of life, then imposition of the perpetrators' national pattern; colonialism is 'intimately connected' with genocide.",
-      "other_says": "According to Lemkin, colonization itself was 'inherently genocidal' ('özünde soykırım'), with the two-stage process described similarly.",
-      "verdict": "differ",
-      "evidence_en": "colonialism is intimately connected with genocide. Lemkin saw genocide as a two-stage process",
-      "evidence_other": "Lemkin'e göre, kolonizasyon kendi içinde \"özünde soykırım\" idi."
-    },
-    {
-      "topic": "David Maybury-Lewis's framework on colonial genocide methods",
-      "editions_differ": [
-        "TR"
-      ],
-      "en_says": "not mentioned",
-      "other_says": "According to David Maybury-Lewis, imperial and colonial forms of genocide are carried out in two main ways: deliberate clearing of land's original inhabitants for resource extraction or colonial settlement, or forced labor of indigenous peoples in colonial/imperial resource extraction projects.",
-      "verdict": "absent_en",
-      "evidence_en": null,
-      "evidence_other": "David Maybury-Lewis'e göre, soykırımın emperyal ve sömürgeci biçimleri iki ana yolla hayata geçirilir; ya kaynak çıkarma ya da sömürgeci yerleşimler amacıyla sömürülebilir hale getirmek için toprakların orijinal sakinlerinden kasıtlı olarak temizlenmesi ya da yerli halkların sömürgeci veya emperyalist kaynak çıkarma projelerinde zorunlu işçi olarak çalıştırılması yoluyla."
-    },
-    {
-      "topic": "Cultural genocide/ethnocide and specific named examples",
-      "editions_differ": [
-        "TR"
-      ],
-      "en_says": "not mentioned in lead (only mentions that Lemkin narrowed definition to exclude cultural genocide when passing the 1948 Convention).",
-      "other_says": "Some scholars, including Lemkin, argued cultural genocide (sometimes called ethnocide) should also be recognized; examples given include Chinese government's treatment of Tibetans and Uyghurs, US treatment of Native Americans, and Canadian government's treatment of First Nations peoples.",
-      "verdict": "absent_en",
-      "evidence_en": null,
-      "evidence_other": "Bu tür bir soykırım olarak kabul edilebilecek örnekler arasında Çin Hükûmeti tarafından Tibetlilere ve Uygurlara yapılan muamele, Amerika Birleşik Devletleri vatandaşları ve Birleşik Devletler hükûmetinin ajanları tarafından Yerli Amerikalılara yapılan muamele ve Kanada hükûmeti tarafından Birinci Milletler halklarına yapılan muamele sayılabilir."
-    },
-    {
-      "topic": "1948 Genocide Convention definition and its criticisms",
-      "editions_differ": [
-        "TR"
-      ],
-      "en_says": "Discusses in detail how Lemkin narrowed his definition to pass the 1948 Genocide Convention, excluding cultural genocide and requiring genocidal intent; notes criticism of the Convention's definition as flawed due to overemphasis on intent, imprecision of 'destruction in whole or in part,' and narrow group exclusivity.",
-      "other_says": "not mentioned",
-      "verdict": "absent_other",
-      "evidence_en": "in order to pass the 1948 Genocide Convention, he narrowed his definition to physical and biological destruction (as opposed to cultural genocide) and added the requirement of genocidal intent.",
-      "evidence_other": null
-    },
-    {
-      "topic": "Named colonial empires",
-      "editions_differ": [
-        "EN",
-        "TR"
-      ],
-      "en_says": "British and Spanish empires named as examples of Western European colonial powers.",
-      "other_says": "British and Spanish empires also named, in same context.",
-      "verdict": "agree",
-      "evidence_en": "such as the British and Spanish empires",
-      "evidence_other": "İngiliz ve İspanyol imparatorlukları gibi"
-    },
-    {
-      "topic": "Distinction between genocide and settler colonialism as separate concepts",
-      "editions_differ": [
-        "EN"
-      ],
-      "en_says": "Other scholars view genocide as associated with but distinct from settler colonialism.",
-      "other_says": "not explicitly framed as a distinct scholarly view; TR frames debate as whether settler colonialism is inherently genocidal or not applicable at all, rather than a distinct-but-associated relationship.",
-      "verdict": "differ",
-      "evidence_en": "Other scholars view genocide as associated with but distinct from settler colonialism.",
-      "evidence_other": "bazı akademisyenler yerleşimci sömürgeciliğin doğası gereği soykırımcı olduğunu savunurken diğerleri soykırım teriminin geçerli olmadığını savunmaktadır."
-    }
-  ],
-  "summary": "The EN and TR leads share the core definition of genocide of indigenous peoples as tied to colonialism, and both reference Lemkin's two-stage theory and use British/Spanish empires as examples. However, they diverge significantly in scope and emphasis: EN focuses heavily on the legal history of the 1948 Genocide Convention, Lemkin's narrowing of his definition, and critiques of that convention's applicability, none of which appear in TR. TR instead introduces additional scholarly voices (Patrick Wolfe, David Maybury-Lewis) and discusses cultural genocide/ethnocide with concrete named contemporary examples (Tibetans, Uyghurs, Native Americans, First Nations) that are entirely absent from the EN lead. The two editions also differ slightly in the listed regions affected and in how they characterize Lemkin's view of colonization (EN: 'intimately connected'; TR: 'inherently genocidal'). The BN edition is a near-verbatim translation of the EN lead with no substantive divergence.",
-  "run_ts": "2026-07-19T00:02:17.335133+00:00",
+  "divergences": [],
+  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAeej7c1Pi6JCc9Rr5T3'}",
+  "summary": "LLM comparison failed; no framing result was produced.",
+  "run_ts": "2026-07-19T02:45:35.158883+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 3,
-    "input_tokens": 8184,
-    "output_tokens": 4145,
+    "calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": [
-      {
-        "provider": "anthropic",
-        "model": "claude-sonnet-5",
-        "input_tokens": 442,
-        "output_tokens": 73,
-        "estimated_usd": null,
-        "pricing_key": null,
-        "pricing_usd_per_million": null
-      },
-      {
-        "provider": "anthropic",
-        "model": "claude-sonnet-5",
-        "input_tokens": 3871,
-        "output_tokens": 1500,
-        "estimated_usd": null,
-        "pricing_key": null,
-        "pricing_usd_per_million": null
-      },
-      {
-        "provider": "anthropic",
-        "model": "claude-sonnet-5",
-        "input_tokens": 3871,
-        "output_tokens": 2572,
-        "estimated_usd": null,
-        "pricing_key": null,
-        "pricing_usd_per_million": null
-      }
-    ]
+    "records": []
   },
-  "elapsed_seconds": 63.82
+  "elapsed_seconds": 4.586
 }

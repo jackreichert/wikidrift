@@ -1,11 +1,16 @@
 {
   "article": "UNRWA",
-  "mode": "candidate_relative",
+  "mode": "pivot_relative",
   "pivot_window": {
     "start": "2014-07-01",
     "end": "2015-01-01",
     "pwr_mass": 68811,
-    "status": "candidate"
+    "status": "confirmed",
+    "before_revid": 622769287,
+    "before_timestamp": "2014-08-25T17:38:50Z",
+    "after_revid": 622771670,
+    "after_timestamp": "2014-08-25T17:57:57Z",
+    "durable_spine_drop": 0.343122
   },
   "editions_compared": [
     "en",
@@ -16,10 +21,10 @@
   "snapshots": {
     "before": {
       "en": {
-        "revid": 614640525,
-        "timestamp": "2014-06-27T14:34:38Z",
+        "revid": 622769287,
+        "timestamp": "2014-08-25T17:38:50Z",
         "title": "UNRWA",
-        "lead": "Created in December 1949, the United Nations Relief and Works Agency for Palestine Refugees in the Near East (UNRWA) is a relief and human development agency, originally intended to provide jobs on public works projects and direct relief for 652,000 Arabs who fled or were expelled from Israel during the fighting that followed the end of the British mandate over Palestine. Today it provides education, health care, social services and emergency aid to 5 million Palestinian refugees from the 1948 and 1967 wars and their descendants.UNRWA in Figures. The agency provides aid to the refugees living in Jordan, Lebanon and Syria, as well as those in the West Bank and the Gaza Strip. It is the only agency dedicated to helping refugees from a specific region or conflict. It is separate from UNHCR,The United Nations High Commissioner for Refugees Website. (1950), the UN Refugee Agency, which is the only other UN agency aiding refugees, dedicated to aiding all refugees in the world.\n\nUNRWA was established following the 1948 Arab-Israeli War by the United Nations General Assembly under Resolution 302(IV) of 8 December 1949. This resolution also reaffirmed paragraph 11, concerning refugees, of UN General Assembly Resolution 194 (1948), adopted and passed unopposed, supported by Israel and the Arab states, with only the Soviet bloc and South Africa abstaining.\nUNRWA has had to develop a working definition of \"refugee\" to allow it to provide humanitarian assistance. Its definition does not cover final status.  Its operational definition of Palestine refugee for persons qualifying for UNRWA assistance says \"whose normal place of residence was Palestine during the period 1 June 1946 to 15 May 1948, and who lost both home and means of livelihood as a result of the 1948, and 1967 conflicts,\" descendants are also eligible for registration.Palestinian Refugees UNRWA Website Most of UNRWA's funding comes from European countries and the United States. The United States was the largest single donor with a total contribution of over $239 million in 2011, followed by the European Commission’s $175 million contribution.UNRWA funds ideological camps\n\nThe UNRWA definition is meant solely to determine eligibility for UNRWA assistance. However, some argue it serves to perpetuate the conflict.Lefkovitz, Etgar.  \"US congressmen demand UNRWA reform.\" Jerusalem Post.  27 May 2008.  3 March 2009.\"Perpetuating refugees.\" ProQuest Archiver.  12 February 2007.  3 March 2009.Spyer, Jonathan. \"UNRWA: Barrier to Peace.\" Bar-Ilan University. 27 May 2008. 1 March 2009. \"Due to this special status, the UNRWA perpetuates, rather than resolves, the Palestinian refugee issue, and therefore serves as a major obstacle toward resolving the Israeli-Palestinian conflict.\"Romirowsky, Asaf and Jonathan Spyer. \"How UNRWA creates dependency.\" Middle East Forum. 3 December 2007. 27 February 2009. \"As it stands, the self-perpetuating bureaucracy of UNRWA is one of the central factors offering day jobs to "
+        "lead": "Created in December 1949, the United Nations Relief and Works Agency for Palestine Refugees in the Near East (UNRWA) is a relief and human development agency, originally intended to provide jobs on public works projects and direct relief for 652,000 Palestinians who fled or were expelled from their homes during the fighting that followed the end of the British mandate over the region of Palestine.\n\nIt also provided relief to Jewish and Arab Palestine refugees inside the state of Israel following the 1948 conflict until the Israeli government took over responsibility for Jewish refugees in 1952.\n\nIn the absence of a solution to the Palestine refugee problem, the General Assembly has repeatedly renewed UNRWA's mandate, most recently extending it until 30 June 2017.\n\nToday it provides education, health care, social services and military aid to 5 million registered Palestinian refugees, including survivors from the 1948 and 1967 wars and their descendants.UNRWA in Figures.\n\nThe agency provides aid to the refugees living in Jordan, Lebanon and Syria, as well as those in the West Bank and the Gaza Strip. It is the only agency dedicated to helping refugees from a specific region or conflict. It is separate from UNHCR,The United Nations High Commissioner for Refugees Website. (1950), the UN Refugee Agency, which is the only other UN agency aiding refugees, dedicated to aiding all refugees in the world."
       },
       "ar": {
         "revid": 13431941,
@@ -28,34 +33,34 @@
         "lead": "الأمم المتحدة لإغاثة وتشغيل اللاجئين الفلسطينيين  (UNRWA), (وكالة الغوث).\nتعمل على تقديم الدعم والحماية وكسب التأييد لحوالي 4.7 مليون لاجئ فلسطيني مسجلين لديها في الأردن ولبنان وسوريا والأراضي الفلسطينية المحتلة، إلى أن يتم إيجاد حل لمعاناتهم.الموقع الرسمي لمنظمة الأونروا - لمحة عامة\n\nويتم تمويل الأونروا بالكامل تقريباً من خلال التبرعات الطوعية التي تقدمها الدول الأعضاء في منظمة الأمم المتحدة."
       },
       "he": {
-        "revid": 15543268,
-        "timestamp": "2014-06-05T13:34:24Z",
+        "revid": 15864742,
+        "timestamp": "2014-08-22T15:10:34Z",
         "title": "אונר\"א",
-        "lead": "250px|ממוזער|שמאל|סמל אונר\"א\n\nאונר\"א ראשי תיבות של סוכנות הסעד לפליטים פלסטינים של האו\"ם (מאנגלית: UNRWA, ראשי תיבות: United Nations Relief and Works Agency for Palestine Refugees in the Near East) היא גוף של האומות המאוחדות שהוקם במטרה לטפל בבעיית הפליטים הפלסטינים, זאת בנוסף לנציבות האו\"ם לפליטים שמטרתה לטפל בכל הפליטים שאינם פלסטינים."
+        "lead": "250px|ממוזער|שמאל|סמל אונר\"א\n\nאונר\"א ראשי תיבות של סוכנות הסעד והתעסוקה של האו\"ם לפליטי פלסטין במזרח הקרוב (מאנגלית: UNRWA, ראשי תיבות: United Nations Relief and Works Agency for Palestine Refugees in the Near East) היא גוף של האומות המאוחדות שהוקם בנפרד מנציבות האו\"ם לפליטים שמטרתה לטפל בכל הפליטים, ועוסק רק בפליטים פלסטינים."
       },
       "de": {
-        "revid": 127969423,
-        "timestamp": "2014-02-26T16:11:09Z",
+        "revid": 133292185,
+        "timestamp": "2014-08-21T04:55:41Z",
         "title": "Hilfswerk der Vereinten Nationen für Palästina-Flüchtlinge im Nahen Osten",
-        "lead": "Das Hilfswerk der Vereinten Nationen für Palästina-Flüchtlinge im Nahen Osten (engl.:United Nations Relief and Works Agency for Palestine Refugees in the Near East, kurz UNRWA) ist ein temporäres Hilfsprogramm der Vereinten Nationen (UN), das seit seiner Gründung 1949 regelmäßig um drei Jahre verlängert wurde (zuletzt bis zum 30. Juni 2014)dgvn.de \"10 UNRWA - Hilfswerk der UN für Palästina-Flüchtlinge im Nahen Osten\", gesichtet am 22. Februar 2013. Der Hauptsitz des Hilfswerkes war zunächst Beirut, wurde 1978 aufgrund der Unruhen im Libanon nach Wien und 1996 weiter nach Gaza verlegthttp://www.un.org/unrwa/organization/headq.html.."
+        "lead": "Das Hilfswerk der Vereinten Nationen für Palästina-Flüchtlinge im Nahen Osten, , ist ein temporäres Hilfsprogramm der Vereinten Nationen, das seit seiner Gründung 1949 regelmäßig um drei Jahre verlängert wurde (zuletzt bis zum 30. Juni 2017). Der Hauptsitz des Hilfswerkes war zunächst Beirut, wurde 1978 aufgrund der Unruhen im Libanon nach Wien und 1996 weiter nach Gaza verlegt. Ein weiterer Hauptsitz existiert in Amman.Headquarters & Liaison Offices (englisch). Webpräsenz der UNRWA. Abgerufen am 2. August 2014"
       }
     },
     "after": {
       "en": {
-        "revid": 640818599,
-        "timestamp": "2015-01-03T16:51:31Z",
+        "revid": 622771670,
+        "timestamp": "2014-08-25T17:57:57Z",
         "title": "UNRWA",
-        "lead": "Created in December 1949, the United Nations Relief and Works Agency for Palestine Refugees in the Near East (UNRWA) is a relief and human development agency, originally intended to provide jobs on public works projects and direct relief for 652,000 Palestinians who fled or were expelled from their homes during the fighting that followed the end of the British mandate over the region of Palestine.\n\nIt also provided relief to Jewish and Arab Palestine refugees inside the state of Israel following the 1948 conflict until the Israeli government took over responsibility for Jewish refugees in 1952.\n\nIn the absence of a solution to the Palestine refugee problem, the General Assembly has repeatedly renewed UNRWA's mandate, most recently extending it until 30 June 2017.\n\nToday, UNRWA provides education, health care and social services to the 5 million registered Palestinian refugees, including survivors from the 1948 and 1967 wars and their descendants.UNRWA in Figures. Aid is provided to Palestinian refugees living in Jordan, Lebanon and Syria, as well as those in the West Bank and the Gaza Strip. \n\nUNRWA is the only agency dedicated to helping refugees from a specific region or conflict and is separate from UNHCR,The United Nations High Commissioner for Refugees Website. (1950), the UN main Refugee Agency, which is responsible for aiding other refugees all over the world."
+        "lead": "Created in December 1949, the United Nations Relief and Works Agency for Palestine Refugees in the Near East (UNRWA) is a relief and human development agency, originally intended to provide jobs on public works projects and direct relief for 652,000 Palestinians who fled or were expelled from their homes during the fighting that followed the end of the British mandate over the region of Palestine.\n\nIt also provided relief to Jewish and Arab Palestine refugees inside the state of Israel following the 1948 conflict until the Israeli government took over responsibility for Jewish refugees in 1952.\n\nIn the absence of a solution to the Palestine refugee problem, the General Assembly has repeatedly renewed UNRWA's mandate, most recently extending it until 30 June 2017.\n\nToday it provides education, health care, social services and military aid to 5 million registered Palestinian refugees, including survivors from the 1948 and 1967 wars and their descendants.UNRWA in Figures.\n\nThe agency provides aid to the refugees living in Jordan, Lebanon and Syria, as well as those in the West Bank and the Gaza Strip. It is the only agency dedicated to helping refugees from a specific region or conflict. It is separate from UNHCR,The United Nations High Commissioner for Refugees Website. (1950), the UN Refugee Agency, which is the only other UN agency aiding refugees, dedicated to aiding all refugees in the world."
       },
       "ar": {
-        "revid": 15315869,
-        "timestamp": "2015-03-21T00:16:46Z",
+        "revid": 14327254,
+        "timestamp": "2014-11-04T16:17:40Z",
         "title": "وكالة الأمم المتحدة لإغاثة وتشغيل اللاجئين الفلسطينيين",
         "lead": "الأمم المتحدة لإغاثة وتشغيل اللاجئين الفلسطينيين  (UNRWA), (وكالة الغوث).\nتعمل على تقديم الدعم والحماية وكسب التأييد لحوالي 4.7 مليون لاجئ فلسطيني مسجلين لديها في الأردن ولبنان وسوريا والأراضي الفلسطينية المحتلة، إلى أن يتم إيجاد حل لمعاناتهم.الموقع الرسمي لمنظمة الأونروا - لمحة عامة\n\nويتم تمويل الأونروا بالكامل تقريباً من خلال التبرعات الطوعية التي تقدمها الدول الأعضاء في منظمة الأمم المتحدة."
       },
       "he": {
-        "revid": 16750031,
-        "timestamp": "2015-04-07T14:43:35Z",
+        "revid": 15893490,
+        "timestamp": "2014-08-29T19:56:17Z",
         "title": "אונר\"א",
         "lead": "250px|ממוזער|שמאל|סמל אונר\"א\n\nאונר\"א ראשי תיבות של סוכנות הסעד והתעסוקה של האו\"ם לפליטי פלסטין במזרח הקרוב (מאנגלית: UNRWA, ראשי תיבות: United Nations Relief and Works Agency for Palestine Refugees in the Near East) היא גוף של האומות המאוחדות שהוקם בנפרד מנציבות האו\"ם לפליטים שמטרתה לטפל בכל הפליטים, ועוסק רק בפליטים פלסטינים."
       },
@@ -74,27 +79,17 @@
     }
   },
   "divergences": [],
-  "error": "anthropic returned invalid JSON twice; last response ended near character 10721",
+  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAgE99G8SZ6Y42qJJDRQ'}",
   "summary": "LLM comparison failed; no framing result was produced.",
-  "run_ts": "2026-07-19T00:31:09.157919+00:00",
+  "run_ts": "2026-07-19T03:06:15.213548+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 1,
-    "input_tokens": 435,
-    "output_tokens": 74,
+    "calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": [
-      {
-        "provider": "anthropic",
-        "model": "claude-sonnet-5",
-        "input_tokens": 435,
-        "output_tokens": 74,
-        "estimated_usd": null,
-        "pricing_key": null,
-        "pricing_usd_per_million": null
-      }
-    ]
+    "records": []
   },
-  "elapsed_seconds": 74.817
+  "elapsed_seconds": 15.028
 }

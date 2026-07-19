@@ -1,0 +1,46 @@
+{
+  "article": "Hamas",
+  "run_ts": "2026-07-19T02:45:36.300670+00:00",
+  "corpus_horizon": {
+    "snapshot_date": "2026-01-01",
+    "snapshot_revid": 1330038771
+  },
+  "thresholds": {
+    "confirm_drop": 0.2,
+    "durable_quantile": 0.5,
+    "min_cohort": 500,
+    "magnitude_floor": 25.0
+  },
+  "coarse_verdict": "PIVOT?",
+  "status": "confirmed",
+  "confirmed_episodes": [
+    {
+      "candidate_start": "2023-01-01",
+      "candidate_end": "2025-01-01",
+      "candidate_before_revid": 1129805880,
+      "candidate_after_revid": 1266408654,
+      "before_revid": 1179484672,
+      "before_timestamp": "2023-10-10T12:26:45Z",
+      "after_revid": 1179484852,
+      "after_timestamp": "2023-10-10T12:28:47Z",
+      "durable_spine_drop": 0.232551,
+      "pwr_mass": 534063,
+      "peak_pct": 55.45,
+      "status": "confirmed"
+    },
+    {
+      "candidate_start": "2007-01-01",
+      "candidate_end": "2011-01-01",
+      "candidate_before_revid": 97779515,
+      "candidate_after_revid": 405963216,
+      "before_revid": 139292392,
+      "before_timestamp": "2007-06-19T21:24:02Z",
+      "after_revid": 139315984,
+      "after_timestamp": "2007-06-19T23:29:09Z",
+      "durable_spine_drop": 0.28665,
+      "pwr_mass": 68631,
+      "peak_pct": 41.57,
+      "status": "confirmed"
+    }
+  ]
+}

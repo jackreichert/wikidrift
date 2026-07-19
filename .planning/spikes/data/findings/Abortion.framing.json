@@ -1,6 +1,5 @@
 {
   "article": "Abortion",
-  "category": "general",
   "mode": "pivot_relative",
   "pivot_window": {
     "start": "2010-01-01",
@@ -17,10 +16,6 @@
     "en",
     "de"
   ],
-  "lead_chars": {
-    "en": 2058,
-    "de": 3000
-  },
   "snapshots": {
     "before": {
       "en": {
@@ -57,49 +52,18 @@
       }
     }
   },
-  "divergences": [
-    {
-      "topic": "Global abortion statistics (annual estimate)",
-      "editions_differ": [
-        "en",
-        "de"
-      ],
-      "en_says": "Worldwide 42 million abortions are estimated to take place annually with 22 million of these occurring safely and 20 million unsafely.",
-      "other_says": "Nach Schätzung der Weltgesundheitsorganisation (WHO) sterben bei den jährlich auf 40 Millionen geschätzten Abbrüchen 70.000 Frauen in Folge illegaler und unter ungeeigneten Umständen durchgeführter Schwangerschaftsabbrüche.",
-      "verdict": "differ",
-      "evidence_en": "Worldwide 42 million abortions are estimated to take place annually with 22 million of these occurring safely and 20 million unsafely.",
-      "evidence_other": "Nach Schätzung der Weltgesundheitsorganisation (WHO) sterben bei den jährlich auf 40 Millionen geschätzten Abbrüchen 70.000 Frauen in Folge illegaler und unter ungeeigneten Umständen durchgeführter Schwangerschaftsabbrüche.",
-      "temporal_read": "difference_persisted",
-      "en_before": "Worldwide 42 million abortions are estimated to take place annually with 22 million of these occurring safely and 20 million unsafely.",
-      "en_after": "Worldwide 42 million abortions are estimated to take place annually with 22 million of these occurring safely and 20 million unsafely.",
-      "other_before": "Nach Schätzung der Weltgesundheitsorganisation (WHO) sterben bei den jährlich auf 40 Millionen geschätzten Abbrüchen 70.000 Frauen in Folge illegaler und unter ungeeigneten Umständen durchgeführter Schwangerschaftsabbrüche.",
-      "other_after": "Nach Schätzung der Weltgesundheitsorganisation (WHO) sterben bei den jährlich auf 40 Millionen geschätzten Abbrüchen 70.000 Frauen in Folge illegaler und unter ungeeigneten Umständen durchgeführter Schwangerschaftsabbrüche.",
-      "evidence_en_before": "Worldwide 42 million abortions are estimated to take place annually with 22 million of these occurring safely and 20 million unsafely.",
-      "evidence_en_after": "Worldwide 42 million abortions are estimated to take place annually with 22 million of these occurring safely and 20 million unsafely.",
-      "evidence_other_before": "Nach Schätzung der Weltgesundheitsorganisation (WHO) sterben bei den jährlich auf 40 Millionen geschätzten Abbrüchen 70.000 Frauen in Folge illegaler und unter ungeeigneten Umständen durchgeführter Schwangerschaftsabbrüche.",
-      "evidence_other_after": "Nach Schätzung der Weltgesundheitsorganisation (WHO) sterben bei den jährlich auf 40 Millionen geschätzten Abbrüchen 70.000 Frauen in Folge illegaler und unter ungeeigneten Umständen durchgeführter Schwangerschaftsabbrüche."
-    }
-  ],
-  "summary": "Both the English and German lead sections remained textually identical before and after the compared revisions—the English edit was a null change (no textual difference between the before and after revisions), and the German edit likewise did not alter the relevant content within this window. The only substantive cross-edition difference identified, the differing global annual abortion statistics (42 million with a safe/unsafe breakdown in English vs. 40 million tied to WHO maternal death estimates in German), was already present before the edit window and persisted unchanged afterward in both editions. No genuine temporal divergence—convergence, further divergence, or parallel change—is supported by the provided revisions.",
-  "run_ts": "2026-07-18T23:39:04.281358+00:00",
+  "divergences": [],
+  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAbrmbAvBDtQv81buLsL'}",
+  "summary": "LLM comparison failed; no framing result was produced.",
+  "run_ts": "2026-07-19T02:08:58.042254+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 1,
-    "input_tokens": 5442,
-    "output_tokens": 1284,
+    "calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": [
-      {
-        "provider": "anthropic",
-        "model": "claude-sonnet-5",
-        "input_tokens": 5442,
-        "output_tokens": 1284,
-        "estimated_usd": null,
-        "pricing_key": null,
-        "pricing_usd_per_million": null
-      }
-    ]
+    "records": []
   },
-  "elapsed_seconds": 63.915
+  "elapsed_seconds": 57.015
 }

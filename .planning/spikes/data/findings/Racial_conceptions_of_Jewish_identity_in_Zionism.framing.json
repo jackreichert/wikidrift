@@ -1,8 +1,6 @@
 {
   "article": "Racial conceptions of Jewish identity in Zionism",
-  "category": "israeli-palestinian",
   "mode": "static",
-  "pivot_window": null,
   "editions_compared": [
     "en",
     "es"
@@ -11,93 +9,18 @@
     "en": 3176,
     "es": 521
   },
-  "snapshots": null,
-  "divergences": [
-    {
-      "topic": "scope of coverage - antisemitism and Zionist response",
-      "editions_differ": [
-        "ES"
-      ],
-      "en_says": "Discusses how Zionists countered antisemitic claims that Jews were aliens and racially inferior, arguing a Jewish national home could enable physical regeneration and cultural renaissance",
-      "other_says": "not mentioned",
-      "verdict": "absent_other",
-      "evidence_en": "Countering antisemitic claims that Jews were both aliens and a racially inferior people who needed to be segregated or expelled, these Zionists drew on and appropriated elements from various race theories, to argue that only a Jewish national home could enable the physical regeneration of the Jewish people and a renaissance of pride in their ancient cultural traditions.",
-      "evidence_other": null
-    },
-    {
-      "topic": "assimilationist viewpoint and internal Jewish debate",
-      "editions_differ": [
-        "ES"
-      ],
-      "en_says": "Describes the contrasting assimilationist viewpoint that Jewishness was about religion/culture, rejected by Orthodox and liberal establishments, and subsequent debates between Zionist and non-Zionist Jews",
-      "other_says": "not mentioned",
-      "verdict": "absent_other",
-      "evidence_en": "The contrasting assimilationist viewpoint was that Jewishness consisted in an attachment to Judaism as a religion and culture. Both the Orthodox and liberal establishments, for different reasons, often rejected this idea.",
-      "evidence_other": null
-    },
-    {
-      "topic": "German Jewish racial self-redefinition under Nazism",
-      "editions_differ": [
-        "ES"
-      ],
-      "en_says": "States that by the 1930s some German Jews defensively redefined Jews as a race after Nazism rose to power, and covers the Holocaust's discrediting of race science",
-      "other_says": "not mentioned",
-      "verdict": "absent_other",
-      "evidence_en": "by the 1930s, some German Jews, acting defensively, asserted Jewish collective rights by redefining Jews as a race after Nazism rose to power. The advent of World War II led to the implementation of the Holocaust's policies of genocidal ethnic cleansing, which, by war's end, had utterly discredited race as the lethal product of pseudoscience.",
-      "evidence_other": null
-    },
-    {
-      "topic": "Israel's establishment and nation-building",
-      "editions_differ": [
-        "ES"
-      ],
-      "en_says": "Covers the 1948 establishment of Israel, 'ingathering of the exiles', Law of Return, and careful avoidance of racial language by Israeli researchers",
-      "other_says": "not mentioned",
-      "verdict": "absent_other",
-      "evidence_en": "With the establishment of Israel in 1948, the \"ingathering of the exiles\", and the Law of Return, the question of Jewish origins and biological unity came to assume particular importance during early nation building.",
-      "evidence_other": null
-    },
-    {
-      "topic": "modern genetic studies and Zionist narrative criticism",
-      "editions_differ": [
-        "ES"
-      ],
-      "en_says": "Discusses criticism of genetic studies on Jewish origins as influenced by 'Zionist narrative' and essentialist biology, citing Nurit Kirsh and Raphael Falk",
-      "other_says": "not mentioned",
-      "verdict": "absent_other",
-      "evidence_en": "Genetic studies on the origins of modern Jews have been criticized as \"being designed or interpreted in the framework of a 'Zionist narrative'\"... According to Israeli historian of science Nurit Kirsh and Israeli geneticist Raphael Falk, the interpretation of the genetic data has been unconsciously influenced by Zionism and anti",
-      "evidence_other": null
-    }
-  ],
-  "summary": "The ES edition's lead is a truncated version covering only the first paragraph-equivalent of the EN lead, addressing the initial 19th-century Zionist reformulation of Jewishness as race (Max Nordau, race science, ethnonational myth of common descent). It omits substantial additional content present in EN: the assimilationist counter-view and internal Jewish debates, the 1930s German Jewish response to Nazism and the Holocaust's discrediting of race science, Israel's 1948 establishment and nation-building concerns about biological unity, and the modern scholarly controversy over genetic studies and their alleged Zionist framing. These are omissions due to article incompleteness rather than direct contradictions, but they represent a significant divergence in coverage and depth.",
-  "run_ts": "2026-07-19T00:24:47.347411+00:00",
+  "divergences": [],
+  "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': \"output_config.format.schema: For 'array' type, property 'maxItems' is not supported\"}, 'request_id': 'req_011CdAgAWLrkaur6u2Wzmdyp'}",
+  "summary": "LLM comparison failed; no framing result was produced.",
+  "run_ts": "2026-07-19T03:05:25.919286+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 2,
-    "input_tokens": 2517,
-    "output_tokens": 1502,
+    "calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": [
-      {
-        "provider": "anthropic",
-        "model": "claude-sonnet-5",
-        "input_tokens": 449,
-        "output_tokens": 68,
-        "estimated_usd": null,
-        "pricing_key": null,
-        "pricing_usd_per_million": null
-      },
-      {
-        "provider": "anthropic",
-        "model": "claude-sonnet-5",
-        "input_tokens": 2068,
-        "output_tokens": 1434,
-        "estimated_usd": null,
-        "pricing_key": null,
-        "pricing_usd_per_million": null
-      }
-    ]
+    "records": []
   },
-  "elapsed_seconds": 16.926
+  "elapsed_seconds": 1.399
 }

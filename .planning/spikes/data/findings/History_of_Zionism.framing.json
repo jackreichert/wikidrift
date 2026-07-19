@@ -1,170 +1,67 @@
 {
   "article": "History of Zionism",
-  "category": "israeli-palestinian",
-  "mode": "static",
-  "pivot_window": null,
-  "editions_compared": [
-    "en",
-    "ar",
-    "fr",
-    "ca"
-  ],
-  "lead_chars": {
-    "en": 1163,
-    "ar": 973,
-    "fr": 643,
-    "ca": 921
+  "mode": "pivot_relative",
+  "pivot_window": {
+    "start": "2026-01-01",
+    "end": "2026-07-01",
+    "pwr_mass": 437410,
+    "status": "confirmed",
+    "before_revid": 1361439674,
+    "before_timestamp": "2026-06-27T22:44:12Z",
+    "after_revid": 1361439777,
+    "after_timestamp": "2026-06-27T22:44:53Z",
+    "durable_spine_drop": 0.569462
   },
-  "snapshots": null,
-  "divergences": [
-    {
-      "topic": "decline of Zionist movement importance after 1948",
-      "editions_differ": [
-        "EN",
-        "AR"
-      ],
-      "en_says": "not mentioned; EN states the movement continues to exist through various organisations",
-      "other_says": "AR states the importance of the Zionist movement as an organization diminished since the establishment of Israel and as it grew stronger as a state",
-      "verdict": "absent_en",
-      "evidence_en": null,
-      "evidence_other": "تضاءلت أهمية الحركة الصهيونية كمنظمة، منذ إنشاء دولة إسرائيل، ومع ازدياد قوتها كدولة."
-    },
-    {
-      "topic": "statistical claim on world Jewish population in Israel",
-      "editions_differ": [
-        "EN",
-        "AR"
-      ],
-      "en_says": "not mentioned",
-      "other_says": "AR claims 40% of world Jews live in Israel today and describes this as unprecedented in human history for a nation re-established after long diaspora",
-      "verdict": "absent_en",
-      "evidence_en": null,
-      "evidence_other": "نجاح الصهيونية مرهون بالنمو المضطرد لنسبة يهود العالم القاطنين بإسرائيل على مر السنين، واليوم يعيش 40% من يهود العالم في إسرائيل. لا يوجد مثال آخر في التاريخ البشري لأمة يُعاد تأسيسها بعد فترة طويلة من العيش كأمة في الشتات."
-    },
-    {
-      "topic": "18th century forerunners and Hovevei Zion framing",
-      "editions_differ": [
-        "EN",
-        "AR"
-      ],
-      "en_says": "EN explicitly cites forerunners going back to the 18th century, with Hovevei Zion as the most significant",
-      "other_says": "AR vaguely says the history began earlier and is linked to Judaism and Jewish history, without specifying the 18th century as EN does, though it also credits Hovevei Zion with the 20 towns",
-      "verdict": "differ",
-      "evidence_en": "forerunners have been identified going back to the 18th century, the most significant being the organisations of Hovevei Zion",
-      "evidence_other": "لكن تاريخ الصهيونية بدأ، رغم ذلك، في وقت سابق ويرتبط باليهودية والتاريخ اليهودي"
-    },
-    {
-      "topic": "definition of Zionism's core goal (state vs. cultural center)",
-      "editions_differ": [
-        "EN",
-        "AR"
-      ],
-      "en_says": "EN emphasizes Herzl's vision of an independent secular Jewish-majority state as opposed to a theocratic Halakhic state, based on Der Judenstaat",
-      "other_says": "AR emphasizes the goal as re-establishing a Jewish national home and cultural center in Palestine via facilitating return from diaspora, plus a secular Jewish-majority state",
-      "verdict": "differ",
-      "evidence_en": "Herzl sought an independent Jewish state (usually defined as a secular state with a Jewish-majority population, in contrast to a theocratic Halakhic state), as expressed in his 1896 pamphlet Der Judenstaat",
-      "evidence_other": "كان الهدف الرئيسي للحركة هو إعادة إنشاء وطن قومي يهودي ومركز ثقافي في فلسطين من خلال تسهيل عودة اليهود من الشتات"
-    },
-    {
-      "topic": "founding figure and date",
-      "editions_differ": [
-        "EN",
-        "FR",
-        "CA"
-      ],
-      "en_says": "EN attributes founding to Theodor Herzl in 1897 as an organized movement, with earlier forerunners",
-      "other_says": "FR describes Zionism as a nationalist political movement based on Jewish national sentiment that appeared in the 19th century, without naming Herzl or 1897 in the lead; CA says it appeared at the end of the 19th century, also without naming Herzl",
-      "verdict": "absent_other",
-      "evidence_en": "Zionism is generally considered to have been founded by Theodor Herzl in 1897",
-      "evidence_other": "apparu au XIXe siècle"
-    },
-    {
-      "topic": "antisemitism and European nationalism as causal context",
-      "editions_differ": [
-        "EN",
-        "FR"
-      ],
-      "en_says": "not mentioned as a causal driver in the lead; EN frames Zionism as facilitating return to Jewish sovereignty without explicitly citing European antisemitism as a cause",
-      "other_says": "FR explicitly frames Zionism as emerging in a context marked by Jewish emancipation, European nationalism, and rising antisemitism",
-      "verdict": "absent_en",
-      "evidence_en": null,
-      "evidence_other": "dans un contexte marqué par l'émancipation, le nationalisme européen et la montée de l'antisémitisme"
-    },
-    {
-      "topic": "scope/structure of the article as three central debates",
-      "editions_differ": [
-        "EN",
-        "CA"
-      ],
-      "en_says": "not mentioned; EN lead does not frame the article around three specific debates",
-      "other_says": "CA explicitly frames the article's approach around three problematics: institution-building, Jewish population growth in the state, and ideological debates over religion's role and state borders",
-      "verdict": "absent_en",
-      "evidence_en": null,
-      "evidence_other": "Aquest article s'interessa essencialment en tres problemàtiques que estan presents en la història del sionisme"
-    },
-    {
-      "topic": "continuing existence and purposes of Zionist movement today",
-      "editions_differ": [
-        "EN",
-        "CA"
-      ],
-      "en_says": "EN states the movement continues via organisations supporting Israel, combating antisemitism, assisting persecuted Jews, and encouraging aliyah, and that most Israeli parties still call themselves Zionist",
-      "other_says": "not mentioned in CA lead",
-      "verdict": "absent_other",
-      "evidence_en": "The Zionist movement continues to exist in the form of various organisations working to support Israel, combat antisemitism, assist persecuted Jews, and encourage diaspora Jews to move to Israel.",
-      "evidence_other": null
-    },
-    {
-      "topic": "combating antisemitism as a current goal",
-      "editions_differ": [
-        "EN",
-        "AR"
-      ],
-      "en_says": "EN lists combating antisemitism as one of the current functions of Zionist organisations",
-      "other_says": "AR omits combating antisemitism from its list of current activities, mentioning only supporting Israel, helping persecuted Jews, and encouraging immigration",
-      "verdict": "differ",
-      "evidence_en": "working to support Israel, combat antisemitism, assist persecuted Jews, and encourage diaspora Jews to move to Israel",
-      "evidence_other": "تعمل على دعم إسرائيل، ومساعدة اليهود المضطهدين وتشجيع هجرة اليهود إلى إسرائيل"
-    }
+  "editions_compared": [
+    "en"
   ],
-  "summary": "The editions show substantial differences in framing rather than direct factual contradiction. EN presents a relatively neutral, chronological account centered on Herzl's 1897 founding, the secular-state vision from Der Judenstaat, and the movement's ongoing organisational role including combating antisemitism. AR includes additional claims absent from EN, such as a demographic statistic (40% of world Jews in Israel) framed as historically unprecedented, and a claim that the movement's importance diminished after Israel's founding — both are notable value-laden additions. FR foregrounds antisemitism and European nationalism as causal context for Zionism's emergence, which EN does not state explicitly. CA takes a structurally different approach, framing the entire article around three internal debates (institutions, demographics, ideology) rather than a narrative history, and omits mention of the movement's continued contemporary activity. These represent differences in emphasis, added context, and framing rather than outright contradictions, though the AR claims about diminished importance and the 40% statistic could be considered value-laden framing warranting scrutiny.",
-  "run_ts": "2026-07-19T00:06:47.314950+00:00",
+  "snapshots": {
+    "before": {
+      "en": {
+        "revid": 1361439674,
+        "timestamp": "2026-06-27T22:44:12Z",
+        "title": "History of Zionism",
+        "lead": "As an organised nationalist movement, Zionism is generally considered to have been founded by Theodor Herzl in 1897. However, the history of Zionism began earlier and is intertwined with Jewish history and Judaism. The organisations of Hovevei Zion (), held as the forerunners of modern Zionist ideals, were responsible for the creation of 20 Jewish towns in Palestine between 1870 and 1897.\n\nAt the core of the Zionist ideology was the traditional aspiration for a Jewish national home through the re-establishment of Jewish sovereignty in Palestine, to be facilitated by the Jewish diaspora (see aliyah). Herzl sought an independent Jewish state (usually defined as a secular state with a Jewish-majority population, in contrast to a theocratic Halakhic state), as expressed in his 1896 pamphlet . Though he did not live to witness it, his vision was fulfilled with the founding of the State of Israel in 1948.\n\nThe Zionist movement continues to exist in the form of various organisations working to support Israel, combat antisemitism, assist persecuted Jews, and encourage diaspora Jews to move to Israel. Most Israeli political parties continue to define themselves as Zionist.\n\nDue to the success of Zionism, the global Jewish population has experienced a shift, with statistics showing a steady pattern of growth in the percentage of diaspora Jews relocating to Israel. Today, Israel is home to around 40% of the world's Jews, and it is also the only country in which Jews account for the majority of the population. To date, there is no other example in human history of a nation being re-established after such a long period of existence as a diaspora."
+      },
+      "ar": {
+        "revid": 72048042,
+        "timestamp": "2025-09-16T10:35:18Z",
+        "title": "تاريخ الصهيونية",
+        "lead": "تصغير|لا يمكننا فعل أي شيء بدون حماس أمتنا. يجب أن تشق الهوية طريقها إلى أبعد الجسور البائسة حيث يسكن شعبنا.\nيُعتقد عمومًا أن الصهيونية كحركة منظمة قد أسسها تيودور هرتزل عام 1897. لكن تاريخ الصهيونية بدأ، رغم ذلك، في وقت سابق ويرتبط باليهودية والتاريخ اليهودي. تحملت منظمات أحباء صهيون مسؤولية إنشاء 20 مدينة يهودية جديدة في فلسطين بين عامي 1870 و1897.\n\nكان الهدف الرئيسي للحركة هو إعادة إنشاء وطن قومي يهودي ومركز ثقافي في فلسطين من خلال تسهيل عودة اليهود من الشتات، وكذلك إعادة إنشاء دولة يهودية (ما عُرف عادة بالدولة العلمانية ذات الأغلبية اليهودية)، مع تحقيق هدفها عام 1948 بإنشاء إسرائيل.\n\nتضاءلت أهمية الحركة الصهيونية كمنظمة، منذ إنشاء دولة إسرائيل، ومع ازدياد قوتها كدولة.The Oxford companion to politics of the world By Joël Krieger, Margaret E. Crahan p. 942, Oxford 2001\n\nلا تزال الحركة الصهيونية موجودة، وتعمل على دعم إسرائيل، ومساعدة اليهود المضطهدين وتشجيع هجرة اليهود إلى إسرائيل. تواصل معظم الأحزاب السياسية الإسرائيلية تعريف نفسها بأنها صهيونية.\n\nنجاح الصهيونية مرهون بالنمو المضطرد لنسبة يهود العالم القاطنين بإسرائيل على مر السنين، واليوم يعيش 40% من يهود العالم في إسرائيل. لا يوجد مثال آخر في التاريخ البشري لأمة يُعاد تأسيسها بعد فترة طويلة من العيش كأمة في الشتات."
+      },
+      "fr": {
+        "revid": 236641691,
+        "timestamp": "2026-05-30T18:25:37Z",
+        "title": "Histoire du sionisme",
+        "lead": "Le sionisme est un mouvement politique nationaliste fondé sur un sentiment national juif, apparu au , et qui entend permettre aux Juifs d'avoir un État en Palestine, qui était dans l'Antiquité la Terre d'Israël, considérée comme son berceau historique.\n\nLe sionisme s’appuie sur la redéfinition de l’identité juive en termes nationaux, dans un contexte marqué par l’émancipation, le nationalisme européen et la montée de l’antisémitisme. Issu d’un héritage religieux plurimillénaire centré sur Sion, il prend forme à travers divers courants — laïques, religieux ou socialistes — et conduit, en 1948, à la création de l’État d’IsraëlAnita Shapira, Israël, une histoire, traduit de l’hébreu par Michel Bilis, Paris, Fayard, 2015, chap. 1.."
+      },
+      "ca": {
+        "revid": 37536589,
+        "timestamp": "2026-06-19T15:00:41Z",
+        "title": "Història del sionisme",
+        "lead": "El sionisme és una ideologia política nacionalista, que va aparèixer a finals del , i que defensa la idea que el Poble jueu ha de tenir un Estat propi. Aquest article s'interessa essencialment en tres problemàtiques que estan presents en la història del sionisme:\n\n Els debats i pràctiques al voltant de la construcció d'institucions nacionals o prenacionals: organització sionista mundial, partits polítics, l'agència jueva, els diversos grups armats, i després la creació de l'Estat mateix.\n Els debats i pràctiques al voltant de la constitució d'una població jueva important dins de l'Estat.\n Els debats ideològics entre les diferents branques del sionisme; en particular sobre la definició dels seus objectius. En aquest àmbit, dues qüestions han dividit particularment, (i continuen dividint) els sionistes:\n\nEl lloc de la religió jueva en el sionisme.\n\nLa localització de l'Estat jueu, i de les seves fronteres."
+      }
+    },
+    "after": {
+      "en": {
+        "revid": 1361439777,
+        "timestamp": "2026-06-27T22:44:53Z",
+        "title": "History of Zionism",
+        "lead": "As an organised nationalist movement, Zionism is generally considered to have been founded by Theodor Herzl in 1897. However, the history of Zionism began earlier and is intertwined with Jewish history and Judaism. The organisations of Hovevei Zion (), held as the forerunners of modern Zionist ideals, were responsible for the creation of 20 Jewish towns in Palestine between 1870 and 1897.\n\nAt the core of the Zionist ideology was the traditional aspiration for a Jewish national home through the re-establishment of Jewish sovereignty in Palestine, to be facilitated by the Jewish diaspora (see aliyah). Herzl sought an independent Jewish state (usually defined as a secular state with a Jewish-majority population, in contrast to a theocratic Halakhic state), as expressed in his 1896 pamphlet . Though he did not live to witness it, his vision was fulfilled with the founding of the State of Israel in 1948.\n\nThe Zionist movement continues to exist in the form of various organisations working to support Israel, combat antisemitism, assist persecuted Jews, and encourage diaspora Jews to move to Israel. Most Israeli political parties continue to define themselves as Zionist.\n\nDue to the success of Zionism, the global Jewish population has experienced a shift, with statistics showing a steady pattern of growth in the percentage of diaspora Jews relocating to Israel. Today, Israel is home to around 40% of the world's Jews, and it is also the only country in which Jews account for the majority of the population. To date, there is no other example in human history of a nation being re-established after such a long period of existence as a diaspora."
+      }
+    }
+  },
+  "divergences": [],
+  "summary": "Insufficient matched historical content.",
+  "run_ts": "2026-07-19T02:54:52.109640+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 3,
-    "input_tokens": 5598,
-    "output_tokens": 4082,
+    "calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
     "estimated_usd": null,
     "all_calls_priced": false,
-    "records": [
-      {
-        "provider": "anthropic",
-        "model": "claude-sonnet-5",
-        "input_tokens": 436,
-        "output_tokens": 62,
-        "estimated_usd": null,
-        "pricing_key": null,
-        "pricing_usd_per_million": null
-      },
-      {
-        "provider": "anthropic",
-        "model": "claude-sonnet-5",
-        "input_tokens": 2581,
-        "output_tokens": 1500,
-        "estimated_usd": null,
-        "pricing_key": null,
-        "pricing_usd_per_million": null
-      },
-      {
-        "provider": "anthropic",
-        "model": "claude-sonnet-5",
-        "input_tokens": 2581,
-        "output_tokens": 2520,
-        "estimated_usd": null,
-        "pricing_key": null,
-        "pricing_usd_per_million": null
-      }
-    ]
+    "records": []
   },
-  "elapsed_seconds": 50.734
+  "elapsed_seconds": 5.37
 }

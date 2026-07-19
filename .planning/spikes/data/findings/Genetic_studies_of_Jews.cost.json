@@ -1,0 +1,29 @@
+{
+  "article": "Genetic studies of Jews",
+  "run_ts": "2026-07-19T02:45:28.249193+00:00",
+  "workflow": "confirmed_framing_refresh",
+  "succeeded": false,
+  "elapsed_seconds": 149.629,
+  "stages": [
+    {
+      "command": "analyze",
+      "elapsed_seconds": 145.938,
+      "exit_code": 0
+    },
+    {
+      "command": "framing",
+      "elapsed_seconds": 3.691,
+      "exit_code": 1
+    }
+  ],
+  "llm_usage": {
+    "calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": []
+  },
+  "estimated_external_usd": null,
+  "estimate_scope": "LLM token charges only. Wikipedia and WikiWho APIs are public and unpriced here; machine time, storage, payment fees, taxes, failed-response charges, and service margin are excluded."
+}
