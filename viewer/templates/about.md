@@ -12,15 +12,15 @@ Some of the criticism against [organizations calling this out] (https://www.adl.
 
 So I started with the question: Is there a way to discover bias in an article from its own history? Can an impartial analysis uncover bad actors?
 
-WikiDrift is a result of that quesiton. 
+WikiDrift is a result of that quesiton.
 
-To do this the tool itself had to be impartial. It doesn't uncover bias, it *does*, however, find patterns that may or may not indicate suspicious behavior.
+To do this the tool itself had to be impartial. It doesn't uncover bias, it *does*, however, find patterns that may or may not indicate suspicious behavior. Addionally, a lot of brilliant people have been working on this problem, so once I proved that I could discover these patterns I built into the tool that research. 
 
 WikiDrift is an [open source](https://github.com/jackreichert/wikidrift/) research project of [encyclopediae.org](https://encyclopediae.org).
 
 ## What WikiDrift does
 
-Once I proved that I could discover these patterns I built into the tool the research of other brilliant minds. WikiDrift analyzes an article in layers. Not every layer runs for every article, and no layer decides whether an edit was good, bad, or biased.
+WikiDrift analyzes an article in layers. Not every layer runs for every article, and no layer decides whether an edit was good, bad, or biased.
 
 | Layer or check | What it does | Research sources |
 |---|---|---|
