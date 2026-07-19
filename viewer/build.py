@@ -1223,10 +1223,18 @@ def framing_lite_block(fr):
         "difference_persisted": "difference persisted",
         "unclear": "unclear change",
     }
+    temporal_cls = {
+        "english_moved_away": "v-c",
+        "english_converged": "v-a",
+        "parallel_change": "v-i",
+        "difference_persisted": "v-d",
+        "unclear": "v-i",
+    }
     for d in divs:
         v = d.get("verdict", "differ")
-        cls = verdict_cls.get(v, "v-i")
         if temporal:
+            temporal_read = d.get("temporal_read", "unclear")
+            cls = temporal_cls.get(temporal_read, "v-i")
             en_says = (
                 f'<b>Before:</b> {esc(d.get("en_before") or "not stated")}<br>'
                 f'<span class="muted">&ldquo;{esc(d.get("evidence_en_before") or "no quotation")}&rdquo;</span><br>'
@@ -1240,6 +1248,7 @@ def framing_lite_block(fr):
                 f'<span class="muted">&ldquo;{esc(d.get("evidence_other_after") or "no quotation")}&rdquo;</span>'
             )
         else:
+            cls = verdict_cls.get(v, "v-i")
             other_says = esc(d.get("other_says") or "")
             ev_other = d.get("evidence_other")
             if ev_other:
@@ -1249,7 +1258,7 @@ def framing_lite_block(fr):
             if ev_en:
                 en_says += f'<br><span class="muted">&ldquo;{esc(ev_en)}&rdquo;</span>'
         eds = ", ".join(d.get("editions_differ") or [])
-        comparison = temporal_plain.get(d.get("temporal_read"), "unclear change") if temporal else v_plain.get(v, v)
+        comparison = temporal_plain.get(temporal_read, "unclear change") if temporal else v_plain.get(v, v)
         rows += (
             f'<tr><td>{esc(d.get("topic", ""))}</td>'
             f'<td><span class="badge {cls}">{esc(comparison)}</span></td>'

@@ -270,6 +270,25 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("oldid=11", out)
         self.assertIn("oldid=22", out)
 
+    def test_temporal_badge_color_uses_the_displayed_temporal_read(self):
+        framing = {
+            "mode": "pivot_relative",
+            "divergences": [
+                {
+                    "topic": "wording", "verdict": verdict,
+                    "temporal_read": "difference_persisted",
+                }
+                for verdict in ("differ", "absent_other", "agree")
+            ],
+        }
+
+        out = build.framing_lite_block(framing)
+
+        badge = '<span class="badge v-d">difference persisted</span>'
+        self.assertEqual(out.count(badge), 3)
+        self.assertNotIn('<span class="badge v-a">difference persisted</span>', out)
+        self.assertNotIn('<span class="badge v-i">difference persisted</span>', out)
+
     def test_renders_confirmed_pivot_relative_label_and_exact_receipts(self):
         framing = {
             "mode": "pivot_relative",
