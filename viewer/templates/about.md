@@ -6,7 +6,7 @@ It also became the source of truth for most people. Google weighs it at the top 
 
 The nature of Wikipedia's governing body makes it easy for capture as well. Because of all this, Wikipedia has become an [attack vector to sway public discourse](https://www.bloomberg.com/news/articles/2025-03-07/wikipedia-editors-struggle-to-moderate-conflict-in-gaza) and opinion. History is getting rewritten with little recourse. [The co-founder of Wikipedia was banned from the site he created](https://www.washingtonexaminer.com/op-eds/4638304/larry-sanger-wikipedia-co-founder-banned-anonymous-mob/). In his words: "Wikipedia is ruled by a few hundred anonymous demagogues who dominate the rest."
 
-I built WikiDrift as a forensic analysis tool to help shine a light on what is happening.
+**I built WikiDrift as a forensic analysis tool to help shine a light on what is happening.**
 
 Some of the criticism against [organizations calling this out](https://www.adl.org/resources/press-release/new-adl-report-finds-evidence-biased-coordinated-campaign-wikipedia-related) has been that they themselves are partial. 
 
@@ -14,7 +14,7 @@ So I started with the question: Is there a way to discover bias in an article fr
 
 WikiDrift is a result of that quesiton.
 
-To do this the tool itself had to be impartial. It doesn't uncover bias, it *does*, however, find patterns that may or may not indicate suspicious behavior. Addionally, a lot of brilliant people have been working on this problem, so once I proved that I could discover these patterns I built into the tool that research. 
+To do this the tool itself had to be impartial. It doesn't uncover bias; it *does*, however, find patterns that may or may not indicate suspicious behavior. Addionally, a lot of brilliant people have been working on this problem, so once I proved that I could discover these patterns I built into the tool that research. 
 
 WikiDrift is an [open source](https://github.com/jackreichert/wikidrift/) research project of [encyclopediae.org](https://encyclopediae.org).
 
