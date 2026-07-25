@@ -197,6 +197,16 @@ h2.subhead{font-size:1rem;margin:1.4em 0 .45em}
 .prose h1{margin-bottom:.35em}
 .prose .summary{margin-bottom:.75rem}
 .prose .disclaimer{margin-bottom:1.5rem}
+.home-actions{display:flex;align-items:center;flex-wrap:wrap;gap:.65rem;margin:1.15rem 0 .6rem}
+.home-actions a{
+  display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.65rem 1rem;
+  border:1px solid var(--ink);border-radius:var(--r);font-weight:600;line-height:1.2;text-decoration:none;
+}
+.home-actions .primary-action{background:var(--ink);color:var(--paper)}
+.home-actions .primary-action span{margin-left:.55rem}
+.home-actions .secondary-action{background:var(--paper);color:var(--ink)}
+.home-actions a:hover{opacity:.72}
+.prose .home-action-note{color:var(--faint);font-size:.9rem;margin:0 0 1.7rem}
 .prose h2{margin-top:2em}
 .prose ul,.prose ol{padding-left:1.2em}
 .prose li{margin:.4em 0}
@@ -470,6 +480,8 @@ footer.site{background:#000;color:#fff;margin-top:auto}
     padding-bottom:2px;
   }
   .prose{margin:0}
+  .home-actions{align-items:stretch;flex-direction:column}
+  .home-actions a{width:100%}
   .prose pre.mermaid svg{min-width:620px}
   .diagram-dialog{width:100vw;height:100dvh;max-height:none;border:0;border-radius:0}
   .diagram-dialog-body{padding:.75rem}

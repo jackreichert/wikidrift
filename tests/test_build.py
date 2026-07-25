@@ -468,20 +468,18 @@ class SiteRouting(unittest.TestCase):
         self.assertIn("How it works", about)
         self.assertIn('<a href="index.html" class="active" aria-current="page">About</a>', about)
 
-    def test_about_first_paragraph_is_emphasized_repo_link(self):
+    def test_about_leads_with_live_tool_and_source_links(self):
         body = build.ABOUT_BODY
 
-        heading_end = body.index("</h1>")
-        paragraph_start = body.index("<p>", heading_end)
-        paragraph_end = body.index("</p>", paragraph_start) + len("</p>")
-        first_paragraph = body[paragraph_start:paragraph_end]
+        actions_start = body.index('<div class="home-actions">')
+        first_section = body[:body.index("<h2>")]
 
-        self.assertTrue(first_paragraph.startswith("<p><em>"))
-        self.assertTrue(first_paragraph.endswith("</em></p>"))
+        self.assertIn('<a class="primary-action" href="findings.html">', first_section)
         self.assertIn(
-            'href="https://github.com/jackreichert/wikidrift/"',
-            first_paragraph,
+            '<a class="secondary-action" href="https://github.com/jackreichert/wikidrift/">',
+            first_section,
         )
+        self.assertLess(actions_start, body.index("Wikipedia was briliant idea"))
 
     def test_editorial_copy_comes_from_templates(self):
         self.assertIn("research lead", build.FINDINGS_BODY)

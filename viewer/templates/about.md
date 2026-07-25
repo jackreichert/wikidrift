@@ -1,6 +1,13 @@
 # About WikiDrift
 
-*Explore the [repo](https://github.com/jackreichert/wikidrift/).*
+WikiDrift lets you inspect how Wikipedia articles changed over time, compare the wording before and after major rewrites, and follow the evidence back to public revisions.
+
+<div class="home-actions">
+	<a class="primary-action" href="findings.html">Browse the findings <span aria-hidden="true">→</span></a>
+	<a class="secondary-action" href="https://github.com/jackreichert/wikidrift/">Run it yourself on GitHub</a>
+</div>
+
+<p class="home-action-note">Start with the live, published analyses. The open-source command-line tool can analyze any English Wikipedia article.</p>
 
 Wikipedia was briliant idea. It was a platform for the world to collaborate together to build a single corpus of human knowledge, and it worked a little too well. Due to it's success the competition went out of buisness leaving only one place for disagreement to happen. 
 

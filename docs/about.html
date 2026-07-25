@@ -32,7 +32,7 @@
       <span></span><span></span><span></span>
     </button>
     <div class="nav-links" id="site-nav">
-      <a href="findings.html">Findings</a>
+      <a href="findings.html">Explore</a>
       <a href="index.html" class="active" aria-current="page">About</a>
       <a href="methodology.html">How it works</a>
       <a href="glossary.html">Glossary</a>
@@ -40,7 +40,14 @@
   </nav>
 </header>
 <main id="main"><div class="prose"><h1>About WikiDrift</h1>
-<p><em>WikiDrift is an <a href="https://github.com/jackreichert/wikidrift/">open-source research tool</a> from <a href="https://encyclopediae.org">encyclopediae.org</a>.</em></p>
+<p>WikiDrift lets you inspect how Wikipedia articles changed over time, compare the wording before and after major rewrites, and follow the evidence back to public revisions.</p>
+<div class="home-actions">
+    <a class="primary-action" href="findings.html">Browse the findings <span aria-hidden="true">→</span></a>
+    <a class="secondary-action" href="https://github.com/jackreichert/wikidrift/">Run it yourself on GitHub</a>
+</div>
+
+<p class="home-action-note">Start with the live, published analyses. The open-source command-line tool can analyze any English Wikipedia article.</p>
+
 <p>Wikipedia was briliant idea. It was a platform for the world to collaborate together to build a single corpus of human knowledge, and it worked a little too well. Due to it's success the competition went out of buisness leaving only one place for disagreement to happen. </p>
 <p>It also became the source of truth for most people. Google weighs it at the top of search rankings, so every time someone searches, they get the Wikipedia version. AIs are trained off its text, so every time someone asks a question, the answer they get has been weighted towards that "truth" as well.</p>
 <p>The nature of Wikipedia's governing body makes it easy for capture as well. Because of all this, Wikipedia has become an <a href="https://www.bloomberg.com/news/articles/2025-03-07/wikipedia-editors-struggle-to-moderate-conflict-in-gaza">attack vector to sway public discourse</a> and opinion. History is getting rewritten with little recourse. <a href="https://www.washingtonexaminer.com/op-eds/4638304/larry-sanger-wikipedia-co-founder-banned-anonymous-mob/">The co-founder of Wikipedia was banned from the site he created</a>. In his words: "Wikipedia is ruled by a few hundred anonymous demagogues who dominate the rest."</p>
@@ -49,6 +56,7 @@
 <p>So I started with the question: Is there a way to discover bias in an article from its own history? Can an impartial analysis uncover bad actors?</p>
 <p>WikiDrift is a result of that quesiton.</p>
 <p>To do this the tool itself had to be impartial. It doesn't uncover bias; it <em>does</em>, however, find patterns that may or may not indicate suspicious behavior. Addionally, a lot of brilliant people have been working on this problem, so once I proved that I could discover these patterns I built into the tool that research. </p>
+<p><em>WikiDrift is an <a href="https://github.com/jackreichert/wikidrift/">open-source research tool</a> from <a href="https://encyclopediae.org">encyclopediae.org</a>.</em></p>
 <h2>What WikiDrift does</h2>
 <p>WikiDrift analyzes an article in layers. Not every layer runs for every article, and no layer decides whether an edit was good, bad, or biased.</p>
 <table>
