@@ -468,6 +468,13 @@ class SiteRouting(unittest.TestCase):
         self.assertIn("How it works", about)
         self.assertIn('<a href="index.html" class="active" aria-current="page">About</a>', about)
 
+    def test_about_leads_with_emphasized_open_source_link(self):
+        body = build.ABOUT_BODY
+
+        link = '<em>WikiDrift is an <a href="https://github.com/jackreichert/wikidrift/">open-source research tool</a>'
+        self.assertIn(link, body)
+        self.assertLess(body.index(link), body.index("Wikipedia was briliant idea"))
+
     def test_editorial_copy_comes_from_templates(self):
         self.assertIn("research lead", build.FINDINGS_BODY)
         self.assertIn('href="summary.html"', build.FINDINGS_BODY)
