@@ -1,6 +1,6 @@
 # About WikiDrift
 
-*WikiDrift is an [open-source research tool](https://github.com/jackreichert/wikidrift/) from [encyclopediae.org](https://encyclopediae.org).*
+*Explore the [repo](https://github.com/jackreichert/wikidrift/).*
 
 Wikipedia was briliant idea. It was a platform for the world to collaborate together to build a single corpus of human knowledge, and it worked a little too well. Due to it's success the competition went out of buisness leaving only one place for disagreement to happen. 
 
@@ -17,6 +17,8 @@ So I started with the question: Is there a way to discover bias in an article fr
 WikiDrift is a result of that quesiton.
 
 To do this the tool itself had to be impartial. It doesn't uncover bias; it *does*, however, find patterns that may or may not indicate suspicious behavior. Addionally, a lot of brilliant people have been working on this problem, so once I proved that I could discover these patterns I built into the tool that research. 
+
+*WikiDrift is an [open-source research tool](https://github.com/jackreichert/wikidrift/) from [encyclopediae.org](https://encyclopediae.org).*
 
 ## What WikiDrift does
 
