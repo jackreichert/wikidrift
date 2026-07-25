@@ -1512,6 +1512,7 @@ def simple_page(title, body, active, path=None):
 
 ABOUT_BODY = _md_asset("about")
 FINDINGS_BODY = _md_asset("findings")
+SUMMARY_BODY = _md_asset("summary")
 
 GLOSSARY_BODY = _md_asset("glossary")
 
@@ -1569,6 +1570,8 @@ def main(argv=None):
     (SITE / "index.html").write_text(about_home, encoding="utf-8")
     (SITE / "about.html").write_text(simple_page("About", ABOUT_BODY, "about", path="about.html"), encoding="utf-8")
     (SITE / "findings.html").write_text(index_page(articles, f, categories), encoding="utf-8")
+    (SITE / "summary.html").write_text(
+        simple_page("Summary of findings", SUMMARY_BODY, None, path="summary.html"), encoding="utf-8")
     (SITE / "methodology.html").write_text(
         simple_page("How it works", METHODOLOGY_BODY, "methodology"), encoding="utf-8")
     # Still published at glossary.html so old bookmarks work; page is "Glossary."
@@ -1579,7 +1582,7 @@ def main(argv=None):
         if a in f.pivots:
             for i, p in enumerate(f.pivots[a]["pivots"]):
                 (SITE / "article" / f"{slugify(a)}.p{i}.html").write_text(pivot_page(a, p, i), encoding="utf-8")
-    print(f"built {len(articles)} article pages + home(about)/findings/methodology/glossary -> {SITE}")
+    print(f"built {len(articles)} article pages + home(about)/findings/summary/methodology/glossary -> {SITE}")
     print(f"CNAME {CUSTOM_DOMAIN}")
     for a in articles:
         extras = "".join(t for t, has in (("P", a in f.pivots), ("D", a in f.diffs), ("B", a in f.blames),

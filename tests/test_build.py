@@ -470,6 +470,13 @@ class SiteRouting(unittest.TestCase):
 
     def test_editorial_copy_comes_from_templates(self):
         self.assertIn("research lead", build.FINDINGS_BODY)
+        self.assertIn('href="summary.html"', build.FINDINGS_BODY)
+        summary = build.simple_page(
+            "Summary of findings", build.SUMMARY_BODY, None, path="summary.html"
+        )
+        self.assertIn("Persistence-weighted loss detects durable replacement", summary)
+        self.assertNotIn('aria-current="page"', summary)
+        self.assertIn('<a class="wiki-link" href="findings.html">Browse all findings', summary)
         page = build.render_page(title="Test", body="<h1>Test</h1>", root="../")
         self.assertIn('href="../findings.html"', page)
         self.assertIn(
