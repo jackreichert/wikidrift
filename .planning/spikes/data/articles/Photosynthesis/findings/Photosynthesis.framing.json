@@ -1,0 +1,114 @@
+{
+  "article": "Photosynthesis",
+  "category": "general",
+  "mode": "static",
+  "pivot_window": null,
+  "editions_compared": [
+    "en",
+    "de",
+    "gu"
+  ],
+  "lead_chars": {
+    "en": 4089,
+    "de": 1757,
+    "gu": 2980
+  },
+  "snapshots": null,
+  "divergences": [
+    {
+      "topic": "anoxygenic photosynthesis in archaea",
+      "editions_differ": [
+        "EN",
+        "DE",
+        "GU"
+      ],
+      "en_says": "Describes archaeal non-carbon-fixing anoxygenic photosynthesis using retinal/rhodopsin, possibly the earliest form of photosynthesis on Earth (Purple Earth hypothesis).",
+      "other_says": "DE and GU do not mention archaea performing photosynthesis at all; GU explicitly states photosynthesis does not occur in archaea.",
+      "verdict": "contradict",
+      "evidence_en": null,
+      "evidence_other": "પ્રકાશસંશ્લેષણની પ્રક્રિયા છોડ, શેવાળ અને બૅક્ટેરિયાની ઘણી પ્રજાતિમાં જોવા મળે છે, પરંતુ તે આર્કીયામાં થતી નથી."
+    },
+    {
+      "topic": "quantitative energy/carbon output of photosynthesis",
+      "editions_differ": [
+        "EN",
+        "GU"
+      ],
+      "en_says": "No specific numeric figures for global power output or carbon converted are given in the EN lead.",
+      "other_says": "GU states photosynthesis releases about 100 terawatts, six times human electricity consumption, and converts about 100 billion tons of carbon into biomass annually.",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": null
+    },
+    {
+      "topic": "origin of photosynthesis and evolutionary history",
+      "editions_differ": [
+        "EN",
+        "GU"
+      ],
+      "en_says": "Mentions archaeal photosynthesis possibly predating cyanobacteria in the Paleoarchean, and purple bacteria performing anoxygenic photosynthesis via bacteriochlorophyll in Canfield oceans.",
+      "other_says": "GU gives a narrative of early photosynthesis using hydrogen/hydrogen sulfide instead of water, followed by cyanobacteria oxygenating the atmosphere, and later symbiosis with protists forming plant/algae ancestors (endosymbiotic origin of chloroplasts).",
+      "verdict": "differ",
+      "evidence_en": "Such archaeal photosynthesis might have been the earliest form of photosynthesis that evolved on Earth, as far back as the Paleoarchean, preceding that of cyanobacteria",
+      "evidence_other": "આ પ્રોટીસ્ટોએ સાયનોબેક્ટેરિયમ સાથે સહજીવન (સિમબાયોટિક) સંબંધ રચ્યો, જેનાથી છોડ અને શેવાળના પૂર્વજો પેદા થયા હતા."
+    },
+    {
+      "topic": "anoxygenic photosynthesis products",
+      "editions_differ": [
+        "EN",
+        "DE"
+      ],
+      "en_says": "Specifies purple bacteria use bacteriochlorophyll to split hydrogen sulfide, releasing sulfur, historically dominant in Canfield oceans during the Boring Billion.",
+      "other_says": "DE only generally states anoxygenic photosynthesis in bacteria produces other inorganic substances such as elemental sulfur, without historical/geological context.",
+      "verdict": "differ",
+      "evidence_en": "purple bacteria) use bacteriochlorophyll to split hydrogen sulfide as a reductant instead of water, releasing sulfur instead of oxygen, which was a dominant form of photosynthesis in the euxinic Canfield oceans during the Boring Billion",
+      "evidence_other": "Bei der anoxygenen Photosynthese, die nur von Bakterien betrieben wird, entstehen statt Sauerstoff andere anorganische Stoffe, beispielsweise elementarer Schwefel (S)."
+    },
+    {
+      "topic": "definition emphasis: biological vs chemical process",
+      "editions_differ": [
+        "EN",
+        "DE"
+      ],
+      "en_says": "Defines photosynthesis primarily as a biological process performed by photopigment-bearing autotrophic organisms.",
+      "other_says": "DE defines it primarily as a physiological/biochemical process for producing energy-rich biomolecules from lower-energy substances using light energy, emphasizing the chemical transformation and 'photosynthetic efficiency' concept.",
+      "verdict": "differ",
+      "evidence_en": null,
+      "evidence_other": "ist ein physiologischer Prozess zur Erzeugung energiereicher Biomoleküle aus energieärmeren Stoffen mit Hilfe von Lichtenergie."
+    },
+    {
+      "topic": "photorespiration and carbon-concentrating adaptations",
+      "editions_differ": [
+        "EN",
+        "DE"
+      ],
+      "en_says": "Not directly discussed in EN lead excerpt (focus is on Calvin cycle and light reactions).",
+      "other_says": "DE lead does not mention photorespiration or carbon-concentrating mechanisms either; GU does mention this concept, highlighting a topic present in GU but absent from both EN and DE leads as provided.",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": "આનાથી પ્રકાશશ્વસન તરીકે ઓળખાતી બિનઉપયોગી પ્રક્રિયા ઘટે છે, જેમાં પ્રકાશસંશ્લેષણ દરમિયાન પેદા થયેલી શર્કરાનો કેટલોક ભાગ વપરાય છે."
+    }
+  ],
+  "summary": "The EN lead offers the most technically detailed and historically nuanced account, including archaeal anoxygenic photosynthesis, the Purple Earth hypothesis, and specific geochemical context (Canfield oceans, Boring Billion) that DE and GU omit entirely. GU explicitly contradicts EN by stating archaea do not perform photosynthesis, and instead emphasizes quantitative global metrics (terawatts, carbon biomass conversion) and an endosymbiotic evolutionary narrative not found in EN or DE. DE frames photosynthesis more generally as a physiological/biochemical energy-conversion process with less emphasis on evolutionary or microbial diversity, focusing instead on efficiency and ecological dependency of heterotrophs. These differences reflect varying editorial emphases—EN leans evolutionary/mechanistic detail, DE leans general biochemistry, GU leans quantitative and evolutionary-narrative framing—rather than clear factual errors, except for the archaea point which is a direct contradiction.",
+  "run_ts": "2026-07-19T17:49:10.553984+00:00",
+  "model": "claude-sonnet-5",
+  "llm_usage": {
+    "calls": 1,
+    "input_tokens": 5785,
+    "output_tokens": 2313,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 5785,
+        "output_tokens": 2313,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
+  },
+  "elapsed_seconds": 74.568
+}

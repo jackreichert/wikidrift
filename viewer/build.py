@@ -20,6 +20,7 @@ import markdown as _md
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 FIND = ROOT / ".planning" / "spikes" / "data" / "findings"
+ARTICLES = ROOT / ".planning" / "spikes" / "data" / "articles"
 DATA = pathlib.Path(__file__).resolve().parent / "data"
 SITE = ROOT / "docs"
 CUSTOM_DOMAIN = "wikidrift.encyclopediae.org"
@@ -199,46 +200,65 @@ class Findings:
     lexical: dict = field(default_factory=dict)
     profiles: dict = field(default_factory=dict)
     framings: dict = field(default_factory=dict)
+    confirmations: dict = field(default_factory=dict)
     rewrite_status: dict = field(default_factory=dict)
 
     l4: dict = field(default_factory=dict)
 
     def articles(self):
         """Every public article with a renderable finding (excludes test fixtures)."""
-        names = (set(self.pivots) | set(self.diffs) | set(self.lexical) | set(self.sources) | set(self.profiles))
+        analyzed = {
+            article for article, confirmation in self.confirmations.items()
+            if confirmation.get("status") in {"confirmed", "not_confirmed"}
+        }
+        names = (set(self.pivots) | set(self.diffs) | set(self.lexical) | set(self.sources)
+                 | set(self.profiles) | analyzed)
         return sorted(a for a in names if a not in EXCLUDE_ARTICLES)
 
 
+def _finding_dirs():
+    """Return legacy findings first so current article shards take precedence."""
+    directories = [FIND]
+    if ARTICLES.exists():
+        directories.extend(
+            article_dir / "findings"
+            for article_dir in sorted(ARTICLES.iterdir())
+            if article_dir.is_dir() and article_dir.name != "_shared"
+        )
+    return [directory for directory in directories if directory.exists()]
+
+
+def _load_article_findings(directories, suffix):
+    findings = {}
+    for directory in directories:
+        for finding_path in directory.glob(f"*.{suffix}.json"):
+            finding = load(finding_path)
+            article = finding.get("article") if isinstance(finding, dict) else None
+            if article and article not in EXCLUDE_ARTICLES:
+                findings[article] = finding
+    return findings
+
+
 def gather():
-    receipts, stances, factchecks, sources, lexical, profiles = {}, {}, {}, {}, {}, {}
+    finding_dirs = _finding_dirs()
+    receipts = _load_article_findings(finding_dirs, "receipts")
+    stances = _load_article_findings(finding_dirs, "stance")
+    sources = _load_article_findings(finding_dirs, "sources")
+    lexical = _load_article_findings(finding_dirs, "lexical")
+    profiles = _load_article_findings(finding_dirs, "profile")
+    framings = _load_article_findings(finding_dirs, "framing")
+    confirmations = _load_article_findings(finding_dirs, "l1-confirmation")
+    factchecks = {}
+    for directory in finding_dirs:
+        for finding_path in directory.glob("*.factcheck.json"):
+            finding = load(finding_path)
+            article = finding.get("article") if isinstance(finding, dict) else None
+            if article and article not in EXCLUDE_ARTICLES:
+                label = "now" if not finding.get("asof") else finding["asof"][:10]
+                factchecks.setdefault(article, {})[label] = finding
     diver = {"static": {}, "pivot_relative": {}}
     mscore, l4map = {}, {}
     if FIND.exists():
-        for f in FIND.glob("*.receipts.json"):
-            d = load(f)
-            if d and d.get("article") not in EXCLUDE_ARTICLES:
-                receipts[d["article"]] = d
-        for f in FIND.glob("*.stance.json"):
-            d = load(f)
-            if d and d.get("article") not in EXCLUDE_ARTICLES:
-                stances[d["article"]] = d
-        for f in FIND.glob("*.factcheck.json"):
-            d = load(f)
-            if d and d.get("article") not in EXCLUDE_ARTICLES:
-                label = "now" if not d.get("asof") else d["asof"][:10]
-                factchecks.setdefault(d["article"], {})[label] = d
-        for f in FIND.glob("*.sources.json"):
-            d = load(f)
-            if d and d.get("article") not in EXCLUDE_ARTICLES:
-                sources[d["article"]] = d
-        for f in FIND.glob("*.lexical.json"):
-            d = load(f)
-            if d and d.get("article") not in EXCLUDE_ARTICLES:
-                lexical[d["article"]] = d
-        for f in FIND.glob("*.profile.json"):
-            d = load(f)
-            if d and d.get("article") not in EXCLUDE_ARTICLES:
-                profiles[d["article"]] = d
         fdiv = load(FIND / "divergence.json") or {}
         for k, v in (fdiv.get("static") or {}).items():
             if k not in EXCLUDE_ARTICLES:
@@ -272,7 +292,7 @@ def gather():
             t = _l4_title(row)
             if t and t not in EXCLUDE_ARTICLES:
                 l4map.setdefault(t, {"seed": seed, "class": row.get("class") or row.get("label") or "L4 candidate"})
-    diffs, blames, pivots, framings = {}, {}, {}, {}
+    diffs, blames, pivots = {}, {}, {}
     rewrite_status = load(DATA / "rewrite_status.json") or {}
     if DATA.exists():
         for f in DATA.glob("*.diff.json"):
@@ -287,13 +307,10 @@ def gather():
             d = load(f)
             if d:
                 pivots[d["article"]] = d
-        for f in FIND.glob("*.framing.json"):
-            d = load(f)
-            if d and d.get("article"):
-                framings[d["article"]] = d
     return Findings(receipts=receipts, stances=stances, factchecks=factchecks, diver=diver, mscore=mscore,
                     diffs=diffs, blames=blames, pivots=pivots, sources=sources, lexical=lexical,
-                    profiles=profiles, framings=framings, rewrite_status=rewrite_status, l4=l4map)
+                    profiles=profiles, framings=framings, confirmations=confirmations,
+                    rewrite_status=rewrite_status, l4=l4map)
 
 
 # ---- shared fragments -------------------------------------------------------
@@ -669,6 +686,15 @@ def _top_pivot(article, f):
 
 def _rewrite_info(article, f):
     """Return rewrite state and reason without inferring a negative result from missing files."""
+    confirmation = f.confirmations.get(article) or {}
+    status = confirmation.get("status")
+    if status == "confirmed":
+        return "finding", None
+    if status == "not_confirmed":
+        return "none", None
+    if status == "unavailable":
+        reason = "too few snapshots" if confirmation.get("coarse_verdict") == "SKIP" else None
+        return "unavailable", reason
     if article in f.pivots or article in f.diffs:
         return "finding", None
     recorded = f.rewrite_status.get(article)
@@ -720,8 +746,18 @@ def _lex_label(jsd):
 def headline(article, f):
     """One-sentence plain-language lead for index cards and article intros."""
     bits = []
-    top = _top_pivot(article, f)
-    if top:
+    confirmation = f.confirmations.get(article) or {}
+    confirmed_episodes = confirmation.get("confirmed_episodes") or []
+    top = None if confirmation else _top_pivot(article, f)
+    if confirmed_episodes:
+        strongest = max(confirmed_episodes, key=lambda episode: episode.get("pwr_mass") or 0)
+        count = len(confirmed_episodes)
+        drop = 100 * (strongest.get("durable_spine_drop") or 0)
+        bits.append(
+            f"{count} confirmed rewrite episode{'s' if count != 1 else ''}; "
+            f"the largest by persistence-weighted mass had a {drop:.1f}% durable-spine drop"
+        )
+    elif top:
         pct = top.get("peak_pct")
         start = top.get("start") or "?"
         n = len((f.pivots.get(article) or {}).get("pivots") or [])
@@ -848,9 +884,21 @@ def wiki_en_url(article):
 def _signal_cards(article, f):
     """Story-first cards for the Overview briefing."""
     cards = []
-    top = _top_pivot(article, f)
-    pivs = (f.pivots.get(article) or {}).get("pivots") or []
-    if top:
+    confirmation = f.confirmations.get(article) or {}
+    confirmed_episodes = confirmation.get("confirmed_episodes") or []
+    top = None if confirmation else _top_pivot(article, f)
+    pivs = [] if confirmation else (f.pivots.get(article) or {}).get("pivots") or []
+    if confirmed_episodes:
+        strongest = max(confirmed_episodes, key=lambda episode: episode.get("pwr_mass") or 0)
+        drop = 100 * (strongest.get("durable_spine_drop") or 0)
+        cards.append(
+            f'<div class="signal-card hot">'
+            f'<div class="signal-label">Confirmed rewrite episodes</div>'
+            f'<div class="signal-value">{len(confirmed_episodes)} confirmed</div>'
+            f'<p class="signal-note">Largest by persistence-weighted mass: {drop:.1f}% '
+            f'durable-spine drop. See <a href="#diff">Rewrite</a> for exact revision receipts.</p></div>'
+        )
+    elif top:
         pct = top.get("peak_pct")
         status = _pivot_status(top)
         pct_s = _pwr_read(pct)
@@ -889,11 +937,13 @@ def _signal_cards(article, f):
             f'See <a href="#diff">Rewrite</a>.</p></div>'
         )
     elif _rewrite_state(article, f) == "none":
+        exact_rejection = confirmation.get("status") == "not_confirmed"
         cards.append(
             f'<div class="signal-card cool">'
             f'<div class="signal-label">Rewrite scan</div>'
-            f'<div class="signal-value">No candidate window found</div>'
-            f'<p class="signal-note">L1 ran on this article and did not cross the candidate threshold. '
+            f'<div class="signal-value">No candidate window {"confirmed" if exact_rejection else "found"}</div>'
+            f'<p class="signal-note">L1 ran on this article and '
+            f'{"exact checking did not confirm a durable rewrite" if exact_rejection else "did not cross the candidate threshold"}. '
             f'This does not mean the article never changed.</p></div>'
         )
     else:
@@ -1011,6 +1061,43 @@ def missing_diff_section(state="unavailable", reason=None):
         )
     title, note = _unavailable_rewrite_copy(reason)
     return f'<h2>{esc(title)}</h2><p class="missing-note">{esc(note)}</p>'
+
+
+def confirmation_section(confirmation):
+    """Render authoritative exact-confirmation episodes and revision receipts."""
+    if confirmation.get("status") == "unavailable":
+        reason = "too few snapshots" if confirmation.get("coarse_verdict") == "SKIP" else None
+        return missing_diff_section("unavailable", reason)
+    episodes = confirmation.get("confirmed_episodes") or []
+    if not episodes:
+        return (
+            '<h2>No candidate rewrite window was confirmed</h2>'
+            '<p class="missing-note">The exact L1 check ran, but no candidate showed the required '
+            'durable-spine drop. This is a completed negative result for that detector, not a claim '
+            'that the article never changed.</p>'
+        )
+    rows = ""
+    for episode in episodes:
+        before_revid = episode.get("before_revid")
+        after_revid = episode.get("after_revid")
+        before = (f'<a href="{oldid("en", before_revid)}" target="_blank" rel="noopener">'
+                  f'{esc(episode.get("before_timestamp") or before_revid)}</a>')
+        after = (f'<a href="{oldid("en", after_revid)}" target="_blank" rel="noopener">'
+                 f'{esc(episode.get("after_timestamp") or after_revid)}</a>')
+        drop = 100 * (episode.get("durable_spine_drop") or 0)
+        rows += (
+            f'<tr><td>{before}</td><td>{after}</td><td>{drop:.1f}% durable-spine drop</td>'
+            f'<td>{int(episode.get("pwr_mass") or 0):,}</td></tr>'
+        )
+    count = len(episodes)
+    return (
+        f'<h2>{count} confirmed rewrite episode{"s" if count != 1 else ""}</h2>'
+        '<p>Exact revision pairs where long-lived wording was substantially replaced.</p>'
+        '<div class="tablewrap"><table><thead><tr><th scope="col">Before</th>'
+        '<th scope="col">After</th><th scope="col">Durable change</th>'
+        '<th scope="col">PWR mass</th></tr></thead>'
+        f'<tbody>{rows}</tbody></table></div>'
+    )
 
 
 def sources_section(article, src):
@@ -1318,7 +1405,10 @@ def article_page(article, f, categories=None):
     lead = headline(article, f)
     layers = _layer_flags(article, f)
     panels = [("Overview", overview_section(article, f, layers), "overview")]
-    if pv:
+    confirmation = f.confirmations.get(article)
+    if confirmation:
+        panels.append(("Rewrite", confirmation_section(confirmation), "diff"))
+    elif pv:
         panels.append(("Rewrite", render_pivots(pv, slugify(article)), "diff"))
     elif diff:
         panels.append(("Rewrite", diff_section(diff), "diff"))

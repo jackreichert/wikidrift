@@ -1,0 +1,23 @@
+{
+  "article": "United Nations General Assembly observers",
+  "artifacts": [
+    "findings/United_Nations_General_Assembly_observers.category.json",
+    "findings/United_Nations_General_Assembly_observers.cost.json",
+    "findings/United_Nations_General_Assembly_observers.framing.json",
+    "findings/United_Nations_General_Assembly_observers.l1-confirmation.json",
+    "findings/United_Nations_General_Assembly_observers.lexical.json",
+    "findings/United_Nations_General_Assembly_observers.profile.json",
+    "findings/United_Nations_General_Assembly_observers.sources.json",
+    "mscore/United_Nations_General_Assembly_observers.json"
+  ],
+  "slug": "United_Nations_General_Assembly_observers",
+  "tables": {
+    "articles": 0,
+    "rev_size": 924,
+    "revisions": 924,
+    "rsnap": 403769,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

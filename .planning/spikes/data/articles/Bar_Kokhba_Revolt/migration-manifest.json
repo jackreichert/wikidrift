@@ -1,0 +1,26 @@
+{
+  "article": "Bar Kokhba Revolt",
+  "artifacts": [
+    "findings/Bar_Kokhba_Revolt.category.json",
+    "findings/Bar_Kokhba_Revolt.cost.json",
+    "findings/Bar_Kokhba_Revolt.factcheck.json",
+    "findings/Bar_Kokhba_Revolt.framing.json",
+    "findings/Bar_Kokhba_Revolt.l1-confirmation.json",
+    "findings/Bar_Kokhba_Revolt.lexical.json",
+    "findings/Bar_Kokhba_Revolt.profile.json",
+    "findings/Bar_Kokhba_Revolt.receipts.json",
+    "findings/Bar_Kokhba_Revolt.sources.json",
+    "findings/Bar_Kokhba_Revolt.stance.json",
+    "mscore/Bar_Kokhba_Revolt.json"
+  ],
+  "slug": "Bar_Kokhba_Revolt",
+  "tables": {
+    "articles": 0,
+    "rev_size": 2611,
+    "revisions": 2611,
+    "rsnap": 581395,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

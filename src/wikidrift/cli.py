@@ -20,12 +20,13 @@ WIKIDRIFT_LLM_PROVIDER/_MODEL/_BASE_URL.
 """
 import sys
 import argparse
+import pathlib
 from urllib.parse import urlparse, parse_qs, unquote
 
 import duckdb
 
 from . import (config, drift, prerank, benchmark, stance, l5_crosslingual, l5_factcheck,  # noqa: F401
-               mscore, ingest, pipeline, l4, l5_sources, lexical, bootstrap)
+               mscore, ingest, pipeline, l4, l5_sources, lexical, bootstrap, shards)
 from .corpus import Corpus
 
 
@@ -55,6 +56,14 @@ def _normalize_article_arg(value):
 
     title = unquote(title).replace("_", " ").strip()
     return title or raw
+
+
+def _migrate_shards(args):
+    """Copy and verify canonical data into independently writable article shards."""
+    source_dir = args.source_data_dir or config.DATA_DIR
+    report = shards.migrate_all(source_dir, args.articles_dir)
+    print(f"migrated {report['article_count']} article shard(s) into "
+          f"{args.articles_dir or source_dir / 'articles'}")
 
 
 def main(argv=None):
@@ -149,7 +158,18 @@ def main(argv=None):
     sp = sub.add_parser("bootstrap", help="populate the token corpus for a slate (default: benchmark roster)")
     sp.add_argument("articles", nargs="*", help="articles to fetch (default: the adjudicated roster)")
 
+    sp = sub.add_parser("migrate-shards", help="copy and verify canonical data into per-article shards")
+    sp.add_argument("--source-data-dir", type=pathlib.Path, default=None,
+                    help="canonical data directory (default: WIKIDRIFT_DATA_DIR or historical location)")
+    sp.add_argument("--articles-dir", type=pathlib.Path, default=None,
+                    help="destination directory (default: <source>/articles)")
+    sp.set_defaults(handler=_migrate_shards)
+
     args = p.parse_args(argv)
+
+    if hasattr(args, "handler"):
+        args.handler(args)
+        return
 
     if args.cmd == "analyze":
         drift.analyze(_normalize_article_arg(args.article))

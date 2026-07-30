@@ -1,0 +1,17 @@
+{
+  "Republican Party (United States)": {
+    "raw": {
+      "revs": 19506,
+      "mutual_pairs": 505,
+      "M": 3146928,
+      "M_per_rev": 161.33
+    },
+    "refined": {
+      "revs": 15849,
+      "mutual_pairs": 58,
+      "M": 156996,
+      "M_per_rev": 9.91
+    },
+    "refined_per_rev": 8.05
+  }
+}

@@ -1,0 +1,333 @@
+{
+  "article": "Bar Kokhba Revolt",
+  "pivot": "2025-01-01",
+  "span": "2025-01-01 → 2026-07-01  (across the L1 pivot ~2025-01-01)",
+  "before": {
+    "date": "2025-01-01",
+    "refs": 183,
+    "n_domains": 40,
+    "cite_mix": {
+      "book": 51,
+      "web": 25,
+      "journal": 21,
+      "news": 3
+    },
+    "domains": {
+      "books.google.com": 24,
+      "archive.org": 3,
+      "rsy-netzer.org.uk": 2,
+      "oxfordre.com": 2,
+      "ejournals.eu": 3,
+      "jpost.com": 2,
+      "penelope.uchicago.edu": 2,
+      "livius.org": 7,
+      "hebrewbooks.org": 1,
+      "sacred-texts.com": 1,
+      "dtorah.com": 2,
+      "instonebrewer.com": 1,
+      "halakhah.com": 2,
+      "steinsaltz.org": 1,
+      "mechon-mamre.org": 2,
+      "europeana.eu": 1,
+      "archive.today": 2,
+      "haaretz.com": 2,
+      "sefaria.org": 2,
+      "jewishencyclopedia.com": 2,
+      "ceeol.com": 1,
+      "brill.com": 1,
+      "jstor.org": 7,
+      "sunburst.usd.edu": 1,
+      "lisa.biu.ac.il": 4,
+      "fordham.edu": 2,
+      "gibsoncondo.com": 1,
+      "bbc.com": 1,
+      "cnn.com": 1,
+      "researchgate.net": 1,
+      "israelhayom.com": 1,
+      "timesofisrael.com": 1,
+      "israelnationalnews.com": 1,
+      "nrg.co.il": 1,
+      "knesset.gov.il": 1,
+      "mohrsiebeck.com": 1,
+      "doi.org": 1,
+      "cojs.org": 2,
+      "yadinproductions.com": 1,
+      "youtube.com": 1
+    }
+  },
+  "after": {
+    "date": "2026-07-01",
+    "refs": 8,
+    "n_domains": 23,
+    "cite_mix": {
+      "book": 73,
+      "journal": 27,
+      "web": 1
+    },
+    "domains": {
+      "books.google.co.il": 1,
+      "penelope.uchicago.edu": 1,
+      "livius.org": 3,
+      "archive.org": 2,
+      "degruyterbrill.com": 1,
+      "brill.com": 5,
+      "tandfonline.com": 1,
+      "jstor.org": 14,
+      "researchgate.net": 2,
+      "mohrsiebeck.com": 3,
+      "ruj.uj.edu.pl": 1,
+      "academic.oup.com": 3,
+      "cambridge.org": 8,
+      "books.google.com": 5,
+      "jewishencyclopedia.com": 2,
+      "doi.org": 6,
+      "global.oup.com": 1,
+      "hup.harvard.edu": 1,
+      "yalebooks.yale.edu": 2,
+      "d1wqtxts1xzle7.cloudfront.net": 1,
+      "timesofisrael.com": 1,
+      "yadinproductions.com": 1,
+      "haaretz.com": 1
+    }
+  },
+  "added": [
+    {
+      "domain": "cambridge.org",
+      "from": 0,
+      "to": 8
+    },
+    {
+      "domain": "jstor.org",
+      "from": 7,
+      "to": 14
+    },
+    {
+      "domain": "doi.org",
+      "from": 1,
+      "to": 6
+    },
+    {
+      "domain": "brill.com",
+      "from": 1,
+      "to": 5
+    },
+    {
+      "domain": "academic.oup.com",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "mohrsiebeck.com",
+      "from": 1,
+      "to": 3
+    },
+    {
+      "domain": "yalebooks.yale.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "hup.harvard.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "d1wqtxts1xzle7.cloudfront.net",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "researchgate.net",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "degruyterbrill.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ruj.uj.edu.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "global.oup.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "books.google.co.il",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "tandfonline.com",
+      "from": 0,
+      "to": 1
+    }
+  ],
+  "dropped": [
+    {
+      "domain": "books.google.com",
+      "from": 24,
+      "to": 5
+    },
+    {
+      "domain": "lisa.biu.ac.il",
+      "from": 4,
+      "to": 0
+    },
+    {
+      "domain": "livius.org",
+      "from": 7,
+      "to": 3
+    },
+    {
+      "domain": "ejournals.eu",
+      "from": 3,
+      "to": 0
+    },
+    {
+      "domain": "rsy-netzer.org.uk",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "fordham.edu",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "halakhah.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "mechon-mamre.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "dtorah.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "oxfordre.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "jpost.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "sefaria.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "archive.today",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "cojs.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "ceeol.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "archive.org",
+      "from": 3,
+      "to": 2
+    },
+    {
+      "domain": "knesset.gov.il",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "israelhayom.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "haaretz.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "nrg.co.il",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "penelope.uchicago.edu",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "bbc.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "israelnationalnews.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "sunburst.usd.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "sacred-texts.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "steinsaltz.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "gibsoncondo.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "hebrewbooks.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "cnn.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "instonebrewer.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "youtube.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "europeana.eu",
+      "from": 1,
+      "to": 0
+    }
+  ],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD."
+}

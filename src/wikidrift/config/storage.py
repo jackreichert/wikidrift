@@ -31,10 +31,13 @@ def _load_dotenv(path):
 _REPO = pathlib.Path(__file__).resolve().parents[3]
 _load_dotenv(_REPO / ".env")
 
-# The DuckDB of token facts. Kept at the historical spike location so the cached corpus
-# (provenance.duckdb, ~350 MB of rsnap snapshots) is reused without a migration.
-DATA_DIR = _REPO / ".planning" / "spikes" / "data"
+# The DuckDB of token facts. The historical spike location remains the default; workers can point
+# WIKIDRIFT_DATA_DIR at an article-owned shard to avoid sharing a DuckDB writer.
+DATA_DIR = pathlib.Path(os.environ.get(
+    "WIKIDRIFT_DATA_DIR", _REPO / ".planning" / "spikes" / "data"
+)).expanduser()
 DB = DATA_DIR / "provenance.duckdb"
+ARTICLES_DIR = DATA_DIR / "articles"
 
 # The Rust `snapshot-tokens` helper (tools/snapshot-tokens) emits per-token authorship for historical
 # revisions. Build: `cargo build --release` in that dir.

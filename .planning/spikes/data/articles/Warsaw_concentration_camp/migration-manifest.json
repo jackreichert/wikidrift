@@ -1,0 +1,27 @@
+{
+  "article": "Warsaw concentration camp",
+  "artifacts": [
+    "findings/Warsaw_concentration_camp.asof-2018-06-01.factcheck.json",
+    "findings/Warsaw_concentration_camp.category.json",
+    "findings/Warsaw_concentration_camp.cost.json",
+    "findings/Warsaw_concentration_camp.factcheck.json",
+    "findings/Warsaw_concentration_camp.framing.json",
+    "findings/Warsaw_concentration_camp.l1-confirmation.json",
+    "findings/Warsaw_concentration_camp.lexical.json",
+    "findings/Warsaw_concentration_camp.profile.json",
+    "findings/Warsaw_concentration_camp.receipts.json",
+    "findings/Warsaw_concentration_camp.sources.json",
+    "findings/Warsaw_concentration_camp.stance.json",
+    "mscore/Warsaw_concentration_camp.json"
+  ],
+  "slug": "Warsaw_concentration_camp",
+  "tables": {
+    "articles": 0,
+    "rev_size": 1124,
+    "revisions": 1124,
+    "rsnap": 434725,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

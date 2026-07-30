@@ -1,0 +1,124 @@
+{
+  "article": "Abortion",
+  "category": "general",
+  "mode": "pivot_relative",
+  "pivot_window": {
+    "start": "2010-01-01",
+    "end": "2012-01-01",
+    "pwr_mass": 46141,
+    "status": "confirmed",
+    "before_revid": 368233003,
+    "before_timestamp": "2010-06-15T19:36:58Z",
+    "after_revid": 368233142,
+    "after_timestamp": "2010-06-15T19:37:47Z",
+    "durable_spine_drop": 0.642327
+  },
+  "editions_compared": [
+    "en",
+    "de"
+  ],
+  "lead_chars": {
+    "en": 2058,
+    "de": 3000
+  },
+  "snapshots": {
+    "before": {
+      "en": {
+        "revid": 368233003,
+        "timestamp": "2010-06-15T19:36:58Z",
+        "title": "Abortion",
+        "lead": "Abortion is the termination of a pregnancy by the removal or expulsion from the uterus of a fetus or embryo, resulting in or caused by its death. Gynaecology for Lawyers  By Trevor Dutt, Margaret P. Matthews An abortion can occur spontaneously due to complications during pregnancy or can be induced, in humans and other species. In the context of human pregnancies, an abortion induced to preserve the health of the gravida (pregnant female) is termed a therapeutic abortion, while an abortion induced for any other reason is termed an elective abortion. The term abortion most commonly refers to the induced abortion of a human pregnancy, while spontaneous abortions are usually termed miscarriages. \n\nWorldwide 42 million abortions are estimated to take place annually with 22 million of these occurring safely and 20 million unsafely.  While very few death result from safe abortions, unsafe abortions result in 70,000 deaths and 5 million disabilities a year.  One of the main determinates of the availability of safe abortions is the legality of the procedure.  Only 40% of the world's population is able to access therapeutic and elective abortions within gestational limits.  The frequency of abortions are however similar whether or not access is restricted.\n\nAbortion has a long history and has been induced by various methods including herbal abortifacients, the use of sharpened tools, physical trauma, and other traditional methods. Contemporary medicine utilizes medications and surgical procedures to induce abortion. The legality, prevalence, and cultural views on abortion vary substantially around the world. In many parts of the world there is prominent and divisive public controversy over the ethical and legal issues of abortion. Abortion and abortion-related issues feature prominently in the national politics in many nations, often involving the opposing pro-life and pro-choice worldwide social movements. Incidence of abortion has declined worldwide, as access to family planning education and contraceptive services has increased."
+      },
+      "de": {
+        "revid": 75614267,
+        "timestamp": "2010-06-15T15:45:59Z",
+        "title": "Schwangerschaftsabbruch",
+        "lead": "Schwangerschaftsabbruch (umgangssprachlich mit meist negativer Konnotation auch Abtreibung; medizinisch abruptio graviditatis oder induzierter Abort) bezeichnet die absichtliche Beendigung einer Schwangerschaft vor der selbständigen Lebensfähigkeit des Menschen im Entwicklungsstadium als Embryo bzw. Fötus.\n\nDavon ist als übergeordneter medizinischer Begriff der Abort zu unterscheiden, der auch einen natürlichen Spontanabort (Fehlgeburt) umfasst. Schwangerschaftsabbrüche werden meistens in den ersten drei Monaten einer Schwangerschaft durchgeführt. Nach heutigem medizinischen Stand werden Schwangerschaften im Anfangsstadium (einschließlich der 12. respektive 14. Schwangerschaftswoche) überwiegend durch Absaugung oder eine durch Hormongabe ausgelöste Ausstoßung des Embryos aus der Gebärmutter abgebrochen, weiter fortgeschrittene mit den gleichen Mitteln, wie sie auch zur Geburtseinleitung eingesetzt werden, nämlich Prostaglandine und Oxytozin.\n\nSchwangerschaftsabbrüche lassen sich in der Menschheitsgeschichte und weltweit nachweisen. In Deutschland werden etwa 14 % der Schwangerschaften abgebrochen. Die Zulässigkeit von Schwangerschaftsabbrüchen waren und sind bis heute ein zum Teil heftig umstrittenes Thema. Dabei stehen neben naturwissenschaftlichen Kenntnissen auch religiöse Vorstellungen und gesellschaftliche Ansprüche, das Selbstbestimmungsrecht der Frauen und das Lebensrecht des ungeborenen Kindes im Widerstreit. Daraus folgen sehr unterschiedliche ethische Beurteilungen und juristische Regelungen, die von staatlich geforderten Abbrüchen über weitgehende Entscheidungsfreiheit der Schwangeren bis zu völligen Verboten mit harten Strafen reichen. Auch aufgrund der verschiedenen wirtschaftlichen, sozialen und kulturellen Situationen sind die Bedingungen, unter denen Schwangerschaftsabbrüche stattfinden, sehr unterschiedlich. Schätzungsweise knapp die Hälfte aller Schwangerschaftsabbrüche weltweit werden illegal ausgeführt. Von den dabei oft nicht fachgerecht durchgeführten Maßnahmen gehen erhebliche Gesundheitsrisiken für die Frauen aus. Nach Schätzung der Weltgesundheitsorganisation (WHO) sterben bei den jährlich auf 40 Millionen geschätzten Abbrüchen 70.000 Frauen in Folge illegaler und unter ungeeigneten Umständen durchgeführter Schwangerschaftsabbrüche. Unter guten medizinischen Bedingungen ist der Eingriff komplikationsarm. Über den Anteil von Spätfolgen etwa in Form psychischer Probleme oder vermehrter Fehlgeburten bei nachfolgenden Schwangerschaften gibt es unterschiedliche Ansichten.\n\nIn Deutschland sind Schwangerschaftsabbrüche durch Ärzte in den ersten 12 Wochen nach einer Beratung der Schwangeren nicht strafbar. Danach sind Abbrüche noch bei erheblicher Gesundheitsgefährdung für die Mutter erlaubt. Dies ist jedoch relativ selten, etwa 98 % der Abbrüche in Deutschland werden in den ersten 14 Wochen vorgenommen. In Österreich und der Schweiz bestehen ähnliche Regelungen, wobei in Österreich die Frist zwei Wochen länger und in der Schweiz"
+      }
+    },
+    "after": {
+      "en": {
+        "revid": 368233142,
+        "timestamp": "2010-06-15T19:37:47Z",
+        "title": "Abortion",
+        "lead": "Abortion is the termination of a pregnancy by the removal or expulsion from the uterus of a fetus or embryo, resulting in or caused by its death. Gynaecology for Lawyers  By Trevor Dutt, Margaret P. Matthews An abortion can occur spontaneously due to complications during pregnancy or can be induced, in humans and other species. In the context of human pregnancies, an abortion induced to preserve the health of the gravida (pregnant female) is termed a therapeutic abortion, while an abortion induced for any other reason is termed an elective abortion. The term abortion most commonly refers to the induced abortion of a human pregnancy, while spontaneous abortions are usually termed miscarriages. \n\nWorldwide 42 million abortions are estimated to take place annually with 22 million of these occurring safely and 20 million unsafely.  While very few death result from safe abortions, unsafe abortions result in 70,000 deaths and 5 million disabilities a year.  One of the main determinates of the availability of safe abortions is the legality of the procedure.  Only 40% of the world's population is able to access therapeutic and elective abortions within gestational limits.  The frequency of abortions are however similar whether or not access is restricted.\n\nAbortion has a long history and has been induced by various methods including herbal abortifacients, the use of sharpened tools, physical trauma, and other traditional methods. Contemporary medicine utilizes medications and surgical procedures to induce abortion. The legality, prevalence, and cultural views on abortion vary substantially around the world. In many parts of the world there is prominent and divisive public controversy over the ethical and legal issues of abortion. Abortion and abortion-related issues feature prominently in the national politics in many nations, often involving the opposing pro-life and pro-choice worldwide social movements. Incidence of abortion has declined worldwide, as access to family planning education and contraceptive services has increased."
+      },
+      "de": {
+        "revid": 75646182,
+        "timestamp": "2010-06-16T12:33:09Z",
+        "title": "Schwangerschaftsabbruch",
+        "lead": "Schwangerschaftsabbruch (umgangssprachlich mit meist negativer Konnotation auch Abtreibung; medizinisch abruptio graviditatis oder induzierter Abort) bezeichnet die absichtliche Beendigung einer Schwangerschaft vor der selbständigen Lebensfähigkeit des Menschen im Entwicklungsstadium als Embryo bzw. Fötus.\n\nDavon ist als übergeordneter medizinischer Begriff der Abort zu unterscheiden, der auch einen natürlichen Spontanabort (Fehlgeburt) umfasst. Schwangerschaftsabbrüche werden meistens in den ersten drei Monaten einer Schwangerschaft durchgeführt. Nach heutigem medizinischen Stand werden Schwangerschaften im Anfangsstadium (einschließlich der 12. respektive 14. Schwangerschaftswoche) überwiegend durch Absaugung oder eine durch Hormongabe ausgelöste Ausstoßung des Embryos aus der Gebärmutter abgebrochen, weiter fortgeschrittene mit den gleichen Mitteln, wie sie auch zur Geburtseinleitung eingesetzt werden, nämlich Prostaglandine und Oxytozin.\n\nSchwangerschaftsabbrüche lassen sich in der Menschheitsgeschichte und weltweit nachweisen. In Deutschland werden etwa 14 % der Schwangerschaften abgebrochen. Die Zulässigkeit von Schwangerschaftsabbrüchen waren und sind bis heute ein zum Teil heftig umstrittenes Thema. Dabei stehen neben naturwissenschaftlichen Kenntnissen auch religiöse Vorstellungen und gesellschaftliche Ansprüche, das Selbstbestimmungsrecht der Frauen und das Lebensrecht des ungeborenen Kindes im Widerstreit. Daraus folgen sehr unterschiedliche ethische Beurteilungen und juristische Regelungen, die von staatlich geforderten Abbrüchen über weitgehende Entscheidungsfreiheit der Schwangeren bis zu völligen Verboten mit harten Strafen reichen. Auch aufgrund der verschiedenen wirtschaftlichen, sozialen und kulturellen Situationen sind die Bedingungen, unter denen Schwangerschaftsabbrüche stattfinden, sehr unterschiedlich. Schätzungsweise knapp die Hälfte aller Schwangerschaftsabbrüche weltweit werden illegal ausgeführt. Von den dabei oft nicht fachgerecht durchgeführten Maßnahmen gehen erhebliche Gesundheitsrisiken für die Frauen aus. Nach Schätzung der Weltgesundheitsorganisation (WHO) sterben bei den jährlich auf 40 Millionen geschätzten Abbrüchen 70.000 Frauen in Folge illegaler und unter ungeeigneten Umständen durchgeführter Schwangerschaftsabbrüche. Unter guten medizinischen Bedingungen ist der Eingriff komplikationsarm. Über den Anteil von Spätfolgen etwa in Form psychischer Probleme oder vermehrter Fehlgeburten bei nachfolgenden Schwangerschaften gibt es unterschiedliche Ansichten.\n\nIn Deutschland sind Schwangerschaftsabbrüche durch Ärzte in den ersten 12 Wochen nach einer Beratung der Schwangeren nicht strafbar. Danach sind Abbrüche noch bei erheblicher Gesundheitsgefährdung für die Mutter erlaubt. Dies ist jedoch relativ selten, etwa 98 % der Abbrüche in Deutschland werden in den ersten 14 Wochen vorgenommen. In Österreich und der Schweiz bestehen ähnliche Regelungen, wobei in Österreich die Frist zwei Wochen länger und in der Schweiz"
+      },
+      "hy": {
+        "revid": 2136314,
+        "timestamp": "2014-01-24T10:04:17Z",
+        "title": "Աբորտ",
+        "lead": "Աբորտ ( — «վիժում» բառից), վիժում, անցուցք, հղիության ընդհատում և պտղաձվի հեռացում առաջին 28 շաբաթվա (7 լուսնամսի) ընթացքում։"
+      }
+    }
+  },
+  "divergences": [
+    {
+      "topic": "Global annual abortion statistics figure",
+      "editions_differ": [
+        "DE"
+      ],
+      "en_says": "Worldwide 42 million abortions are estimated to take place annually with 22 million of these occurring safely and 20 million unsafely.",
+      "other_says": "Nach Schätzung der Weltgesundheitsorganisation (WHO) sterben bei den jährlich auf 40 Millionen geschätzten Abbrüchen 70.000 Frauen",
+      "verdict": "contradict",
+      "evidence_en": "Worldwide 42 million abortions are estimated to take place annually with 22 million of these occurring safely and 20 million unsafely.",
+      "evidence_other": "jährlich auf 40 Millionen geschätzten Abbrüchen 70.000 Frauen",
+      "temporal_read": "difference_persisted",
+      "en_before": "Worldwide 42 million abortions are estimated to take place annually with 22 million of these occurring safely and 20 million unsafely.",
+      "en_after": "Worldwide 42 million abortions are estimated to take place annually with 22 million of these occurring safely and 20 million unsafely.",
+      "other_before": "jährlich auf 40 Millionen geschätzten Abbrüchen 70.000 Frauen",
+      "other_after": "jährlich auf 40 Millionen geschätzten Abbrüchen 70.000 Frauen",
+      "evidence_en_before": "Worldwide 42 million abortions are estimated to take place annually",
+      "evidence_en_after": "Worldwide 42 million abortions are estimated to take place annually",
+      "evidence_other_before": "jährlich auf 40 Millionen geschätzten Abbrüchen",
+      "evidence_other_after": "jährlich auf 40 Millionen geschätzten Abbrüchen"
+    },
+    {
+      "topic": "Definition of abortion term scope",
+      "editions_differ": [
+        "DE"
+      ],
+      "en_says": "Abortion is the termination of a pregnancy by the removal or expulsion from the uterus of a fetus or embryo, resulting in or caused by its death.",
+      "other_says": "bezeichnet die absichtliche Beendigung einer Schwangerschaft vor der selbständigen Lebensfähigkeit des Menschen im Entwicklungsstadium als Embryo bzw. Fötus.",
+      "verdict": "differ",
+      "evidence_en": "Abortion is the termination of a pregnancy by the removal or expulsion from the uterus of a fetus or embryo, resulting in or caused by its death.",
+      "evidence_other": "bezeichnet die absichtliche Beendigung einer Schwangerschaft vor der selbständigen Lebensfähigkeit des Menschen",
+      "temporal_read": "difference_persisted",
+      "en_before": "Abortion is the termination of a pregnancy by the removal or expulsion from the uterus of a fetus or embryo, resulting in or caused by its death.",
+      "en_after": "Abortion is the termination of a pregnancy by the removal or expulsion from the uterus of a fetus or embryo, resulting in or caused by its death.",
+      "other_before": "bezeichnet die absichtliche Beendigung einer Schwangerschaft vor der selbständigen Lebensfähigkeit des Menschen",
+      "other_after": "bezeichnet die absichtliche Beendigung einer Schwangerschaft vor der selbständigen Lebensfähigkeit des Menschen",
+      "evidence_en_before": "Abortion is the termination of a pregnancy",
+      "evidence_en_after": "Abortion is the termination of a pregnancy",
+      "evidence_other_before": "absichtliche Beendigung einer Schwangerschaft",
+      "evidence_other_after": "absichtliche Beendigung einer Schwangerschaft"
+    }
+  ],
+  "summary": "No substantive change occurred in either the English or German lead texts between the before and after revisions in this window; both are textually identical across the pair. The two pre-existing cross-edition divergences (differing global abortion statistics and differing conceptual definitions of abortion) persisted unchanged, so no genuine temporal convergence, divergence, or parallel change can be attributed to this edit window.",
+  "run_ts": "2026-07-19T16:58:39.300114+00:00",
+  "model": "claude-sonnet-5",
+  "llm_usage": {
+    "calls": 1,
+    "input_tokens": 5759,
+    "output_tokens": 1355,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 5759,
+        "output_tokens": 1355,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
+  },
+  "elapsed_seconds": 66.021
+}

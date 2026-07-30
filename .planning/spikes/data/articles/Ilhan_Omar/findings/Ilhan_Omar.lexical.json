@@ -1,0 +1,203 @@
+{
+  "article": "Ilhan Omar",
+  "span": "2024-01-01 -> 2024-07-01 (around L1 pivot ~2024-01-01)",
+  "pivot": "2024-01-01",
+  "before": {
+    "date": "2024-01-01",
+    "rev": 1193450662,
+    "tokens": 4162
+  },
+  "after": {
+    "date": "2024-07-01",
+    "rev": 1231958572,
+    "tokens": 4286
+  },
+  "js_divergence": 0.0047,
+  "overrepresented_after_terms": [
+    {
+      "term": "tiktok",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.1688
+    },
+    {
+      "term": "concerns",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8184
+    },
+    {
+      "term": "really",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8184
+    },
+    {
+      "term": "amendment",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.4817
+    },
+    {
+      "term": "china",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.4817
+    },
+    {
+      "term": "daily",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.4817
+    },
+    {
+      "term": "distinction",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.4817
+    },
+    {
+      "term": "interference",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.4817
+    },
+    {
+      "term": "investigation",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.4817
+    },
+    {
+      "term": "journalist",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.4817
+    },
+    {
+      "term": "palestine",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.4817
+    },
+    {
+      "term": "seat",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.4817
+    },
+    {
+      "term": "tim",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.4817
+    },
+    {
+      "term": "voiced",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.4817
+    },
+    {
+      "term": "work",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.4817
+    },
+    {
+      "term": "working",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.4817
+    },
+    {
+      "term": "access",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": 0.3073
+    },
+    {
+      "term": "anything",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": 0.3073
+    },
+    {
+      "term": "around",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": 0.3073
+    },
+    {
+      "term": "defeated",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": 0.3073
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "intended",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.5404
+    },
+    {
+      "term": "language",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.5404
+    },
+    {
+      "term": "jewish",
+      "before": 9,
+      "after": 8,
+      "delta": -1,
+      "log_odds": -0.1409
+    },
+    {
+      "term": "remarks",
+      "before": 9,
+      "after": 8,
+      "delta": -1,
+      "log_odds": -0.1409
+    },
+    {
+      "term": "omar",
+      "before": 183,
+      "after": 188,
+      "delta": 5,
+      "log_odds": -0.0026
+    },
+    {
+      "term": "minnesota",
+      "before": 34,
+      "after": 35,
+      "delta": 1,
+      "log_odds": -0.0008
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

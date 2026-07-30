@@ -1,0 +1,72 @@
+{
+  "article": "Fascism and ideology",
+  "langs": [
+    "en",
+    "ar"
+  ],
+  "entities": [
+    "Fascism and ideology"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Fascism": {
+          "entity": "Fascism",
+          "stance": "critical",
+          "npov_departure": false,
+          "evidence": "prejudice of a \"high and noble\" Aryan culture as opposed to a \"parasitic\" Semitic culture was core to Nazi racial views"
+        },
+        "ideology": {
+          "entity": "ideology",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Common themes among fascist movements include: authoritarianism, nationalism, hierarchy, elitism, and militarism."
+        }
+      },
+      "lead": {
+        "Fascism": {
+          "entity": "Fascism",
+          "stance": "critical",
+          "npov_departure": false,
+          "evidence": "Fascism opposed class conflict and the egalitarian and international character of socialism. It strongly opposed liberalism, communism, anarchism, and democratic socialism."
+        },
+        "ideology": {
+          "entity": "ideology",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "The history of fascist ideology is long and draws on many sources."
+        }
+      }
+    },
+    "ar": {
+      "focal": {
+        "Fascism": {
+          "entity": "Fascism",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "عارضت الفاشيةُ كلًا مِن الليبرالية، والشيوعية، والاشتراكية الديمقراطية معارضة شديدة... تناضل ثقافة في سبيل وجودها... 'الثقافة الآرية العالية والنبيلة' المضادة للثقافة السامية 'الطفيلية'"
+        },
+        "ideology": {
+          "entity": "ideology",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "للفاشية تاريخ طويل ويشمل العديد من المصادر... تشمل الموضوعات المشتركة في أوساط الفاشيين ما يلي: القومية، والهرمية، والنخبوية"
+        }
+      },
+      "lead": {
+        "Fascism": {
+          "entity": "Fascism",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "عارضت الفاشيةُ كلًا مِن الليبرالية، والشيوعية، والاشتراكية الديمقراطية معارضة شديدة... تنبع من الأفكار المذكورة آنفًا 'أسطورة الانحطاط'، ومعارضة المساواة، والشمولية"
+        },
+        "ideology": {
+          "entity": "ideology",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "يرجع تاريخ التأثيرات المبكرة التي ساهمت في صياغة الأيديولوجية الفاشية إلى اليونان القديمة"
+        }
+      }
+    }
+  }
+}

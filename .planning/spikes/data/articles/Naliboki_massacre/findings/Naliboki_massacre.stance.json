@@ -1,0 +1,48 @@
+{
+  "article": "Naliboki massacre",
+  "langs": [
+    "en",
+    "pl"
+  ],
+  "entities": [
+    "Naliboki massacre"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Naliboki massacre": {
+          "entity": "Naliboki massacre",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "the 8 May 1943 mass killing of 127 or 128 Poles by Soviet partisans in the small town of Naliboki"
+        }
+      },
+      "lead": {
+        "Naliboki massacre": {
+          "entity": "Naliboki massacre",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "the massacre is described as a mass killing of Polish civilians, with details like 'Polish men were dragged from their homes and shot individually or in small groups' and inflated Soviet casualty reports contrasted with the actual toll, framing the event and perpetrators critically despite otherwise factual tone"
+        }
+      }
+    },
+    "pl": {
+      "focal": {
+        "Naliboki massacre": {
+          "entity": "Naliboki massacre",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Zbrodnia w Nalibokach – masakra polskich mieszkańców wsi Naliboki dokonana przez oddziały radzieckich partyzantów."
+        }
+      },
+      "lead": {
+        "Naliboki massacre": {
+          "entity": "Naliboki massacre",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "masakra polskich mieszkańców wsi Naliboki dokonana przez oddziały radzieckich partyzantów... zamordowały ok. 128 polskich mieszkańców miasteczka podejrzewanych o przynależność do samoobrony lub AK"
+        }
+      }
+    }
+  }
+}

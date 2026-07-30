@@ -1,0 +1,67 @@
+{
+  "article": "Palestine",
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "entities": [
+    "Palestine"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Palestine": {
+          "entity": "Palestine",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "The 1948 Palestine war saw the forcible displacement of a majority of the Arab population... referred to by Palestinians as the Nakba ('catastrophe')."
+        }
+      },
+      "lead": {
+        "Palestine": {
+          "entity": "Palestine",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "the forcible displacement of a majority of the Arab population... these acts have been recognised as constituting genocide against the Palestinian people by a growing scholarly consensus"
+        }
+      }
+    },
+    "he": {
+      "focal": {
+        "Palestine (Palestinian statehood)": {
+          "entity": "Palestine (Palestinian statehood)",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "מדינה ששואפים להקים חלק ניכר מהפלסטינים... הקמה של מדינה פלסטינית היא אבן יסוד לסכסוך הישראלי-פלסטיני"
+        }
+      },
+      "lead": {
+        "Palestine": {
+          "entity": "Palestine",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "הפלסטינים ששללו את ההחלטה, פתחו במתקפה על היישוב היהודי בארץ, מתקפה שהסלימה והתפתחה למלחמה"
+        }
+      }
+    },
+    "ar": {
+      "focal": {
+        "Palestine": {
+          "entity": "Palestine",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "تنقسم دولة فلسطين إلى ستة عشر قسماً إدارياً... تدار فلسطين بنظام حكم مركزي وشبه رئاسي"
+        }
+      },
+      "lead": {
+        "Palestine": {
+          "entity": "Palestine",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "هي بحكم القانون دولة ذات سيادة في غرب آسيا، وتحكمها رسميًا منظمة التحرير الفلسطينية وتطالب بالضفة الغربية وقطاع غزة"
+        }
+      }
+    }
+  }
+}

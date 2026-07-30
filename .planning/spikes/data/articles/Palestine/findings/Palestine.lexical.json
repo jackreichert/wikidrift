@@ -1,0 +1,301 @@
+{
+  "article": "Palestine",
+  "span": "2015-07-01 -> 2016-01-01 (around L1 pivot ~2015-07-01)",
+  "pivot": "2015-07-01",
+  "before": {
+    "date": "2015-07-01",
+    "rev": 668845786,
+    "tokens": 9068
+  },
+  "after": {
+    "date": "2016-01-01",
+    "rev": 697777807,
+    "tokens": 2438
+  },
+  "js_divergence": 0.1811,
+  "overrepresented_after_terms": [
+    {
+      "term": "http",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 3.2606
+    },
+    {
+      "term": "severe",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 3.2606
+    },
+    {
+      "term": "travel",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 3.2606
+    },
+    {
+      "term": "water",
+      "before": 1,
+      "after": 7,
+      "delta": 6,
+      "log_odds": 2.9256
+    },
+    {
+      "term": "tourism",
+      "before": 1,
+      "after": 5,
+      "delta": 4,
+      "log_odds": 2.6146
+    },
+    {
+      "term": "million",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 2.4136
+    },
+    {
+      "term": "resources",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 2.4136
+    },
+    {
+      "term": "controlled",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 2.1618
+    },
+    {
+      "term": "natural",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 2.1618
+    },
+    {
+      "term": "balah",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 1.825
+    },
+    {
+      "term": "canada",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 1.825
+    },
+    {
+      "term": "communications",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 1.825
+    },
+    {
+      "term": "data",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 1.825
+    },
+    {
+      "term": "deir",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 1.825
+    },
+    {
+      "term": "demanding",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 1.825
+    },
+    {
+      "term": "extensive",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 1.825
+    },
+    {
+      "term": "highly",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 1.825
+    },
+    {
+      "term": "khan",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 1.825
+    },
+    {
+      "term": "major",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 1.825
+    },
+    {
+      "term": "paramilitary",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 1.825
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "rights",
+      "before": 23,
+      "after": 0,
+      "delta": -23,
+      "log_odds": -2.5393
+    },
+    {
+      "term": "says",
+      "before": 15,
+      "after": 0,
+      "delta": -15,
+      "log_odds": -2.1222
+    },
+    {
+      "term": "africa",
+      "before": 14,
+      "after": 0,
+      "delta": -14,
+      "log_odds": -2.0554
+    },
+    {
+      "term": "king",
+      "before": 14,
+      "after": 0,
+      "delta": -14,
+      "log_odds": -2.0554
+    },
+    {
+      "term": "self",
+      "before": 14,
+      "after": 0,
+      "delta": -14,
+      "log_odds": -2.0554
+    },
+    {
+      "term": "determination",
+      "before": 13,
+      "after": 0,
+      "delta": -13,
+      "log_odds": -1.9838
+    },
+    {
+      "term": "arabs",
+      "before": 12,
+      "after": 0,
+      "delta": -12,
+      "log_odds": -1.9068
+    },
+    {
+      "term": "asia",
+      "before": 12,
+      "after": 0,
+      "delta": -12,
+      "log_odds": -1.9068
+    },
+    {
+      "term": "department",
+      "before": 12,
+      "after": 0,
+      "delta": -12,
+      "log_odds": -1.9068
+    },
+    {
+      "term": "report",
+      "before": 12,
+      "after": 0,
+      "delta": -12,
+      "log_odds": -1.9068
+    },
+    {
+      "term": "secretary",
+      "before": 12,
+      "after": 0,
+      "delta": -12,
+      "log_odds": -1.9068
+    },
+    {
+      "term": "south",
+      "before": 12,
+      "after": 0,
+      "delta": -12,
+      "log_odds": -1.9068
+    },
+    {
+      "term": "agreements",
+      "before": 11,
+      "after": 0,
+      "delta": -11,
+      "log_odds": -1.8233
+    },
+    {
+      "term": "held",
+      "before": 11,
+      "after": 0,
+      "delta": -11,
+      "log_odds": -1.8233
+    },
+    {
+      "term": "said",
+      "before": 33,
+      "after": 1,
+      "delta": -32,
+      "log_odds": -1.7959
+    },
+    {
+      "term": "act",
+      "before": 10,
+      "after": 0,
+      "delta": -10,
+      "log_odds": -1.7322
+    },
+    {
+      "term": "convention",
+      "before": 10,
+      "after": 0,
+      "delta": -10,
+      "log_odds": -1.7322
+    },
+    {
+      "term": "ottoman",
+      "before": 10,
+      "after": 0,
+      "delta": -10,
+      "log_odds": -1.7322
+    },
+    {
+      "term": "treaties",
+      "before": 10,
+      "after": 0,
+      "delta": -10,
+      "log_odds": -1.7322
+    },
+    {
+      "term": "abdullah",
+      "before": 9,
+      "after": 0,
+      "delta": -9,
+      "log_odds": -1.632
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

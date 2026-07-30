@@ -12,6 +12,60 @@ import duckdb
 from wikidrift import provenance, drift, prerank
 
 
+class ArticleTitleResolution(unittest.TestCase):
+    def test_resolves_redirect_to_canonical_title_and_page_id(self):
+        response = {
+            "query": {
+                "redirects": [{
+                    "from": "Democratic Party of the United States",
+                    "to": "Democratic Party (United States)",
+                }],
+                "pages": [{
+                    "pageid": 5043544,
+                    "title": "Democratic Party (United States)",
+                }],
+            }
+        }
+
+        with mock.patch.object(provenance.config, "get_json_retrying", return_value=response) as get_json:
+            resolved = provenance.resolve_article_title("Democratic Party of the United States")
+
+        self.assertEqual(resolved.requested_title, "Democratic Party of the United States")
+        self.assertEqual(resolved.canonical_title, "Democratic Party (United States)")
+        self.assertEqual(resolved.page_id, 5043544)
+        self.assertEqual(get_json.call_args.kwargs["params"]["redirects"], 1)
+
+    def test_rejects_missing_article(self):
+        response = {"query": {"pages": [{"ns": 0, "title": "Missing", "missing": True}]}}
+
+        with mock.patch.object(provenance.config, "get_json_retrying", return_value=response):
+            with self.assertRaisesRegex(ValueError, "article not found"):
+                provenance.resolve_article_title("Missing")
+
+    def test_ensure_sizes_initializes_empty_database_with_canonical_identity(self):
+        con = duckdb.connect(":memory:")
+        self.addCleanup(con.close)
+        resolved = provenance.ResolvedArticle("Testland", "Testland", 123)
+        history = {
+            "query": {"pages": [{"pageid": 123, "title": "Testland", "revisions": [{
+                "revid": 10,
+                "timestamp": "2026-01-01T00:00:00Z",
+                "user": "Editor",
+                "size": 100,
+            }]}]}
+        }
+
+        with mock.patch.object(provenance, "resolve_article_title", return_value=resolved), \
+             mock.patch.object(provenance.config, "get_json_retrying", return_value=history):
+            provenance.ensure_sizes(con, "Testland")
+
+        self.assertEqual(con.execute("SELECT count(*) FROM revisions").fetchone()[0], 1)
+        self.assertEqual(
+            con.execute("SELECT requested_title, canonical_title, page_id FROM article_identity").fetchone(),
+            ("Testland", "Testland", 123),
+        )
+
+
 class EngineOnSyntheticCorpus(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -260,6 +314,43 @@ class AnalyzeConfirmationContract(unittest.TestCase):
         self.assertEqual((confirmed["before_revid"], confirmed["after_revid"]), (111, 112))
         self.assertEqual(confirmed["durable_spine_drop"], 0.4)
         write_findings.assert_called_once_with("A.l1-confirmation.json", result)
+
+    def test_rolling_second_pass_runs_when_primary_candidates_do_not_confirm(self):
+        con = duckdb.connect(":memory:")
+        self.addCleanup(con.close)
+        primary = {
+            "start": ("2021-01-01", 10), "end": ("2022-01-01", 20),
+            "abs": 100000, "peak": 40.0, "age": 4.0,
+        }
+        rolling = {
+            "start": ("2023-01-01", 30), "end": ("2024-01-01", 40),
+            "abs": 90000, "peak": 24.0, "age": 2.0, "source": "rolling",
+        }
+        ranked = (
+            [("2021-01-01", 10), ("2022-01-01", 20), ("2023-01-01", 30),
+             ("2024-01-01", 40), ("2026-01-01", 900)],
+            [set(), set(), set(), set(), set()], {}, {}, [], (9.0, 2.0, 1.0), [primary],
+        )
+        primary_result = ((111, "2021-06-01T00:00:00Z", "Before"),
+                          (112, "2021-06-02T00:00:00Z", "After"), 0.1)
+        rolling_result = ((211, "2023-06-01T00:00:00Z", "Before"),
+                          (212, "2023-06-02T00:00:00Z", "After"), 0.3)
+
+        with mock.patch.object(provenance, "ensure_sizes"), \
+             mock.patch.object(provenance, "ensure_indexes"), \
+             mock.patch.object(provenance, "build_snapshots"), \
+             mock.patch.object(drift, "ranked_episodes", return_value=ranked), \
+             mock.patch.object(drift, "rolling_candidates", return_value=[rolling]), \
+             mock.patch.object(drift, "verdict_dict", return_value={"verdict": "PIVOT?"}), \
+             mock.patch.object(drift, "refine", side_effect=[primary_result, rolling_result]), \
+             mock.patch.object(drift, "attribute"), \
+             mock.patch.object(drift, "print_coarse_report"), \
+             mock.patch.object(drift.config, "write_findings"):
+            result = drift.analyze("A", con=con)
+
+        self.assertEqual(result["status"], "confirmed")
+        self.assertEqual(result["confirmed_episodes"][0]["source"], "rolling")
+        self.assertEqual(result["confirmed_episodes"][0]["before_revid"], 211)
 
 
 if __name__ == "__main__":

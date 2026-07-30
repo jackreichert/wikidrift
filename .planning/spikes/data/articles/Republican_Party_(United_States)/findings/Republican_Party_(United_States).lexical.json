@@ -1,0 +1,301 @@
+{
+  "article": "Republican Party (United States)",
+  "span": "2025-01-01 -> 2026-01-01 (around L1 pivot ~2025-01-01)",
+  "pivot": "2025-01-01",
+  "before": {
+    "date": "2025-01-01",
+    "rev": 1266540753,
+    "tokens": 10373
+  },
+  "after": {
+    "date": "2026-01-01",
+    "rev": 1330402946,
+    "tokens": 9132
+  },
+  "js_divergence": 0.0614,
+  "overrepresented_after_terms": [
+    {
+      "term": "highest",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 2.693
+    },
+    {
+      "term": "counties",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 2.5259
+    },
+    {
+      "term": "incomes",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 2.5259
+    },
+    {
+      "term": "older",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 2.5259
+    },
+    {
+      "term": "antisemitic",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.3251
+    },
+    {
+      "term": "correlated",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.3251
+    },
+    {
+      "term": "mercantilist",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.0737
+    },
+    {
+      "term": "nazi",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.0737
+    },
+    {
+      "term": "openly",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.0737
+    },
+    {
+      "term": "slurs",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.0737
+    },
+    {
+      "term": "aged",
+      "before": 1,
+      "after": 9,
+      "delta": 8,
+      "log_odds": 1.9741
+    },
+    {
+      "term": "southerners",
+      "before": 2,
+      "after": 13,
+      "delta": 11,
+      "log_odds": 1.815
+    },
+    {
+      "term": "attainment",
+      "before": 1,
+      "after": 6,
+      "delta": 5,
+      "log_odds": 1.5943
+    },
+    {
+      "term": "educational",
+      "before": 1,
+      "after": 6,
+      "delta": 5,
+      "log_odds": 1.5943
+    },
+    {
+      "term": "income",
+      "before": 4,
+      "after": 17,
+      "delta": 13,
+      "log_odds": 1.487
+    },
+    {
+      "term": "across",
+      "before": 1,
+      "after": 5,
+      "delta": 4,
+      "log_odds": 1.4271
+    },
+    {
+      "term": "demographic",
+      "before": 1,
+      "after": 5,
+      "delta": 4,
+      "log_odds": 1.4271
+    },
+    {
+      "term": "globalization",
+      "before": 1,
+      "after": 5,
+      "delta": 4,
+      "log_odds": 1.4271
+    },
+    {
+      "term": "narrowly",
+      "before": 1,
+      "after": 5,
+      "delta": 4,
+      "log_odds": 1.4271
+    },
+    {
+      "term": "ideology",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 1.2264
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "proved",
+      "before": 7,
+      "after": 0,
+      "delta": -7,
+      "log_odds": -2.5813
+    },
+    {
+      "term": "cleveland",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -2.4381
+    },
+    {
+      "term": "march",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -2.4381
+    },
+    {
+      "term": "blaine",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.271
+    },
+    {
+      "term": "gave",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.271
+    },
+    {
+      "term": "post",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.271
+    },
+    {
+      "term": "gingrich",
+      "before": 13,
+      "after": 1,
+      "delta": -12,
+      "log_odds": -2.071
+    },
+    {
+      "term": "hayes",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.0702
+    },
+    {
+      "term": "illinois",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.0702
+    },
+    {
+      "term": "loss",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.0702
+    },
+    {
+      "term": "pope",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.0702
+    },
+    {
+      "term": "unable",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.0702
+    },
+    {
+      "term": "ahead",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.8188
+    },
+    {
+      "term": "attended",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.8188
+    },
+    {
+      "term": "august",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.8188
+    },
+    {
+      "term": "bryan",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.8188
+    },
+    {
+      "term": "charles",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.8188
+    },
+    {
+      "term": "contract",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.8188
+    },
+    {
+      "term": "coolidge",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.8188
+    },
+    {
+      "term": "cost",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.8188
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

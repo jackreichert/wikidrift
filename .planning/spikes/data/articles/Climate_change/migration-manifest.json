@@ -1,0 +1,25 @@
+{
+  "article": "Climate change",
+  "artifacts": [
+    "findings/Climate_change.category.json",
+    "findings/Climate_change.cost.json",
+    "findings/Climate_change.framing.json",
+    "findings/Climate_change.l1-confirmation.json",
+    "findings/Climate_change.lexical.json",
+    "findings/Climate_change.profile.json",
+    "findings/Climate_change.receipts.json",
+    "findings/Climate_change.sources.json",
+    "findings/Climate_change.stance.json",
+    "mscore/Climate_change.json"
+  ],
+  "slug": "Climate_change",
+  "tables": {
+    "articles": 0,
+    "rev_size": 27352,
+    "revisions": 27352,
+    "rsnap": 1068495,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

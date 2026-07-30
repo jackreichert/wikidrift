@@ -1,0 +1,27 @@
+{
+  "article": "Palestine",
+  "qid": "Q219060",
+  "editions": {
+    "en": {
+      "present": true,
+      "revid": 1363921684,
+      "title": "Palestine",
+      "timestamp": "2026-07-13T08:52:53Z",
+      "prose_chars": 90463
+    },
+    "he": {
+      "present": true,
+      "revid": 43569763,
+      "title": "מדינה פלסטינית",
+      "timestamp": "2026-07-10T16:22:44Z",
+      "prose_chars": 21727
+    },
+    "ar": {
+      "present": true,
+      "revid": 75877174,
+      "title": "دولة فلسطين",
+      "timestamp": "2026-07-12T15:13:08Z",
+      "prose_chars": 98420
+    }
+  }
+}

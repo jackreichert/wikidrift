@@ -1,0 +1,26 @@
+{
+  "article": "Palestinian political violence",
+  "artifacts": [
+    "findings/Palestinian_political_violence.category.json",
+    "findings/Palestinian_political_violence.cost.json",
+    "findings/Palestinian_political_violence.factcheck.json",
+    "findings/Palestinian_political_violence.framing.json",
+    "findings/Palestinian_political_violence.l1-confirmation.json",
+    "findings/Palestinian_political_violence.lexical.json",
+    "findings/Palestinian_political_violence.profile.json",
+    "findings/Palestinian_political_violence.receipts.json",
+    "findings/Palestinian_political_violence.sources.json",
+    "findings/Palestinian_political_violence.stance.json",
+    "mscore/Palestinian_political_violence.json"
+  ],
+  "slug": "Palestinian_political_violence",
+  "tables": {
+    "articles": 0,
+    "rev_size": 2485,
+    "revisions": 2485,
+    "rsnap": 944221,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

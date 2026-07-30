@@ -1,0 +1,183 @@
+{
+  "article": "Hamas",
+  "category": "israeli-palestinian",
+  "mode": "pivot_relative",
+  "pivot_window": {
+    "start": "2023-01-01",
+    "end": "2025-01-01",
+    "pwr_mass": 534063,
+    "status": "confirmed",
+    "before_revid": 1179484672,
+    "before_timestamp": "2023-10-10T12:26:45Z",
+    "after_revid": 1179484852,
+    "after_timestamp": "2023-10-10T12:28:47Z",
+    "durable_spine_drop": 0.232551
+  },
+  "editions_compared": [
+    "en",
+    "ar",
+    "he",
+    "ru",
+    "fr"
+  ],
+  "lead_chars": {
+    "en": 2081,
+    "ar": 1848,
+    "he": 2735,
+    "ru": 1075,
+    "fr": 2250
+  },
+  "snapshots": {
+    "before": {
+      "en": {
+        "revid": 1179484672,
+        "timestamp": "2023-10-10T12:26:45Z",
+        "title": "Hamas",
+        "lead": "Hamas (, ; , ; an acronym of  , ) is a Palestinian political and terrorist organization that currently governs the Gaza Strip, one of the two Palestinian territories, the other being the West Bank. Though it is headquartered in Gaza City, it also has a presence in the West Bank, in which Fatah exercises control. It is widely considered to be the \"dominant political force\" within the Palestinian territories. \n\nHamas was established soon after the first Intifada in 1987. Campaigning on using armed resistance to end the Israeli occupation, it won the 2006 Palestinian legislative election, gained a majority in the Palestinian parliament, and became the de facto governing authority of the Gaza Strip after 2007. Israel and Hamas have engaged in several wars of varying intensity since then.  It holds that the existence of Israel is inherently illegitimate, rejects a proposed two-state solution to the conflict, and promotes a solid position on the creation of a Palestinian Islamic state stretching from the Jordan River to the Mediterranean Sea. Under the ideological principles of Islamism, it promotes Palestinian nationalism in a Islamic context; it has pursued a policy of jihad, armed struggle, against the State of Israel. Hamas has pushed through changes that gave greater influence to Islamic law in the Gaza Strip. It has a social service wing, Dawah, and a military wing, the Izz ad-Din al-Qassam Brigades.\n\nHamas in recent years has gained popularity and support among Palestinians; a poll conducted in 2021 found that 53% believed Hamas was \"most deserving of representing and leading the Palestinian people\", while 14% preferred Fatah. However, its usage of human shields, hostage taking, violence against civilian populations, and lack of distinction between combatants and non-combatants, has led to many western governments designating Hamas a terrorist organization, though attempts to declare it as such at the United Nations have failed.\n\nOn October 7, 2023, Hamas launched a major operation against Israel, and Israel declared a state of war in response."
+      },
+      "ar": {
+        "revid": 64994187,
+        "timestamp": "2023-10-08T21:45:18Z",
+        "title": "حركة حماس",
+        "lead": "حركة حماس أو (حركة المقاومة الإسلامية، وتسمى اختصاراً حماس) هي حركة، إسلامية سياسية سُنية، فلسطينية، مسلحة، مقاومة للاحتلال الصهيوني ترتبط فكرياً بجماعة الإخوان المسلمين لكنها أعلنت فك ارتباطها التنظيمي بالإخوان في 2017م وتحولت لتنظيم فلسطيني مستقل، وهي جزء من حركة النهضة الإسلامية تؤمن أن هذه النهضة هي المدخل الأساسي لهدفها وهو تحرير فلسطين كاملة من النهر إلى البحر،نبذة عن حركة \"حماس\"- المركز الفلسطيني للإعلام النسخة القديمة.    وهي أكبر الفصائل الفلسطينية تمثيلًا في المجلس التشريعي الفلسطيني حسب آخر انتخابات تشريعية في فلسطين عام 2006،حماس تفوز رسميا بـ 76 مقعدا في التشريعي - الجزيرة نت.  جذورها إسلامية وتعرف نفسها على أنها حركة تحرر وطني ذات فكر إسلامي وسطي معتدل، تحصر نضالها وعملها في قضية فلسطين، ولا تتدخل في شؤون الآخرين، تعمل على توفير الظروف الملائمة لتحقيق تحرر الشعب الفلسطيني وتحرير أرضه من الاحتلال الإسرائيلي، والتصدي للمشروع الصهيوني المدعوم من قبل قوى الاستعمار الحديث، وتحرير الأرض والقدس والمقدسات الإسلامية والمسيحية، وعودة اللاجئين والنازحين، وإنجاز المشروع الوطني الفلسطيني، وإقامة الدولة الفلسطينية المستقلة ذات السيادة الحقيقية، والعمل على خدمة الشعب الفلسطيني في كافة أماكن وجوده بكل الوسائل وفي جميع المجالات، بما يمكنه من الصمود والثبات، وتحمل تبعات المواجهة مع الاحتلال الإسرائيلي.الموقع الرسمي لحركة حماس \n\nوتَعتبِر الحركة أرضَ فلسطين وقفاً إسلامياً ووطناً تاريخياً للفلسطينيين بعاصمتها القدس.\nتعتمد الحركة النظام المؤسساتي تنظيمياً، وتعتمد الشورى في اتخاذ القرار ممثلاً في مجلس شورى الحركة،خالد مشعل في حوار مع صحيفة الحياة.    تحصر الحركة مقاومتها ضد الاحتلال الإسرائيلي فقط، وليس لها أي معركة مع أي طرف في العالم، فهي لا تقاوم إلا من يقاتل الشعب الفلسطيني ويحتل أرضها، والمقاومة عند حماس وسيلة وليست غاية.\n\nتُصنف منظمة إرهابية من قبل الولايات المتحدة، والإتحاد الأوروبي، وبريطانيا، واليابان، وكندا، وأستراليا، ونيوزيلاندا، وإسرائيل، ومنظمة الدول الأمريكية."
+      },
+      "he": {
+        "revid": 37251920,
+        "timestamp": "2023-10-08T23:15:29Z",
+        "title": "חמאס",
+        "lead": "חמאס (בערבית: حماس, ראשי תיבות של حركة المقاومة الاسلامية – בתעתיק מדויק: חרכת אלמקאומה אלאסלאמיה – \"תנועת ההתנגדות האסלאמית\"; פירוש המילה \"חמאס\": התלהבות, גבורה, קנאות) הוא ארגון טרור ותנועה אסלאמיסטית-סונית פונדמנטליסטית פלסטינית שהוקמה בשנת 1987.\n\nמטרת הארגון על פי אמנת חמאס היא הקמת מדינה פלסטינית אסלאמית תאוקרטית בשטחי ארץ ישראל, הכוללים את שטחי מדינת ישראל כולל שטחי יהודה, שומרון וחבל עזה, תחת המוטו: \"אללה הוא תכליתה, הנביא הוא דמות המופת שלה, הקוראן הוא החוקה שלה, מלחמת הקודש היא דרכה, והמוות למען אללה הוא הנעלה במשאלותיה\".\n\nתנועת חמאס הוגדרה כארגון טרור על ידי מדינות רבות ובהן ישראל, ארצות הברית, הממלכה המאוחדת, האיחוד האירופי, קנדה, אוסטרליה, ירדן, יפן, נורווגיה ופרגוואי. מנגד, היא מוגדרת כתנועה פוליטית לגיטימית על ידי איראן, רוסיה, טורקיה, סין ורוב מדינות ערב. על פי הצהרות פומביות, תנועת חמאס מחולקת לשלוש זרועות:\n\n זרוע פוליטית-מדינית;\n זרוע צבאית המכונה \"גדודי עז א-דין אל-קסאם\" שהיא וה\"מוראביטון\" נאבקות בישראל באמצעות ביצוע פעולות טרור;\n זרוע אזרחית (\"דעוה\"), הפועלת לרווחת הציבור הרחב, בהפעלת מרפאות, מתן צדקה, חלוקת מזון, הקמת בתי ספר ובהשפעת פעילות הרווחה מגייסת תומכים רבים לחמאס.\n\nבחלק ממדינות המערב רואים הפרדה זו כמלאכותית ומגדירים את חמאס כארגון טרור. מאז השתלטותה על רצועת עזה, חמאס היא גם גוף שלטוני, אך לא ברור כיצד מבנה התנועה השתנה לאור המציאות הזו.\n\nבתקופת האינתיפאדה השנייה הובילה חמאס את הטרור הפלסטיני ובפרט את גל פיגועי ההתאבדות כנגד אזרחי ישראל. בשטחי יהודה ושומרון חמאס מוגרה ברובה על ידי הפעילות הצבאית של צה\"ל והשב\"כ, בעיקר במבצע חומת מגן ומאז לא מצליחה להשתקם. לעומת זאת, ברצועת עזה, למרות חיסול רוב ההנהגה הבכירה שלה (בפרט אחמד יאסין, סלאח שחאדה, איבראהים מקאדמה, עדנאן אל-ע'ול ועבד אל-עזיז א-רנתיסי), חמאס שמרה על כוחה, ואף התחזקה אל מול אוזלת ידם של מנגנוני הביטחון של הרשות הפלסטינית.\n\nבינואר 2006 זכתה רשימת \"הרפורמה והשינוי\" של חמאס ברוב בבחירות למועצה המחוקקת הפלסטינית, הפרלמנט של הרשות הפלסטינית. ראש הסיעה, אסמאעיל הנייה, מונה כראש ממשלת הרשות הפלסטינית. אולם עם פרוץ עימות חמאס-פת\"ח ברצועת עזה, פוזרה הממשלה וחמאס הוצא מחוץ לחוק על ידי ראש הרשות, מחמוד עבאס. העימות הסתיים ב-14 ביוני 2007, אז השתלטה חמאס על רצועת עזה, תוך חיסול פעילי פת\"ח. מאז שולטת חמאס ברצועה תחת הנהגתו של אסמעיל הנייה. הנייה עצמו כפוף לח'אלד משעל, העומד בראש הזרוע המדינית של חמאס ששוכנת בקטר, ולמחמוד א-זהאר, שאחראי על קשרי החוץ של הארגון בעזה. לאחר חתימת הסכם הפיוס בין פת\"ח לחמאס בקהיר באפריל 2011 אמר משעל כי חמאס תקבע את אופי המאבק נגד ישראל, כולל השימוש באלימות ובטרור, בתיאום עם פת\"ח. באוקטובר 2011 בעסקת שליט הגיעה תנועת חמאס להסכם עם ישראל על שחרורם מהכלא הישראלי של 1,027 אסירים פלסטינים, בהם 280 רוצחים שנשפטו למאסר עולם, בתמורה לשחרורו של החייל החטוף גלעד שליט. ב-2014 נחתם הסכם פיוס נוסף בין חמאס לפת\"ח והוקמה ממשלת מעבר בתמיכת שני הארגונים. נכון לשנת 2020, טרם מומש בפועל הפיוס בין התנועות."
+      },
+      "ru": {
+        "revid": 133504554,
+        "timestamp": "2023-10-09T15:52:46Z",
+        "title": "ХАМАС",
+        "lead": "ХАМА́С (, полное название —  [Харакат аль-Мукавама аль-Исламия] «Исламское движение сопротивления») — палестинское исламистское террористическое«В сущности, ислам для ХАМАСа всегда был не столько политической идеологией, сколько инструментом мобилизации в войне за национальное освобождение» (Оливье Руа)   движение и политическая партия, правящая в секторе Газа (с июля 2007 года). Ассоциированное военное крыло — бригады «Изз ад-Дин аль-Кассам».\n\nХАМАС признан террористической организацией Израилем, Канадой, США, Японией, Европейским Союзом, Организацией американских государств, а также в ряде других стран. Также запрещён в Иордании и Египте. В Австралии и Великобритании террористическим признают только военное крыло ХАМАС.\n\nХамас не признаётся террористической организацией, в частности, в России, Норвегии, Турции, КНР, Катаре, странах Организации исламского сотрудничества, а также в ряде других стран.\n\nРоссия не причисляет ХАМАС к террористическим организациям, но и не поддерживает его радикальных методов ведения политики, так же как и его непризнания Израиля."
+      },
+      "fr": {
+        "revid": 208584149,
+        "timestamp": "2023-10-09T22:10:49Z",
+        "title": "Hamas",
+        "lead": "Le , acronyme partiel de harakat al-muqâwama al-'islâmiya (, « Mouvement de résistance islamique »), est un mouvement palestinien constitué d'une branche politique et d'une branche armée, les Brigades Izz al-Din al-Qassam. Le Hamas est principalement actif à Gaza qu'il administre seul depuis juin 2007, après sa victoire aux élections législatives et l'éviction de l'Autorité palestinienne après une brève guerre civile.\n\nCréé en 1987 par Sheikh Ahmed Yassin, Abdel Aziz al-Rantissi et Mohammed Taha, tous trois issus des Frères musulmans, sa charte affirme que . Il prône la destruction de l'État d'Israël et l'instauration d'un état islamique palestinien sur tout le territoire de l'ancienne Palestine mandataire, bien que  puisse aboutir à une .\n\nDans le cadre du conflit israélo-palestinien, le Hamas se définit lui-même comme un mouvement trouvant ses principes dans le Coran et se battant au nom de l'islam. Les militants du Hamas, dont ceux des Brigades Izz al-Din al-Qassam, prennent pour cible aussi bien les militaires que les civils israéliens.\n\nEntre  et 2005, le Hamas a organisé plusieurs dizaines d'attentats suicides visant essentiellement des civils. Il a déclaré en  renoncer à ce type d'actionsLe Hamas appelle à la cessation des attentats-suicides, The Observer, préférant tirer des roquettes de type Qassam et des missiles Grad sur des villes israéliennes dont Sdérot, Ashdod, Ashkelon et Beer Sheva.\n\nEn 2023, le Hamas est à l'origine d'une attaque coordonnée contre Israël, l'opération Déluge d'al-Aqsa, d'une envergure inédite. \n\nSur le plan géopolitique, le Hamas est considéré comme un allié proche du Hezbollah et de l'Iran. Ces derniers lui fournissent armement et financement.\n\nLe Hamas est classé mouvement terroriste par plusieurs pays dont le Canada, les États-Unis ou encore le Japon, ainsi que l'Union européenne. D'autres à l'instar de la Grande-Bretagne, l'Australie ou encore l'Égypte, n'accordent ce qualificatif qu'à sa branche armée. D'autres enfin, comme la Chine, la plupart des pays arabo-musulmans ou encore la Norvège ne le classent pas de la sorte."
+      }
+    },
+    "after": {
+      "en": {
+        "revid": 1179484852,
+        "timestamp": "2023-10-10T12:28:47Z",
+        "title": "Hamas",
+        "lead": "Hamas (, ; , ; an acronym of  , ) is a Palestinian political and terrorist organization that currently governs the Gaza Strip, one of the two Palestinian territories, the other being the West Bank. Though it is headquartered in Gaza City, it also has a presence in the West Bank, in which Fatah exercises control. It is widely considered to be the \"dominant political force\" within the Palestinian territories. \n\nHamas was established soon after the first Intifada in 1987. Campaigning on using armed resistance to end the Israeli occupation, it won the 2006 Palestinian legislative election, gained a majority in the Palestinian parliament, and became the de facto governing authority of the Gaza Strip after 2007. Israel and Hamas have engaged in several wars of varying intensity since then.  It holds that the existence of Israel is inherently illegitimate, rejects a proposed two-state solution to the conflict, and promotes a solid position on the creation of a Palestinian Islamic state stretching from the Jordan River to the Mediterranean Sea. Under the ideological principles of Islamism, it promotes Palestinian nationalism in a Islamic context; it has pursued a policy of jihad, armed struggle, against the State of Israel. Hamas has pushed through changes that gave greater influence to Islamic law in the Gaza Strip. It has a social service wing, Dawah, and a military wing, the Izz ad-Din al-Qassam Brigades.\n\nHamas in recent years has gained popularity and support among Palestinians; a poll conducted in 2021 found that 53% believed Hamas was \"most deserving of representing and leading the Palestinian people\", while 14% preferred Fatah. However, its usage of human shields, hostage taking, violence against civilian populations, and lack of distinction between combatants and non-combatants, has led to many western governments designating Hamas a terrorist organization, though attempts to declare it as such at the United Nations have failed.\n\nOn October 7, 2023, Hamas launched a major operation against Israel, and Israel declared a state of war in response."
+      },
+      "ar": {
+        "revid": 65004918,
+        "timestamp": "2023-10-10T12:39:07Z",
+        "title": "حركة حماس",
+        "lead": "حماس منظمة إرهابية، وسوف تختفي قريبا من الإنسانية.\n\nحركة حماس أو (حركة المقاومة الإسلامية، وتسمى اختصاراً حماس) هي حركة، إسلامية سياسية سُنية، فلسطينية، مسلحة، مقاومة للاحتلال الصهيوني ترتبط فكرياً بجماعة الإخوان المسلمين لكنها أعلنت فك ارتباطها التنظيمي بالإخوان في 2017م وتحولت لتنظيم فلسطيني مستقل، وهي جزء من حركة النهضة الإسلامية تؤمن أن هذه النهضة هي المدخل الأساسي لهدفها وهو تحرير فلسطين كاملة من النهر إلى البحر،نبذة عن حركة \"حماس\"- المركز الفلسطيني للإعلام النسخة القديمة.    وهي أكبر الفصائل الفلسطينية تمثيلًا في المجلس التشريعي الفلسطيني حسب آخر انتخابات تشريعية في فلسطين عام 2006،حماس تفوز رسميا بـ 76 مقعدا في التشريعي - الجزيرة نت.  جذورها إسلامية وتعرف نفسها على أنها حركة تحرر وطني ذات فكر إسلامي وسطي معتدل، تحصر نضالها وعملها في قضية فلسطين، ولا تتدخل في شؤون الآخرين، تعمل على توفير الظروف الملائمة لتحقيق تحرر الشعب الفلسطيني وتحرير أرضه من الاحتلال الإسرائيلي، والتصدي للمشروع الصهيوني المدعوم من قبل قوى الاستعمار الحديث، وتحرير الأرض والقدس والمقدسات الإسلامية والمسيحية، وعودة اللاجئين والنازحين، وإنجاز المشروع الوطني الفلسطيني، وإقامة الدولة الفلسطينية المستقلة ذات السيادة الحقيقية، والعمل على خدمة الشعب الفلسطيني في كافة أماكن وجوده بكل الوسائل وفي جميع المجالات، بما يمكنه من الصمود والثبات، وتحمل تبعات المواجهة مع الاحتلال الإسرائيلي.الموقع الرسمي لحركة حماس \n\nوتَعتبِر الحركة أرضَ فلسطين وقفاً إسلامياً ووطناً تاريخياً للفلسطينيين بعاصمتها القدس.\nتعتمد الحركة النظام المؤسساتي تنظيمياً، وتعتمد الشورى في اتخاذ القرار ممثلاً في مجلس شورى الحركة،خالد مشعل في حوار مع صحيفة الحياة.    تحصر الحركة مقاومتها ضد الاحتلال الإسرائيلي فقط، وليس لها أي معركة مع أي طرف في العالم، فهي لا تقاوم إلا من يقاتل الشعب الفلسطيني ويحتل أرضها، والمقاومة عند حماس وسيلة وليست غاية.\n\nتُصنف منظمة إرهابية من قبل الولايات المتحدة، والإتحاد الأوروبي، وبريطانيا، واليابان، وكندا، وأستراليا، ونيوزيلاندا، وإسرائيل، ومنظمة الدول الأمريكية."
+      },
+      "he": {
+        "revid": 37259815,
+        "timestamp": "2023-10-10T12:36:58Z",
+        "title": "חמאס",
+        "lead": "חמאס (בערבית: حماس, ראשי תיבות של حركة المقاومة الاسلامية – בתעתיק מדויק: חרכת אלמקאומה אלאסלאמיה – \"תנועת ההתנגדות האסלאמית\"; פירוש המילה \"חמאס\": התלהבות, גבורה, קנאות) הוא ארגון טרור ותנועה אסלאמיסטית-סונית פונדמנטליסטית פלסטינית שהוקמה בשנת 1987.\n\nמטרת הארגון על פי אמנת חמאס היא הקמת מדינה פלסטינית אסלאמית תאוקרטית בשטחי ארץ ישראל, הכוללים את שטחי מדינת ישראל כולל שטחי יהודה, שומרון וחבל עזה, תחת המוטו: \"אללה הוא תכליתה, הנביא הוא דמות המופת שלה, הקוראן הוא החוקה שלה, מלחמת הקודש היא דרכה, והמוות למען אללה הוא הנעלה במשאלותיה\".\n\nתנועת חמאס הוגדרה כארגון טרור על ידי מדינות רבות ובהן ישראל, ארצות הברית, הממלכה המאוחדת, האיחוד האירופי, קנדה, אוסטרליה, ירדן, יפן, נורווגיה ופרגוואי. מנגד, היא מוגדרת כתנועה פוליטית לגיטימית על ידי איראן, רוסיה, טורקיה, סין ורוב מדינות ערב. על פי הצהרות פומביות, תנועת חמאס מחולקת לשלוש זרועות:\n\n זרוע פוליטית-מדינית;\n זרוע צבאית המכונה \"גדודי עז א-דין אל-קסאם\" שהיא וה\"מוראביטון\" נאבקות בישראל באמצעות ביצוע פעולות טרור;\n זרוע אזרחית (\"דעוה\"), הפועלת לרווחת הציבור הרחב, בהפעלת מרפאות, מתן צדקה, חלוקת מזון, הקמת בתי ספר ובהשפעת פעילות הרווחה מגייסת תומכים רבים לחמאס.\n\nבחלק ממדינות המערב רואים הפרדה זו כמלאכותית ומגדירים את חמאס כארגון טרור. מאז השתלטותה על רצועת עזה, חמאס היא גם גוף שלטוני, אך לא ברור כיצד מבנה התנועה השתנה לאור המציאות הזו.\n\nבתקופת האינתיפאדה השנייה הובילה חמאס את הטרור הפלסטיני ובפרט את גל פיגועי ההתאבדות כנגד אזרחי ישראל. בשטחי יהודה ושומרון חמאס מוגרה ברובה על ידי הפעילות הצבאית של צה\"ל והשב\"כ, בעיקר במבצע חומת מגן ומאז לא מצליחה להשתקם. לעומת זאת, ברצועת עזה, למרות חיסול רוב ההנהגה הבכירה שלה (בפרט אחמד יאסין, סלאח שחאדה, איבראהים מקאדמה, עדנאן אל-ע'ול ועבד אל-עזיז א-רנתיסי), חמאס שמרה על כוחה, ואף התחזקה אל מול אוזלת ידם של מנגנוני הביטחון של הרשות הפלסטינית.\n\nבינואר 2006 זכתה רשימת \"הרפורמה והשינוי\" של חמאס ברוב בבחירות למועצה המחוקקת הפלסטינית, הפרלמנט של הרשות הפלסטינית. ראש הסיעה, אסמאעיל הנייה, מונה כראש ממשלת הרשות הפלסטינית. אולם עם פרוץ עימות חמאס-פת\"ח ברצועת עזה, פוזרה הממשלה וחמאס הוצא מחוץ לחוק על ידי ראש הרשות, מחמוד עבאס. העימות הסתיים ב-14 ביוני 2007, אז השתלטה חמאס על רצועת עזה, תוך חיסול פעילי פת\"ח. מאז שולטת חמאס ברצועה תחת הנהגתו של אסמעיל הנייה. הנייה עצמו כפוף לח'אלד משעל, העומד בראש הזרוע המדינית של חמאס ששוכנת בקטר, ולמחמוד א-זהאר, שאחראי על קשרי החוץ של הארגון בעזה. לאחר חתימת הסכם הפיוס בין פת\"ח לחמאס בקהיר באפריל 2011 אמר משעל כי חמאס תקבע את אופי המאבק נגד ישראל, כולל השימוש באלימות ובטרור, בתיאום עם פת\"ח. באוקטובר 2011 בעסקת שליט הגיעה תנועת חמאס להסכם עם ישראל על שחרורם מהכלא הישראלי של 1,027 אסירים פלסטינים, בהם 280 רוצחים שנשפטו למאסר עולם, בתמורה לשחרורו של החייל החטוף גלעד שליט. ב-2014 נחתם הסכם פיוס נוסף בין חמאס לפת\"ח והוקמה ממשלת מעבר בתמיכת שני הארגונים. נכון לשנת 2020, טרם מומש בפועל הפיוס בין התנועות."
+      },
+      "ru": {
+        "revid": 133536866,
+        "timestamp": "2023-10-11T10:14:53Z",
+        "title": "ХАМАС",
+        "lead": "ХАМА́С (, полное название —  [Харакат аль-Мукавама аль-Исламия] «Исламское движение сопротивления») — палестинское исламистское террористическое«В сущности, ислам для ХАМАСа всегда был не столько политической идеологией, сколько инструментом мобилизации в войне за национальное освобождение» (Оливье Руа)   движение и политическая партия, правящая в секторе Газа (с июля 2007 года). Ассоциированное военное крыло — бригады «Изз ад-Дин аль-Кассам».\n\nХАМАС признан террористической организацией Израилем, Канадой, США, Японией, Европейским Союзом, Организацией американских государств, а также в ряде других стран. Также запрещён в Иордании и Египте. В Австралии и Великобритании террористическим признают только военное крыло ХАМАС.\n\nХамас не признаётся террористической организацией, в частности, в России, Норвегии, Турции, КНР, Катаре, странах Организации исламского сотрудничества, а также в ряде других стран.\n\nРоссия не причисляет ХАМАС к террористическим организациям, но и не поддерживает его радикальных методов ведения политики, так же как и его непризнания Израиля."
+      },
+      "fr": {
+        "revid": 208602289,
+        "timestamp": "2023-10-10T16:51:13Z",
+        "title": "Hamas",
+        "lead": "Le , acronyme partiel de harakat al-muqâwama al-'islâmiya (, « Mouvement de résistance islamique »), est un mouvement palestinien constitué d'une branche politique et d'une branche armée, les Brigades Izz al-Din al-Qassam. Le Hamas est principalement actif à Gaza qu'il administre seul depuis juin 2007, après sa victoire aux élections législatives et l'éviction de l'Autorité palestinienne après une brève guerre civile.\n\nCréé en 1987 par Sheikh Ahmed Yassin, Abdel Aziz al-Rantissi et Mohammed Taha, tous trois issus des Frères musulmans, sa charte affirme que . Il prône la destruction de l'État d'Israël et l'instauration d'un état islamique palestinien sur tout le territoire de l'ancienne Palestine mandataire, bien que  puisse aboutir à une .\n\nLe développement du Hamas est d'abord soutenu par le gouvernement israélien, lequel entend ainsi affaiblir l'Organisation de libération de la Palestine'.\n\nDans le cadre du conflit israélo-palestinien, le Hamas se définit lui-même comme un mouvement trouvant ses principes dans le Coran et se battant au nom de l'islam. Les militants du Hamas, dont ceux des Brigades Izz al-Din al-Qassam, prennent pour cible aussi bien les militaires que les civils israéliens.\n\nEntre  et 2005, le Hamas a organisé plusieurs dizaines d'attentats suicides visant essentiellement des civils. Il a déclaré en  renoncer à ce type d'actionsLe Hamas appelle à la cessation des attentats-suicides, The Observer, préférant tirer des roquettes de type Qassam et des missiles Grad sur des villes israéliennes dont Sdérot, Ashdod, Ashkelon et Beer Sheva.\n\nEn 2023, le Hamas est à l'origine d'une attaque coordonnée contre Israël, l'opération Déluge d'al-Aqsa, d'une envergure inédite. \n\nSur le plan géopolitique, le Hamas est considéré comme un allié proche du Hezbollah et de l'Iran. Ces derniers lui fournissent armement et financement.\n\nLe Hamas est classé mouvement terroriste par plusieurs pays dont le Canada, les États-Unis ou encore le Japon, ainsi que l'Union européenne. D'autres à l'instar de la Grande-Bretagne, l'Australie ou encore l'Égypte, n'accordent ce qualificatif qu'à sa branche armée. D'autres enfin, comme la Chine, la plupart des pays arabo-musulmans ou encore la Norvège ne le classent pas de la sorte."
+      }
+    }
+  },
+  "divergences": [
+    {
+      "topic": "AR edition briefly added vandalism/editorial statement predicting Hamas's disappearance",
+      "editions_differ": [
+        "AR"
+      ],
+      "en_says": "Hamas (, ; , ; an acronym of  , ) is a Palestinian political and terrorist organization that currently governs the Gaza Strip...",
+      "other_says": "حماس منظمة إرهابية، وسوف تختفي قريبا من الإنسانية. (Hamas is a terrorist organization, and will soon disappear from humanity.)",
+      "verdict": "contradict",
+      "evidence_en": "Hamas (, ; , ; an acronym of  , ) is a Palestinian political and terrorist organization that currently governs the Gaza Strip",
+      "evidence_other": "حماس منظمة إرهابية، وسوف تختفي قريبا من الإنسانية.",
+      "temporal_read": "difference_persisted",
+      "en_before": "Hamas (, ; , ; an acronym of  , ) is a Palestinian political and terrorist organization that currently governs the Gaza Strip, one of the two Palestinian territories...",
+      "en_after": "Hamas (, ; , ; an acronym of  , ) is a Palestinian political and terrorist organization that currently governs the Gaza Strip, one of the two Palestinian territories...",
+      "other_before": "حركة حماس أو (حركة المقاومة الإسلامية...) هي حركة، إسلامية سياسية سُنية، فلسطينية، مسلحة، مقاومة للاحتلال الصهيوني...",
+      "other_after": "حماس منظمة إرهابية، وسوف تختفي قريبا من الإنسانية. حركة حماس أو (حركة المقاومة الإسلامية...)",
+      "evidence_en_before": "Hamas (, ; , ; an acronym of  , ) is a Palestinian political and terrorist organization that currently governs the Gaza Strip",
+      "evidence_en_after": "Hamas (, ; , ; an acronym of  , ) is a Palestinian political and terrorist organization that currently governs the Gaza Strip",
+      "evidence_other_before": "حركة حماس أو (حركة المقاومة الإسلامية، وتسمى اختصاراً حماس) هي حركة، إسلامية سياسية سُنية، فلسطينية، مسلحة، مقاومة للاحتلال الصهيوني",
+      "evidence_other_after": "حماس منظمة إرهابية، وسوف تختفي قريبا من الإنسانية."
+    },
+    {
+      "topic": "FR edition added detail on Israeli government's early support for Hamas to weaken PLO",
+      "editions_differ": [
+        "FR"
+      ],
+      "en_says": "Hamas was established soon after the first Intifada in 1987. Campaigning on using armed resistance to end the Israeli occupation, it won the 2006 Palestinian legislative election...",
+      "other_says": "Le développement du Hamas est d'abord soutenu par le gouvernement israélien, lequel entend ainsi affaiblir l'Organisation de libération de la Palestine.",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": null,
+      "temporal_read": "english_moved_away",
+      "en_before": "Hamas was established soon after the first Intifada in 1987. Campaigning on using armed resistance to end the Israeli occupation, it won the 2006 Palestinian legislative election...",
+      "en_after": "Hamas was established soon after the first Intifada in 1987. Campaigning on using armed resistance to end the Israeli occupation, it won the 2006 Palestinian legislative election...",
+      "other_before": "Créé en 1987 par Sheikh Ahmed Yassin, Abdel Aziz al-Rantissi et Mohammed Taha, tous trois issus des Frères musulmans, sa charte affirme que...",
+      "other_after": "Le développement du Hamas est d'abord soutenu par le gouvernement israélien, lequel entend ainsi affaiblir l'Organisation de libération de la Palestine.",
+      "evidence_en_before": null,
+      "evidence_en_after": null,
+      "evidence_other_before": null,
+      "evidence_other_after": null
+    },
+    {
+      "topic": "Framing of Hamas as terrorist organization vs. political/resistance movement",
+      "editions_differ": [
+        "AR",
+        "HE",
+        "RU",
+        "FR"
+      ],
+      "en_says": "Hamas...is a Palestinian political and terrorist organization that currently governs the Gaza Strip",
+      "other_says": "حركة، إسلامية سياسية سُنية، فلسطينية، مسلحة، مقاومة للاحتلال الصهيوني (an Islamic political Sunni, Palestinian, armed movement resisting Zionist occupation)",
+      "verdict": "contradict",
+      "evidence_en": "Hamas (, ; , ; an acronym of  , ) is a Palestinian political and terrorist organization that currently governs the Gaza Strip",
+      "evidence_other": "هي حركة، إسلامية سياسية سُنية، فلسطينية، مسلحة، مقاومة للاحتلال الصهيوني",
+      "temporal_read": "difference_persisted",
+      "en_before": "Hamas (, ; , ; an acronym of  , ) is a Palestinian political and terrorist organization that currently governs the Gaza Strip",
+      "en_after": "Hamas (, ; , ; an acronym of  , ) is a Palestinian political and terrorist organization that currently governs the Gaza Strip",
+      "other_before": "حركة حماس أو (حركة المقاومة الإسلامية، وتسمى اختصاراً حماس) هي حركة، إسلامية سياسية سُنية، فلسطينية، مسلحة، مقاومة للاحتلال الصهيوني",
+      "other_after": "حركة حماس أو (حركة المقاومة الإسلامية، وتسمى اختصاراً حماس) هي حركة، إسلامية سياسية سُنية، فلسطينية، مسلحة، مقاومة للاحتلال الصهيوني",
+      "evidence_en_before": "is a Palestinian political and terrorist organization that currently governs the Gaza Strip",
+      "evidence_en_after": "is a Palestinian political and terrorist organization that currently governs the Gaza Strip",
+      "evidence_other_before": "هي حركة، إسلامية سياسية سُنية، فلسطينية، مسلحة، مقاومة للاحتلال الصهيوني",
+      "evidence_other_after": "هي حركة، إسلامية سياسية سُنية، فلسطينية، مسلحة، مقاومة للاحتلال الصهيوني"
+    }
+  ],
+  "summary": "Across this narrow window (surrounding the October 7, 2023 attack), the English lead remained textually unchanged between the BEFORE and AFTER revisions. Other editions showed brief, mostly transient edits: Arabic saw a vandalism-like insertion predicting Hamas's disappearance, later presumably reverted, which sits outside and contradicts the stable English framing. French added a substantive historical claim about Israeli support for Hamas's early development to weaken the PLO, a detail absent from English. Hebrew and Russian showed no substantive textual change in this window. A persistent cross-edition divergence unrelated to the time window is the framing of Hamas as 'terrorist' in English versus more neutral 'resistance movement' framing in Arabic, reflecting differing national/political perspectives rather than temporal drift within this snapshot.",
+  "run_ts": "2026-07-19T17:37:14.072940+00:00",
+  "model": "claude-sonnet-5",
+  "llm_usage": {
+    "calls": 1,
+    "input_tokens": 12271,
+    "output_tokens": 2585,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 12271,
+        "output_tokens": 2585,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
+  },
+  "elapsed_seconds": 56.367
+}

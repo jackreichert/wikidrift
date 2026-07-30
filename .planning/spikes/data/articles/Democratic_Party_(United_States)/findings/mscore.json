@@ -1,0 +1,17 @@
+{
+  "Democratic Party (United States)": {
+    "raw": {
+      "revs": 17053,
+      "mutual_pairs": 373,
+      "M": 2355627,
+      "M_per_rev": 138.14
+    },
+    "refined": {
+      "revs": 14265,
+      "mutual_pairs": 62,
+      "M": 175525,
+      "M_per_rev": 12.3
+    },
+    "refined_per_rev": 10.29
+  }
+}

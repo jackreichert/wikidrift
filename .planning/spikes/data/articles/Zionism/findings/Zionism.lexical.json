@@ -1,0 +1,301 @@
+{
+  "article": "Zionism",
+  "span": "2024-07-01 -> 2025-01-01 (around L1 pivot ~2024-07-01)",
+  "pivot": "2024-07-01",
+  "before": {
+    "date": "2024-07-01",
+    "rev": 1231996457,
+    "tokens": 9892
+  },
+  "after": {
+    "date": "2025-01-01",
+    "rev": 1266600009,
+    "tokens": 14171
+  },
+  "js_divergence": 0.1159,
+  "overrepresented_after_terms": [
+    {
+      "term": "motivated",
+      "before": 0,
+      "after": 14,
+      "delta": 14,
+      "log_odds": 3.0088
+    },
+    {
+      "term": "driven",
+      "before": 0,
+      "after": 12,
+      "delta": 12,
+      "log_odds": 2.8603
+    },
+    {
+      "term": "create",
+      "before": 0,
+      "after": 9,
+      "delta": 9,
+      "log_odds": 2.5856
+    },
+    {
+      "term": "employment",
+      "before": 0,
+      "after": 9,
+      "delta": 9,
+      "log_odds": 2.5856
+    },
+    {
+      "term": "labour",
+      "before": 0,
+      "after": 8,
+      "delta": 8,
+      "log_odds": 2.4743
+    },
+    {
+      "term": "considerations",
+      "before": 0,
+      "after": 7,
+      "delta": 7,
+      "log_odds": 2.3491
+    },
+    {
+      "term": "economy",
+      "before": 0,
+      "after": 7,
+      "delta": 7,
+      "log_odds": 2.3491
+    },
+    {
+      "term": "purchase",
+      "before": 0,
+      "after": 7,
+      "delta": 7,
+      "log_odds": 2.3491
+    },
+    {
+      "term": "sector",
+      "before": 0,
+      "after": 7,
+      "delta": 7,
+      "log_odds": 2.3491
+    },
+    {
+      "term": "themes",
+      "before": 0,
+      "after": 7,
+      "delta": 7,
+      "log_odds": 2.3491
+    },
+    {
+      "term": "whether",
+      "before": 0,
+      "after": 7,
+      "delta": 7,
+      "log_odds": 2.3491
+    },
+    {
+      "term": "achieve",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 2.2059
+    },
+    {
+      "term": "dependent",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 2.2059
+    },
+    {
+      "term": "dispossession",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 2.2059
+    },
+    {
+      "term": "hess",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 2.2059
+    },
+    {
+      "term": "motzkin",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 2.2059
+    },
+    {
+      "term": "quasi",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 2.2059
+    },
+    {
+      "term": "reality",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 2.2059
+    },
+    {
+      "term": "acquisition",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 2.0388
+    },
+    {
+      "term": "agreement",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 2.0388
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "est",
+      "before": 7,
+      "after": 0,
+      "delta": -7,
+      "log_odds": -3.0682
+    },
+    {
+      "term": "black",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -2.925
+    },
+    {
+      "term": "garvey",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.7579
+    },
+    {
+      "term": "israelites",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.7579
+    },
+    {
+      "term": "lived",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.7579
+    },
+    {
+      "term": "academic",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.5571
+    },
+    {
+      "term": "accessed",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.5571
+    },
+    {
+      "term": "literature",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.5571
+    },
+    {
+      "term": "persian",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.5571
+    },
+    {
+      "term": "protocols",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.5571
+    },
+    {
+      "term": "roman",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.5571
+    },
+    {
+      "term": "archaeology",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.3057
+    },
+    {
+      "term": "continue",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.3057
+    },
+    {
+      "term": "http",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.3057
+    },
+    {
+      "term": "oneworld",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.3057
+    },
+    {
+      "term": "philanthropist",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.3057
+    },
+    {
+      "term": "supporter",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.3057
+    },
+    {
+      "term": "visit",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.3057
+    },
+    {
+      "term": "writings",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.3057
+    },
+    {
+      "term": "empire",
+      "before": 11,
+      "after": 2,
+      "delta": -9,
+      "log_odds": -1.8865
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

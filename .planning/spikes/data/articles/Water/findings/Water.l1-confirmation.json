@@ -1,0 +1,32 @@
+{
+  "article": "Water",
+  "run_ts": "2026-07-19T17:52:08.992502+00:00",
+  "corpus_horizon": {
+    "snapshot_date": "2026-07-01",
+    "snapshot_revid": 1361772051
+  },
+  "thresholds": {
+    "confirm_drop": 0.2,
+    "durable_quantile": 0.5,
+    "min_cohort": 500,
+    "magnitude_floor": 25.0
+  },
+  "coarse_verdict": "PIVOT?",
+  "status": "confirmed",
+  "confirmed_episodes": [
+    {
+      "candidate_start": "2007-07-01",
+      "candidate_end": "2008-01-01",
+      "candidate_before_revid": 141767077,
+      "candidate_after_revid": 181417682,
+      "before_revid": 175167658,
+      "before_timestamp": "2007-12-02T01:00:19Z",
+      "after_revid": 175175239,
+      "after_timestamp": "2007-12-02T01:43:14Z",
+      "durable_spine_drop": 0.434967,
+      "pwr_mass": 17570,
+      "peak_pct": 40.39,
+      "status": "confirmed"
+    }
+  ]
+}

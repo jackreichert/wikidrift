@@ -13,10 +13,13 @@ target/
 # Local token corpus — regenerable from the APIs/dumps, binary, ~1 GB
 *.duckdb
 *.duckdb.wal
+.planning/spikes/data/articles/**/provenance.duckdb*
+.planning/spikes/data/articles/**/logs/
 
 # Re-downloadable caches under the data dir (NOT findings — see below)
 .planning/spikes/data/history-xml/
 .planning/spikes/data/mscore/
+.planning/spikes/data/articles/**/mscore/
 
 # Large fetched artifacts (regenerable from the APIs/dumps) — spike 011 xml/ alone is ~11 GB
 .planning/spikes/**/xml/

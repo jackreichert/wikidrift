@@ -1,0 +1,66 @@
+{
+  "article": "Xi Jinping",
+  "run_ts": "2026-07-30T21:24:44.634467+00:00",
+  "corpus_horizon": {
+    "snapshot_date": "2026-07-01",
+    "snapshot_revid": 1362102753
+  },
+  "thresholds": {
+    "confirm_drop": 0.2,
+    "durable_quantile": 0.5,
+    "min_cohort": 500,
+    "magnitude_floor": 25.0,
+    "rolling_window_months": 12,
+    "rolling_tolerance_days": 35,
+    "rolling_drop": 20.0
+  },
+  "coarse_verdict": "PIVOT?",
+  "status": "confirmed",
+  "confirmed_episodes": [
+    {
+      "candidate_start": "2025-07-01",
+      "candidate_end": "2026-07-01",
+      "candidate_before_revid": 1298217901,
+      "candidate_after_revid": 1362102753,
+      "before_revid": 1330140042,
+      "before_timestamp": "2025-12-29T18:10:32Z",
+      "after_revid": 1330142648,
+      "after_timestamp": "2025-12-29T18:28:31Z",
+      "durable_spine_drop": 0.271451,
+      "pwr_mass": 218181,
+      "peak_pct": 28.14,
+      "source": "rolling",
+      "status": "confirmed"
+    },
+    {
+      "candidate_start": "2024-01-01",
+      "candidate_end": "2025-01-01",
+      "candidate_before_revid": 1192819745,
+      "candidate_after_revid": 1266321183,
+      "before_revid": 1219212475,
+      "before_timestamp": "2024-04-16T11:41:07Z",
+      "after_revid": 1219223964,
+      "after_timestamp": "2024-04-16T13:15:31Z",
+      "durable_spine_drop": 0.288069,
+      "pwr_mass": 163629,
+      "peak_pct": 23.77,
+      "source": "rolling",
+      "status": "confirmed"
+    },
+    {
+      "candidate_start": "2022-07-01",
+      "candidate_end": "2023-07-01",
+      "candidate_before_revid": 1095897479,
+      "candidate_after_revid": 1162815327,
+      "before_revid": 1105511747,
+      "before_timestamp": "2022-08-20T16:15:52Z",
+      "after_revid": 1105516914,
+      "after_timestamp": "2022-08-20T16:42:45Z",
+      "durable_spine_drop": 0.235491,
+      "pwr_mass": 121972,
+      "peak_pct": 21.23,
+      "source": "rolling",
+      "status": "confirmed"
+    }
+  ]
+}

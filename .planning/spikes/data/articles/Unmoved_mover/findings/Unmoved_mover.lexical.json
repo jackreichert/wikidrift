@@ -1,0 +1,175 @@
+{
+  "article": "Unmoved mover",
+  "span": "2006-01-01 -> 2026-07-01 (no L1 pivot — whole history)",
+  "pivot": null,
+  "before": {
+    "date": "2006-01-01",
+    "rev": 31673443,
+    "tokens": 51
+  },
+  "after": {
+    "date": "2026-07-01",
+    "rev": 1351047456,
+    "tokens": 1066
+  },
+  "js_divergence": 0.5283,
+  "overrepresented_after_terms": [
+    {
+      "term": "god",
+      "before": 0,
+      "after": 17,
+      "delta": 17,
+      "log_odds": 0.5409
+    },
+    {
+      "term": "theology",
+      "before": 0,
+      "after": 14,
+      "delta": 14,
+      "log_odds": 0.35
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "composed",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -2.5375
+    },
+    {
+      "term": "moved",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -2.5375
+    },
+    {
+      "term": "itself",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": -2.2
+    },
+    {
+      "term": "only",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": -1.9478
+    },
+    {
+      "term": "unmoved",
+      "before": 3,
+      "after": 14,
+      "delta": 11,
+      "log_odds": -1.656
+    },
+    {
+      "term": "category",
+      "before": 1,
+      "after": 6,
+      "delta": 5,
+      "log_odds": -1.5782
+    },
+    {
+      "term": "mover",
+      "before": 3,
+      "after": 16,
+      "delta": 13,
+      "log_odds": -1.5249
+    },
+    {
+      "term": "motion",
+      "before": 1,
+      "after": 7,
+      "delta": 6,
+      "log_odds": -1.4341
+    },
+    {
+      "term": "substance",
+      "before": 1,
+      "after": 8,
+      "delta": 7,
+      "log_odds": -1.308
+    },
+    {
+      "term": "metaphysics",
+      "before": 1,
+      "after": 9,
+      "delta": 8,
+      "log_odds": -1.1959
+    },
+    {
+      "term": "physics",
+      "before": 1,
+      "after": 9,
+      "delta": 8,
+      "log_odds": -1.1959
+    },
+    {
+      "term": "according",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": -1.0818
+    },
+    {
+      "term": "became",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": -1.0818
+    },
+    {
+      "term": "beginning",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": -1.0818
+    },
+    {
+      "term": "changed",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": -1.0818
+    },
+    {
+      "term": "come",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": -1.0818
+    },
+    {
+      "term": "concept",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": -1.0818
+    },
+    {
+      "term": "concludes",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": -1.0818
+    },
+    {
+      "term": "cosmos",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": -1.0818
+    },
+    {
+      "term": "different",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": -1.0818
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

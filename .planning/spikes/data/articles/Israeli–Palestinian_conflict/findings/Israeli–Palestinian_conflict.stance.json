@@ -1,0 +1,79 @@
+{
+  "article": "Israeli–Palestinian conflict",
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "entities": [
+    "Israeli–Palestinian conflict"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Israeli–Palestinian conflict": {
+          "entity": "Israeli–Palestinian conflict",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "The Israeli–Palestinian conflict began in the late 19th and early 20th centuries, with the development of political Zionism and the arrival of Zionist settlers to Palestine."
+        }
+      },
+      "lead": {
+        "Israeli–Palestinian conflict": {
+          "entity": "Israeli–Palestinian conflict",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "Israel constructing illegal settlements there, creating a system of institutionalized discrimination against Palestinians under its occupation referred to as Israeli apartheid"
+        }
+      }
+    },
+    "he": {
+      "focal": {
+        "Israeli–Palestinian conflict": {
+          "entity": "Israeli–Palestinian conflict",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "הסכסוך הישראלי-פלסטיני, כחלק מהסכסוך היהודי-ערבי, נחלק לשבע תקופות, שונות מהותית זו מזו"
+        }
+      },
+      "lead": {
+        "Israeli–Palestinian conflict": {
+          "entity": "Israeli–Palestinian conflict",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "הוא סכסוך בין תושביה היהודים של ארץ ישראל... לבין ערביי ארץ ישראל (פלסטינים)"
+        },
+        "Israel": {
+          "entity": "Israel",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "ישראל רואה באלימות נגד חיילים ואזרחים ישראלים כפעולות טרור"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "בעוד הפלסטינים רואים את הכיבוש הישראלי כפסול"
+        }
+      }
+    },
+    "ar": {
+      "focal": {
+        "Israeli–Palestinian conflict": {
+          "entity": "Israeli–Palestinian conflict",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "قضية اللاجئين الفلسطينيين وشرعية دولة إسرائيل واحتلالها للأراضي الفلسطينية بعدة مراحل"
+        }
+      },
+      "lead": {
+        "Israeli–Palestinian conflict": {
+          "entity": "Israeli–Palestinian conflict",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "وما نتج عن ذلك من ارتكابها للمجازر بحق الفلسطينيين وعمليات المقاومة ضد الدولة العبرية... لاقى هذا المشروع الصهيوني غضباً شعبياً عم كل فلسطين، ورفضاً قاطعاً"
+        }
+      }
+    }
+  }
+}

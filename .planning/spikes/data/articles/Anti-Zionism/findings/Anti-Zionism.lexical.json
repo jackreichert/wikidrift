@@ -1,0 +1,301 @@
+{
+  "article": "Anti-Zionism",
+  "span": "2022-01-01 -> 2022-07-01 (around L1 pivot ~2022-01-01)",
+  "pivot": "2022-01-01",
+  "before": {
+    "date": "2022-01-01",
+    "rev": 1060495399,
+    "tokens": 4134
+  },
+  "after": {
+    "date": "2022-07-01",
+    "rev": 1095921387,
+    "tokens": 3511
+  },
+  "js_divergence": 0.0951,
+  "overrepresented_after_terms": [
+    {
+      "term": "julius",
+      "before": 0,
+      "after": 20,
+      "delta": 20,
+      "log_odds": 3.8826
+    },
+    {
+      "term": "oxford",
+      "before": 0,
+      "after": 7,
+      "delta": 7,
+      "log_odds": 2.8734
+    },
+    {
+      "term": "anthony",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 2.73
+    },
+    {
+      "term": "critical",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 2.5626
+    },
+    {
+      "term": "england",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.3617
+    },
+    {
+      "term": "respondents",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.3617
+    },
+    {
+      "term": "trials",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.3617
+    },
+    {
+      "term": "empirical",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.1101
+    },
+    {
+      "term": "adl",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 1.2628
+    },
+    {
+      "term": "connection",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 1.2628
+    },
+    {
+      "term": "prejudice",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 1.2628
+    },
+    {
+      "term": "research",
+      "before": 2,
+      "after": 6,
+      "delta": 4,
+      "log_odds": 1.1201
+    },
+    {
+      "term": "above",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 1.0112
+    },
+    {
+      "term": "found",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 1.0112
+    },
+    {
+      "term": "homeland",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 1.0112
+    },
+    {
+      "term": "project",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 1.0112
+    },
+    {
+      "term": "result",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 1.0112
+    },
+    {
+      "term": "widespread",
+      "before": 2,
+      "after": 5,
+      "delta": 3,
+      "log_odds": 0.9527
+    },
+    {
+      "term": "conference",
+      "before": 3,
+      "after": 7,
+      "delta": 4,
+      "log_odds": 0.9267
+    },
+    {
+      "term": "nationalism",
+      "before": 3,
+      "after": 7,
+      "delta": 4,
+      "log_odds": 0.9267
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "korey",
+      "before": 7,
+      "after": 0,
+      "delta": -7,
+      "log_odds": -2.5464
+    },
+    {
+      "term": "russian",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -2.4031
+    },
+    {
+      "term": "pamyat",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.2358
+    },
+    {
+      "term": "soccer",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.2358
+    },
+    {
+      "term": "stephens",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.2358
+    },
+    {
+      "term": "ben",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.0349
+    },
+    {
+      "term": "corbyn",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.0349
+    },
+    {
+      "term": "demonology",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.0349
+    },
+    {
+      "term": "william",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.0349
+    },
+    {
+      "term": "alleged",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.7833
+    },
+    {
+      "term": "brian",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.7833
+    },
+    {
+      "term": "campus",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.7833
+    },
+    {
+      "term": "freedman",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.7833
+    },
+    {
+      "term": "french",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.7833
+    },
+    {
+      "term": "king",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.7833
+    },
+    {
+      "term": "klug",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.7833
+    },
+    {
+      "term": "langleben",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.7833
+    },
+    {
+      "term": "memri",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.7833
+    },
+    {
+      "term": "point",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.7833
+    },
+    {
+      "term": "possible",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.7833
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

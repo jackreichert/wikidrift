@@ -1,0 +1,262 @@
+{
+  "article": "Collaboration in German-occupied Poland",
+  "pivot": "2018-07-01",
+  "span": "2018-07-01 → 2026-07-01  (across the L1 pivot ~2018-07-01)",
+  "before": {
+    "date": "2018-07-01",
+    "refs": 138,
+    "n_domains": 31,
+    "cite_mix": {
+      "book": 66,
+      "web": 18,
+      "journal": 10,
+      "news": 5
+    },
+    "domains": {
+      "mazowsze.hist.pl": 1,
+      "books.google.com": 21,
+      "books.google.ca": 11,
+      "yadvashem.org": 2,
+      "books.google.co.kr": 1,
+      "ipn.gov.pl": 1,
+      "tandfonline.com": 1,
+      "policjapanstwowa.pl": 1,
+      "haaretz.com": 1,
+      "myslpolska.icenter.pl": 2,
+      "cristeros1.w.interia.pl": 1,
+      "hansard.millbanksystems.com": 1,
+      "grott.info": 2,
+      "ushmm.org": 1,
+      "wyborcza.pl": 1,
+      "timesofisrael.com": 2,
+      "wpolityce.pl": 3,
+      "cbc.ca": 2,
+      "michael-wildt.de": 1,
+      "msn.com": 1,
+      "rp.pl": 1,
+      "pbs.org": 1,
+      "arch.ipn.gov.pl": 1,
+      "treblinka-muzeum.eu": 1,
+      "jhi.pl": 1,
+      "polska1918-89.pl": 1,
+      "niniwa2.cba.pl": 2,
+      "cejsh.icm.edu.pl": 1,
+      "researchgate.net": 1,
+      "przeglad-tygodnik.pl": 2,
+      "jstor.org": 1
+    }
+  },
+  "after": {
+    "date": "2026-07-01",
+    "refs": 166,
+    "n_domains": 29,
+    "cite_mix": {
+      "book": 65,
+      "journal": 15,
+      "web": 15,
+      "news": 4,
+      "press": 1
+    },
+    "domains": {
+      "archive.org": 7,
+      "mazowsze.hist.pl": 2,
+      "books.google.com": 31,
+      "yadvashem.org": 2,
+      "ipn.gov.pl": 1,
+      "ora.ox.ac.uk": 1,
+      "policjapanstwowa.pl": 2,
+      "haaretz.com": 2,
+      "myslpolska.icenter.pl": 2,
+      "cejsh.icm.edu.pl": 1,
+      "api.parliament.uk": 1,
+      "fpnp.pl": 2,
+      "polska1918-89.pl": 3,
+      "niniwa22.cba.pl": 1,
+      "niniwa2.cba.pl": 1,
+      "rp.pl": 1,
+      "archiwum.rp.pl": 1,
+      "ushmm.org": 1,
+      "dzieje.pl": 1,
+      "timesofisrael.com": 1,
+      "jpost.com": 1,
+      "pbs.org": 1,
+      "delet.jhi.pl": 1,
+      "czestochowa.wyborcza.pl": 1,
+      "ceeol.com": 1,
+      "wyborcza.pl": 1,
+      "researchgate.net": 1,
+      "przeglad-tygodnik.pl": 2,
+      "doi.org": 3
+    }
+  },
+  "added": [
+    {
+      "domain": "books.google.com",
+      "from": 21,
+      "to": 31
+    },
+    {
+      "domain": "archive.org",
+      "from": 0,
+      "to": 7
+    },
+    {
+      "domain": "doi.org",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "polska1918-89.pl",
+      "from": 1,
+      "to": 3
+    },
+    {
+      "domain": "fpnp.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "dzieje.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "policjapanstwowa.pl",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "mazowsze.hist.pl",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "ceeol.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "api.parliament.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "haaretz.com",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "archiwum.rp.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "czestochowa.wyborcza.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "jpost.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "niniwa22.cba.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ora.ox.ac.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "delet.jhi.pl",
+      "from": 0,
+      "to": 1
+    }
+  ],
+  "dropped": [
+    {
+      "domain": "books.google.ca",
+      "from": 11,
+      "to": 0
+    },
+    {
+      "domain": "wpolityce.pl",
+      "from": 3,
+      "to": 0
+    },
+    {
+      "domain": "grott.info",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "cbc.ca",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "niniwa2.cba.pl",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "jhi.pl",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "arch.ipn.gov.pl",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "treblinka-muzeum.eu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "timesofisrael.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "books.google.co.kr",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "tandfonline.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "hansard.millbanksystems.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "msn.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "jstor.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "michael-wildt.de",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "cristeros1.w.interia.pl",
+      "from": 1,
+      "to": 0
+    }
+  ],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD."
+}

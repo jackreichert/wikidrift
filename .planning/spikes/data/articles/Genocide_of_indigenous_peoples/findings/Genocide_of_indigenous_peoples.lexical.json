@@ -1,0 +1,210 @@
+{
+  "article": "Genocide of indigenous peoples",
+  "span": "2012-07-01 -> 2026-07-01 (no L1 pivot — whole history)",
+  "pivot": null,
+  "before": {
+    "date": "2012-07-01",
+    "rev": 494632542,
+    "tokens": 141
+  },
+  "after": {
+    "date": "2026-07-01",
+    "rev": 1361009122,
+    "tokens": 8385
+  },
+  "js_divergence": 0.5427,
+  "overrepresented_after_terms": [
+    {
+      "term": "people",
+      "before": 0,
+      "after": 74,
+      "delta": 74,
+      "log_odds": 0.9309
+    },
+    {
+      "term": "war",
+      "before": 0,
+      "after": 64,
+      "delta": 64,
+      "log_odds": 0.7855
+    },
+    {
+      "term": "population",
+      "before": 0,
+      "after": 55,
+      "delta": 55,
+      "log_odds": 0.6342
+    },
+    {
+      "term": "indian",
+      "before": 0,
+      "after": 38,
+      "delta": 38,
+      "log_odds": 0.2664
+    },
+    {
+      "term": "government",
+      "before": 0,
+      "after": 35,
+      "delta": 35,
+      "log_odds": 0.1849
+    },
+    {
+      "term": "forced",
+      "before": 0,
+      "after": 34,
+      "delta": 34,
+      "log_odds": 0.1562
+    },
+    {
+      "term": "state",
+      "before": 0,
+      "after": 30,
+      "delta": 30,
+      "log_odds": 0.0325
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "brutality",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -3.578
+    },
+    {
+      "term": "caribbean",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -3.578
+    },
+    {
+      "term": "cases",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -3.578
+    },
+    {
+      "term": "complete",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -3.578
+    },
+    {
+      "term": "deadly",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -3.578
+    },
+    {
+      "term": "help",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -3.578
+    },
+    {
+      "term": "inhabitants",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -3.578
+    },
+    {
+      "term": "legend",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -3.578
+    },
+    {
+      "term": "mean",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -3.578
+    },
+    {
+      "term": "nearly",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -3.578
+    },
+    {
+      "term": "often",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -3.578
+    },
+    {
+      "term": "rise",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -3.578
+    },
+    {
+      "term": "spaniards",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -3.578
+    },
+    {
+      "term": "yuki",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -3.578
+    },
+    {
+      "term": "las",
+      "before": 2,
+      "after": 4,
+      "delta": 2,
+      "log_odds": -3.5079
+    },
+    {
+      "term": "category",
+      "before": 2,
+      "after": 5,
+      "delta": 3,
+      "log_odds": -3.3071
+    },
+    {
+      "term": "accused",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": -3.2414
+    },
+    {
+      "term": "bartolomé",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": -3.2414
+    },
+    {
+      "term": "campaigns",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": -3.2414
+    },
+    {
+      "term": "casas",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": -3.2414
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

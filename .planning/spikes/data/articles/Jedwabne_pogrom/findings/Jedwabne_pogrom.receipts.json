@@ -1,0 +1,27 @@
+{
+  "article": "Jedwabne pogrom",
+  "qid": "Q707547",
+  "editions": {
+    "en": {
+      "present": true,
+      "revid": 1363506741,
+      "title": "Jedwabne pogrom",
+      "timestamp": "2026-07-10T16:57:32Z",
+      "prose_chars": 39835
+    },
+    "pl": {
+      "present": true,
+      "revid": 79990798,
+      "title": "Pogrom w Jedwabnem",
+      "timestamp": "2026-06-14T13:44:59Z",
+      "prose_chars": 37333
+    },
+    "de": {
+      "present": true,
+      "revid": 268699149,
+      "title": "Massaker von Jedwabne",
+      "timestamp": "2026-07-11T12:10:07Z",
+      "prose_chars": 19293
+    }
+  }
+}

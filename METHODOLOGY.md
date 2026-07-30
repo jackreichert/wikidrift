@@ -63,6 +63,14 @@ snapshots. Episodes are **ranked by PWR-mass, age-agnostic** — a *long-standin
 find, never demoted for being old; recency is a descriptor, not a demoter. Robustness: snapshots are taken on
 **persistent** revisions (size ≈ local median) so transient vandalism/blanking never reads as a rewrite.
 
+Candidate detection is deliberately two-pass. The primary pass looks for sharp interval episodes with a peak
+PWR loss of at least 25%. If none of its candidates survives revision-level confirmation, a second pass tests
+direct weighted cohort loss across approximately twelve months, requiring at least 20% loss and 50,000 PWR
+mass. Overlapping rolling windows are reduced to the strongest non-overlapping candidates. The second pass is
+not a weaker verdict: both sources must still show at least a 20% collapse of the durable spine in the
+underlying revisions. This separates candidate recall from confirmation precision and catches sustained
+medium-sized replacement without globally lowering the primary threshold.
+
 ## 5. The conjunction — so a finding stays a "smoking gun"
 
 Change alone ≠ bias. A defensible L1 finding is a **stack**, not any single factor:
@@ -91,6 +99,11 @@ Surface the conjunction; a single factor is noise.
 - **Change ≠ bias (the base-rate finding).** In a designed control run, the single largest rewrite was a
   *benign* one. The drift/pivot signal alone cannot distinguish capture from a legitimate large rewrite —
   which is the empirical mandate for L2 + L5.
+- **Rolling-pass calibration is preliminary.** The 20% / 50,000-PWR rolling candidate gate recovered a
+  confirmed case missed by the primary interval threshold, while the unchanged revision-level gate retained
+  the final precision check. The existing offline benchmark does not yet score this fallback end to end.
+  Measure its recall and false-candidate load on a fixed positive/control slate before treating these candidate
+  thresholds as generally calibrated.
 - **Direction ambiguity.** The engine sees "long-stable text removed, changes beaten back," but cannot tell
   bias *injection* from bias *correction* — direction needs an external reference.
 - **The external-reference asymmetry.** L5 #1/#2 work because every Wikipedia edition shares one substrate with

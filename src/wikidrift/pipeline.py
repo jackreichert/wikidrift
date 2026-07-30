@@ -21,7 +21,7 @@ Every output is a LEAD for a researcher, never a published verdict.
 """
 import duckdb
 
-from . import config, drift, prerank, stance, lexical, mscore
+from . import config, drift, prerank, stance, lexical, mscore, provenance
 from .corpus import Corpus
 
 
@@ -52,17 +52,21 @@ def _pivot_window(verdict):
             "status": "candidate"}
 
 
+def confirmation_is_fresh(confirmation, current_horizon):
+    """Whether an L1 confirmation result matches the current corpus and threshold contract."""
+    if not confirmation or not current_horizon:
+        return False
+    if (confirmation.get("thresholds") or {}) != config.confirmation_thresholds():
+        return False
+    saved = confirmation.get("corpus_horizon") or {}
+    return (saved.get("snapshot_date"), saved.get("snapshot_revid")) == tuple(current_horizon)
+
+
 def _confirmed_window(confirmation, current_horizon):
     """Return a confirmed framing window only when its corpus horizon is still current."""
     if not confirmation or confirmation.get("status") != "confirmed":
         return None
-    thresholds = confirmation.get("thresholds") or {}
-    if thresholds != config.confirmation_thresholds():
-        return None
-    saved = confirmation.get("corpus_horizon") or {}
-    if not current_horizon or (
-        saved.get("snapshot_date"), saved.get("snapshot_revid")
-    ) != tuple(current_horizon):
+    if not confirmation_is_fresh(confirmation, current_horizon):
         return None
     episodes = confirmation.get("confirmed_episodes") or []
     if not episodes:
@@ -87,8 +91,10 @@ def framing_window(article):
             return None
         corpus = Corpus(con)
         horizon = corpus.latest_snapshot(article)
-        confirmed = _confirmed_window(drift.load_confirmation(article), horizon)
-        return confirmed or _pivot_window(drift.verdict_dict(con, article))
+        confirmation = drift.load_confirmation(article)
+        if confirmation_is_fresh(confirmation, horizon):
+            return _confirmed_window(confirmation, horizon)
+        return _pivot_window(drift.verdict_dict(con, article))
     finally:
         con.close()
 
@@ -130,6 +136,8 @@ def run(article, llm=False, corroborate=False, framing=False, provider=None, mod
     provider/model/base_url select the LLM backend for the opt-in L2 + framing layers (see llm.py).
     The cross-language lead comparison (L5) is opt-in via --framing. It uses matched historical revisions when
     L1 supplies a candidate window and falls back to a current static comparison otherwise."""
+    article = provenance.resolve_article_title(article).canonical_title
+
     # Build the LLM client ONCE and share it across L2 + L5 (was threaded as 3 loose params into each verb).
     # NB the `llm` parameter here is the bool opt-in flag, so import the module under an alias.
     client = None
@@ -148,7 +156,11 @@ def run(article, llm=False, corroborate=False, framing=False, provider=None, mod
     verdict = drift.verdict_dict(con, article) if _snap_count(con, article) >= 3 else None
     label = drift.candidate_verdict(con, article)[1] if verdict else "n/a (too few snapshots)"
     horizon = Corpus(con).latest_snapshot(article) if verdict else None
-    pivot_window = _confirmed_window(drift.load_confirmation(article), horizon) or _pivot_window(verdict)
+    confirmation = drift.load_confirmation(article)
+    if confirmation_is_fresh(confirmation, horizon):
+        pivot_window = _confirmed_window(confirmation, horizon)
+    else:
+        pivot_window = _pivot_window(verdict)
     print(f"\nL1 drift verdict: {label}")
 
     # ---- pre-rank router (metadata-only) ----

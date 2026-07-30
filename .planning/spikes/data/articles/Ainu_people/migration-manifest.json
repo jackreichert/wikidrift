@@ -1,0 +1,27 @@
+{
+  "article": "Ainu people",
+  "artifacts": [
+    "findings/Ainu_people.category.json",
+    "findings/Ainu_people.cost.json",
+    "findings/Ainu_people.factcheck.json",
+    "findings/Ainu_people.framing.json",
+    "findings/Ainu_people.l1-confirmation.json",
+    "findings/Ainu_people.lexical.json",
+    "findings/Ainu_people.profile.json",
+    "findings/Ainu_people.receipts.json",
+    "findings/Ainu_people.sources.json",
+    "findings/Ainu_people.stance.json",
+    "logs/analysis-2026-07-30/Ainu_people.rolling-corpus-benchmark.log",
+    "mscore/Ainu_people.json"
+  ],
+  "slug": "Ainu_people",
+  "tables": {
+    "articles": 0,
+    "rev_size": 4728,
+    "revisions": 4728,
+    "rsnap": 1028027,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "article": "Bar Kokhba Revolt",
+  "qid": "Q334502",
+  "editions": {
+    "en": {
+      "present": true,
+      "revid": 1362794282,
+      "title": "Bar Kokhba Revolt",
+      "timestamp": "2026-07-06T06:32:40Z",
+      "prose_chars": 77950
+    },
+    "he": {
+      "present": true,
+      "revid": 43513628,
+      "title": "מרד בר כוכבא",
+      "timestamp": "2026-07-01T00:44:55Z",
+      "prose_chars": 72256
+    }
+  }
+}

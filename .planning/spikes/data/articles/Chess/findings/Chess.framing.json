@@ -1,0 +1,115 @@
+{
+  "article": "Chess",
+  "category": "general",
+  "mode": "static",
+  "pivot_window": null,
+  "editions_compared": [
+    "en",
+    "uk",
+    "fr"
+  ],
+  "lead_chars": {
+    "en": 2115,
+    "uk": 6636,
+    "fr": 1994
+  },
+  "snapshots": null,
+  "divergences": [
+    {
+      "topic": "chess reaching Europe: route and century",
+      "editions_differ": [
+        "EN",
+        "UK",
+        "FR"
+      ],
+      "en_says": "After its introduction to Persia, it spread to the Arab world and then to Europe (no specific century given for European arrival).",
+      "other_says": "UK: chess reached Europe in the 9th century via the Umayyad conquests in Spain. FR: introduced to southern Europe from the 10th century by the Arabs.",
+      "verdict": "contradict",
+      "evidence_en": "After its introduction to Persia, it spread to the Arab world and then to Europe.",
+      "evidence_other": null
+    },
+    {
+      "topic": "origin century of chaturanga/chess",
+      "editions_differ": [
+        "EN",
+        "FR"
+      ],
+      "en_says": "Chess history dates back to the emergence of chaturanga in 7th-century India.",
+      "other_says": "FR does not specify a century for chaturanga's origin, only stating it is the Persian shatranj's ancestor from classical India, with uncertain place of invention.",
+      "verdict": "differ",
+      "evidence_en": "The recorded history of chess dates back to the emergence of chaturanga in 7th-century India.",
+      "evidence_other": "on ignore où il fut inventé exactement. Il dérive du shatranj, qui lui-même est la version perse du chaturanga de l'Inde classique."
+    },
+    {
+      "topic": "standardization timeline of modern rules",
+      "editions_differ": [
+        "EN",
+        "UK"
+      ],
+      "en_says": "Modern rules emerged in Europe at the end of the 15th century, becoming standardized and gaining universal acceptance by the end of the 19th century.",
+      "other_says": "UK states rules were formed in modern shape at the end of the 15th century, with final standardization occurring in the 19th century (similar timeline but framed as 'final standardization' rather than 'universal acceptance').",
+      "verdict": "agree",
+      "evidence_en": "becoming standardized and gaining universal acceptance by the end of the 19th century",
+      "evidence_other": "У сучасному вигляді шахи сформувались наприкінці 15 століття, остаточно правила стандартизовано в 19 столітті."
+    },
+    {
+      "topic": "history of organized competition",
+      "editions_differ": [
+        "EN",
+        "FR"
+      ],
+      "en_says": "Organized chess arose in the 19th century, with international competitions governed by FIDE.",
+      "other_says": "FR traces competitive chess back much further, mentioning traces at the court of Harun al-Rashid in the 8th century, and cites the first modern-era tournament in London 1851 during the Great Exhibition.",
+      "verdict": "differ",
+      "evidence_en": "Organized chess arose in the 19th century.",
+      "evidence_other": "On en trouverait trace à la cour d'Hâroun ar-Rachîd au VIIIe siècle. Le premier tournoi de l'ère moderne a lieu à Londres lors de l'Exposition universelle de 1851."
+    },
+    {
+      "topic": "computer chess milestones",
+      "editions_differ": [
+        "EN",
+        "UK",
+        "FR"
+      ],
+      "en_says": "Details Deep Blue's 1997 victory over Garry Kasparov as the first computer win against a reigning World Champion, and notes chess is not a solved game.",
+      "other_says": "UK does not mention Deep Blue or Kasparov at all. FR only briefly notes that computer programs are now far superior to human players, without historical detail.",
+      "verdict": "absent_other",
+      "evidence_en": "In 1997, Deep Blue became the first computer to win a match against a reigning World Champion when it defeated Garry Kasparov.",
+      "evidence_other": "Aujourd'hui les programmes informatiques d'échecs sont incomparablement meilleurs que les joueurs humains."
+    },
+    {
+      "topic": "time controls and game formats (blitz, rapid, bullet)",
+      "editions_differ": [
+        "EN",
+        "UK"
+      ],
+      "en_says": "not mentioned",
+      "other_says": "UK provides detailed explanation of time control formats: classical, rapid, blitz, bullet, and increment systems, including specific time examples.",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": null
+    }
+  ],
+  "summary": "The three editions largely agree on core facts (rules, pieces, objective, FIDE, Steinitz as first champion, Gukesh as current champion) but diverge notably on historical framing: EN and FR disagree on the century and route by which chess reached Europe and on how far back organized competition dates (FR citing 8th-century Baghdad and an 1851 London tournament, EN citing only the 19th century). UK gives a distinctly different account of chess's European arrival (9th century via Umayyad Spain) and omits the Deep Blue/Kasparov narrative entirely, while adding extensive detail on time controls (blitz, rapid, bullet) absent from EN and FR. FR is the most concise on computer chess, lacking the detailed history EN provides.",
+  "run_ts": "2026-07-19T17:06:39.217436+00:00",
+  "model": "claude-sonnet-5",
+  "llm_usage": {
+    "calls": 1,
+    "input_tokens": 3872,
+    "output_tokens": 1722,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 3872,
+        "output_tokens": 1722,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
+  },
+  "elapsed_seconds": 75.597
+}

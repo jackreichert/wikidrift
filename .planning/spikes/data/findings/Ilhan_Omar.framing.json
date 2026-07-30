@@ -1,0 +1,116 @@
+{
+  "article": "Ilhan Omar",
+  "category": "general",
+  "mode": "static",
+  "pivot_window": null,
+  "editions_compared": [
+    "en",
+    "el",
+    "ur"
+  ],
+  "lead_chars": {
+    "en": 1534,
+    "el": 2077,
+    "ur": 1415
+  },
+  "snapshots": null,
+  "divergences": [
+    {
+      "topic": "Naturalization/first Somali status framing",
+      "editions_differ": [
+        "EN",
+        "EL",
+        "UR"
+      ],
+      "en_says": "First Somali American in the United States Congress",
+      "other_says": "EL: first Somali who was naturalized as American despite being born in Africa; UR: first Somali American and first pure citizen born in Africa in Congress",
+      "verdict": "differ",
+      "evidence_en": "Omar is the first Somali American in the United States Congress",
+      "evidence_other": "Η Όμαρ είναι η πρώτη Σομαλή που πολιτογραφήθηκε Αμερικανίδα ενώ είναι γεννημένη στην Αφρική"
+    },
+    {
+      "topic": "'first woman of color' vs 'first non-white/black woman'",
+      "editions_differ": [
+        "EN",
+        "EL",
+        "UR"
+      ],
+      "en_says": "first woman of color to represent Minnesota",
+      "other_says": "EL: first black woman to represent Minnesota; UR: first non-white woman to represent Minnesota",
+      "verdict": "differ",
+      "evidence_en": "the first woman of color to represent Minnesota",
+      "evidence_other": "η πρώτη μαύρη γυναίκα που εκπροσωπεί τη Μινεσότα"
+    },
+    {
+      "topic": "Controversy over naturalization and Somali community ties",
+      "editions_differ": [
+        "EN",
+        "EL"
+      ],
+      "en_says": "not mentioned in lead",
+      "other_says": "Omar has been subject to controversy due to theories about how she obtained naturalization and her relationship with the Somali community, described by some sources as conspiracy theories",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": "Υπήρξε αντικείμενο διαμαχών, λόγω θεωριών γύρω από τον τρόπο με τον οποίον έλαβε πολιτογράφηση καθώς και της σχέσης της με την σομαλική κοινότητα."
+    },
+    {
+      "topic": "Removal from Foreign Affairs Committee",
+      "editions_differ": [
+        "EN",
+        "EL",
+        "UR"
+      ],
+      "en_says": "In February 2023, the Republican-controlled House voted to remove Omar from her seat on the Foreign Affairs Committee, citing past comments on Israel and objectivity concerns",
+      "other_says": "not mentioned",
+      "verdict": "absent_other",
+      "evidence_en": "the Republican-controlled House voted to remove Omar from her seat on the Foreign Affairs Committee, citing past comments she had made about Israel and concerns over her objectivity.",
+      "evidence_other": null
+    },
+    {
+      "topic": "Opposition to Trump immigration policies (travel ban)",
+      "editions_differ": [
+        "EN",
+        "EL"
+      ],
+      "en_says": "not specifically mentioned regarding travel ban in lead",
+      "other_says": "Omar has strongly opposed the Trump administration's immigration policies, including Trump's travel ban law",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": "Έχει αντιταχθεί σθεναρά στις πολιτικές μετανάστευσης της κυβέρνησης Τραμπ, συμπεριλαμβανομένης και του νόμου περί απαγόρευσης ταξιδιού του Τραμπ."
+    },
+    {
+      "topic": "Nature of derogatory comments/harassment attributed to Trump",
+      "editions_differ": [
+        "EN",
+        "UR"
+      ],
+      "en_says": "Her political opponents, including Donald Trump, have made derogatory comments related to her background",
+      "other_says": "She has been the target of numerous death threats, harassment from political opponents, and false and misleading propaganda from Donald Trump",
+      "verdict": "differ",
+      "evidence_en": "Her political opponents, including Donald Trump, have made derogatory comments related to her background.",
+      "evidence_other": "ڈونلڈ ٹرمپ کے جھوٹے اور گمراہ کن پروپیگنڈوں کا نشانہ بنی ہیں"
+    }
+  ],
+  "summary": "The editions largely agree on Omar's basic biography, political positions, and status as a trailblazing Somali-American, Muslim congresswoman, but diverge in framing of her identity milestones (e.g., 'woman of color' vs 'black woman' vs 'non-white woman'; naturalized citizen framing), in inclusion of controversy over her naturalization narrative (EL only), in mention of Trump's travel ban opposition (EL only), in explicit description of Trump's actions as 'propaganda' (UR) versus 'derogatory comments' (EN), and in the EN-exclusive mention of her 2023 removal from the Foreign Affairs Committee, which is absent from both EL and UR leads.",
+  "run_ts": "2026-07-30T19:20:54.959385+00:00",
+  "model": "claude-sonnet-5",
+  "llm_usage": {
+    "calls": 1,
+    "input_tokens": 4057,
+    "output_tokens": 1519,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 4057,
+        "output_tokens": 1519,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
+  },
+  "elapsed_seconds": 42.223
+}

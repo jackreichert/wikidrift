@@ -1,0 +1,301 @@
+{
+  "article": "Capitalism",
+  "span": "2006-01-01 -> 2007-01-01 (around L1 pivot ~2006-01-01)",
+  "pivot": "2006-01-01",
+  "before": {
+    "date": "2006-01-01",
+    "rev": 33375714,
+    "tokens": 6826
+  },
+  "after": {
+    "date": "2007-01-01",
+    "rev": 97680745,
+    "tokens": 4119
+  },
+  "js_divergence": 0.2641,
+  "overrepresented_after_terms": [
+    {
+      "term": "thinkers",
+      "before": 0,
+      "after": 10,
+      "delta": 10,
+      "log_odds": 3.552
+    },
+    {
+      "term": "burnham",
+      "before": 0,
+      "after": 9,
+      "delta": 9,
+      "log_odds": 3.4517
+    },
+    {
+      "term": "britain",
+      "before": 0,
+      "after": 8,
+      "delta": 8,
+      "log_odds": 3.3402
+    },
+    {
+      "term": "scott",
+      "before": 0,
+      "after": 8,
+      "delta": 8,
+      "log_odds": 3.3402
+    },
+    {
+      "term": "federal",
+      "before": 0,
+      "after": 7,
+      "delta": 7,
+      "log_odds": 3.2148
+    },
+    {
+      "term": "marxian",
+      "before": 0,
+      "after": 7,
+      "delta": 7,
+      "log_odds": 3.2148
+    },
+    {
+      "term": "surplus",
+      "before": 0,
+      "after": 7,
+      "delta": 7,
+      "log_odds": 3.2148
+    },
+    {
+      "term": "online",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 3.0715
+    },
+    {
+      "term": "oxford",
+      "before": 1,
+      "after": 18,
+      "delta": 17,
+      "log_odds": 3.0216
+    },
+    {
+      "term": "led",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 2.9042
+    },
+    {
+      "term": "reference",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 2.9042
+    },
+    {
+      "term": "reserve",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 2.9042
+    },
+    {
+      "term": "values",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 2.9042
+    },
+    {
+      "term": "mercantilism",
+      "before": 1,
+      "after": 14,
+      "delta": 13,
+      "log_odds": 2.777
+    },
+    {
+      "term": "concepts",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.7033
+    },
+    {
+      "term": "institutional",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.7033
+    },
+    {
+      "term": "joseph",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.7033
+    },
+    {
+      "term": "later",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.7033
+    },
+    {
+      "term": "line",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.7033
+    },
+    {
+      "term": "materials",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.7033
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "governments",
+      "before": 12,
+      "after": 0,
+      "delta": -12,
+      "log_odds": -2.7156
+    },
+    {
+      "term": "companies",
+      "before": 11,
+      "after": 0,
+      "delta": -11,
+      "log_odds": -2.632
+    },
+    {
+      "term": "note",
+      "before": 11,
+      "after": 0,
+      "delta": -11,
+      "log_odds": -2.632
+    },
+    {
+      "term": "company",
+      "before": 10,
+      "after": 0,
+      "delta": -10,
+      "log_odds": -2.5409
+    },
+    {
+      "term": "marxists",
+      "before": 10,
+      "after": 0,
+      "delta": -10,
+      "log_odds": -2.5409
+    },
+    {
+      "term": "wealthy",
+      "before": 9,
+      "after": 0,
+      "delta": -9,
+      "log_odds": -2.4407
+    },
+    {
+      "term": "essential",
+      "before": 8,
+      "after": 0,
+      "delta": -8,
+      "log_odds": -2.3293
+    },
+    {
+      "term": "share",
+      "before": 8,
+      "after": 0,
+      "delta": -8,
+      "log_odds": -2.3293
+    },
+    {
+      "term": "things",
+      "before": 8,
+      "after": 0,
+      "delta": -8,
+      "log_odds": -2.3293
+    },
+    {
+      "term": "very",
+      "before": 8,
+      "after": 0,
+      "delta": -8,
+      "log_odds": -2.3293
+    },
+    {
+      "term": "willing",
+      "before": 8,
+      "after": 0,
+      "delta": -8,
+      "log_odds": -2.3293
+    },
+    {
+      "term": "word",
+      "before": 8,
+      "after": 0,
+      "delta": -8,
+      "log_odds": -2.3293
+    },
+    {
+      "term": "authority",
+      "before": 7,
+      "after": 0,
+      "delta": -7,
+      "log_odds": -2.204
+    },
+    {
+      "term": "average",
+      "before": 7,
+      "after": 0,
+      "delta": -7,
+      "log_odds": -2.204
+    },
+    {
+      "term": "institute",
+      "before": 7,
+      "after": 0,
+      "delta": -7,
+      "log_odds": -2.204
+    },
+    {
+      "term": "poorest",
+      "before": 7,
+      "after": 0,
+      "delta": -7,
+      "log_odds": -2.204
+    },
+    {
+      "term": "rich",
+      "before": 7,
+      "after": 0,
+      "delta": -7,
+      "log_odds": -2.204
+    },
+    {
+      "term": "says",
+      "before": 7,
+      "after": 0,
+      "delta": -7,
+      "log_odds": -2.204
+    },
+    {
+      "term": "cause",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -2.0607
+    },
+    {
+      "term": "coercion",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -2.0607
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

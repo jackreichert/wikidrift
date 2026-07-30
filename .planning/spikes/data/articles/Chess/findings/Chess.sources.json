@@ -1,0 +1,111 @@
+{
+  "article": "Chess",
+  "pivot": null,
+  "span": "2002-01-01 → 2005-01-01  (no L1 pivot — whole history)",
+  "before": {
+    "date": "2002-01-01",
+    "refs": 0,
+    "n_domains": 3,
+    "cite_mix": {},
+    "domains": {
+      "chess.ibm.com": 1,
+      "fide.com": 1,
+      "handbook.fide.com": 1
+    }
+  },
+  "after": {
+    "date": "2005-01-01",
+    "refs": 0,
+    "n_domains": 12,
+    "cite_mix": {},
+    "domains": {
+      "fide.com": 2,
+      "chessbase.com": 1,
+      "geocities.com": 1,
+      "chessvariants.org": 1,
+      "pathguy.com": 1,
+      "letsplaychess.com": 1,
+      "freechess.org": 1,
+      "brainking.com": 1,
+      "wikisophia.org": 1,
+      "chess.sf.net": 1,
+      "art-of-chess.com.": 1,
+      "chessclub.com": 1
+    }
+  },
+  "added": [
+    {
+      "domain": "art-of-chess.com.",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "wikisophia.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "chessbase.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "letsplaychess.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "chessvariants.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "brainking.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "chessclub.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "freechess.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "geocities.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "pathguy.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "fide.com",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "chess.sf.net",
+      "from": 0,
+      "to": 1
+    }
+  ],
+  "dropped": [
+    {
+      "domain": "handbook.fide.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "chess.ibm.com",
+      "from": 1,
+      "to": 0
+    }
+  ],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD."
+}

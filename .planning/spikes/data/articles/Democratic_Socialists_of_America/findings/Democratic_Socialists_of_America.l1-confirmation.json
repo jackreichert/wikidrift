@@ -1,0 +1,66 @@
+{
+  "article": "Democratic Socialists of America",
+  "run_ts": "2026-07-30T21:22:27.871529+00:00",
+  "corpus_horizon": {
+    "snapshot_date": "2026-07-01",
+    "snapshot_revid": 1362095016
+  },
+  "thresholds": {
+    "confirm_drop": 0.2,
+    "durable_quantile": 0.5,
+    "min_cohort": 500,
+    "magnitude_floor": 25.0,
+    "rolling_window_months": 12,
+    "rolling_tolerance_days": 35,
+    "rolling_drop": 20.0
+  },
+  "coarse_verdict": "PIVOT?",
+  "status": "confirmed",
+  "confirmed_episodes": [
+    {
+      "candidate_start": "2025-01-01",
+      "candidate_end": "2026-01-01",
+      "candidate_before_revid": 1266721233,
+      "candidate_after_revid": 1330568891,
+      "before_revid": 1321624877,
+      "before_timestamp": "2025-11-11T17:36:50Z",
+      "after_revid": 1321630141,
+      "after_timestamp": "2025-11-11T18:17:24Z",
+      "durable_spine_drop": 0.874827,
+      "pwr_mass": 204057,
+      "peak_pct": 85.19,
+      "source": "interval",
+      "status": "confirmed"
+    },
+    {
+      "candidate_start": "2021-01-01",
+      "candidate_end": "2024-07-01",
+      "candidate_before_revid": 998119705,
+      "candidate_after_revid": 1232289456,
+      "before_revid": 1221073215,
+      "before_timestamp": "2024-04-27T18:13:50Z",
+      "after_revid": 1221188190,
+      "after_timestamp": "2024-04-28T11:42:11Z",
+      "durable_spine_drop": 0.462529,
+      "pwr_mass": 75322,
+      "peak_pct": 28.52,
+      "source": "interval",
+      "status": "confirmed"
+    },
+    {
+      "candidate_start": "2020-01-01",
+      "candidate_end": "2020-07-01",
+      "candidate_before_revid": 933512719,
+      "candidate_after_revid": 965429042,
+      "before_revid": 951975376,
+      "before_timestamp": "2020-04-19T22:56:43Z",
+      "after_revid": 951977396,
+      "after_timestamp": "2020-04-19T23:12:16Z",
+      "durable_spine_drop": 0.340969,
+      "pwr_mass": 53292,
+      "peak_pct": 33.65,
+      "source": "interval",
+      "status": "confirmed"
+    }
+  ]
+}

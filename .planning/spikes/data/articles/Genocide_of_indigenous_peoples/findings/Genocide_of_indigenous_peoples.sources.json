@@ -1,0 +1,842 @@
+{
+  "article": "Genocide of indigenous peoples",
+  "pivot": null,
+  "span": "2012-07-01 → 2026-07-01  (no L1 pivot — whole history)",
+  "before": {
+    "date": "2012-07-01",
+    "refs": 6,
+    "n_domains": 0,
+    "cite_mix": {
+      "book": 100
+    },
+    "domains": {}
+  },
+  "after": {
+    "date": "2026-07-01",
+    "refs": 334,
+    "n_domains": 135,
+    "cite_mix": {
+      "book": 51,
+      "journal": 18,
+      "web": 17,
+      "news": 12,
+      "report": 1
+    },
+    "domains": {
+      "degruyter.com": 2,
+      "books.google.com": 128,
+      "tandfonline.com": 8,
+      "digitalcommons.usf.edu": 4,
+      "dx.doi.org": 4,
+      "genocidewatch.com": 2,
+      "academic.oup.com": 5,
+      "nationalgeographic.com": 1,
+      "academia.edu": 3,
+      "presidency.ucsb.edu": 2,
+      "google.com": 1,
+      "historynewsnetwork.org": 6,
+      "papers.ssrn.com": 1,
+      "legal.un.org": 1,
+      "un.org": 4,
+      "theirishstory.com": 2,
+      "thejournal.ie": 2,
+      "mondoweiss.net": 1,
+      "tlio.org.uk": 1,
+      "indiancountrytoday.com": 4,
+      "justicefornorthcaucasus.info": 2,
+      "cerkesfed.org": 2,
+      "jinepsgazetesi.com": 2,
+      "circassianworld.com": 1,
+      "reuters.com": 3,
+      "archive.today": 6,
+      "nytimes.com": 8,
+      "samiskeveivisere.no": 2,
+      "theglobeandmail.com": 2,
+      "nb.no": 2,
+      "ukrinform.ua": 2,
+      "si.edu": 1,
+      "hnn.us": 2,
+      "globalnews.ca": 4,
+      "cnn.com": 2,
+      "catalog.hathitrust.org": 2,
+      "latimes.com": 4,
+      "thoughtco.com": 2,
+      "unc.edu": 2,
+      "archive.org": 24,
+      "mptn-nsn.gov": 2,
+      "narragansettindiannation.org": 2,
+      "bluecorncomics.com": 2,
+      "faculty.simpson.edu": 1,
+      "vanguardia.com.mx": 1,
+      "tukari.udg.mx": 2,
+      "theguardian.com": 14,
+      "dialnet.unirioja.es": 1,
+      "oxfordre.com": 2,
+      "taylorfrancis.com": 2,
+      "bbc.com": 2,
+      "survivalinternational.org": 4,
+      "politicsandthelifesciences.org": 2,
+      "people.umass.edu": 2,
+      "time.com": 2,
+      "airc.ucsc.edu": 1,
+      "npr.org": 2,
+      "ictnews.org": 2,
+      "newsroom.ucla.edu": 1,
+      "loc.gov": 2,
+      "www2.learncalifornia.org": 2,
+      "pbs.org": 2,
+      "online.ucpress.edu": 1,
+      "mercurynews.com": 1,
+      "journals.openedition.org": 2,
+      "shadowsgovernment.com": 1,
+      "regioesercito.it": 2,
+      "ngm.nationalgeographic.com": 2,
+      "cambridge.org": 1,
+      "britannica.com": 2,
+      "economist.com": 2,
+      "news.bbc.co.uk": 6,
+      "japantoday.com": 1,
+      "www4.gu.edu.au:8080": 2,
+      "soton.ac.uk": 2,
+      "thewha.org": 2,
+      "oxfordbibliographies.com": 2,
+      "tcd.ie": 2,
+      "creativespirits.info": 2,
+      "aec.gov.au": 2,
+      "e-tangata.co.nz": 2,
+      "thespinoff.co.nz": 2,
+      "rnz.co.nz": 2,
+      "teara.govt.nz": 2,
+      "openresearch-repository.anu.edu.au": 2,
+      "aljazeera.com": 7,
+      "culturalsurvival.org": 4,
+      "firstpost.com": 2,
+      "livemint.com": 2,
+      "thediplomat.com": 6,
+      "amazon.com": 2,
+      "sabrang.com": 2,
+      "archiv.ub.uni-heidelberg.de": 2,
+      "oxfordislamicstudies.com": 2,
+      "csmonitor.com": 2,
+      "amnesty.org.uk": 2,
+      "refworld.org": 4,
+      "en.banglapedia.org": 2,
+      "legalcounselbd.com": 2,
+      "independent.co.uk": 3,
+      "ghostarchive.org": 1,
+      "cbc.ca": 3,
+      "mmiwg-ffada.ca": 4,
+      "nationalpost.com": 1,
+      "icj.org": 2,
+      "iwgia.org": 4,
+      "unhcr.org": 2,
+      "hrbrief.org": 2,
+      "colombiareports.co": 2,
+      "irinnews.org": 2,
+      "bbc.co.uk": 2,
+      "ca.news.yahoo.com": 1,
+      "karennews.org": 2,
+      "worldwithoutgenocide.org": 2,
+      "thesundaily.my": 2,
+      "washingtonpost.com": 2,
+      "tbinternet.ohchr.org": 2,
+      "ptsrilanka.org": 2,
+      "cfr.org": 2,
+      "claritypress.com": 2,
+      "2017-2021.state.gov": 2,
+      "apnews.com": 1,
+      "gsp.yale.edu": 2,
+      "news.un.org": 2,
+      "nbcnews.com": 2,
+      "law.yale.edu": 2,
+      "telegraph.co.uk": 2,
+      "web.mit.edu": 2,
+      "history.emory.edu": 2,
+      "yale.edu": 2,
+      "hrw.org": 2,
+      "questia.com": 1,
+      "tilj.org": 2,
+      "newdiversities.mmg.mpg.de": 1,
+      "repository.essex.ac.uk": 1
+    }
+  },
+  "added": [
+    {
+      "domain": "books.google.com",
+      "from": 0,
+      "to": 128
+    },
+    {
+      "domain": "archive.org",
+      "from": 0,
+      "to": 24
+    },
+    {
+      "domain": "theguardian.com",
+      "from": 0,
+      "to": 14
+    },
+    {
+      "domain": "tandfonline.com",
+      "from": 0,
+      "to": 8
+    },
+    {
+      "domain": "nytimes.com",
+      "from": 0,
+      "to": 8
+    },
+    {
+      "domain": "aljazeera.com",
+      "from": 0,
+      "to": 7
+    },
+    {
+      "domain": "news.bbc.co.uk",
+      "from": 0,
+      "to": 6
+    },
+    {
+      "domain": "historynewsnetwork.org",
+      "from": 0,
+      "to": 6
+    },
+    {
+      "domain": "thediplomat.com",
+      "from": 0,
+      "to": 6
+    },
+    {
+      "domain": "archive.today",
+      "from": 0,
+      "to": 6
+    },
+    {
+      "domain": "academic.oup.com",
+      "from": 0,
+      "to": 5
+    },
+    {
+      "domain": "un.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "globalnews.ca",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "dx.doi.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "indiancountrytoday.com",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "refworld.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "iwgia.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "mmiwg-ffada.ca",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "digitalcommons.usf.edu",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "survivalinternational.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "latimes.com",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "culturalsurvival.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "reuters.com",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "cbc.ca",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "independent.co.uk",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "academia.edu",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "tbinternet.ohchr.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "thoughtco.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "en.banglapedia.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "telegraph.co.uk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "yale.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "openresearch-repository.anu.edu.au",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "cerkesfed.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "bluecorncomics.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "creativespirits.info",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "people.umass.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "thesundaily.my",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "hnn.us",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "bbc.co.uk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "loc.gov",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "theirishstory.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "britannica.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "nb.no",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "2017-2021.state.gov",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "hrw.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "tcd.ie",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "mptn-nsn.gov",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "catalog.hathitrust.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "law.yale.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "samiskeveivisere.no",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "ptsrilanka.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "csmonitor.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "tukari.udg.mx",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "gsp.yale.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "unc.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "amnesty.org.uk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "nbcnews.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "ictnews.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "sabrang.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "web.mit.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "soton.ac.uk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "unhcr.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "theglobeandmail.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "npr.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "oxfordislamicstudies.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "history.emory.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "tilj.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "aec.gov.au",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "hrbrief.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "journals.openedition.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "thespinoff.co.nz",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "regioesercito.it",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "news.un.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "archiv.ub.uni-heidelberg.de",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "irinnews.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "cfr.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "colombiareports.co",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "washingtonpost.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "icj.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "teara.govt.nz",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "www4.gu.edu.au:8080",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "jinepsgazetesi.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "justicefornorthcaucasus.info",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "e-tangata.co.nz",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "firstpost.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "legalcounselbd.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "taylorfrancis.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "economist.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "claritypress.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "bbc.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "ngm.nationalgeographic.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "worldwithoutgenocide.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "oxfordre.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "amazon.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "karennews.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "degruyter.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "politicsandthelifesciences.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "oxfordbibliographies.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "www2.learncalifornia.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "livemint.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "genocidewatch.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "rnz.co.nz",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "cnn.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "time.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "pbs.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "ukrinform.ua",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "thejournal.ie",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "narragansettindiannation.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "presidency.ucsb.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "thewha.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "mercurynews.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ca.news.yahoo.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "online.ucpress.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "si.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "questia.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "shadowsgovernment.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "apnews.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "vanguardia.com.mx",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "repository.essex.ac.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "legal.un.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "mondoweiss.net",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "circassianworld.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "tlio.org.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "newsroom.ucla.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "airc.ucsc.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "dialnet.unirioja.es",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "nationalgeographic.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "cambridge.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "nationalpost.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "faculty.simpson.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "newdiversities.mmg.mpg.de",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "papers.ssrn.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "japantoday.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "google.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ghostarchive.org",
+      "from": 0,
+      "to": 1
+    }
+  ],
+  "dropped": [],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD."
+}

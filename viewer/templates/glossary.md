@@ -12,6 +12,12 @@ Something worth opening and checking. **Not** a conviction, and **not** proof of
 A stretch of time when a large share of wording that had been stable for a long time was replaced and
 the replacement stayed. Open the before-and-after view and read it yourself.
 
+## “Candidate” vs “confirmed”
+
+A **candidate** is a time window selected for closer inspection. It may come from one sharp interval or
+from sustained loss across roughly twelve months. **Confirmed** means the underlying revision history
+also shows the required collapse of long-lived wording. Neither term means the rewrite was biased.
+
 ## “Overview”
 
 The short briefing at the top of an article page. Begin there; use the other tabs only if you want

@@ -1,0 +1,486 @@
+{
+  "article": "Jedwabne pogrom",
+  "pivot": "2020-01-01",
+  "span": "2018-07-01 → 2026-07-01  (across the L1 pivot ~2020-01-01)",
+  "before": {
+    "date": "2018-07-01",
+    "refs": 238,
+    "n_domains": 64,
+    "cite_mix": {
+      "book": 33,
+      "web": 28,
+      "journal": 23,
+      "news": 16
+    },
+    "domains": {
+      "info-poland.buffalo.edu": 5,
+      "polin.pl": 1,
+      "ushmm.org": 2,
+      "ipn.gov.pl": 9,
+      "yivoencyclopedia.org": 1,
+      "wyborcza.pl": 2,
+      "nybooks.com": 1,
+      "books.google.com": 16,
+      "books.google.ca": 6,
+      "yadvashem.org": 2,
+      "pacwashmetrodiv.org": 2,
+      "londyn.polemb.net": 1,
+      "muse.jhu.edu": 2,
+      "books.google.pl": 1,
+      "db.yadvashem.org": 1,
+      "thenews.pl": 1,
+      "marucha.wordpress.com": 1,
+      "timeandspace.lviv.ua": 1,
+      "traditionarchive.org": 1,
+      "polish-jewish-heritage.org": 2,
+      "youtube.com": 3,
+      "wilmatheater.org": 1,
+      "historyandreconciliation.org": 1,
+      "books.google.co.il": 2,
+      "antyk.org.pl": 1,
+      "glaukopis.pl": 2,
+      "warsawvoice.pl": 3,
+      "onlinelibrary.wiley.com": 1,
+      "iwp.edu": 2,
+      "newbooksinhistory.com": 1,
+      "aapjstudies.org": 1,
+      "ruf.rice.edu": 1,
+      "rzeczpospolita.pl": 3,
+      "wiez.free.ngo.pl": 3,
+      "archiwum.rp.pl": 1,
+      "ajc.org": 2,
+      "haaretz.com": 2,
+      "tvniezaleznapolonia.org": 1,
+      "polishclub.org": 1,
+      "gazetabaltycka.pl": 1,
+      "timesofisrael.com": 1,
+      "wprost.pl": 1,
+      "bloomberg.com": 1,
+      "myinternetarchive-recovery.blogspot.ca": 6,
+      "senat.gov.pl": 1,
+      "znak.org.pl": 1,
+      "deon.pl": 1,
+      "encyklopedia.pwn.pl": 1,
+      "dialog.org": 1,
+      "theguardian.com": 2,
+      "jcpa.org": 1,
+      "jewishjournal.com": 1,
+      "jewishgen.org": 1,
+      "jhi.pl": 1,
+      "sztetl.org.pl": 1,
+      "polin.org.pl": 2,
+      "radzilow.com": 2,
+      "thejc.com": 2,
+      "blogs.telegraph.co.uk": 1,
+      "entertainment.timesonline.co.uk": 1,
+      "telegraph.co.uk": 1,
+      "jta.org": 2,
+      "rp.pl": 1,
+      "niniwa2.cba.pl": 1
+    }
+  },
+  "after": {
+    "date": "2026-07-01",
+    "refs": 82,
+    "n_domains": 35,
+    "cite_mix": {
+      "book": 36,
+      "web": 24,
+      "journal": 21,
+      "news": 18,
+      "report": 1
+    },
+    "domains": {
+      "polin.pl": 5,
+      "jhi.pl": 2,
+      "collections.yadvashem.org": 1,
+      "bbc.com": 2,
+      "timesofisrael.com": 2,
+      "books.google.com": 6,
+      "encyclopedia.ushmm.org": 1,
+      "ushmm.org": 1,
+      "yadvashem.org": 2,
+      "info-poland.icm.edu.pl": 1,
+      "archiwum.thenews.pl": 1,
+      "thenews.pl": 1,
+      "rzeczpospolita.pl": 2,
+      "theguardian.com": 3,
+      "ipn.gov.pl": 6,
+      "db.yadvashem.org": 1,
+      "latimes.com": 1,
+      "archive.today": 1,
+      "theglobeandmail.com": 1,
+      "haaretz.com": 2,
+      "jta.org": 2,
+      "rp.pl": 1,
+      "spectator.org": 1,
+      "vimeo.com": 1,
+      "thetimes.com": 2,
+      "wilmatheater.org": 2,
+      "jewishgen.org": 1,
+      "archive.org": 3,
+      "iwp.edu": 2,
+      "academia.edu": 1,
+      "archive.jpr.org.uk": 1,
+      "researchgate.net": 1,
+      "ajc.org": 2,
+      "ww2.senat.pl": 2,
+      "ruf.rice.edu": 1
+    }
+  },
+  "added": [
+    {
+      "domain": "polin.pl",
+      "from": 1,
+      "to": 5
+    },
+    {
+      "domain": "archive.org",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "thetimes.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "bbc.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "ww2.senat.pl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "archiwum.thenews.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "latimes.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "archive.jpr.org.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "vimeo.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "theglobeandmail.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "timesofisrael.com",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "jhi.pl",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "theguardian.com",
+      "from": 2,
+      "to": 3
+    },
+    {
+      "domain": "collections.yadvashem.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "info-poland.icm.edu.pl",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "encyclopedia.ushmm.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "wilmatheater.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "academia.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "researchgate.net",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "archive.today",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "spectator.org",
+      "from": 0,
+      "to": 1
+    }
+  ],
+  "dropped": [
+    {
+      "domain": "books.google.com",
+      "from": 16,
+      "to": 6
+    },
+    {
+      "domain": "myinternetarchive-recovery.blogspot.ca",
+      "from": 6,
+      "to": 0
+    },
+    {
+      "domain": "books.google.ca",
+      "from": 6,
+      "to": 0
+    },
+    {
+      "domain": "info-poland.buffalo.edu",
+      "from": 5,
+      "to": 0
+    },
+    {
+      "domain": "ipn.gov.pl",
+      "from": 9,
+      "to": 6
+    },
+    {
+      "domain": "wiez.free.ngo.pl",
+      "from": 3,
+      "to": 0
+    },
+    {
+      "domain": "warsawvoice.pl",
+      "from": 3,
+      "to": 0
+    },
+    {
+      "domain": "youtube.com",
+      "from": 3,
+      "to": 0
+    },
+    {
+      "domain": "polish-jewish-heritage.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "polin.org.pl",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "glaukopis.pl",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "muse.jhu.edu",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "radzilow.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "wyborcza.pl",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "thejc.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "books.google.co.il",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "pacwashmetrodiv.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "dialog.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "books.google.pl",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "archiwum.rp.pl",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "gazetabaltycka.pl",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "onlinelibrary.wiley.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "senat.gov.pl",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "jcpa.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "marucha.wordpress.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "wprost.pl",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "newbooksinhistory.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "telegraph.co.uk",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "blogs.telegraph.co.uk",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "historyandreconciliation.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "bloomberg.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "ushmm.org",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "timeandspace.lviv.ua",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "deon.pl",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "tvniezaleznapolonia.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "entertainment.timesonline.co.uk",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "polishclub.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "encyklopedia.pwn.pl",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "traditionarchive.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "znak.org.pl",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "niniwa2.cba.pl",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "londyn.polemb.net",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "antyk.org.pl",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "nybooks.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "rzeczpospolita.pl",
+      "from": 3,
+      "to": 2
+    },
+    {
+      "domain": "jewishjournal.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "sztetl.org.pl",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "yivoencyclopedia.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "aapjstudies.org",
+      "from": 1,
+      "to": 0
+    }
+  ],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD."
+}

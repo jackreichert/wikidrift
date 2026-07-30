@@ -1,7 +1,10 @@
 """Characterization tests for the viewer's HTML rendering (viewer/build.py)."""
+import json
 import pathlib
 import sys
+import tempfile
 import unittest
+from unittest import mock
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "viewer"))
 import build  # noqa: E402
@@ -75,7 +78,104 @@ def _index_html():
     )
 
 
+class FindingsDiscovery(unittest.TestCase):
+    def test_article_shard_l1_confirmation_adds_analyzed_article(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            data_dir = pathlib.Path(temp_dir)
+            findings_dir = data_dir / "articles" / "Analyzed_Topic" / "findings"
+            findings_dir.mkdir(parents=True)
+            (findings_dir / "Analyzed_Topic.l1-confirmation.json").write_text(
+                json.dumps({"article": "Analyzed Topic", "status": "not_confirmed"}),
+                encoding="utf-8",
+            )
+
+            with mock.patch.object(build, "FIND", data_dir / "findings"), \
+                    mock.patch.object(build, "ARTICLES", data_dir / "articles"), \
+                    mock.patch.object(build, "DATA", data_dir / "viewer-data"):
+                findings = build.gather()
+
+            self.assertEqual(findings.articles(), ["Analyzed Topic"])
+            self.assertEqual(findings.confirmations["Analyzed Topic"]["status"], "not_confirmed")
+
+    def test_unavailable_shard_does_not_publish_alias_page(self):
+        findings = build.Findings(confirmations={
+            "Old Alias": {"article": "Old Alias", "status": "unavailable"},
+        })
+
+        self.assertEqual(findings.articles(), [])
+
+    def test_article_shard_finding_overrides_legacy_copy(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            data_dir = pathlib.Path(temp_dir)
+            legacy_dir = data_dir / "findings"
+            shard_dir = data_dir / "articles" / "Analyzed_Topic" / "findings"
+            legacy_dir.mkdir(parents=True)
+            shard_dir.mkdir(parents=True)
+            (legacy_dir / "Analyzed_Topic.lexical.json").write_text(
+                json.dumps({"article": "Analyzed Topic", "js_divergence": 0.1}),
+                encoding="utf-8",
+            )
+            (shard_dir / "Analyzed_Topic.lexical.json").write_text(
+                json.dumps({"article": "Analyzed Topic", "js_divergence": 0.4}),
+                encoding="utf-8",
+            )
+
+            with mock.patch.object(build, "FIND", legacy_dir), \
+                    mock.patch.object(build, "ARTICLES", data_dir / "articles"), \
+                    mock.patch.object(build, "DATA", data_dir / "viewer-data"):
+                findings = build.gather()
+
+            self.assertEqual(findings.lexical["Analyzed Topic"]["js_divergence"], 0.4)
+
+
 class ArticlePageRendering(unittest.TestCase):
+    def test_exact_not_confirmed_overrides_stale_coarse_pivot(self):
+        findings = build.Findings(
+            confirmations={"Testland": {"article": "Testland", "status": "not_confirmed"}},
+            pivots={"Testland": {"pivots": [{
+                "start": "2020-01-01", "end": "2021-01-01", "pwr_mass": 100,
+            }]}},
+        )
+
+        out = build.article_page("Testland", findings)
+
+        self.assertIn("No candidate rewrite window was confirmed", out)
+        self.assertNotIn("Candidate rewrite window", out)
+
+    def test_confirmed_analysis_renders_exact_episode_summary(self):
+        findings = build.Findings(confirmations={"Testland": {
+            "article": "Testland",
+            "status": "confirmed",
+            "confirmed_episodes": [{
+                "before_revid": 11,
+                "before_timestamp": "2024-01-01T00:00:00Z",
+                "after_revid": 12,
+                "after_timestamp": "2024-01-01T00:20:00Z",
+                "durable_spine_drop": 0.75,
+                "pwr_mass": 500,
+            }],
+        }})
+
+        out = build.article_page("Testland", findings)
+
+        self.assertIn("1 confirmed rewrite episode", out)
+        self.assertIn("75.0% durable-spine drop", out)
+        self.assertIn("oldid=11", out)
+        self.assertIn("oldid=12", out)
+
+    def test_unavailable_confirmation_remains_unavailable_when_article_is_published(self):
+        findings = build.Findings(
+            confirmations={"Testland": {
+                "article": "Testland", "status": "unavailable", "coarse_verdict": "SKIP",
+            }},
+            lexical={"Testland": {"article": "Testland", "js_divergence": 0.1}},
+        )
+
+        out = build.article_page("Testland", findings)
+
+        self.assertIn("Too few snapshots for rewrite analysis", out)
+        self.assertNotIn("No candidate rewrite window was confirmed", out)
+
     def test_profile_discloses_snapshot_horizon(self):
         profile = {
             "horizon": "2026-01-01", "median_age_yrs": 4.2, "pct_recent": 25,

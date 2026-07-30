@@ -1,0 +1,114 @@
+{
+  "article": "Rafah offensive",
+  "category": "israeli-palestinian",
+  "mode": "static",
+  "pivot_window": null,
+  "editions_compared": [
+    "en",
+    "ar",
+    "he",
+    "bn",
+    "de"
+  ],
+  "lead_chars": {
+    "en": 1218,
+    "ar": 1153,
+    "he": 546,
+    "bn": 1150,
+    "de": 1411
+  },
+  "snapshots": null,
+  "divergences": [
+    {
+      "topic": "Nature/framing of the event",
+      "editions_differ": [
+        "HE",
+        "DE",
+        "BN"
+      ],
+      "en_says": "Military offensive with goals of defeating Hamas and securing border/crossing",
+      "other_says": "HE frames it as a 'battle' (קרב) between IDF and terror organizations; DE frames it as pressure tactic for hostage negotiations and cites international condemnation; BN frames it as deliberate destruction/depopulation of Rafah city and ethnic cleansing of Palestinians",
+      "verdict": "differ",
+      "evidence_en": null,
+      "evidence_other": null
+    },
+    {
+      "topic": "ICJ ruling on genocide/ceasefire order",
+      "editions_differ": [
+        "DE"
+      ],
+      "en_says": "not mentioned",
+      "other_says": "South Africa filed a case against Israel for genocide convention violations; ICJ ordered Israel on 24 May 2024 to halt its military offensive on Rafah, which Israel ignored",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": "Das Gericht wies Israel am 24. Mai 2024 an, seinen Militärangriff auf die Stadt Rafah einzustellen. Trotz dieser Anordnung setzte Israel die Offensive fort."
+    },
+    {
+      "topic": "Ceasefire negotiations and Hamas acceptance",
+      "editions_differ": [
+        "AR"
+      ],
+      "en_says": "Ceasefire negotiations brokered by Egypt and Qatar failed before the operation began",
+      "other_says": "Hamas accepted the Egypt/Qatar-brokered ceasefire proposal on 6 May, but Israel rejected it and continued the offensive, having already rejected an earlier ceasefire proposal accepted by Hamas",
+      "verdict": "contradict",
+      "evidence_en": "The operation began as ceasefire negotiations brokered by Egypt and Qatar failed.",
+      "evidence_other": "أعلنت حماس قبولها اتفاق وقف إطلاق النار الذي اقترحه كلا من مصر وقطر، لكن إسرائيل لم تقبل بالاتفاق"
+    },
+    {
+      "topic": "Casualty and destruction figures",
+      "editions_differ": [
+        "HE",
+        "BN"
+      ],
+      "en_says": "not mentioned in lead (casualty figures)",
+      "other_says": "HE states IDF killed over 2,000 militants and destroyed 13km of tunnels; BN states 60 sq km of Rafah destroyed, home to 300,000 people, completely razed",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": null
+    },
+    {
+      "topic": "Israeli military units involved",
+      "editions_differ": [
+        "HE"
+      ],
+      "en_says": "not mentioned",
+      "other_says": "Detailed listing of IDF units: Steel Formation (162nd Division) under Brig. Gen. Itzik Cohen, including 401st Armored Brigade, Givati and Nahal infantry brigades, Oz and Negev brigades; moved to northern Gaza in October 2024",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": "הכוח הצה\"לי העיקרי במבצע היה עוצבת הפלדה (אוגדה 162) בפיקוד תא\"ל איציק כהן"
+    },
+    {
+      "topic": "Global protest and Saudi threat of oil embargo",
+      "editions_differ": [
+        "BN"
+      ],
+      "en_says": "not mentioned",
+      "other_says": "Palestine called for global strike on 7 April 2025 in protest; Saudi King warned US that Arab world would consider reinstating a 1973-style petroleum embargo if Israel does not agree to a peaceful solution",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": null
+    }
+  ],
+  "summary": "The editions diverge significantly in framing, scope, and factual emphasis. EN presents a military-operation narrative with a timeline including the 2025 ceasefire and resumption of hostilities. AR emphasizes Israel's rejection of Hamas-accepted ceasefire proposals, differing from EN's statement that negotiations failed. HE frames the event as a tactical battle with detailed IDF unit compositions and casualty and tunnel-destruction claims absent from EN. DE includes international legal context and hostage-related motivations absent from EN. BN describes deliberate ethnic cleansing, destruction in Rafah, and global political reactions not found in the other selected leads. These are differences for further inspection, not a judgment about which edition is correct.",
+  "run_ts": "2026-07-19T17:50:01.596957+00:00",
+  "model": "claude-sonnet-5",
+  "llm_usage": {
+    "calls": 1,
+    "input_tokens": 4424,
+    "output_tokens": 2087,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 4424,
+        "output_tokens": 2087,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
+  },
+  "elapsed_seconds": 33.321
+}

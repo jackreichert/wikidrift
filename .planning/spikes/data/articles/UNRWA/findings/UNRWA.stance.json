@@ -1,0 +1,141 @@
+{
+  "article": "UNRWA",
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "entities": [
+    "UNRWA",
+    "Israel",
+    "Palestinians"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "UNRWA": {
+          "entity": "UNRWA",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "UNRWA has received praise and recognition for its work by various governments, public figures, and independent monitors... the ICJ found that 'Israel has not substantiated its allegations that a significant part of UNRWA's employees are members of Hamas'"
+        },
+        "Israel": {
+          "entity": "Israel",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "Israel's parliament passed a bill designating UNRWA as a terrorist group and prohibiting it from operating within the country... has long opposed the Palestinian right of return"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "the 1948 Palestinian expulsion and flight, which displaced approximately 750,000 Palestinian Arabs"
+        }
+      },
+      "lead": {
+        "UNRWA": {
+          "entity": "UNRWA",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "UNRWA has received praise and recognition for its work by various governments, public figures, and independent monitors... ICJ found that 'Israel has not substantiated its allegations that a significant part of UNRWA's employees are members of Hamas'"
+        },
+        "Israel": {
+          "entity": "Israel",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "Israel's parliament passed a bill designating UNRWA as a terrorist group and prohibiting it from operating within the country... ICJ: Israel has not backed up claims"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "which displaced approximately 750,000 Palestinian Arabs...to provide relief to all refugees resulting from the 1948 conflict"
+        }
+      }
+    },
+    "he": {
+      "focal": {
+        "UNRWA": {
+          "entity": "UNRWA",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "עדויות שונות המצביעות על שיתוף פעולה בין מספר עובדי אונר\"א לבין פעילות הטרור הרצחנית של חמאס... חומר הלימוד של הארגון מעודד הסתה וכולל את הצגת ישראל כישות זמנית שיש לסלקה, תוכן בעייתי הכולל הסתה לאלימות, גלוריפיקציה של טרוריסטים"
+        },
+        "Israel": {
+          "entity": "Israel",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "בתמיכת מדינת ישראל ומדינות ערב... ממשלת ישראל תקל על משימתה של אונר\"א כמיטב יכולתה"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "פליטים פלסטינים... עד לשנת 1952 אונר\"א סיפקה גם את צורכיהם של קהילות יהודיות שנעקרו במהלך המלחמה"
+        }
+      },
+      "lead": {
+        "UNRWA": {
+          "entity": "UNRWA",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "היא גוף מטעם האומות המאוחדות שעוסק במתן שירותים לפליטים פלסטינים"
+        },
+        "Israel": {
+          "entity": "Israel",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "ב-8 בדצמבר 1949 אישרה עצרת האו\"ם את הקמת אונר\"א בהחלטה בתמיכת מדינת ישראל ומדינות ערב"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "נכון לשנת 2023, נכללים בהגדרה זו 5.9 מיליון פליטים"
+        }
+      }
+    },
+    "ar": {
+      "focal": {
+        "UNRWA": {
+          "entity": "UNRWA",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "حذر فيليب لازاريني... من أن الوكالة التابعة للأمم المتحدة 'مهددة بالموت ومعرضة لخطر التفكيك' بعد أن أوقف عدة مانحين تمويلهم بسبب مزاعم إسرائيلية"
+        },
+        "Israel": {
+          "entity": "Israel",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "إسرائيل تعمل على شل قدرة المنظمات غير الحكومية ومنظمات حقوق الإنسان... من خلال تشويه وتهديد وتعذيب عمال الإغاثة"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "الأطفال في قطاع غزة 'يتجمدون حتى الموت' بسبب الطقس البارد الشديد"
+        }
+      },
+      "lead": {
+        "UNRWA": {
+          "entity": "UNRWA",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "مؤكدا أن ذلك من شأنه أن يفاقم المجاعة في قطاع غزة... 'إسرائيل تحاول من خلال حملة شعواء تصوير الوكالة على أنها منشأة إرهابية'"
+        },
+        "Israel": {
+          "entity": "Israel",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "إسرائيل تعمل على شل قدرة المنظمات غير الحكومية ومنظمات حقوق الإنسان... من خلال تشويه وتهديد وتعذيب عمال الإغاثة الحاليين"
+        },
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "لقرابة 5.6 مليون لاجئ فلسطيني مسجَّلين لديها... إلى أن تنتهيَ معاناتهم"
+        }
+      }
+    }
+  }
+}

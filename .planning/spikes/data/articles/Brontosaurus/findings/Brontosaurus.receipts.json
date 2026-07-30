@@ -1,0 +1,27 @@
+{
+  "article": "Brontosaurus",
+  "qid": "Q3222766",
+  "editions": {
+    "en": {
+      "present": true,
+      "revid": 1362749745,
+      "title": "Brontosaurus",
+      "timestamp": "2026-07-06T00:00:09Z",
+      "prose_chars": 47467
+    },
+    "he": {
+      "present": true,
+      "revid": 39960717,
+      "title": "ברונטוזאורוס",
+      "timestamp": "2024-11-12T07:58:02Z",
+      "prose_chars": 5231
+    },
+    "ar": {
+      "present": true,
+      "revid": 69633269,
+      "title": "برنتوصور",
+      "timestamp": "2025-02-19T20:55:02Z",
+      "prose_chars": 464
+    }
+  }
+}

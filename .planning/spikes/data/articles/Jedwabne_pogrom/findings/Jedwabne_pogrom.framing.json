@@ -1,0 +1,173 @@
+{
+  "article": "Jedwabne pogrom",
+  "category": "polish-wwii",
+  "mode": "pivot_relative",
+  "pivot_window": {
+    "start": "2020-01-01",
+    "end": "2020-07-01",
+    "pwr_mass": 232392,
+    "status": "confirmed",
+    "before_revid": 950771412,
+    "before_timestamp": "2020-04-13T19:12:42Z",
+    "after_revid": 950809202,
+    "after_timestamp": "2020-04-13T23:29:42Z",
+    "durable_spine_drop": 0.425399
+  },
+  "editions_compared": [
+    "en",
+    "pl",
+    "de",
+    "zh"
+  ],
+  "lead_chars": {
+    "en": 452,
+    "pl": 3000,
+    "de": 419,
+    "zh": 703
+  },
+  "snapshots": {
+    "before": {
+      "en": {
+        "revid": 950771412,
+        "timestamp": "2020-04-13T19:12:42Z",
+        "title": "Jedwabne pogrom",
+        "lead": "thumb|upright=1.3|Jedwabne memorial, POLIN Museum of the History of Polish Jews, Warsaw\n\nThe Jedwabne pogrom (, ) was a massacre of Polish Jews in the town of Jedwabne, German-occupied Poland, on 10 July 1941, during World War II.\n\nAt least 340 men, women and children were murdered, some 300 of whom were locked in a barn that was set on fire.For 300, see . About 40 ethnic Poles were implicated in the murders. German police were present in the town.\"Pogrom in Jedwabne: Course of Events. Polin Museum, 9 July 2016; accessed 2 April 2018"
+      },
+      "pl": {
+        "revid": 58914083,
+        "timestamp": "2020-02-28T10:11:51Z",
+        "title": "Pogrom w Jedwabnem",
+        "lead": "Pogrom w Jedwabnem (również: mord w JedwabnemCz. Madajczyk, „U Progu Zagłady. Zajścia antyżydowskie i pogromy w okupowanej Europie. Warszawa, Paryż, Amsterdam, Antwerpia, Kowno”, Tomasz Szarota, Warszawa 2000, „Dzieje Najnowsze”, 33, 2001, 3, s. 201.T. Szarota, Mord w Jedwabnem. Dokumenty, publikacje i interpretacje z lat 1941–2000. Kalendarium, [w:] Wokół Jedwabnego, red. P. Machcewicz, K. Persak, t. 1: Studia, Warszawa 2002, s. 461–488.M. Wierzbicki, Polacy i Żydzi w zaborze sowieckim. Stosunki polsko-żydowskie na ziemiach północno-wschodnich II RP pod okupacją sowiecką 1939-1941, wyd. 2 popr. i uzup., Warszawa 2007, s. 287.M.J. Chodakiewicz, Mord w Jedwabnem 10 lipca 1941: prolog, przebieg, pokłosie, Kraków 2012.) – masowe morderstwo dokonane z niemieckiej inspiracji„Niemiecka inspiracja do dokonania zbrodni nie przybrała (...) formy współsprawstwa – wspólnego dokonywania z polskimi mieszkańcami zaplanowanej zbrodni na wszystkich etapach realizacji przestępczego planu.(...) Zbrodnicza inspiracja miała charakter przyzwolenia na dokonanie zbrodni i zapewnienia bezkarności jej wykonawcom.” IPN, Postanowienie z 30 czerwca 2003 r. o umorzeniu śledztwa w sprawie zabójstwa obywateli polskich narodowości żydowskiej w Jedwabnem w dniu 10 lipca 1941 r., s. 198, dostępne w Internecie, dostęp 2013-02-26.T. Strzembosz, Inny obraz sąsiadów, [w:] Cena „Strachu”. Gross w oczach historyków, red. R. Jankowski, Warszawa 2008, red. s. 134: „Podsumujmy: decydująca – jako inspiratorzy, organizatorzy i współsprawcy – rola Niemców i udział kilkudziesięciu Polaków, w tym także przymuszonych”.Historyk M.J. Chodakiewicz w wydanej przez IPN w 2008 r. książce zauważa: „Obecnie istnieją trzy główne podejścia do sprawy Jedwabnego. Pierwsze uznaje, że zbrodnia została dokonana przez duży oddział niemiecki z niewielkim udziałem Polaków. Według drugiego polska część mieszkańców miasta spontanicznie zamordowała sąsiadów żydowskich, paląc ich w stodole bez najmniejszego udziału Niemców. Trzecie utrzymuje, że mimo iż część Polaków rzeczywiście uczestniczyła w spędzaniu Żydów na rynek, to ich rola w podpaleniu stodoły jest niejasna. Według ostatniego scenariusza w rozwoju wydarzeń ważną, jeśli nie pierwszorzędną, rolę odgrywało bezpośrednie uczestnictwo Niemców. Najnowsze badania pozwalają odrzucić pierwsze podejście i wątpić w słuszność podejścia drugiego, jednak potrzeba więcej dowodów, aby określić udział Polaków I Niemców”, M.J. Chodakiewicz, Po Zagładzie. Stosunki polsko-żydowskie 1944–1947, przekł. A. Madej, IPN, Warszawa 2008, s. 114, przypis nr 40. .Żydowski historyk tak opisywał mordy niemieckie w Białostockiem, które miały miejsce latem 1941: „Do zbrodni na tych obszarach Niemcy przyciągnęli męty spośród miejscowej ludności oraz tzw. granatową policję. Było to zjawisko raczej rzadkie w dziejach okupowanej Polski, jak również na pozostałych obszarach Okręgu Białostockiego, gdzie ludność miejscowa – zarówno Polacy, jak i Białorusini – nie dała się obałamucić niemieckiej pr"
+      },
+      "de": {
+        "revid": 195716047,
+        "timestamp": "2020-01-11T17:37:51Z",
+        "title": "Massaker von Jedwabne",
+        "lead": "mini|Monument in Jedwabne (2009)\nDas Massaker von Jedwabne war ein Pogrom polnischer Bürger von Jedwabne und der Umgebung an jüdischen Einwohnern der Kleinstadt im Nordosten Polens am 10. Juli 1941, bei dem mindestens 340 Menschen ermordet wurden. Es fand während der Besatzung Jedwabnes durch die Wehrmacht statt und gilt als gemeinsames Verbrechen einer Gruppe von polnischen Einwohnern und deutscher Besatzungsmacht."
+      },
+      "zh": {
+        "revid": 57659376,
+        "timestamp": "2020-01-12T03:53:40Z",
+        "title": "耶德瓦布内大屠杀",
+        "lead": "耶德瓦布内反犹骚乱（）是1941年7月10日在德占波兰耶德瓦布内镇发生的屠杀事件。至少有340名波兰犹太人（包括妇女和儿童）在屠杀中遇害，P.A.I.C., The Jedwabne Tragedy.  Polish Academic Information Center, University of Buffalo, 2000.其中约300人被锁在一座谷仓里烧死。 \n\n屠杀事件的实施者中，至少有40名与在场的德国秩序警察有牵连的波兰人。\"Pogrom in Jedwabne: Course of Events, Polin Museum, 09 July 2016; accessed 2 April 2018\"Pogroms\", Holocaust Encyclopedia, US Holocaust Memorial Museum而该事件是否有其他方面的额外参与——譬如德国盖世太保The Neighbors Respond: The Controversy over the Jedwabne Massacre in Poland edited by Antony Polonsky, Joanna B. Michlic p.338和党卫队准军事部队（B别动队等）——目前仍存在争议。\n\n在2000年-2002年，波兰政府对大屠杀进行了法医调查，包括遗址挖掘和对111名目击者的采访。 “Jedwabne Postanowienie” 由于犹太神学反对惊扰死者遗体，挖掘行动随之受限，因此目前仍然不确定大屠杀的总体进行程度。许多评论员对调查结果感到震惊，因为调查发现的行径与形成了鲜明对比。"
+      }
+    },
+    "after": {
+      "en": {
+        "revid": 950809202,
+        "timestamp": "2020-04-13T23:29:42Z",
+        "title": "Jedwabne pogrom",
+        "lead": "thumb|upright=1.3|Jedwabne memorial, POLIN Museum of the History of Polish Jews, Warsaw\n\nThe Jedwabne pogrom (, ) was a massacre of Polish Jews in the town of Jedwabne, German-occupied Poland, on 10 July 1941, during World War II.\n\nAt least 340 men, women and children were murdered, some 300 of whom were locked in a barn that was set on fire.For 300, see . About 40 ethnic Poles were implicated in the murders. German police were present in the town."
+      },
+      "pl": {
+        "revid": 59444431,
+        "timestamp": "2020-04-14T22:08:44Z",
+        "title": "Pogrom w Jedwabnem",
+        "lead": "Pogrom w Jedwabnem (również: mord w JedwabnemCz. Madajczyk, „U Progu Zagłady. Zajścia antyżydowskie i pogromy w okupowanej Europie. Warszawa, Paryż, Amsterdam, Antwerpia, Kowno”, Tomasz Szarota, Warszawa 2000, „Dzieje Najnowsze”, 33, 2001, 3, s. 201.T. Szarota, Mord w Jedwabnem. Dokumenty, publikacje i interpretacje z lat 1941–2000. Kalendarium, [w:] Wokół Jedwabnego, red. P. Machcewicz, K. Persak, t. 1: Studia, Warszawa 2002, s. 461–488.M. Wierzbicki, Polacy i Żydzi w zaborze sowieckim. Stosunki polsko-żydowskie na ziemiach północno-wschodnich II RP pod okupacją sowiecką 1939-1941, wyd. 2 popr. i uzup., Warszawa 2007, s. 287.M.J. Chodakiewicz, Mord w Jedwabnem 10 lipca 1941: prolog, przebieg, pokłosie, Kraków 2012.) – masowe morderstwo dokonane z niemieckiej inspiracji„Niemiecka inspiracja do dokonania zbrodni nie przybrała (...) formy współsprawstwa – wspólnego dokonywania z polskimi mieszkańcami zaplanowanej zbrodni na wszystkich etapach realizacji przestępczego planu.(...) Zbrodnicza inspiracja miała charakter przyzwolenia na dokonanie zbrodni i zapewnienia bezkarności jej wykonawcom.” IPN, Postanowienie z 30 czerwca 2003 r. o umorzeniu śledztwa w sprawie zabójstwa obywateli polskich narodowości żydowskiej w Jedwabnem w dniu 10 lipca 1941 r., s. 198, dostępne w Internecie, dostęp 2013-02-26.T. Strzembosz, Inny obraz sąsiadów, [w:] Cena „Strachu”. Gross w oczach historyków, red. R. Jankowski, Warszawa 2008, red. s. 134: „Podsumujmy: decydująca – jako inspiratorzy, organizatorzy i współsprawcy – rola Niemców i udział kilkudziesięciu Polaków, w tym także przymuszonych”.Historyk M.J. Chodakiewicz w wydanej przez IPN w 2008 r. książce zauważa: „Obecnie istnieją trzy główne podejścia do sprawy Jedwabnego. Pierwsze uznaje, że zbrodnia została dokonana przez duży oddział niemiecki z niewielkim udziałem Polaków. Według drugiego polska część mieszkańców miasta spontanicznie zamordowała sąsiadów żydowskich, paląc ich w stodole bez najmniejszego udziału Niemców. Trzecie utrzymuje, że mimo iż część Polaków rzeczywiście uczestniczyła w spędzaniu Żydów na rynek, to ich rola w podpaleniu stodoły jest niejasna. Według ostatniego scenariusza w rozwoju wydarzeń ważną, jeśli nie pierwszorzędną, rolę odgrywało bezpośrednie uczestnictwo Niemców. Najnowsze badania pozwalają odrzucić pierwsze podejście i wątpić w słuszność podejścia drugiego, jednak potrzeba więcej dowodów, aby określić udział Polaków I Niemców”, M.J. Chodakiewicz, Po Zagładzie. Stosunki polsko-żydowskie 1944–1947, przekł. A. Madej, IPN, Warszawa 2008, s. 114, przypis nr 40. .Żydowski historyk tak opisywał mordy niemieckie w Białostockiem, które miały miejsce latem 1941: „Do zbrodni na tych obszarach Niemcy przyciągnęli męty spośród miejscowej ludności oraz tzw. granatową policję. Było to zjawisko raczej rzadkie w dziejach okupowanej Polski, jak również na pozostałych obszarach Okręgu Białostockiego, gdzie ludność miejscowa – zarówno Polacy, jak i Białorusini – nie dała się obałamucić niemieckiej pr"
+      },
+      "de": {
+        "revid": 199400997,
+        "timestamp": "2020-04-28T23:14:41Z",
+        "title": "Massaker von Jedwabne",
+        "lead": "mini|Monument in Jedwabne (2009)\nDas Massaker von Jedwabne war ein Pogrom polnischer Bürger von Jedwabne und der Umgebung an jüdischen Einwohnern der Kleinstadt im Nordosten Polens am 10. Juli 1941, bei dem mindestens 340 Menschen ermordet wurden. Es fand während der Besatzung Jedwabnes durch die Wehrmacht statt und gilt als gemeinsames Verbrechen einer Gruppe von polnischen Einwohnern und deutscher Besatzungsmacht."
+      },
+      "zh": {
+        "revid": 59268688,
+        "timestamp": "2020-04-20T11:36:37Z",
+        "title": "耶德瓦布内大屠杀",
+        "lead": "耶德瓦布内反犹骚乱（）是1941年7月10日在德占波兰耶德瓦布内镇发生的屠杀事件。至少有340名波兰犹太人（包括妇女和儿童）在屠杀中遇害，P.A.I.C., The Jedwabne Tragedy.  Polish Academic Information Center, University of Buffalo, 2000.其中约300人被锁在一座谷仓里烧死。 \n\n屠杀事件的实施者中，至少有40名与在场的德国秩序警察有牵连的波兰人。\"Pogrom in Jedwabne: Course of Events, Polin Museum, 09 July 2016; accessed 2 April 2018\"Pogroms\", Holocaust Encyclopedia, US Holocaust Memorial Museum而该事件是否有其他方面的额外参与——譬如德国盖世太保The Neighbors Respond: The Controversy over the Jedwabne Massacre in Poland edited by Antony Polonsky, Joanna B. Michlic p.338和党卫队准军事部队（B别动队等）——目前仍存在争议。\n\n在2000年-2002年，波兰政府对大屠杀进行了法医调查，包括遗址挖掘和对111名目击者的采访。 “Jedwabne Postanowienie” 由于犹太神学反对惊扰死者遗体，挖掘行动随之受限，因此目前仍然不确定大屠杀的总体进行程度。许多评论员对调查结果感到震惊，因为调查发现的行径与形成了鲜明对比。"
+      },
+      "fa": {
+        "revid": 30554975,
+        "timestamp": "2020-12-09T03:37:54Z",
+        "title": "پوگروم یدوابنه",
+        "lead": "پوگروم یدوابنه به کشتار یهودیان لهستانی در ۱۰ ژوئیه ۱۹۴۱ در شهر یدوابنه، لهستان اشغالی، در جریان جنگ جهانی دوم و مراحل آغازین هولوکاست گفته می‌شود.; ; . در جریان این پوگروم، کمینه ۳۴۰ مرد، زن و کودک به قتل رسیدند، که حدود ۳۰۰ نفر از آن‌ها در انباری حبس شده و سپس به آتش کشیده شدند. حدود ۴۰ لهستانی غیر یهودی به عنوان عاملان این کشتار شناسایی شده‌اند، اگرچه پلیس نظامی آلمان در آن هنگام در شهر حضور داشت.\n\nاین کشتار در میان بسیاری دیگر کشتارها در منطقه پودلشه، پس از ورود نیروهای آلمانی اندکی پس از حمله آنها به اتحاد جماهیر شوروی، قرار می‌گیرد. یدوابنه خود تا آن هنگام در اشغالی ۲۰ ماهه توسط نیروهای شووری، پس از تقسیم لهستان به دست آلمان و شوروی، به سر می‌برد.\n\nقاتلان در یدوابنه از کلیشه‌های منفی «کمونیسم یهود» علیه قربانیان خود استفاده کردند. پیش از حمله شوروی به شرق لهستان، یدابنه در منطقه ای هوادار حزب ملی لهستان قرار گرفته بود؛ بلوکی ضدیهودی و ضد دولت پیش از جنگ لهستان، که پیشتر جناح افراطی رادیکال این حزب را در سال ۱۹۳۴ غیرقانونی اعلام کرده بود.\n\nآگاهی از این کشتار تنها پس از تلاش فیلمسازان، روزنامه نگاران و دانشگاهیان لهستانی، به ویژه با انتشار نسخه انگلیسی کتاب همسایه‌ها: نابودی جامعه یهودیان در یدابنه، لهستان از یان گروس در سال ۲۰۰۱، همگانی شد. توجه عمومی به این حادثه باعث تحقیقات رسمی در مورد کشتارها در سال ۲۰۰۰–۲۰۰۳ توسط مؤسسه یادبود ملی لهستان شد، که تأیید کرد عاملان اصلی کشتار لهستانی‌های بومی بوده‌اند. این یافته‌ها باعث شوکه شدن مردم لهستان شد، چرا که روایت‌های رایج مربوط به هولوکاست در لهستان را، که در آن‌ها عاملان آلمانی معرفی می‌شدند و نه لهستانی، به چالش می‌کشیدند. در مراسم یادبود سال ۲۰۰۱ در یدوابنه، رئیس‌جمهور الکساندر کواشنیوسکی به نمایندگی از کشور عذرخواهی کرد، عذرخواهی که توسط رئیس‌جمهور برونیسواو کوموروفسکی در سال ۲۰۱۱ نیز تکرار شد."
+      }
+    }
+  },
+  "divergences": [
+    {
+      "topic": "Attribution of responsibility: Polish citizens vs German inspiration/occupation",
+      "editions_differ": [
+        "DE",
+        "PL"
+      ],
+      "en_says": "About 40 ethnic Poles were implicated in the murders. German police were present in the town.",
+      "other_says": "war ein Pogrom polnischer Bürger von Jedwabne...an jüdischen Einwohnern...Es fand während der Besatzung Jedwabnes durch die Wehrmacht statt und gilt als gemeinsames Verbrechen einer Gruppe von polnischen Einwohnern und deutscher Besatzungsmacht.",
+      "verdict": "differ",
+      "evidence_en": "About 40 ethnic Poles were implicated in the murders. German police were present in the town.",
+      "evidence_other": "gilt als gemeinsames Verbrechen einer Gruppe von polnischen Einwohnern und deutscher Besatzungsmacht",
+      "temporal_read": "difference_persisted",
+      "en_before": "About 40 ethnic Poles were implicated in the murders. German police were present in the town.",
+      "en_after": "About 40 ethnic Poles were implicated in the murders. German police were present in the town.",
+      "other_before": "Das Massaker von Jedwabne war ein Pogrom polnischer Bürger...gilt als gemeinsames Verbrechen einer Gruppe von polnischen Einwohnern und deutscher Besatzungsmacht.",
+      "other_after": "Das Massaker von Jedwabne war ein Pogrom polnischer Bürger...gilt als gemeinsames Verbrechen einer Gruppe von polnischen Einwohnern und deutscher Besatzungsmacht.",
+      "evidence_en_before": "About 40 ethnic Poles were implicated in the murders. German police were present in the town.",
+      "evidence_en_after": "About 40 ethnic Poles were implicated in the murders. German police were present in the town.",
+      "evidence_other_before": "gilt als gemeinsames Verbrechen einer Gruppe von polnischen Einwohnern und deutscher Besatzungsmacht",
+      "evidence_other_after": "gilt als gemeinsames Verbrechen einer Gruppe von polnischen Einwohnern und deutscher Besatzungsmacht"
+    },
+    {
+      "topic": "German role: inspiration vs occupying force (PL) vs mere police presence (EN)",
+      "editions_differ": [
+        "PL"
+      ],
+      "en_says": "German police were present in the town.",
+      "other_says": "masowe morderstwo dokonane z niemieckiej inspiracji",
+      "verdict": "differ",
+      "evidence_en": "German police were present in the town.",
+      "evidence_other": "masowe morderstwo dokonane z niemieckiej inspiracji",
+      "temporal_read": "difference_persisted",
+      "en_before": "German police were present in the town.",
+      "en_after": "German police were present in the town.",
+      "other_before": "masowe morderstwo dokonane z niemieckiej inspiracji",
+      "other_after": "masowe morderstwo dokonane z niemieckiej inspiracji",
+      "evidence_en_before": "German police were present in the town.",
+      "evidence_en_after": "German police were present in the town.",
+      "evidence_other_before": "masowe morderstwo dokonane z niemieckiej inspiracji",
+      "evidence_other_after": "masowe morderstwo dokonane z niemieckiej inspiracji"
+    },
+    {
+      "topic": "Removal of footnote citation for German police presence in English lead",
+      "editions_differ": [
+        "EN"
+      ],
+      "en_says": "German police were present in the town.",
+      "other_says": "German police were present in the town.",
+      "verdict": "differ",
+      "evidence_en": "German police were present in the town.",
+      "evidence_other": null,
+      "temporal_read": "english_moved_away",
+      "en_before": "German police were present in the town.\"Pogrom in Jedwabne: Course of Events. Polin Museum, 9 July 2016; accessed 2 April 2018",
+      "en_after": "German police were present in the town.",
+      "other_before": "n/a",
+      "other_after": "n/a",
+      "evidence_en_before": "German police were present in the town.\"Pogrom in Jedwabne: Course of Events. Polin Museum, 9 July 2016; accessed 2 April 2018",
+      "evidence_en_after": "German police were present in the town.",
+      "evidence_other_before": null,
+      "evidence_other_after": null
+    }
+  ],
+  "summary": "The English lead's factual content did not change between the before and after revisions in this window; only a footnote/citation marker was removed. In contrast, DE and PL retained their pre-existing framing that persisted unchanged across the same period: DE emphasizes joint Polish-German responsibility under Wehrmacht occupation, while PL foregrounds German inspiration for the massacre. ZH also remained essentially unchanged, matching EN's core facts (340 killed, 300 burned, ~40 Poles implicated, German police present) without added attribution language. These attributional divergences between EN and DE/PL predate and persist through the observed edit window, rather than resulting from the English edit itself.",
+  "run_ts": "2026-07-19T17:42:40.257597+00:00",
+  "model": "claude-sonnet-5",
+  "llm_usage": {
+    "calls": 1,
+    "input_tokens": 6819,
+    "output_tokens": 1645,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 6819,
+        "output_tokens": 1645,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
+  },
+  "elapsed_seconds": 23.909
+}

@@ -1,0 +1,27 @@
+{
+  "article": "Anti-Zionism",
+  "artifacts": [
+    "findings/Anti-Zionism.category.json",
+    "findings/Anti-Zionism.cost.json",
+    "findings/Anti-Zionism.factcheck.json",
+    "findings/Anti-Zionism.framing.json",
+    "findings/Anti-Zionism.l1-confirmation.json",
+    "findings/Anti-Zionism.lexical.json",
+    "findings/Anti-Zionism.profile.json",
+    "findings/Anti-Zionism.receipts.json",
+    "findings/Anti-Zionism.sources.json",
+    "findings/Anti-Zionism.stance.json",
+    "logs/analysis-2026-07-30/Anti-Zionism.rolling-corpus-benchmark.log",
+    "mscore/Anti-Zionism.json"
+  ],
+  "slug": "Anti-Zionism",
+  "tables": {
+    "articles": 0,
+    "rev_size": 6259,
+    "revisions": 6259,
+    "rsnap": 927200,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

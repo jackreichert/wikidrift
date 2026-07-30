@@ -1,10 +1,12 @@
 """Unit tests for pure engine functions (no network, no DB, no LLM)."""
 import importlib.util
+import io
 import json
 import pathlib
 import tempfile
+import threading
 import unittest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 from wikidrift import l5_factcheck as fc
 from wikidrift import l5_crosslingual as xl
@@ -125,6 +127,34 @@ class AdaptiveL5CapPolicy(unittest.TestCase):
         ])
         self.assertEqual(notes, [])
 
+    def test_full_mode_includes_crosslingual_coverage(self):
+        commands, _ = cover_missing_topics._topic_commands(
+            "Testland", use_llm=True, include_mscore=False, include_framing=True,
+            mode="full", l5_max_langs=None, required=set(), have=set(),
+        )
+        stages = [command[-2:] for command in commands]
+        self.assertEqual(stages[0], ["analyze", "Testland"])
+        self.assertIn(["crosslingual", "Testland"], stages)
+
+    def test_pipeline_mode_only_analyzes_then_runs_pipeline(self):
+        commands, notes = cover_missing_topics._topic_commands(
+            "Testland", use_llm=False, include_mscore=False, include_framing=False,
+            mode="pipeline", l5_max_langs=None, required=set(), have=set(),
+        )
+        self.assertEqual([command[-2:] for command in commands], [
+            ["analyze", "Testland"], ["pipeline", "Testland"],
+        ])
+        self.assertEqual(notes, [])
+
+    def test_fill_mode_uses_crosslingual_for_stance_and_receipts(self):
+        commands, _ = cover_missing_topics._topic_commands(
+            "Testland", use_llm=True, include_mscore=False, include_framing=False,
+            mode="fill", l5_max_langs=None, required={"stance", "receipts"}, have=set(),
+        )
+        self.assertEqual([command[-2:] for command in commands], [
+            ["analyze", "Testland"], ["crosslingual", "Testland"],
+        ])
+
     def test_cost_report_combines_stage_time_and_framing_usage(self):
         with tempfile.TemporaryDirectory() as directory:
             findings = pathlib.Path(directory)
@@ -152,6 +182,174 @@ class AdaptiveL5CapPolicy(unittest.TestCase):
                 {"command": "framing", "elapsed_seconds": 3.25, "exit_code": 1},
             ])
         self.assertFalse(report["succeeded"])
+
+
+class ParallelTopicCoverage(unittest.TestCase):
+    def test_canonicalize_topics_replaces_redirects_and_deduplicates_targets(self):
+        resolved = {
+            "Democratic Party of the United States": "Democratic Party (United States)",
+            "Democratic Party (United States)": "Democratic Party (United States)",
+        }
+
+        def resolve(topic):
+            return Mock(requested_title=topic, canonical_title=resolved[topic], page_id=5043544)
+
+        topics, identities = cover_missing_topics._canonicalize_topics(
+            list(resolved), resolver=resolve,
+        )
+
+        self.assertEqual(topics, ["Democratic Party (United States)"])
+        self.assertEqual([identity.requested_title for identity in identities], list(resolved))
+
+        with tempfile.TemporaryDirectory() as directory:
+            articles_dir = pathlib.Path(directory)
+            cover_missing_topics._write_article_identities(articles_dir, identities)
+            identity = json.loads((
+                articles_dir / "Democratic_Party_(United_States)" / "article-identity.json"
+            ).read_text(encoding="utf-8"))
+
+        self.assertEqual(identity["canonical_title"], "Democratic Party (United States)")
+        self.assertEqual(identity["page_id"], 5043544)
+        self.assertEqual(identity["requested_titles"], list(resolved))
+
+    def test_uv_command_runs_wikidrift_entrypoint(self):
+        self.assertEqual(
+            cover_missing_topics._uv_command(["analyze", "Testland"]),
+            ["uv", "run", "wikidrift", "analyze", "Testland"],
+        )
+
+    def test_streaming_command_logs_and_prefixes_each_output_line(self):
+        process = Mock(stdout=iter(["first line\n", "last line"]))
+        process.wait.return_value = 0
+        process_factory = Mock(return_value=process)
+        log = io.StringIO()
+        output = io.StringIO()
+
+        completed = cover_missing_topics._run_streaming_command(
+            ["uv", "run", "wikidrift", "analyze", "Testland"],
+            env={"PYTHONUNBUFFERED": "1"},
+            log=log,
+            topic="Testland",
+            output_lock=threading.Lock(),
+            output_stream=output,
+            process_factory=process_factory,
+        )
+
+        self.assertEqual(completed.returncode, 0)
+        self.assertEqual(log.getvalue(), "first line\nlast line")
+        self.assertEqual(output.getvalue(), "[Testland] first line\n[Testland] last line\n")
+
+    def test_streaming_command_kills_child_when_output_fails(self):
+        process = Mock(stdout=iter(["first line\n"]))
+        process_factory = Mock(return_value=process)
+        output = Mock()
+        output.write.side_effect = OSError("terminal closed")
+
+        with self.assertRaisesRegex(OSError, "terminal closed"):
+            cover_missing_topics._run_streaming_command(
+                ["uv", "run", "wikidrift", "analyze", "Testland"],
+                env={"PYTHONUNBUFFERED": "1"},
+                log=io.StringIO(),
+                topic="Testland",
+                output_lock=threading.Lock(),
+                output_stream=output,
+                process_factory=process_factory,
+            )
+
+        process.kill.assert_called_once_with()
+        process.wait.assert_called_once_with()
+
+    def test_run_topic_isolates_storage_and_resumes_completed_stages(self):
+        with tempfile.TemporaryDirectory() as directory:
+            articles_dir = pathlib.Path(directory)
+            data_dir = articles_dir / "Testland"
+            data_dir.mkdir()
+            (data_dir / "coverage-state.json").write_text(json.dumps({
+                "completed_stages": ["analyze"],
+            }), encoding="utf-8")
+            runner = Mock(return_value=Mock(returncode=0))
+
+            result = cover_missing_topics._run_topic_commands(
+                topic="Testland",
+                commands=[
+                    ["uv", "run", "wikidrift", "analyze", "Testland"],
+                    ["uv", "run", "wikidrift", "pipeline", "Testland"],
+                ],
+                articles_dir=articles_dir,
+                resume=True,
+                runner=runner,
+            )
+
+            self.assertTrue(result["succeeded"])
+            self.assertEqual(result["skipped_stages"], ["analyze"])
+            runner.assert_called_once()
+            self.assertEqual(runner.call_args.args[0][:4], ["uv", "run", "wikidrift", "pipeline"])
+            self.assertEqual(runner.call_args.kwargs["env"]["WIKIDRIFT_DATA_DIR"], str(data_dir))
+            state = json.loads((data_dir / "coverage-state.json").read_text(encoding="utf-8"))
+            self.assertEqual(state["completed_stages"], ["analyze", "pipeline"])
+
+    def test_run_topic_stops_and_preserves_state_on_stage_failure(self):
+        with tempfile.TemporaryDirectory() as directory:
+            articles_dir = pathlib.Path(directory)
+            runner = Mock(side_effect=[Mock(returncode=0), Mock(returncode=1)])
+
+            result = cover_missing_topics._run_topic_commands(
+                topic="Testland",
+                commands=[
+                    ["uv", "run", "wikidrift", "analyze", "Testland"],
+                    ["uv", "run", "wikidrift", "pipeline", "Testland"],
+                    ["uv", "run", "wikidrift", "profile", "Testland"],
+                ],
+                articles_dir=articles_dir,
+                resume=True,
+                runner=runner,
+            )
+
+            self.assertFalse(result["succeeded"])
+            self.assertEqual([stage["command"] for stage in result["stages"]],
+                             ["analyze", "pipeline"])
+            state = json.loads((articles_dir / "Testland" / "coverage-state.json").read_text())
+            self.assertEqual(state["completed_stages"], ["analyze"])
+
+    def test_run_topic_item_returns_failure_when_worker_raises(self):
+        with unittest.mock.patch.object(
+            cover_missing_topics, "_run_topic_commands", side_effect=ValueError("bad command")
+        ):
+            result = cover_missing_topics._run_topic_item(
+                ("Testland", [["bad"]]),
+                articles_dir=pathlib.Path("articles"),
+                resume=False,
+            )
+
+        self.assertFalse(result["succeeded"])
+        self.assertEqual(result["error"], "bad command")
+
+    def test_run_topics_rejects_duplicate_topics(self):
+        with self.assertRaisesRegex(ValueError, "duplicate topics"):
+            cover_missing_topics._run_topics_parallel(
+                topic_commands=[("Testland", []), ("Testland", [])],
+                articles_dir=pathlib.Path("articles"),
+                jobs=2,
+                resume=False,
+            )
+
+    def test_run_topics_uses_requested_worker_limit(self):
+        executor = Mock()
+        executor.__enter__ = Mock(return_value=executor)
+        executor.__exit__ = Mock(return_value=False)
+        executor.map.return_value = []
+        executor_factory = Mock(return_value=executor)
+
+        results = cover_missing_topics._run_topics_parallel(
+            topic_commands=[],
+            articles_dir=pathlib.Path("articles"),
+            jobs=3,
+            resume=False,
+            executor_factory=executor_factory,
+        )
+
+        self.assertEqual(results, [])
+        executor_factory.assert_called_once_with(max_workers=3)
 
 
 class StanceValue(unittest.TestCase):
@@ -358,6 +556,7 @@ class DriftEpisodes(unittest.TestCase):
         self.assertEqual((eps[0]["abs"], eps[0]["peak"]), (500, 30.0))   # 200+300 accumulated; peak = max
         self.assertEqual((eps[0]["start"], eps[0]["end"]), (("2020-07-01", 2), ("2021-07-01", 4)))
         self.assertEqual(eps[1]["abs"], 400)
+        self.assertTrue(all(episode["source"] == "interval" for episode in eps))
 
     def test_annotate_ranks_by_pwr_mass_and_sets_age(self):
         eps = [{"start": ("2020-01-01", 1), "end": ("2020-07-01", 2), "abs": 100, "peak": 20},
@@ -365,6 +564,56 @@ class DriftEpisodes(unittest.TestCase):
         out = drift.annotate_episodes(eps, "2026-01-01")
         self.assertEqual([e["abs"] for e in out], [500, 100])    # ranked by PWR-mass, age-agnostic
         self.assertGreater(out[1]["age"], out[0]["age"])         # the older episode carries the larger age
+
+    def test_rolling_candidates_detects_repeated_medium_loss_over_one_year(self):
+        snaps = [("2022-01-01", 1), ("2022-07-01", 2), ("2023-01-01", 3)]
+        members = [set(range(100)), set(range(90)), set(range(70))]
+        present = {token: [index for index, member in enumerate(members) if token in member]
+                   for token in range(100)}
+
+        candidates = drift.rolling_candidates(
+            snaps, members, present, min_mature=50, threshold=20.0, mass_floor=20,
+        )
+
+        self.assertEqual(len(candidates), 1)
+        self.assertEqual((candidates[0]["start"][0], candidates[0]["end"][0]),
+                         ("2022-01-01", "2023-01-01"))
+        self.assertEqual(candidates[0]["source"], "rolling")
+        self.assertGreaterEqual(candidates[0]["peak"], 20.0)
+
+    def test_rolling_candidates_skip_sparse_and_immature_starts(self):
+        snaps = [("2022-01-01", 1), ("2022-03-01", 2), ("2023-07-01", 3)]
+        members = [set(range(10)), set(range(100)), set(range(50))]
+        present = {token: [index for index, member in enumerate(members) if token in member]
+                   for token in range(100)}
+
+        candidates = drift.rolling_candidates(
+            snaps, members, present, min_mature=50, threshold=20.0, mass_floor=20,
+        )
+
+        self.assertEqual(candidates, [])
+
+    def test_non_overlapping_candidates_keeps_highest_mass_window(self):
+        candidates = [
+            {"start": ("2022-01-01", 1), "end": ("2023-01-01", 2), "abs": 100, "peak": 30},
+            {"start": ("2022-07-01", 3), "end": ("2023-07-01", 4), "abs": 200, "peak": 35},
+            {"start": ("2024-01-01", 5), "end": ("2025-01-01", 6), "abs": 150, "peak": 25},
+        ]
+
+        selected = drift.non_overlapping_candidates(candidates)
+
+        self.assertEqual([candidate["abs"] for candidate in selected], [200, 150])
+
+    def test_non_overlapping_candidates_respects_primary_blocked_windows(self):
+        blocked = [{"start": ("2022-01-01", 1), "end": ("2023-01-01", 2), "abs": 300}]
+        candidates = [
+            {"start": ("2022-07-01", 3), "end": ("2023-07-01", 4), "abs": 200},
+            {"start": ("2024-01-01", 5), "end": ("2025-01-01", 6), "abs": 150},
+        ]
+
+        selected = drift.non_overlapping_candidates(candidates, blocked=blocked)
+
+        self.assertEqual([candidate["abs"] for candidate in selected], [150])
 
 
 class DriftProfile(unittest.TestCase):
@@ -502,52 +751,6 @@ class BenchmarkScoring(unittest.TestCase):
     def test_pending_case_short_circuits(self):
         r = benchmark.score_case(None, {"article": "X", "cat": "C_l5gap", "pending": True})
         self.assertEqual(r["status"], "PENDING")
-
-
-class SlowBleedWindow(unittest.TestCase):
-    """_cumulative_loss_windows: rolling 12-month cumulative PWR-loss detector."""
-    # series row: (d0, r0, d1, r1, ratio%, size, wlost)
-
-    def _make_series(self, intervals):
-        """Build a minimal series from (d0, d1, size, wlost) tuples."""
-        return [(d0, 0, d1, 0, 100.0 * wlost / size if size else 0, size, wlost)
-                for d0, d1, size, wlost in intervals]
-
-    def test_returns_none_for_empty_series(self):
-        self.assertIsNone(drift._cumulative_loss_windows([]))
-
-    def test_returns_none_when_below_threshold(self):
-        # 4 quarters, each losing 20 tokens of 1000 → ratio 0.08 < SLOW_BLEED_FLOOR
-        series = self._make_series([
-            ("2022-01-01", "2022-04-01", 1000, 20),
-            ("2022-04-01", "2022-07-01", 1000, 20),
-            ("2022-07-01", "2022-10-01", 1000, 20),
-            ("2022-10-01", "2023-01-01", 1000, 20),
-        ])
-        self.assertIsNone(drift._cumulative_loss_windows(series))
-
-    def test_detects_slow_bleed_above_threshold(self):
-        # 4 intervals in one year, each removing 100 of 1000 tokens → ratio 0.4 ≥ SLOW_BLEED_FLOOR
-        series = self._make_series([
-            ("2022-01-01", "2022-04-01", 1000, 100),
-            ("2022-04-01", "2022-07-01", 1000, 100),
-            ("2022-07-01", "2022-10-01", 1000, 100),
-            ("2022-10-01", "2023-01-01", 1000, 100),
-        ])
-        result = drift._cumulative_loss_windows(series)
-        self.assertIsNotNone(result)
-        start, end, ratio = result
-        self.assertGreaterEqual(ratio, drift.SLOW_BLEED_FLOOR)
-
-    def test_window_does_not_span_more_than_twelve_months(self):
-        # bleed spread over 18 months → should NOT trigger if no single 12-month window accumulates enough
-        series = self._make_series([
-            ("2021-01-01", "2021-07-01", 1000, 100),   # 6 months apart
-            ("2021-07-01", "2022-01-01", 1000, 100),   # another 6 (total = 12 months, ratio=0.2 < 0.35)
-            ("2022-01-01", "2022-07-01", 1000, 100),   # slides past first interval
-        ])
-        # Each 12-month window contains at most 2 intervals (200/1000=0.2) — below threshold
-        self.assertIsNone(drift._cumulative_loss_windows(series))
 
 
 class PipelineCorroboration(unittest.TestCase):
@@ -884,6 +1087,9 @@ class PipelinePivotWindow(unittest.TestCase):
             "thresholds": {
                 "confirm_drop": config.CONFIRM_DROP, "durable_quantile": config.DURABLE_Q,
                 "min_cohort": config.MIN_COHORT, "magnitude_floor": config.MAG_FLOOR,
+                "rolling_window_months": config.ROLLING_WINDOW_MONTHS,
+                "rolling_tolerance_days": config.ROLLING_TOLERANCE_DAYS,
+                "rolling_drop": config.ROLLING_DROP,
             },
             "confirmed_episodes": [{
                 "candidate_start": "2020-01-01", "candidate_end": "2021-01-01",
@@ -903,9 +1109,22 @@ class PipelinePivotWindow(unittest.TestCase):
             "thresholds": {
                 "confirm_drop": config.CONFIRM_DROP, "durable_quantile": config.DURABLE_Q,
                 "min_cohort": config.MIN_COHORT, "magnitude_floor": config.MAG_FLOOR,
+                "rolling_window_months": config.ROLLING_WINDOW_MONTHS,
+                "rolling_tolerance_days": config.ROLLING_TOLERANCE_DAYS,
+                "rolling_drop": config.ROLLING_DROP,
             },
             "confirmed_episodes": [{"candidate_start": "2020-01-01"}],
         }
+        self.assertIsNone(pipeline._confirmed_window(confirmation, ("2024-01-01", 900)))
+
+    def test_fresh_not_confirmed_result_is_authoritative(self):
+        confirmation = {
+            "status": "not_confirmed",
+            "corpus_horizon": {"snapshot_date": "2024-01-01", "snapshot_revid": 900},
+            "thresholds": config.confirmation_thresholds(),
+            "confirmed_episodes": [],
+        }
+        self.assertTrue(pipeline.confirmation_is_fresh(confirmation, ("2024-01-01", 900)))
         self.assertIsNone(pipeline._confirmed_window(confirmation, ("2024-01-01", 900)))
 
     def test_confirmation_with_old_thresholds_is_rejected(self):
@@ -915,6 +1134,9 @@ class PipelinePivotWindow(unittest.TestCase):
             "thresholds": {
                 "confirm_drop": 0.1, "durable_quantile": config.DURABLE_Q,
                 "min_cohort": config.MIN_COHORT, "magnitude_floor": config.MAG_FLOOR,
+                "rolling_window_months": config.ROLLING_WINDOW_MONTHS,
+                "rolling_tolerance_days": config.ROLLING_TOLERANCE_DAYS,
+                "rolling_drop": config.ROLLING_DROP,
             },
             "confirmed_episodes": [{"candidate_start": "2020-01-01"}],
         }

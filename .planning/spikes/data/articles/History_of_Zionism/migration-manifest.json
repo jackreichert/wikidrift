@@ -1,0 +1,27 @@
+{
+  "article": "History of Zionism",
+  "artifacts": [
+    "findings/History_of_Zionism.category.json",
+    "findings/History_of_Zionism.cost.json",
+    "findings/History_of_Zionism.factcheck.json",
+    "findings/History_of_Zionism.framing.json",
+    "findings/History_of_Zionism.l1-confirmation.json",
+    "findings/History_of_Zionism.lexical.json",
+    "findings/History_of_Zionism.profile.json",
+    "findings/History_of_Zionism.receipts.json",
+    "findings/History_of_Zionism.sources.json",
+    "findings/History_of_Zionism.stance.json",
+    "logs/analysis-2026-07-30/History_of_Zionism.rolling-corpus-benchmark.log",
+    "mscore/History_of_Zionism.json"
+  ],
+  "slug": "History_of_Zionism",
+  "tables": {
+    "articles": 0,
+    "rev_size": 1472,
+    "revisions": 1472,
+    "rsnap": 932489,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

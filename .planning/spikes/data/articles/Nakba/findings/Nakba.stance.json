@@ -1,0 +1,67 @@
+{
+  "article": "Nakba",
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "entities": [
+    "Nakba"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Nakba": {
+          "entity": "Nakba",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "The Nakba () is the ethnic cleansing of Palestinian Arabs by Zionists through their violent displacement and dispossession of land, property, and belongings"
+        }
+      },
+      "lead": {
+        "Nakba": {
+          "entity": "Nakba",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "The Nakba () is the ethnic cleansing ... of Palestinian Arabs by Zionists through their violent displacement and dispossession of land, property, and belongings"
+        }
+      }
+    },
+    "he": {
+      "focal": {
+        "Nakba": {
+          "entity": "Nakba",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "הנכבה של פלסטין היא תהליך של טיהור אתני המלווה בחורבן ובעקירה חמושה ושיטתית של עם מארצו... שלקחו בה חלק מדינות גדולות – והביאה לטרגדיה הגדולה שפקדה את העם הפלסטיני; the passage juxtaposes this strong pro-Palestinian framing with critical Israeli commentary (ימיני, אבינרי) questioning the Nakba narrative's motives, and details the 'Nakba Law' restricting its commemoration, creating a contested rather than purely neutral presentation"
+        }
+      },
+      "lead": {
+        "Nakba": {
+          "entity": "Nakba",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "מנגד, ההיסטוריוגרפיה הפלסטינית וחוקרים בגישה הביקורתית רואים באירועים תהליך שיטתי ומכוון של טיהור אתני... ולהרוס את החברה הפלסטינית מן היסוד כדי להבטיח רוב יהודי מוצק"
+        }
+      }
+    },
+    "ar": {
+      "focal": {
+        "Nakba": {
+          "entity": "Nakba",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "وطرد ما يربو على 750 ألف فلسطيني وتحويلهم إلى لاجئين، كما تشمل الأحداث عشرات المجازر والفظائع وأعمال النهب ضد الفلسطينيين... ومحاولة تدمير الهوية الفلسطينية"
+        }
+      },
+      "lead": {
+        "Nakba": {
+          "entity": "Nakba",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "وهو الاسم الذي يطلقه الفلسطينيون على تهجيرهم وهدم معظم معالم مجتمعهم السياسية والاقتصادية والحضارية في حرب التطهير العرقي لفلسطين 1947–48"
+        }
+      }
+    }
+  }
+}

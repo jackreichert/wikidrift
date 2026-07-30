@@ -1,0 +1,222 @@
+{
+  "article": "Palestinian political violence",
+  "asof": null,
+  "langs": [
+    "ar",
+    "arz",
+    "az",
+    "ckb",
+    "cs",
+    "en",
+    "es",
+    "fa",
+    "fr",
+    "ha",
+    "he",
+    "id",
+    "it",
+    "ps",
+    "pt",
+    "ru",
+    "simple",
+    "th",
+    "uk",
+    "zh"
+  ],
+  "citation": {
+    "mean_jaccard": 0.11,
+    "domains_per_edition": {
+      "ar": 24,
+      "arz": 9,
+      "az": 8,
+      "ckb": 2,
+      "cs": 20,
+      "en": 62,
+      "es": 23,
+      "fa": 18,
+      "fr": 61,
+      "ha": 36,
+      "he": 19,
+      "id": 9,
+      "it": 0,
+      "ps": 3,
+      "pt": 11,
+      "ru": 15,
+      "simple": 68,
+      "th": 17,
+      "uk": 13,
+      "zh": 33
+    }
+  },
+  "claim": {
+    "per_edition": {
+      "ar": {
+        "What time period and categories of events does the article cover?": {
+          "question": "What time period and categories of events does the article cover?",
+          "answer": "The article covers the period from the start of British occupation of Palestine in 1918 to the present day, focusing on categories such as civil, popular, and armed resistance movements, including the 1936 revolt, cross-border resistance operations, and the PLO's relocation to Tunisia.",
+          "value": "1918–present; civil, popular, and armed Palestinian resistance",
+          "evidence": "ويستخدم المصطلح للإشارة إلى الفترة بين بدء الاحتلال البريطاني لفلسطين عام 1918م وحتى اليوم، من أبرزها ثورة 1936م وإعلان الإضراب العام الكبير...يستخدم المصطلح لوصف تحركات فلسطينية متنوعة تتراوح بين المقاومة المدنية، الشعبية والمسلحة."
+        }
+      },
+      "arz": {
+        "What time period and categories of events does the article cover?": {
+          "question": "What time period and categories of events does the article cover?",
+          "answer": "The article covers Palestinian resistance from the start of British occupation of Palestine in 1918 up to the present day, including civil, popular, and armed resistance movements and operations, with a detailed list of armed operations against Israeli targets from 1954 to 2003.",
+          "value": "1918–present (list of operations: 1954-2003)",
+          "evidence": "ويستخدم المصطلح للإشارة للفترة بين بدء الاحتلال البريطانى لفلسطين سنة 1918م وحتى اليوم... العمليات اللى نفذتها منظمات المقاومة فلسطينية ضد تجمع سكان إسرائيليين أو مواقع إسرائيلية"
+        }
+      },
+      "az": {
+        "What time period and categories of events does the article cover?": {
+          "question": "What time period and categories of events does the article cover?",
+          "answer": "The article covers the Palestinian resistance/conflict from the collapse of the Ottoman Empire and increased Jewish migration through the establishment of Israel in 1948 (Nakba), the founding of the PLO in the 1960s, the First Intifada (1987), the Second Intifada (2000), up to modern-day armed resistance (e.g. Hamas) and international diplomatic efforts (UN observer status, ICC), i.e. from early 20th century to present, encompassing armed resistance, civil resistance/intifadas, and international diplomacy categories.",
+          "value": "Early 20th century (Ottoman collapse) to present; categories: armed resistance, civil resistance/intifadas, international diplomacy",
+          "evidence": "Bu müqavimət tarixi aspektdə Osmanlı İmperiyasının dağılmasından sonra Fələstin torpaqlarına artan Yəhudi miqrasiyası və İsrail dövlətinin qurulması ilə daha da dərinləşib... Silahlı müqavimət... Sivil müqavimət və İntifada... Beynəlxalq diplomatiyada müqavimət"
+        }
+      },
+      "ckb": {
+        "What time period and categories of events does the article cover?": {
+          "question": "What time period and categories of events does the article cover?",
+          "answer": "It covers the period from the start of British occupation of Palestine in 1918 to the present day, focusing on Palestinian political violence and resistance, including the 1936 revolt and general strike, events after 1948 (elimination of resisters and displacement of residents), the emergence of armed struggle groups, and the 1987 founding of Hamas.",
+          "value": "1918–present; Palestinian political violence and resistance movements",
+          "evidence": "توندوتیژیی سیاسیی فەلەستینی ئاماژەیە بۆ قۆناغی نێوان دەستپێکردنی داگیرکاریی بەریتانیا بۆ سەر فەلەستین لە ساڵی ١٩١٨ی زایینی تا ئەمڕۆ کە دیارترینیان شۆڕشی ١٩٣٦ و ڕاگەیاندنی مانگرتنی گشتییە، لە دوای ساڵی ١٩٤٨ و لەناوبردنی بەرھەڵستکاران و ئاوارەبوونی دانیشتووان، ئەو لایەنە فەلەستینییانەی کە سروشتێکی سیاسییان ھەبوو دەستیان کرد بە دەرکەوتن و بەکارھێنانی زاراوەی «خەباتی چەکداری»"
+        }
+      },
+      "cs": {
+        "What time period and categories of events does the article cover?": {
+          "question": "What time period and categories of events does the article cover?",
+          "answer": "The article covers Palestinian political violence/terrorism from the establishment of the State of Israel in 1948 up to 2022, including attacks on Israelis, Palestinians, Lebanese, Jordanians, Egyptians, Americans and others, using tactics like hostage-taking, hijackings, stone-throwing, IEDs, knife and vehicle attacks, suicide bombings, and assassinations.",
+          "value": "1948–2022, Palestinian political violence/terrorism",
+          "evidence": "Izraelské statistiky uvádějí, že od vzniku Státu Izrael v roce 1948 bylo v důsledku palestinského politického násilí zabito 3 500 Izraelců. V roce 2022 se většina Palestinců (59 %) domnívala, že ozbrojené útoky proti Izraelcům uvnitř Izraele jsou účinným opatřením k ukončení okupace, přičemž 56 % je podporovalo."
+        }
+      },
+      "en": {
+        "What time period and categories of events does the article cover?": {
+          "question": "What time period and categories of events does the article cover?",
+          "answer": "The article covers Palestinian political violence and insurgency from the British Mandate period (starting 1917) through modern conflicts including the October 7 attacks, covering events such as riots, revolts, wars, intifadas, hijackings, bombings, and rocket attacks in the context of the Israeli-Palestinian conflict.",
+          "value": "1917–present (includes October 7 attacks)",
+          "evidence": "Following the Balfour Declaration in November 1917 which encouraged Jewish migrants to settle in Palestine, violence against the Jews increased in the region. ... The October 7 attacks resulted in massacres and hostage-taking."
+        }
+      },
+      "es": {
+        "What time period and categories of events does the article cover?": {
+          "question": "What time period and categories of events does the article cover?",
+          "answer": "From the establishment of the State of Israel in 1948 to 2022, covering politically motivated violent actions by Palestinians and their organizations in the context of the Israeli-Palestinian conflict, including hostage-taking, hijackings, stone-throwing, IEDs, shootings, vehicle attacks, car bombings, suicide attacks, and assassinations",
+          "value": "1948–2022; political/terrorist violence in the Israeli-Palestinian conflict",
+          "evidence": "Las estadísticas israelíes afirman que 3500 israelíes han sido asesinados como resultado de la violencia política palestina desde el establecimiento del estado de Israel en 1948... En 2022, la mayoría de los palestinos... Las tácticas han incluido toma de rehenes, secuestro de aviones, secuestro de embarcaciones, lanzamiento de piedras y de armas improvisadas, artefactos explosivos improvisados (IED), tiroteos, ataques con vehículos, coches bomba, ataques suicidas, asesinatos y diversos atentados."
+        }
+      },
+      "fa": {
+        "What time period and categories of events does the article cover?": {
+          "question": "What time period and categories of events does the article cover?",
+          "answer": "The article covers Palestinian political violence broadly, from at least 1947 (as shown by the image caption of Arab volunteers) through modern groups like Hamas (with a 2011 parade image), covering acts of political violence/terrorism by Palestinian groups aimed at self-determination, sovereignty, ending Israeli occupation, prisoner release, and right of return, within the Israeli-Palestinian conflict.",
+          "value": "1947–present (Palestinian political violence/terrorism in the Israeli-Palestinian conflict)",
+          "evidence": "داوطلبان نظامی عرب در سال ۱۹۴۷ ... گردان القسام، شاخه نظامی حماس. رژه در سال ۲۰۱۱ ... خشونت سیاسی فلسطینی به اقداماتی اشاره دارد که فلسطینی‌ها با هدف دستیابی به اهداف سیاسی با استفاده از خشونت انجام می‌دهند."
+        }
+      },
+      "fr": {
+        "What time period and categories of events does the article cover?": {
+          "question": "What time period and categories of events does the article cover?",
+          "answer": "The article covers Palestinian terrorism from 1919 (attacks on the Yichouv population) through the October 7, 2023 attacks, encompassing acts of terrorism by Palestinian individuals and organizations mainly within the Israeli-Palestinian conflict, including fedayin attacks (1949-1956), attacks since 1965 for 'liberation of Palestine', hijackings and hostage-taking (late 1960s), suicide bombings during the Second Intifada, and the October 7, 2023 attacks.",
+          "value": "1919–2023; categories: attacks on civilians (Yichouv), fedayin attacks, hijackings/hostage-taking, suicide bombings, armed attacks by Palestinian groups",
+          "evidence": "Historiquement, depuis 1919, des groupes palestiniens locaux attaquent la population juive du Yichouv... Le 7 octobre 2023, les groupes armés palestiniens de la bande de Gaza organisent leur plus grande série d'attaques terroristes."
+        }
+      },
+      "ha": {
+        "What time period and categories of events does the article cover?": {
+          "question": "What time period and categories of events does the article cover?",
+          "answer": "The article covers Palestinian political violence/terrorism from 1948 to October 2023, focusing on categories such as suicide bombings, mass shootings, hijackings, and other violent attacks, with a detailed list of suicide bombings from 1989 to 2001.",
+          "value": "1948–2023; categories: suicide bombings, mass shootings, hijackings, excessive attacks",
+          "evidence": "Rikicin siyasar Falasdinawa na nufin tashin hankali ko ta'addanci wanda wasu Falasdinawa ke da alhakinsa da nufin cimma burin da ke da alaƙa da rikicin Isra'ila da Falasdinu (1948-). ... Irin wannan tashin hankalin sau da yawa yana bayyana kansa a matsayin kisan kiyashi ta hanyar harin kunar bakin wake, harbe-harben jama'a, sace-sacen jiragen sama da hare-haren wuce gona da iri, wadanda suka saba a cikin Intifada ta biyu (Satumba 28, 2000 - Fabrairu 8, 2005)."
+        }
+      },
+      "he": {
+        "What time period and categories of events does the article cover?": {
+          "question": "What time period and categories of events does the article cover?",
+          "answer": "The article covers Palestinian terrorism from the Ottoman/British Mandate period (starting around 1851/1920s) through the 1970s, including riots, assassinations, guerrilla attacks, plane hijackings, and international terrorism against Jewish/Israeli targets.",
+          "value": "1851–1970s",
+          "evidence": "קשה להצביע על המועד המדויק לתחילת פעילות הטרור הפלסטיני, אולם מדינת ישראל מכירה ברב אברהם שלמה זלמן צורף כנרצח היהודי הראשון על רקע לאומני, בשנת 1851... בין השנים 1968–1977 הם חטפו או ניסו לחטוף 29 מטוסים."
+        }
+      },
+      "id": {
+        "What time period and categories of events does the article cover?": {
+          "question": "What time period and categories of events does the article cover?",
+          "answer": "The article does not specify a particular time period; it broadly discusses Palestinian political violence motivated by Palestinian nationalism, including goals like self-determination, liberation of Palestine, and prisoner release, related to the Israeli-Palestinian conflict.",
+          "value": "not stated",
+          "evidence": "Kekerasan politik Palestina merujuk kepada tindak kekerasan atau teror yang dimotivasi oleh nasionalisme Palestina."
+        }
+      },
+      "it": {
+        "What time period and categories of events does the article cover?": {
+          "question": "What time period and categories of events does the article cover?",
+          "answer": "The article covers Palestinian terrorism from 1919 to the 2000s, including attacks against the Yishuv, hijackings, bombings, hostage-takings, suicide bombings, and rocket attacks, within the context of the Arab-Israeli and Israeli-Palestinian conflicts.",
+          "value": "1919–2000s; terrorism-related events (attacks on Yishuv, hijackings, bombings, hostage-taking, suicide bombings, rocket attacks)",
+          "evidence": "Storicamente, fin dal 1919 dei gruppi palestinesi locali hanno attaccato la popolazione ebraica afferente allo Yishuv... Dopo lo scoppio della Seconda Intifada (2000), le tattiche terroristiche palestinesi iniziarono a contemplare anche l'uso di attentati suicidi."
+        }
+      },
+      "ps": {
+        "What time period and categories of events does the article cover?": {
+          "question": "What time period and categories of events does the article cover?",
+          "answer": "The article does not specify an exact time period; it broadly covers Palestinian political violence/militancy linked to Palestinian nationalist groups against Israel, including bombings, hostage-taking, and armed attacks by organizations like Hamas, Fatah, PFLP, PLO, and Islamic Jihad, aimed at goals such as independence, prisoner release, and right of return.",
+          "value": "not stated",
+          "evidence": "د فلسطین سیاسي تاوتریخوالی هغه تاوتریخوالی او توندلارۍ ته اشاره کوي چې د فلسطینی ملتپالنې څخه سرچينه اخلي چې اسراييل او متحدين يې ترهګري بولي."
+        }
+      },
+      "pt": {
+        "What time period and categories of events does the article cover?": {
+          "question": "What time period and categories of events does the article cover?",
+          "answer": "The article covers Palestinian political violence/terrorism from 1919 (early attacks on Yishuv) through the Second Intifada era (suicide bombings) up to recent events like a 2016 café shooting, including attacks such as hijackings, shootings, bombings, stabbings, hostage-taking, and assassinations.",
+          "value": "1919–2016 (approx.); categories: hijackings, shootings, bombings, stabbings, hostage-taking, suicide attacks, assassinations",
+          "evidence": "Historicamente, desde 1919 grupos locais palestinos têm atacado a população judaica de Yishuv... Ataques na fronteira contra a população civil por grupos ou bandos armados... Sequestro de avião... Ataque com faca... Tiroteio (por exemplo, o ataque a um café em junho de 2016)... Ataques suicidas (desde 1993)."
+        }
+      },
+      "ru": {
+        "What time period and categories of events does the article cover?": {
+          "question": "What time period and categories of events does the article cover?",
+          "answer": "The article covers Palestinian terrorism from the 1920s (Mandatory Palestine era) through the present day (including 2011 and 2007 references), covering categories such as anti-Jewish riots, assassinations, fedayeen raids, PLO/Fatah terrorism, and Islamist terrorism (Hamas, Hezbollah, Islamic Jihad, Lions' Den), including rocket attacks, bombings, attacks on civilians and military, and suicide bombings.",
+          "value": "1920s–present; categories: riots, assassinations, fedayeen raids, secular leftist/nationalist terrorism, Islamist terrorism, rocket attacks, bombings, suicide attacks",
+          "evidence": "Исторически возник в 1920-е годы в рамках конфликта между арабской и еврейской общинами Подмандатной Палестины. ... ХАМАС — правит сектором Газа с 2007 г. ... 14 декабря 2011 года лидер ХАМАСа в Газе Исмаил Хания заявил ... Эти группировки систематически прибегают к разнообразным методам действий, включая ракетные обстрелы, взрывы на гражданских объектах, нападения на военные объекты и мирное население, а также совершение самоподрывных актов."
+        }
+      },
+      "simple": {
+        "What time period and categories of events does the article cover?": {
+          "question": "What time period and categories of events does the article cover?",
+          "answer": "The article covers Palestinian political violence and terrorism related to the Israeli–Palestinian conflict from 1948 to the present (including the October 7, 2023 massacre), with a focus on categories such as massacres, suicide bombings, mass shootings, plane hijackings, and vehicle-ramming attacks, including a detailed list of suicide attacks from 1989 to 2001 and beyond.",
+          "value": "1948–2023 (ongoing); categories: massacres, suicide bombings, mass shootings, plane hijackings, vehicle-ramming attacks",
+          "evidence": "Palestinian political violence refers to violence or terrorism for which some Palestinians were responsible with a view to achieving goals associated with the Israeli–Palestine conflict (1948 – ). ... Such violence often manifests itself as massacres by means of suicide bombings, mass shootings, plane hijackings and vehicle-ramming attacks, which were typical in the Second Intifada (September 28, 2000 – February 8, 2005). The worst atrocity committed by Palestinian terrorist groups so far is the October 7 massacre in 2023."
+        }
+      },
+      "th": {
+        "What time period and categories of events does the article cover?": {
+          "question": "What time period and categories of events does the article cover?",
+          "answer": "The article covers Palestinian political violence and terrorism motivated by Palestinian nationalism, from the establishment of the State of Israel in 1948 to the present (including the Al-Aqsa Intifada), covering acts such as hostage-taking, hijacking, stone-throwing, stabbings, shootings and bombings targeting Israelis, Palestinians, Lebanese, Jordanians, Egyptians, Americans and others.",
+          "value": "1948–present; hostage-taking, hijacking, stone-throwing, stabbings, shootings, bombings",
+          "evidence": "สถิติของอิสราเอลระบุว่ามีชาวอิสราเอลถูกฆ่า 3,500 คน...อันเนื่องจากความรุนแรงของปาเลสไตน์นับแต่การสถาปนารัฐอิสราเอลในปี 1948 ... ยุทธวิธีที่ใช้ ได้แก่ การจับตัวประกัน การจี้เครื่องบิน การปาก้อนหิน การใช้มีดแทง การยิงและการวางระเบิด"
+        }
+      },
+      "uk": {
+        "What time period and categories of events does the article cover?": {
+          "question": "What time period and categories of events does the article cover?",
+          "answer": "The article covers the history of Palestinian terrorism from the 1920s (British Mandate Palestine) through modern events including the October 7 attack, covering categories such as anti-Jewish riots, terrorist organizations' campaigns, and Islamist terrorism.",
+          "value": "1920s–2023 (British Mandate era to October 7 attack); categories: anti-Jewish riots, guerrilla/fedayeen raids, secular nationalist terrorism, Islamist terrorism",
+          "evidence": "Історично виник у 1920-ті роки в рамках конфлікту між арабською та єврейською громадами Підмандатної Палестини... Найбільшим в історії актом палестинського тероризму стала різанина 7 жовтня — напад ХАМАС на Ізраїль став найбільшим масовим вбивством євреїв з часів Голокосту."
+        }
+      },
+      "zh": {
+        "What time period and categories of events does the article cover?": {
+          "question": "What time period and categories of events does the article cover?",
+          "answer": "The article covers Palestinian terrorism from the Ottoman/British Mandate period (starting with an 1851 murder cited as the first modern nationalistic killing of a Jew) through the 1920s riots, the 1936-1939 Arab revolt, 1940s Nazi collaboration plots, 1950s Fedayeen attacks, 1960s PLO founding and hijackings, 1970s international terrorism (Black September, Munich massacre), 1980s Lebanon-based attacks, the First and Second Intifadas, post-Gaza withdrawal Hamas rule, 2014 Jerusalem unrest, and up to the October 7, 2023 Hamas attack ('Al-Aqsa Flood').",
+          "value": "1851–2023; categories: riots, massacres, bombings, hijackings, stabbings, rocket attacks, assassinations, kidnappings, suicide bombings, and organized militant/terrorist campaigns against Jews/Israelis",
+          "evidence": "以色列國認定拉比是該地區近代以来首位因民族原因遭謀殺的猶太人。該案發生於1851年... 2023年10月7日，哈馬斯對以色列發動襲擊，稱之為「阿克薩洪水行動」。"
+        }
+      }
+    },
+    "adjudication": [
+      {
+        "question": "What time period and categories of events does the article cover?",
+        "verdict": "contradict",
+        "note": "Start dates range widely from 1851 to 1948, and end dates from 1970s to present/2023, with differing scope (political violence/resistance vs. terrorism); these are incompatible numeric/categorical claims across editions."
+      }
+    ]
+  }
+}

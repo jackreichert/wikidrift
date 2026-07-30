@@ -17,7 +17,9 @@ schema via `ingest.py` (both share `snapshot_picks` for identical revision selec
 import time
 import urllib.parse
 import statistics
+import datetime as dt
 from collections import OrderedDict
+from dataclasses import dataclass
 
 from . import config
 
@@ -27,6 +29,40 @@ _S = config.session()
 # Steady State) — a whole article's analysis needs far fewer than the cap.
 _TOK_CAP = 4096
 _tok = OrderedDict()
+
+
+@dataclass(frozen=True)
+class ResolvedArticle:
+    """Canonical MediaWiki identity for one requested article title."""
+
+    requested_title: str
+    canonical_title: str
+    page_id: int
+
+
+def resolve_article_title(article, session=None):
+    """Resolve redirects before history ingestion or article-shard selection."""
+    requested = (article or "").strip()
+    if not requested:
+        raise ValueError("article title is required")
+    params = {
+        "action": "query",
+        "format": "json",
+        "formatversion": "2",
+        "redirects": 1,
+        "titles": requested,
+        "prop": "info",
+    }
+    payload = config.get_json_retrying(session or _S, config.ACTION, params=params)
+    pages = payload.get("query", {}).get("pages", [])
+    if not pages or pages[0].get("missing") or "pageid" not in pages[0]:
+        raise ValueError(f"article not found: {requested}")
+    page = pages[0]
+    return ResolvedArticle(
+        requested_title=requested,
+        canonical_title=page["title"],
+        page_id=int(page["pageid"]),
+    )
 
 
 def _tok_put(key, val):
@@ -40,10 +76,26 @@ def _tok_put(key, val):
 # --- schema -----------------------------------------------------------------
 def ensure_schema(con):
     con.execute("CREATE TABLE IF NOT EXISTS articles(article TEXT, page_id BIGINT, latest_rev BIGINT, latest_time TEXT, n_tokens BIGINT)")
+    con.execute("""CREATE TABLE IF NOT EXISTS article_identity(
+        requested_title TEXT, canonical_title TEXT, page_id BIGINT, resolved_at TEXT)""")
     con.execute("CREATE TABLE IF NOT EXISTS revisions(article TEXT, rev_id BIGINT, ts TEXT, user TEXT)")
     con.execute("CREATE TABLE IF NOT EXISTS tokens(article TEXT, token_id BIGINT, str TEXT, editor TEXT, o_rev_id BIGINT, n_in INT, n_out INT)")
     con.execute("CREATE TABLE IF NOT EXISTS rev_size(article TEXT, rev_id BIGINT, size BIGINT)")
     con.execute("CREATE TABLE IF NOT EXISTS rsnap(article TEXT, snap_date TEXT, snap_rev BIGINT, token_id BIGINT, o_rev_id BIGINT)")
+
+
+def record_article_identity(con, resolved):
+    """Persist the requested alias and canonical MediaWiki identity additively."""
+    ensure_schema(con)
+    con.execute(
+        "DELETE FROM article_identity WHERE requested_title=?",
+        [resolved.requested_title],
+    )
+    con.execute(
+        "INSERT INTO article_identity VALUES (?,?,?,?)",
+        [resolved.requested_title, resolved.canonical_title, resolved.page_id,
+         dt.datetime.now(dt.timezone.utc).isoformat()],
+    )
 
 
 def ensure_indexes(con):
@@ -71,10 +123,18 @@ def ensure_sizes(con, article):
     an interrupted run can resume: re-entry continues from the last stored revision instead of
     re-downloading the entire history."""
     ensure_schema(con)
+    resolved = resolve_article_title(article)
+    if resolved.canonical_title != article:
+        raise ValueError(
+            f"article title {article!r} redirects to {resolved.canonical_title!r}; "
+            "use the canonical title before selecting storage"
+        )
+    record_article_identity(con, resolved)
     latest = con.execute("SELECT max(rev_id) FROM revisions WHERE article=?", [article]).fetchone()[0]
 
     params = {"action": "query", "format": "json", "formatversion": "2", "prop": "revisions",
-              "titles": article, "rvprop": "ids|timestamp|user|size", "rvlimit": "max", "rvdir": "newer", "maxlag": "5"}
+              "redirects": 1, "titles": article, "rvprop": "ids|timestamp|user|size",
+              "rvlimit": "max", "rvdir": "newer", "maxlag": "5"}
     if latest:
         params["rvstartid"] = latest   # resume from last known rev (inclusive — deduped below)
 

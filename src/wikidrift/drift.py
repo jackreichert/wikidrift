@@ -29,7 +29,8 @@ import duckdb
 from . import config, provenance
 from .corpus import Corpus
 from .config import (MIN_COHORT, MIN_MATURE, MAG_FLOOR, CONFIRM_DROP,
-                     CREEP_MEAN, DURABLE_Q, RECENT_YEARS, ELEVATED, SLOW_BLEED_FLOOR)
+                     CREEP_MEAN, DURABLE_Q, RECENT_YEARS, ELEVATED,
+                     MASS_FLOOR, ROLLING_WINDOW_MONTHS, ROLLING_TOLERANCE_DAYS, ROLLING_DROP)
 
 
 def confirmation_name(article):
@@ -130,11 +131,58 @@ def build_episodes(series, elevated=ELEVATED):
                 cur["end"] = (d1, r1); cur["abs"] += absd; cur["peak"] = max(cur["peak"], ratio)
             else:
                 if cur: episodes.append(cur)
-                cur = {"start": (d0, r0), "end": (d1, r1), "abs": absd, "peak": ratio}
+                cur = {"start": (d0, r0), "end": (d1, r1), "abs": absd, "peak": ratio,
+                       "source": "interval"}
         elif cur:
             episodes.append(cur); cur = None
     if cur: episodes.append(cur)
     return episodes
+
+
+def rolling_candidates(snaps, members, present, months=ROLLING_WINDOW_MONTHS,
+                       tolerance_days=ROLLING_TOLERANCE_DAYS, threshold=ROLLING_DROP,
+                       mass_floor=MASS_FLOOR, min_mature=MIN_MATURE):
+    """Find direct weighted cohort loss near the target window length.
+
+    This second pass catches sustained medium loss that does not cross the high-precision threshold in
+    any single snapshot interval. Sparse histories without a snapshot inside the tolerance are skipped.
+    """
+    candidates = []
+    target_days = round(months * 365.25 / 12)
+    snap_dates = [dt.date.fromisoformat(snap[0]) for snap in snaps]
+    for start in range(len(snaps) - 1):
+        start_date = snap_dates[start]
+        eligible = [
+            end for end in range(start + 1, len(snaps))
+            if abs((snap_dates[end] - start_date).days - target_days) <= tolerance_days
+        ]
+        if not eligible or len(members[start]) < min_mature:
+            continue
+        end = min(eligible, key=lambda index: abs((snap_dates[index] - start_date).days - target_days))
+        at_start, at_end = members[start], members[end]
+        total_weight = sum(_pwr(present, token, start) for token in at_start)
+        lost_weight = sum(_pwr(present, token, start) for token in at_start - at_end)
+        loss_pct = 100.0 * lost_weight / total_weight if total_weight else 0.0
+        if loss_pct >= threshold and lost_weight >= mass_floor:
+            candidates.append({
+                "start": snaps[start], "end": snaps[end], "abs": lost_weight,
+                "peak": loss_pct, "source": "rolling",
+            })
+    return annotate_episodes(candidates, snaps[-1][0]) if snaps else []
+
+
+def non_overlapping_candidates(candidates, blocked=()):
+    """Keep the highest-PWR candidate from each overlapping time range."""
+    selected = []
+
+    def overlaps(left, right):
+        return left["start"][0] < right["end"][0] and right["start"][0] < left["end"][0]
+
+    for candidate in sorted(candidates, key=lambda item: -item["abs"]):
+        if any(overlaps(candidate, other) for other in (*blocked, *selected)):
+            continue
+        selected.append(candidate)
+    return selected
 
 
 def refine(article, con, snaps, members, present, idx_of_rev, peak):
@@ -269,31 +317,6 @@ def ranked_episodes(con, article):
     return snaps, members, present, idx_of_rev, series, stats, episodes
 
 
-def _cumulative_loss_windows(series, months=12, threshold=SLOW_BLEED_FLOOR):
-    """12-month rolling window slow-bleed detector: steady per-interval losses that never individually
-    trigger ELEVATED (and thus never form an episode) but accumulate to a large fraction of content mass.
-    ratio = sum(wlost) / peak_size across the window. Returns (start_date, end_date, ratio) of the worst
-    window that exceeds threshold, or None if no window qualifies."""
-    if len(series) < 2:
-        return None
-    delta_days = months * 30
-    best = None
-    for i in range(len(series)):
-        d0 = dt.date.fromisoformat(series[i][0])
-        cutoff = d0 + dt.timedelta(days=delta_days)
-        window = [s for s in series[i:] if dt.date.fromisoformat(s[0]) <= cutoff]
-        if len(window) < 2:
-            continue
-        peak_size = max(s[5] for s in window)
-        if not peak_size:
-            continue
-        total_wlost = sum(s[6] for s in window)
-        ratio = total_wlost / peak_size
-        if best is None or ratio > best[2]:
-            best = (window[0][0], window[-1][2], round(ratio, 3))
-    return best if (best and best[2] >= threshold) else None
-
-
 def verdict_dict(con, article):
     """Structured, machine-scorable OFFLINE verdict (no WikiWho): the coarse PWR metric, episodes ranked
     by PWR-mass with recency as a descriptor. UNCONFIRMED candidate — binary-search confirmation
@@ -317,9 +340,6 @@ def verdict_dict(con, article):
         out["verdict"] = "CREEP?"; out["top_mass"] = 0
     else:
         out["verdict"] = "HEALTHY"; out["top_mass"] = 0
-    slow = _cumulative_loss_windows(series)
-    if slow:
-        out["slow_bleed"] = {"start": slow[0], "end": slow[1], "ratio": slow[2]}
     return out
 
 
@@ -408,7 +428,10 @@ def analyze(article, con=None, persist=True):
     structured result, and persists it by default for downstream instruments."""
     owns = con is None
     if owns:
+        resolved = provenance.resolve_article_title(article)
+        article = resolved.canonical_title
         con = duckdb.connect(str(config.DB))
+        provenance.record_article_identity(con, resolved)
     print(f"=== ANALYZE: {article} ===", flush=True)
     provenance.ensure_sizes(con, article)
     provenance.ensure_indexes(con)
@@ -434,12 +457,12 @@ def analyze(article, con=None, persist=True):
     print(f"  {len(snaps)} persistent snapshots {snaps[0][0]}..{snaps[-1][0]}", flush=True)
     print_coarse_report(snaps, members, present)
 
+    confirmed = []
     if episodes:
         print(f"\ncandidate pivot episodes (ranked by PWR-mass removed; recency = context, NOT a demoter):")
         for e in episodes:
             print(f"  {e['start'][0]} → {e['end'][0]}   peak {e['peak']:.0f}%   ~{int(e['abs']):,} PWR   "
                   f"age {e['age']:.1f}yr  [{_recency_tag(e['age'])}]")
-        confirmed = []
         for e in episodes[:3]:                      # confirm the top few (by PWR-mass) via binary search
             span = (e["start"][0], e["start"][1], e["end"][0], e["end"][1], e["peak"])
             print(f"\n-- confirming {e['start'][0]} → {e['end'][0]} --")
@@ -458,26 +481,50 @@ def analyze(article, con=None, persist=True):
                     "durable_spine_drop": round(decline, 6),
                     "pwr_mass": int(e["abs"]),
                     "peak_pct": round(e["peak"], 2),
+                    "source": e.get("source", "interval"),
                     "status": "confirmed",
                 }))
-        if confirmed:
-            confirmed.sort(key=lambda x: -x[0]["abs"])
-            top = confirmed[0][0]
-            result["status"] = "confirmed"
-            result["confirmed_episodes"] = [record for _, _, record in confirmed]
-            kind = ("recent retrofit" if top["age"] <= RECENT_YEARS
-                    else f"standing distortion — persisted {top['age']:.0f}yr (a long-standing-distortion candidate)")
-            print(f"\nVERDICT: PIVOT ({kind}) — {len(confirmed)} confirmed episode(s), by PWR-mass:")
-            for e, _, _ in confirmed:
-                print(f"  • {e['start'][0]} → {e['end'][0]}  (~{int(e['abs']):,} PWR, age {e['age']:.1f}yr, "
-                      f"peak {e['peak']:.0f}%)  [{_recency_tag(e['age'])}]")
-            for e, span, _ in confirmed[:2]:         # attribute the two largest (by PWR-mass)
-                attribute(article, con, span)
-        else:                                        # candidate episodes existed but none binary-search-confirmed
-            nuance = ("elevated destruction, no single episode binary-search-confirmed"
-                      if mean > CREEP_MEAN else "candidate episodes not confirmed")
-            print(f"\nVERDICT: {_creep_or_healthy_label(mean)} ({nuance})")
-    else:                                            # no candidate episodes at all
+
+    if not confirmed:
+        rolling = non_overlapping_candidates(
+            rolling_candidates(snaps, members, present), blocked=episodes,
+        )[:3]
+        if rolling:
+            print("\nrolling second-pass candidates (12-month weighted loss):")
+        for e in rolling:
+            span = (e["start"][0], e["start"][1], e["end"][0], e["end"][1], e["peak"])
+            print(f"\n-- confirming rolling {e['start'][0]} → {e['end'][0]} "
+                  f"({e['peak']:.0f}%, ~{int(e['abs']):,} PWR) --")
+            conf = refine(article, con, snaps, members, present, idx_of_rev, span)
+            if conf and conf[2] >= CONFIRM_DROP:
+                before, after, decline = conf
+                confirmed.append((e, span, {
+                    "candidate_start": e["start"][0], "candidate_end": e["end"][0],
+                    "candidate_before_revid": e["start"][1], "candidate_after_revid": e["end"][1],
+                    "before_revid": before[0], "before_timestamp": before[1],
+                    "after_revid": after[0], "after_timestamp": after[1],
+                    "durable_spine_drop": round(decline, 6), "pwr_mass": int(e["abs"]),
+                    "peak_pct": round(e["peak"], 2), "source": "rolling", "status": "confirmed",
+                }))
+
+    if confirmed:
+        confirmed.sort(key=lambda item: -item[0]["abs"])
+        top = confirmed[0][0]
+        result["status"] = "confirmed"
+        result["confirmed_episodes"] = [record for _, _, record in confirmed]
+        kind = ("recent retrofit" if top["age"] <= RECENT_YEARS
+                else f"standing distortion — persisted {top['age']:.0f}yr (a long-standing-distortion candidate)")
+        print(f"\nVERDICT: PIVOT ({kind}) — {len(confirmed)} confirmed episode(s), by PWR-mass:")
+        for e, _, record in confirmed:
+            print(f"  • {e['start'][0]} → {e['end'][0]}  (~{int(e['abs']):,} PWR, age {e['age']:.1f}yr, "
+                  f"peak {e['peak']:.0f}%, {record['source']})  [{_recency_tag(e['age'])}]")
+        for _episode, span, _record in confirmed[:2]:
+            attribute(article, con, span)
+    elif episodes:
+        nuance = ("elevated destruction, no episode binary-search-confirmed"
+                  if mean > CREEP_MEAN else "candidate episodes not confirmed")
+        print(f"\nVERDICT: {_creep_or_healthy_label(mean)} ({nuance})")
+    else:
         print(f"\nVERDICT: {_creep_or_healthy_label(mean)}")
     if persist:
         config.write_findings(confirmation_name(article), result)

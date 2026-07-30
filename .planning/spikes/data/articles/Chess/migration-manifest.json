@@ -1,0 +1,25 @@
+{
+  "article": "Chess",
+  "artifacts": [
+    "findings/Chess.category.json",
+    "findings/Chess.cost.json",
+    "findings/Chess.framing.json",
+    "findings/Chess.l1-confirmation.json",
+    "findings/Chess.lexical.json",
+    "findings/Chess.profile.json",
+    "findings/Chess.receipts.json",
+    "findings/Chess.sources.json",
+    "findings/Chess.stance.json",
+    "mscore/Chess.json"
+  ],
+  "slug": "Chess",
+  "tables": {
+    "articles": 0,
+    "rev_size": 11761,
+    "revisions": 11761,
+    "rsnap": 632024,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

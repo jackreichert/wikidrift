@@ -1,0 +1,67 @@
+{
+  "article": "Climate change",
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "entities": [
+    "Climate change"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Climate change": {
+          "entity": "Climate change",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Passage presents scientific consensus and IPCC-sourced findings in standard encyclopedic terms describing causes, effects, and terminology of climate change without advocacy language beyond established scientific framing."
+        }
+      },
+      "lead": {
+        "Climate change": {
+          "entity": "Climate change",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "describes causes, impacts, and mitigation using scientific consensus language (IPCC citations) consistent with standard encyclopedic treatment of a well-established scientific phenomenon"
+        }
+      }
+    },
+    "he": {
+      "focal": {
+        "Climate change": {
+          "entity": "Climate change",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "שינוי אקלים הוא שינוי ארוך טווח ומשמעותי באקלים ובמזג האוויר בכדור הארץ כתוצאה משינויים טבעיים או כתוצאה מפעילות אנושית"
+        }
+      },
+      "lead": {
+        "Climate change": {
+          "entity": "Climate change",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "בסבירות גבוהה מאוד (על פי הערכות נאס\"א, סבירות של יותר מ-95%) תוצאה של פעילות אנושית מאז אמצע המאה ה-20"
+        }
+      }
+    },
+    "ar": {
+      "focal": {
+        "Climate change": {
+          "entity": "Climate change",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "يخلف آثارا خطيرة من تغيرات في مستوى سطح البحر وحياة النبات وعمليات الانقراض الجماعي، كما يؤثر على المجتمعات البشرية... ترتفع نسبة الأنواع المعرضة للانقراض من 20% إلى الثلث"
+        }
+      },
+      "lead": {
+        "Climate change": {
+          "entity": "Climate change",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "يودي بحياة 150 ألف شخص سنويًا... سبق أن حكم على 20% من الأنواع الحياة البرية بالانقراض مع حلول العام 2050... لكن ما حدث ويحدث ليس بهول ما قد يأتي في المستقبل"
+        }
+      }
+    }
+  }
+}

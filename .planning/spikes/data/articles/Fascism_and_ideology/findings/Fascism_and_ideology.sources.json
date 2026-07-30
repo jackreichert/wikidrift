@@ -1,0 +1,192 @@
+{
+  "article": "Fascism and ideology",
+  "pivot": "2026-01-01",
+  "span": "2025-01-01 → 2026-07-01  (across the L1 pivot ~2026-01-01)",
+  "before": {
+    "date": "2025-01-01",
+    "refs": 192,
+    "n_domains": 35,
+    "cite_mix": {
+      "book": 74,
+      "news": 14,
+      "journal": 8,
+      "web": 4
+    },
+    "domains": {
+      "books.google.com": 15,
+      "academia.edu": 1,
+      "brill.com": 1,
+      "plato.stanford.edu": 1,
+      "jstor.org": 3,
+      "iht.com": 2,
+      "derechos.org": 1,
+      "newyorker.com": 2,
+      "bbc.com": 8,
+      "en.qantara.de": 2,
+      "washingtoninstitute.org": 2,
+      "aljazeera.com": 2,
+      "theguardian.com": 5,
+      "theprint.in": 2,
+      "journals.openedition.org": 1,
+      "politico.com": 1,
+      "nytimes.com": 1,
+      "newsweek.com": 1,
+      "newstatesman.com": 1,
+      "vox.com": 1,
+      "historyguide.org": 1,
+      "archive.org": 3,
+      "britannica.com": 1,
+      "philpapers.org": 1,
+      "ibmandtheholocaust.com": 1,
+      "worldfuturefund.org": 1,
+      "media.wix.com": 1,
+      "dkrenton.co.uk": 1,
+      "wzo.org.il": 1,
+      "rationalrevolution.net": 1,
+      "themodernword.com": 1,
+      "fascismoeliberta.net": 1,
+      "metaxas-project.com": 1,
+      "papalencyclicals.net": 1,
+      "historycooperative.org": 1
+    }
+  },
+  "after": {
+    "date": "2026-07-01",
+    "refs": 58,
+    "n_domains": 17,
+    "cite_mix": {
+      "book": 90,
+      "journal": 7,
+      "web": 3
+    },
+    "domains": {
+      "books.google.com": 13,
+      "historyguide.org": 1,
+      "archive.org": 3,
+      "jstor.org": 1,
+      "britannica.com": 1,
+      "ibmandtheholocaust.com": 1,
+      "philpapers.org": 1,
+      "worldfuturefund.org": 1,
+      "media.wix.com": 1,
+      "dkrenton.co.uk": 1,
+      "wzo.org.il": 1,
+      "rationalrevolution.net": 1,
+      "themodernword.com": 1,
+      "fascismoeliberta.net": 1,
+      "metaxas-project.com": 1,
+      "papalencyclicals.net": 2,
+      "historycooperative.org": 1
+    }
+  },
+  "added": [
+    {
+      "domain": "papalencyclicals.net",
+      "from": 1,
+      "to": 2
+    }
+  ],
+  "dropped": [
+    {
+      "domain": "bbc.com",
+      "from": 8,
+      "to": 0
+    },
+    {
+      "domain": "theguardian.com",
+      "from": 5,
+      "to": 0
+    },
+    {
+      "domain": "iht.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "en.qantara.de",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "books.google.com",
+      "from": 15,
+      "to": 13
+    },
+    {
+      "domain": "aljazeera.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "washingtoninstitute.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "newyorker.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "theprint.in",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "jstor.org",
+      "from": 3,
+      "to": 1
+    },
+    {
+      "domain": "brill.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "plato.stanford.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "derechos.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "journals.openedition.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "vox.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "politico.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "nytimes.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "newstatesman.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "newsweek.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "academia.edu",
+      "from": 1,
+      "to": 0
+    }
+  ],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD."
+}

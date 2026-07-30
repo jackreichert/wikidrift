@@ -1,0 +1,48 @@
+{
+  "article": "History of Zionism",
+  "langs": [
+    "en",
+    "ar"
+  ],
+  "entities": [
+    "History of Zionism"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "History of Zionism": {
+          "entity": "History of Zionism",
+          "stance": "absent",
+          "npov_departure": false,
+          "evidence": "This passage consists solely of a 'See also', 'Notes', 'References', and 'Further reading' section listing links and citations, with no substantive discussion or framing of the entity."
+        }
+      },
+      "lead": {
+        "History of Zionism": {
+          "entity": "History of Zionism",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "As an organised nationalist movement, Zionism is generally considered to have been founded by Theodor Herzl in 1897."
+        }
+      }
+    },
+    "ar": {
+      "focal": {
+        "History of Zionism": {
+          "entity": "History of Zionism",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "لكن تاريخ الصهيونية بدأ، رغم ذلك، في وقت سابق ويرتبط باليهودية والتاريخ اليهودي."
+        }
+      },
+      "lead": {
+        "History of Zionism": {
+          "entity": "History of Zionism",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "يُحتفل بذلك سنويًا... ولعب في وقت لاحق دورًا هامًا في إلهام الصهاينة لرفض أنماط الهوية الأوروبية؛ السرد يقدم الصهيونية كاستمرار طبيعي وشرعي لتاريخ ديني وقومي طويل مع تأطير الاضطهاد اليهودي كخلفية مبررة، دون ذكر منظور فلسطيني أو نقدي"
+        }
+      }
+    }
+  }
+}

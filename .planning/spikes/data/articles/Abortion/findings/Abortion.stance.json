@@ -1,0 +1,67 @@
+{
+  "article": "Abortion",
+  "langs": [
+    "de",
+    "sv",
+    "en"
+  ],
+  "entities": [
+    "Abortion"
+  ],
+  "editions": {
+    "de": {
+      "focal": {
+        "Abortion": {
+          "entity": "Abortion",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Ein Schwangerschaftsabbruch (auch Abtreibung; ... ist die vorzeitige Beendigung einer Schwangerschaft, die das Ungeborene gewolltermaßen nicht überlebt."
+        }
+      },
+      "lead": {
+        "Abortion": {
+          "entity": "Abortion",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Die Zulässigkeit von Schwangerschaftsabbrüchen ist seit der Antike heftig umstritten... reichen von weitgehender Entscheidungsfreiheit der Schwangeren bis zu völligen Verboten mit harten Strafen."
+        }
+      }
+    },
+    "sv": {
+      "focal": {
+        "Abortion": {
+          "entity": "Abortion",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "Laglig abort är mycket säkert och riskfritt oavsett när i graviditeten man gör den... Legala aborter är idag mycket säkra och de flesta komplikationer beror på en obehandlad sexuellt överförbar infektion."
+        }
+      },
+      "lead": {
+        "Abortion": {
+          "entity": "Abortion",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Vilken abortmetod som används beror på vad som är bäst för patienten, och den väljs alltid i samråd med patienten så långt det är möjligt."
+        }
+      }
+    },
+    "en": {
+      "focal": {
+        "Abortion": {
+          "entity": "Abortion",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Abortion laws and views of the procedure are different around the world... there remains debate with regard to moral, religious, ethical, and legal issues"
+        }
+      },
+      "lead": {
+        "Abortion": {
+          "entity": "Abortion",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "an induced abortion does not increase the risk of long-term mental or physical problems... Public health data show that making safe abortion legal and accessible reduces maternal deaths."
+        }
+      }
+    }
+  }
+}

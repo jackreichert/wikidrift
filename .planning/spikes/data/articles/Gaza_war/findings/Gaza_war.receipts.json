@@ -1,0 +1,27 @@
+{
+  "article": "Gaza war",
+  "qid": "Q122962941",
+  "editions": {
+    "en": {
+      "present": true,
+      "revid": 1363861156,
+      "title": "Gaza war",
+      "timestamp": "2026-07-12T23:04:32Z",
+      "prose_chars": 73295
+    },
+    "he": {
+      "present": true,
+      "revid": 43556327,
+      "title": "זירת רצועת עזה במלחמת חרבות ברזל",
+      "timestamp": "2026-07-08T11:25:57Z",
+      "prose_chars": 85083
+    },
+    "ar": {
+      "present": true,
+      "revid": 75802537,
+      "title": "الحرب الفلسطينية الإسرائيلية (2023–الآن)",
+      "timestamp": "2026-07-04T12:44:09Z",
+      "prose_chars": 109966
+    }
+  }
+}

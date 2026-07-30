@@ -1,0 +1,301 @@
+{
+  "article": "Democratic Party (United States)",
+  "span": "2023-01-01 -> 2024-01-01 (around L1 pivot ~2023-01-01)",
+  "pivot": "2023-01-01",
+  "before": {
+    "date": "2023-01-01",
+    "rev": 1130960610,
+    "tokens": 9473
+  },
+  "after": {
+    "date": "2024-01-01",
+    "rev": 1192943717,
+    "tokens": 7686
+  },
+  "js_divergence": 0.0508,
+  "overrepresented_after_terms": [
+    {
+      "term": "tariff",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.4068
+    },
+    {
+      "term": "ukraine",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.4068
+    },
+    {
+      "term": "alabama",
+      "before": 1,
+      "after": 5,
+      "delta": 4,
+      "log_odds": 1.5089
+    },
+    {
+      "term": "rooster",
+      "before": 2,
+      "after": 7,
+      "delta": 5,
+      "log_odds": 1.3083
+    },
+    {
+      "term": "industrial",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 1.3081
+    },
+    {
+      "term": "popular",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 1.3081
+    },
+    {
+      "term": "stronger",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 1.3081
+    },
+    {
+      "term": "tariffs",
+      "before": 5,
+      "after": 15,
+      "delta": 10,
+      "log_odds": 1.2466
+    },
+    {
+      "term": "believed",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 1.0566
+    },
+    {
+      "term": "columbia",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 1.0566
+    },
+    {
+      "term": "consisted",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 1.0566
+    },
+    {
+      "term": "demographics",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 1.0566
+    },
+    {
+      "term": "district",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 1.0566
+    },
+    {
+      "term": "dukakis",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 1.0566
+    },
+    {
+      "term": "far",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 1.0566
+    },
+    {
+      "term": "sick",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 1.0566
+    },
+    {
+      "term": "throughout",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 1.0566
+    },
+    {
+      "term": "trifectas",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 1.0566
+    },
+    {
+      "term": "aid",
+      "before": 2,
+      "after": 5,
+      "delta": 3,
+      "log_odds": 0.9979
+    },
+    {
+      "term": "logo",
+      "before": 3,
+      "after": 7,
+      "delta": 4,
+      "log_odds": 0.9718
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "latino",
+      "before": 12,
+      "after": 0,
+      "delta": -12,
+      "log_odds": -3.0111
+    },
+    {
+      "term": "identify",
+      "before": 10,
+      "after": 0,
+      "delta": -10,
+      "log_odds": -2.8365
+    },
+    {
+      "term": "arab",
+      "before": 9,
+      "after": 0,
+      "delta": -9,
+      "log_odds": -2.7364
+    },
+    {
+      "term": "secretary",
+      "before": 9,
+      "after": 0,
+      "delta": -9,
+      "log_odds": -2.7364
+    },
+    {
+      "term": "received",
+      "before": 7,
+      "after": 0,
+      "delta": -7,
+      "log_odds": -2.4998
+    },
+    {
+      "term": "margin",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -2.3566
+    },
+    {
+      "term": "cuban",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.1894
+    },
+    {
+      "term": "hillary",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.1894
+    },
+    {
+      "term": "stronghold",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.1894
+    },
+    {
+      "term": "asian",
+      "before": 14,
+      "after": 1,
+      "delta": -13,
+      "log_odds": -2.061
+    },
+    {
+      "term": "final",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -1.9886
+    },
+    {
+      "term": "range",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -1.9886
+    },
+    {
+      "term": "secular",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -1.9886
+    },
+    {
+      "term": "withdrawal",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -1.9886
+    },
+    {
+      "term": "jewish",
+      "before": 10,
+      "after": 1,
+      "delta": -9,
+      "log_odds": -1.7378
+    },
+    {
+      "term": "associate",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.7372
+    },
+    {
+      "term": "average",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.7372
+    },
+    {
+      "term": "buttigieg",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.7372
+    },
+    {
+      "term": "christians",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.7372
+    },
+    {
+      "term": "deb",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.7372
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

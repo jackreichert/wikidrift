@@ -11,7 +11,8 @@ def slugify(title):
     separators collapsed, so a Wikipedia subpage title ('A/B') can neither escape the target dir nor
     nest into one (CWE-22). Unicode letters (e.g. the en-dash in 'Israeli–Palestinian conflict') are
     preserved so existing findings filenames still resolve."""
-    return title.replace(" ", "_").replace("/", "_").replace("\\", "_")
+    slug = title.replace(" ", "_").replace("/", "_").replace("\\", "_").replace("\x00", "_")
+    return "_" * len(slug) if slug and set(slug) == {"."} else slug
 
 
 # Wayback wraps a real citation as web.archive.org/web/<ts>/<real-url>; unwrap it so an archived NYT

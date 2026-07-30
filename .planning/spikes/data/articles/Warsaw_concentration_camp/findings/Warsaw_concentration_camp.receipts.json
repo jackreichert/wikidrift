@@ -1,0 +1,31 @@
+{
+  "article": "Warsaw concentration camp",
+  "qid": "Q692676",
+  "asof": null,
+  "editions": {
+    "en": {
+      "present": true,
+      "title": "Warsaw concentration camp",
+      "revid": 1357168907,
+      "timestamp": "2026-06-01T03:18:12Z",
+      "prose_chars": 56383,
+      "prose_file": "Warsaw_concentration_camp.en.txt"
+    },
+    "pl": {
+      "present": true,
+      "title": "Warschau (KL)",
+      "revid": 77681625,
+      "timestamp": "2025-09-26T09:12:18Z",
+      "prose_chars": 38861,
+      "prose_file": "Warsaw_concentration_camp.pl.txt"
+    },
+    "de": {
+      "present": true,
+      "title": "KZ Warschau",
+      "revid": 262570944,
+      "timestamp": "2025-12-19T23:30:28Z",
+      "prose_chars": 11529,
+      "prose_file": "Warsaw_concentration_camp.de.txt"
+    }
+  }
+}

@@ -1,0 +1,318 @@
+{
+  "article": "History of Zionism",
+  "pivot": null,
+  "span": "2008-01-01 → 2023-07-01  (no L1 pivot — whole history)",
+  "before": {
+    "date": "2008-01-01",
+    "refs": 42,
+    "n_domains": 15,
+    "cite_mix": {
+      "book": 67,
+      "web": 33
+    },
+    "domains": {
+      "classes.maxwell.syr.edu": 1,
+      "wzo.org.il": 2,
+      "religioustolerance.org": 1,
+      "jewishencyclopedia.com": 2,
+      "worldjewishcongress.org": 1,
+      "mideastweb.org": 2,
+      "leaderu.com": 1,
+      "historycooperative.org": 1,
+      "fusion.dalmatech.com": 1,
+      "jafi.org.il": 1,
+      "weizmann.ac.il": 1,
+      "yale.edu": 1,
+      "marxists.de": 1,
+      "daccessdds.un.org": 1,
+      "un.org": 1
+    }
+  },
+  "after": {
+    "date": "2023-07-01",
+    "refs": 146,
+    "n_domains": 44,
+    "cite_mix": {
+      "web": 48,
+      "book": 46,
+      "journal": 4,
+      "news": 2
+    },
+    "domains": {
+      "myjewishlearning.com": 1,
+      "books.google.com": 11,
+      "masortiworld.org": 2,
+      "memo.ru": 1,
+      "axt.org.uk": 2,
+      "zionism-israel.com": 2,
+      "jewishencyclopedia.com": 2,
+      "mideastweb.org": 4,
+      "leaderu.com": 1,
+      "historycooperative.org": 2,
+      "ibiblio.org": 1,
+      "lds.org": 2,
+      "gemsinisrael.com": 2,
+      "hagshama.org.il": 4,
+      "archive.org": 2,
+      "fusion.dalmatech.com": 2,
+      "jwa.org": 1,
+      "ajcarchives.org": 1,
+      "ajhs.org": 2,
+      "jewishmuseum.org.uk": 1,
+      "tabletmag.com": 1,
+      "friends-partners.org": 1,
+      "jafi.org.il": 1,
+      "britannica.com": 1,
+      "nytimes.com": 2,
+      "select.nytimes.com": 1,
+      "jewishvirtuallibrary.org": 1,
+      "hebrewsongs.com": 1,
+      "mfa.gov.il": 1,
+      "passia.org": 2,
+      "bjpa.org": 3,
+      "avalon.law.yale.edu": 2,
+      "pewresearch.org": 1,
+      "ess.uwe.ac.uk": 2,
+      "wzo.org.il": 2,
+      "muse.jhu.edu": 1,
+      "ies.berkeley.edu": 2,
+      "daccessdds.un.org": 2,
+      "un.org": 1,
+      "users.ox.ac.uk": 1,
+      "jstandard.com": 1,
+      "amazon.com": 3,
+      "zionism.co.il": 1,
+      "zionistarchives.org.il": 1
+    }
+  },
+  "added": [
+    {
+      "domain": "books.google.com",
+      "from": 0,
+      "to": 11
+    },
+    {
+      "domain": "hagshama.org.il",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "bjpa.org",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "amazon.com",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "mideastweb.org",
+      "from": 2,
+      "to": 4
+    },
+    {
+      "domain": "lds.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "ajhs.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "gemsinisrael.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "zionism-israel.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "passia.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "axt.org.uk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "masortiworld.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "archive.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "avalon.law.yale.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "ess.uwe.ac.uk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "nytimes.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "ies.berkeley.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "fusion.dalmatech.com",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "jewishmuseum.org.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "mfa.gov.il",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ajcarchives.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "muse.jhu.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "jewishvirtuallibrary.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "jwa.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "myjewishlearning.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "britannica.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "zionistarchives.org.il",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "friends-partners.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "zionism.co.il",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "daccessdds.un.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "tabletmag.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "memo.ru",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "pewresearch.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "users.ox.ac.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ibiblio.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "select.nytimes.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "hebrewsongs.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "jstandard.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "historycooperative.org",
+      "from": 1,
+      "to": 2
+    }
+  ],
+  "dropped": [
+    {
+      "domain": "weizmann.ac.il",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "marxists.de",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "classes.maxwell.syr.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "worldjewishcongress.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "religioustolerance.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "yale.edu",
+      "from": 1,
+      "to": 0
+    }
+  ],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD."
+}

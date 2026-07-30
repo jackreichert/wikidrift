@@ -79,7 +79,7 @@ uv run wikidrift bootstrap                      # populate the token corpus for 
 uv run wikidrift benchmark                     # score the adjudicated roster (offline)
 uv run wikidrift validate                      # offline PWR candidate verdicts (no WikiWho)
 uv run wikidrift profile "Brontosaurus"        # descriptive L1 profile: recency + editor concentration (offline)
-uv run wikidrift analyze "Climate change"      # full L1: drift → pivots → binary-search confirm → attribution
+uv run wikidrift analyze "Climate change"      # full L1: interval/rolling candidates → confirm → attribution
 uv run wikidrift discover "Nakba"              # L4: seed → removal footprint → independent L1 re-test
 uv run wikidrift sources "Palestine"           # L5 #3b: citation-source change (from → to across the pivot)
 uv run wikidrift stance "Abortion"             # L2 framing/stance over time            (needs an LLM key)
@@ -89,7 +89,19 @@ uv run wikidrift crosslingual "Anti-Zionism"   # L5 cross-language stance compar
 uv run wikidrift factcheck "Warsaw concentration camp" --asof 2018-06-01   # L5 #2: fact divergence (LLM key)
 uv run wikidrift mscore                         # controversy corroborator (metadata only)
 uv run wikidrift pipeline "Hamas" --llm --framing  # L1 → router → L2 + cross-language lead comparison
+uv run wikidrift migrate-shards                # lossless canonical corpus → article-owned DuckDB shards
 ```
+
+`migrate-shards` leaves the canonical corpus untouched, verifies per-table row counts and artifact checksums,
+and stores corpus-wide outputs under `articles/_shared/`. To run independent writers in parallel, point each
+process at a different shard before startup:
+
+```bash
+WIKIDRIFT_DATA_DIR=.planning/spikes/data/articles/Ilhan_Omar \
+  uv run wikidrift analyze "Ilhan Omar"
+```
+
+The historical canonical location remains the default when `WIKIDRIFT_DATA_DIR` is unset.
 
 Single-article verbs (`analyze`, `stance`, `framing`, `crosslingual`, `factcheck`, `pipeline`, `discover`, `sources`,
 `lexical`, `profile`) accept either an article title or a Wikipedia URL (e.g.
@@ -187,6 +199,9 @@ uv run python tools/cover_missing_topics.py --topics "Ainu people" "Genocide of 
 # execute explicit list, full workflow
 uv run python tools/cover_missing_topics.py --topics "Bar Kokhba Revolt" "UNRWA" --mode full --execute
 
+# analyze then run the pipeline in four article-isolated workers
+uv run python tools/cover_missing_topics.py --topics "Capitalism" "Socialism" --mode pipeline --jobs 4 --execute
+
 # execute explicit list, fill only missing layers
 uv run python tools/cover_missing_topics.py --topics "History of Zionism" "Gaza war" --mode fill --execute
 
@@ -203,6 +218,10 @@ uv run python tools/cover_missing_topics.py --mode full --execute --no-llm
 uv run python tools/cover_missing_topics.py --mode full --execute --l5-max-langs 0
 uv run python tools/cover_missing_topics.py --mode full --execute --l5-cap-policy fixed --l5-max-langs 6
 ```
+
+Parallel runs stream each child line with a topic prefix such as `[Capitalism]` while retaining the
+same output in `.planning/spikes/data/articles/<slug>/logs/coverage.log`. Successful stages are recorded
+in each article's `coverage-state.json` and skipped on resumed runs unless `--no-resume` is passed.
 
 Full per-verb detail, the module map, and the LLM-backend options are in
 **[`src/wikidrift/README.md`](src/wikidrift/README.md)**.

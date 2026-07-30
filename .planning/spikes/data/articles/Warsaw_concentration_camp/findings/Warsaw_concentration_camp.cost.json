@@ -1,0 +1,39 @@
+{
+  "article": "Warsaw concentration camp",
+  "run_ts": "2026-07-19T17:52:08.060252+00:00",
+  "workflow": "confirmed_framing_refresh",
+  "succeeded": true,
+  "elapsed_seconds": 24.099,
+  "stages": [
+    {
+      "command": "analyze",
+      "elapsed_seconds": 0.957,
+      "exit_code": 0
+    },
+    {
+      "command": "framing",
+      "elapsed_seconds": 23.142,
+      "exit_code": 0
+    }
+  ],
+  "llm_usage": {
+    "calls": 1,
+    "input_tokens": 6131,
+    "output_tokens": 1841,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 6131,
+        "output_tokens": 1841,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
+  },
+  "estimated_external_usd": null,
+  "estimate_scope": "LLM token charges only. Wikipedia and WikiWho APIs are public and unpriced here; machine time, storage, payment fees, taxes, failed-response charges, and service margin are excluded."
+}

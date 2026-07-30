@@ -1,0 +1,27 @@
+{
+  "article": "Naliboki massacre",
+  "artifacts": [
+    "findings/Naliboki_massacre.category.json",
+    "findings/Naliboki_massacre.cost.json",
+    "findings/Naliboki_massacre.factcheck.json",
+    "findings/Naliboki_massacre.framing.json",
+    "findings/Naliboki_massacre.l1-confirmation.json",
+    "findings/Naliboki_massacre.lexical.json",
+    "findings/Naliboki_massacre.profile.json",
+    "findings/Naliboki_massacre.receipts.json",
+    "findings/Naliboki_massacre.sources.json",
+    "findings/Naliboki_massacre.stance.json",
+    "history-xml/Naliboki_massacre.xml",
+    "mscore/Naliboki_massacre.json"
+  ],
+  "slug": "Naliboki_massacre",
+  "tables": {
+    "articles": 0,
+    "rev_size": 657,
+    "revisions": 657,
+    "rsnap": 96699,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

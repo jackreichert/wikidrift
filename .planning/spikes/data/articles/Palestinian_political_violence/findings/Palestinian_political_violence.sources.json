@@ -1,0 +1,401 @@
+{
+  "article": "Palestinian political violence",
+  "pivot": null,
+  "span": "2003-07-01 → 2026-07-01  (no L1 pivot — whole history)",
+  "before": {
+    "date": "2003-07-01",
+    "refs": 0,
+    "n_domains": 0,
+    "cite_mix": {},
+    "domains": {}
+  },
+  "after": {
+    "date": "2026-07-01",
+    "refs": 150,
+    "n_domains": 62,
+    "cite_mix": {
+      "web": 47,
+      "news": 26,
+      "book": 17,
+      "journal": 10
+    },
+    "domains": {
+      "books.google.com": 16,
+      "un.int": 2,
+      "vox.com": 4,
+      "elwatannews.com": 2,
+      "theatlantic.com": 3,
+      "archive.today": 2,
+      "cfr.org": 2,
+      "2009-2017.state.gov": 2,
+      "publicsafety.gc.ca": 2,
+      "legislation.gov.uk": 2,
+      "mofa.go.jp": 2,
+      "police.govt.nz": 2,
+      "eur-lex.europa.eu": 4,
+      "nybooks.com": 1,
+      "pcpsr.org": 18,
+      "theguardian.com": 6,
+      "mgimo.ru": 1,
+      "rand.org": 2,
+      "ucpress.edu": 2,
+      "jafi.org": 4,
+      "haaretz.com": 12,
+      "country-studies.com": 2,
+      "timesofisrael.com": 10,
+      "jpost.com": 16,
+      "phrmg.org": 4,
+      "ynetnews.com": 8,
+      "old.btselem.org": 6,
+      "btselem.org": 4,
+      "www2.warwick.ac.uk": 2,
+      "telegraph.co.uk": 3,
+      "wayback.archive-it.org": 1,
+      "news.bbc.co.uk": 17,
+      "independent.co.uk": 2,
+      "un.org": 4,
+      "pbs.org": 2,
+      "wsvn.com": 2,
+      "humanities.uci.edu": 2,
+      "accessmylibrary.com": 2,
+      "ssum-sec.casalemedia.com": 2,
+      "reuters.com": 4,
+      "bbc.co.uk": 2,
+      "hrw.org": 4,
+      "asiapacific.amnesty.org": 2,
+      "johnpilger.com": 2,
+      "academic.oup.com": 2,
+      "amnesty.org": 2,
+      "nytimes.com": 4,
+      "foxnews.com": 1,
+      "thehumanist.org": 2,
+      "carnegieendowment.org": 1,
+      "thefreelibrary.com": 2,
+      "jmcc.org": 4,
+      "jewishvirtuallibrary.org": 2,
+      "abc.net.au": 2,
+      "maannews.net": 2,
+      "ipcri.org": 2,
+      "archive.org": 2,
+      "dx.doi.org": 3,
+      "degruyter.com": 1,
+      "link.springer.com": 1,
+      "doi.org": 1,
+      "routledge.com": 1
+    }
+  },
+  "added": [
+    {
+      "domain": "pcpsr.org",
+      "from": 0,
+      "to": 18
+    },
+    {
+      "domain": "news.bbc.co.uk",
+      "from": 0,
+      "to": 17
+    },
+    {
+      "domain": "jpost.com",
+      "from": 0,
+      "to": 16
+    },
+    {
+      "domain": "books.google.com",
+      "from": 0,
+      "to": 16
+    },
+    {
+      "domain": "haaretz.com",
+      "from": 0,
+      "to": 12
+    },
+    {
+      "domain": "timesofisrael.com",
+      "from": 0,
+      "to": 10
+    },
+    {
+      "domain": "ynetnews.com",
+      "from": 0,
+      "to": 8
+    },
+    {
+      "domain": "theguardian.com",
+      "from": 0,
+      "to": 6
+    },
+    {
+      "domain": "old.btselem.org",
+      "from": 0,
+      "to": 6
+    },
+    {
+      "domain": "jmcc.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "vox.com",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "jafi.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "hrw.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "phrmg.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "eur-lex.europa.eu",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "un.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "nytimes.com",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "reuters.com",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "btselem.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "telegraph.co.uk",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "theatlantic.com",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "dx.doi.org",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "country-studies.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "maannews.net",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "police.govt.nz",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "archive.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "pbs.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "thefreelibrary.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "wsvn.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "accessmylibrary.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "ipcri.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "www2.warwick.ac.uk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "publicsafety.gc.ca",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "abc.net.au",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "independent.co.uk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "jewishvirtuallibrary.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "ucpress.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "amnesty.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "rand.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "thehumanist.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "johnpilger.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "elwatannews.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "2009-2017.state.gov",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "ssum-sec.casalemedia.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "cfr.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "academic.oup.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "bbc.co.uk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "asiapacific.amnesty.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "mofa.go.jp",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "archive.today",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "un.int",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "humanities.uci.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "legislation.gov.uk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "nybooks.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "link.springer.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "degruyter.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "foxnews.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "carnegieendowment.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "wayback.archive-it.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "doi.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "mgimo.ru",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "routledge.com",
+      "from": 0,
+      "to": 1
+    }
+  ],
+  "dropped": [],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD."
+}

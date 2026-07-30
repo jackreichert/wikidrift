@@ -1,0 +1,1639 @@
+{
+  "article": "Gaza war",
+  "pivot": "2024-01-01",
+  "span": "2024-01-01 → 2026-01-01  (across the L1 pivot ~2024-01-01)",
+  "before": {
+    "date": "2024-01-01",
+    "refs": 1017,
+    "n_domains": 198,
+    "cite_mix": {
+      "news": 82,
+      "web": 16,
+      "book": 1,
+      "journal": 1,
+      "report": 0,
+      "press": 0
+    },
+    "domains": {
+      "voanews.com": 5,
+      "barrons.com": 7,
+      "france24.com": 17,
+      "theguardian.com": 68,
+      "timesofisrael.com": 88,
+      "aljazeera.com": 86,
+      "reuters.com": 85,
+      "i.guim.co.uk": 1,
+      "palestine.un.org": 2,
+      "apnews.com": 61,
+      "edition.cnn.com": 27,
+      "nytimes.com": 56,
+      "nbcnews.com": 22,
+      "bbc.com": 36,
+      "cnbc.com": 8,
+      "hrw.org": 8,
+      "cnn.com": 25,
+      "wsj.com": 15,
+      "euronews.com": 4,
+      "ohchr.org": 8,
+      "cbc.ca": 8,
+      "pbs.org": 5,
+      "scotsman.com": 2,
+      "unicef.org": 3,
+      "vox.com": 7,
+      "abcnews.go.com": 16,
+      "amnesty.org": 9,
+      "politico.eu": 6,
+      "academic.oup.com": 2,
+      "icrc.org": 2,
+      "britannica.com": 4,
+      "democracynow.org": 2,
+      "jewishcurrents.org": 4,
+      "foreignpolicy.com": 7,
+      "bbc.co.uk": 7,
+      "ynetnews.com": 16,
+      "newarab.com": 5,
+      "oxfamilibrary.openrepository.com": 2,
+      "independent.co.uk": 4,
+      "washingtonpost.com": 36,
+      "books.google.com": 5,
+      "dw.com": 3,
+      "972mag.com": 5,
+      "ft.com": 13,
+      "thehill.com": 7,
+      "thenation.com": 1,
+      "btselem.org": 2,
+      "lefigaro.fr": 2,
+      "unrwa.org": 4,
+      "ochaopt.org": 44,
+      "archive.today": 1,
+      "jpost.com": 14,
+      "washingtontimes.com": 1,
+      "haaretz.com": 24,
+      "npr.org": 5,
+      "scmp.com": 5,
+      "aa.com.tr": 3,
+      "businessinsider.com": 4,
+      "palestinechronicle.com": 3,
+      "aninews.in": 2,
+      "lemonde.fr": 2,
+      "economist.com": 7,
+      "archive.is": 4,
+      "middleeasteye.net": 4,
+      "youtube.com": 9,
+      "jordannews.jo": 2,
+      "channel4.com": 2,
+      "phr.org.il": 2,
+      "factcheck.org": 2,
+      "ynet.co.il": 8,
+      "idf.il": 2,
+      "english.alarabiya.net": 6,
+      "en.globes.co.il": 3,
+      "rail.co.il": 2,
+      "railjournal.com": 2,
+      "cruisecritic.com": 2,
+      "moroccoworldnews.com": 3,
+      "timesofindia.indiatimes.com": 2,
+      "newsweek.com": 4,
+      "bloomberg.com": 5,
+      "doctorswithoutborders.org": 2,
+      "who.int": 2,
+      "un.org": 12,
+      "news.com.au": 1,
+      "kan.org.il": 2,
+      "abc.net.au": 2,
+      "cbsnews.com": 7,
+      "axios.com": 4,
+      "turkiyenewspaper.com": 2,
+      "irishtimes.com": 2,
+      "spiegel.de": 3,
+      "instagram.com": 2,
+      "time.com": 7,
+      "i24news.tv": 3,
+      "alquds.com": 1,
+      "gulfnews.com": 2,
+      "understandingwar.org": 1,
+      "aje.io": 13,
+      "today.lorientlejour.com": 1,
+      "arabnews.com": 2,
+      "csmonitor.com": 1,
+      "memri.org": 1,
+      "kurdistan24.net": 1,
+      "shafaq.com": 1,
+      "new.thecradle.co": 1,
+      "iranintl.com": 3,
+      "politico.com": 4,
+      "reliefweb.int": 6,
+      "itv.com": 2,
+      "wired.me": 1,
+      "thepeninsulaqatar.com": 1,
+      "news.sky.com": 1,
+      "scientificamerican.com": 1,
+      "news.un.org": 4,
+      "nrc.no": 1,
+      "genocidewatch.com": 1,
+      "heinonline.org": 2,
+      "archive.md": 1,
+      "en.idi.org.il": 1,
+      "latimes.com": 2,
+      "thetimes.co.uk": 1,
+      "foreign.senate.gov": 1,
+      "abc7chicago.com": 1,
+      "opiniojuris.org": 2,
+      "twailr.com": 1,
+      "icj-cij.org": 1,
+      "inss.org.il": 1,
+      "justsecurity.org": 1,
+      "lieber.westpoint.edu": 1,
+      "heritageforpeace.org": 1,
+      "thenationalnews.com": 3,
+      "lbc.co.uk": 1,
+      "firstpost.com": 1,
+      "thehindu.com": 1,
+      "reading.ac.uk": 1,
+      "arab.news": 1,
+      "timesunion.com": 1,
+      "businesstoday.in": 1,
+      "nadlan.walla.co.il": 1,
+      "forward.com": 1,
+      "alaraby.co.uk": 1,
+      "theatlantic.com": 1,
+      "jewishpress.com": 1,
+      "english.news.cn": 1,
+      "foreignaffairs.com": 1,
+      "news.stanford.edu": 1,
+      "slate.com": 1,
+      "thedailybeast.com": 1,
+      "awrad.org": 1,
+      "news.yahoo.com": 2,
+      "usatoday.com": 1,
+      "ndtv.com": 2,
+      "nrk.no": 2,
+      "themessenger.com": 1,
+      "newyorker.com": 1,
+      "en.mehrnews.com": 2,
+      "tasnimnews.com": 1,
+      "al-monitor.com": 1,
+      "archive.org": 2,
+      "irib.ir": 2,
+      "irna.ir": 2,
+      "alaqsastorm.com": 2,
+      "radiofarda.com": 2,
+      "didbaniran.ir": 1,
+      "tehrantimes.com": 1,
+      "ir.voanews.com": 1,
+      "defense.gov": 1,
+      "amp.dw.com": 1,
+      "telegraph.co.uk": 1,
+      "eghtesadnews.com": 1,
+      "press.un.org": 1,
+      "telam.com.ar": 1,
+      "telegraphindia.com": 1,
+      "globalnation.inquirer.net": 1,
+      "cpj.org": 1,
+      "asianews.it": 1,
+      "svt.se": 1,
+      "tagesschau.de": 2,
+      "uyghurcongress.org": 1,
+      "cumhuriyet.com.tr": 2,
+      "cfr.org": 1,
+      "g1.globo.com": 1,
+      "rferl.org": 1,
+      "africanews.com": 1,
+      "economictimes.indiatimes.com": 1,
+      "kyivindependent.com": 1,
+      "iiss.org": 1,
+      "jns.org": 1,
+      "semafor.com": 1,
+      "rsf.org": 1,
+      "thecyberexpress.com": 1,
+      "indiatoday.in": 1,
+      "politifact.com": 1,
+      "foxnews.com": 1,
+      "themedialine.org": 2,
+      "theguardcan.com": 1,
+      "washingtoninstitute.org": 2,
+      "unocha.org": 24
+    }
+  },
+  "after": {
+    "date": "2026-01-01",
+    "refs": 854,
+    "n_domains": 170,
+    "cite_mix": {
+      "web": 81,
+      "news": 19
+    },
+    "domains": {
+      "reuters.com": 55,
+      "archive.today": 30,
+      "apnews.com": 75,
+      "tandfonline.com": 1,
+      "theguardian.com": 87,
+      "edition.cnn.com": 34,
+      "wsj.com": 9,
+      "hrw.org": 12,
+      "news.un.org": 7,
+      "ipcinfo.org": 2,
+      "bbc.co.uk": 12,
+      "ohchr.org": 15,
+      "aljazeera.com": 117,
+      "forensic-architecture.org": 5,
+      "cpj.org": 2,
+      "amnesty.org": 16,
+      "voanews.com": 1,
+      "haaretz.com": 26,
+      "documents.un.org": 1,
+      "amnesty.ca": 2,
+      "btselem.org": 7,
+      "fidh.org": 3,
+      "vox.com": 7,
+      "books.google.com": 3,
+      "bbc.com": 60,
+      "msnbc.com": 2,
+      "thelancet.com": 1,
+      "nrc.nl": 2,
+      "washingtonpost.com": 22,
+      "brookings.edu": 2,
+      "criticalissues.umd.edu": 2,
+      "ora.ox.ac.uk": 1,
+      "nytimes.com": 52,
+      "main.knesset.gov.il": 1,
+      "timesofisrael.com": 91,
+      "jns.org": 4,
+      "i24news.tv": 3,
+      "jpost.com": 13,
+      "pflp-lb.org": 2,
+      "hamasinfo.info": 2,
+      "understandingwar.org": 2,
+      "972mag.com": 11,
+      "thenation.com": 4,
+      "abcnews.go.com": 14,
+      "doi.org": 1,
+      "britannica.com": 2,
+      "icrc.org": 2,
+      "nbcnews.com": 23,
+      "jewishcurrents.org": 2,
+      "thedocs.worldbank.org": 2,
+      "foreignpolicy.com": 8,
+      "jacobin.com": 2,
+      "unicef.org": 4,
+      "abc.net.au": 7,
+      "cnbc.com": 4,
+      "lemonde.fr": 3,
+      "theconversation.com": 3,
+      "hal-sciencespo.archives-ouvertes.fr": 1,
+      "unrwa.org": 2,
+      "un.org": 6,
+      "lefigaro.fr": 2,
+      "foreignaffairs.com": 3,
+      "npr.org": 8,
+      "scmp.com": 6,
+      "france24.com": 9,
+      "economist.com": 5,
+      "cnn.com": 38,
+      "ynetnews.com": 10,
+      "ynet.co.il": 8,
+      "theatlantic.com": 2,
+      "axios.com": 14,
+      "telegraph.co.uk": 5,
+      "middleeasteye.net": 8,
+      "jordannews.jo": 2,
+      "english.alarabiya.net": 6,
+      "en.globes.co.il": 2,
+      "aa.com.tr": 1,
+      "timesofindia.indiatimes.com": 2,
+      "bloomberg.com": 7,
+      "doctorswithoutborders.org": 2,
+      "who.int": 3,
+      "amnesty.org.uk": 1,
+      "news.com.au": 1,
+      "cbsnews.com": 14,
+      "idf.il": 2,
+      "irishtimes.com": 1,
+      "responsiblestatecraft.org": 2,
+      "time.com": 10,
+      "lithub.com": 2,
+      "nz.news.yahoo.com": 2,
+      "newarab.com": 9,
+      "wck.org": 2,
+      "jewishpress.com": 2,
+      "rte.ie": 3,
+      "amp.cnn.com": 1,
+      "news.sky.com": 7,
+      "amp.theguardian.com": 1,
+      "huffpost.com": 2,
+      "middleeastmonitor.com": 4,
+      "reliefweb.int": 1,
+      "dropsitenews.com": 6,
+      "afr.com": 2,
+      "israelhayom.com": 3,
+      "politico.com": 2,
+      "democracynow.org": 5,
+      "mondoweiss.net": 2,
+      "upi.com": 2,
+      "ft.com": 10,
+      "tivysideadvertiser.co.uk": 2,
+      "arabnews.com": 2,
+      "english.aawsat.com": 2,
+      "khaleejtimes.com": 2,
+      "longwarjournal.org": 2,
+      "alhadath.net": 1,
+      "pbs.org": 6,
+      "en.royanews.tv": 1,
+      "usatoday.com": 1,
+      "fdd.org": 1,
+      "humenglish.com": 1,
+      "jagonews24.com": 1,
+      "gulfnews.com": 1,
+      "irna.ir": 1,
+      "channel4.com": 2,
+      "english.wafa.ps": 2,
+      "barrons.com": 2,
+      "frontlinedefenders.org": 1,
+      "mondediplo.com": 3,
+      "euromedmonitor.org": 2,
+      "cbc.ca": 4,
+      "jstor.org": 1,
+      "refugeesinternational.org": 1,
+      "themarkup.org": 1,
+      "english.elpais.com": 1,
+      "securitypraxis.eu": 1,
+      "icc-cpi.int": 3,
+      "veja.abril.com.br": 1,
+      "phr.org.il": 2,
+      "genocidescholars.org": 2,
+      "msf.org.uk": 2,
+      "newyorker.com": 2,
+      "bu.edu": 2,
+      "press.un.org": 2,
+      "arabcenterdc.org": 2,
+      "usip.org": 2,
+      "pewresearch.org": 2,
+      "en.idi.org.il": 2,
+      "dw.com": 1,
+      "eldiario.es": 1,
+      "breakingnews.ie": 1,
+      "washingtoninstitute.org": 2,
+      "commonslibrary.parliament.uk": 1,
+      "state.gov": 1,
+      "g1.globo.com": 1,
+      "rferl.org": 1,
+      "africanews.com": 1,
+      "economictimes.indiatimes.com": 1,
+      "ndtv.com": 1,
+      "kyivindependent.com": 1,
+      "iiss.org": 1,
+      "mako.co.il": 1,
+      "watson.brown.edu": 1,
+      "alquds.com": 2,
+      "freepresskashmir.news": 2,
+      "independent.co.uk": 4,
+      "rsf.org": 2,
+      "defensenews.com": 2,
+      "bundesregierung.de": 2,
+      "news.google.com": 1,
+      "ochaopt.org": 1,
+      "gov.il": 1
+    }
+  },
+  "added": [
+    {
+      "domain": "aljazeera.com",
+      "from": 86,
+      "to": 117
+    },
+    {
+      "domain": "archive.today",
+      "from": 1,
+      "to": 30
+    },
+    {
+      "domain": "bbc.com",
+      "from": 36,
+      "to": 60
+    },
+    {
+      "domain": "theguardian.com",
+      "from": 68,
+      "to": 87
+    },
+    {
+      "domain": "apnews.com",
+      "from": 61,
+      "to": 75
+    },
+    {
+      "domain": "cnn.com",
+      "from": 25,
+      "to": 38
+    },
+    {
+      "domain": "axios.com",
+      "from": 4,
+      "to": 14
+    },
+    {
+      "domain": "ohchr.org",
+      "from": 8,
+      "to": 15
+    },
+    {
+      "domain": "edition.cnn.com",
+      "from": 27,
+      "to": 34
+    },
+    {
+      "domain": "cbsnews.com",
+      "from": 7,
+      "to": 14
+    },
+    {
+      "domain": "amnesty.org",
+      "from": 9,
+      "to": 16
+    },
+    {
+      "domain": "news.sky.com",
+      "from": 1,
+      "to": 7
+    },
+    {
+      "domain": "972mag.com",
+      "from": 5,
+      "to": 11
+    },
+    {
+      "domain": "dropsitenews.com",
+      "from": 0,
+      "to": 6
+    },
+    {
+      "domain": "bbc.co.uk",
+      "from": 7,
+      "to": 12
+    },
+    {
+      "domain": "forensic-architecture.org",
+      "from": 0,
+      "to": 5
+    },
+    {
+      "domain": "btselem.org",
+      "from": 2,
+      "to": 7
+    },
+    {
+      "domain": "abc.net.au",
+      "from": 2,
+      "to": 7
+    },
+    {
+      "domain": "middleeasteye.net",
+      "from": 4,
+      "to": 8
+    },
+    {
+      "domain": "telegraph.co.uk",
+      "from": 1,
+      "to": 5
+    },
+    {
+      "domain": "hrw.org",
+      "from": 8,
+      "to": 12
+    },
+    {
+      "domain": "newarab.com",
+      "from": 5,
+      "to": 9
+    },
+    {
+      "domain": "middleeastmonitor.com",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "fidh.org",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "timesofisrael.com",
+      "from": 88,
+      "to": 91
+    },
+    {
+      "domain": "npr.org",
+      "from": 5,
+      "to": 8
+    },
+    {
+      "domain": "mondediplo.com",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "thenation.com",
+      "from": 1,
+      "to": 4
+    },
+    {
+      "domain": "jns.org",
+      "from": 1,
+      "to": 4
+    },
+    {
+      "domain": "democracynow.org",
+      "from": 2,
+      "to": 5
+    },
+    {
+      "domain": "news.un.org",
+      "from": 4,
+      "to": 7
+    },
+    {
+      "domain": "icc-cpi.int",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "rte.ie",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "theconversation.com",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "israelhayom.com",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "time.com",
+      "from": 7,
+      "to": 10
+    },
+    {
+      "domain": "usip.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "tivysideadvertiser.co.uk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "thedocs.worldbank.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "nrc.nl",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "huffpost.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "nz.news.yahoo.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "lithub.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "mondoweiss.net",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "english.wafa.ps",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "wck.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "msf.org.uk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "amnesty.ca",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "arabcenterdc.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "jacobin.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "genocidescholars.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "msnbc.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "responsiblestatecraft.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "hamasinfo.info",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "afr.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "foreignaffairs.com",
+      "from": 1,
+      "to": 3
+    },
+    {
+      "domain": "bloomberg.com",
+      "from": 5,
+      "to": 7
+    },
+    {
+      "domain": "ipcinfo.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "haaretz.com",
+      "from": 24,
+      "to": 26
+    },
+    {
+      "domain": "pflp-lb.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "pewresearch.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "criticalissues.umd.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "brookings.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "freepresskashmir.news",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "defensenews.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "bu.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "longwarjournal.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "khaleejtimes.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "english.aawsat.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "euromedmonitor.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "bundesregierung.de",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "upi.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "securitypraxis.eu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "understandingwar.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "humenglish.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "documents.un.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "main.knesset.gov.il",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "news.google.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "english.elpais.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "fdd.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "jstor.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "amp.theguardian.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "thelancet.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "scmp.com",
+      "from": 5,
+      "to": 6
+    },
+    {
+      "domain": "commonslibrary.parliament.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "unicef.org",
+      "from": 3,
+      "to": 4
+    },
+    {
+      "domain": "hal-sciencespo.archives-ouvertes.fr",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "tandfonline.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "frontlinedefenders.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "newyorker.com",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "ora.ox.ac.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "pbs.org",
+      "from": 5,
+      "to": 6
+    },
+    {
+      "domain": "themarkup.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "alquds.com",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "cpj.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "en.royanews.tv",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "amnesty.org.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "eldiario.es",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "en.idi.org.il",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "rsf.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "who.int",
+      "from": 2,
+      "to": 3
+    },
+    {
+      "domain": "watson.brown.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "gov.il",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "nbcnews.com",
+      "from": 22,
+      "to": 23
+    },
+    {
+      "domain": "press.un.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "doi.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "breakingnews.ie",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "state.gov",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "refugeesinternational.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "jagonews24.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "lemonde.fr",
+      "from": 2,
+      "to": 3
+    },
+    {
+      "domain": "veja.abril.com.br",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "theatlantic.com",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "foreignpolicy.com",
+      "from": 7,
+      "to": 8
+    },
+    {
+      "domain": "amp.cnn.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "alhadath.net",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "jewishpress.com",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "mako.co.il",
+      "from": 0,
+      "to": 1
+    }
+  ],
+  "dropped": [
+    {
+      "domain": "ochaopt.org",
+      "from": 44,
+      "to": 1
+    },
+    {
+      "domain": "reuters.com",
+      "from": 85,
+      "to": 55
+    },
+    {
+      "domain": "unocha.org",
+      "from": 24,
+      "to": 0
+    },
+    {
+      "domain": "washingtonpost.com",
+      "from": 36,
+      "to": 22
+    },
+    {
+      "domain": "aje.io",
+      "from": 13,
+      "to": 0
+    },
+    {
+      "domain": "youtube.com",
+      "from": 9,
+      "to": 0
+    },
+    {
+      "domain": "france24.com",
+      "from": 17,
+      "to": 9
+    },
+    {
+      "domain": "thehill.com",
+      "from": 7,
+      "to": 0
+    },
+    {
+      "domain": "un.org",
+      "from": 12,
+      "to": 6
+    },
+    {
+      "domain": "politico.eu",
+      "from": 6,
+      "to": 0
+    },
+    {
+      "domain": "ynetnews.com",
+      "from": 16,
+      "to": 10
+    },
+    {
+      "domain": "wsj.com",
+      "from": 15,
+      "to": 9
+    },
+    {
+      "domain": "barrons.com",
+      "from": 7,
+      "to": 2
+    },
+    {
+      "domain": "reliefweb.int",
+      "from": 6,
+      "to": 1
+    },
+    {
+      "domain": "archive.is",
+      "from": 4,
+      "to": 0
+    },
+    {
+      "domain": "euronews.com",
+      "from": 4,
+      "to": 0
+    },
+    {
+      "domain": "cbc.ca",
+      "from": 8,
+      "to": 4
+    },
+    {
+      "domain": "cnbc.com",
+      "from": 8,
+      "to": 4
+    },
+    {
+      "domain": "voanews.com",
+      "from": 5,
+      "to": 1
+    },
+    {
+      "domain": "nytimes.com",
+      "from": 56,
+      "to": 52
+    },
+    {
+      "domain": "businessinsider.com",
+      "from": 4,
+      "to": 0
+    },
+    {
+      "domain": "newsweek.com",
+      "from": 4,
+      "to": 0
+    },
+    {
+      "domain": "thenationalnews.com",
+      "from": 3,
+      "to": 0
+    },
+    {
+      "domain": "iranintl.com",
+      "from": 3,
+      "to": 0
+    },
+    {
+      "domain": "ft.com",
+      "from": 13,
+      "to": 10
+    },
+    {
+      "domain": "palestinechronicle.com",
+      "from": 3,
+      "to": 0
+    },
+    {
+      "domain": "spiegel.de",
+      "from": 3,
+      "to": 0
+    },
+    {
+      "domain": "moroccoworldnews.com",
+      "from": 3,
+      "to": 0
+    },
+    {
+      "domain": "economist.com",
+      "from": 7,
+      "to": 5
+    },
+    {
+      "domain": "turkiyenewspaper.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "railjournal.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "itv.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "unrwa.org",
+      "from": 4,
+      "to": 2
+    },
+    {
+      "domain": "tagesschau.de",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "factcheck.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "instagram.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "dw.com",
+      "from": 3,
+      "to": 1
+    },
+    {
+      "domain": "radiofarda.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "kan.org.il",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "themedialine.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "palestine.un.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "irib.ir",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "britannica.com",
+      "from": 4,
+      "to": 2
+    },
+    {
+      "domain": "cumhuriyet.com.tr",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "aninews.in",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "politico.com",
+      "from": 4,
+      "to": 2
+    },
+    {
+      "domain": "scotsman.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "jewishcurrents.org",
+      "from": 4,
+      "to": 2
+    },
+    {
+      "domain": "latimes.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "academic.oup.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "en.mehrnews.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "cruisecritic.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "heinonline.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "rail.co.il",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "books.google.com",
+      "from": 5,
+      "to": 3
+    },
+    {
+      "domain": "oxfamilibrary.openrepository.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "archive.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "opiniojuris.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "nrk.no",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "aa.com.tr",
+      "from": 3,
+      "to": 1
+    },
+    {
+      "domain": "news.yahoo.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "abcnews.go.com",
+      "from": 16,
+      "to": 14
+    },
+    {
+      "domain": "alaqsastorm.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "eghtesadnews.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "themessenger.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "en.globes.co.il",
+      "from": 3,
+      "to": 2
+    },
+    {
+      "domain": "arab.news",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "abc7chicago.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "telam.com.ar",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "scientificamerican.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "defense.gov",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "foxnews.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "news.stanford.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "indiatoday.in",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "uyghurcongress.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "slate.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "politifact.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "memri.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "icj-cij.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "semafor.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "awrad.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "twailr.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "new.thecradle.co",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "english.news.cn",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "i.guim.co.uk",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "heritageforpeace.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "ir.voanews.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "timesunion.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "gulfnews.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "archive.md",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "irishtimes.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "csmonitor.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "thepeninsulaqatar.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "thetimes.co.uk",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "irna.ir",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "theguardcan.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "thedailybeast.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "foreign.senate.gov",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "nrc.no",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "genocidewatch.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "thehindu.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "ndtv.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "inss.org.il",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "thecyberexpress.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "svt.se",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "asianews.it",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "kurdistan24.net",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "nadlan.walla.co.il",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "justsecurity.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "lbc.co.uk",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "today.lorientlejour.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "didbaniran.ir",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "wired.me",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "washingtontimes.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "cfr.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "firstpost.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "globalnation.inquirer.net",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "lieber.westpoint.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "shafaq.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "alaraby.co.uk",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "tehrantimes.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "forward.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "telegraphindia.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "tasnimnews.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "al-monitor.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "amp.dw.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "reading.ac.uk",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "businesstoday.in",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "jpost.com",
+      "from": 14,
+      "to": 13
+    }
+  ],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD."
+}

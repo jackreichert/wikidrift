@@ -1,0 +1,301 @@
+{
+  "article": "United Nations General Assembly observers",
+  "span": "2005-07-01 -> 2026-07-01 (no L1 pivot — whole history)",
+  "pivot": null,
+  "before": {
+    "date": "2005-07-01",
+    "rev": 18171689,
+    "tokens": 347
+  },
+  "after": {
+    "date": "2026-07-01",
+    "rev": 1362393078,
+    "tokens": 1980
+  },
+  "js_divergence": 0.3162,
+  "overrepresented_after_terms": [
+    {
+      "term": "res",
+      "before": 0,
+      "after": 111,
+      "delta": 111,
+      "log_odds": 3.7245
+    },
+    {
+      "term": "status",
+      "before": 0,
+      "after": 33,
+      "delta": 33,
+      "log_odds": 2.4812
+    },
+    {
+      "term": "granted",
+      "before": 0,
+      "after": 22,
+      "delta": 22,
+      "log_odds": 2.0775
+    },
+    {
+      "term": "observer",
+      "before": 1,
+      "after": 45,
+      "delta": 44,
+      "log_odds": 1.692
+    },
+    {
+      "term": "full",
+      "before": 0,
+      "after": 11,
+      "delta": 11,
+      "log_odds": 1.4007
+    },
+    {
+      "term": "plo",
+      "before": 0,
+      "after": 10,
+      "delta": 10,
+      "log_odds": 1.3092
+    },
+    {
+      "term": "rights",
+      "before": 0,
+      "after": 9,
+      "delta": 9,
+      "log_odds": 1.2087
+    },
+    {
+      "term": "entity",
+      "before": 0,
+      "after": 8,
+      "delta": 8,
+      "log_odds": 1.0969
+    },
+    {
+      "term": "resolution",
+      "before": 0,
+      "after": 8,
+      "delta": 8,
+      "log_odds": 1.0969
+    },
+    {
+      "term": "december",
+      "before": 0,
+      "after": 7,
+      "delta": 7,
+      "log_odds": 0.9713
+    },
+    {
+      "term": "participate",
+      "before": 0,
+      "after": 7,
+      "delta": 7,
+      "log_odds": 0.9713
+    },
+    {
+      "term": "people",
+      "before": 0,
+      "after": 7,
+      "delta": 7,
+      "log_odds": 0.9713
+    },
+    {
+      "term": "additional",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 0.8276
+    },
+    {
+      "term": "china",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 0.8276
+    },
+    {
+      "term": "date",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 0.8276
+    },
+    {
+      "term": "fund",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 0.8276
+    },
+    {
+      "term": "members",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 0.8276
+    },
+    {
+      "term": "october",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 0.8276
+    },
+    {
+      "term": "representative",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 0.8276
+    },
+    {
+      "term": "republic",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 0.8276
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "certain",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.2564
+    },
+    {
+      "term": "crescent",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.2564
+    },
+    {
+      "term": "federation",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.2564
+    },
+    {
+      "term": "governmental",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.2564
+    },
+    {
+      "term": "malta",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.2564
+    },
+    {
+      "term": "meetings",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.2564
+    },
+    {
+      "term": "military",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.2564
+    },
+    {
+      "term": "seabed",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.2564
+    },
+    {
+      "term": "several",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.2564
+    },
+    {
+      "term": "societies",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.2564
+    },
+    {
+      "term": "authority",
+      "before": 3,
+      "after": 2,
+      "delta": -1,
+      "log_odds": -2.0845
+    },
+    {
+      "term": "commonwealth",
+      "before": 3,
+      "after": 2,
+      "delta": -1,
+      "log_odds": -2.0845
+    },
+    {
+      "term": "cross",
+      "before": 3,
+      "after": 2,
+      "delta": -1,
+      "log_odds": -2.0845
+    },
+    {
+      "term": "sovereign",
+      "before": 3,
+      "after": 2,
+      "delta": -1,
+      "log_odds": -2.0845
+    },
+    {
+      "term": "african",
+      "before": 10,
+      "after": 8,
+      "delta": -2,
+      "log_odds": -1.9768
+    },
+    {
+      "term": "community",
+      "before": 10,
+      "after": 8,
+      "delta": -2,
+      "log_odds": -1.9768
+    },
+    {
+      "term": "red",
+      "before": 5,
+      "after": 4,
+      "delta": -1,
+      "log_odds": -1.9535
+    },
+    {
+      "term": "caribbean",
+      "before": 5,
+      "after": 7,
+      "delta": 2,
+      "log_odds": -1.4411
+    },
+    {
+      "term": "cooperation",
+      "before": 7,
+      "after": 10,
+      "delta": 3,
+      "log_odds": -1.4192
+    },
+    {
+      "term": "city",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": -1.4081
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

@@ -10,6 +10,8 @@ The clearest pattern is not that controversial articles simply change more. It i
 
 The collection also shows why textual turnover cannot be treated as evidence of wrongdoing. Large replacement appears in science and cross-domain controls as well as political articles. In [Water](article/Water.html), a major rewrite includes the cleanup of obvious vandalism. [Climate change](article/Climate_change.html) has rewrite peaks comparable to several contentious subjects. Persistence-weighted loss detects durable replacement; it does not explain why the replacement happened.
 
+The latest corpus expansion sharpens both sides of that result. Exact confirmation found multiple durable episodes in [Xi Jinping](article/Xi_Jinping.html), [Democratic Socialists of America](article/Democratic_Socialists_of_America.html), [Socialism](article/Socialism.html), [Capitalism](article/Capitalism.html), and the canonical [Democratic](article/Democratic_Party_%28United_States%29.html) and [Republican](article/Republican_Party_%28United_States%29.html) Party articles. It also rejected the coarse [Elizabeth Warren](article/Elizabeth_Warren.html) candidate, while [Unmoved mover](article/Unmoved_mover.html) exposed how a large whole-history vocabulary score can come from an inadequate baseline rather than a confirmed rewrite.
+
 ## Strongest recurring signals
 
 ### High-impact lead reframing
@@ -34,9 +36,21 @@ That transition deserves close review because it changes the encyclopedia's epis
 
 Where language comparisons are available, editions sometimes select different facts, causal explanations, or descriptions for their openings. A contradiction or difference is a prompt to inspect the cited evidence and local editorial context. It does not establish which edition is correct, and absence from one opening does not mean the fact is absent from the full article.
 
+### Rapid and long-standing rewrites in the expanded corpus
+
+The new exact-confirmation run found three episodes in [Xi Jinping](article/Xi_Jinping.html). The strongest recent event lost 27.1% of its durable spine and was localized to an 18-minute revision pair in December 2025. [Democratic Socialists of America](article/Democratic_Socialists_of_America.html) also had three confirmed episodes; its November 2025 event removed 87.5% of the durable spine across a 41-minute pair. These are unusually concentrated editing events worth revision-level review, but the measurements do not establish motive or whether the resulting text was better or worse.
+
+The ideology articles show a different time profile. [Socialism](article/Socialism.html) had one confirmed 58.8% durable-spine drop localized to August 2021. [Capitalism](article/Capitalism.html) had two much older confirmed drops, 96.4% and 79.0%, localized to 2006 and 2008. Their age matters: WikiDrift is surfacing standing changes that have persisted, not necessarily recent interventions.
+
+Canonical-title resolution also changed the party-article result. The old “Democratic Party of the United States” and “Republican Party of the United States” shards contained only redirect-page history. After resolving those aliases before storage selection, both canonical articles produced 25 snapshots through 2026. [Democratic Party (United States)](article/Democratic_Party_%28United_States%29.html) had two confirmed episodes, including a 29.4% drop localized to November 2023; [Republican Party (United States)](article/Republican_Party_%28United_States%29.html) had three, including a 29.0% drop localized to 16 minutes in April 2025. The earlier unavailable result was an ingestion defect, not a substantive finding about either article.
+
+### Negative results are informative
+
+[Elizabeth Warren](article/Elizabeth_Warren.html) is the clearest false-positive guard in the new set: a large coarse candidate did not survive exact durable-spine confirmation. [Unmoved mover](article/Unmoved_mover.html) had no confirmed episode, despite a high whole-history lexical divergence produced by a very small early baseline. Together they show why coarse intervals and vocabulary change should not be promoted to rewrite findings without exact confirmation and adequacy checks.
+
 ## What editor attribution can show
 
-The rewrite pages associate removed and added passages with accounts that authored those tokens. This can reveal recurring participation across related articles and can help identify revisions worth reviewing.
+The rewrite pages associate removed and added passages with accounts that authored those tokens. This can reveal recurring participation across related articles and can help identify revisions worth reviewing. In the new run, the top account was associated with 87% of removals in Xi Jinping's strongest recent window and 77% in the strongest Democratic Socialists of America window. Those concentration values prioritize events for inspection; they are not editor verdicts.
 
 It does **not** necessarily show that one named editor directly removed another named editor's passage in a single edit. The comparisons span broad windows, and many intervening revisions may separate the two snapshots. Raw counts of highlighted segments can also exaggerate activity because one large contribution may be split into dozens of fragments.
 
@@ -52,6 +66,6 @@ The current collection supports follow-up questions about POV pushing, due weigh
 
 ## Bottom line
 
-WikiDrift's strongest contribution is showing where an article's durable narrative changed, especially in the lead. The current findings contain credible examples of major reframing and one apparent vandalism cleanup, but the data is better suited to triage than verdicts. Claims about bias or misconduct require revision-level evidence and editorial context beyond these snapshot comparisons.
+WikiDrift's strongest contribution is showing where an article's durable narrative changed and then narrowing the event to revisions a researcher can inspect. The expanded collection now includes rapid concentrated rewrites, old standing rewrites, confirmed party-article changes, rejected coarse candidates, and controls that expose baseline problems. It remains better suited to triage than verdicts: claims about bias, correctness, or misconduct require revision-level evidence, source review, and editorial context beyond these measurements.
 
 <p><a class="wiki-link" href="findings.html">Browse all findings →</a></p>

@@ -1,0 +1,13 @@
+{
+  "article": "Demo Topic",
+  "qid": "Q0",
+  "editions": {
+    "en": {
+      "present": true,
+      "revid": 11,
+      "title": "A",
+      "timestamp": "2020-01-01T00:00:00Z",
+      "prose_chars": 100
+    }
+  }
+}

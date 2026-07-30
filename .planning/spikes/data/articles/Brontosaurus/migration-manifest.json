@@ -1,0 +1,25 @@
+{
+  "article": "Brontosaurus",
+  "artifacts": [
+    "findings/Brontosaurus.category.json",
+    "findings/Brontosaurus.cost.json",
+    "findings/Brontosaurus.framing.json",
+    "findings/Brontosaurus.l1-confirmation.json",
+    "findings/Brontosaurus.lexical.json",
+    "findings/Brontosaurus.profile.json",
+    "findings/Brontosaurus.receipts.json",
+    "findings/Brontosaurus.sources.json",
+    "findings/Brontosaurus.stance.json",
+    "mscore/Brontosaurus.json"
+  ],
+  "slug": "Brontosaurus",
+  "tables": {
+    "articles": 0,
+    "rev_size": 1165,
+    "revisions": 1165,
+    "rsnap": 424864,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

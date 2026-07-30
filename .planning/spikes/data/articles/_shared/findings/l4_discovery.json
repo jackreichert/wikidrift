@@ -1,0 +1,344 @@
+{
+  "seed": "Zionism",
+  "seed_episode": {
+    "start": "2024-07-01",
+    "end": "2026-01-01",
+    "pwr_mass": 824017,
+    "peak_pct": 68.4,
+    "tokens_removed": 53340
+  },
+  "seed_destroyers": [
+    {
+      "editor": "DMH223344",
+      "tokens_removed": 23823
+    },
+    {
+      "editor": "Cdjp1",
+      "tokens_removed": 8206
+    },
+    {
+      "editor": "Nishidani",
+      "tokens_removed": 5513
+    },
+    {
+      "editor": "Selfstudier",
+      "tokens_removed": 5491
+    }
+  ],
+  "params": {
+    "top_n": 4,
+    "footprint_since": "2022-01-01T00:00:00Z",
+    "removal_bytes": 1500,
+    "candidate_limit": 12
+  },
+  "candidates": [
+    {
+      "article": "Gaza genocide",
+      "seed_editors": [
+        "Cdjp1",
+        "DMH223344",
+        "Selfstudier"
+      ],
+      "removed_bytes": 22726,
+      "removing_edits": 3
+    },
+    {
+      "article": "Racial conceptions of Jewish identity in Zionism",
+      "seed_editors": [
+        "Nishidani",
+        "Selfstudier"
+      ],
+      "removed_bytes": 28490,
+      "removing_edits": 2
+    },
+    {
+      "article": "Bar Kokhba Revolt",
+      "seed_editors": [
+        "Cdjp1",
+        "Selfstudier"
+      ],
+      "removed_bytes": 7028,
+      "removing_edits": 2
+    },
+    {
+      "article": "Palestine",
+      "seed_editors": [
+        "Nishidani",
+        "Selfstudier"
+      ],
+      "removed_bytes": 6289,
+      "removing_edits": 2
+    },
+    {
+      "article": "Fascism and ideology",
+      "seed_editors": [
+        "Cdjp1"
+      ],
+      "removed_bytes": 115222,
+      "removing_edits": 1
+    },
+    {
+      "article": "Rafah offensive",
+      "seed_editors": [
+        "Selfstudier"
+      ],
+      "removed_bytes": 113928,
+      "removing_edits": 1
+    },
+    {
+      "article": "United Nations General Assembly observers",
+      "seed_editors": [
+        "Selfstudier"
+      ],
+      "removed_bytes": 101232,
+      "removing_edits": 1
+    },
+    {
+      "article": "History of fascism",
+      "seed_editors": [
+        "Cdjp1"
+      ],
+      "removed_bytes": 100529,
+      "removing_edits": 1
+    },
+    {
+      "article": "UNRWA",
+      "seed_editors": [
+        "Selfstudier"
+      ],
+      "removed_bytes": 69578,
+      "removing_edits": 1
+    },
+    {
+      "article": "Genocide of indigenous peoples",
+      "seed_editors": [
+        "Cdjp1"
+      ],
+      "removed_bytes": 38468,
+      "removing_edits": 1
+    },
+    {
+      "article": "Ainu people",
+      "seed_editors": [
+        "Cdjp1"
+      ],
+      "removed_bytes": 32604,
+      "removing_edits": 1
+    },
+    {
+      "article": "2026 United States intervention in Venezuela",
+      "seed_editors": [
+        "Cdjp1"
+      ],
+      "removed_bytes": 30896,
+      "removing_edits": 1
+    }
+  ],
+  "retest": [
+    {
+      "article": "Gaza genocide",
+      "horizon": "2026-07-01",
+      "mean_loss": 28.59,
+      "peak_loss": 59.04,
+      "episodes": [
+        {
+          "start": "2024-07-01",
+          "end": "2026-01-01",
+          "peak_pct": 59.0,
+          "pwr_mass": 271444,
+          "age_years": 0.5,
+          "recency": "recent"
+        }
+      ],
+      "verdict": "PIVOT?",
+      "top_mass": 271444,
+      "top_recency": "recent",
+      "snaps": 6,
+      "age_at_pivot": 0.5,
+      "l4_class": "born-in-contested"
+    },
+    {
+      "article": "Racial conceptions of Jewish identity in Zionism",
+      "horizon": "2026-07-01",
+      "mean_loss": 2.98,
+      "peak_loss": 7.35,
+      "episodes": [],
+      "verdict": "HEALTHY",
+      "top_mass": 0,
+      "snaps": 7,
+      "l4_class": "healthy"
+    },
+    {
+      "article": "Bar Kokhba Revolt",
+      "horizon": "2026-07-01",
+      "mean_loss": 10.25,
+      "peak_loss": 60.96,
+      "episodes": [
+        {
+          "start": "2025-01-01",
+          "end": "2026-07-01",
+          "peak_pct": 61.0,
+          "pwr_mass": 311631,
+          "age_years": 0.0,
+          "recency": "recent"
+        }
+      ],
+      "verdict": "PIVOT?",
+      "top_mass": 311631,
+      "top_recency": "recent",
+      "snaps": 44,
+      "age_at_pivot": 20.4,
+      "l4_class": "retrofit-lead"
+    },
+    {
+      "article": "Palestine",
+      "horizon": "2026-07-01",
+      "mean_loss": 7.37,
+      "peak_loss": 70.16,
+      "episodes": [
+        {
+          "start": "2015-07-01",
+          "end": "2016-01-01",
+          "peak_pct": 70.2,
+          "pwr_mass": 238535,
+          "age_years": 10.5,
+          "recency": "standing 10yr"
+        },
+        {
+          "start": "2010-07-01",
+          "end": "2011-07-01",
+          "peak_pct": 32.7,
+          "pwr_mass": 28648,
+          "age_years": 15.0,
+          "recency": "standing 15yr"
+        }
+      ],
+      "verdict": "PIVOT?",
+      "top_mass": 238535,
+      "top_recency": "standing 10yr",
+      "snaps": 44,
+      "age_at_pivot": 12.1,
+      "l4_class": "retrofit-lead"
+    },
+    {
+      "article": "Fascism and ideology",
+      "horizon": "2026-07-01",
+      "mean_loss": 4.8,
+      "peak_loss": 65.5,
+      "episodes": [
+        {
+          "start": "2026-01-01",
+          "end": "2026-07-01",
+          "peak_pct": 65.5,
+          "pwr_mass": 450944,
+          "age_years": 0.0,
+          "recency": "recent"
+        },
+        {
+          "start": "2020-07-01",
+          "end": "2021-01-01",
+          "peak_pct": 26.7,
+          "pwr_mass": 116530,
+          "age_years": 5.5,
+          "recency": "standing 5yr"
+        }
+      ],
+      "verdict": "PIVOT?",
+      "top_mass": 450944,
+      "top_recency": "recent",
+      "snaps": 42,
+      "age_at_pivot": 20.2,
+      "l4_class": "retrofit-lead"
+    },
+    {
+      "article": "Rafah offensive",
+      "horizon": "2026-07-01",
+      "mean_loss": 0.94,
+      "peak_loss": 1.67,
+      "episodes": [],
+      "verdict": "HEALTHY",
+      "top_mass": 0,
+      "snaps": 5,
+      "l4_class": "healthy"
+    },
+    {
+      "article": "United Nations General Assembly observers",
+      "horizon": "2026-07-01",
+      "mean_loss": 1.56,
+      "peak_loss": 3.04,
+      "episodes": [],
+      "verdict": "HEALTHY",
+      "top_mass": 0,
+      "snaps": 43,
+      "l4_class": "healthy"
+    },
+    {
+      "article": "History of fascism",
+      "verdict": "INSUFFICIENT",
+      "snaps": 1,
+      "detail": "WikiWho served <3 snapshots (coverage gap — try local wikiwho_rs)",
+      "l4_class": "insufficient"
+    },
+    {
+      "article": "UNRWA",
+      "horizon": "2026-07-01",
+      "mean_loss": 3.95,
+      "peak_loss": 36.92,
+      "episodes": [
+        {
+          "start": "2014-07-01",
+          "end": "2015-01-01",
+          "peak_pct": 36.9,
+          "pwr_mass": 68811,
+          "age_years": 11.5,
+          "recency": "standing 11yr"
+        }
+      ],
+      "verdict": "PIVOT?",
+      "top_mass": 68811,
+      "top_recency": "standing 11yr",
+      "snaps": 48,
+      "age_at_pivot": 12.3,
+      "l4_class": "retrofit-lead"
+    },
+    {
+      "article": "Genocide of indigenous peoples",
+      "horizon": "2026-07-01",
+      "mean_loss": 3.18,
+      "peak_loss": 11.82,
+      "episodes": [],
+      "verdict": "HEALTHY",
+      "top_mass": 0,
+      "snaps": 29,
+      "l4_class": "healthy"
+    },
+    {
+      "article": "Ainu people",
+      "horizon": "2026-07-01",
+      "mean_loss": 4.72,
+      "peak_loss": 19.62,
+      "episodes": [],
+      "verdict": "HEALTHY",
+      "top_mass": 0,
+      "snaps": 50,
+      "l4_class": "healthy"
+    },
+    {
+      "article": "2026 United States intervention in Venezuela",
+      "verdict": "INSUFFICIENT",
+      "snaps": 2,
+      "detail": "WikiWho served <3 snapshots (coverage gap — try local wikiwho_rs)",
+      "l4_class": "insufficient"
+    }
+  ],
+  "retrofit_leads": [
+    "Bar Kokhba Revolt",
+    "Palestine",
+    "Fascism and ideology",
+    "UNRWA"
+  ],
+  "born_in_contested": [
+    "Gaza genocide"
+  ],
+  "note": "Graph is a LEAD only (§10.9). Flags come from each article's own L1 content signal, never from graph membership. PIVOT? = unconfirmed change candidate (run `analyze` to binary-search confirm; L2/L5 to judge direction). 'retrofit_leads' had a ≥2yr stable prior before the pivot; 'born_in_contested' are large-pivot but too young to be retrofits (the L5 gap)."
+}

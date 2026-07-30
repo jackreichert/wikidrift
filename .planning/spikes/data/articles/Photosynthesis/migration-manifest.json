@@ -1,0 +1,26 @@
+{
+  "article": "Photosynthesis",
+  "artifacts": [
+    "findings/Photosynthesis.category.json",
+    "findings/Photosynthesis.cost.json",
+    "findings/Photosynthesis.factcheck.json",
+    "findings/Photosynthesis.framing.json",
+    "findings/Photosynthesis.l1-confirmation.json",
+    "findings/Photosynthesis.lexical.json",
+    "findings/Photosynthesis.profile.json",
+    "findings/Photosynthesis.receipts.json",
+    "findings/Photosynthesis.sources.json",
+    "findings/Photosynthesis.stance.json",
+    "mscore/Photosynthesis.json"
+  ],
+  "slug": "Photosynthesis",
+  "tables": {
+    "articles": 1,
+    "rev_size": 5503,
+    "revisions": 5503,
+    "rsnap": 728812,
+    "snap": 26076,
+    "snapshots": 665892,
+    "tokens": 27158
+  }
+}

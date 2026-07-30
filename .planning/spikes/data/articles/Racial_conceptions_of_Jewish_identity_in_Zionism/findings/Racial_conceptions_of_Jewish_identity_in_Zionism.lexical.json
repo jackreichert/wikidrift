@@ -1,0 +1,301 @@
+{
+  "article": "Racial conceptions of Jewish identity in Zionism",
+  "span": "2023-07-01 -> 2026-07-01 (no L1 pivot — whole history)",
+  "pivot": null,
+  "before": {
+    "date": "2023-07-01",
+    "rev": 1164880735,
+    "tokens": 1253
+  },
+  "after": {
+    "date": "2026-07-01",
+    "rev": 1357172037,
+    "tokens": 4825
+  },
+  "js_divergence": 0.3371,
+  "overrepresented_after_terms": [
+    {
+      "term": "admixture",
+      "before": 0,
+      "after": 19,
+      "delta": 19,
+      "log_odds": 2.3195
+    },
+    {
+      "term": "both",
+      "before": 0,
+      "after": 18,
+      "delta": 18,
+      "log_odds": 2.2667
+    },
+    {
+      "term": "non",
+      "before": 0,
+      "after": 17,
+      "delta": 17,
+      "log_odds": 2.2109
+    },
+    {
+      "term": "ancestry",
+      "before": 0,
+      "after": 10,
+      "delta": 10,
+      "log_odds": 1.6986
+    },
+    {
+      "term": "biology",
+      "before": 0,
+      "after": 10,
+      "delta": 10,
+      "log_odds": 1.6986
+    },
+    {
+      "term": "terms",
+      "before": 0,
+      "after": 10,
+      "delta": 10,
+      "log_odds": 1.6986
+    },
+    {
+      "term": "data",
+      "before": 0,
+      "after": 9,
+      "delta": 9,
+      "log_odds": 1.5983
+    },
+    {
+      "term": "scholars",
+      "before": 0,
+      "after": 9,
+      "delta": 9,
+      "log_odds": 1.5983
+    },
+    {
+      "term": "statistical",
+      "before": 0,
+      "after": 9,
+      "delta": 9,
+      "log_odds": 1.5983
+    },
+    {
+      "term": "blood",
+      "before": 0,
+      "after": 8,
+      "delta": 8,
+      "log_odds": 1.4869
+    },
+    {
+      "term": "cavalli",
+      "before": 0,
+      "after": 8,
+      "delta": 8,
+      "log_odds": 1.4869
+    },
+    {
+      "term": "distinct",
+      "before": 0,
+      "after": 8,
+      "delta": 8,
+      "log_odds": 1.4869
+    },
+    {
+      "term": "earlier",
+      "before": 0,
+      "after": 8,
+      "delta": 8,
+      "log_odds": 1.4869
+    },
+    {
+      "term": "german",
+      "before": 0,
+      "after": 8,
+      "delta": 8,
+      "log_odds": 1.4869
+    },
+    {
+      "term": "mizrachi",
+      "before": 0,
+      "after": 8,
+      "delta": 8,
+      "log_odds": 1.4869
+    },
+    {
+      "term": "results",
+      "before": 0,
+      "after": 8,
+      "delta": 8,
+      "log_odds": 1.4869
+    },
+    {
+      "term": "role",
+      "before": 0,
+      "after": 8,
+      "delta": 8,
+      "log_odds": 1.4869
+    },
+    {
+      "term": "sforza",
+      "before": 0,
+      "after": 8,
+      "delta": 8,
+      "log_odds": 1.4869
+    },
+    {
+      "term": "still",
+      "before": 0,
+      "after": 8,
+      "delta": 8,
+      "log_odds": 1.4869
+    },
+    {
+      "term": "traditional",
+      "before": 0,
+      "after": 8,
+      "delta": 8,
+      "log_odds": 1.4869
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "state",
+      "before": 10,
+      "after": 1,
+      "delta": -9,
+      "log_odds": -3.3017
+    },
+    {
+      "term": "facts",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -3.2963
+    },
+    {
+      "term": "israelites",
+      "before": 5,
+      "after": 1,
+      "delta": -4,
+      "log_odds": -2.651
+    },
+    {
+      "term": "original",
+      "before": 4,
+      "after": 1,
+      "delta": -3,
+      "log_odds": -2.4496
+    },
+    {
+      "term": "unity",
+      "before": 6,
+      "after": 2,
+      "delta": -4,
+      "log_odds": -2.3079
+    },
+    {
+      "term": "fishberg",
+      "before": 5,
+      "after": 2,
+      "delta": -3,
+      "log_odds": -2.14
+    },
+    {
+      "term": "primary",
+      "before": 5,
+      "after": 2,
+      "delta": -3,
+      "log_odds": -2.14
+    },
+    {
+      "term": "see",
+      "before": 5,
+      "after": 2,
+      "delta": -3,
+      "log_odds": -2.14
+    },
+    {
+      "term": "jew",
+      "before": 8,
+      "after": 4,
+      "delta": -4,
+      "log_odds": -1.9895
+    },
+    {
+      "term": "building",
+      "before": 4,
+      "after": 2,
+      "delta": -2,
+      "log_odds": -1.9385
+    },
+    {
+      "term": "palestinian",
+      "before": 4,
+      "after": 2,
+      "delta": -2,
+      "log_odds": -1.9385
+    },
+    {
+      "term": "anthropologists",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -1.8602
+    },
+    {
+      "term": "become",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -1.8602
+    },
+    {
+      "term": "called",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -1.8602
+    },
+    {
+      "term": "categorization",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -1.8602
+    },
+    {
+      "term": "chromosome",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -1.8602
+    },
+    {
+      "term": "converts",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -1.8602
+    },
+    {
+      "term": "elite",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -1.8602
+    },
+    {
+      "term": "entity",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -1.8602
+    },
+    {
+      "term": "ethno",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -1.8602
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

@@ -1,0 +1,29 @@
+{
+  "article": "Ilhan Omar",
+  "artifacts": [
+    "findings/Ilhan_Omar.category.json",
+    "findings/Ilhan_Omar.framing.json",
+    "findings/Ilhan_Omar.l1-confirmation.json",
+    "findings/Ilhan_Omar.lexical.json",
+    "findings/Ilhan_Omar.profile.json",
+    "findings/Ilhan_Omar.receipts.json",
+    "findings/Ilhan_Omar.sources.json",
+    "findings/Ilhan_Omar.stance.json",
+    "logs/analysis-2026-07-30/Ilhan_Omar.crosslingual-static.log",
+    "logs/analysis-2026-07-30/Ilhan_Omar.crosslingual.log",
+    "logs/analysis-2026-07-30/Ilhan_Omar.full-pipeline.log",
+    "logs/analysis-2026-07-30/Ilhan_Omar.l1-confirmation.log",
+    "logs/analysis-2026-07-30/Ilhan_Omar.post-confirmation-refresh.log",
+    "mscore/Ilhan_Omar.json"
+  ],
+  "slug": "Ilhan_Omar",
+  "tables": {
+    "articles": 0,
+    "rev_size": 3858,
+    "revisions": 3858,
+    "rsnap": 624964,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

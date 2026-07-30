@@ -126,10 +126,23 @@ with at least 15% persistence-weighted loss can start or extend an episode, and 
 peak of at least 25% to become a pivot candidate. L1 ranks candidates by the total persistence-weighted
 text they removed, not by percentage alone.
 
-It also records a **slow bleed** when persistence-weighted losses across a rolling twelve-month window
-add up to at least 35% of the largest snapshot token count in that window. This catches a series of
-changes that may be too small to form one obvious pivot. Slow bleed is a separate annotation; it does
-not determine the main outcome below.
+Candidate detection has two passes:
+
+1. The primary pass checks the sharp interval episodes above and sends up to the three strongest to
+  revision-level confirmation.
+2. If none confirms, a rolling second pass measures the direct persistence-weighted loss of the same
+  starting cohort across approximately twelve months. It requires at least 20% loss and at least
+  50,000 persistence-weighted tokens removed. Overlapping windows are reduced to the strongest
+  non-overlapping candidates before confirmation.
+
+The rolling pass is a candidate search, not a second definition of a pivot. It improves recall for
+sustained medium-sized replacement without lowering the primary 25% threshold. Candidates from both
+passes face the same revision-level test below.
+
+The rolling candidate thresholds are preliminary. They recovered a confirmed case that the primary
+interval threshold missed, but the existing offline benchmark does not yet score this fallback end to
+end. A fixed slate of positive and control articles is still needed to measure its recall and false-
+candidate load. Until then, the unchanged revision-level confirmation is the main precision safeguard.
 
 The initial outcomes are:
 
@@ -143,13 +156,15 @@ rewrite is not discounted simply because it is old; its age is reported as conte
 
 ### Confirming the collapse
 
-For a full analysis, WikiDrift checks up to the three candidates with the most persistence-weighted
-loss. It takes the more persistent half of the text present at the start of each episode and searches
-the underlying revisions for the pair where survival of that text drops most sharply.
+For a full analysis, WikiDrift checks up to three primary candidates. If none confirms, it checks up
+to three non-overlapping rolling candidates. For each candidate, it takes the more persistent half of
+the text present at the start and searches the underlying revisions for the pair where survival of
+that text drops most sharply.
 
 The durable text must decline by at least 20 percentage points across the interval to confirm the
 pivot. This keeps a coarse snapshot gap from looking decisive when the revisions inside it do not
-show the same collapse.
+show the same collapse. Findings record whether the confirmed candidate came from the primary
+interval pass or the rolling pass.
 
 ### Attributing public edits
 

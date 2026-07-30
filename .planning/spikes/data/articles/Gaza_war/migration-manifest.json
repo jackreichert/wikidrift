@@ -1,0 +1,26 @@
+{
+  "article": "Gaza war",
+  "artifacts": [
+    "findings/Gaza_war.category.json",
+    "findings/Gaza_war.cost.json",
+    "findings/Gaza_war.factcheck.json",
+    "findings/Gaza_war.framing.json",
+    "findings/Gaza_war.l1-confirmation.json",
+    "findings/Gaza_war.lexical.json",
+    "findings/Gaza_war.profile.json",
+    "findings/Gaza_war.receipts.json",
+    "findings/Gaza_war.sources.json",
+    "findings/Gaza_war.stance.json",
+    "mscore/Gaza_war.json"
+  ],
+  "slug": "Gaza_war",
+  "tables": {
+    "articles": 0,
+    "rev_size": 20729,
+    "revisions": 20729,
+    "rsnap": 429728,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

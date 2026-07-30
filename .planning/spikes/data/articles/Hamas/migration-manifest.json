@@ -1,0 +1,26 @@
+{
+  "article": "Hamas",
+  "artifacts": [
+    "findings/Hamas.category.json",
+    "findings/Hamas.cost.json",
+    "findings/Hamas.factcheck.json",
+    "findings/Hamas.framing.json",
+    "findings/Hamas.l1-confirmation.json",
+    "findings/Hamas.lexical.json",
+    "findings/Hamas.profile.json",
+    "findings/Hamas.receipts.json",
+    "findings/Hamas.sources.json",
+    "findings/Hamas.stance.json",
+    "mscore/Hamas.json"
+  ],
+  "slug": "Hamas",
+  "tables": {
+    "articles": 0,
+    "rev_size": 14716,
+    "revisions": 14718,
+    "rsnap": 1215213,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

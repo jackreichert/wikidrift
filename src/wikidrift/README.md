@@ -12,7 +12,7 @@ Full design + methodology live in the vault:
 | --- | --- | --- |
 | `config.py` | Paths, endpoints, HTTP session, all tuned thresholds | (was duplicated everywhere) |
 | `provenance.py` | DuckDB schema + WikiWho/Action-API fetching, persistent snapshots | 001a, 005 |
-| `drift.py` | **L1** PWR engine: coarse loss → episodes → binary-search confirm → attribution; offline `verdict_dict`; descriptive `profile` (recency + editor concentration) | 005, 002 |
+| `drift.py` | **L1** PWR engine: primary interval episodes → rolling fallback candidates → binary-search confirm → attribution; offline `verdict_dict`; descriptive `profile` (recency + editor concentration) | 005, 002 |
 | `prerank.py` | Metadata-only candidate pre-ranker (`removal→PWR` / `addition→L2`) | 008 |
 | `stance.py` | **L2** LLM stance classifier (NPOV axis, not sentiment) | 010 |
 | `benchmark.py` | Adjudicated ground-truth roster + scoring | 009 |
@@ -53,7 +53,12 @@ uv run wikidrift mscore                                        # controversy cor
 uv run wikidrift discover "Nakba"                              # L5→L4 graph-guided discovery (seed → footprint → re-test)
 uv run wikidrift sources "Palestine"                           # L5 #3b citation-source change from → to across the pivot
 uv run wikidrift ingest "Naliboki massacre"                    # local wikiwho_rs backend → rsnap (then analyze/validate offline)
+uv run wikidrift migrate-shards                                # copy + verify canonical data into article-owned shards
 ```
+
+`migrate-shards` never modifies the canonical corpus. It verifies every copied table and artifact, writes a
+manifest per article, and preserves corpus-wide outputs under `articles/_shared/`. Give each parallel worker
+its own shard with `WIKIDRIFT_DATA_DIR=.planning/spikes/data/articles/<slug>` before invoking WikiDrift.
 
 Single-article verbs accept either an article title or a Wikipedia URL (for example,
 `https://en.wikipedia.org/wiki/Chess`).

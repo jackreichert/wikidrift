@@ -1,0 +1,26 @@
+{
+  "article": "Israeli–Palestinian conflict",
+  "artifacts": [
+    "findings/Israeli–Palestinian_conflict.category.json",
+    "findings/Israeli–Palestinian_conflict.cost.json",
+    "findings/Israeli–Palestinian_conflict.factcheck.json",
+    "findings/Israeli–Palestinian_conflict.framing.json",
+    "findings/Israeli–Palestinian_conflict.l1-confirmation.json",
+    "findings/Israeli–Palestinian_conflict.lexical.json",
+    "findings/Israeli–Palestinian_conflict.profile.json",
+    "findings/Israeli–Palestinian_conflict.receipts.json",
+    "findings/Israeli–Palestinian_conflict.sources.json",
+    "findings/Israeli–Palestinian_conflict.stance.json",
+    "mscore/Israeli–Palestinian_conflict.json"
+  ],
+  "slug": "Israeli–Palestinian_conflict",
+  "tables": {
+    "articles": 0,
+    "rev_size": 9748,
+    "revisions": 9748,
+    "rsnap": 1542146,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

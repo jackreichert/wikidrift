@@ -1,0 +1,48 @@
+{
+  "article": "Rescue of Jews by Poles during the Holocaust",
+  "langs": [
+    "en",
+    "pl"
+  ],
+  "entities": [
+    "Rescue of Jews by Poles during the Holocaust"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Rescue of Jews by Poles during the Holocaust": {
+          "entity": "Rescue of Jews by Poles during the Holocaust",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "exemplified a courage, fortitude, and lofty humanitarianism unequalled in other occupied countries"
+        }
+      },
+      "lead": {
+        "Rescue of Jews by Poles during the Holocaust": {
+          "entity": "Rescue of Jews by Poles during the Holocaust",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "they exemplified a courage, fortitude, and lofty humanitarianism unequalled in other occupied countries"
+        }
+      }
+    },
+    "pl": {
+      "focal": {
+        "Rescue of Jews by Poles during the Holocaust": {
+          "entity": "Rescue of Jews by Poles during the Holocaust",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "ogół pomocy polskich organizacji humanitarnych, rządu polskiego na uchodźstwie, struktur państwa podziemnego oraz ludności cywilnej RP jaka została skierowana wobec ludności żydowskiej"
+        }
+      },
+      "lead": {
+        "Rescue of Jews by Poles during the Holocaust": {
+          "entity": "Rescue of Jews by Poles during the Holocaust",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "Zawiera się w niej działalność informacyjna związana z prześladowaniami oraz zbrodniami dokonywanymi przez okupanta niemieckiego na ludności żydowskiej, a także pomoc materialna mająca wymiar humanitarny oraz ukrywanie Żydów"
+        }
+      }
+    }
+  }
+}

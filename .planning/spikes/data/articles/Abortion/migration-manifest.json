@@ -1,0 +1,26 @@
+{
+  "article": "Abortion",
+  "artifacts": [
+    "findings/Abortion.category.json",
+    "findings/Abortion.cost.json",
+    "findings/Abortion.factcheck.json",
+    "findings/Abortion.framing.json",
+    "findings/Abortion.l1-confirmation.json",
+    "findings/Abortion.lexical.json",
+    "findings/Abortion.profile.json",
+    "findings/Abortion.receipts.json",
+    "findings/Abortion.sources.json",
+    "findings/Abortion.stance.json",
+    "mscore/Abortion.json"
+  ],
+  "slug": "Abortion",
+  "tables": {
+    "articles": 0,
+    "rev_size": 13947,
+    "revisions": 13947,
+    "rsnap": 726083,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

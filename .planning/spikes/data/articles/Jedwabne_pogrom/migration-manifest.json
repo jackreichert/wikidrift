@@ -1,0 +1,26 @@
+{
+  "article": "Jedwabne pogrom",
+  "artifacts": [
+    "findings/Jedwabne_pogrom.category.json",
+    "findings/Jedwabne_pogrom.cost.json",
+    "findings/Jedwabne_pogrom.factcheck.json",
+    "findings/Jedwabne_pogrom.framing.json",
+    "findings/Jedwabne_pogrom.l1-confirmation.json",
+    "findings/Jedwabne_pogrom.lexical.json",
+    "findings/Jedwabne_pogrom.profile.json",
+    "findings/Jedwabne_pogrom.receipts.json",
+    "findings/Jedwabne_pogrom.sources.json",
+    "findings/Jedwabne_pogrom.stance.json",
+    "mscore/Jedwabne_pogrom.json"
+  ],
+  "slug": "Jedwabne_pogrom",
+  "tables": {
+    "articles": 0,
+    "rev_size": 2348,
+    "revisions": 2348,
+    "rsnap": 658676,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "article": "Rafah offensive",
+  "artifacts": [
+    "findings/Rafah_offensive.category.json",
+    "findings/Rafah_offensive.cost.json",
+    "findings/Rafah_offensive.framing.json",
+    "findings/Rafah_offensive.l1-confirmation.json",
+    "findings/Rafah_offensive.lexical.json",
+    "findings/Rafah_offensive.profile.json",
+    "findings/Rafah_offensive.receipts.json",
+    "findings/Rafah_offensive.sources.json",
+    "findings/Rafah_offensive.stance.json",
+    "mscore/Rafah_offensive.json"
+  ],
+  "slug": "Rafah_offensive",
+  "tables": {
+    "articles": 0,
+    "rev_size": 2313,
+    "revisions": 2313,
+    "rsnap": 604354,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "article": "Demo Topic",
+  "artifacts": [
+    "findings/Demo_Topic.receipts.json",
+    "findings/Demo_Topic.stance.json",
+    "mscore/Demo_Topic.json"
+  ],
+  "slug": "Demo_Topic",
+  "tables": {
+    "articles": 0,
+    "rev_size": 0,
+    "revisions": 0,
+    "rsnap": 0,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

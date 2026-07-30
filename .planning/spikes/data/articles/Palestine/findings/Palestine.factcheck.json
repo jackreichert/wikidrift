@@ -1,0 +1,98 @@
+{
+  "article": "Palestine",
+  "asof": null,
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "citation": {
+    "mean_jaccard": 0.24,
+    "domains_per_edition": {
+      "en": 246,
+      "he": 13,
+      "ar": 229
+    }
+  },
+  "claim": {
+    "per_edition": {
+      "en": {
+        "When did the British Mandate for Palestine begin and end?": {
+          "question": "When did the British Mandate for Palestine begin and end?",
+          "answer": "The passage states it began in 1920 (granted by League of Nations) and was approved in 1922; no explicit end date is given in the passage.",
+          "value": "began 1920/1922; end not stated",
+          "evidence": "In 1920, the League of Nations granted Britain the mandate to govern Palestine, leading to the subsequent period of British administration... The League of Nations approved the British Mandate for Palestine in 1922, entrusting Britain with the administration of the region."
+        },
+        "What is the stated origin of the name 'Palestine'?": {
+          "question": "What is the stated origin of the name 'Palestine'?",
+          "answer": "It comes via ancient Greek from a Semitic toponym for the area dating back to the late second millennium BCE, related to the biblical term 'Philistines', and was used by Herodotus in the 5th century BCE to describe a district of Syria.",
+          "value": "Semitic toponym via ancient Greek, related to 'Philistines'",
+          "evidence": "The term \"Palestine\" (in Latin, Palæstina) comes via ancient Greek from a Semitic toponym for the general area dating back to the late second millennium BCE, a reflex of which is also to be found in the Biblical ethnonym Philistines."
+        },
+        "What was the approximate population and its religious/ethnic composition in Palestine circa 1900?": {
+          "question": "What was the approximate population and its religious/ethnic composition in Palestine circa 1900?",
+          "answer": "Not stated in the passage.",
+          "value": "not stated",
+          "evidence": "The passage does not provide any population figures or religious/ethnic composition data for Palestine circa 1900."
+        }
+      },
+      "he": {
+        "When did the British Mandate for Palestine begin and end?": {
+          "question": "When did the British Mandate for Palestine begin and end?",
+          "answer": "The passage only states the end date of the Mandate, not its start date.",
+          "value": "end: May 15, 1948 (midnight); start: not stated",
+          "evidence": "מועד סיום המנדט נקבע לשעת חצות של 15 במאי 1948"
+        },
+        "What is the stated origin of the name 'Palestine'?": {
+          "question": "What is the stated origin of the name 'Palestine'?",
+          "answer": "The name derives from the biblical root פ.ל.ש (P.L.SH), later used in 'Syria-Palaestina', a name given by the Roman Empire to the province of Judea after suppressing the Bar Kokhba revolt, in order to sever the connection between the Jews and their land.",
+          "value": "Biblical root פ.ל.ש; Roman renaming to Syria-Palaestina after Bar Kokhba revolt",
+          "evidence": "מקור השם הוא בשורש המקראי פ.ל.ש, ומאוחר יותר שימש בשם סוריה-פלשתינה שניתן לפרובינקיה יודיאה על ידי האימפריה הרומית לאחר דיכוי מרד בר-כוכבא, במטרה לנתק את הקשר בין היהודים לארצם"
+        },
+        "What was the approximate population and its religious/ethnic composition in Palestine circa 1900?": {
+          "question": "What was the approximate population and its religious/ethnic composition in Palestine circa 1900?",
+          "answer": "The passage does not provide population figures or religious/ethnic composition data for Palestine around 1900.",
+          "value": "not stated",
+          "evidence": "not stated"
+        }
+      },
+      "ar": {
+        "When did the British Mandate for Palestine begin and end?": {
+          "question": "When did the British Mandate for Palestine begin and end?",
+          "answer": "Not explicitly stated with specific dates in the passage; it only refers to events before and after the Mandate, such as the 1947 UN Partition Plan and the establishment of Israel in 1948.",
+          "value": "not stated",
+          "evidence": "في عام 1947، تبنت الأمم المتحدة خطة التقسيم لفلسطين الانتدابية... في اليوم التالي لتأسيس دولة إسرائيل في 14 مايو 1948، غزت الجيوش العربية المجاورة الانتداب البريطاني السابق"
+        },
+        "What is the stated origin of the name 'Palestine'?": {
+          "question": "What is the stated origin of the name 'Palestine'?",
+          "answer": "The term is believed to have been coined by the ancient Greeks to refer to the land occupied by the Philistines, though other interpretations exist; Herodotus first used it in the 5th century BC referring to a region in Syria called Palestine.",
+          "value": "Named by ancient Greeks after the Philistines",
+          "evidence": "يُعتقد أن مصطلح «فلسطين» (باللاتينية Palæstina) كان مصطلحًا صاغه الإغريق القدماء للإشارة إلى مساحة الأرض التي احتلها الفلستيون، على الرغم من وجود تفسيرات أخرى."
+        },
+        "What was the approximate population and its religious/ethnic composition in Palestine circa 1900?": {
+          "question": "What was the approximate population and its religious/ethnic composition in Palestine circa 1900?",
+          "answer": "Not stated in the passage; the passage only provides a 2023 population figure for the modern State of Palestine.",
+          "value": "not stated",
+          "evidence": "بلغ عدد سكان فلسطين 5,483,450 نسمة اعتبارًا من فبراير 2023، واحتلت المرتبة 121 في العالم."
+        }
+      }
+    },
+    "adjudication": [
+      {
+        "question": "When did the British Mandate for Palestine begin and end?",
+        "verdict": "differ",
+        "note": "en gives start dates (1920/1922) with no end; he gives end date (May 15, 1948) with no start; ar states neither; not contradictory, just partial/complementary."
+      },
+      {
+        "question": "What is the stated origin of the name 'Palestine'?",
+        "verdict": "differ",
+        "note": "All link name to Philistines/Greek usage, but he adds Semitic root and Roman renaming detail not mentioned in en/ar; differing emphasis, not incompatible."
+      },
+      {
+        "question": "What was the approximate population and its religious/ethnic composition in Palestine circa 1900?",
+        "verdict": "agree",
+        "note": "All three editions state this information is not provided in the passage."
+      }
+    ]
+  }
+}

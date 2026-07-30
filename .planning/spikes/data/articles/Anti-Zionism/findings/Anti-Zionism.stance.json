@@ -1,0 +1,67 @@
+{
+  "article": "Anti-Zionism",
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "entities": [
+    "Anti-Zionism"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Anti-Zionism": {
+          "entity": "Anti-Zionism",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Anti-Zionism comes in various forms. The relationship between anti-Zionism and antisemitism is debated, with some academics and organizations rejecting the linkage as unfounded... while others... argue that anti-Zionism is inherently antisemitic"
+        }
+      },
+      "lead": {
+        "Anti-Zionism": {
+          "entity": "Anti-Zionism",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Anti-Zionism is opposition to Zionism... a heterogeneous phenomenon, all its proponents agree that the creation of the State of Israel in 1948... was flawed or unjust in some way."
+        }
+      }
+    },
+    "he": {
+      "focal": {
+        "Anti-Zionism": {
+          "entity": "Anti-Zionism",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "גל זה של אנטישמיות, שהגדיר את עצמו כ'אנטי-ציונות' כונה האנטישמיות החדשה... ומצהירה באופן חזק וברור שאנטי-ציונות היא אנטישמיות"
+        }
+      },
+      "lead": {
+        "Anti-Zionism": {
+          "entity": "Anti-Zionism",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "אנטי-ציונות הוא מונח מורכב ורב-פנים, שמשמעותו התנגדות לתנועה הציונית"
+        }
+      }
+    },
+    "ar": {
+      "focal": {
+        "Anti-Zionism": {
+          "entity": "Anti-Zionism",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "ويرى آخرون أن الحكومة الإسرائيلية ومؤيدوها يخلطون عمداً بين معاداة الصهيونية ومعاداة السامية بغرض استخدام معاداة السامية كسلاح لتجنب الانتقادات الموجهة لإسرائيل وسياساتها"
+        }
+      },
+      "lead": {
+        "Anti-Zionism": {
+          "entity": "Anti-Zionism",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "معاداة الصهيونية آلة يقوم بخيرها الاستعمار العالمى لمصالحه على حساب اليهود والعرب معا، وتعتبر الصهيونية هؤلاء المناهضين لها من اليهود اشد خطرا عليها من ايه جهه أخرى"
+        }
+      }
+    }
+  }
+}

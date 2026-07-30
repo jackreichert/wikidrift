@@ -1,0 +1,301 @@
+{
+  "article": "Hamas",
+  "span": "2023-01-01 -> 2024-01-01 (around L1 pivot ~2023-01-01)",
+  "pivot": "2023-01-01",
+  "before": {
+    "date": "2023-01-01",
+    "rev": 1129805880,
+    "tokens": 15176
+  },
+  "after": {
+    "date": "2024-01-01",
+    "rev": 1193015423,
+    "tokens": 13406
+  },
+  "js_divergence": 0.0514,
+  "overrepresented_after_terms": [
+    {
+      "term": "visited",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 2.6894
+    },
+    {
+      "term": "hostages",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.3215
+    },
+    {
+      "term": "armistice",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.0701
+    },
+    {
+      "term": "conducted",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.0701
+    },
+    {
+      "term": "indifference",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.0701
+    },
+    {
+      "term": "saudis",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.0701
+    },
+    {
+      "term": "significantly",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.0701
+    },
+    {
+      "term": "proposal",
+      "before": 1,
+      "after": 7,
+      "delta": 6,
+      "log_odds": 1.7339
+    },
+    {
+      "term": "principles",
+      "before": 2,
+      "after": 9,
+      "delta": 7,
+      "log_odds": 1.4595
+    },
+    {
+      "term": "festival",
+      "before": 1,
+      "after": 5,
+      "delta": 4,
+      "log_odds": 1.4236
+    },
+    {
+      "term": "kibbutz",
+      "before": 1,
+      "after": 5,
+      "delta": 4,
+      "log_odds": 1.4236
+    },
+    {
+      "term": "poll",
+      "before": 1,
+      "after": 5,
+      "delta": 4,
+      "log_odds": 1.4236
+    },
+    {
+      "term": "proposed",
+      "before": 1,
+      "after": 5,
+      "delta": 4,
+      "log_odds": 1.4236
+    },
+    {
+      "term": "signed",
+      "before": 3,
+      "after": 10,
+      "delta": 7,
+      "log_odds": 1.2232
+    },
+    {
+      "term": "acceptance",
+      "before": 2,
+      "after": 7,
+      "delta": 5,
+      "log_odds": 1.223
+    },
+    {
+      "term": "accords",
+      "before": 2,
+      "after": 7,
+      "delta": 5,
+      "log_odds": 1.223
+    },
+    {
+      "term": "kuwait",
+      "before": 2,
+      "after": 7,
+      "delta": 5,
+      "log_odds": 1.223
+    },
+    {
+      "term": "algeria",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 1.2229
+    },
+    {
+      "term": "creation",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 1.2229
+    },
+    {
+      "term": "invasion",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 1.2229
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "spokesman",
+      "before": 11,
+      "after": 0,
+      "delta": -11,
+      "log_odds": -3.0122
+    },
+    {
+      "term": "holocaust",
+      "before": 22,
+      "after": 1,
+      "delta": -21,
+      "log_odds": -2.5854
+    },
+    {
+      "term": "excel",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -2.4413
+    },
+    {
+      "term": "fbi",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -2.4413
+    },
+    {
+      "term": "populated",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -2.4413
+    },
+    {
+      "term": "ifj",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.2742
+    },
+    {
+      "term": "school",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.2742
+    },
+    {
+      "term": "shields",
+      "before": 13,
+      "after": 1,
+      "delta": -12,
+      "log_odds": -2.074
+    },
+    {
+      "term": "americans",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.0735
+    },
+    {
+      "term": "boy",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.0735
+    },
+    {
+      "term": "densely",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.0735
+    },
+    {
+      "term": "goldstone",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.0735
+    },
+    {
+      "term": "hiding",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.0735
+    },
+    {
+      "term": "launch",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.0735
+    },
+    {
+      "term": "osama",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.0735
+    },
+    {
+      "term": "pjs",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.0735
+    },
+    {
+      "term": "readiness",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.0735
+    },
+    {
+      "term": "teaching",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.0735
+    },
+    {
+      "term": "warhead",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.0735
+    },
+    {
+      "term": "astal",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.8221
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

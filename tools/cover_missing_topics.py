@@ -25,16 +25,21 @@ Run examples:
 from __future__ import annotations
 
 import argparse
+import concurrent.futures
 import datetime as dt
+import functools
 import json
+import os
 import subprocess
 import sys
+import threading
 import time
 from pathlib import Path
+from typing import Callable, TextIO
 
 import duckdb
 
-from wikidrift import config
+from wikidrift import config, provenance
 from wikidrift.corpus import Corpus
 
 DEFAULT_REQUIRED_LAYERS = ["receipts", "stance", "sources", "profile"]
@@ -49,6 +54,8 @@ DEFAULT_CONTROLS = [
     "Water",
 ]
 EXCLUDED_AUTO_TOPICS = {"Demo Topic"}
+DEFAULT_ARTICLES_DIR = Path(".planning/spikes/data/articles")
+DEFAULT_JOBS = 1
 
 
 def _fetch_extract_error_count(errors: list[dict]) -> int:
@@ -166,6 +173,259 @@ def _run(cmd: list[str], execute: bool) -> int:
     return int(completed.returncode)
 
 
+def _uv_command(args: list[str]) -> list[str]:
+    """Build a project command through uv's managed environment."""
+    return ["uv", "run", "wikidrift", *args]
+
+
+def _canonicalize_topics(topics: list[str], resolver=provenance.resolve_article_title):
+    """Resolve aliases and retain one target per canonical MediaWiki article."""
+    canonical_topics = []
+    identities = []
+    seen = set()
+    for topic in topics:
+        resolved = resolver(topic)
+        canonical = resolved.canonical_title
+        identities.append(resolved)
+        if canonical not in seen:
+            seen.add(canonical)
+            canonical_topics.append(canonical)
+    return canonical_topics, identities
+
+
+def _write_article_identities(articles_dir: Path, identities: list[provenance.ResolvedArticle]):
+    """Persist requested aliases beside the canonical article-owned shard."""
+    grouped = {}
+    for identity in identities:
+        record = grouped.setdefault(identity.canonical_title, {
+            "canonical_title": identity.canonical_title,
+            "page_id": identity.page_id,
+            "requested_titles": [],
+        })
+        if identity.requested_title not in record["requested_titles"]:
+            record["requested_titles"].append(identity.requested_title)
+    for canonical, record in grouped.items():
+        data_dir = articles_dir / config.slugify(canonical)
+        data_dir.mkdir(parents=True, exist_ok=True)
+        destination = data_dir / "article-identity.json"
+        temporary = destination.with_suffix(".json.tmp")
+        temporary.write_text(json.dumps(record, ensure_ascii=False, indent=2), encoding="utf-8")
+        os.replace(temporary, destination)
+
+
+def _stage_name(command: list[str]) -> str:
+    try:
+        return command[command.index("wikidrift") + 1]
+    except (ValueError, IndexError) as exc:
+        raise ValueError(f"not a wikidrift command: {command!r}") from exc
+
+
+def _load_completed_stages(state_path: Path) -> list[str]:
+    try:
+        payload = json.loads(state_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return []
+    stages = payload.get("completed_stages") or []
+    return [stage for stage in stages if isinstance(stage, str)]
+
+
+def _write_coverage_state(state_path: Path, topic: str, completed_stages: list[str]) -> None:
+    payload = {
+        "article": topic,
+        "updated_ts": dt.datetime.now(dt.timezone.utc).isoformat(),
+        "completed_stages": completed_stages,
+    }
+    temporary = state_path.with_suffix(".json.tmp")
+    try:
+        temporary.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+        os.replace(temporary, state_path)
+    except OSError as exc:
+        temporary.unlink(missing_ok=True)
+        raise OSError(f"could not publish coverage state for {topic!r}") from exc
+
+
+def _emit_topic_output(
+    topic: str,
+    line: str,
+    output_lock: threading.Lock,
+    output_stream: TextIO | None = None,
+) -> None:
+    stream = output_stream or sys.stdout
+    rendered = line if line.endswith("\n") else f"{line}\n"
+    with output_lock:
+        stream.write(f"[{topic}] {rendered}")
+        stream.flush()
+
+
+def _run_streaming_command(
+    command: list[str],
+    *,
+    env: dict[str, str],
+    log: TextIO,
+    topic: str,
+    output_lock: threading.Lock,
+    output_stream: TextIO | None = None,
+    process_factory: Callable = subprocess.Popen,
+) -> subprocess.CompletedProcess:
+    """Run a command while teeing complete output lines to its log and stdout."""
+    process = process_factory(
+        command,
+        env=env,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        text=True,
+        bufsize=1,
+    )
+    if process.stdout is None:
+        raise RuntimeError(f"could not capture output for {command!r}")
+    try:
+        for line in process.stdout:
+            log.write(line)
+            log.flush()
+            _emit_topic_output(topic, line, output_lock, output_stream)
+    except BaseException:
+        process.kill()
+        process.wait()
+        raise
+    return subprocess.CompletedProcess(command, process.wait())
+
+
+def _run_topic_commands(
+    topic: str,
+    commands: list[list[str]],
+    articles_dir: Path,
+    resume: bool,
+    runner: Callable | None = None,
+    cancellation: threading.Event | None = None,
+    output_lock: threading.Lock | None = None,
+) -> dict:
+    """Run one topic's stages sequentially with resumable article-owned state."""
+    data_dir = articles_dir / config.slugify(topic)
+    log_dir = data_dir / "logs"
+    log_dir.mkdir(parents=True, exist_ok=True)
+    log_path = log_dir / "coverage.log"
+    state_path = data_dir / "coverage-state.json"
+    completed_stages = _load_completed_stages(state_path)
+    skipped_stages = []
+    stages = []
+
+    environment = os.environ.copy()
+    environment["WIKIDRIFT_DATA_DIR"] = str(data_dir)
+    environment["PYTHONUNBUFFERED"] = "1"
+    output_lock = output_lock or threading.Lock()
+    with log_path.open("a", encoding="utf-8") as log:
+        log.write(f"\n=== coverage run {dt.datetime.now(dt.timezone.utc).isoformat()} ===\n")
+        for command in commands:
+            if cancellation is not None and cancellation.is_set():
+                log.write("CANCEL before next stage\n")
+                break
+            stage = _stage_name(command)
+            if resume and stage in completed_stages:
+                skipped_stages.append(stage)
+                log.write(f"SKIP completed stage: {stage}\n")
+                if runner is None:
+                    _emit_topic_output(topic, f"SKIP completed stage: {stage}", output_lock)
+                continue
+            log.write(f"$ {' '.join(command)}\n")
+            log.flush()
+            if runner is None:
+                _emit_topic_output(topic, f"$ {' '.join(command)}", output_lock)
+            started = time.monotonic()
+            if runner is None:
+                completed = _run_streaming_command(
+                    command,
+                    env=environment,
+                    log=log,
+                    topic=topic,
+                    output_lock=output_lock,
+                )
+            else:
+                completed = runner(
+                    command,
+                    env=environment,
+                    stdout=log,
+                    stderr=subprocess.STDOUT,
+                )
+            exit_code = int(completed.returncode)
+            stages.append({
+                "command": stage,
+                "elapsed_seconds": round(time.monotonic() - started, 3),
+                "exit_code": exit_code,
+            })
+            if exit_code != 0:
+                break
+            if stage not in completed_stages:
+                completed_stages.append(stage)
+            _write_coverage_state(state_path, topic, completed_stages)
+
+    return {
+        "article": topic,
+        "succeeded": all(stage["exit_code"] == 0 for stage in stages),
+        "stages": stages,
+        "skipped_stages": skipped_stages,
+        "log_path": str(log_path),
+    }
+
+
+def _run_topic_item(item: tuple[str, list[list[str]]], *, articles_dir: Path,
+                    resume: bool, cancellation: threading.Event | None = None,
+                    output_lock: threading.Lock | None = None) -> dict:
+    topic, commands = item
+    try:
+        return _run_topic_commands(
+            topic, commands, articles_dir, resume,
+            cancellation=cancellation,
+            output_lock=output_lock,
+        )
+    except Exception as exc:
+        log_path = articles_dir / config.slugify(topic) / "logs" / "coverage.log"
+        log_path.parent.mkdir(parents=True, exist_ok=True)
+        with log_path.open("a", encoding="utf-8") as log:
+            log.write(f"WORKER ERROR: {type(exc).__name__}: {exc}\n")
+        if output_lock is not None:
+            _emit_topic_output(
+                topic, f"WORKER ERROR: {type(exc).__name__}: {exc}", output_lock,
+            )
+        return {
+            "article": topic,
+            "succeeded": False,
+            "stages": [],
+            "skipped_stages": [],
+            "log_path": str(log_path),
+            "error": str(exc),
+        }
+
+
+def _run_topics_parallel(
+    topic_commands: list[tuple[str, list[list[str]]]],
+    articles_dir: Path,
+    jobs: int,
+    resume: bool,
+    executor_factory: Callable = concurrent.futures.ThreadPoolExecutor,
+) -> list[dict]:
+    """Run article-owned workers with bounded concurrency and input-order results."""
+    slugs = [config.slugify(topic) for topic, _ in topic_commands]
+    if len(slugs) != len(set(slugs)):
+        raise ValueError("duplicate topics would share an article shard")
+
+    cancellation = threading.Event()
+    output_lock = threading.Lock()
+    worker = functools.partial(
+        _run_topic_item,
+        articles_dir=articles_dir,
+        resume=resume,
+        cancellation=cancellation,
+        output_lock=output_lock,
+    )
+    with executor_factory(max_workers=jobs) as executor:
+        try:
+            return list(executor.map(worker, topic_commands))
+        except BaseException:
+            cancellation.set()
+            executor.shutdown(wait=True, cancel_futures=True)
+            raise
+
+
 def _write_cost_report(findings_dir: Path, topic: str, stages: list[dict]) -> dict:
     """Persist measurable per-article cost without inventing infrastructure prices."""
     framing_path = findings_dir / f"{config.slugify(topic)}.framing.json"
@@ -200,8 +460,7 @@ def _write_cost_report(findings_dir: Path, topic: str, stages: list[dict]) -> di
 
 def _pipeline_cmd(topic: str, use_llm: bool, include_mscore: bool, include_framing: bool = False,
                   l5_max_langs: int | None = None) -> list[str]:
-    base = [sys.executable, "-m", "wikidrift.cli"]
-    cmd = base + ["pipeline", topic]
+    cmd = _uv_command(["pipeline", topic])
     if use_llm:
         cmd.append("--llm")
     if include_mscore:
@@ -215,7 +474,7 @@ def _topic_commands(topic: str, use_llm: bool, include_mscore: bool, include_fra
                     l5_max_langs: int | None,
                     required: set[str], have: set[str]) -> tuple[list[list[str]], list[str]]:
     """Return (commands, notes) for this topic under the selected mode."""
-    base = [sys.executable, "-m", "wikidrift.cli"]
+    base = ["uv", "run", "wikidrift"]
     cmds: list[list[str]] = []
     notes: list[str] = []
 
@@ -224,20 +483,34 @@ def _topic_commands(topic: str, use_llm: bool, include_mscore: bool, include_fra
         cmds.append(base + ["framing", topic])
         return cmds, notes
 
-    if mode == "full":
+    if mode == "pipeline":
+        cmds.append(base + ["analyze", topic])
         cmds.append(_pipeline_cmd(topic, use_llm=use_llm, include_mscore=include_mscore,
                                   include_framing=include_framing))
+        return cmds, notes
+
+    if mode == "full":
+        cmds.append(base + ["analyze", topic])
+        cmds.append(_pipeline_cmd(topic, use_llm=use_llm, include_mscore=include_mscore,
+                                  include_framing=include_framing))
+        if use_llm:
+            cmds.append(base + ["crosslingual", topic])
         cmds.append(base + ["sources", topic])
         cmds.append(base + ["profile", topic])
         return cmds, notes
 
     # mode == fill: run the smallest command set that can cover missing layers.
     missing = required - have
-    needs_core = bool({"receipts", "stance"} & missing)
     needs_framing = "framing" in missing
-    if needs_core or needs_framing:
+    needs_upper_layers = needs_framing or bool({"receipts", "stance"} & missing)
+    if needs_upper_layers:
+        cmds.append(base + ["analyze", topic])
+    if needs_framing:
         cmds.append(_pipeline_cmd(topic, use_llm=use_llm, include_mscore=include_mscore,
-                                  include_framing=include_framing and (needs_framing or needs_core)))
+                                  include_framing=include_framing))
+
+    if use_llm and {"receipts", "stance"} & missing:
+        cmds.append(base + ["crosslingual", topic])
 
     if "sources" in missing:
         cmds.append(base + ["sources", topic])
@@ -289,15 +562,34 @@ def main() -> int:
     )
     parser.add_argument(
         "--mode",
-        choices=["fill", "full", "framing"],
+          choices=["fill", "full", "framing", "pipeline"],
         default="fill",
-        help=("fill: only run missing layers; full: run pipeline+sources+profile; "
+          help=("fill: only run missing layers; pipeline: run analyze then pipeline; "
+              "full: run pipeline+sources+profile; "
               "framing: run analyze then Framing Lite to create confirmed temporal receipts"),
     )
     parser.add_argument(
         "--execute",
         action="store_true",
         help="Actually run commands (default is dry-run)",
+    )
+    parser.add_argument(
+        "--jobs",
+        type=int,
+        default=DEFAULT_JOBS,
+        help=f"Maximum article workers (default: {DEFAULT_JOBS})",
+    )
+    parser.add_argument(
+        "--articles-dir",
+        type=Path,
+        default=DEFAULT_ARTICLES_DIR,
+        help=f"Root for isolated article data (default: {DEFAULT_ARTICLES_DIR})",
+    )
+    parser.add_argument(
+        "--resume",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Skip stages recorded as successful in each article's coverage-state.json (default: on)",
     )
     parser.add_argument(
         "--no-llm",
@@ -335,6 +627,9 @@ def main() -> int:
     )
     args = parser.parse_args()
 
+    if args.jobs < 1:
+        parser.error("--jobs must be at least 1")
+
     selectors = bool(args.topics) + bool(args.topics_file) + bool(args.only_controls) + bool(args.all_corpus)
     if selectors > 1:
         parser.error("choose only one of --topics, --topics-file, --only-controls, or --all-corpus")
@@ -365,6 +660,17 @@ def main() -> int:
             return 2
         explicit_topics.extend([ln.strip() for ln in p.read_text(encoding="utf-8").splitlines() if ln.strip()])
 
+    identities = []
+    if explicit_topics:
+        try:
+            explicit_topics, identities = _canonicalize_topics(explicit_topics)
+        except (OSError, ValueError) as exc:
+            print(f"error: could not resolve article title: {exc}", file=sys.stderr)
+            return 2
+        for identity in identities:
+            if identity.requested_title != identity.canonical_title:
+                print(f"resolved redirect: {identity.requested_title} -> {identity.canonical_title}")
+
     if args.all_corpus:
         if not config.DB.exists():
             print(f"error: token corpus not found: {config.DB}", file=sys.stderr)
@@ -394,7 +700,7 @@ def main() -> int:
 
     use_llm = not args.no_llm
     factcheck_diagnostics = _load_factcheck_diagnostics(findings_dir)
-    failures = 0
+    topic_commands = []
 
     for topic in targets:
         have = sorted(layers.get(topic, set()))
@@ -418,21 +724,40 @@ def main() -> int:
         )
         for note in notes:
             print(f"  note: {note}")
-        stages = []
-        for cmd in cmds:
-            started = time.monotonic()
-            rc = _run(cmd, execute=args.execute)
-            if args.execute:
-                stages.append({
-                    "command": cmd[-2],
-                    "elapsed_seconds": round(time.monotonic() - started, 3),
-                    "exit_code": rc,
-                })
-            if rc != 0:
-                failures += 1
-                print(f"  command failed with exit code {rc}")
-        if args.mode == "framing" and args.execute:
-            report = _write_cost_report(findings_dir, topic, stages)
+        topic_commands.append((topic, cmds))
+        if not args.execute:
+            for cmd in cmds:
+                _run(cmd, execute=False)
+
+    if not args.execute:
+        print("\nDone. failures=0")
+        return 0
+
+    _write_article_identities(args.articles_dir.resolve(), identities)
+    print(f"\nRunning {len(topic_commands)} topic(s) with jobs={args.jobs} in {args.articles_dir}")
+    try:
+        results = _run_topics_parallel(
+            topic_commands=topic_commands,
+            articles_dir=args.articles_dir.resolve(),
+            jobs=args.jobs,
+            resume=args.resume,
+        )
+    except KeyboardInterrupt:
+        print("\nInterrupted; completed stages remain resumable.", file=sys.stderr)
+        return 130
+
+    failures = 0
+    for result in results:
+        outcome = "PASS" if result["succeeded"] else "FAIL"
+        if not result["succeeded"]:
+            failures += 1
+        stage_summary = [(stage["command"], stage["exit_code"]) for stage in result["stages"]]
+        skipped = result["skipped_stages"]
+        print(f"{outcome} {result['article']}: stages={stage_summary} skipped={skipped} "
+              f"log={result['log_path']}")
+        if args.mode == "framing":
+            topic_findings = args.articles_dir.resolve() / config.slugify(result["article"]) / "findings"
+            report = _write_cost_report(topic_findings, result["article"], result["stages"])
             estimate = report["estimated_external_usd"]
             estimate_text = f"${estimate:.6f}" if estimate is not None else "unavailable (configure pricing)"
             outcome = "succeeded" if report["succeeded"] else "failed"
