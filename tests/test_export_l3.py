@@ -51,6 +51,9 @@ class ExactPivotExport(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp_dir, \
                 mock.patch.object(export_l3, "DATA", pathlib.Path(temp_dir)), \
                 mock.patch.object(export_l3.drift, "load_confirmation", return_value=confirmation), \
+                mock.patch.object(export_l3, "_confirmation_trust", return_value={
+                    "status": "published", "reason": None,
+                }), \
                 mock.patch.object(export_l3, "_current_horizon", return_value=("2026-01-01", 900)), \
                 mock.patch.object(export_l3.provenance, "tokens_at", return_value=[{"str": "word"}]), \
                 mock.patch.object(export_l3, "prose_at", side_effect=lambda revision: f"text {revision}"), \
@@ -69,6 +72,24 @@ class ExactPivotExport(unittest.TestCase):
         self.assertEqual(exported["pivots"][0]["duration_seconds"], 1200)
         self.assertEqual(exported["pivots"][0]["attribution"]["removed_tokens"], 80)
         coarse_verdict.assert_not_called()
+
+    def test_withheld_confirmation_removes_existing_export(self):
+        confirmation = {"article": "Example", "status": "confirmed"}
+        with tempfile.TemporaryDirectory() as temp_dir, \
+                mock.patch.object(export_l3, "DATA", pathlib.Path(temp_dir)), \
+                mock.patch.object(export_l3.drift, "load_confirmation", return_value=confirmation), \
+                mock.patch.object(export_l3, "_confirmation_trust", return_value={
+                    "status": "quarantined", "reason": "artifact references quarantined revision",
+                }), \
+                mock.patch.object(export_l3.provenance, "tokens_at") as tokens_at:
+            output = pathlib.Path(temp_dir) / "Example.pivots.json"
+            output.write_text("stale", encoding="utf-8")
+
+            status = export_l3.export_pivots("Example")
+
+        self.assertEqual(status["state"], "unavailable")
+        self.assertFalse(output.exists())
+        tokens_at.assert_not_called()
 
 
 if __name__ == "__main__":

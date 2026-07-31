@@ -14,6 +14,7 @@ WikiWho hosted flakiness is handled with fail-fast timeouts + retry/backoff (lea
 run). For batch/scale and coverage gaps, the local wikiwho_rs-on-dumps backend feeds the same rsnap
 schema via `ingest.py` (both share `snapshot_picks` for identical revision selection).
 """
+import json
 import time
 import urllib.parse
 import statistics
@@ -29,6 +30,140 @@ _S = config.session()
 # Steady State) — a whole article's analysis needs far fewer than the cap.
 _TOK_CAP = 4096
 _tok = OrderedDict()
+
+SNAPSHOT_INTEGRITY_POLICY = "snapshot-integrity-v1"
+MIN_NEIGHBOR_TOKEN_RATIO = 0.5
+MIN_NEIGHBOR_BYTE_RATIO = 0.8
+STABLE_ENDPOINT_POLICY = "stable-endpoint-v1"
+MIN_ENDPOINT_SURVIVAL_SECONDS = 48 * 60 * 60
+
+
+def assess_snapshot_integrity(
+        token_rows, unique_tokens, revision_bytes,
+        previous_token_rows=None, next_token_rows=None,
+        previous_revision_bytes=None, next_revision_bytes=None):
+    """Classify one snapshot from token, revision-size, and neighboring evidence."""
+    metrics = {
+        "token_rows": token_rows,
+        "unique_tokens": unique_tokens,
+        "revision_bytes": revision_bytes,
+        "duplicate_rate": 1.0 - (unique_tokens / token_rows) if token_rows else None,
+        "previous_token_ratio": (
+            token_rows / previous_token_rows if previous_token_rows else None
+        ),
+        "next_token_ratio": next_token_rows and token_rows / next_token_rows,
+        "previous_byte_ratio": (
+            revision_bytes / previous_revision_bytes if previous_revision_bytes else None
+        ),
+        "next_byte_ratio": (
+            revision_bytes / next_revision_bytes if next_revision_bytes else None
+        ),
+    }
+    if token_rows <= 0 or unique_tokens <= 0:
+        return {
+            "status": "quarantined",
+            "reason": "snapshot contains no usable token membership",
+            "metrics": metrics,
+            "policy_version": SNAPSHOT_INTEGRITY_POLICY,
+        }
+    if unique_tokens != token_rows:
+        return {
+            "status": "quarantined",
+            "reason": "snapshot contains duplicate token membership",
+            "metrics": metrics,
+            "policy_version": SNAPSHOT_INTEGRITY_POLICY,
+        }
+
+    token_ratios = [
+        ratio for ratio in (
+            metrics["previous_token_ratio"], metrics["next_token_ratio"]
+        ) if ratio is not None
+    ]
+    byte_ratios = [
+        ratio for ratio in (
+            metrics["previous_byte_ratio"], metrics["next_byte_ratio"]
+        ) if ratio is not None
+    ]
+    severe_membership_loss = (
+        len(token_ratios) == 2
+        and max(token_ratios) < MIN_NEIGHBOR_TOKEN_RATIO
+    )
+    stable_revision_size = (
+        len(byte_ratios) == 2
+        and min(byte_ratios) >= MIN_NEIGHBOR_BYTE_RATIO
+    )
+    if severe_membership_loss and stable_revision_size:
+        return {
+            "status": "suspect",
+            "reason": "token membership is inconsistent with revision size and adjacent snapshots",
+            "metrics": metrics,
+            "policy_version": SNAPSHOT_INTEGRITY_POLICY,
+        }
+    return {
+        "status": "complete",
+        "reason": None,
+        "metrics": metrics,
+        "policy_version": SNAPSHOT_INTEGRITY_POLICY,
+    }
+
+
+def select_stable_endpoint(snapshots, observed_at, minimum_survival_seconds=None):
+    """Select the newest age-qualified snapshot and explain excluded newer candidates."""
+    minimum_survival = (
+        MIN_ENDPOINT_SURVIVAL_SECONDS
+        if minimum_survival_seconds is None
+        else minimum_survival_seconds
+    )
+    ordered = sorted(snapshots, key=lambda snapshot: (snapshot[0], snapshot[1]))
+    latest_seen = ordered[-1][1] if ordered else None
+    excluded = []
+    selected = None
+    for snap_date, revision_id, timestamp in reversed(ordered):
+        if not timestamp:
+            excluded.append({
+                "revision_id": revision_id,
+                "reason": "missing_revision_timestamp",
+                "evidence_revid": None,
+            })
+            continue
+        try:
+            revision_time = dt.datetime.fromisoformat(timestamp.replace("Z", "+00:00"))
+            if revision_time.tzinfo is None:
+                revision_time = revision_time.replace(tzinfo=dt.timezone.utc)
+        except (AttributeError, TypeError, ValueError):
+            excluded.append({
+                "revision_id": revision_id,
+                "reason": "invalid_revision_timestamp",
+                "evidence_revid": None,
+            })
+            continue
+        survival_seconds = max(0, int((observed_at - revision_time).total_seconds()))
+        if survival_seconds < minimum_survival:
+            excluded.append({
+                "revision_id": revision_id,
+                "reason": "minimum_survival_not_met",
+                "evidence_revid": None,
+            })
+            continue
+        selected = {
+            "snapshot_date": snap_date,
+            "revision_id": revision_id,
+            "timestamp": timestamp,
+            "survival_seconds": survival_seconds,
+        }
+        break
+    return {
+        "mode": "current_stable",
+        "latest_seen_revid": latest_seen,
+        "selected_revid": selected["revision_id"] if selected else None,
+        "selected_snapshot_date": selected["snapshot_date"] if selected else None,
+        "selected_timestamp": selected["timestamp"] if selected else None,
+        "survival_seconds": selected["survival_seconds"] if selected else None,
+        "confirmed_by_revid": None,
+        "status": "stable" if selected else "unstable",
+        "excluded_revisions": excluded,
+        "policy_version": STABLE_ENDPOINT_POLICY,
+    }
 
 
 @dataclass(frozen=True)
@@ -85,6 +220,230 @@ def ensure_schema(con):
     con.execute("CREATE TABLE IF NOT EXISTS tokens(article TEXT, token_id BIGINT, str TEXT, editor TEXT, o_rev_id BIGINT, n_in INT, n_out INT)")
     con.execute("CREATE TABLE IF NOT EXISTS rev_size(article TEXT, rev_id BIGINT, size BIGINT)")
     con.execute("CREATE TABLE IF NOT EXISTS rsnap(article TEXT, snap_date TEXT, snap_rev BIGINT, token_id BIGINT, o_rev_id BIGINT)")
+    con.execute("""CREATE TABLE IF NOT EXISTS snapshot_integrity(
+        article TEXT, snap_date TEXT, snap_rev BIGINT, status TEXT,
+        token_rows BIGINT, unique_tokens BIGINT, revision_bytes BIGINT,
+        duplicate_rate DOUBLE, previous_token_ratio DOUBLE, next_token_ratio DOUBLE,
+        previous_byte_ratio DOUBLE, next_byte_ratio DOUBLE,
+        reason TEXT, policy_version TEXT, checked_at TEXT)""")
+    con.execute("""CREATE TABLE IF NOT EXISTS endpoint_receipts(
+        article TEXT, mode TEXT, latest_seen_revid BIGINT, selected_revid BIGINT,
+        selected_snapshot_date TEXT, selected_timestamp TEXT, survival_seconds BIGINT,
+        confirmed_by_revid BIGINT, status TEXT, excluded_revisions TEXT,
+        policy_version TEXT, checked_at TEXT)""")
+
+
+def refresh_snapshot_integrity(con, article):
+    """Recompute and persist integrity receipts for all loaded snapshots of one article."""
+    ensure_schema(con)
+    receipts = assess_article_snapshot_integrity(con, article)
+    con.execute("DELETE FROM snapshot_integrity WHERE article=?", [article])
+    if receipts:
+        con.executemany("INSERT INTO snapshot_integrity VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", [(
+            receipt["article"], receipt["snapshot_date"], receipt["snapshot_revid"],
+            receipt["status"], receipt["token_rows"], receipt["unique_tokens"],
+            receipt["revision_bytes"], receipt["duplicate_rate"],
+            receipt["previous_token_ratio"], receipt["next_token_ratio"],
+            receipt["previous_byte_ratio"], receipt["next_byte_ratio"], receipt["reason"],
+            receipt["policy_version"], receipt["checked_at"],
+        ) for receipt in receipts])
+    return receipts
+
+
+def assess_article_snapshot_integrity(con, article):
+    """Assess all loaded snapshots of one article without mutating the database."""
+    rows = con.execute("""
+        SELECT s.snap_date, s.snap_rev, count(*) AS token_rows,
+               count(DISTINCT s.token_id) AS unique_tokens, max(z.size) AS revision_bytes
+        FROM rsnap s
+        LEFT JOIN rev_size z ON z.article=s.article AND z.rev_id=s.snap_rev
+        WHERE s.article=?
+        GROUP BY s.snap_date, s.snap_rev
+        ORDER BY s.snap_date, s.snap_rev
+    """, [article]).fetchall()
+    checked_at = dt.datetime.now(dt.timezone.utc).isoformat()
+    receipts = []
+    for index, (snap_date, snap_rev, token_rows, unique_tokens, revision_bytes) in enumerate(rows):
+        previous = rows[index - 1] if index > 0 else None
+        following = rows[index + 1] if index + 1 < len(rows) else None
+        result = assess_snapshot_integrity(
+            token_rows=token_rows,
+            unique_tokens=unique_tokens,
+            revision_bytes=revision_bytes or 0,
+            previous_token_rows=previous[2] if previous else None,
+            next_token_rows=following[2] if following else None,
+            previous_revision_bytes=previous[4] if previous else None,
+            next_revision_bytes=following[4] if following else None,
+        )
+        metrics = result["metrics"]
+        receipts.append({
+            "article": article,
+            "snapshot_date": snap_date,
+            "snapshot_revid": snap_rev,
+            "status": result["status"],
+            "token_rows": token_rows,
+            "unique_tokens": unique_tokens,
+            "revision_bytes": revision_bytes,
+            "duplicate_rate": metrics["duplicate_rate"],
+            "previous_token_ratio": metrics["previous_token_ratio"],
+            "next_token_ratio": metrics["next_token_ratio"],
+            "previous_byte_ratio": metrics["previous_byte_ratio"],
+            "next_byte_ratio": metrics["next_byte_ratio"],
+            "reason": result["reason"],
+            "policy_version": result["policy_version"],
+            "checked_at": checked_at,
+        })
+    return receipts
+
+
+def load_snapshot_integrity(con, article):
+    """Return persisted integrity receipts for one article in snapshot order."""
+    ensure_schema(con)
+    columns = (
+        "article", "snapshot_date", "snapshot_revid", "status", "token_rows",
+        "unique_tokens", "revision_bytes", "duplicate_rate", "previous_token_ratio",
+        "next_token_ratio", "previous_byte_ratio", "next_byte_ratio", "reason",
+        "policy_version", "checked_at",
+    )
+    rows = con.execute("""SELECT article, snap_date, snap_rev, status, token_rows,
+        unique_tokens, revision_bytes, duplicate_rate, previous_token_ratio, next_token_ratio,
+        previous_byte_ratio, next_byte_ratio, reason, policy_version, checked_at
+        FROM snapshot_integrity WHERE article=? ORDER BY snap_date, snap_rev""", [article]).fetchall()
+    return [dict(zip(columns, row)) for row in rows]
+
+
+def audit_snapshot_integrity(con, articles=None, persist=False):
+    """Report corpus integrity, optionally persisting receipts as an explicit backfill."""
+    if persist:
+        ensure_schema(con)
+    targets = articles or [row[0] for row in con.execute(
+        "SELECT DISTINCT article FROM rsnap ORDER BY article"
+    ).fetchall()]
+    article_reports = []
+    totals = {"complete": 0, "suspect": 0, "quarantined": 0}
+    for article in targets:
+        receipts = (
+            refresh_snapshot_integrity(con, article)
+            if persist else assess_article_snapshot_integrity(con, article)
+        )
+        counts = {status: 0 for status in totals}
+        for receipt in receipts:
+            counts[receipt["status"]] += 1
+            totals[receipt["status"]] += 1
+        if persist and counts["quarantined"]:
+            current = load_source_state(con, article) or {}
+            record_source_state(
+                con,
+                article,
+                source_status="partial",
+                expected_snapshots=current.get("expected_snapshots") or len(receipts),
+                loaded_snapshots=current.get("loaded_snapshots") or len(receipts),
+                reason=f"{counts['quarantined']} snapshot(s) failed integrity checks",
+            )
+        article_reports.append({
+            "article": article,
+            "snapshots": len(receipts),
+            "counts": counts,
+            "status": (
+                "quarantined" if counts["quarantined"]
+                else "suspect" if counts["suspect"]
+                else "complete"
+            ),
+        })
+    return {
+        "policy_version": SNAPSHOT_INTEGRITY_POLICY,
+        "article_count": len(article_reports),
+        "totals": totals,
+        "articles": article_reports,
+    }
+
+
+def refresh_stable_endpoint(con, article, observed_at=None):
+    """Recompute and persist the current stable endpoint receipt for one article."""
+    ensure_schema(con)
+    receipt, checked_at = assess_stable_endpoint(con, article, observed_at=observed_at)
+    con.execute(
+        "DELETE FROM endpoint_receipts WHERE article=? AND mode='current_stable'", [article]
+    )
+    con.execute("INSERT INTO endpoint_receipts VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", (
+        article, receipt["mode"], receipt["latest_seen_revid"], receipt["selected_revid"],
+        receipt["selected_snapshot_date"], receipt["selected_timestamp"],
+        receipt["survival_seconds"], receipt["confirmed_by_revid"], receipt["status"],
+        json.dumps(receipt["excluded_revisions"], sort_keys=True), receipt["policy_version"],
+        checked_at.isoformat(),
+    ))
+    return receipt
+
+
+def assess_stable_endpoint(con, article, observed_at=None):
+    """Assess the current stable endpoint without mutating the database."""
+    has_integrity = bool(con.execute("""SELECT count(*) FROM information_schema.tables
+        WHERE table_schema='main' AND table_name='snapshot_integrity'""").fetchone()[0])
+    integrity_clause = """NOT EXISTS (
+            SELECT 1 FROM snapshot_integrity integrity
+            WHERE integrity.article=s.article AND integrity.snap_rev=s.snap_rev
+              AND integrity.status='quarantined')""" if has_integrity else "TRUE"
+    snapshots = con.execute("""
+        SELECT DISTINCT s.snap_date, s.snap_rev, r.ts
+        FROM rsnap s
+        LEFT JOIN revisions r ON r.article=s.article AND r.rev_id=s.snap_rev
+        WHERE s.article=? AND {integrity_clause}
+        ORDER BY s.snap_date, s.snap_rev
+    """.format(integrity_clause=integrity_clause), [article]).fetchall()
+    checked_at = observed_at or dt.datetime.now(dt.timezone.utc)
+    receipt = select_stable_endpoint(snapshots, checked_at)
+    return receipt, checked_at
+
+
+def load_stable_endpoint(con, article):
+    """Return the persisted current stable endpoint receipt, or None."""
+    ensure_schema(con)
+    row = con.execute("""SELECT mode, latest_seen_revid, selected_revid,
+        selected_snapshot_date, selected_timestamp, survival_seconds, confirmed_by_revid,
+        status, excluded_revisions, policy_version, checked_at
+        FROM endpoint_receipts WHERE article=? AND mode='current_stable'
+        ORDER BY checked_at DESC LIMIT 1""", [article]).fetchone()
+    if not row:
+        return None
+    columns = (
+        "mode", "latest_seen_revid", "selected_revid", "selected_snapshot_date",
+        "selected_timestamp", "survival_seconds", "confirmed_by_revid", "status",
+        "excluded_revisions", "policy_version", "checked_at",
+    )
+    receipt = dict(zip(columns, row))
+    receipt["article"] = article
+    receipt["excluded_revisions"] = json.loads(receipt["excluded_revisions"])
+    return receipt
+
+
+def audit_stable_endpoints(con, articles=None, observed_at=None, persist=False):
+    """Report endpoint stability, optionally persisting receipts as an explicit backfill."""
+    if persist:
+        ensure_schema(con)
+    targets = articles or [row[0] for row in con.execute(
+        "SELECT DISTINCT article FROM rsnap ORDER BY article"
+    ).fetchall()]
+    reports = []
+    totals = {"stable": 0, "unstable": 0}
+    for article in targets:
+        receipt = (
+            refresh_stable_endpoint(con, article, observed_at=observed_at)
+            if persist else assess_stable_endpoint(con, article, observed_at=observed_at)[0]
+        )
+        totals[receipt["status"]] += 1
+        reports.append({
+            "article": article,
+            "status": receipt["status"],
+            "latest_seen_revid": receipt["latest_seen_revid"],
+            "selected_revid": receipt["selected_revid"],
+            "excluded_revisions": receipt["excluded_revisions"],
+        })
+    return {
+        "policy_version": STABLE_ENDPOINT_POLICY,
+        "article_count": len(reports),
+        "totals": totals,
+        "articles": reports,
+    }
 
 
 def record_article_identity(con, resolved):
@@ -159,6 +518,8 @@ def ensure_indexes(con):
     for stmt in (
         "CREATE INDEX IF NOT EXISTS ix_rsnap_art_rev ON rsnap(article, snap_rev)",
         "CREATE INDEX IF NOT EXISTS ix_rsnap_art_tok ON rsnap(article, token_id)",
+        "CREATE INDEX IF NOT EXISTS ix_snapint_art_rev ON snapshot_integrity(article, snap_rev)",
+        "CREATE INDEX IF NOT EXISTS ix_endpoint_art_mode ON endpoint_receipts(article, mode)",
         "CREATE INDEX IF NOT EXISTS ix_rev_art_id ON revisions(article, rev_id)",
         "CREATE INDEX IF NOT EXISTS ix_revsize_art_id ON rev_size(article, rev_id)",
         "CREATE INDEX IF NOT EXISTS ix_tokens_art_tok ON tokens(article, token_id)",
@@ -317,6 +678,7 @@ def build_snapshots(con, article):
     picks = snapshot_picks(con, article)
     n = len(picks)
     snaps = []
+    pending_rows = []
     for i, (d, rev_id) in enumerate(picks, 1):
         cached = bool(con.execute("SELECT 1 FROM rsnap WHERE article=? AND snap_rev=?", [article, rev_id]).fetchone())
         label = "cached " if cached else "fetch  "
@@ -325,19 +687,36 @@ def build_snapshots(con, article):
             toks = tokens_at(article, rev_id)
             if not toks:
                 continue                            # WikiWho couldn't serve this revision — skip snapshot
-            con.executemany("INSERT INTO rsnap VALUES (?,?,?,?,?)",
-                            [(article, d, rev_id, t["token_id"], t["o_rev_id"]) for t in toks])
+            pending_rows.extend(
+                (article, d, rev_id, t["token_id"], t["o_rev_id"]) for t in toks
+            )
             time.sleep(0.3)                         # be polite to the WikiWho API
         snaps.append((d, rev_id))
     if n:
         print(f"\r  snapshots [{_pbar(n, n)}] {len(snaps)}/{n} loaded" + " " * 20, flush=True)
-    complete = bool(n) and len(snaps) == n
-    record_source_state(
-        con,
-        article,
-        source_status="current_complete" if complete else "partial",
-        expected_snapshots=n,
-        loaded_snapshots=len(snaps),
-        reason=None if complete else f"loaded {len(snaps)} of {n} expected snapshots",
-    )
+    con.execute("BEGIN")
+    try:
+        if pending_rows:
+            con.executemany("INSERT INTO rsnap VALUES (?,?,?,?,?)", pending_rows)
+        integrity = refresh_snapshot_integrity(con, article)
+        refresh_stable_endpoint(con, article)
+        quarantined = [receipt for receipt in integrity if receipt["status"] == "quarantined"]
+        complete = bool(n) and len(snaps) == n and not quarantined
+        reason = None
+        if quarantined:
+            reason = f"{len(quarantined)} snapshot(s) failed integrity checks"
+        elif not complete:
+            reason = f"loaded {len(snaps)} of {n} expected snapshots"
+        record_source_state(
+            con,
+            article,
+            source_status="current_complete" if complete else "partial",
+            expected_snapshots=n,
+            loaded_snapshots=len(snaps),
+            reason=reason,
+        )
+        con.execute("COMMIT")
+    except Exception:
+        con.execute("ROLLBACK")
+        raise
     return snaps

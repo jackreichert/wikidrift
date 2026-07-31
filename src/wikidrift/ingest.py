@@ -135,6 +135,23 @@ def ingest(con, article, force=False):
     try:
         con.execute("DELETE FROM rsnap WHERE article=?", [article])
         con.executemany("INSERT INTO rsnap VALUES (?,?,?,?,?)", rows)
+        integrity = provenance.refresh_snapshot_integrity(con, article)
+        provenance.refresh_stable_endpoint(con, article)
+        quarantined = [receipt for receipt in integrity if receipt["status"] == "quarantined"]
+        complete = bool(picks) and got == len(picks) and not quarantined
+        reason = None
+        if quarantined:
+            reason = f"{len(quarantined)} snapshot(s) failed integrity checks"
+        elif not complete:
+            reason = f"loaded {got} of {len(picks)} expected snapshots"
+        provenance.record_source_state(
+            con,
+            article,
+            source_status="current_complete" if complete else "partial",
+            expected_snapshots=len(picks),
+            loaded_snapshots=got,
+            reason=reason,
+        )
         con.execute("COMMIT")
     except Exception:
         con.execute("ROLLBACK")

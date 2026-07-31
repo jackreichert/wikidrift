@@ -19,7 +19,7 @@ from dataclasses import dataclass, field
 import duckdb
 import markdown as _md
 
-from wikidrift import pipeline
+from wikidrift import pipeline, trust
 from wikidrift.corpus import Corpus
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -206,6 +206,7 @@ class Findings:
     framings: dict = field(default_factory=dict)
     confirmations: dict = field(default_factory=dict)
     rewrite_status: dict = field(default_factory=dict)
+    trust_report: dict = field(default_factory=lambda: {"published": [], "withheld": []})
 
     l4: dict = field(default_factory=dict)
 
@@ -232,18 +233,51 @@ def _finding_dirs():
     return [directory for directory in directories if directory.exists()]
 
 
-def _load_article_findings(directories, suffix):
+def _artifact_trust(directory, article, finding, artifact_kind):
+    database = directory.parent / "provenance.duckdb"
+    if not database.is_file():
+        return trust.resolve_artifact_trust(None, article, finding, artifact_kind)
+    try:
+        con = duckdb.connect(str(database), read_only=True)
+        try:
+            return trust.resolve_artifact_trust(con, article, finding, artifact_kind)
+        finally:
+            con.close()
+    except (duckdb.Error, OSError) as exc:
+        return {
+            "status": "withheld",
+            "reason": f"trust evidence is unavailable: {type(exc).__name__}",
+            "endpoint_policy_version": None,
+        }
+
+
+def _record_trust(report, finding_path, article, artifact_kind, decision):
+    bucket = "published" if decision["status"] == "published" else "withheld"
+    report[bucket].append({
+        "article": article,
+        "artifact_kind": artifact_kind,
+        "path": finding_path.name,
+        **decision,
+    })
+
+
+def _load_article_findings(directories, suffix, trust_report=None):
     findings = {}
     for directory in directories:
         for finding_path in directory.glob(f"*.{suffix}.json"):
             finding = load(finding_path)
             article = finding.get("article") if isinstance(finding, dict) else None
             if article and article not in EXCLUDE_ARTICLES:
+                if trust_report is not None:
+                    decision = _artifact_trust(directory, article, finding, suffix)
+                    _record_trust(trust_report, finding_path, article, suffix, decision)
+                    if decision["status"] != "published":
+                        continue
                 findings[article] = finding
     return findings
 
 
-def _load_confirmations(directories):
+def _load_confirmations(directories, trust_report):
     """Load confirmations, checking freshness when the corresponding local corpus is available."""
     confirmations = {}
     for directory in directories:
@@ -251,6 +285,22 @@ def _load_confirmations(directories):
             confirmation = load(finding_path)
             article = confirmation.get("article") if isinstance(confirmation, dict) else None
             if not article or article in EXCLUDE_ARTICLES:
+                continue
+            decision = _artifact_trust(directory, article, confirmation, "l1-confirmation")
+            _record_trust(trust_report, finding_path, article, "l1-confirmation", decision)
+            if decision["status"] != "published":
+                reason = (
+                    "stale exact confirmation"
+                    if decision["status"] == "stale"
+                    else f"artifact withheld: {decision['reason']}"
+                )
+                confirmations[article] = {
+                    **confirmation,
+                    "status": "unavailable",
+                    "reason": reason,
+                    "trust_status": decision["status"],
+                    "confirmed_episodes": [],
+                }
                 continue
             database = directory.parent / "provenance.duckdb"
             if database.is_file():
@@ -276,13 +326,14 @@ def _load_confirmations(directories):
 
 def gather():
     finding_dirs = _finding_dirs()
+    trust_report = {"published": [], "withheld": []}
     receipts = _load_article_findings(finding_dirs, "receipts")
-    stances = _load_article_findings(finding_dirs, "stance")
+    stances = _load_article_findings(finding_dirs, "stance", trust_report)
     sources = _load_article_findings(finding_dirs, "sources")
-    lexical = _load_article_findings(finding_dirs, "lexical")
+    lexical = _load_article_findings(finding_dirs, "lexical", trust_report)
     profiles = _load_article_findings(finding_dirs, "profile")
     framings = _load_article_findings(finding_dirs, "framing")
-    confirmations = _load_confirmations(finding_dirs)
+    confirmations = _load_confirmations(finding_dirs, trust_report)
     factchecks = {}
     for directory in finding_dirs:
         for finding_path in directory.glob("*.factcheck.json"):
@@ -345,7 +396,7 @@ def gather():
     return Findings(receipts=receipts, stances=stances, factchecks=factchecks, diver=diver, mscore=mscore,
                     diffs=diffs, blames=blames, pivots=pivots, sources=sources, lexical=lexical,
                     profiles=profiles, framings=framings, confirmations=confirmations,
-                    rewrite_status=rewrite_status, l4=l4map)
+                    rewrite_status=rewrite_status, trust_report=trust_report, l4=l4map)
 
 
 # ---- shared fragments -------------------------------------------------------
@@ -1701,6 +1752,47 @@ def simple_page(title, body, active, path=None):
     )
 
 
+def trust_report_payload(report):
+    """Return the build trust report with corpus-level publication counts."""
+    withheld = report.get("withheld") or []
+    counts = {
+        "published": len(report.get("published") or []),
+        "withheld": len(withheld),
+        "quarantined": 0,
+        "unstable": 0,
+        "stale": 0,
+        "legacy_incompatible": 0,
+    }
+    for item in withheld:
+        status = item.get("status")
+        if status in counts:
+            counts[status] += 1
+    return {"counts": counts, **report}
+
+
+def trust_report_page(report):
+    """Render specific withholding reasons for build operators and researchers."""
+    payload = trust_report_payload(report)
+    counts = payload["counts"]
+    rows = "".join(
+        "<tr>"
+        f"<td>{esc(item['article'])}</td><td>{esc(item['artifact_kind'])}</td>"
+        f"<td>{esc(item['status'])}</td><td>{esc(item['reason'])}</td>"
+        f"<td>{esc(item['path'])}</td></tr>"
+        for item in payload["withheld"]
+    ) or '<tr><td colspan="5">No artifacts withheld.</td></tr>'
+    body = (
+        "<h1>Corpus trust report</h1>"
+        f"<p>{counts['published']} published · {counts['withheld']} withheld · "
+        f"{counts['quarantined']} quarantined · {counts['unstable']} unstable · "
+        f"{counts['stale']} stale · {counts['legacy_incompatible']} legacy-incompatible</p>"
+        "<div class=\"table-wrap\"><table><thead><tr><th>Article</th><th>Artifact</th>"
+        "<th>State</th><th>Reason</th><th>File</th></tr></thead>"
+        f"<tbody>{rows}</tbody></table></div>"
+    )
+    return simple_page("Corpus trust report", body, None, path="trust-report.html")
+
+
 ABOUT_BODY = _md_asset("about")
 FINDINGS_BODY = _md_asset("findings")
 SUMMARY_BODY = _md_asset("summary")
@@ -1768,6 +1860,13 @@ def main(argv=None):
     # Still published at glossary.html so old bookmarks work; page is "Glossary."
     (SITE / "glossary.html").write_text(
         simple_page("Glossary", GLOSSARY_BODY, "glossary"), encoding="utf-8")
+    trust_payload = trust_report_payload(f.trust_report)
+    (SITE / "trust-report.json").write_text(
+        json.dumps(trust_payload, indent=2, sort_keys=True), encoding="utf-8"
+    )
+    (SITE / "trust-report.html").write_text(
+        trust_report_page(f.trust_report), encoding="utf-8"
+    )
     for a in articles:
         (SITE / "article" / f"{slugify(a)}.html").write_text(article_page(a, f, categories), encoding="utf-8")
         if a in f.pivots:

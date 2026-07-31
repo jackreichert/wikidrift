@@ -11,7 +11,8 @@ from unittest import mock
 
 import duckdb
 
-from wikidrift import benchmark, config, provenance, drift, l4, prerank
+from wikidrift import benchmark, cli, config, provenance, drift, l4, prerank, trust
+from wikidrift.corpus import Corpus
 
 
 class ArticleTitleResolution(unittest.TestCase):
@@ -716,6 +717,287 @@ class SourceCoverageState(unittest.TestCase):
         self.assertEqual(state["source_status"], "partial")
         self.assertEqual((state["expected_snapshots"], state["loaded_snapshots"]), (2, 1))
         self.assertIn("1 of 2", state["reason"])
+
+    def test_build_snapshots_rolls_back_staged_rows_when_receipt_publication_fails(self):
+        self.con.execute(
+            "INSERT INTO rsnap VALUES (?,?,?,?,?)", ("A", "2024-01-01", 50, 1, 1)
+        )
+        picks = [("2024-01-01", 50), ("2025-01-01", 100)]
+        with mock.patch.object(provenance, "snapshot_picks", return_value=picks), \
+             mock.patch.object(provenance, "tokens_at", return_value=[{
+                 "token_id": 2, "o_rev_id": 2,
+             }]), \
+             mock.patch.object(provenance, "refresh_stable_endpoint",
+                               side_effect=RuntimeError("receipt failure")), \
+             mock.patch.object(provenance.time, "sleep"):
+            with self.assertRaisesRegex(RuntimeError, "receipt failure"):
+                provenance.build_snapshots(self.con, "A")
+
+        self.assertEqual(
+            self.con.execute(
+                "SELECT snap_date, snap_rev, token_id FROM rsnap WHERE article='A'"
+            ).fetchall(),
+            [("2024-01-01", 50, 1)],
+        )
+
+    def test_snapshot_integrity_detects_semantically_partial_membership(self):
+        result = provenance.assess_snapshot_integrity(
+            token_rows=13482,
+            unique_tokens=13482,
+            revision_bytes=199984,
+            previous_token_rows=54797,
+            next_token_rows=56137,
+            previous_revision_bytes=196241,
+            next_revision_bytes=201248,
+        )
+
+        self.assertEqual(result["status"], "suspect")
+        self.assertIn("inconsistent", result["reason"])
+        self.assertAlmostEqual(result["metrics"]["previous_token_ratio"], 0.2460, places=3)
+
+    def test_snapshot_integrity_accepts_consistent_membership(self):
+        result = provenance.assess_snapshot_integrity(
+            token_rows=55000,
+            unique_tokens=55000,
+            revision_bytes=200000,
+            previous_token_rows=54797,
+            next_token_rows=56137,
+            previous_revision_bytes=196241,
+            next_revision_bytes=201248,
+        )
+
+        self.assertEqual(result["status"], "complete")
+        self.assertIsNone(result["reason"])
+
+    def test_stable_endpoint_falls_back_from_immature_latest_revision(self):
+        observed_at = provenance.dt.datetime(2026, 8, 1, tzinfo=provenance.dt.timezone.utc)
+
+        receipt = provenance.select_stable_endpoint([
+            ("2026-01-01", 100, "2026-01-01T00:00:00Z"),
+            ("2026-07-01", 200, "2026-07-01T00:00:00Z"),
+            ("2026-08-01", 300, "2026-07-31T23:00:00Z"),
+        ], observed_at)
+
+        self.assertEqual(receipt["status"], "stable")
+        self.assertEqual(receipt["latest_seen_revid"], 300)
+        self.assertEqual(receipt["selected_revid"], 200)
+        self.assertEqual(receipt["excluded_revisions"], [{
+            "revision_id": 300,
+            "reason": "minimum_survival_not_met",
+            "evidence_revid": None,
+        }])
+
+    def test_stable_endpoint_returns_unstable_without_mature_candidate(self):
+        observed_at = provenance.dt.datetime(2026, 8, 1, tzinfo=provenance.dt.timezone.utc)
+
+        receipt = provenance.select_stable_endpoint([
+            ("2026-08-01", 300, "2026-07-31T23:00:00Z"),
+        ], observed_at)
+
+        self.assertEqual(receipt["status"], "unstable")
+        self.assertIsNone(receipt["selected_revid"])
+
+    def test_stable_endpoint_excludes_invalid_timestamp(self):
+        observed_at = provenance.dt.datetime(2026, 8, 1, tzinfo=provenance.dt.timezone.utc)
+
+        receipt = provenance.select_stable_endpoint([
+            ("2026-08-01", 300, "not-a-timestamp"),
+        ], observed_at)
+
+        self.assertEqual(receipt["status"], "unstable")
+        self.assertEqual(receipt["excluded_revisions"][0]["reason"],
+                         "invalid_revision_timestamp")
+
+    def test_endpoint_receipt_persists_and_controls_current_horizon(self):
+        self.con.executemany("INSERT INTO rsnap VALUES (?,?,?,?,?)", [
+            ("A", "2026-07-01", 200, 1, 1),
+            ("A", "2026-08-01", 300, 1, 1),
+        ])
+        self.con.executemany("INSERT INTO revisions VALUES (?,?,?,?)", [
+            ("A", 200, "2026-07-01T00:00:00Z", "EditorA"),
+            ("A", 300, "2026-07-31T23:00:00Z", "EditorB"),
+        ])
+        self.con.executemany("INSERT INTO rev_size VALUES (?,?,?)", [
+            ("A", 200, 1000), ("A", 300, 1000),
+        ])
+        provenance.refresh_snapshot_integrity(self.con, "A")
+
+        receipt = provenance.refresh_stable_endpoint(
+            self.con,
+            "A",
+            observed_at=provenance.dt.datetime(
+                2026, 8, 1, tzinfo=provenance.dt.timezone.utc
+            ),
+        )
+
+        self.assertEqual(receipt["selected_revid"], 200)
+        self.assertEqual(provenance.load_stable_endpoint(self.con, "A")["selected_revid"], 200)
+        self.assertEqual(Corpus(self.con).latest_snapshot("A"), ("2026-07-01", 200))
+        self.assertEqual(Corpus(self.con).latest_snap_rev("A"), (200,))
+
+    def test_unstable_current_endpoint_does_not_block_historical_as_of(self):
+        self.con.execute(
+            "INSERT INTO rsnap VALUES (?,?,?,?,?)", ("A", "2026-08-01", 300, 1, 1)
+        )
+        self.con.execute("INSERT INTO revisions VALUES (?,?,?,?)", (
+            "A", 300, "2026-07-31T23:00:00Z", "EditorA",
+        ))
+        self.con.execute("INSERT INTO rev_size VALUES (?,?,?)", ("A", 300, 1000))
+        provenance.refresh_snapshot_integrity(self.con, "A")
+        provenance.refresh_stable_endpoint(
+            self.con,
+            "A",
+            observed_at=provenance.dt.datetime(
+                2026, 8, 1, tzinfo=provenance.dt.timezone.utc
+            ),
+        )
+
+        corpus = Corpus(self.con)
+        self.assertIsNone(corpus.latest_snapshot("A"))
+        self.assertEqual(corpus.snapshot_as_of("A", "2026-08-01"), ("2026-08-01", 300))
+
+    def test_endpoint_audit_is_report_only_by_default(self):
+        self.con.execute(
+            "INSERT INTO rsnap VALUES (?,?,?,?,?)", ("A", "2026-01-01", 300, 1, 1)
+        )
+        self.con.execute("INSERT INTO revisions VALUES (?,?,?,?)", (
+            "A", 300, "2026-01-01T00:00:00Z", "EditorA",
+        ))
+
+        report = provenance.audit_stable_endpoints(
+            self.con,
+            ["A"],
+            observed_at=provenance.dt.datetime(
+                2026, 8, 1, tzinfo=provenance.dt.timezone.utc
+            ),
+        )
+
+        self.assertEqual(report["totals"]["stable"], 1)
+        self.assertEqual(
+            self.con.execute("SELECT count(*) FROM endpoint_receipts").fetchone()[0], 0
+        )
+
+    def test_publication_trust_withholds_unstable_and_quarantined_evidence(self):
+        self.con.execute("INSERT INTO endpoint_receipts VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", (
+            "A", "current_stable", 300, None, None, None, None, None, "unstable", "[]",
+            provenance.STABLE_ENDPOINT_POLICY, "2026-08-01T00:00:00+00:00",
+        ))
+        artifact = {"corpus_horizon": {"snapshot_revid": 300}}
+
+        unstable = trust.resolve_artifact_trust(self.con, "A", artifact, "l1-confirmation")
+
+        self.assertEqual(unstable["status"], "unstable")
+        self.con.execute("DELETE FROM endpoint_receipts WHERE article='A'")
+        self.con.execute("INSERT INTO endpoint_receipts VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", (
+            "A", "current_stable", 300, 300, "2026-08-01", "2026-07-01T00:00:00Z",
+            2678400, None, "stable", "[]", provenance.STABLE_ENDPOINT_POLICY,
+            "2026-08-01T00:00:00+00:00",
+        ))
+        self.con.execute("INSERT INTO snapshot_integrity VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", (
+            "A", "2026-08-01", 300, "quarantined", 1, 1, 1000, 0.0, None, None,
+            None, None, "invalid", provenance.SNAPSHOT_INTEGRITY_POLICY,
+            "2026-08-01T00:00:00+00:00",
+        ))
+
+        quarantined = trust.resolve_artifact_trust(
+            self.con, "A", artifact, "l1-confirmation"
+        )
+
+        self.assertEqual(quarantined["status"], "quarantined")
+        self.assertIn("300", quarantined["reason"])
+
+    def test_publication_trust_allows_suspect_but_withholds_missing_integrity_receipt(self):
+        self.con.execute("INSERT INTO endpoint_receipts VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", (
+            "A", "current_stable", 300, 300, "2026-08-01", "2026-07-01T00:00:00Z",
+            2678400, None, "stable", "[]", provenance.STABLE_ENDPOINT_POLICY,
+            "2026-08-01T00:00:00+00:00",
+        ))
+        artifact = {"corpus_horizon": {"snapshot_revid": 300}}
+
+        missing = trust.resolve_artifact_trust(self.con, "A", artifact, "l1-confirmation")
+        self.con.execute("INSERT INTO snapshot_integrity VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", (
+            "A", "2026-08-01", 300, "suspect", 10, 10, 1000, 0.0, 0.2, 0.2,
+            1.0, 1.0, "calibration anomaly", provenance.SNAPSHOT_INTEGRITY_POLICY,
+            "2026-08-01T00:00:00+00:00",
+        ))
+        suspect = trust.resolve_artifact_trust(self.con, "A", artifact, "l1-confirmation")
+
+        self.assertEqual(missing["status"], "legacy_incompatible")
+        self.assertEqual(suspect["status"], "published")
+
+    def test_integrity_receipts_persist_metrics_and_filter_quarantine(self):
+        snapshots = [
+            ("A", "2024-01-01", 100, range(1, 11)),
+            ("A", "2024-07-01", 200, [1, 1]),
+            ("A", "2025-01-01", 300, range(1, 11)),
+        ]
+        for article, snap_date, snap_rev, token_ids in snapshots:
+            self.con.executemany(
+                "INSERT INTO rsnap VALUES (?,?,?,?,?)",
+                [(article, snap_date, snap_rev, token_id, 1) for token_id in token_ids],
+            )
+            self.con.execute("INSERT INTO rev_size VALUES (?,?,?)", (article, snap_rev, 1000))
+
+        receipts = provenance.refresh_snapshot_integrity(self.con, "A")
+
+        self.assertEqual([receipt["status"] for receipt in receipts], [
+            "complete", "quarantined", "complete",
+        ])
+        self.assertEqual(receipts[1]["duplicate_rate"], 0.5)
+        self.assertEqual(Corpus(self.con).snapshots("A"), [
+            ("2024-01-01", 100), ("2025-01-01", 300),
+        ])
+        self.assertEqual(Corpus(self.con).snapshot_count("A"), 2)
+
+    def test_integrity_audit_marks_quarantined_article_source_partial(self):
+        self.con.executemany("INSERT INTO rsnap VALUES (?,?,?,?,?)", [
+            ("A", "2024-01-01", 100, 1, 1),
+            ("A", "2024-01-01", 100, 1, 1),
+        ])
+        self.con.execute("INSERT INTO rev_size VALUES (?,?,?)", ("A", 100, 1000))
+        provenance.record_source_state(
+            self.con,
+            "A",
+            source_status="current_complete",
+            expected_snapshots=1,
+            loaded_snapshots=1,
+        )
+
+        report = provenance.audit_snapshot_integrity(self.con, ["A"], persist=True)
+
+        self.assertEqual(report["totals"]["quarantined"], 1)
+        self.assertEqual(report["articles"][0]["status"], "quarantined")
+        source_state = provenance.load_source_state(self.con, "A")
+        self.assertEqual(source_state["source_status"], "partial")
+        self.assertIn("failed integrity checks", source_state["reason"])
+
+    def test_integrity_audit_is_report_only_by_default(self):
+        self.con.execute(
+            "INSERT INTO rsnap VALUES (?,?,?,?,?)", ("A", "2024-01-01", 100, 1, 1)
+        )
+        self.con.execute("INSERT INTO rev_size VALUES (?,?,?)", ("A", 100, 1000))
+
+        report = provenance.audit_snapshot_integrity(self.con, ["A"])
+
+        self.assertEqual(report["totals"]["complete"], 1)
+        self.assertEqual(
+            self.con.execute("SELECT count(*) FROM snapshot_integrity").fetchone()[0], 0
+        )
+        self.assertIsNone(provenance.load_source_state(self.con, "A"))
+
+    def test_audit_snapshots_cli_dispatches_integrity_audit(self):
+        report = {
+            "article_count": 1,
+            "totals": {"complete": 1, "suspect": 0, "quarantined": 0},
+            "articles": [],
+        }
+        connection = mock.MagicMock()
+        with mock.patch.object(cli.duckdb, "connect", return_value=connection), \
+             mock.patch.object(provenance, "audit_snapshot_integrity", return_value=report) as audit:
+            cli.main(["audit-snapshots", "A"])
+
+        audit.assert_called_once_with(connection, ["A"], persist=False)
+        connection.close.assert_called_once_with()
 
     def test_retry_exhaustion_persists_unavailable_source(self):
         resolved = provenance.ResolvedArticle("A", "A", 1)

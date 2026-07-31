@@ -89,6 +89,11 @@ class FindingsDiscovery(unittest.TestCase):
             from wikidrift import provenance
             provenance.ensure_schema(con)
             con.execute("INSERT INTO rsnap VALUES (?,?,?,?,?)", ("Stale Topic", "2026-01-01", 901, 1, 100))
+            con.execute("INSERT INTO endpoint_receipts VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", (
+                "Stale Topic", "current_stable", 901, 901, "2026-01-01",
+                "2026-01-01T00:00:00Z", 172800, None, "stable", "[]",
+                provenance.STABLE_ENDPOINT_POLICY, "2026-01-03T00:00:00+00:00",
+            ))
             con.close()
             (findings_dir / "Stale_Topic.l1-confirmation.json").write_text(json.dumps({
                 "article": "Stale Topic",
@@ -111,7 +116,7 @@ class FindingsDiscovery(unittest.TestCase):
         self.assertIn("Rewrite analysis needs refresh", rendered)
         self.assertNotIn("confirmed rewrite episode", rendered)
 
-    def test_article_shard_l1_confirmation_adds_analyzed_article(self):
+    def test_unreceipted_shard_confirmation_is_withheld(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             data_dir = pathlib.Path(temp_dir)
             findings_dir = data_dir / "articles" / "Analyzed_Topic" / "findings"
@@ -126,8 +131,31 @@ class FindingsDiscovery(unittest.TestCase):
                     mock.patch.object(build, "DATA", data_dir / "viewer-data"):
                 findings = build.gather()
 
-            self.assertEqual(findings.articles(), ["Analyzed Topic"])
-            self.assertEqual(findings.confirmations["Analyzed Topic"]["status"], "not_confirmed")
+            self.assertEqual(findings.articles(), [])
+            self.assertEqual(findings.confirmations["Analyzed Topic"]["status"], "unavailable")
+            self.assertEqual(findings.confirmations["Analyzed Topic"]["trust_status"],
+                             "legacy_incompatible")
+            self.assertEqual(len(findings.trust_report["withheld"]), 1)
+
+    def test_trust_report_counts_and_explains_withheld_artifacts(self):
+        report = {
+            "published": [{"status": "published"}],
+            "withheld": [{
+                "article": "Analyzed Topic",
+                "artifact_kind": "stance",
+                "path": "Analyzed_Topic.stance.json",
+                "status": "legacy_incompatible",
+                "reason": "stance artifact lacks revision evidence",
+            }],
+        }
+
+        payload = build.trust_report_payload(report)
+        page = build.trust_report_page(report)
+
+        self.assertEqual(payload["counts"]["published"], 1)
+        self.assertEqual(payload["counts"]["withheld"], 1)
+        self.assertEqual(payload["counts"]["legacy_incompatible"], 1)
+        self.assertIn("stance artifact lacks revision evidence", page)
 
     def test_unavailable_shard_does_not_publish_alias_page(self):
         findings = build.Findings(confirmations={
@@ -144,13 +172,38 @@ class FindingsDiscovery(unittest.TestCase):
             legacy_dir.mkdir(parents=True)
             shard_dir.mkdir(parents=True)
             (legacy_dir / "Analyzed_Topic.lexical.json").write_text(
-                json.dumps({"article": "Analyzed Topic", "js_divergence": 0.1}),
+                json.dumps({
+                    "article": "Analyzed Topic", "js_divergence": 0.1,
+                    "interval_source": "snapshot_endpoints",
+                    "before": {"rev": 100}, "after": {"rev": 200},
+                }),
                 encoding="utf-8",
             )
             (shard_dir / "Analyzed_Topic.lexical.json").write_text(
-                json.dumps({"article": "Analyzed Topic", "js_divergence": 0.4}),
+                json.dumps({
+                    "article": "Analyzed Topic", "js_divergence": 0.4,
+                    "interval_source": "snapshot_endpoints",
+                    "before": {"rev": 100}, "after": {"rev": 200},
+                }),
                 encoding="utf-8",
             )
+            from wikidrift import provenance
+            con = build.duckdb.connect(str(shard_dir.parent / "provenance.duckdb"))
+            provenance.ensure_schema(con)
+            con.execute("INSERT INTO endpoint_receipts VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", (
+                "Analyzed Topic", "current_stable", 200, 200, "2026-01-01",
+                "2026-01-01T00:00:00Z", 172800, None, "stable", "[]",
+                provenance.STABLE_ENDPOINT_POLICY, "2026-01-03T00:00:00+00:00",
+            ))
+            con.executemany("INSERT INTO snapshot_integrity VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", [
+                ("Analyzed Topic", "2025-01-01", 100, "complete", 10, 10, 1000,
+                 0.0, None, None, None, None, None, provenance.SNAPSHOT_INTEGRITY_POLICY,
+                 "2026-01-03T00:00:00+00:00"),
+                ("Analyzed Topic", "2026-01-01", 200, "complete", 10, 10, 1000,
+                 0.0, None, None, None, None, None, provenance.SNAPSHOT_INTEGRITY_POLICY,
+                 "2026-01-03T00:00:00+00:00"),
+            ])
+            con.close()
 
             with mock.patch.object(build, "FIND", legacy_dir), \
                     mock.patch.object(build, "ARTICLES", data_dir / "articles"), \

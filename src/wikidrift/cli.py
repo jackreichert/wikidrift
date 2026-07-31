@@ -21,6 +21,7 @@ OpenAI-compatible endpoint (OpenRouter/Together/Groq/DeepSeek; local Ollama/LM S
 provider's env var (ANTHROPIC_API_KEY/OPENAI_API_KEY/GOOGLE_API_KEY) or WIKIDRIFT_LLM_API_KEY; env equivalents
 WIKIDRIFT_LLM_PROVIDER/_MODEL/_BASE_URL.
 """
+import json
 import sys
 import argparse
 import pathlib
@@ -29,6 +30,7 @@ from urllib.parse import urlparse, parse_qs, unquote
 import duckdb
 
 from . import (config, drift, prerank, benchmark, stance, l5_crosslingual, l5_factcheck,  # noqa: F401
+               provenance,
                mscore, ingest, pipeline, l4, l5_sources, lexical, bootstrap, shards)
 from .corpus import Corpus
 
@@ -139,6 +141,18 @@ def main(argv=None):
     sp.add_argument("articles", nargs="+")
     sp.add_argument("--force", action="store_true", help="re-ingest via local even if snapshots exist")
 
+    sp = sub.add_parser("audit-snapshots", help="offline semantic-integrity audit of loaded snapshots")
+    sp.add_argument("articles", nargs="*", help="articles to audit (default: all loaded articles)")
+    sp.add_argument("--json", action="store_true")
+    sp.add_argument("--write", action="store_true",
+                    help="persist receipts and quarantine source state (default: report only)")
+
+    sp = sub.add_parser("audit-endpoints", help="offline stable-current-endpoint audit")
+    sp.add_argument("articles", nargs="*", help="articles to audit (default: all loaded articles)")
+    sp.add_argument("--json", action="store_true")
+    sp.add_argument("--write", action="store_true",
+                    help="persist endpoint receipts (default: report only)")
+
     sp = sub.add_parser("pipeline", help="L1→router→(L2/L5) orchestration for one article")
     sp.add_argument("article")
     sp.add_argument("--llm", action="store_true", help="run L2 stance on routed leads (needs an LLM key)")
@@ -239,6 +253,45 @@ def main(argv=None):
                                      "Photosynthesis", "Climate change"], force=args.force)
     elif args.cmd == "ingest":
         ingest.ingest_articles(args.articles, force=args.force)
+    elif args.cmd == "audit-snapshots":
+        con = duckdb.connect(str(config.DB), read_only=not args.write)
+        try:
+            report = provenance.audit_snapshot_integrity(
+                con, args.articles or None, persist=args.write
+            )
+        finally:
+            con.close()
+        if args.json:
+            print(json.dumps(report, indent=2, sort_keys=True))
+        else:
+            totals = report["totals"]
+            print(
+                f"snapshot integrity: {report['article_count']} article(s), "
+                f"{totals['complete']} complete, {totals['suspect']} suspect, "
+                f"{totals['quarantined']} quarantined"
+            )
+            for article in report["articles"]:
+                if article["status"] != "complete":
+                    print(f"  {article['status'].upper():<11} {article['article']}: {article['counts']}")
+    elif args.cmd == "audit-endpoints":
+        con = duckdb.connect(str(config.DB), read_only=not args.write)
+        try:
+            report = provenance.audit_stable_endpoints(
+                con, args.articles or None, persist=args.write
+            )
+        finally:
+            con.close()
+        if args.json:
+            print(json.dumps(report, indent=2, sort_keys=True))
+        else:
+            totals = report["totals"]
+            print(
+                f"stable endpoints: {report['article_count']} article(s), "
+                f"{totals['stable']} stable, {totals['unstable']} unstable"
+            )
+            for article in report["articles"]:
+                if article["status"] == "unstable":
+                    print(f"  UNSTABLE    {article['article']}")
     elif args.cmd == "pipeline":
         pipeline.run(_normalize_article_arg(args.article), llm=args.llm, corroborate=args.mscore,
                      framing=args.framing, provider=args.provider, model=args.model, base_url=args.base_url)
