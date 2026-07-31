@@ -6,6 +6,7 @@
   wikidrift prerank ["Zionism" ...]    # metadata pre-ranker (offline)
   wikidrift benchmark [--json]         # score the adjudicated roster
     wikidrift calibrate-concentration ARTICLES_DIR [--json]  # raw exact-event feature report (offline)
+    wikidrift confirmed-graph ARTICLES_DIR [--json]  # fresh exact cross-article graph (offline)
   wikidrift stance "Nakba" [--entities a,b,c] [--max-snaps N]   # L2 stance classifier (needs an LLM key)
     wikidrift crosslingual "Zionism" [--langs en,he,ar] [--no-pivot]  # cross-language stance (needs key)
   wikidrift factcheck "Warsaw concentration camp" [--langs ..] [--asof 2018-06-01]  # L5 #2 fact divergence (needs key)
@@ -153,7 +154,11 @@ def main(argv=None):
     sp.add_argument("--recategorize", action="store_true", help="force re-run of the LLM category classification")
     add_llm_flags(sp)
 
-    sp = sub.add_parser("discover", help="L4 graph-guided discovery: seed → removal footprint → L1 re-test")
+    sp = sub.add_parser("confirmed-graph", help="L4 offline graph from fresh exact attribution in article shards")
+    sp.add_argument("articles_dir", type=pathlib.Path)
+    sp.add_argument("--json", action="store_true")
+
+    sp = sub.add_parser("discover", help="L4 graph-guided discovery: exact seed → footprint → exact L1 retest")
     sp.add_argument("article", nargs="?", default="Zionism", help="seed article (default: Zionism)")
     sp.add_argument("--top-n", type=int, default=l4.SEED_TOP_N,
                     help="seed from the top-N editors attributed with established-token removals")
@@ -244,6 +249,8 @@ def main(argv=None):
         l5_framing_lite.framing_lite(article, pivot_window=pivot_window,
                                      recategorize=args.recategorize,
                                      provider=args.provider, model=args.model, base_url=args.base_url)
+    elif args.cmd == "confirmed-graph":
+        l4.run_confirmed_graph(args.articles_dir, as_json=args.json)
     elif args.cmd == "discover":
         l4.discover(_normalize_article_arg(args.article), top_n=args.top_n, limit=args.limit)
     elif args.cmd == "sources":

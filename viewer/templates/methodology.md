@@ -233,21 +233,22 @@ edit war. M-score is context for a content finding, not a content finding itself
 
 ## L4: using a finding to discover other candidates
 
-L4 uses the top coarse L1 candidate episode as a starting point for finding other articles worth
-testing. It does not extend the seed article's result to other pages.
+L4 uses fresh structured attribution from an exact confirmed L1 event as a starting point for finding
+other articles worth testing. It does not extend the seed article's result to other pages.
 
 The process is:
 
-1. Take leading non-bot, non-anonymous accounts associated with durable-text removal in the seed
-   article's main L1 episode.
+1. Take leading named, non-bot accounts associated with removals in the seed article's exact confirmed
+  event. Anonymous IPs and hidden names do not become graph nodes.
 2. Examine their recent public contributions to other main-namespace articles.
 3. Keep articles where those accounts made substantial aggregate deletions.
 4. Rank candidates by shared accounts and bytes removed.
-5. Build each candidate's own history and run an independent L1 analysis.
+5. Build each candidate's own history and run full independent L1 confirmation.
 
 Editor overlap chooses where to look. It does not decide the result. L4 promotes a candidate to a
-retrofit lead only when that article's own history produces the required L1 signal and shows at least
-two years of prior history. It retains the other retest results as negative or insufficient evidence.
+retrofit lead only when that article's own history reaches exact confirmation and shows at least two
+years of prior history. A coarse candidate is not sufficient. L4 retains rejected and unavailable
+retest results as negative or insufficient evidence.
 A large change earlier in a young article is treated as a framing question rather than a retrofit.
 
 ## L5: comparisons outside the English article's timeline

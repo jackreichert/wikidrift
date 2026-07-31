@@ -99,6 +99,23 @@ editor-share measure. Those values are valid exact-pair receipts but cannot dist
 distributed rewrite activity; calibration remains blocked until a separately justified multi-revision event
 window is defined and its rewrite classes are adjudicated.
 
+### Confirmed cross-article discovery
+
+L4 builds an offline graph only from fresh confirmation artifacts whose threshold contract and corpus horizon
+match their article-owned shard. Its nodes are literal public account names from structured exact-event removal
+attribution; bots, anonymous IPs, and hidden names are excluded, and accounts are never merged or inferred to
+share an identity. The graph ranks repeated article breadth, confirmed-event count, and raw removed-token count:
+
+```text
+wikidrift confirmed-graph .planning/spikes/data/articles --json
+```
+
+This graph is a search prior, not a finding. The network-backed `discover` command may use an eligible editor's
+public removal footprint to select additional articles, but each candidate must independently complete full L1
+analysis and reach exact `confirmed` status before appearing in a rewrite-lead list. A coarse `PIVOT?`, graph
+membership, or shared account can never promote an article. Exact confirmation establishes durable content
+change only; it does not establish bias, motive, policy violation, or coordination.
+
 ## 5. The conjunction — so a finding stays a "smoking gun"
 
 Change alone ≠ bias. A defensible L1 finding is a **stack**, not any single factor:

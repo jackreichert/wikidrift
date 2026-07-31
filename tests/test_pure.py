@@ -524,6 +524,165 @@ class ReadGap(unittest.TestCase):
 
 
 class L4Discovery(unittest.TestCase):
+    def _confirmation(self, article="Example", editor="Editor A", snapshot_revid=900):
+        return {
+            "article": article,
+            "status": "confirmed",
+            "thresholds": config.confirmation_thresholds(),
+            "corpus_horizon": {"snapshot_date": "2026-01-01", "snapshot_revid": snapshot_revid},
+            "confirmed_episodes": [{
+                "before_revid": 100,
+                "before_timestamp": "2025-01-01T00:00:00Z",
+                "after_revid": 101,
+                "after_timestamp": "2025-01-01T00:10:00Z",
+                "candidate_start": "2024-01-01",
+                "durable_spine_drop": 0.6,
+                "pwr_mass": 100_000,
+                "attribution": {
+                    "removed_tokens": 10,
+                    "replacement_tokens": 4,
+                    "removals_by_editor": [{"editor": editor, "tokens": 10}],
+                    "replacement_by_editor": [{"editor": editor, "tokens": 4}],
+                },
+            }],
+        }
+
+    def test_seed_uses_fresh_exact_attribution(self):
+        editors, metadata = l4.seed_removing_editors(
+            self._confirmation(), ("2026-01-01", 900), top_n=4,
+        )
+
+        self.assertEqual(editors, [("Editor A", 10)])
+        self.assertEqual(metadata["episode"]["before_revid"], 100)
+        self.assertEqual(metadata["removed_count"], 10)
+
+    def test_seed_rejects_stale_confirmation(self):
+        editors, metadata = l4.seed_removing_editors(
+            self._confirmation(), ("2026-01-01", 901), top_n=4,
+        )
+
+        self.assertEqual(editors, [])
+        self.assertEqual(metadata["reason"], "stale_confirmation")
+
+    def test_seed_rejects_mismatched_attribution_total(self):
+        confirmation = self._confirmation()
+        confirmation["confirmed_episodes"][0]["attribution"]["removed_tokens"] = 11
+
+        editors, metadata = l4.seed_removing_editors(confirmation, ("2026-01-01", 900))
+
+        self.assertEqual(editors, [])
+        self.assertEqual(metadata["reason"], "removal_attribution_mismatch")
+
+    def test_seed_rejects_confirmed_result_without_episodes(self):
+        confirmation = self._confirmation()
+        confirmation["confirmed_episodes"] = []
+
+        editors, metadata = l4.seed_removing_editors(confirmation, ("2026-01-01", 900))
+
+        self.assertEqual(editors, [])
+        self.assertEqual(metadata["reason"], "confirmed_episode_missing")
+
+    def test_seed_selects_highest_mass_exact_episode(self):
+        confirmation = self._confirmation(editor="Lower Mass")
+        higher_mass = self._confirmation(editor="Higher Mass")["confirmed_episodes"][0]
+        higher_mass["pwr_mass"] = 200_000
+        higher_mass["before_revid"] = 200
+        confirmation["confirmed_episodes"].append(higher_mass)
+
+        editors, metadata = l4.seed_removing_editors(confirmation, ("2026-01-01", 900))
+
+        self.assertEqual(editors, [("Higher Mass", 10)])
+        self.assertEqual(metadata["episode"]["before_revid"], 200)
+
+    def test_graph_ranks_literal_editor_by_confirmed_article_breadth(self):
+        first = self._confirmation(article="First")
+        second = self._confirmation(article="Second")
+        second["confirmed_episodes"][0]["before_revid"] = 200
+        second["confirmed_episodes"][0]["after_revid"] = 201
+        graph = l4.confirmed_event_graph([
+            (first, ("2026-01-01", 900)),
+            (second, ("2026-01-01", 900)),
+        ])
+
+        self.assertEqual(graph["exclusions"], [])
+        self.assertEqual(graph["events"][0]["article"], "First")
+        self.assertEqual(graph["editors"][0]["editor"], "Editor A")
+        self.assertEqual(graph["editors"][0]["article_count"], 2)
+        self.assertEqual(graph["editors"][0]["event_count"], 2)
+        self.assertEqual(graph["editors"][0]["removed_tokens"], 20)
+
+    def test_graph_excludes_stale_and_bot_attribution(self):
+        stale = self._confirmation(article="Stale")
+        bot = self._confirmation(article="Bot Event", editor="ExampleBot")
+        hidden = self._confirmation(article="Hidden Event", editor="<hidden>")
+        graph = l4.confirmed_event_graph([
+            (stale, ("2026-01-01", 901)),
+            (bot, ("2026-01-01", 900)),
+            (hidden, ("2026-01-01", 900)),
+        ])
+
+        self.assertEqual(graph["editors"], [])
+        self.assertTrue(all(not event["eligible_removing_editors"] for event in graph["events"]))
+        self.assertEqual(graph["exclusions"][0]["reason"], "stale_confirmation")
+
+    def test_classify_requires_exact_confirmation(self):
+        confirmed = {
+            "status": "confirmed",
+            "confirmed_episodes": [{"pwr_mass": 100_000}],
+            "age_at_pivot": l4.MATURE_PRIOR_YEARS + 1,
+        }
+        rejected = {"status": "not_confirmed", "coarse_verdict": "PIVOT?"}
+
+        self.assertEqual(l4._classify(confirmed), "confirmed-retrofit-lead")
+        self.assertEqual(l4._classify(rejected), "not_confirmed")
+
+    def test_classify_demotes_confirmed_low_mass_event(self):
+        result = {
+            "status": "confirmed",
+            "confirmed_episodes": [{"pwr_mass": l4.MASS_FLOOR - 1}],
+            "age_at_pivot": l4.MATURE_PRIOR_YEARS + 1,
+        }
+
+        self.assertEqual(l4._classify(result), "confirmed-low-mass")
+
+    def test_retest_runs_full_exact_analysis_and_measures_stable_prior(self):
+        exact_result = self._confirmation(article="Candidate")
+        with patch.object(l4.drift, "analyze", return_value=exact_result) as analyze, \
+             patch.object(l4, "Corpus") as corpus_type:
+            corpus_type.return_value.first_revision_ts.return_value = "2010-01-01T00:00:00Z"
+
+            results = l4.retest(object(), ["Candidate"])
+
+        analyze.assert_called_once_with("Candidate", con=unittest.mock.ANY, persist=False)
+        self.assertEqual(results[0]["status"], "confirmed")
+        self.assertGreater(results[0]["age_at_pivot"], l4.MATURE_PRIOR_YEARS)
+
+    def test_findings_lists_only_independently_confirmed_rewrite_leads(self):
+        confirmation = self._confirmation()
+        episode = confirmation["confirmed_episodes"][0]
+        confirmed = {**confirmation, "age_at_pivot": 10.0}
+        rejected = {"article": "Rejected", "status": "not_confirmed"}
+        classifications = {
+            "Example": "confirmed-retrofit-lead",
+            "Rejected": "not_confirmed",
+        }
+
+        findings = l4._build_findings(
+            "Example", 4, 12, episode, {"removed_count": 10}, [("Editor A", 10)], [],
+            [confirmed, rejected], classifications, [confirmed], [],
+        )
+
+        self.assertEqual(findings["confirmed_rewrite_leads"], ["Example"])
+        self.assertEqual(findings["retrofit_leads"], ["Example"])
+        self.assertNotIn("Rejected", findings["confirmed_rewrite_leads"])
+        self.assertEqual(findings["semantic_role"], "search_prior")
+
+    def test_cli_dispatches_offline_confirmed_graph(self):
+        with patch.object(l4, "run_confirmed_graph") as run_confirmed_graph:
+            cli.main(["confirmed-graph", "/tmp/article-shards", "--json"])
+
+        run_confirmed_graph.assert_called_once_with(pathlib.Path("/tmp/article-shards"), as_json=True)
+
     def test_norm_treats_underscores_as_spaces(self):
         self.assertEqual(l4._norm("Bar_Kokhba_Revolt"), "Bar Kokhba Revolt")
         self.assertEqual(l4._norm("  Palestine  "), "Palestine")
@@ -548,26 +707,24 @@ class L4Discovery(unittest.TestCase):
         out = l4._jsonable({"editors": {"b", "a"}, "n": 1, "nested": [{"s": {"x"}}]})
         self.assertEqual(out, {"editors": ["a", "b"], "n": 1, "nested": [{"s": ["x"]}]})
 
-    # _classify — the honesty gate: retrofit-lead vs born-in-contested vs demoted vs healthy.
-    def test_classify_retrofit_lead(self):
-        r = {"verdict": "PIVOT?", "top_mass": l4.MASS_FLOOR + 1, "age_at_pivot": l4.MATURE_PRIOR_YEARS + 1}
-        self.assertEqual(l4._classify(r), "retrofit-lead")
+    # _classify — exact confirmation is mandatory before a graph-surfaced rewrite lead can exist.
+    def test_classify_confirmed_retrofit_lead(self):
+        r = {"status": "confirmed", "confirmed_episodes": [{"pwr_mass": l4.MASS_FLOOR + 1}],
+             "age_at_pivot": l4.MATURE_PRIOR_YEARS + 1}
+        self.assertEqual(l4._classify(r), "confirmed-retrofit-lead")
 
-    def test_classify_born_in_contested_when_prior_too_young(self):
-        r = {"verdict": "PIVOT?", "top_mass": l4.MASS_FLOOR + 1, "age_at_pivot": l4.MATURE_PRIOR_YEARS - 1}
-        self.assertEqual(l4._classify(r), "born-in-contested")
+    def test_classify_confirmed_born_in_contested_when_prior_too_young(self):
+        r = {"status": "confirmed", "confirmed_episodes": [{"pwr_mass": l4.MASS_FLOOR + 1}],
+             "age_at_pivot": l4.MATURE_PRIOR_YEARS - 1}
+        self.assertEqual(l4._classify(r), "confirmed-born-in-contested")
 
-    def test_classify_demoted_when_below_mass_floor(self):
-        r = {"verdict": "PIVOT?", "top_mass": l4.MASS_FLOOR - 1, "age_at_pivot": 99}
-        self.assertEqual(l4._classify(r), "demoted")
+    def test_classify_missing_age_remains_unknown(self):
+        result = {"status": "confirmed", "confirmed_episodes": [{"pwr_mass": l4.MASS_FLOOR + 1}]}
+        self.assertEqual(l4._classify(result), "confirmed-age-unknown")
 
-    def test_classify_missing_age_defaults_to_born_in_contested(self):
-        # a PIVOT? over the mass floor but with no measured prior ⇒ conservative (not a retrofit claim)
-        self.assertEqual(l4._classify({"verdict": "PIVOT?", "top_mass": l4.MASS_FLOOR + 1}), "born-in-contested")
-
-    def test_classify_non_pivot_verdicts(self):
-        self.assertEqual(l4._classify({"verdict": "HEALTHY"}), "healthy")
-        self.assertEqual(l4._classify({"verdict": "INSUFFICIENT"}), "insufficient")
+    def test_classify_non_confirmed_results(self):
+        self.assertEqual(l4._classify({"status": "not_confirmed"}), "not_confirmed")
+        self.assertEqual(l4._classify({"status": "unavailable"}), "unavailable")
 
 
 class DriftEpisodes(unittest.TestCase):

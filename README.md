@@ -80,7 +80,8 @@ uv run wikidrift benchmark                     # score the adjudicated roster (o
 uv run wikidrift validate                      # offline PWR candidate verdicts (no WikiWho)
 uv run wikidrift profile "Brontosaurus"        # descriptive L1 profile: recency + editor concentration (offline)
 uv run wikidrift analyze "Climate change"      # full L1: interval/rolling candidates → confirm → attribution
-uv run wikidrift discover "Nakba"              # L4: seed → removal footprint → independent L1 re-test
+uv run wikidrift confirmed-graph .planning/spikes/data/articles  # L4: fresh exact cross-shard graph (offline)
+uv run wikidrift discover "Nakba"              # L4: exact seed → footprint → independent exact L1 confirmation
 uv run wikidrift sources "Palestine"           # L5 #3b: citation-source change (from → to across the pivot)
 uv run wikidrift stance "Abortion"             # L2 framing/stance over time            (needs an LLM key)
 uv run wikidrift framing "Gaza war"            # L5 Lite: prefers fresh confirmed L1 pair (LLM key)

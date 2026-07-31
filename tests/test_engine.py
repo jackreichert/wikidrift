@@ -11,7 +11,7 @@ from unittest import mock
 
 import duckdb
 
-from wikidrift import benchmark, config, provenance, drift, prerank
+from wikidrift import benchmark, config, provenance, drift, l4, prerank
 
 
 class ArticleTitleResolution(unittest.TestCase):
@@ -368,6 +368,81 @@ class ConcentrationCalibrationReport(unittest.TestCase):
         self.assertEqual(report["summary"]["event_count"], 1)
         self.assertFalse(report["calibration_ready"])
         self.assertFalse(report["labels_enabled"])
+
+
+class ConfirmedEventGraphReport(unittest.TestCase):
+    def test_excludes_invalid_artifacts_and_unavailable_corpora(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            invalid_dir = pathlib.Path(temp_dir) / "Invalid" / "findings"
+            invalid_dir.mkdir(parents=True)
+            (invalid_dir / "Invalid.l1-confirmation.json").write_text("{", encoding="utf-8")
+
+            missing_dir = pathlib.Path(temp_dir) / "Missing" / "findings"
+            missing_dir.mkdir(parents=True)
+            (missing_dir / "Missing.l1-confirmation.json").write_text(
+                json.dumps({"article": "Missing", "status": "confirmed"}), encoding="utf-8",
+            )
+
+            corrupt_dir = pathlib.Path(temp_dir) / "Corrupt"
+            corrupt_findings = corrupt_dir / "findings"
+            corrupt_findings.mkdir(parents=True)
+            (corrupt_findings / "Corrupt.l1-confirmation.json").write_text(
+                json.dumps({"article": "Corrupt", "status": "confirmed"}), encoding="utf-8",
+            )
+            (corrupt_dir / "provenance.duckdb").write_text("not a database", encoding="utf-8")
+
+            report = l4.confirmed_event_graph_report(temp_dir)
+
+        self.assertEqual(report["events"], [])
+        self.assertEqual(
+            {exclusion["reason"].split(":", 1)[0] for exclusion in report["exclusions"]},
+            {"invalid_artifact", "corpus_missing", "corpus_unavailable"},
+        )
+
+    def test_reads_fresh_confirmations_from_article_owned_shards(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            for article, slug in (("First", "First"), ("Second", "Second")):
+                article_dir = pathlib.Path(temp_dir) / slug
+                findings_dir = article_dir / "findings"
+                findings_dir.mkdir(parents=True)
+                con = duckdb.connect(str(article_dir / "provenance.duckdb"))
+                provenance.ensure_schema(con)
+                con.execute("INSERT INTO rsnap VALUES (?,?,?,?,?)", (article, "2026-01-01", 900, 1, 100))
+                con.close()
+                confirmation = {
+                    "article": article,
+                    "status": "confirmed",
+                    "thresholds": config.confirmation_thresholds(),
+                    "corpus_horizon": {"snapshot_date": "2026-01-01", "snapshot_revid": 900},
+                    "confirmed_episodes": [{
+                        "before_revid": 100,
+                        "before_timestamp": "2025-01-01T00:00:00Z",
+                        "after_revid": 101,
+                        "after_timestamp": "2025-01-01T00:10:00Z",
+                        "durable_spine_drop": 0.6,
+                        "pwr_mass": 100_000,
+                        "attribution": {
+                            "removed_tokens": 10,
+                            "replacement_tokens": 0,
+                            "removals_by_editor": [{"editor": "Shared Editor", "tokens": 10}],
+                            "replacement_by_editor": [],
+                        },
+                    }],
+                }
+                artifact = findings_dir / f"{slug}.l1-confirmation.json"
+                artifact.write_text(json.dumps(confirmation), encoding="utf-8")
+
+            report = l4.confirmed_event_graph_report(temp_dir)
+            l4.run_confirmed_graph(temp_dir)
+            graph_artifact_exists = (
+                pathlib.Path(temp_dir) / "_shared" / "findings" / "l4_confirmed_graph.json"
+            ).is_file()
+
+        self.assertEqual(len(report["events"]), 2)
+        self.assertEqual(report["editors"][0]["editor"], "Shared Editor")
+        self.assertEqual(report["editors"][0]["article_count"], 2)
+        self.assertEqual(report["exclusions"], [])
+        self.assertTrue(graph_artifact_exists)
 
 
 class RefineBinarySearch(unittest.TestCase):

@@ -1,0 +1,567 @@
+{
+  "events": [
+    {
+      "article": "Abortion",
+      "before_revid": 165610354,
+      "after_revid": 165611394,
+      "after_timestamp": "2007-10-19T11:57:42Z",
+      "durable_spine_drop": 0.53331,
+      "pwr_mass": 18988,
+      "eligible_removing_editors": []
+    },
+    {
+      "article": "Abortion",
+      "before_revid": 353634984,
+      "after_revid": 353637033,
+      "after_timestamp": "2010-04-02T23:49:39Z",
+      "durable_spine_drop": 0.642327,
+      "pwr_mass": 46141,
+      "eligible_removing_editors": []
+    },
+    {
+      "article": "Ainu people",
+      "before_revid": 1221801648,
+      "after_revid": 1221809882,
+      "after_timestamp": "2024-05-02T02:52:27Z",
+      "durable_spine_drop": 0.317842,
+      "pwr_mass": 170246,
+      "eligible_removing_editors": [
+        "Eievie"
+      ]
+    },
+    {
+      "article": "Anti-Zionism",
+      "before_revid": 1094082453,
+      "after_revid": 1094083062,
+      "after_timestamp": "2022-06-20T17:03:39Z",
+      "durable_spine_drop": 0.738419,
+      "pwr_mass": 278907,
+      "eligible_removing_editors": [
+        "Nableezy"
+      ]
+    },
+    {
+      "article": "Bar Kokhba Revolt",
+      "before_revid": 1300661489,
+      "after_revid": 1300666578,
+      "after_timestamp": "2025-07-15T18:22:34Z",
+      "durable_spine_drop": 0.876579,
+      "pwr_mass": 311631,
+      "eligible_removing_editors": [
+        "Mariamnei"
+      ]
+    },
+    {
+      "article": "Capitalism",
+      "before_revid": 60614567,
+      "after_revid": 60618403,
+      "after_timestamp": "2006-06-26T07:16:34Z",
+      "durable_spine_drop": 0.963999,
+      "pwr_mass": 22597,
+      "eligible_removing_editors": [
+        "172"
+      ]
+    },
+    {
+      "article": "Capitalism",
+      "before_revid": 195572556,
+      "after_revid": 195604092,
+      "after_timestamp": "2008-03-03T18:39:21Z",
+      "durable_spine_drop": 0.79045,
+      "pwr_mass": 22009,
+      "eligible_removing_editors": []
+    },
+    {
+      "article": "Democratic Party (United States)",
+      "before_revid": 122338208,
+      "after_revid": 122346077,
+      "after_timestamp": "2007-04-12T22:45:01Z",
+      "durable_spine_drop": 0.798041,
+      "pwr_mass": 28810,
+      "eligible_removing_editors": [
+        "Settler"
+      ]
+    },
+    {
+      "article": "Democratic Party (United States)",
+      "before_revid": 1184243041,
+      "after_revid": 1184839521,
+      "after_timestamp": "2023-11-12T23:30:48Z",
+      "durable_spine_drop": 0.294443,
+      "pwr_mass": 211296,
+      "eligible_removing_editors": [
+        "KlayCax"
+      ]
+    },
+    {
+      "article": "Democratic Socialists of America",
+      "before_revid": 951975376,
+      "after_revid": 951977396,
+      "after_timestamp": "2020-04-19T23:12:16Z",
+      "durable_spine_drop": 0.340969,
+      "pwr_mass": 53292,
+      "eligible_removing_editors": [
+        "Wikieditor19920"
+      ]
+    },
+    {
+      "article": "Democratic Socialists of America",
+      "before_revid": 1221073215,
+      "after_revid": 1221188190,
+      "after_timestamp": "2024-04-28T11:42:11Z",
+      "durable_spine_drop": 0.462529,
+      "pwr_mass": 75322,
+      "eligible_removing_editors": [
+        "Isaidnoway"
+      ]
+    },
+    {
+      "article": "Democratic Socialists of America",
+      "before_revid": 1321624877,
+      "after_revid": 1321630141,
+      "after_timestamp": "2025-11-11T18:17:24Z",
+      "durable_spine_drop": 0.874827,
+      "pwr_mass": 204057,
+      "eligible_removing_editors": [
+        "Goszei"
+      ]
+    },
+    {
+      "article": "Fascism and ideology",
+      "before_revid": 1358156368,
+      "after_revid": 1358346972,
+      "after_timestamp": "2026-06-08T03:29:46Z",
+      "durable_spine_drop": 0.606833,
+      "pwr_mass": 450944,
+      "eligible_removing_editors": [
+        "AlferedNobel"
+      ]
+    },
+    {
+      "article": "Gaza war",
+      "before_revid": 1192910451,
+      "after_revid": 1192916451,
+      "after_timestamp": "2024-01-01T01:43:00Z",
+      "durable_spine_drop": 0.324408,
+      "pwr_mass": 194861,
+      "eligible_removing_editors": []
+    },
+    {
+      "article": "Palestine",
+      "before_revid": 398030599,
+      "after_revid": 398133907,
+      "after_timestamp": "2010-11-21T22:26:06Z",
+      "durable_spine_drop": 0.382225,
+      "pwr_mass": 28648,
+      "eligible_removing_editors": [
+        "Alinor"
+      ]
+    },
+    {
+      "article": "Palestine",
+      "before_revid": 682622162,
+      "after_revid": 682622387,
+      "after_timestamp": "2015-09-24T22:15:04Z",
+      "durable_spine_drop": 0.728199,
+      "pwr_mass": 238535,
+      "eligible_removing_editors": [
+        "Onceinawhile"
+      ]
+    },
+    {
+      "article": "Republican Party (United States)",
+      "before_revid": 193983043,
+      "after_revid": 194478643,
+      "after_timestamp": "2008-02-27T19:41:44Z",
+      "durable_spine_drop": 0.651762,
+      "pwr_mass": 27900,
+      "eligible_removing_editors": [
+        "Settler"
+      ]
+    },
+    {
+      "article": "Republican Party (United States)",
+      "before_revid": 700687073,
+      "after_revid": 700688825,
+      "after_timestamp": "2016-01-20T00:57:25Z",
+      "durable_spine_drop": 0.282159,
+      "pwr_mass": 56963,
+      "eligible_removing_editors": [
+        "CaseyPenk"
+      ]
+    },
+    {
+      "article": "Republican Party (United States)",
+      "before_revid": 1284886106,
+      "after_revid": 1284887246,
+      "after_timestamp": "2025-04-10T10:08:31Z",
+      "durable_spine_drop": 0.289771,
+      "pwr_mass": 143511,
+      "eligible_removing_editors": [
+        "Tpbradbury"
+      ]
+    },
+    {
+      "article": "Socialism",
+      "before_revid": 1038099235,
+      "after_revid": 1038247004,
+      "after_timestamp": "2021-08-11T11:27:35Z",
+      "durable_spine_drop": 0.588445,
+      "pwr_mass": 191348,
+      "eligible_removing_editors": []
+    },
+    {
+      "article": "UNRWA",
+      "before_revid": 622769287,
+      "after_revid": 622771670,
+      "after_timestamp": "2014-08-25T17:57:57Z",
+      "durable_spine_drop": 0.343122,
+      "pwr_mass": 68811,
+      "eligible_removing_editors": [
+        "Dian Kjaergaard"
+      ]
+    },
+    {
+      "article": "Xi Jinping",
+      "before_revid": 1105511747,
+      "after_revid": 1105516914,
+      "after_timestamp": "2022-08-20T16:42:45Z",
+      "durable_spine_drop": 0.235491,
+      "pwr_mass": 121972,
+      "eligible_removing_editors": [
+        "The Account 2"
+      ]
+    },
+    {
+      "article": "Xi Jinping",
+      "before_revid": 1219212475,
+      "after_revid": 1219223964,
+      "after_timestamp": "2024-04-16T13:15:31Z",
+      "durable_spine_drop": 0.288069,
+      "pwr_mass": 163629,
+      "eligible_removing_editors": [
+        "Tpbradbury"
+      ]
+    },
+    {
+      "article": "Xi Jinping",
+      "before_revid": 1330140042,
+      "after_revid": 1330142648,
+      "after_timestamp": "2025-12-29T18:28:31Z",
+      "durable_spine_drop": 0.271451,
+      "pwr_mass": 218181,
+      "eligible_removing_editors": [
+        "The Account 2"
+      ]
+    }
+  ],
+  "editors": [
+    {
+      "editor": "Tpbradbury",
+      "article_count": 2,
+      "event_count": 2,
+      "removed_tokens": 33042,
+      "articles": [
+        "Republican Party (United States)",
+        "Xi Jinping"
+      ],
+      "events": [
+        "Republican Party (United States):1284886106→1284887246",
+        "Xi Jinping:1219212475→1219223964"
+      ]
+    },
+    {
+      "editor": "Settler",
+      "article_count": 2,
+      "event_count": 2,
+      "removed_tokens": 13969,
+      "articles": [
+        "Democratic Party (United States)",
+        "Republican Party (United States)"
+      ],
+      "events": [
+        "Democratic Party (United States):122338208→122346077",
+        "Republican Party (United States):193983043→194478643"
+      ]
+    },
+    {
+      "editor": "The Account 2",
+      "article_count": 1,
+      "event_count": 2,
+      "removed_tokens": 3096,
+      "articles": [
+        "Xi Jinping"
+      ],
+      "events": [
+        "Xi Jinping:1330140042→1330142648",
+        "Xi Jinping:1105511747→1105516914"
+      ]
+    },
+    {
+      "editor": "Goszei",
+      "article_count": 1,
+      "event_count": 1,
+      "removed_tokens": 24741,
+      "articles": [
+        "Democratic Socialists of America"
+      ],
+      "events": [
+        "Democratic Socialists of America:1321624877→1321630141"
+      ]
+    },
+    {
+      "editor": "AlferedNobel",
+      "article_count": 1,
+      "event_count": 1,
+      "removed_tokens": 24579,
+      "articles": [
+        "Fascism and ideology"
+      ],
+      "events": [
+        "Fascism and ideology:1358156368→1358346972"
+      ]
+    },
+    {
+      "editor": "KlayCax",
+      "article_count": 1,
+      "event_count": 1,
+      "removed_tokens": 19221,
+      "articles": [
+        "Democratic Party (United States)"
+      ],
+      "events": [
+        "Democratic Party (United States):1184243041→1184839521"
+      ]
+    },
+    {
+      "editor": "172",
+      "article_count": 1,
+      "event_count": 1,
+      "removed_tokens": 11242,
+      "articles": [
+        "Capitalism"
+      ],
+      "events": [
+        "Capitalism:60614567→60618403"
+      ]
+    },
+    {
+      "editor": "Alinor",
+      "article_count": 1,
+      "event_count": 1,
+      "removed_tokens": 6955,
+      "articles": [
+        "Palestine"
+      ],
+      "events": [
+        "Palestine:398030599→398133907"
+      ]
+    },
+    {
+      "editor": "CaseyPenk",
+      "article_count": 1,
+      "event_count": 1,
+      "removed_tokens": 4147,
+      "articles": [
+        "Republican Party (United States)"
+      ],
+      "events": [
+        "Republican Party (United States):700687073→700688825"
+      ]
+    },
+    {
+      "editor": "Onceinawhile",
+      "article_count": 1,
+      "event_count": 1,
+      "removed_tokens": 2685,
+      "articles": [
+        "Palestine"
+      ],
+      "events": [
+        "Palestine:682622162→682622387"
+      ]
+    },
+    {
+      "editor": "Eievie",
+      "article_count": 1,
+      "event_count": 1,
+      "removed_tokens": 2302,
+      "articles": [
+        "Ainu people"
+      ],
+      "events": [
+        "Ainu people:1221801648→1221809882"
+      ]
+    },
+    {
+      "editor": "Wikieditor19920",
+      "article_count": 1,
+      "event_count": 1,
+      "removed_tokens": 2120,
+      "articles": [
+        "Democratic Socialists of America"
+      ],
+      "events": [
+        "Democratic Socialists of America:951975376→951977396"
+      ]
+    },
+    {
+      "editor": "Isaidnoway",
+      "article_count": 1,
+      "event_count": 1,
+      "removed_tokens": 1848,
+      "articles": [
+        "Democratic Socialists of America"
+      ],
+      "events": [
+        "Democratic Socialists of America:1221073215→1221188190"
+      ]
+    },
+    {
+      "editor": "Nableezy",
+      "article_count": 1,
+      "event_count": 1,
+      "removed_tokens": 1253,
+      "articles": [
+        "Anti-Zionism"
+      ],
+      "events": [
+        "Anti-Zionism:1094082453→1094083062"
+      ]
+    },
+    {
+      "editor": "Dian Kjaergaard",
+      "article_count": 1,
+      "event_count": 1,
+      "removed_tokens": 689,
+      "articles": [
+        "UNRWA"
+      ],
+      "events": [
+        "UNRWA:622769287→622771670"
+      ]
+    },
+    {
+      "editor": "Mariamnei",
+      "article_count": 1,
+      "event_count": 1,
+      "removed_tokens": 602,
+      "articles": [
+        "Bar Kokhba Revolt"
+      ],
+      "events": [
+        "Bar Kokhba Revolt:1300661489→1300666578"
+      ]
+    }
+  ],
+  "exclusions": [
+    {
+      "article": "Brontosaurus",
+      "reason": "not_confirmed"
+    },
+    {
+      "article": "Chess",
+      "reason": "not_confirmed"
+    },
+    {
+      "article": "Climate change",
+      "reason": "stale_confirmation"
+    },
+    {
+      "article": "Collaboration in German-occupied Poland",
+      "reason": "not_confirmed"
+    },
+    {
+      "article": "Democratic Party of the United States",
+      "reason": "not_confirmed"
+    },
+    {
+      "article": "Elizabeth Warren",
+      "reason": "not_confirmed"
+    },
+    {
+      "article": "Gaza genocide",
+      "reason": "stale_confirmation"
+    },
+    {
+      "article": "Genetic studies of Jews",
+      "reason": "not_confirmed"
+    },
+    {
+      "article": "Genocide of indigenous peoples",
+      "reason": "not_confirmed"
+    },
+    {
+      "article": "Hamas",
+      "reason": "stale_confirmation"
+    },
+    {
+      "article": "History of Zionism",
+      "reason": "not_confirmed"
+    },
+    {
+      "article": "Ilhan Omar",
+      "reason": "not_confirmed"
+    },
+    {
+      "article": "Israeli–Palestinian conflict",
+      "reason": "stale_confirmation"
+    },
+    {
+      "article": "Jedwabne pogrom",
+      "reason": "stale_confirmation"
+    },
+    {
+      "article": "Nakba",
+      "reason": "not_confirmed"
+    },
+    {
+      "article": "Naliboki massacre",
+      "reason": "not_confirmed"
+    },
+    {
+      "article": "Palestinian political violence",
+      "reason": "not_confirmed"
+    },
+    {
+      "article": "Photosynthesis",
+      "reason": "not_confirmed"
+    },
+    {
+      "article": "Racial conceptions of Jewish identity in Zionism",
+      "reason": "not_confirmed"
+    },
+    {
+      "article": "Rafah offensive",
+      "reason": "not_confirmed"
+    },
+    {
+      "article": "Republican Party of the United States",
+      "reason": "not_confirmed"
+    },
+    {
+      "article": "Rescue of Jews by Poles during the Holocaust",
+      "reason": "not_confirmed"
+    },
+    {
+      "article": "United Nations General Assembly observers",
+      "reason": "not_confirmed"
+    },
+    {
+      "article": "Unmoved mover",
+      "reason": "not_confirmed"
+    },
+    {
+      "article": "Warsaw concentration camp",
+      "reason": "not_confirmed"
+    },
+    {
+      "article": "Water",
+      "reason": "stale_confirmation"
+    },
+    {
+      "article": "Zionism",
+      "reason": "stale_confirmation"
+    }
+  ]
+}

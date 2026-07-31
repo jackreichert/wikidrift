@@ -19,15 +19,19 @@ Hard safeguards, architectural not policy (§10.9):
 The test this answers: does seeding from Zionism surface *other* genuinely-retrofitted articles the
 base-rate slate didn't already contain — without the graph ever being treated as proof?
 """
+import json
+import pathlib
 import time
+import uuid
 from datetime import date
 
 import duckdb
 
-from . import config, drift, provenance
+from . import config, drift
 from .corpus import Corpus
 from .benchmark import ROSTER
 from .config import MASS_FLOOR
+from .pipeline import confirmation_is_fresh
 
 # --- L4 knobs (a first, deliberately NARROW probe; widen once the signal is trusted) ----------------
 SEED_TOP_N = 4          # seed from the top-N removal-attributed editors (by established tokens removed)
@@ -56,27 +60,182 @@ def tested_set():
     return {_norm(c["article"]) for c in ROSTER}
 
 
-def top_episode(con, article):
-    """The article's top confirmed-candidate pivot episode by PWR-mass, with its snap revisions preserved.
-    Offline (no WikiWho) — reuses drift.ranked_episodes; returns (peak_tuple, episode) or (None, None)."""
-    *_, eps = drift.ranked_episodes(con, article)
-    if not eps:
-        return None, None
-    e = eps[0]
-    peak = (e["start"][0], e["start"][1], e["end"][0], e["end"][1], e["peak"])
-    return peak, e
+def _eligible_editor(editor):
+    """Whether a literal public account name may become a graph node without identity inference."""
+    return bool(
+        editor
+        and editor not in {"?", "<hidden>"}
+        and not editor.lower().endswith("bot")
+        and not config.ANON_IP_RE.match(editor)
+    )
 
 
-def seed_removing_editors(con, article, top_n=SEED_TOP_N):
-    """Seed from the top editors attributed with removals in the dominant pivot, excluding bots and
-    anonymous IPs. Returns [(editor, tokens_removed)]."""
-    peak, e = top_episode(con, article)
-    if not peak:
-        return [], None
-    removals_by_editor, removed_count, *_ = drift.removal_attribution(article, con, peak)
-    ranked = [(u, n) for u, n in sorted(removals_by_editor.items(), key=lambda x: -x[1])
-              if u and u != "?" and not u.lower().endswith("bot") and not config.ANON_IP_RE.match(u)]
-    return ranked[:top_n], {"episode": e, "removed_count": removed_count}
+def seed_removing_editors(confirmation, current_horizon, top_n=SEED_TOP_N):
+    """Seed from fresh exact-event attribution, excluding bots, hidden editors, and anonymous IPs."""
+    if confirmation.get("status") != "confirmed":
+        return [], {"reason": "not_confirmed"}
+    if not confirmation_is_fresh(confirmation, current_horizon):
+        return [], {"reason": "stale_confirmation"}
+    episodes = confirmation.get("confirmed_episodes") or []
+    if not episodes:
+        return [], {"reason": "confirmed_episode_missing"}
+    episode = max(episodes, key=lambda item: item.get("pwr_mass", 0))
+    attribution = episode.get("attribution")
+    if not isinstance(attribution, dict):
+        return [], {"reason": episode.get("attribution_unavailable") or "attribution_missing"}
+    rows = attribution.get("removals_by_editor") or []
+    removed_count = sum(row["tokens"] for row in rows)
+    if removed_count != attribution.get("removed_tokens"):
+        return [], {"reason": "removal_attribution_mismatch"}
+    ranked = [
+        (row["editor"], row["tokens"])
+        for row in sorted(rows, key=lambda row: (-row["tokens"], row["editor"]))
+        if _eligible_editor(row.get("editor"))
+    ]
+    return ranked[:top_n], {
+        "episode": episode,
+        "removed_count": removed_count,
+    }
+
+
+def _confirmed_episode_event(article, episode):
+    attribution = episode.get("attribution")
+    receipt = {
+        "article": article,
+        "before_revid": episode.get("before_revid"),
+        "after_revid": episode.get("after_revid"),
+    }
+    if not isinstance(attribution, dict):
+        return None, [], {
+            **receipt,
+            "reason": episode.get("attribution_unavailable") or "attribution_missing",
+        }
+    removal_rows = attribution.get("removals_by_editor") or []
+    if sum(row["tokens"] for row in removal_rows) != attribution.get("removed_tokens"):
+        return None, [], {**receipt, "reason": "removal_attribution_mismatch"}
+    eligible_rows = [row for row in removal_rows if _eligible_editor(row.get("editor"))]
+    return {
+        **receipt,
+        "after_timestamp": episode.get("after_timestamp"),
+        "durable_spine_drop": episode.get("durable_spine_drop"),
+        "pwr_mass": episode.get("pwr_mass"),
+        "eligible_removing_editors": [row["editor"] for row in eligible_rows],
+    }, eligible_rows, None
+
+
+def confirmed_event_graph(confirmations):
+    """Aggregate literal editor-to-event relationships from fresh structured confirmations only."""
+    events = []
+    exclusions = []
+    editor_nodes = {}
+    for confirmation, current_horizon in confirmations:
+        article = confirmation.get("article", "<unknown>")
+        if confirmation.get("status") != "confirmed":
+            exclusions.append({"article": article, "reason": "not_confirmed"})
+            continue
+        if not confirmation_is_fresh(confirmation, current_horizon):
+            exclusions.append({"article": article, "reason": "stale_confirmation"})
+            continue
+        for episode in confirmation.get("confirmed_episodes") or []:
+            event, eligible_rows, exclusion = _confirmed_episode_event(article, episode)
+            if exclusion:
+                exclusions.append(exclusion)
+                continue
+            event_key = f"{article}:{episode.get('before_revid')}→{episode.get('after_revid')}"
+            events.append(event)
+            for row in eligible_rows:
+                node = editor_nodes.setdefault(row["editor"], {
+                    "articles": set(), "events": [], "removed_tokens": 0,
+                })
+                node["articles"].add(article)
+                node["events"].append(event_key)
+                node["removed_tokens"] += row["tokens"]
+
+    editors = [
+        {
+            "editor": editor,
+            "article_count": len(node["articles"]),
+            "event_count": len(node["events"]),
+            "removed_tokens": node["removed_tokens"],
+            "articles": sorted(node["articles"]),
+            "events": node["events"],
+        }
+        for editor, node in editor_nodes.items()
+    ]
+    editors.sort(key=lambda node: (-node["article_count"], -node["event_count"],
+                                   -node["removed_tokens"], node["editor"]))
+    events.sort(key=lambda event: (event["article"], event["before_revid"] or 0, event["after_revid"] or 0))
+    return {"events": events, "editors": editors, "exclusions": exclusions}
+
+
+def confirmed_event_graph_report(articles_dir):
+    """Read article-owned shards and return a fail-closed fresh exact-event graph."""
+    root = pathlib.Path(articles_dir)
+    if not root.is_dir():
+        raise FileNotFoundError(f"article shard directory not found: {root}")
+    confirmations = []
+    exclusions = []
+    artifacts = sorted(root.glob("*/findings/*.l1-confirmation.json"))
+    for artifact in artifacts:
+        try:
+            confirmation = json.loads(artifact.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            exclusions.append({"article": artifact.parent.parent.name, "reason": f"invalid_artifact: {exc}"})
+            continue
+        article = confirmation.get("article", artifact.parent.parent.name)
+        database = artifact.parent.parent / "provenance.duckdb"
+        if not database.is_file():
+            exclusions.append({"article": article, "reason": "corpus_missing"})
+            continue
+        try:
+            con = duckdb.connect(str(database), read_only=True)
+            try:
+                current_horizon = Corpus(con).latest_snapshot(article)
+            finally:
+                con.close()
+        except Exception as exc:
+            exclusions.append({
+                "article": article,
+                "reason": f"corpus_unavailable: {type(exc).__name__}",
+            })
+            continue
+        confirmations.append((confirmation, current_horizon))
+
+    graph = confirmed_event_graph(confirmations)
+    graph["exclusions"] = exclusions + graph["exclusions"]
+    return graph
+
+
+def run_confirmed_graph(articles_dir, as_json=False):
+    """Print the fresh exact-event graph over article-owned shards without inferring identity."""
+    root = pathlib.Path(articles_dir)
+    graph = confirmed_event_graph_report(root)
+    output = root / "_shared" / "findings" / "l4_confirmed_graph.json"
+    output.parent.mkdir(parents=True, exist_ok=True)
+    temporary = output.with_name(f".{output.name}.{uuid.uuid4().hex}.tmp")
+    try:
+        temporary.write_text(json.dumps(graph, ensure_ascii=False, indent=2), encoding="utf-8")
+        temporary.replace(output)
+    finally:
+        temporary.unlink(missing_ok=True)
+    print("\nL4 CONFIRMED EVENT GRAPH — FRESH EXACT ATTRIBUTION ONLY")
+    print("-" * 92)
+    print(f"{'editor':<32} {'articles':>8} {'events':>8} {'removed tokens':>16}")
+    for node in graph["editors"]:
+        print(
+            f"{node['editor']:<32} {node['article_count']:>8} {node['event_count']:>8} "
+            f"{node['removed_tokens']:>16,}"
+        )
+    print("-" * 92)
+    print(
+        f"events={len(graph['events'])} editors={len(graph['editors'])} "
+        f"exclusions={len(graph['exclusions'])} semantic_role=search_prior"
+    )
+    print(f"wrote {output}")
+    if as_json:
+        print("\n=== JSON ===")
+        print(json.dumps(graph, ensure_ascii=False, indent=2))
+    return graph
 
 
 def _usercontribs(editor, since=FOOTPRINT_SINCE, max_pages=FOOTPRINT_MAX_PAGES):
@@ -140,84 +299,85 @@ def rank_candidates(agg, limit=CANDIDATE_LIMIT):
 
 
 def retest(con, titles):
-    """Independent L1 content re-test — the ONLY thing that flags (safeguard #1). For each candidate:
-    fetch its own timeline + persistent snapshots (hosted WikiWho) and run the offline PWR verdict.
-    WikiWho coverage gaps are surfaced, never silently dropped."""
+    """Run full exact L1 analysis for each graph-surfaced candidate; coarse pivots cannot flag."""
     results = []
     for t in titles:
         print(f"\n  ── re-testing {t} (its OWN content trajectory) ──", flush=True)
         try:
-            provenance.ensure_sizes(con, t)
-            provenance.ensure_indexes(con)
-            provenance.build_snapshots(con, t)
+            result = dict(drift.analyze(t, con=con, persist=False))
         except Exception as ex:
-            results.append({"article": t, "verdict": "ERROR", "detail": str(ex)[:120]}); continue
-        corpus = Corpus(con)
-        nsnap = corpus.snapshot_count(t)
-        if nsnap < 3:
-            nrev = corpus.revision_count(t)
-            detail = ("WikiWho served <3 snapshots (coverage gap — try local wikiwho_rs)" if nrev
-                      else "no revision history")
-            results.append({"article": t, "verdict": "INSUFFICIENT", "snaps": nsnap, "detail": detail}); continue
-        d = drift.verdict_dict(con, t)
-        d["snaps"] = nsnap
-        # Age of the article BEFORE its top pivot began — the stable-prior test. A large pivot on an
-        # article only months old is formation churn (born-in-contested, the L5 gap), NOT a retrofit.
-        if d.get("verdict") == "PIVOT?" and d.get("episodes"):
-            first = corpus.first_revision_ts(t)
-            if first:
-                d["age_at_pivot"] = round(
-                    (date.fromisoformat(d["episodes"][0]["start"]) - date.fromisoformat(first[:10])).days / 365.25, 1)
-        results.append(d)
+            results.append({"article": t, "status": "unavailable", "reason": str(ex)[:500]})
+            continue
+        result["article"] = t
+        if result.get("status") == "confirmed":
+            episodes = result.get("confirmed_episodes") or []
+            top_episode = max(episodes, key=lambda episode: episode.get("pwr_mass", 0), default=None)
+            first_revision = Corpus(con).first_revision_ts(t)
+            candidate_start = (top_episode or {}).get("candidate_start")
+            if first_revision and candidate_start:
+                result["age_at_pivot"] = round(
+                    (date.fromisoformat(candidate_start) - date.fromisoformat(first_revision[:10])).days / 365.25,
+                    1,
+                )
+        results.append(result)
     return results
 
 
 def _classify(r):
-    """Interpret a re-test verdict with the born-biased discipline. Returns one of:
-    'retrofit-lead' (PIVOT? + PWR-mass floor + a long stable prior), 'born-in-contested' (PIVOT? + mass
-    but too young a prior → L5, not a retrofit), 'demoted' (PIVOT? below mass floor), 'healthy', or the
-    raw verdict ('INSUFFICIENT'/'ERROR'/'SKIP'/'CREEP?'). All are LEADS, never confirmed verdicts."""
-    v = r.get("verdict")
-    if v != "PIVOT?":
-        return "healthy" if v == "HEALTHY" else (v or "SKIP").lower()
-    if r.get("top_mass", 0) < MASS_FLOOR:
-        return "demoted"
-    if r.get("age_at_pivot", 0.0) < MATURE_PRIOR_YEARS:
-        return "born-in-contested"
-    return "retrofit-lead"
+    """Classify an independent exact L1 result; coarse candidates can never become graph findings."""
+    status = r.get("status")
+    if status != "confirmed":
+        return status or "unavailable"
+    episodes = r.get("confirmed_episodes") or []
+    top_mass = max((episode.get("pwr_mass", 0) for episode in episodes), default=0)
+    if top_mass < MASS_FLOOR:
+        return "confirmed-low-mass"
+    if r.get("age_at_pivot") is None:
+        return "confirmed-age-unknown"
+    if r["age_at_pivot"] < MATURE_PRIOR_YEARS:
+        return "confirmed-born-in-contested"
+    return "confirmed-retrofit-lead"
 
 
 def discover(article="Zionism", top_n=SEED_TOP_N, limit=CANDIDATE_LIMIT):
-    """Full L4 probe: seed → removal footprint (LEAD) → subtract tested → independent L1 re-test.
-    Prints a report and writes findings/l4_discovery.json. Every re-flag is content, never the graph."""
+    """Fresh exact seed → removal footprint → independent exact L1 confirmation."""
     con = duckdb.connect(str(config.DB))
-    print(f"=== L4 GRAPH-GUIDED DISCOVERY — seed: {article} ===\n", flush=True)
+    try:
+        print(f"=== L4 GRAPH-GUIDED DISCOVERY — seed: {article} ===\n", flush=True)
 
-    editors, meta = seed_removing_editors(con, article, top_n)
-    if not editors:
-        print("  no confirmed pivot / attributed removing editors to seed from — abort."); con.close(); return
-    ep = meta["episode"]
-    print(f"seed pivot: {ep['start'][0]} → {ep['end'][0]}  (~{int(ep['abs']):,} PWR-mass, peak {ep['peak']:.0f}%); "
-          f"{meta['removed_count']:,} established tokens removed")
-    print(f"seed removing editors (top {top_n}, bots/anon excluded) — the search prior, NOT a verdict:")
-    for u, n in editors:
-        print(f"    {n:>6,}  {u}")
+        confirmation = drift.load_confirmation(article)
+        horizon = Corpus(con).latest_snapshot(article)
+        editors, meta = seed_removing_editors(confirmation, horizon, top_n)
+        if not editors:
+            reason = (meta or {}).get("reason", "no eligible removing editors")
+            print(f"  no fresh exact attribution seed ({reason}) — abort.")
+            return
+        ep = meta["episode"]
+        print(
+            f"seed exact event: rev {ep['before_revid']} → {ep['after_revid']}  "
+            f"(~{int(ep['pwr_mass']):,} PWR-mass, drop {ep['durable_spine_drop']:.1%}); "
+            f"{meta['removed_count']:,} tokens removed"
+        )
+        print(f"seed removing editors (top {top_n}, bots/anon excluded) — the search prior, NOT a verdict:")
+        for u, n in editors:
+            print(f"    {n:>6,}  {u}")
 
-    print(f"\nremoval footprint (ns0 edits removing ≥{REMOVAL_BYTES}B since {FOOTPRINT_SINCE[:4]}):", flush=True)
-    tested = tested_set()
-    agg = footprint(editors, tested, article)
-    ranked = rank_candidates(agg, limit)
-    print(f"\nfresh candidate to-check list ({len(agg)} fresh titles; re-testing top {len(ranked)}) — "
-          f"co-occurrence × bytes removed. A LEAD ONLY; each is confirmed or dropped by its OWN content:")
-    for t, a in ranked:
-        print(f"    [{len(a['editors'])} seed editors, {a['removed']:>8,}B removed]  {t}")
+        print(f"\nremoval footprint (ns0 edits removing ≥{REMOVAL_BYTES}B since {FOOTPRINT_SINCE[:4]}):", flush=True)
+        tested = tested_set()
+        agg = footprint(editors, tested, article)
+        ranked = rank_candidates(agg, limit)
+        print(f"\nfresh candidate to-check list ({len(agg)} fresh titles; re-testing top {len(ranked)}) — "
+              f"co-occurrence × bytes removed. A LEAD ONLY; each is confirmed or dropped by its OWN content:")
+        for t, a in ranked:
+            print(f"    [{len(a['editors'])} seed editors, {a['removed']:>8,}B removed]  {t}")
 
-    results = retest(con, [t for t, _ in ranked])
-    con.close()
+        results = retest(con, [t for t, _ in ranked])
+    finally:
+        con.close()
 
     cls = {r["article"]: _classify(r) for r in results}
-    retrofit = [r for r in results if cls[r["article"]] == "retrofit-lead"]   # genuine stable-then-retrofit LEADS
-    born = [r for r in results if cls[r["article"]] == "born-in-contested"]    # young → L5 gap, not retrofit
+    retrofit = [r for r in results if cls[r["article"]] == "confirmed-retrofit-lead"]
+    born = [r for r in results if cls[r["article"]] == "confirmed-born-in-contested"]
     _print_retest(results, cls, retrofit, born)
 
     findings = _build_findings(article, top_n, limit, ep, meta, editors, ranked, results, cls, retrofit, born)
@@ -226,63 +386,75 @@ def discover(article="Zionism", top_n=SEED_TOP_N, limit=CANDIDATE_LIMIT):
     return findings
 
 
-_LABEL = {"retrofit-lead": "  ← RETROFIT LEAD (stable prior, own content)",
-          "born-in-contested": "  ← born-in-contested → L5 (no stable prior; not a retrofit)",
-          "demoted": "  (low mass → demoted)"}
+_LABEL = {
+    "confirmed-retrofit-lead": "  ← CONFIRMED RETROFIT LEAD (stable prior, own content)",
+    "confirmed-born-in-contested": "  ← confirmed born-in-contested → L5",
+    "confirmed-low-mass": "  (confirmed, low mass → demoted)",
+}
 
 
 def _print_retest(results, cls, retrofit, born):
-    """Print the L1 re-test verdict block (graph chose WHERE to look; content decides WHAT flags)."""
+    """Print exact L1 results; graph membership never determines the result."""
     print("\n" + "=" * 78)
     print("L1 RE-TEST — content verdicts (graph chose WHERE to look; content decides WHAT flags):")
     print("=" * 78)
     for r in results:
         c = cls[r["article"]]
-        if r.get("verdict") == "PIVOT?":
-            e = r["episodes"][0]
+        if r.get("status") == "confirmed":
+            e = max(r["confirmed_episodes"], key=lambda episode: episode.get("pwr_mass", 0))
             age = r.get("age_at_pivot")
             prior = f", {age}yr prior" if age is not None else ""
-            line = f"PIVOT? {e['start']}→{e['end']} {e['pwr_mass']:,} PWR [{e['recency']}{prior}]" + _LABEL.get(c, "")
-        elif c in ("healthy", "creep?"):
-            line = f"{r['verdict']}  (mean {r.get('mean_loss', 0)}%)"
+            line = (
+                f"CONFIRMED rev {e['before_revid']}→{e['after_revid']} "
+                f"{e['pwr_mass']:,} PWR [{e['durable_spine_drop']:.1%} drop{prior}]"
+                + _LABEL.get(c, "")
+            )
+        elif c == "not_confirmed":
+            line = "NOT CONFIRMED — coarse candidate rejected by exact analysis"
         else:
-            line = f"{r.get('verdict') or 'SKIP'} — {r.get('detail', r.get('reason', ''))}"
+            line = f"{c.upper()} — {r.get('reason', '')}"
         print(f"  {r['article']:<44} {line}")
     print("-" * 78)
-    print(f"RESULT: {len(retrofit)} of {len(results)} graph-surfaced candidates are fresh stable-then-RETROFIT "
-          f"LEADS (PWR-mass ≥ {MASS_FLOOR:,}, ≥{MATURE_PRIOR_YEARS:.0f}yr stable prior).")
+    print(f"RESULT: {len(retrofit)} of {len(results)} graph-surfaced candidates are independently confirmed "
+          f"stable-then-RETROFIT LEADS (PWR-mass ≥ {MASS_FLOOR:,}, ≥{MATURE_PRIOR_YEARS:.0f}yr prior).")
     if born:
         print(f"        + {len(born)} large-pivot but BORN-IN-CONTESTED ({', '.join(r['article'] for r in born)}) "
               f"— no stable prior ⇒ the L5 gap, not a retrofit.")
     if retrofit:
-        print("  → seeding from Zionism DID surface fresh retrofit-shaped articles the base-rate slate lacked —")
+        print("  → the exact-attribution seed surfaced fresh retrofit-shaped articles the base-rate slate lacked —")
         print(f"    {', '.join(r['article'] for r in retrofit)}.")
         print("    Each earned its lead from its OWN trajectory, not graph membership (safeguard #1).")
     else:
         print("  → no fresh candidate content-confirmed (honest null): the graph pointed, content declined.")
-    print("  DISCIPLINE: these are unconfirmed PWR *candidates* and PIVOT = *change*, not proven bias "
-          "(base-rate\n  lesson). Next precision steps: `wikidrift analyze <t>` (binary-search confirm) then L2/L5 "
-          "(is the\n  change directional?). The graph is a search prior only — it never flagged anything.")
+    print("  DISCIPLINE: exact confirmation establishes durable content change, not bias or motive. "
+          "The graph is a search prior only; L2/L5 remain necessary to investigate direction.")
 
 
 def _build_findings(article, top_n, limit, ep, meta, editors, ranked, results, cls, retrofit, born):
     """Assemble the l4_discovery.json findings dict (pure — no I/O)."""
     return {
         "seed": article,
-        "seed_episode": {"start": ep["start"][0], "end": ep["end"][0], "pwr_mass": int(ep["abs"]),
-                         "peak_pct": round(ep["peak"], 1), "tokens_removed": meta["removed_count"]},
+        "seed_episode": {
+            "before_revid": ep["before_revid"],
+            "after_revid": ep["after_revid"],
+            "pwr_mass": int(ep["pwr_mass"]),
+            "durable_spine_drop": ep["durable_spine_drop"],
+            "tokens_removed": meta["removed_count"],
+            "confirmation_status": "confirmed",
+        },
         "seed_removing_editors": [{"editor": u, "tokens_removed": n} for u, n in editors],
         "params": {"top_n": top_n, "footprint_since": FOOTPRINT_SINCE, "removal_bytes": REMOVAL_BYTES,
                    "candidate_limit": limit},
         "candidates": [{"article": t, "seed_editors": sorted(a["editors"]), "removed_bytes": a["removed"],
                         "removing_edits": a["edits"]} for t, a in ranked],
         "retest": [{**r, "l4_class": cls[r["article"]]} for r in results],
+        "confirmed_rewrite_leads": [r["article"] for r in retrofit + born],
         "retrofit_leads": [r["article"] for r in retrofit],
         "born_in_contested": [r["article"] for r in born],
-        "note": "Graph is a LEAD only (§10.9). Flags come from each article's own L1 content signal, never "
-                "from graph membership. PIVOT? = unconfirmed change candidate (run `analyze` to binary-search "
-                "confirm; L2/L5 to judge direction). 'retrofit_leads' had a ≥2yr stable prior before the pivot; "
-                "'born_in_contested' are large-pivot but too young to be retrofits (the L5 gap).",
+        "semantic_role": "search_prior",
+        "note": "Graph membership only selects articles for inspection. Every listed rewrite lead independently "
+            "passed exact L1 confirmation; exact change still does not establish bias, motive, or coordination. "
+            "Public account names are matched literally without identity inference.",
     }
 
 
