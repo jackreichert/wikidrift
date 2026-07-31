@@ -25,7 +25,8 @@ class Orchestration(unittest.TestCase):
     def test_result_shape(self):
         r = self._run("Photosynthesis")
         self.assertEqual(set(r), {
-            "article", "l1", "l1_state", "leads", "l2_adjudicated", "l2", "mscore", "lexical", "l5",
+            "article", "l1", "l1_state", "leads", "l2_adjudicated", "l2", "trajectory",
+            "mscore", "lexical", "l5",
         })
 
 

@@ -30,7 +30,7 @@ from urllib.parse import urlparse, parse_qs, unquote
 import duckdb
 
 from . import (config, drift, prerank, benchmark, stance, l5_crosslingual, l5_factcheck,  # noqa: F401
-               provenance,
+               framing_trajectory, provenance,
                mscore, ingest, pipeline, l4, l5_sources, lexical, bootstrap, shards)
 from .corpus import Corpus
 
@@ -117,6 +117,8 @@ def main(argv=None):
                     help="comma-separated entities (default: article title, controversy-agnostic)")
     sp.add_argument("--max-snaps", type=int, default=0)
     sp.add_argument("--since", default=None, help="ISO date; only snapshots on/after it (target the L1 pivot window)")
+    sp.add_argument("--repeated-runs", type=int, default=stance.DEFAULT_REPEATED_RUNS,
+                    help="total runs for passages around an apparent transition")
     add_llm_flags(sp)
 
     sp = sub.add_parser("crosslingual", help="L5 cross-language stance comparison")
@@ -159,7 +161,17 @@ def main(argv=None):
     sp.add_argument("--mscore", action="store_true", help="also run the M-score controversy corroborator")
     sp.add_argument("--framing", action="store_true",
                     help="run L5 cross-language lead comparison (prefers fresh confirmed L1 pair; needs an LLM key)")
+    sp.add_argument("--additive", action="store_true",
+                    help="trace persistent additions across exact stable revisions")
     add_llm_flags(sp)
+
+    sp = sub.add_parser("framing-trajectory", help="deterministic addition-side framing trajectory")
+    sp.add_argument("article")
+    sp.add_argument("--mode", choices=["formative", "interval", "exact_event"], default="formative")
+    sp.add_argument("--start", default=None, help="interval start date (inclusive)")
+    sp.add_argument("--end", default=None, help="interval end date (inclusive)")
+    sp.add_argument("--revision-ids", default=None,
+                    help="ordered comma-separated revision IDs for exact_event mode")
 
     sp = sub.add_parser("framing", help="L5 cross-language lead comparison around confirmed L1 pair or candidate")
     sp.add_argument("article")
@@ -237,6 +249,7 @@ def main(argv=None):
         ents = [e.strip() for e in args.entities.split(",")] if args.entities else None
         stance.stance_over_time(_normalize_article_arg(args.article), entities=ents, max_snaps=args.max_snaps,
                                 since=args.since,
+                                repeated_runs=args.repeated_runs,
                                 provider=args.provider, model=args.model, base_url=args.base_url)
     elif args.cmd == "crosslingual":
         langs = [l.strip() for l in args.langs.split(",")] if args.langs else None
@@ -294,7 +307,22 @@ def main(argv=None):
                     print(f"  UNSTABLE    {article['article']}")
     elif args.cmd == "pipeline":
         pipeline.run(_normalize_article_arg(args.article), llm=args.llm, corroborate=args.mscore,
-                     framing=args.framing, provider=args.provider, model=args.model, base_url=args.base_url)
+                     framing=args.framing, additive=args.additive,
+                     provider=args.provider, model=args.model, base_url=args.base_url)
+    elif args.cmd == "framing-trajectory":
+        revision_ids = [
+            int(revision_id.strip())
+            for revision_id in (args.revision_ids or "").split(",")
+            if revision_id.strip()
+        ]
+        result = framing_trajectory.analyze_article(
+            _normalize_article_arg(args.article),
+            mode=args.mode,
+            start=args.start,
+            end=args.end,
+            revision_ids=revision_ids,
+        )
+        print(json.dumps(result, indent=2, sort_keys=True))
     elif args.cmd == "framing":
         from . import l5_framing_lite
         article = _normalize_article_arg(args.article)

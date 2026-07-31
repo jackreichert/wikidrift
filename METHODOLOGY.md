@@ -44,6 +44,7 @@ upper layers add language and meaning. **All are leads.**
 | **L1 — drift & pivots** | Was a long-stable "spine" destroyed, when, how much? Binary-search confirms the durable spine actually collapsed. | internal (own history) |
 | **L1.6 — attribution** | Which edits removed the spine / wrote the replacement? *Action only, from public data.* | internal |
 | **L2 — framing (stance)** | Did the meaning shift — not just the words — on a neutrality (NPOV) axis, whether by adding slanted text or removing critical text? | internal (temporal) |
+| **L2a — additive trajectory** | Which sentence-level claims were added, removed, retained, or relocated across exact stable revisions, and which additions remained standing? | internal — `wikidrift framing-trajectory`; deterministic research lead |
 | **L4 — discovery** | Where else to look? Use a confirmed article's actors as a *search prior* → re-test each candidate by its own content. | prior → internal |
 | **L5 cross-language stance comparison** | Does entity-relative stance differ across editions, and did English *peel away* around the pivot? | **external** — standalone instrument (`wikidrift crosslingual`) |
 | **L5 cross-language lead comparison** | Which concrete claims, omissions, or contradictions differ across edition leads? Prefer the exact pair from a fresh persisted L1 confirmation, then fall back to the coarse candidate or current leads. | **external** — `wikidrift framing` or `pipeline --framing`; category slate + top-2 by length; pivot-relative, candidate-relative, or static |
@@ -185,8 +186,9 @@ Surface the conjunction; a single factor is noise.
   editions reproduce the same distortion in the same direction, comparison reads flat (agreement). Anchoring
   against an external reference corpus (academic sources, encyclopedias) is needed; not yet implemented.
 - **LLM cultural bias.** Stance classifications (L2 NPOV-axis) are produced by a language model and may reflect
-  training-data cultural bias on politically charged prose. A calibration baseline — repeated runs on
-  known-neutral control articles — is needed to quantify a jitter floor. Not yet established.
+  training-data cultural bias on politically charged prose. WikiDrift retains exact passages and repeated raw
+  runs around apparent transitions, and separates model instability from text change. Control-set calibration
+  is still required before changing the documented agreement and evidence-coverage floors.
 
 ## 8. What WikiDrift will not do
 

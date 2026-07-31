@@ -23,7 +23,7 @@ import datetime as dt
 
 import duckdb
 
-from . import config, drift, prerank, stance, lexical, mscore, provenance
+from . import config, drift, framing_trajectory, prerank, stance, lexical, mscore, provenance
 from .corpus import Corpus
 
 
@@ -245,7 +245,8 @@ def _corroboration(result):
     return {"count": len(signals), "signals": signals}
 
 
-def run(article, llm=False, corroborate=False, framing=False, provider=None, model=None, base_url=None):
+def run(article, llm=False, corroborate=False, framing=False, additive=False,
+    provider=None, model=None, base_url=None):
     """Orchestrate the layers for one article. Returns a consolidated result dict.
 
     provider/model/base_url select the LLM backend for the opt-in L2 + framing layers (see llm.py).
@@ -304,6 +305,22 @@ def run(article, llm=False, corroborate=False, framing=False, provider=None, mod
 
     # ---- adjudicate the routed L2 leads (the gap this pipeline closes) ----
     l2_leads = [l for l in leads if l.endswith("→L2")]
+    trajectory = None
+    if additive and "addition→L2" in l2_leads:
+        print("\n→ tracing persistent additions across exact stable revisions:\n")
+        try:
+            trajectory = framing_trajectory.analyze_article(article, mode="formative")
+        except Exception as e:                              # noqa: BLE001
+            trajectory = {
+                "article": article,
+                "mode": "formative",
+                "status": "unavailable",
+                "semantic_role": "framing_change_lead",
+                "framing_change_lead": False,
+                "reason": str(e),
+                "events": [],
+            }
+            print(f"  additive trajectory unavailable: {e}")
     l2_done = False
     l2_summary = None
     if l2_leads:
@@ -365,6 +382,16 @@ def run(article, llm=False, corroborate=False, framing=False, provider=None, mod
         else:
             l2_read = "adjudicated — no endpoint shift detected"
         print(f"  L2 stance: {l2_read}")
+    if trajectory:
+        if trajectory.get("status") == "available":
+            summary = trajectory.get("summary") or {}
+            print(
+                "  additive : "
+                f"{summary.get('standing_additions', 0)} standing / "
+                f"{summary.get('transient_additions', 0)} transient addition(s)"
+            )
+        else:
+            print(f"  additive : unavailable — {trajectory.get('reason', 'unknown reason')}")
     if m is not None:
         refined = m.get("refined", {}).get("M") if isinstance(m.get("refined"), dict) else m.get("refined")
         read = "low ⇒ not fought-over" if not refined else "contested (controversy ≠ malice)"
@@ -382,7 +409,7 @@ def run(article, llm=False, corroborate=False, framing=False, provider=None, mod
         print("  L5 framing: run via `wikidrift framing` or `wikidrift pipeline --framing` (separate instrument)")
     result = {"article": article, "l1": label, "l1_state": l1_state,
               "leads": leads, "l2_adjudicated": l2_done,
-              "l2": l2_summary,
+              "l2": l2_summary, "trajectory": trajectory,
               "mscore": m, "lexical": lex, "l5": framing_result}
     corr = _corroboration(result)
     print(f"  corroboration: {corr['count']} signal(s) — {corr['signals'] or '(none)'}")

@@ -196,16 +196,27 @@ mention a focal entity, and classifies how each passage treats that entity:
 - sympathetic;
 - absent.
 
-If the user does not name an entity, L2 uses the article title. It also records whether the passage
-appears to depart from an encyclopedic neutrality standard and keeps a short supporting quotation.
-It compares the first and last usable observations in the selected time range; the user can narrow
-that range with a start date.
+If the user does not name an entity, L2 uses the article title. Every classification retains the exact
+passage, revision link, passage hash, prompt and model contract, confidence, evidence spans, and raw run.
+When initial labels differ across adjacent observations, L2 repeats both classifications. It reports an
+audited shift only when the passage text changed, repeated runs meet the agreement and evidence-coverage
+floors, and the prompt/model contracts are compatible. Otherwise it identifies model instability, combined
+text and model change, or insufficient evidence. The user can narrow the range with a start date.
 
 This check is useful when the article grew or churned without a large net deletion. It can also help
 separate a structural overhaul with broadly stable stance from one accompanied by a semantic shift.
 
 Because L2 uses a language model, its output is inspectable evidence rather than a final label. It is
 a temporal comparison, so it may also miss framing that was stable from the article's beginning.
+
+## L2a: tracing additive and formative framing
+
+The deterministic framing trajectory compares exact revisions selected from integrity-usable snapshots
+through the stable endpoint. It classifies sentence-level units as added, removed, retained, or relocated;
+separates lead and body weight; records section changes and parseable citation-domain changes; and marks
+additions as standing or transient across later selected revisions. Formative, interval, and explicit
+exact-event modes are available. These receipts are framing-change research leads only: additions do not
+independently establish bias, factual error, intent, or misconduct and do not increase corroboration counts.
 
 ## L2.5: showing which vocabulary changed
 

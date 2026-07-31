@@ -329,6 +329,9 @@
       }
     },
     "Demo Topic": {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "model_contract": null,
       "variants": {
         "lead": {
           "divergence": 1.2,

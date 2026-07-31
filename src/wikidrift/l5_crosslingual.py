@@ -20,7 +20,8 @@ import mwparserfromhell
 
 from . import config, drift
 from .corpus import Corpus
-from .stance import classify, focal_passage, STANCE_VAL, default_entities
+from .stance import (STANCE_PROMPT_VERSION, STANCE_SCHEMA_VERSION, STANCE_VAL, classify,
+                     default_entities, focal_passage)
 
 _S = config.session()
 MAX_CHARS = 6000
@@ -259,15 +260,24 @@ def pivot_relative(client, article, langs, links, ents, labels):
             "read": read, "before": snap["before"], "after": snap["after"]}
 
 
-def emit_findings(article, qid, langs, ents, meta, stat, pr=None):
+def emit_findings(article, qid, langs, ents, meta, stat, pr=None, model_contract=None):
     """Persist viewer-shaped findings (receipts + stance + divergence) into config.FINDINGS,
     mirroring the frozen 012a/012b/012c shapes so a NEW article flows straight to the site."""
     slug = config.slugify(article)
     config.write_findings(f"{slug}.receipts.json", {"article": article, "qid": qid, "editions": meta})
     config.write_findings(f"{slug}.stance.json",
-                          {"article": article, "langs": langs, "entities": ents, "editions": stat["editions"]})
+                          {"schema_version": STANCE_SCHEMA_VERSION,
+                           "prompt_version": STANCE_PROMPT_VERSION,
+                           "model_contract": model_contract,
+                           "article": article, "langs": langs, "entities": ents,
+                           "editions": stat["editions"]})
     div = config.load_findings("divergence.json", {"static": {}, "pivot_relative": {}})
-    div.setdefault("static", {})[article] = {"variants": stat["variants"]}
+    div.setdefault("static", {})[article] = {
+        "schema_version": STANCE_SCHEMA_VERSION,
+        "prompt_version": STANCE_PROMPT_VERSION,
+        "model_contract": model_contract,
+        "variants": stat["variants"],
+    }
     if pr:
         div.setdefault("pivot_relative", {})[article] = pr
     config.write_findings("divergence.json", div)
@@ -306,7 +316,13 @@ def crosslingual(article, langs=None, pivot=True, persist=True, provider=None, m
     for v in ("lead", "focal"):
         d = stat["variants"][v]
         print(f"    [{v:>5}] {d['divergence']:.2f}   {d['spreads']}")
-    result = {"article": article, "langs": langs, "static": stat}
+    model_contract = {
+        "provider": getattr(client, "provider", None),
+        "model": getattr(client, "model", None),
+        "prompt_version": STANCE_PROMPT_VERSION,
+    }
+    result = {"article": article, "langs": langs, "static": stat,
+              "model_contract": model_contract}
     pr = None
     if pivot:
         pr = pivot_relative(client, article, langs, links, ents, labels)
@@ -317,6 +333,6 @@ def crosslingual(article, langs=None, pivot=True, persist=True, provider=None, m
         else:
             print("  PIVOT-RELATIVE: skipped (fresh L1 confirmation rejected the candidate)")
     if persist:
-        emit_findings(article, qid, langs, ents, meta, stat, pr)
+        emit_findings(article, qid, langs, ents, meta, stat, pr, model_contract)
     print("  (LEAD, not a verdict — makes cross-lingual disagreement legible.)")
     return result

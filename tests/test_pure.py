@@ -25,6 +25,7 @@ from wikidrift import stance
 from wikidrift import pipeline
 from wikidrift import config
 from wikidrift import provenance
+from wikidrift import framing_trajectory
 from wikidrift.registry import focal_entities
 
 
@@ -520,6 +521,109 @@ class FocalPassage(unittest.TestCase):
     def test_truncates_to_max_chars(self):
         prose = "Israel " + "x" * 100 + "."
         self.assertEqual(len(stance.focal_passage(prose, ["Israel"], max_chars=20)), 20)
+
+
+class FramingTrajectory(unittest.TestCase):
+    def test_unsupported_mode_fails_before_corpus_or_network_access(self):
+        with self.assertRaisesRegex(ValueError, "unsupported framing trajectory mode"):
+            framing_trajectory.analyze_article("Example", mode="formativ", persist=False)
+
+    def test_transient_lead_addition_and_section_move_keep_exact_evidence(self):
+        revisions = [
+            {
+                "revision_id": 100,
+                "timestamp": "2024-01-01T00:00:00Z",
+                "wikitext": "Intro remains.\n\n== History ==\nA durable fact.",
+            },
+            {
+                "revision_id": 200,
+                "timestamp": "2024-07-01T00:00:00Z",
+                "wikitext": (
+                    "Intro remains. A new lead claim.<ref>https://example.org/a</ref>\n\n"
+                    "== Background ==\nA durable fact."
+                ),
+            },
+            {
+                "revision_id": 300,
+                "timestamp": "2025-01-01T00:00:00Z",
+                "wikitext": "Intro remains.\n\n== Background ==\nA durable fact.",
+            },
+        ]
+
+        result = framing_trajectory.analyze_revision_sequence("Example", revisions)
+        first_event = result["events"][0]
+        addition = first_event["added"][0]
+
+        self.assertEqual(addition["text"], "A new lead claim.")
+        self.assertEqual(addition["location"], "lead")
+        self.assertEqual(addition["citation_domains"], ["example.org"])
+        self.assertFalse(addition["standing"])
+        self.assertEqual(addition["introduced_revision_id"], 200)
+        self.assertEqual(addition["persistence_snapshots"], 0)
+        self.assertEqual(first_event["removed"], [])
+        self.assertEqual(first_event["relocated"][0]["text"], "A durable fact.")
+        self.assertEqual(first_event["relocated"][0]["from_section"], "History")
+        self.assertEqual(first_event["relocated"][0]["to_section"], "Background")
+
+    def test_pure_body_addition_can_emit_neutral_standing_framing_lead(self):
+        revisions = [
+            {"revision_id": 10, "timestamp": "2020-01-01T00:00:00Z",
+             "wikitext": "Stable lead."},
+            {"revision_id": 20, "timestamp": "2021-01-01T00:00:00Z",
+             "wikitext": "Stable lead.\n\n== Context ==\nA lasting contextual claim."},
+            {"revision_id": 30, "timestamp": "2022-01-01T00:00:00Z",
+             "wikitext": "Stable lead.\n\n== Context ==\nA lasting contextual claim."},
+        ]
+
+        result = framing_trajectory.analyze_revision_sequence("Example", revisions)
+        event = result["events"][0]
+
+        self.assertTrue(result["framing_change_lead"])
+        self.assertEqual(event["removed"], [])
+        self.assertEqual(event["added"][0]["location"], "body")
+        self.assertTrue(event["added"][0]["standing"])
+        self.assertGreater(event["section_weights"]["after"]["Context"], 0)
+        self.assertEqual(result["semantic_role"], "framing_change_lead")
+
+    def test_exact_event_fetches_requested_oldids_and_fails_closed_when_missing(self):
+        revisions = {
+            11: {"revision_id": 11, "timestamp": "2020-01-01T00:00:00Z", "wikitext": "Before."},
+            12: {"revision_id": 12, "timestamp": "2020-01-02T00:00:00Z", "wikitext": "After."},
+        }
+        fetched = []
+
+        def fetch(revision_id):
+            fetched.append(revision_id)
+            return revisions.get(revision_id)
+
+        result = framing_trajectory.analyze_article(
+            "Example", mode="exact_event", revision_ids=[11, 12],
+            persist=False, fetch_revision=fetch,
+        )
+        unavailable = framing_trajectory.analyze_article(
+            "Example", mode="exact_event", revision_ids=[11, 13],
+            persist=False, fetch_revision=fetch,
+        )
+
+        self.assertEqual(result["status"], "available")
+        self.assertEqual(result["selection"]["selected_revision_ids"], [11, 12])
+        self.assertEqual(unavailable["status"], "unavailable")
+        self.assertIn("exact revision 13", unavailable["reason"])
+        self.assertIn(13, fetched)
+
+    def test_retained_claim_records_citation_source_change(self):
+        revisions = [
+            {"revision_id": 1, "timestamp": "2020-01-01T00:00:00Z",
+             "wikitext": "Claim.<ref>https://old.example/a</ref>"},
+            {"revision_id": 2, "timestamp": "2021-01-01T00:00:00Z",
+             "wikitext": "Claim.<ref>https://new.example/b</ref>"},
+        ]
+
+        event = framing_trajectory.analyze_revision_sequence("Example", revisions)["events"][0]
+        citation_change = event["retained"][0]["citation_change"]
+
+        self.assertEqual(citation_change["added_domains"], ["new.example"])
+        self.assertEqual(citation_change["removed_domains"], ["old.example"])
 
 
 class FocalRegistry(unittest.TestCase):
@@ -1109,6 +1213,16 @@ class PipelineCorroboration(unittest.TestCase):
         c = pipeline._corroboration(result)
         self.assertEqual(c["count"], 0)
         self.assertEqual(c["signals"], [])
+
+    def test_additive_framing_lead_does_not_independently_corroborate(self):
+        result = {
+            "l1": "HEALTHY (mean 2.0%)",
+            "trajectory": {"framing_change_lead": True, "semantic_role": "framing_change_lead"},
+            "lexical": None,
+            "mscore": None,
+        }
+
+        self.assertEqual(pipeline._corroboration(result), {"count": 0, "signals": []})
 
     def test_l1_pivot_fires_when_not_healthy(self):
         result = {"l1": "PIVOT? 2020-01-01→2022-01-01 ...", "l2_adjudicated": False,
