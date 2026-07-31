@@ -1,6 +1,6 @@
 {
   "article": "Bar Kokhba Revolt",
-  "run_ts": "2026-07-19T17:00:39.499319+00:00",
+  "run_ts": "2026-07-31T14:42:37.783530+00:00",
   "corpus_horizon": {
     "snapshot_date": "2026-07-01",
     "snapshot_revid": 1362729298
@@ -9,7 +9,19 @@
     "confirm_drop": 0.2,
     "durable_quantile": 0.5,
     "min_cohort": 500,
-    "magnitude_floor": 25.0
+    "magnitude_floor": 25.0,
+    "rolling_window_months": 12,
+    "rolling_tolerance_days": 35,
+    "rolling_drop": 20.0
+  },
+  "source_state": {
+    "article": "Bar Kokhba Revolt",
+    "source_status": "current_complete",
+    "source_checked_at": "2026-07-31T14:42:37.406958+00:00",
+    "source_latest_revid": 1366157561,
+    "expected_snapshots": 44,
+    "loaded_snapshots": 44,
+    "reason": null
   },
   "coarse_verdict": "PIVOT?",
   "status": "confirmed",
@@ -26,7 +38,34 @@
       "durable_spine_drop": 0.876579,
       "pwr_mass": 311631,
       "peak_pct": 60.96,
-      "status": "confirmed"
+      "source": "interval",
+      "status": "confirmed",
+      "duration_seconds": 2657,
+      "attribution": {
+        "before_revid": 1300661489,
+        "before_timestamp": "2025-07-15T17:38:17Z",
+        "after_revid": 1300666578,
+        "after_timestamp": "2025-07-15T18:22:34Z",
+        "duration_seconds": 2657,
+        "removed_tokens": 602,
+        "replacement_tokens": 569,
+        "removals_by_editor": [
+          {
+            "editor": "Mariamnei",
+            "tokens": 602
+          }
+        ],
+        "replacement_by_editor": [
+          {
+            "editor": "Mariamnei",
+            "tokens": 569
+          }
+        ],
+        "top_removal_share": 1.0,
+        "top_replacement_share": 1.0,
+        "same_top_editor": true,
+        "top_two_removal_share": 1.0
+      }
     }
   ]
 }

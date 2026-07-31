@@ -1,6 +1,6 @@
 {
   "article": "Gaza war",
-  "run_ts": "2026-07-19T17:23:34.109434+00:00",
+  "run_ts": "2026-07-31T15:34:56.045526+00:00",
   "corpus_horizon": {
     "snapshot_date": "2026-01-01",
     "snapshot_revid": 1330571454
@@ -9,7 +9,19 @@
     "confirm_drop": 0.2,
     "durable_quantile": 0.5,
     "min_cohort": 500,
-    "magnitude_floor": 25.0
+    "magnitude_floor": 25.0,
+    "rolling_window_months": 12,
+    "rolling_tolerance_days": 35,
+    "rolling_drop": 20.0
+  },
+  "source_state": {
+    "article": "Gaza war",
+    "source_status": "current_complete",
+    "source_checked_at": "2026-07-31T15:34:55.728143+00:00",
+    "source_latest_revid": 1367004116,
+    "expected_snapshots": 3,
+    "loaded_snapshots": 3,
+    "reason": null
   },
   "coarse_verdict": "PIVOT?",
   "status": "confirmed",
@@ -19,14 +31,31 @@
       "candidate_end": "2026-01-01",
       "candidate_before_revid": 1192910451,
       "candidate_after_revid": 1330571454,
-      "before_revid": 1222571220,
-      "before_timestamp": "2024-05-06T18:13:49Z",
-      "after_revid": 1222590616,
-      "after_timestamp": "2024-05-06T20:16:01Z",
-      "durable_spine_drop": 0.254932,
+      "before_revid": 1192910451,
+      "before_timestamp": "2024-01-01T00:59:10Z",
+      "after_revid": 1192916451,
+      "after_timestamp": "2024-01-01T01:43:00Z",
+      "durable_spine_drop": 0.324408,
       "pwr_mass": 194861,
       "peak_pct": 72.29,
-      "status": "confirmed"
+      "source": "interval",
+      "status": "confirmed",
+      "duration_seconds": 2630,
+      "attribution": {
+        "before_revid": 1192910451,
+        "before_timestamp": "2024-01-01T00:59:10Z",
+        "after_revid": 1192916451,
+        "after_timestamp": "2024-01-01T01:43:00Z",
+        "duration_seconds": 2630,
+        "removed_tokens": 0,
+        "replacement_tokens": 0,
+        "removals_by_editor": [],
+        "replacement_by_editor": [],
+        "top_removal_share": null,
+        "top_replacement_share": null,
+        "same_top_editor": false,
+        "top_two_removal_share": null
+      }
     }
   ]
 }

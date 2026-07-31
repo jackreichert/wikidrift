@@ -1,8 +1,10 @@
 """Unit tests for pure engine functions (no network, no DB, no LLM)."""
 import importlib.util
+import datetime as dt
 import io
 import json
 import pathlib
+import sys
 import tempfile
 import threading
 import unittest
@@ -16,6 +18,7 @@ from wikidrift import l5_sources as src
 from wikidrift import lexical
 from wikidrift import drift
 from wikidrift import benchmark
+from wikidrift import cli
 from wikidrift import stance
 from wikidrift import pipeline
 from wikidrift import config
@@ -146,6 +149,16 @@ class AdaptiveL5CapPolicy(unittest.TestCase):
         ])
         self.assertEqual(notes, [])
 
+    def test_attribution_mode_only_backfills_confirmed_pairs(self):
+        commands, notes = cover_missing_topics._topic_commands(
+            "Testland", use_llm=False, include_mscore=False, include_framing=False,
+            mode="attribution", l5_max_langs=None, required=set(), have=set(),
+        )
+        self.assertEqual(commands, [[
+            sys.executable, "-m", "wikidrift.cli", "backfill-attribution", "Testland",
+        ]])
+        self.assertEqual(notes, [])
+
     def test_fill_mode_uses_crosslingual_for_stance_and_receipts(self):
         commands, _ = cover_missing_topics._topic_commands(
             "Testland", use_llm=True, include_mscore=False, include_framing=False,
@@ -185,6 +198,26 @@ class AdaptiveL5CapPolicy(unittest.TestCase):
 
 
 class ParallelTopicCoverage(unittest.TestCase):
+    def test_analysis_outcome_reads_confirmation_status(self):
+        with tempfile.TemporaryDirectory() as directory:
+            data_dir = pathlib.Path(directory)
+            findings = data_dir / "findings"
+            findings.mkdir()
+            (findings / "Testland.l1-confirmation.json").write_text(
+                json.dumps({"status": "not_confirmed"}), encoding="utf-8",
+            )
+            self.assertEqual(
+                cover_missing_topics._analysis_outcome(data_dir, "Testland"),
+                "not_confirmed",
+            )
+
+    def test_analysis_outcome_is_unknown_when_artifact_missing(self):
+        with tempfile.TemporaryDirectory() as directory:
+            self.assertEqual(
+                cover_missing_topics._analysis_outcome(pathlib.Path(directory), "Testland"),
+                "unknown",
+            )
+
     def test_canonicalize_topics_replaces_redirects_and_deduplicates_targets(self):
         resolved = {
             "Democratic Party of the United States": "Democratic Party (United States)",
@@ -212,11 +245,16 @@ class ParallelTopicCoverage(unittest.TestCase):
         self.assertEqual(identity["page_id"], 5043544)
         self.assertEqual(identity["requested_titles"], list(resolved))
 
-    def test_uv_command_runs_wikidrift_entrypoint(self):
+    def test_project_command_reuses_current_python_environment(self):
         self.assertEqual(
-            cover_missing_topics._uv_command(["analyze", "Testland"]),
-            ["uv", "run", "wikidrift", "analyze", "Testland"],
+            cover_missing_topics._project_command(["analyze", "Testland"]),
+            [sys.executable, "-m", "wikidrift.cli", "analyze", "Testland"],
         )
+
+    def test_stage_name_extracts_project_module_command(self):
+        command = cover_missing_topics._project_command(["backfill-attribution", "Testland"])
+
+        self.assertEqual(cover_missing_topics._stage_name(command), "backfill-attribution")
 
     def test_streaming_command_logs_and_prefixes_each_output_line(self):
         process = Mock(stdout=iter(["first line\n", "last line"]))
@@ -226,7 +264,7 @@ class ParallelTopicCoverage(unittest.TestCase):
         output = io.StringIO()
 
         completed = cover_missing_topics._run_streaming_command(
-            ["uv", "run", "wikidrift", "analyze", "Testland"],
+            cover_missing_topics._project_command(["analyze", "Testland"]),
             env={"PYTHONUNBUFFERED": "1"},
             log=log,
             topic="Testland",
@@ -247,7 +285,7 @@ class ParallelTopicCoverage(unittest.TestCase):
 
         with self.assertRaisesRegex(OSError, "terminal closed"):
             cover_missing_topics._run_streaming_command(
-                ["uv", "run", "wikidrift", "analyze", "Testland"],
+                cover_missing_topics._project_command(["analyze", "Testland"]),
                 env={"PYTHONUNBUFFERED": "1"},
                 log=io.StringIO(),
                 topic="Testland",
@@ -272,8 +310,8 @@ class ParallelTopicCoverage(unittest.TestCase):
             result = cover_missing_topics._run_topic_commands(
                 topic="Testland",
                 commands=[
-                    ["uv", "run", "wikidrift", "analyze", "Testland"],
-                    ["uv", "run", "wikidrift", "pipeline", "Testland"],
+                    cover_missing_topics._project_command(["analyze", "Testland"]),
+                    cover_missing_topics._project_command(["pipeline", "Testland"]),
                 ],
                 articles_dir=articles_dir,
                 resume=True,
@@ -283,7 +321,10 @@ class ParallelTopicCoverage(unittest.TestCase):
             self.assertTrue(result["succeeded"])
             self.assertEqual(result["skipped_stages"], ["analyze"])
             runner.assert_called_once()
-            self.assertEqual(runner.call_args.args[0][:4], ["uv", "run", "wikidrift", "pipeline"])
+            self.assertEqual(
+                runner.call_args.args[0],
+                cover_missing_topics._project_command(["pipeline", "Testland"]),
+            )
             self.assertEqual(runner.call_args.kwargs["env"]["WIKIDRIFT_DATA_DIR"], str(data_dir))
             state = json.loads((data_dir / "coverage-state.json").read_text(encoding="utf-8"))
             self.assertEqual(state["completed_stages"], ["analyze", "pipeline"])
@@ -296,9 +337,9 @@ class ParallelTopicCoverage(unittest.TestCase):
             result = cover_missing_topics._run_topic_commands(
                 topic="Testland",
                 commands=[
-                    ["uv", "run", "wikidrift", "analyze", "Testland"],
-                    ["uv", "run", "wikidrift", "pipeline", "Testland"],
-                    ["uv", "run", "wikidrift", "profile", "Testland"],
+                    cover_missing_topics._project_command(["analyze", "Testland"]),
+                    cover_missing_topics._project_command(["pipeline", "Testland"]),
+                    cover_missing_topics._project_command(["profile", "Testland"]),
                 ],
                 articles_dir=articles_dir,
                 resume=True,
@@ -753,6 +794,121 @@ class BenchmarkScoring(unittest.TestCase):
         self.assertEqual(r["status"], "PENDING")
 
 
+class ConcentrationCalibration(unittest.TestCase):
+    def _confirmation(self):
+        return {
+            "article": "Example",
+            "status": "confirmed",
+            "thresholds": config.confirmation_thresholds(),
+            "corpus_horizon": {"snapshot_date": "2026-01-01", "snapshot_revid": 900},
+            "confirmed_episodes": [{
+                "before_revid": 100,
+                "after_revid": 200,
+                "durable_spine_drop": 0.62,
+                "pwr_mass": 120000,
+                "attribution": {
+                    "duration_seconds": 1080,
+                    "removed_tokens": 10,
+                    "replacement_tokens": 8,
+                    "removals_by_editor": [
+                        {"editor": "Editor A", "tokens": 7},
+                        {"editor": "Editor B", "tokens": 3},
+                    ],
+                    "replacement_by_editor": [{"editor": "Editor A", "tokens": 8}],
+                },
+            }],
+        }
+
+    def test_extracts_recomputable_raw_event_without_label(self):
+        dataset = benchmark.concentration_dataset([
+            (self._confirmation(), ("2026-01-01", 900)),
+        ])
+
+        self.assertFalse(dataset["labels_enabled"])
+        self.assertEqual(dataset["exclusions"], [])
+        event = dataset["events"][0]
+        self.assertEqual(event["top_removal_share"], 0.7)
+        self.assertEqual(event["top_two_removal_share"], 1.0)
+        self.assertTrue(event["same_top_editor"])
+        self.assertNotIn("label", event)
+
+    def test_stale_confirmation_is_excluded(self):
+        dataset = benchmark.concentration_dataset([
+            (self._confirmation(), ("2026-01-01", 901)),
+        ])
+
+        self.assertEqual(dataset["events"], [])
+        self.assertEqual(dataset["exclusions"][0]["reason"], "stale_confirmation")
+
+    def test_missing_attribution_is_excluded_with_reason(self):
+        confirmation = self._confirmation()
+        episode = confirmation["confirmed_episodes"][0]
+        episode["attribution"] = None
+        episode["attribution_unavailable"] = "token provenance unavailable"
+
+        dataset = benchmark.concentration_dataset([
+            (confirmation, ("2026-01-01", 900)),
+        ])
+
+        self.assertEqual(dataset["events"], [])
+        self.assertEqual(dataset["exclusions"][0]["reason"], "token provenance unavailable")
+
+    def test_mismatched_raw_counts_fail_closed(self):
+        confirmation = self._confirmation()
+        confirmation["confirmed_episodes"][0]["attribution"]["removed_tokens"] = 11
+
+        with self.assertRaisesRegex(ValueError, "removal attribution total"):
+            benchmark.concentration_dataset([(confirmation, ("2026-01-01", 900))])
+
+    def test_mismatched_replacement_counts_fail_closed(self):
+        confirmation = self._confirmation()
+        confirmation["confirmed_episodes"][0]["attribution"]["replacement_tokens"] = 9
+
+        with self.assertRaisesRegex(ValueError, "replacement attribution total"):
+            benchmark.concentration_dataset([(confirmation, ("2026-01-01", 900))])
+
+    def test_unconfirmed_artifact_is_excluded(self):
+        confirmation = self._confirmation()
+        confirmation["status"] = "not_confirmed"
+
+        dataset = benchmark.concentration_dataset([
+            (confirmation, ("2026-01-01", 900)),
+        ])
+
+        self.assertEqual(dataset["events"], [])
+        self.assertEqual(dataset["exclusions"][0]["reason"], "not_confirmed")
+
+    def test_summary_reports_feature_ranges_without_thresholds(self):
+        events = benchmark.concentration_dataset([
+            (self._confirmation(), ("2026-01-01", 900)),
+        ])["events"]
+
+        summary = benchmark.concentration_summary(events)
+
+        self.assertEqual(summary["event_count"], 1)
+        self.assertEqual(summary["top_removal_share"]["median"], 0.7)
+        self.assertEqual(summary["same_top_editor_count"], 1)
+        self.assertNotIn("threshold", summary)
+
+    def test_readiness_rejects_non_discriminating_editor_shares(self):
+        summary = {
+            "top_removal_share": {"count": 2, "min": 1.0, "median": 1.0, "max": 1.0},
+            "top_replacement_share": {"count": 2, "min": 1.0, "median": 1.0, "max": 1.0},
+            "top_two_removal_share": {"count": 2, "min": 1.0, "median": 1.0, "max": 1.0},
+        }
+
+        readiness = benchmark.concentration_readiness(summary)
+
+        self.assertFalse(readiness["calibration_ready"])
+        self.assertEqual(len(readiness["calibration_blockers"]), 3)
+
+    def test_cli_dispatches_offline_concentration_report(self):
+        with patch.object(benchmark, "run_concentration") as run_concentration:
+            cli.main(["calibrate-concentration", "/tmp/article-shards", "--json"])
+
+        run_concentration.assert_called_once_with(pathlib.Path("/tmp/article-shards"), as_json=True)
+
+
 class PipelineCorroboration(unittest.TestCase):
     """_corroboration: count how many independent layers fire."""
 
@@ -768,6 +924,15 @@ class PipelineCorroboration(unittest.TestCase):
                   "lexical": None, "mscore": None}
         c = pipeline._corroboration(result)
         self.assertIn("l1_pivot", c["signals"])
+
+    def test_fresh_rejection_suppresses_stale_coarse_pivot(self):
+        result = {
+            "l1": "PIVOT? 2020-01-01→2022-01-01 ...",
+            "l1_state": {"confirmation_status": "not_confirmed"},
+            "lexical": None,
+            "mscore": None,
+        }
+        self.assertNotIn("l1_pivot", pipeline._corroboration(result)["signals"])
 
     def test_l1_creep_also_fires(self):
         result = {"l1": "CREEP? mean 9.2%", "l2_adjudicated": False,
@@ -788,8 +953,15 @@ class PipelineCorroboration(unittest.TestCase):
 
     def test_lexical_drift_fires_above_threshold(self):
         result = {"l1": "HEALTHY", "l2_adjudicated": False,
-                  "lexical": {"js_divergence": 0.08}, "mscore": None}
+                  "lexical": {"mode": "pivot_relative", "adequate": True,
+                              "js_divergence": 0.08}, "mscore": None}
         self.assertIn("lexical_drift", pipeline._corroboration(result)["signals"])
+
+    def test_whole_history_lexical_change_does_not_corroborate(self):
+        result = {"l1": "HEALTHY", "l2_adjudicated": False,
+                  "lexical": {"mode": "whole_history", "adequate": True,
+                              "js_divergence": 0.08}, "mscore": None}
+        self.assertNotIn("lexical_drift", pipeline._corroboration(result)["signals"])
 
     def test_lexical_drift_does_not_fire_below_threshold(self):
         result = {"l1": "HEALTHY", "l2_adjudicated": False,
@@ -799,7 +971,8 @@ class PipelineCorroboration(unittest.TestCase):
     def test_count_matches_signals_length(self):
         result = {"l1": "PIVOT?", "l2_adjudicated": True,
                   "l2": {"shifts": {"Testland": {"start": -1, "end": 1, "shifted": True, "n": 2}}},
-                  "lexical": {"js_divergence": 0.09}, "mscore": None}
+                  "lexical": {"mode": "pivot_relative", "adequate": True,
+                              "js_divergence": 0.09}, "mscore": None}
         c = pipeline._corroboration(result)
         self.assertEqual(c["count"], len(c["signals"]))
 
@@ -1127,6 +1300,64 @@ class PipelinePivotWindow(unittest.TestCase):
         self.assertTrue(pipeline.confirmation_is_fresh(confirmation, ("2024-01-01", 900)))
         self.assertIsNone(pipeline._confirmed_window(confirmation, ("2024-01-01", 900)))
 
+        state = pipeline.resolve_l1_state(
+            {"verdict": "PIVOT?", "episodes": [{"start": "2020-01-01"}]},
+            confirmation,
+            ("2024-01-01", 900),
+        )
+        self.assertEqual(state["analysis_status"], "available")
+        self.assertEqual(state["candidate_status"], "pivot_candidate")
+        self.assertEqual(state["confirmation_status"], "not_confirmed")
+        self.assertEqual(state["resolved_status"], "not_confirmed")
+
+    def test_partial_source_coverage_is_unavailable(self):
+        state = pipeline.resolve_l1_state(
+            {"verdict": "PIVOT?", "episodes": [{"start": "2020-01-01"}]},
+            None,
+            ("2024-01-01", 900),
+            source_state={
+                "source_status": "partial",
+                "expected_snapshots": 25,
+                "loaded_snapshots": 24,
+                "reason": "loaded 24 of 25 expected snapshots",
+            },
+        )
+        self.assertEqual(state["analysis_status"], "unavailable")
+        self.assertEqual(state["resolved_status"], "unavailable")
+        self.assertEqual(state["reason"], "loaded 24 of 25 expected snapshots")
+
+    def test_source_revision_ahead_of_cached_horizon_is_unavailable(self):
+        state = pipeline.resolve_l1_state(
+            {"verdict": "HEALTHY"},
+            None,
+            ("2024-01-01", 900),
+            source_state={
+                "source_status": "current_complete",
+                "source_checked_at": "2026-07-30T00:00:00+00:00",
+                "source_latest_revid": 901,
+            },
+            now=dt.datetime(2026, 7, 30, tzinfo=dt.timezone.utc),
+        )
+        self.assertEqual(state["analysis_status"], "unavailable")
+        self.assertEqual(state["resolved_status"], "unavailable")
+        self.assertIn("ahead of cached snapshot revision", state["reason"])
+
+    def test_expired_source_check_is_unavailable(self):
+        state = pipeline.resolve_l1_state(
+            {"verdict": "HEALTHY"},
+            None,
+            ("2024-01-01", 900),
+            source_state={
+                "source_status": "current_complete",
+                "source_checked_at": "2026-07-01T00:00:00+00:00",
+                "source_latest_revid": 900,
+            },
+            now=dt.datetime(2026, 7, 30, tzinfo=dt.timezone.utc),
+        )
+        self.assertEqual(state["analysis_status"], "unavailable")
+        self.assertEqual(state["resolved_status"], "unavailable")
+        self.assertIn("source check expired", state["reason"])
+
     def test_confirmation_with_old_thresholds_is_rejected(self):
         confirmation = {
             "status": "confirmed",
@@ -1141,6 +1372,88 @@ class PipelinePivotWindow(unittest.TestCase):
             "confirmed_episodes": [{"candidate_start": "2020-01-01"}],
         }
         self.assertIsNone(pipeline._confirmed_window(confirmation, ("2024-01-01", 900)))
+
+
+class LexicalModeContract(unittest.TestCase):
+    def test_exact_confirmation_supplies_revision_pair(self):
+        window = {
+            "status": "confirmed",
+            "before_revid": 111,
+            "before_timestamp": "2025-01-01T00:00:00Z",
+            "after_revid": 112,
+            "after_timestamp": "2025-01-01T00:18:00Z",
+        }
+        selected = lexical._window_revs(Mock(), "A", mode="pivot_relative", window=window)
+
+        self.assertEqual((selected["before_rev"], selected["after_rev"]), (111, 112))
+        self.assertEqual(selected["interval_source"], "exact_confirmation")
+
+    def test_small_or_imbalanced_baseline_is_insufficient(self):
+        adequate, reason, ratio = lexical._baseline_adequacy(
+            before_tokens=51,
+            after_tokens=1066,
+            min_tokens=100,
+            max_size_ratio=4.0,
+        )
+
+        self.assertFalse(adequate)
+        self.assertIn("minimum token floor", reason)
+        self.assertGreater(ratio, 20)
+
+    def test_pivot_relative_analysis_fetches_exact_revisions(self):
+        window = {
+            "status": "confirmed",
+            "before_revid": 111,
+            "before_timestamp": "2025-01-01T00:00:00Z",
+            "after_revid": 112,
+            "after_timestamp": "2025-01-01T00:18:00Z",
+        }
+        with patch.object(lexical.duckdb, "connect", return_value=Mock()), \
+             patch.object(
+                 lexical,
+                 "prose_at",
+                 side_effect=["alpha " * 120, "beta " * 120],
+             ) as prose_at:
+            result = lexical.lexical_drift(
+                "A", mode="pivot_relative", window=window, persist=False
+            )
+
+        self.assertEqual([call.args[0] for call in prose_at.call_args_list], [111, 112])
+        self.assertEqual(result["mode"], "pivot_relative")
+        self.assertEqual(result["interval_source"], "exact_confirmation")
+        self.assertTrue(result["adequate"])
+
+    def test_not_applicable_skips_corpus_and_prose_reads(self):
+        with patch.object(lexical.duckdb, "connect") as connect, \
+             patch.object(lexical, "prose_at") as prose_at:
+            result = lexical.lexical_drift("A", mode="not_applicable", persist=False)
+
+        self.assertEqual(result["mode"], "not_applicable")
+        connect.assert_not_called()
+        prose_at.assert_not_called()
+
+    def test_imbalanced_analysis_is_persisted_as_insufficient(self):
+        window = {
+            "status": "confirmed",
+            "before_revid": 111,
+            "before_timestamp": "2025-01-01T00:00:00Z",
+            "after_revid": 112,
+            "after_timestamp": "2025-01-01T00:18:00Z",
+        }
+        with patch.object(lexical.duckdb, "connect", return_value=Mock()), \
+             patch.object(
+                 lexical,
+                 "prose_at",
+                 side_effect=["alpha " * 120, "beta " * 600],
+             ):
+            result = lexical.lexical_drift(
+                "A", mode="pivot_relative", window=window, persist=False
+            )
+
+        self.assertEqual(result["mode"], "insufficient_baseline")
+        self.assertEqual(result["requested_mode"], "pivot_relative")
+        self.assertFalse(result["adequate"])
+        self.assertEqual(result["size_ratio"], 5.0)
 
 
 if __name__ == "__main__":

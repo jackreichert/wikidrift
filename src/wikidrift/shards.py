@@ -73,21 +73,27 @@ def migrate_all(data_dir: pathlib.Path, articles_dir: pathlib.Path | None = None
     return report
 
 
-def _database_inventory(con) -> tuple[list[str], list[str]]:
+def _database_inventory(con) -> tuple[dict[str, str], list[str]]:
+    """Return each table's article-ownership column and all owned article titles."""
     tables = [row[0] for row in con.execute("""
         SELECT table_name
         FROM information_schema.tables
         WHERE table_schema = 'main' AND table_type = 'BASE TABLE'
         ORDER BY table_name
     """).fetchall()]
-    article_tables = []
+    article_tables = {}
     articles = set()
     for table in tables:
         columns = {row[1] for row in con.execute(f"PRAGMA table_info({_quote_literal(table)})").fetchall()}
-        if "article" not in columns:
+        if "article" in columns:
+            ownership_column = "article"
+        elif table == "article_identity" and "canonical_title" in columns:
+            ownership_column = "canonical_title"
+        else:
             raise ValueError(f"cannot attribute table without an article column: {table}")
-        article_tables.append(table)
-        query = f"SELECT DISTINCT article FROM {_quote_identifier(table)} WHERE article IS NOT NULL"
+        article_tables[table] = ownership_column
+        key = _quote_identifier(ownership_column)
+        query = f"SELECT DISTINCT {key} FROM {_quote_identifier(table)} WHERE {key} IS NOT NULL"
         articles.update(row[0] for row in con.execute(query).fetchall())
     return article_tables, sorted(articles)
 
@@ -115,20 +121,21 @@ def _article_registry(source_dir: pathlib.Path, database_articles: list[str]) ->
     return article_by_slug
 
 
-def _copy_article_database(source_db: pathlib.Path, target_db: pathlib.Path, tables: list[str],
+def _copy_article_database(source_db: pathlib.Path, target_db: pathlib.Path, tables: dict[str, str],
                            article: str) -> dict[str, int]:
     temporary = target_db.with_name(f".{target_db.name}.{uuid.uuid4().hex}.tmp")
     con = duckdb.connect(str(temporary))
     try:
         con.execute(f"ATTACH {_quote_literal(str(source_db))} AS canonical (READ_ONLY)")
         expected = {}
-        for table in tables:
+        for table, ownership_column in tables.items():
             identifier = _quote_identifier(table)
+            key = _quote_identifier(ownership_column)
             expected[table] = con.execute(
-                f"SELECT count(*) FROM canonical.{identifier} WHERE article = ?", [article]
+                f"SELECT count(*) FROM canonical.{identifier} WHERE {key} = ?", [article]
             ).fetchone()[0]
             con.execute(
-                f"CREATE TABLE {identifier} AS SELECT * FROM canonical.{identifier} WHERE article = ?",
+                f"CREATE TABLE {identifier} AS SELECT * FROM canonical.{identifier} WHERE {key} = ?",
                 [article],
             )
         con.execute("DETACH canonical")

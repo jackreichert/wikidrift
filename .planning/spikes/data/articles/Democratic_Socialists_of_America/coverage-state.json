@@ -1,8 +1,9 @@
 {
   "article": "Democratic Socialists of America",
-  "updated_ts": "2026-07-30T21:32:10.811192+00:00",
+  "updated_ts": "2026-07-31T14:36:09.628945+00:00",
   "completed_stages": [
     "analyze",
-    "pipeline"
+    "pipeline",
+    "backfill-attribution"
   ]
 }

@@ -1,8 +1,9 @@
 {
   "article": "Capitalism",
-  "updated_ts": "2026-07-30T21:30:13.755045+00:00",
+  "updated_ts": "2026-07-31T14:36:04.903790+00:00",
   "completed_stages": [
     "analyze",
-    "pipeline"
+    "pipeline",
+    "backfill-attribution"
   ]
 }

@@ -78,6 +78,9 @@ def ensure_schema(con):
     con.execute("CREATE TABLE IF NOT EXISTS articles(article TEXT, page_id BIGINT, latest_rev BIGINT, latest_time TEXT, n_tokens BIGINT)")
     con.execute("""CREATE TABLE IF NOT EXISTS article_identity(
         requested_title TEXT, canonical_title TEXT, page_id BIGINT, resolved_at TEXT)""")
+    con.execute("""CREATE TABLE IF NOT EXISTS article_source_state(
+        article TEXT PRIMARY KEY, source_status TEXT, source_checked_at TEXT,
+        source_latest_revid BIGINT, expected_snapshots INT, loaded_snapshots INT, reason TEXT)""")
     con.execute("CREATE TABLE IF NOT EXISTS revisions(article TEXT, rev_id BIGINT, ts TEXT, user TEXT)")
     con.execute("CREATE TABLE IF NOT EXISTS tokens(article TEXT, token_id BIGINT, str TEXT, editor TEXT, o_rev_id BIGINT, n_in INT, n_out INT)")
     con.execute("CREATE TABLE IF NOT EXISTS rev_size(article TEXT, rev_id BIGINT, size BIGINT)")
@@ -96,6 +99,57 @@ def record_article_identity(con, resolved):
         [resolved.requested_title, resolved.canonical_title, resolved.page_id,
          dt.datetime.now(dt.timezone.utc).isoformat()],
     )
+
+
+def load_source_state(con, article):
+    """Return persisted source and snapshot coverage for one article, if measured."""
+    exists = con.execute("""SELECT count(*) FROM information_schema.tables
+        WHERE table_schema='main' AND table_name='article_source_state'""").fetchone()[0]
+    if not exists:
+        return None
+    row = con.execute("""SELECT source_status, source_checked_at, source_latest_revid,
+        expected_snapshots, loaded_snapshots, reason
+        FROM article_source_state WHERE article=?""", [article]).fetchone()
+    if not row:
+        return None
+    keys = (
+        "source_status", "source_checked_at", "source_latest_revid",
+        "expected_snapshots", "loaded_snapshots", "reason",
+    )
+    return {"article": article, **dict(zip(keys, row))}
+
+
+def record_source_state(con, article, **updates):
+    """Merge measured source coverage into the article's idempotent state row."""
+    ensure_schema(con)
+    current = load_source_state(con, article) or {"article": article}
+    current.update(updates)
+    values = [
+        article,
+        current.get("source_status", "unchecked"),
+        current.get("source_checked_at"),
+        current.get("source_latest_revid"),
+        current.get("expected_snapshots"),
+        current.get("loaded_snapshots"),
+        current.get("reason"),
+    ]
+    con.execute("""MERGE INTO article_source_state AS target
+        USING (SELECT ? AS article, ? AS source_status, ? AS source_checked_at,
+                      ? AS source_latest_revid, ? AS expected_snapshots,
+                      ? AS loaded_snapshots, ? AS reason) AS source
+        ON target.article = source.article
+        WHEN MATCHED THEN UPDATE SET
+            source_status = source.source_status,
+            source_checked_at = source.source_checked_at,
+            source_latest_revid = source.source_latest_revid,
+            expected_snapshots = source.expected_snapshots,
+            loaded_snapshots = source.loaded_snapshots,
+            reason = source.reason
+        WHEN NOT MATCHED THEN INSERT VALUES (
+            source.article, source.source_status, source.source_checked_at,
+            source.source_latest_revid, source.expected_snapshots,
+            source.loaded_snapshots, source.reason)""", values)
+    return load_source_state(con, article)
 
 
 def ensure_indexes(con):
@@ -144,7 +198,18 @@ def ensure_sizes(con, article):
     total = len(seen)
 
     while True:
-        d = config.get_json_retrying(_S, config.ACTION, params=params)   # network/Action-API can be flaky
+        try:
+            d = config.get_json_retrying(_S, config.ACTION, params=params)
+        except Exception as exc:
+            record_source_state(
+                con,
+                article,
+                source_status="unavailable",
+                source_checked_at=dt.datetime.now(dt.timezone.utc).isoformat(),
+                source_latest_revid=latest,
+                reason=f"history retrieval failed: {exc}",
+            )
+            raise
         revrows, szrows = [], []
         for pg in d.get("query", {}).get("pages", []):
             for rv in pg.get("revisions", []):
@@ -165,6 +230,17 @@ def ensure_sizes(con, article):
         else:
             break
     print(f"\r  history: {total:,} revisions" + " " * 10, flush=True)
+    source_latest_revid = con.execute(
+        "SELECT max(rev_id) FROM revisions WHERE article=?", [article]
+    ).fetchone()[0]
+    record_source_state(
+        con,
+        article,
+        source_status="history_complete",
+        source_checked_at=dt.datetime.now(dt.timezone.utc).isoformat(),
+        source_latest_revid=source_latest_revid,
+        reason=None,
+    )
 
 
 # --- WikiWho: per-revision tokens -------------------------------------------
@@ -255,4 +331,13 @@ def build_snapshots(con, article):
         snaps.append((d, rev_id))
     if n:
         print(f"\r  snapshots [{_pbar(n, n)}] {len(snaps)}/{n} loaded" + " " * 20, flush=True)
+    complete = bool(n) and len(snaps) == n
+    record_source_state(
+        con,
+        article,
+        source_status="current_complete" if complete else "partial",
+        expected_snapshots=n,
+        loaded_snapshots=len(snaps),
+        reason=None if complete else f"loaded {len(snaps)} of {n} expected snapshots",
+    )
     return snaps

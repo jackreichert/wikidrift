@@ -1,9 +1,11 @@
 """wikidrift command-line entry point.
 
   wikidrift analyze "Zionism"          # full L1 pipeline (fetches as needed) + attribution
+    wikidrift backfill-attribution "Zionism"  # add attribution to current exact confirmations
   wikidrift validate ["Zionism" ...]   # offline PWR candidate verdicts (no WikiWho); default = whole cache
   wikidrift prerank ["Zionism" ...]    # metadata pre-ranker (offline)
   wikidrift benchmark [--json]         # score the adjudicated roster
+    wikidrift calibrate-concentration ARTICLES_DIR [--json]  # raw exact-event feature report (offline)
   wikidrift stance "Nakba" [--entities a,b,c] [--max-snaps N]   # L2 stance classifier (needs an LLM key)
     wikidrift crosslingual "Zionism" [--langs en,he,ar] [--no-pivot]  # cross-language stance (needs key)
   wikidrift factcheck "Warsaw concentration camp" [--langs ..] [--asof 2018-06-01]  # L5 #2 fact divergence (needs key)
@@ -83,6 +85,13 @@ def main(argv=None):
     sp = sub.add_parser("analyze", help="full L1 pipeline for one article (+ attribution)")
     sp.add_argument("article")
 
+    sp = sub.add_parser(
+        "backfill-attribution",
+        help="add exact-event attribution to a current confirmation without rerunning L1",
+    )
+    sp.add_argument("article")
+    sp.add_argument("--force", action="store_true", help="recompute episodes that already have attribution")
+
     sp = sub.add_parser("validate", help="offline PWR candidate verdicts (no WikiWho)")
     sp.add_argument("articles", nargs="*")
 
@@ -90,6 +99,13 @@ def main(argv=None):
     sp.add_argument("articles", nargs="*")
 
     sp = sub.add_parser("benchmark", help="score the adjudicated ground-truth roster")
+    sp.add_argument("--json", action="store_true")
+
+    sp = sub.add_parser(
+        "calibrate-concentration",
+        help="report raw concentration features from fresh article-owned confirmations",
+    )
+    sp.add_argument("articles_dir", type=pathlib.Path)
     sp.add_argument("--json", action="store_true")
 
     sp = sub.add_parser("stance", help="L2 LLM stance classifier over time")
@@ -173,6 +189,15 @@ def main(argv=None):
 
     if args.cmd == "analyze":
         drift.analyze(_normalize_article_arg(args.article))
+    elif args.cmd == "backfill-attribution":
+        article = _normalize_article_arg(args.article)
+        report = drift.backfill_attribution(article, force=args.force)
+        print(
+            f"{article}: {report['updated_episodes']} updated, "
+            f"{report['skipped_episodes']} unchanged, {report['failed_episodes']} failed"
+        )
+        if report["failed_episodes"]:
+            raise RuntimeError(f"attribution failed for {report['failed_episodes']} episode(s)")
     elif args.cmd == "validate":
         con = duckdb.connect(str(config.DB), read_only=True)
         targets = args.articles or Corpus(con).articles_with_snapshots(3)
@@ -187,6 +212,8 @@ def main(argv=None):
         prerank.run(args.articles or None)
     elif args.cmd == "benchmark":
         benchmark.run(as_json=args.json)
+    elif args.cmd == "calibrate-concentration":
+        benchmark.run_concentration(args.articles_dir, as_json=args.json)
     elif args.cmd == "stance":
         ents = [e.strip() for e in args.entities.split(",")] if args.entities else None
         stance.stance_over_time(_normalize_article_arg(args.article), entities=ents, max_snaps=args.max_snaps,

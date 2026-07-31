@@ -1,8 +1,9 @@
 {
   "article": "Socialism",
-  "updated_ts": "2026-07-30T21:24:43.381644+00:00",
+  "updated_ts": "2026-07-31T14:39:54.613927+00:00",
   "completed_stages": [
     "analyze",
-    "pipeline"
+    "pipeline",
+    "backfill-attribution"
   ]
 }

@@ -30,7 +30,29 @@
       "pwr_mass": 191348,
       "peak_pct": 59.81,
       "source": "interval",
-      "status": "confirmed"
+      "status": "confirmed",
+      "duration_seconds": 75884,
+      "attribution": {
+        "before_revid": 1038099235,
+        "before_timestamp": "2021-08-10T14:22:51Z",
+        "after_revid": 1038247004,
+        "after_timestamp": "2021-08-11T11:27:35Z",
+        "duration_seconds": 75884,
+        "removed_tokens": 0,
+        "replacement_tokens": 3,
+        "removals_by_editor": [],
+        "replacement_by_editor": [
+          {
+            "editor": "Davide King",
+            "tokens": 3
+          }
+        ],
+        "top_removal_share": null,
+        "top_replacement_share": 1.0,
+        "same_top_editor": false,
+        "top_two_removal_share": null
+      }
     }
-  ]
+  ],
+  "attribution_backfill_ts": "2026-07-31T14:39:54.580995+00:00"
 }

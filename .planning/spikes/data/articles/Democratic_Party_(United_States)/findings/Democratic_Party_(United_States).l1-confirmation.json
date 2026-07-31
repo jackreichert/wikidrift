@@ -30,7 +30,33 @@
       "pwr_mass": 211296,
       "peak_pct": 27.81,
       "source": "interval",
-      "status": "confirmed"
+      "status": "confirmed",
+      "duration_seconds": 322931,
+      "attribution": {
+        "before_revid": 1184243041,
+        "before_timestamp": "2023-11-09T05:48:37Z",
+        "after_revid": 1184839521,
+        "after_timestamp": "2023-11-12T23:30:48Z",
+        "duration_seconds": 322931,
+        "removed_tokens": 19221,
+        "replacement_tokens": 430,
+        "removals_by_editor": [
+          {
+            "editor": "KlayCax",
+            "tokens": 19221
+          }
+        ],
+        "replacement_by_editor": [
+          {
+            "editor": "KlayCax",
+            "tokens": 430
+          }
+        ],
+        "top_removal_share": 1.0,
+        "top_replacement_share": 1.0,
+        "same_top_editor": true,
+        "top_two_removal_share": 1.0
+      }
     },
     {
       "candidate_start": "2007-01-01",
@@ -45,7 +71,34 @@
       "pwr_mass": 28810,
       "peak_pct": 67.54,
       "source": "interval",
-      "status": "confirmed"
+      "status": "confirmed",
+      "duration_seconds": 1982,
+      "attribution": {
+        "before_revid": 122338208,
+        "before_timestamp": "2007-04-12T22:11:59Z",
+        "after_revid": 122346077,
+        "after_timestamp": "2007-04-12T22:45:01Z",
+        "duration_seconds": 1982,
+        "removed_tokens": 8407,
+        "replacement_tokens": 535,
+        "removals_by_editor": [
+          {
+            "editor": "Settler",
+            "tokens": 8407
+          }
+        ],
+        "replacement_by_editor": [
+          {
+            "editor": "Settler",
+            "tokens": 535
+          }
+        ],
+        "top_removal_share": 1.0,
+        "top_replacement_share": 1.0,
+        "same_top_editor": true,
+        "top_two_removal_share": 1.0
+      }
     }
-  ]
+  ],
+  "attribution_backfill_ts": "2026-07-31T14:35:48.367348+00:00"
 }

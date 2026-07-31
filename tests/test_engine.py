@@ -2,14 +2,16 @@
 in CI without the (gitignored, ~850 MB) real DuckDB. Golden-verdict tests need the real corpus and auto-skip;
 these don't — they build a tiny deterministic fixture and assert exact outputs.
 """
+import json
 import os
+import pathlib
 import tempfile
 import unittest
 from unittest import mock
 
 import duckdb
 
-from wikidrift import provenance, drift, prerank
+from wikidrift import benchmark, config, provenance, drift, prerank
 
 
 class ArticleTitleResolution(unittest.TestCase):
@@ -205,7 +207,7 @@ class RemovalAttribution(unittest.TestCase):
         provenance.ensure_schema(self.con)
         self.con.executemany("INSERT INTO revisions VALUES (?,?,?,?)", [
             ("A", 100, "2019-01-01T00:00:00Z", "OldAuthor"),   # token origin — established BEFORE the window
-            ("A", 550, "2021-03-01T00:00:00Z", "RemovingEditor"),  # terminal 'out' rev inside the window
+            ("A", 550, "2021-03-01T00:06:00Z", "RemovingEditor"),  # terminal 'out' rev inside the window
         ])
         # Latest snapshot holds only token 2, so token 1 counts as persistently removed.
         self.con.execute("INSERT INTO rsnap VALUES (?,?,?,?,?)", ("A", "2021-07-01", 600, 2, 100))
@@ -228,6 +230,144 @@ class RemovalAttribution(unittest.TestCase):
         # The return contract includes revision maps + latest row so attribute can reuse them.
         self.assertEqual(latest, (600,))
         self.assertEqual(editor_of[550], "RemovingEditor")
+
+    def test_exact_event_attribution_returns_recomputable_counts_and_duration(self):
+        self.con.executemany("INSERT INTO revisions VALUES (?,?,?,?)", [
+            ("A", 500, "2021-03-01T00:00:00Z", "BeforeEditor"),
+            ("A", 560, "2021-03-01T00:12:00Z", "ReplacementEditor"),
+            ("A", 600, "2021-03-01T00:18:00Z", "AfterEditor"),
+        ])
+        episode = {
+            "before_revid": 500,
+            "before_timestamp": "2021-03-01T00:00:00Z",
+            "after_revid": 600,
+            "after_timestamp": "2021-03-01T00:18:00Z",
+        }
+        before = [
+            {"token_id": 1, "o_rev_id": 100, "out": [550]},
+            {"token_id": 2, "o_rev_id": 100, "out": []},
+        ]
+        after = [
+            {"token_id": 2, "o_rev_id": 100},
+            {"token_id": 3, "o_rev_id": 560},
+        ]
+        with mock.patch.object(provenance, "tokens_at", side_effect=[before, after]):
+            result = drift.event_attribution("A", self.con, episode)
+
+        self.assertEqual(result["removed_tokens"], 1)
+        self.assertEqual(result["replacement_tokens"], 1)
+        self.assertEqual(result["removals_by_editor"], [
+            {"editor": "RemovingEditor", "tokens": 1},
+        ])
+        self.assertEqual(result["replacement_by_editor"], [
+            {"editor": "ReplacementEditor", "tokens": 1},
+        ])
+        self.assertEqual(result["duration_seconds"], 1080)
+        self.assertEqual(result["top_removal_share"], 1.0)
+        self.assertEqual(result["top_replacement_share"], 1.0)
+        self.assertFalse(result["same_top_editor"])
+
+
+class AttributionBackfill(unittest.TestCase):
+    def setUp(self):
+        self.con = duckdb.connect(":memory:")
+        provenance.ensure_schema(self.con)
+        self.con.executemany("INSERT INTO rsnap VALUES (?,?,?,?,?)", [
+            ("A", "2025-01-01", 900, 1, 100),
+            ("A", "2025-01-01", 900, 2, 100),
+        ])
+        self.confirmation = {
+            "article": "A",
+            "status": "confirmed",
+            "thresholds": config.confirmation_thresholds(),
+            "corpus_horizon": {"snapshot_date": "2025-01-01", "snapshot_revid": 900},
+            "confirmed_episodes": [{
+                "before_revid": 500,
+                "before_timestamp": "2024-12-01T00:00:00Z",
+                "after_revid": 600,
+                "after_timestamp": "2024-12-01T00:18:00Z",
+            }],
+        }
+        self.addCleanup(self.con.close)
+
+    def test_backfills_missing_attribution_and_persists_confirmation(self):
+        attribution = {"duration_seconds": 1080, "removed_tokens": 2}
+        with mock.patch.object(drift, "load_confirmation", return_value=self.confirmation), \
+             mock.patch.object(drift, "event_attribution", return_value=attribution), \
+             mock.patch.object(drift.config, "write_findings") as write_findings:
+            report = drift.backfill_attribution("A", con=self.con)
+
+        episode = self.confirmation["confirmed_episodes"][0]
+        self.assertEqual(episode["attribution"], attribution)
+        self.assertEqual(episode["duration_seconds"], 1080)
+        self.assertEqual(report["updated_episodes"], 1)
+        self.assertEqual(report["skipped_episodes"], 0)
+        write_findings.assert_called_once_with("A.l1-confirmation.json", self.confirmation)
+
+    def test_complete_episode_is_skipped_idempotently(self):
+        self.confirmation["confirmed_episodes"][0]["attribution"] = {
+            "duration_seconds": 1080,
+        }
+        with mock.patch.object(drift, "load_confirmation", return_value=self.confirmation), \
+             mock.patch.object(drift, "event_attribution") as event_attribution, \
+             mock.patch.object(drift.config, "write_findings") as write_findings:
+            report = drift.backfill_attribution("A", con=self.con)
+
+        self.assertEqual(report["updated_episodes"], 0)
+        self.assertEqual(report["skipped_episodes"], 1)
+        event_attribution.assert_not_called()
+        write_findings.assert_not_called()
+
+    def test_stale_confirmation_is_rejected_before_token_fetch(self):
+        self.confirmation["corpus_horizon"]["snapshot_revid"] = 899
+        with mock.patch.object(drift, "load_confirmation", return_value=self.confirmation), \
+             mock.patch.object(drift, "event_attribution") as event_attribution:
+            with self.assertRaisesRegex(ValueError, "corpus horizon"):
+                drift.backfill_attribution("A", con=self.con)
+
+        event_attribution.assert_not_called()
+
+
+class ConcentrationCalibrationReport(unittest.TestCase):
+    def test_reads_fresh_article_owned_shard(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            article_dir = pathlib.Path(temp_dir) / "Example"
+            findings_dir = article_dir / "findings"
+            findings_dir.mkdir(parents=True)
+            database = article_dir / "provenance.duckdb"
+            con = duckdb.connect(str(database))
+            provenance.ensure_schema(con)
+            con.execute("INSERT INTO rsnap VALUES (?,?,?,?,?)", ("Example", "2026-01-01", 900, 1, 100))
+            con.close()
+            confirmation = {
+                "article": "Example",
+                "status": "confirmed",
+                "thresholds": config.confirmation_thresholds(),
+                "corpus_horizon": {"snapshot_date": "2026-01-01", "snapshot_revid": 900},
+                "confirmed_episodes": [{
+                    "before_revid": 100,
+                    "after_revid": 200,
+                    "durable_spine_drop": 0.5,
+                    "pwr_mass": 100000,
+                    "attribution": {
+                        "duration_seconds": 60,
+                        "removed_tokens": 2,
+                        "replacement_tokens": 1,
+                        "removals_by_editor": [{"editor": "Editor A", "tokens": 2}],
+                        "replacement_by_editor": [{"editor": "Editor B", "tokens": 1}],
+                    },
+                }],
+            }
+            artifact = findings_dir / "Example.l1-confirmation.json"
+            artifact.write_text(json.dumps(confirmation), encoding="utf-8")
+
+            report = benchmark.concentration_report(temp_dir)
+
+        self.assertEqual(len(report["events"]), 1)
+        self.assertEqual(report["exclusions"], [])
+        self.assertEqual(report["summary"]["event_count"], 1)
+        self.assertFalse(report["calibration_ready"])
+        self.assertFalse(report["labels_enabled"])
 
 
 class RefineBinarySearch(unittest.TestCase):
@@ -281,6 +421,32 @@ class RefineBinarySearch(unittest.TestCase):
 
 
 class AnalyzeConfirmationContract(unittest.TestCase):
+    def test_partial_snapshot_coverage_returns_unavailable_before_analysis(self):
+        con = duckdb.connect(":memory:")
+        provenance.ensure_schema(con)
+        self.addCleanup(con.close)
+        source_state = {
+            "article": "A",
+            "source_status": "partial",
+            "expected_snapshots": 25,
+            "loaded_snapshots": 24,
+            "reason": "loaded 24 of 25 expected snapshots",
+        }
+
+        with mock.patch.object(provenance, "ensure_sizes"), \
+             mock.patch.object(provenance, "ensure_indexes"), \
+             mock.patch.object(provenance, "build_snapshots"), \
+             mock.patch.object(provenance, "load_source_state", return_value=source_state), \
+             mock.patch.object(drift, "ranked_episodes") as ranked, \
+             mock.patch.object(drift.config, "write_findings") as write_findings:
+            result = drift.analyze("A", con=con)
+
+        self.assertEqual(result["status"], "unavailable")
+        self.assertEqual(result["reason"], source_state["reason"])
+        self.assertEqual(result["source_state"], source_state)
+        ranked.assert_not_called()
+        write_findings.assert_called_once_with("A.l1-confirmation.json", result)
+
     def test_returns_and_persists_exact_confirmed_pair(self):
         con = duckdb.connect(":memory:")
         self.addCleanup(con.close)
@@ -294,6 +460,17 @@ class AnalyzeConfirmationContract(unittest.TestCase):
         )
         confirmation = ((111, "2020-06-01T00:00:00Z", "Before"),
                         (112, "2020-06-02T00:00:00Z", "After"), 0.4)
+        attribution = {
+            "duration_seconds": 86400,
+            "removed_tokens": 10,
+            "replacement_tokens": 8,
+            "removals_by_editor": [{"editor": "Editor A", "tokens": 10}],
+            "replacement_by_editor": [{"editor": "Editor B", "tokens": 8}],
+            "top_removal_share": 1.0,
+            "top_replacement_share": 1.0,
+            "same_top_editor": False,
+            "top_two_removal_share": 1.0,
+        }
 
         with mock.patch.object(provenance, "ensure_sizes"), \
              mock.patch.object(provenance, "ensure_indexes"), \
@@ -301,7 +478,7 @@ class AnalyzeConfirmationContract(unittest.TestCase):
              mock.patch.object(drift, "ranked_episodes", return_value=ranked), \
              mock.patch.object(drift, "verdict_dict", return_value={"verdict": "PIVOT?"}), \
              mock.patch.object(drift, "refine", return_value=confirmation), \
-             mock.patch.object(drift, "attribute"), \
+             mock.patch.object(drift, "attribute", return_value=attribution), \
              mock.patch.object(drift, "print_coarse_report"), \
              mock.patch.object(drift.config, "write_findings") as write_findings:
             result = drift.analyze("A", con=con)
@@ -313,6 +490,8 @@ class AnalyzeConfirmationContract(unittest.TestCase):
         confirmed = result["confirmed_episodes"][0]
         self.assertEqual((confirmed["before_revid"], confirmed["after_revid"]), (111, 112))
         self.assertEqual(confirmed["durable_spine_drop"], 0.4)
+        self.assertEqual(confirmed["duration_seconds"], 86400)
+        self.assertEqual(confirmed["attribution"], attribution)
         write_findings.assert_called_once_with("A.l1-confirmation.json", result)
 
     def test_rolling_second_pass_runs_when_primary_candidates_do_not_confirm(self):
@@ -351,6 +530,105 @@ class AnalyzeConfirmationContract(unittest.TestCase):
         self.assertEqual(result["status"], "confirmed")
         self.assertEqual(result["confirmed_episodes"][0]["source"], "rolling")
         self.assertEqual(result["confirmed_episodes"][0]["before_revid"], 211)
+
+
+class SourceCoverageState(unittest.TestCase):
+    def setUp(self):
+        self.con = duckdb.connect(":memory:")
+        provenance.ensure_schema(self.con)
+        self.addCleanup(self.con.close)
+
+    def test_load_source_state_degrades_when_legacy_table_is_absent(self):
+        legacy = duckdb.connect(":memory:")
+        self.addCleanup(legacy.close)
+        self.assertIsNone(provenance.load_source_state(legacy, "A"))
+
+    def test_record_source_state_is_idempotent_without_primary_key(self):
+        migrated = duckdb.connect(":memory:")
+        self.addCleanup(migrated.close)
+        migrated.execute("""CREATE TABLE article_source_state(
+            article TEXT, source_status TEXT, source_checked_at TEXT,
+            source_latest_revid BIGINT, expected_snapshots INT,
+            loaded_snapshots INT, reason TEXT)""")
+
+        provenance.record_source_state(migrated, "A", source_status="partial")
+        provenance.record_source_state(migrated, "A", source_status="current_complete")
+
+        self.assertEqual(
+            migrated.execute(
+                "SELECT count(*) FROM article_source_state WHERE article='A'"
+            ).fetchone()[0],
+            1,
+        )
+        self.assertEqual(
+            provenance.load_source_state(migrated, "A")["source_status"],
+            "current_complete",
+        )
+
+    def test_record_source_state_updates_without_losing_history_metadata(self):
+        provenance.record_source_state(
+            self.con,
+            "A",
+            source_status="history_complete",
+            source_checked_at="2026-07-30T00:00:00+00:00",
+            source_latest_revid=900,
+        )
+        provenance.record_source_state(
+            self.con,
+            "A",
+            source_status="partial",
+            expected_snapshots=2,
+            loaded_snapshots=1,
+            reason="loaded 1 of 2 expected snapshots",
+        )
+
+        state = provenance.load_source_state(self.con, "A")
+        self.assertEqual(state["source_latest_revid"], 900)
+        self.assertEqual(state["expected_snapshots"], 2)
+        self.assertEqual(state["loaded_snapshots"], 1)
+        self.assertEqual(state["source_status"], "partial")
+
+        provenance.record_source_state(
+            self.con,
+            "A",
+            source_status="current_complete",
+            loaded_snapshots=2,
+            reason=None,
+        )
+        refreshed = provenance.load_source_state(self.con, "A")
+        self.assertEqual(refreshed["source_latest_revid"], 900)
+        self.assertEqual(refreshed["source_status"], "current_complete")
+        self.assertIsNone(refreshed["reason"])
+
+    def test_build_snapshots_persists_partial_coverage(self):
+        picks = [("2025-01-01", 100), ("2026-01-01", 200)]
+        token_results = [[{"token_id": 1, "o_rev_id": 10}], []]
+        with mock.patch.object(provenance, "snapshot_picks", return_value=picks), \
+             mock.patch.object(provenance, "tokens_at", side_effect=token_results), \
+             mock.patch.object(provenance.time, "sleep"):
+            snapshots = provenance.build_snapshots(self.con, "A")
+
+        self.assertEqual(snapshots, [("2025-01-01", 100)])
+        state = provenance.load_source_state(self.con, "A")
+        self.assertEqual(state["source_status"], "partial")
+        self.assertEqual((state["expected_snapshots"], state["loaded_snapshots"]), (2, 1))
+        self.assertIn("1 of 2", state["reason"])
+
+    def test_retry_exhaustion_persists_unavailable_source(self):
+        resolved = provenance.ResolvedArticle("A", "A", 1)
+        with mock.patch.object(provenance, "resolve_article_title", return_value=resolved), \
+             mock.patch.object(
+                 provenance.config,
+                 "get_json_retrying",
+                 side_effect=TimeoutError("Action API timed out"),
+             ):
+            with self.assertRaises(TimeoutError):
+                provenance.ensure_sizes(self.con, "A")
+
+        state = provenance.load_source_state(self.con, "A")
+        self.assertEqual(state["source_status"], "unavailable")
+        self.assertIn("history retrieval failed", state["reason"])
+        self.assertIn("Action API timed out", state["reason"])
 
 
 if __name__ == "__main__":

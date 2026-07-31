@@ -30,7 +30,33 @@
       "pwr_mass": 22597,
       "peak_pct": 96.2,
       "source": "interval",
-      "status": "confirmed"
+      "status": "confirmed",
+      "duration_seconds": 2963,
+      "attribution": {
+        "before_revid": 60614567,
+        "before_timestamp": "2006-06-26T06:27:11Z",
+        "after_revid": 60618403,
+        "after_timestamp": "2006-06-26T07:16:34Z",
+        "duration_seconds": 2963,
+        "removed_tokens": 11242,
+        "replacement_tokens": 5653,
+        "removals_by_editor": [
+          {
+            "editor": "172",
+            "tokens": 11242
+          }
+        ],
+        "replacement_by_editor": [
+          {
+            "editor": "172",
+            "tokens": 5653
+          }
+        ],
+        "top_removal_share": 1.0,
+        "top_replacement_share": 1.0,
+        "same_top_editor": true,
+        "top_two_removal_share": 1.0
+      }
     },
     {
       "candidate_start": "2008-01-01",
@@ -45,7 +71,24 @@
       "pwr_mass": 22009,
       "peak_pct": 80.72,
       "source": "interval",
-      "status": "confirmed"
+      "status": "confirmed",
+      "duration_seconds": 8218,
+      "attribution": {
+        "before_revid": 195572556,
+        "before_timestamp": "2008-03-03T16:22:23Z",
+        "after_revid": 195604092,
+        "after_timestamp": "2008-03-03T18:39:21Z",
+        "duration_seconds": 8218,
+        "removed_tokens": 0,
+        "replacement_tokens": 0,
+        "removals_by_editor": [],
+        "replacement_by_editor": [],
+        "top_removal_share": null,
+        "top_replacement_share": null,
+        "same_top_editor": false,
+        "top_two_removal_share": null
+      }
     }
-  ]
+  ],
+  "attribution_backfill_ts": "2026-07-31T14:36:04.855232+00:00"
 }

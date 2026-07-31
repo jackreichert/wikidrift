@@ -254,27 +254,163 @@ def removal_attribution(article, con, peak):
     return removals_by_editor, removed_count, origin_ts, editor_of, latest
 
 
-def attribute(article, con, peak):
-    """Attribute established-token removals and current post-pivot contributions."""
-    d0, r0, d1, r1, _ = peak
-    print(f"\n  ── ATTRIBUTION ({d0} → {d1}) ──")
-    removals_by_editor, removed_count, origin_ts, editor_of, latest = removal_attribution(article, con, peak)
-    d0ts = d0 + "T00:00:00Z"
-    print(f"  REMOVALS — editors associated with terminal removals in this window ({removed_count:,} tokens removed):")
-    for u, n in sorted(removals_by_editor.items(), key=lambda x: -x[1])[:8]:
-        print(f"    {n:>6,}  {u}")
-    post_pivot_by_editor = {}
-    if latest:
-        for tok_id, o_rev in Corpus(con).snapshot_tokens(article, latest[0]):
-            ots = origin_ts.get(o_rev)
-            if ots and ots > d0ts:
-                u = editor_of.get(o_rev, "?")
-                post_pivot_by_editor[u] = post_pivot_by_editor.get(u, 0) + 1
-    top = sorted(post_pivot_by_editor.items(), key=lambda x: -x[1])[:8]
-    total_new = sum(n for _, n in top)
-    print(f"  POST-PIVOT CONTRIBUTORS — top authors of current text written after {d0} ({total_new:,}+ tokens shown):")
-    for u, n in top:
-        print(f"    {n:>6,}  {u}")
+def _editor_rows(counts):
+    return [
+        {"editor": editor, "tokens": tokens}
+        for editor, tokens in sorted(counts.items(), key=lambda item: (-item[1], item[0]))
+    ]
+
+
+def _timestamp(value):
+    parsed = dt.datetime.fromisoformat(value.replace("Z", "+00:00"))
+    return parsed if parsed.tzinfo else parsed.replace(tzinfo=dt.timezone.utc)
+
+
+def event_attribution(article, con, episode):
+    """Return exact-pair removal and surviving-replacement attribution for one confirmed event."""
+    before_revid = episode["before_revid"]
+    after_revid = episode["after_revid"]
+    before_timestamp = episode["before_timestamp"]
+    after_timestamp = episode["after_timestamp"]
+    before_tokens = provenance.tokens_at(article, before_revid, io=True)
+    after_tokens = provenance.tokens_at(article, after_revid)
+    before_ids = {token["token_id"] for token in before_tokens}
+    after_ids = {token["token_id"] for token in after_tokens}
+    corpus = Corpus(con)
+    revision_timestamps = corpus.revision_ts(article)
+    revision_editors = corpus.revision_editor(article)
+
+    removals = {}
+    for token in before_tokens:
+        if token["token_id"] in after_ids:
+            continue
+        removal_revisions = [
+            revision for revision in token.get("out", [])
+            if before_timestamp < (revision_timestamps.get(revision) or "") <= after_timestamp
+        ]
+        if not removal_revisions:
+            continue
+        terminal_revision = max(removal_revisions, key=lambda revision: revision_timestamps[revision])
+        editor = revision_editors.get(terminal_revision, "<hidden>")
+        removals[editor] = removals.get(editor, 0) + 1
+
+    replacements = {}
+    for token in after_tokens:
+        if token["token_id"] in before_ids:
+            continue
+        origin_revision = token["o_rev_id"]
+        origin_timestamp = revision_timestamps.get(origin_revision)
+        if not origin_timestamp or not (before_timestamp < origin_timestamp <= after_timestamp):
+            continue
+        editor = revision_editors.get(origin_revision, "<hidden>")
+        replacements[editor] = replacements.get(editor, 0) + 1
+
+    removal_rows = _editor_rows(removals)
+    replacement_rows = _editor_rows(replacements)
+    removed_tokens = sum(removals.values())
+    replacement_tokens = sum(replacements.values())
+    top_removal = removal_rows[0] if removal_rows else None
+    top_replacement = replacement_rows[0] if replacement_rows else None
+    return {
+        "before_revid": before_revid,
+        "before_timestamp": before_timestamp,
+        "after_revid": after_revid,
+        "after_timestamp": after_timestamp,
+        "duration_seconds": int((_timestamp(after_timestamp) - _timestamp(before_timestamp)).total_seconds()),
+        "removed_tokens": removed_tokens,
+        "replacement_tokens": replacement_tokens,
+        "removals_by_editor": removal_rows,
+        "replacement_by_editor": replacement_rows,
+        "top_removal_share": round(top_removal["tokens"] / removed_tokens, 6) if top_removal else None,
+        "top_replacement_share": (
+            round(top_replacement["tokens"] / replacement_tokens, 6) if top_replacement else None
+        ),
+        "same_top_editor": bool(
+            top_removal and top_replacement and top_removal["editor"] == top_replacement["editor"]
+        ),
+        "top_two_removal_share": (
+            round(sum(row["tokens"] for row in removal_rows[:2]) / removed_tokens, 6)
+            if removed_tokens else None
+        ),
+    }
+
+
+def attribute(article, con, episode, render=True):
+    """Calculate exact-event attribution and optionally render its neutral terminal receipt."""
+    result = event_attribution(article, con, episode)
+    if not render:
+        return result
+    print(f"\n  ── ATTRIBUTION (rev {result['before_revid']} → {result['after_revid']}) ──")
+    print(
+        "  REMOVALS — editors associated with terminal removals in this exact event "
+        f"({result['removed_tokens']:,} tokens removed):"
+    )
+    for row in result["removals_by_editor"][:8]:
+        print(f"    {row['tokens']:>6,}  {row['editor']}")
+    print(
+        "  REPLACEMENT — origin authors of surviving replacement text in this exact event "
+        f"({result['replacement_tokens']:,} tokens):"
+    )
+    for row in result["replacement_by_editor"][:8]:
+        print(f"    {row['tokens']:>6,}  {row['editor']}")
+    return result
+
+
+def _validate_confirmation_for_backfill(con, article, confirmation):
+    """Require a confirmed artifact produced for the current corpus and threshold contract."""
+    if confirmation.get("status") != "confirmed":
+        raise ValueError(f"{article!r} has no confirmed attribution target")
+    if (confirmation.get("thresholds") or {}) != config.confirmation_thresholds():
+        raise ValueError(f"{article!r} confirmation threshold contract is stale")
+    current_horizon = Corpus(con).latest_snapshot(article)
+    saved_horizon = confirmation.get("corpus_horizon") or {}
+    saved = (saved_horizon.get("snapshot_date"), saved_horizon.get("snapshot_revid"))
+    if not current_horizon or saved != tuple(current_horizon):
+        raise ValueError(f"{article!r} confirmation corpus horizon is stale")
+    if not confirmation.get("confirmed_episodes"):
+        raise ValueError(f"{article!r} confirmation has no exact episodes")
+
+
+def backfill_attribution(article, con=None, persist=True, force=False):
+    """Add exact-event attribution to a current confirmation artifact without rerunning L1."""
+    owns_connection = con is None
+    if owns_connection:
+        con = duckdb.connect(str(config.DB), read_only=True)
+    try:
+        confirmation = load_confirmation(article)
+        _validate_confirmation_for_backfill(con, article, confirmation)
+        updated = 0
+        skipped = 0
+        failed = 0
+        changed = False
+        for episode in confirmation["confirmed_episodes"]:
+            if episode.get("attribution") and not force:
+                skipped += 1
+                continue
+            try:
+                attribution = event_attribution(article, con, episode)
+                episode["duration_seconds"] = attribution["duration_seconds"]
+                episode["attribution"] = attribution
+                episode.pop("attribution_unavailable", None)
+                updated += 1
+            except Exception as exc:  # noqa: BLE001
+                episode["attribution"] = None
+                episode["attribution_unavailable"] = str(exc)
+                failed += 1
+            changed = True
+        if changed:
+            confirmation["attribution_backfill_ts"] = dt.datetime.now(dt.timezone.utc).isoformat()
+            if persist:
+                config.write_findings(confirmation_name(article), confirmation)
+        return {
+            "article": article,
+            "updated_episodes": updated,
+            "skipped_episodes": skipped,
+            "failed_episodes": failed,
+        }
+    finally:
+        if owns_connection:
+            con.close()
 
 
 def _age_years(end_date, horizon):
@@ -436,6 +572,28 @@ def analyze(article, con=None, persist=True):
     provenance.ensure_sizes(con, article)
     provenance.ensure_indexes(con)
     provenance.build_snapshots(con, article)
+    source_state = provenance.load_source_state(con, article)
+    if (source_state or {}).get("source_status") in {"partial", "unavailable"}:
+        horizon = Corpus(con).latest_snapshot(article)
+        result = {
+            "article": article,
+            "run_ts": dt.datetime.now(dt.timezone.utc).isoformat(),
+            "corpus_horizon": {
+                "snapshot_date": horizon[0], "snapshot_revid": horizon[1],
+            } if horizon else None,
+            "thresholds": config.confirmation_thresholds(),
+            "coarse_verdict": "UNAVAILABLE",
+            "status": "unavailable",
+            "reason": source_state.get("reason") or "source coverage is incomplete",
+            "source_state": source_state,
+            "confirmed_episodes": [],
+        }
+        print(f"  unavailable: {result['reason']}")
+        if persist:
+            config.write_findings(confirmation_name(article), result)
+        if owns:
+            con.close()
+        return result
     snaps, members, present, idx_of_rev, series, (mean, med, std), episodes = ranked_episodes(con, article)
     result = {
         "article": article,
@@ -444,6 +602,7 @@ def analyze(article, con=None, persist=True):
             "snapshot_date": snaps[-1][0], "snapshot_revid": snaps[-1][1],
         } if snaps else None,
         "thresholds": config.confirmation_thresholds(),
+        "source_state": source_state,
         "coarse_verdict": "SKIP" if len(snaps) < 3 else verdict_dict(con, article)["verdict"],
         "status": "unavailable" if len(snaps) < 3 else "not_confirmed",
         "confirmed_episodes": [],
@@ -511,15 +670,26 @@ def analyze(article, con=None, persist=True):
         confirmed.sort(key=lambda item: -item[0]["abs"])
         top = confirmed[0][0]
         result["status"] = "confirmed"
-        result["confirmed_episodes"] = [record for _, _, record in confirmed]
         kind = ("recent retrofit" if top["age"] <= RECENT_YEARS
                 else f"standing distortion — persisted {top['age']:.0f}yr (a long-standing-distortion candidate)")
         print(f"\nVERDICT: PIVOT ({kind}) — {len(confirmed)} confirmed episode(s), by PWR-mass:")
         for e, _, record in confirmed:
             print(f"  • {e['start'][0]} → {e['end'][0]}  (~{int(e['abs']):,} PWR, age {e['age']:.1f}yr, "
                   f"peak {e['peak']:.0f}%, {record['source']})  [{_recency_tag(e['age'])}]")
-        for _episode, span, _record in confirmed[:2]:
-            attribute(article, con, span)
+        for index, (_episode, _span, record) in enumerate(confirmed):
+            try:
+                attribution = attribute(article, con, record, render=index < 2)
+                if not isinstance(attribution, dict):
+                    raise ValueError("structured attribution was not returned")
+                record["duration_seconds"] = attribution["duration_seconds"]
+                record["attribution"] = attribution
+            except Exception as exc:  # noqa: BLE001
+                record["duration_seconds"] = int(
+                    (_timestamp(record["after_timestamp"]) - _timestamp(record["before_timestamp"])).total_seconds()
+                )
+                record["attribution"] = None
+                record["attribution_unavailable"] = str(exc)
+        result["confirmed_episodes"] = [record for _, _, record in confirmed]
     elif episodes:
         nuance = ("elevated destruction, no episode binary-search-confirmed"
                   if mean > CREEP_MEAN else "candidate episodes not confirmed")

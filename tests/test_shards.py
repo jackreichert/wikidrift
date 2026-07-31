@@ -31,6 +31,9 @@ class ArticleShardMigration(unittest.TestCase):
             ("Alpha", "2020-01-01", 1, 11, 1),
             ("Beta / Gamma", "2021-01-01", 2, 20, 2),
         ])
+        provenance.record_article_identity(
+            con, provenance.ResolvedArticle("Alpha alias", "Alpha", 101),
+        )
         con.execute("INSERT INTO snap VALUES ('Alpha', 1)")
         con.execute("INSERT INTO snapshots VALUES ('Beta / Gamma', 2)")
         con.close()
@@ -72,6 +75,10 @@ class ArticleShardMigration(unittest.TestCase):
         self.assertEqual(alpha.execute("SELECT count(*) FROM rsnap").fetchone()[0], 2)
         self.assertEqual(alpha.execute("SELECT count(*) FROM snap").fetchone()[0], 1)
         self.assertEqual(alpha.execute("SELECT count(*) FROM snapshots").fetchone()[0], 0)
+        self.assertEqual(
+            alpha.execute("SELECT requested_title, canonical_title FROM article_identity").fetchone(),
+            ("Alpha alias", "Alpha"),
+        )
         alpha.close()
 
         self.assertTrue((alpha_dir / "findings" / "Alpha.profile.json").exists())

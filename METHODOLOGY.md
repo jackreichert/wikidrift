@@ -71,6 +71,34 @@ not a weaker verdict: both sources must still show at least a 20% collapse of th
 underlying revisions. This separates candidate recall from confirmation precision and catches sustained
 medium-sized replacement without globally lowering the primary threshold.
 
+### Exact-event editor-concentration calibration
+
+Every fresh confirmed event can expose transparent structure without assigning motive: durable-spine drop,
+PWR mass, exact duration, top-editor removal and replacement shares, top-two removal share, and whether the
+same public account is the top associated editor on both sides. These values are recomputed from persisted
+per-editor token counts rather than trusted as cached percentages.
+
+The offline checkpoint command reads article-owned shards and reports one row per exact event:
+
+```text
+wikidrift calibrate-concentration .planning/spikes/data/articles --json
+```
+
+Only confirmations matching the shard's current corpus horizon and threshold contract are eligible. Missing,
+stale, malformed, or unattributed events are listed as exclusions rather than silently dropped. The report is
+deliberately **unlabeled** (`labels_enabled=false`): no `concentrated_rewrite_lead` or burst threshold becomes a
+default until confirmed concentrated events, distributed rewrites, reverts or vandalism recovery, article
+splits or merges, copyedits, and neutral controls have been adjudicated and compared. Raw measures remain the
+primary evidence after any future rule is calibrated.
+
+The report also exposes `calibration_ready` and explicit `calibration_blockers`. Editor-share features need at
+least two observations and observable variance before threshold calibration can proceed. Current confirmed
+boundaries are adjacent revisions, so removals and replacement origins inside that exact pair can only resolve
+to the editor of the single later revision. The initial corpus therefore produces 100% for every non-null
+editor-share measure. Those values are valid exact-pair receipts but cannot distinguish concentrated from
+distributed rewrite activity; calibration remains blocked until a separately justified multi-revision event
+window is defined and its rewrite classes are adjudicated.
+
 ## 5. The conjunction — so a finding stays a "smoking gun"
 
 Change alone ≠ bias. A defensible L1 finding is a **stack**, not any single factor:

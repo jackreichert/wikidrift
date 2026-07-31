@@ -1,6 +1,6 @@
 {
   "article": "Xi Jinping",
-  "run_ts": "2026-07-30T21:24:44.634467+00:00",
+  "run_ts": "2026-07-31T13:54:08.647944+00:00",
   "corpus_horizon": {
     "snapshot_date": "2026-07-01",
     "snapshot_revid": 1362102753
@@ -13,6 +13,15 @@
     "rolling_window_months": 12,
     "rolling_tolerance_days": 35,
     "rolling_drop": 20.0
+  },
+  "source_state": {
+    "article": "Xi Jinping",
+    "source_status": "current_complete",
+    "source_checked_at": "2026-07-31T13:54:07.700664+00:00",
+    "source_latest_revid": 1366750976,
+    "expected_snapshots": 43,
+    "loaded_snapshots": 43,
+    "reason": null
   },
   "coarse_verdict": "PIVOT?",
   "status": "confirmed",
@@ -30,7 +39,33 @@
       "pwr_mass": 218181,
       "peak_pct": 28.14,
       "source": "rolling",
-      "status": "confirmed"
+      "status": "confirmed",
+      "duration_seconds": 1079,
+      "attribution": {
+        "before_revid": 1330140042,
+        "before_timestamp": "2025-12-29T18:10:32Z",
+        "after_revid": 1330142648,
+        "after_timestamp": "2025-12-29T18:28:31Z",
+        "duration_seconds": 1079,
+        "removed_tokens": 1698,
+        "replacement_tokens": 1896,
+        "removals_by_editor": [
+          {
+            "editor": "The Account 2",
+            "tokens": 1698
+          }
+        ],
+        "replacement_by_editor": [
+          {
+            "editor": "The Account 2",
+            "tokens": 1896
+          }
+        ],
+        "top_removal_share": 1.0,
+        "top_replacement_share": 1.0,
+        "same_top_editor": true,
+        "top_two_removal_share": 1.0
+      }
     },
     {
       "candidate_start": "2024-01-01",
@@ -45,7 +80,28 @@
       "pwr_mass": 163629,
       "peak_pct": 23.77,
       "source": "rolling",
-      "status": "confirmed"
+      "status": "confirmed",
+      "duration_seconds": 5664,
+      "attribution": {
+        "before_revid": 1219212475,
+        "before_timestamp": "2024-04-16T11:41:07Z",
+        "after_revid": 1219223964,
+        "after_timestamp": "2024-04-16T13:15:31Z",
+        "duration_seconds": 5664,
+        "removed_tokens": 12035,
+        "replacement_tokens": 0,
+        "removals_by_editor": [
+          {
+            "editor": "Tpbradbury",
+            "tokens": 12035
+          }
+        ],
+        "replacement_by_editor": [],
+        "top_removal_share": 1.0,
+        "top_replacement_share": null,
+        "same_top_editor": false,
+        "top_two_removal_share": 1.0
+      }
     },
     {
       "candidate_start": "2022-07-01",
@@ -60,7 +116,33 @@
       "pwr_mass": 121972,
       "peak_pct": 21.23,
       "source": "rolling",
-      "status": "confirmed"
+      "status": "confirmed",
+      "duration_seconds": 1613,
+      "attribution": {
+        "before_revid": 1105511747,
+        "before_timestamp": "2022-08-20T16:15:52Z",
+        "after_revid": 1105516914,
+        "after_timestamp": "2022-08-20T16:42:45Z",
+        "duration_seconds": 1613,
+        "removed_tokens": 1398,
+        "replacement_tokens": 1230,
+        "removals_by_editor": [
+          {
+            "editor": "The Account 2",
+            "tokens": 1398
+          }
+        ],
+        "replacement_by_editor": [
+          {
+            "editor": "The Account 2",
+            "tokens": 1230
+          }
+        ],
+        "top_removal_share": 1.0,
+        "top_replacement_share": 1.0,
+        "same_top_editor": true,
+        "top_two_removal_share": 1.0
+      }
     }
   ]
 }

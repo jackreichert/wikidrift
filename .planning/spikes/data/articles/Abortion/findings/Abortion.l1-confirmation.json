@@ -1,6 +1,6 @@
 {
   "article": "Abortion",
-  "run_ts": "2026-07-19T16:54:53.133139+00:00",
+  "run_ts": "2026-07-31T15:15:22.192180+00:00",
   "corpus_horizon": {
     "snapshot_date": "2026-01-01",
     "snapshot_revid": 1329686405
@@ -9,7 +9,19 @@
     "confirm_drop": 0.2,
     "durable_quantile": 0.5,
     "min_cohort": 500,
-    "magnitude_floor": 25.0
+    "magnitude_floor": 25.0,
+    "rolling_window_months": 12,
+    "rolling_tolerance_days": 35,
+    "rolling_drop": 20.0
+  },
+  "source_state": {
+    "article": "Abortion",
+    "source_status": "current_complete",
+    "source_checked_at": "2026-07-31T15:15:21.709734+00:00",
+    "source_latest_revid": 1365431362,
+    "expected_snapshots": 25,
+    "loaded_snapshots": 25,
+    "reason": null
   },
   "coarse_verdict": "PIVOT?",
   "status": "confirmed",
@@ -19,28 +31,62 @@
       "candidate_end": "2012-01-01",
       "candidate_before_revid": 335280912,
       "candidate_after_revid": 469018003,
-      "before_revid": 368233003,
-      "before_timestamp": "2010-06-15T19:36:58Z",
-      "after_revid": 368233142,
-      "after_timestamp": "2010-06-15T19:37:47Z",
+      "before_revid": 353634984,
+      "before_timestamp": "2010-04-02T23:34:38Z",
+      "after_revid": 353637033,
+      "after_timestamp": "2010-04-02T23:49:39Z",
       "durable_spine_drop": 0.642327,
       "pwr_mass": 46141,
       "peak_pct": 46.69,
-      "status": "confirmed"
+      "source": "interval",
+      "status": "confirmed",
+      "duration_seconds": 901,
+      "attribution": {
+        "before_revid": 353634984,
+        "before_timestamp": "2010-04-02T23:34:38Z",
+        "after_revid": 353637033,
+        "after_timestamp": "2010-04-02T23:49:39Z",
+        "duration_seconds": 901,
+        "removed_tokens": 0,
+        "replacement_tokens": 0,
+        "removals_by_editor": [],
+        "replacement_by_editor": [],
+        "top_removal_share": null,
+        "top_replacement_share": null,
+        "same_top_editor": false,
+        "top_two_removal_share": null
+      }
     },
     {
       "candidate_start": "2007-01-01",
       "candidate_end": "2009-01-01",
       "candidate_before_revid": 98043772,
       "candidate_after_revid": 261808618,
-      "before_revid": 171274305,
-      "before_timestamp": "2007-11-13T20:22:06Z",
-      "after_revid": 171274458,
-      "after_timestamp": "2007-11-13T20:22:48Z",
+      "before_revid": 165610354,
+      "before_timestamp": "2007-10-19T11:49:01Z",
+      "after_revid": 165611394,
+      "after_timestamp": "2007-10-19T11:57:42Z",
       "durable_spine_drop": 0.53331,
       "pwr_mass": 18988,
       "peak_pct": 39.1,
-      "status": "confirmed"
+      "source": "interval",
+      "status": "confirmed",
+      "duration_seconds": 521,
+      "attribution": {
+        "before_revid": 165610354,
+        "before_timestamp": "2007-10-19T11:49:01Z",
+        "after_revid": 165611394,
+        "after_timestamp": "2007-10-19T11:57:42Z",
+        "duration_seconds": 521,
+        "removed_tokens": 0,
+        "replacement_tokens": 0,
+        "removals_by_editor": [],
+        "replacement_by_editor": [],
+        "top_removal_share": null,
+        "top_replacement_share": null,
+        "same_top_editor": false,
+        "top_two_removal_share": null
+      }
     }
   ]
 }

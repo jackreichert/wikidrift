@@ -16,10 +16,10 @@ Safety:
     full topic lists without topic-specific overrides.
 
 Run examples:
-    uv run python tools/cover_missing_topics.py --topics "Chess" "Water" --mode full --execute
-    uv run python tools/cover_missing_topics.py --topics "Brontosaurus" "Abortion" --mode fill --execute
-    uv run python tools/cover_missing_topics.py --only-controls --mode fill --execute
-    uv run python tools/cover_missing_topics.py --all-corpus --mode framing --execute
+    python tools/cover_missing_topics.py --topics "Chess" "Water" --mode full --execute
+    python tools/cover_missing_topics.py --topics "Brontosaurus" "Abortion" --mode fill --execute
+    python tools/cover_missing_topics.py --only-controls --mode fill --execute
+    python tools/cover_missing_topics.py --all-corpus --mode framing --execute
 """
 
 from __future__ import annotations
@@ -173,9 +173,9 @@ def _run(cmd: list[str], execute: bool) -> int:
     return int(completed.returncode)
 
 
-def _uv_command(args: list[str]) -> list[str]:
-    """Build a project command through uv's managed environment."""
-    return ["uv", "run", "wikidrift", *args]
+def _project_command(args: list[str]) -> list[str]:
+    """Run Wikidrift with the same Python environment as this batch process."""
+    return [sys.executable, "-m", "wikidrift.cli", *args]
 
 
 def _canonicalize_topics(topics: list[str], resolver=provenance.resolve_article_title):
@@ -214,10 +214,12 @@ def _write_article_identities(articles_dir: Path, identities: list[provenance.Re
 
 
 def _stage_name(command: list[str]) -> str:
-    try:
-        return command[command.index("wikidrift") + 1]
-    except (ValueError, IndexError) as exc:
-        raise ValueError(f"not a wikidrift command: {command!r}") from exc
+    for entrypoint in ("wikidrift.cli", "wikidrift"):
+        try:
+            return command[command.index(entrypoint) + 1]
+        except (ValueError, IndexError):
+            continue
+    raise ValueError(f"not a wikidrift command: {command!r}")
 
 
 def _load_completed_stages(state_path: Path) -> list[str]:
@@ -361,10 +363,22 @@ def _run_topic_commands(
     return {
         "article": topic,
         "succeeded": all(stage["exit_code"] == 0 for stage in stages),
+        "analysis_outcome": _analysis_outcome(data_dir, topic),
         "stages": stages,
         "skipped_stages": skipped_stages,
         "log_path": str(log_path),
     }
+
+
+def _analysis_outcome(data_dir: Path, topic: str) -> str:
+    """Return confirmed, not_confirmed, unavailable, or unknown independently of process status."""
+    artifact = data_dir / "findings" / f"{config.slugify(topic)}.l1-confirmation.json"
+    try:
+        payload = json.loads(artifact.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return "unknown"
+    status = payload.get("status")
+    return status if status in {"confirmed", "not_confirmed", "unavailable"} else "unknown"
 
 
 def _run_topic_item(item: tuple[str, list[list[str]]], *, articles_dir: Path,
@@ -460,7 +474,7 @@ def _write_cost_report(findings_dir: Path, topic: str, stages: list[dict]) -> di
 
 def _pipeline_cmd(topic: str, use_llm: bool, include_mscore: bool, include_framing: bool = False,
                   l5_max_langs: int | None = None) -> list[str]:
-    cmd = _uv_command(["pipeline", topic])
+    cmd = _project_command(["pipeline", topic])
     if use_llm:
         cmd.append("--llm")
     if include_mscore:
@@ -474,7 +488,7 @@ def _topic_commands(topic: str, use_llm: bool, include_mscore: bool, include_fra
                     l5_max_langs: int | None,
                     required: set[str], have: set[str]) -> tuple[list[list[str]], list[str]]:
     """Return (commands, notes) for this topic under the selected mode."""
-    base = ["uv", "run", "wikidrift"]
+    base = _project_command([])
     cmds: list[list[str]] = []
     notes: list[str] = []
 
@@ -487,6 +501,10 @@ def _topic_commands(topic: str, use_llm: bool, include_mscore: bool, include_fra
         cmds.append(base + ["analyze", topic])
         cmds.append(_pipeline_cmd(topic, use_llm=use_llm, include_mscore=include_mscore,
                                   include_framing=include_framing))
+        return cmds, notes
+
+    if mode == "attribution":
+        cmds.append(base + ["backfill-attribution", topic])
         return cmds, notes
 
     if mode == "full":
@@ -562,9 +580,10 @@ def main() -> int:
     )
     parser.add_argument(
         "--mode",
-          choices=["fill", "full", "framing", "pipeline"],
+          choices=["fill", "full", "framing", "pipeline", "attribution"],
         default="fill",
           help=("fill: only run missing layers; pipeline: run analyze then pipeline; "
+              "attribution: backfill current confirmed exact pairs; "
               "full: run pipeline+sources+profile; "
               "framing: run analyze then Framing Lite to create confirmed temporal receipts"),
     )
@@ -747,10 +766,19 @@ def main() -> int:
         return 130
 
     failures = 0
+    unavailable = 0
     for result in results:
-        outcome = "PASS" if result["succeeded"] else "FAIL"
+        analysis_outcome = result.get("analysis_outcome", "unknown")
         if not result["succeeded"]:
+            outcome = "FAIL"
             failures += 1
+        elif analysis_outcome == "unavailable":
+            outcome = "UNAVAILABLE"
+            unavailable += 1
+        elif analysis_outcome in {"confirmed", "not_confirmed"}:
+            outcome = f"PASS {analysis_outcome}"
+        else:
+            outcome = "PASS"
         stage_summary = [(stage["command"], stage["exit_code"]) for stage in result["stages"]]
         skipped = result["skipped_stages"]
         print(f"{outcome} {result['article']}: stages={stage_summary} skipped={skipped} "
@@ -763,8 +791,8 @@ def main() -> int:
             outcome = "succeeded" if report["succeeded"] else "failed"
             print(f"  cost report: {outcome}, {report['elapsed_seconds']:.1f}s, LLM estimate {estimate_text}")
 
-    print(f"\nDone. failures={failures}")
-    return 1 if failures else 0
+    print(f"\nDone. failures={failures} unavailable={unavailable}")
+    return 1 if failures or unavailable else 0
 
 
 if __name__ == "__main__":
