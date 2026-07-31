@@ -157,6 +157,12 @@ h3{font-weight:600;font-size:1rem;margin:0}
 h2.subhead{font-size:1rem;margin:1.4em 0 .45em}
 .sections-note{margin:.85rem 0 .35rem}
 .coverage-note{max-width:52rem;margin:.85rem 0 .35rem;font-size:.9rem}
+.evidence-receipt{
+  max-width:52rem;margin:1rem 0;padding:.8rem 1rem;border-left:3px solid var(--accent);
+  background:var(--surface);
+}
+.evidence-receipt h3{margin:0 0 .35rem;font-size:.95rem}
+.evidence-receipt p{margin:0;font-size:.9rem;line-height:1.5}
 .col-h{font-size:.88rem;font-weight:700;margin:0 0 .55rem;letter-spacing:.01em}
 
 /* vocabulary term chips */

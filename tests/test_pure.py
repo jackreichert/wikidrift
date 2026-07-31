@@ -10,6 +10,8 @@ import threading
 import unittest
 from unittest.mock import Mock, patch
 
+import duckdb
+
 from wikidrift import l5_factcheck as fc
 from wikidrift import l5_crosslingual as xl
 from wikidrift import mscore
@@ -22,6 +24,7 @@ from wikidrift import cli
 from wikidrift import stance
 from wikidrift import pipeline
 from wikidrift import config
+from wikidrift import provenance
 from wikidrift.registry import focal_entities
 
 
@@ -198,6 +201,37 @@ class AdaptiveL5CapPolicy(unittest.TestCase):
 
 
 class ParallelTopicCoverage(unittest.TestCase):
+    def test_fresh_confirmed_shard_topics_excludes_stale_and_rejected_artifacts(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            articles_dir = pathlib.Path(temp_dir)
+            for article, status, saved_revid in (
+                ("Fresh", "confirmed", 900),
+                ("Stale", "confirmed", 899),
+                ("Rejected", "not_confirmed", 900),
+            ):
+                article_dir = articles_dir / article
+                findings_dir = article_dir / "findings"
+                findings_dir.mkdir(parents=True)
+                con = duckdb.connect(str(article_dir / "provenance.duckdb"))
+                provenance.ensure_schema(con)
+                con.execute("INSERT INTO rsnap VALUES (?,?,?,?,?)", (article, "2026-01-01", 900, 1, 100))
+                con.close()
+                confirmation = {
+                    "article": article,
+                    "status": status,
+                    "thresholds": config.confirmation_thresholds(),
+                    "corpus_horizon": {
+                        "snapshot_date": "2026-01-01", "snapshot_revid": saved_revid,
+                    },
+                }
+                (findings_dir / f"{article}.l1-confirmation.json").write_text(
+                    json.dumps(confirmation), encoding="utf-8",
+                )
+
+            topics = cover_missing_topics._fresh_confirmed_shard_topics(articles_dir)
+
+        self.assertEqual(topics, {"Fresh"})
+
     def test_analysis_outcome_reads_confirmation_status(self):
         with tempfile.TemporaryDirectory() as directory:
             data_dir = pathlib.Path(directory)

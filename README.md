@@ -91,6 +91,8 @@ uv run wikidrift factcheck "Warsaw concentration camp" --asof 2018-06-01   # L5 
 uv run wikidrift mscore                         # controversy corroborator (metadata only)
 uv run wikidrift pipeline "Hamas" --llm --framing  # L1 → router → L2 + cross-language lead comparison
 uv run wikidrift migrate-shards                # lossless canonical corpus → article-owned DuckDB shards
+uv run python tools/cover_missing_topics.py --all-shards --mode attribution --execute --jobs 3 --no-resume
+                                                # offline schema/attribution backfill for fresh confirmed shards
 ```
 
 `migrate-shards` leaves the canonical corpus untouched, verifies per-table row counts and artifact checksums,

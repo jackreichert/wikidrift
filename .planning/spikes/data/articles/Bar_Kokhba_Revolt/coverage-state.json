@@ -1,7 +1,8 @@
 {
   "article": "Bar Kokhba Revolt",
-  "updated_ts": "2026-07-31T14:47:27.958629+00:00",
+  "updated_ts": "2026-07-31T17:45:32.018495+00:00",
   "completed_stages": [
-    "analyze"
+    "analyze",
+    "backfill-attribution"
   ]
 }

@@ -79,6 +79,38 @@ def _index_html():
 
 
 class FindingsDiscovery(unittest.TestCase):
+    def test_stale_shard_confirmation_degrades_to_unavailable(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            data_dir = pathlib.Path(temp_dir)
+            article_dir = data_dir / "articles" / "Stale_Topic"
+            findings_dir = article_dir / "findings"
+            findings_dir.mkdir(parents=True)
+            con = build.duckdb.connect(str(article_dir / "provenance.duckdb"))
+            from wikidrift import provenance
+            provenance.ensure_schema(con)
+            con.execute("INSERT INTO rsnap VALUES (?,?,?,?,?)", ("Stale Topic", "2026-01-01", 901, 1, 100))
+            con.close()
+            (findings_dir / "Stale_Topic.l1-confirmation.json").write_text(json.dumps({
+                "article": "Stale Topic",
+                "status": "confirmed",
+                "thresholds": build.pipeline.config.confirmation_thresholds(),
+                "corpus_horizon": {"snapshot_date": "2026-01-01", "snapshot_revid": 900},
+                "confirmed_episodes": [{"before_revid": 1, "after_revid": 2}],
+            }), encoding="utf-8")
+
+            with mock.patch.object(build, "FIND", data_dir / "findings"), \
+                    mock.patch.object(build, "ARTICLES", data_dir / "articles"), \
+                    mock.patch.object(build, "DATA", data_dir / "viewer-data"):
+                findings = build.gather()
+
+            confirmation = findings.confirmations["Stale Topic"]
+            rendered = build.confirmation_section(confirmation)
+
+        self.assertEqual(confirmation["status"], "unavailable")
+        self.assertEqual(confirmation["confirmed_episodes"], [])
+        self.assertIn("Rewrite analysis needs refresh", rendered)
+        self.assertNotIn("confirmed rewrite episode", rendered)
+
     def test_article_shard_l1_confirmation_adds_analyzed_article(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             data_dir = pathlib.Path(temp_dir)
@@ -162,6 +194,42 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("75.0% durable-spine drop", out)
         self.assertIn("oldid=11", out)
         self.assertIn("oldid=12", out)
+
+    def test_confirmed_analysis_discloses_horizon_duration_and_neutral_attribution(self):
+        findings = build.Findings(confirmations={"Testland": {
+            "article": "Testland",
+            "status": "confirmed",
+            "corpus_horizon": {"snapshot_date": "2026-01-01", "snapshot_revid": 900},
+            "confirmed_episodes": [{
+                "before_revid": 11,
+                "before_timestamp": "2024-01-01T00:00:00Z",
+                "after_revid": 12,
+                "after_timestamp": "2024-01-01T00:20:00Z",
+                "duration_seconds": 1200,
+                "durable_spine_drop": 0.75,
+                "pwr_mass": 500,
+                "attribution": {
+                    "removed_tokens": 80,
+                    "replacement_tokens": 40,
+                    "removals_by_editor": [{"editor": "Editor A", "tokens": 80}],
+                    "replacement_by_editor": [{"editor": "Editor A", "tokens": 40}],
+                    "top_removal_share": 1.0,
+                    "top_replacement_share": 1.0,
+                    "same_top_editor": True,
+                    "top_two_removal_share": 1.0,
+                },
+            }],
+        }})
+
+        out = build.article_page("Testland", findings)
+
+        self.assertIn("Snapshot corpus through <b>2026-01-01</b>", out)
+        self.assertIn("20 minutes", out)
+        self.assertIn("<b>80</b> tokens removed", out)
+        self.assertIn("<b>40</b> surviving replacement tokens", out)
+        self.assertIn("associated with <b>100.0%</b> of removals", out)
+        self.assertIn("origin author of <b>100.0%</b> of surviving replacement text", out)
+        self.assertIn("does not establish bias, motive, or misconduct", out)
 
     def test_unavailable_confirmation_remains_unavailable_when_article_is_published(self):
         findings = build.Findings(

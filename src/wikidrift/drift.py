@@ -32,6 +32,8 @@ from .config import (MIN_COHORT, MIN_MATURE, MAG_FLOOR, CONFIRM_DROP,
                      CREEP_MEAN, DURABLE_Q, RECENT_YEARS, ELEVATED,
                      MASS_FLOOR, ROLLING_WINDOW_MONTHS, ROLLING_TOLERANCE_DAYS, ROLLING_DROP)
 
+CONFIRMATION_SCHEMA_VERSION = 2
+
 
 def confirmation_name(article):
     return f"{config.slugify(article)}.l1-confirmation.json"
@@ -358,6 +360,12 @@ def attribute(article, con, episode, render=True):
 
 def _validate_confirmation_for_backfill(con, article, confirmation):
     """Require a confirmed artifact produced for the current corpus and threshold contract."""
+    schema_version = confirmation.get("schema_version", 1)
+    if schema_version > CONFIRMATION_SCHEMA_VERSION:
+        raise ValueError(
+            f"{article!r} confirmation schema version {schema_version} is newer than supported "
+            f"version {CONFIRMATION_SCHEMA_VERSION}"
+        )
     if confirmation.get("status") != "confirmed":
         raise ValueError(f"{article!r} has no confirmed attribution target")
     if (confirmation.get("thresholds") or {}) != config.confirmation_thresholds():
@@ -382,7 +390,8 @@ def backfill_attribution(article, con=None, persist=True, force=False):
         updated = 0
         skipped = 0
         failed = 0
-        changed = False
+        changed = confirmation.get("schema_version") != CONFIRMATION_SCHEMA_VERSION
+        confirmation["schema_version"] = CONFIRMATION_SCHEMA_VERSION
         for episode in confirmation["confirmed_episodes"]:
             if episode.get("attribution") and not force:
                 skipped += 1
@@ -576,6 +585,7 @@ def analyze(article, con=None, persist=True):
     if (source_state or {}).get("source_status") in {"partial", "unavailable"}:
         horizon = Corpus(con).latest_snapshot(article)
         result = {
+            "schema_version": CONFIRMATION_SCHEMA_VERSION,
             "article": article,
             "run_ts": dt.datetime.now(dt.timezone.utc).isoformat(),
             "corpus_horizon": {
@@ -596,6 +606,7 @@ def analyze(article, con=None, persist=True):
         return result
     snaps, members, present, idx_of_rev, series, (mean, med, std), episodes = ranked_episodes(con, article)
     result = {
+        "schema_version": CONFIRMATION_SCHEMA_VERSION,
         "article": article,
         "run_ts": dt.datetime.now(dt.timezone.utc).isoformat(),
         "corpus_horizon": {

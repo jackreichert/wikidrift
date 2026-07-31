@@ -48,6 +48,13 @@ Ignore it if the rewrite text already makes the story clear.
 A large share of today’s text comes from a small number of accounts. Common on specialist pages.
 Context only — not evidence of a conspiracy.
 
+## “Exact-event attribution”
+
+For one confirmed before/after revision pair, the public edit history identifies accounts associated
+with terminal removals and the origin authors of replacement wording that survived. The receipt shows
+raw token counts and shares. It describes observable revision history, not bias, motive, coordination,
+or misconduct.
+
 ## “Heavily contested” vs “not heavily contested”
 
 Whether editors spent a lot of effort undoing each other. A quiet rewrite can still matter. A loud

@@ -19,6 +19,7 @@ import duckdb  # noqa: E402
 from wikidrift import config, drift, provenance  # noqa: E402
 from wikidrift.corpus import Corpus  # noqa: E402
 from wikidrift.l5_crosslingual import fetch_asof  # noqa: E402
+from wikidrift.pipeline import confirmation_is_fresh  # noqa: E402
 from wikidrift.stance import prose_at  # noqa: E402
 
 DATA = pathlib.Path(__file__).resolve().parent / "data"
@@ -113,8 +114,87 @@ def _word_authors(toks, authors):
     return {w: c.most_common(1)[0][0] for w, c in counts.items()}
 
 
-def export_pivots(article):
-    output = DATA / f"{config.slugify(article)}.pivots.json"
+def _current_horizon(article):
+    con = duckdb.connect(str(config.DB), read_only=True)
+    try:
+        return Corpus(con).latest_snapshot(article)
+    finally:
+        con.close()
+
+
+def _revision_authors(article):
+    con = duckdb.connect(str(config.DB), read_only=True)
+    try:
+        return Corpus(con).revision_editor(article)
+    finally:
+        con.close()
+
+
+def _exact_pivots(article, confirmation):
+    authors = _revision_authors(article)
+    pivots = []
+    unavailable_pairs = []
+    for episode in confirmation.get("confirmed_episodes") or []:
+        before_revid = episode.get("before_revid")
+        after_revid = episode.get("after_revid")
+        before_tokens = provenance.tokens_at(article, before_revid)
+        after_tokens = provenance.tokens_at(article, after_revid)
+        if not before_tokens or not after_tokens:
+            unavailable_pairs.append(f"{before_revid}→{after_revid}")
+            continue
+        pivots.append({
+            "start": episode.get("before_timestamp", "")[:10],
+            "end": episode.get("after_timestamp", "")[:10],
+            "peak_pct": round(100 * (episode.get("durable_spine_drop") or 0), 2),
+            "pwr_mass": episode.get("pwr_mass"),
+            "before_rev": before_revid,
+            "after_rev": after_revid,
+            "status": "confirmed",
+            "metric": "exact_durable_spine_drop",
+            "duration_seconds": episode.get("duration_seconds"),
+            "attribution": episode.get("attribution"),
+            "attribution_unavailable": episode.get("attribution_unavailable"),
+            "before_text": prose_at(before_revid),
+            "after_text": prose_at(after_revid),
+            "authors_before": _word_authors(before_tokens, authors),
+            "authors_after": _word_authors(after_tokens, authors),
+        })
+    return pivots, unavailable_pairs
+
+
+def _unavailable_export(output, article, state, reason):
+    output.unlink(missing_ok=True)
+    print(f"  pivots {article}: {state} (L1={reason})")
+    return {"state": state, "reason": reason}
+
+
+def _export_exact_pivots(article, confirmation, output):
+    horizon = _current_horizon(article)
+    if not confirmation_is_fresh(confirmation, horizon):
+        return _unavailable_export(output, article, "unavailable", "stale exact confirmation")
+    status = confirmation.get("status")
+    if status != "confirmed":
+        state = "none" if status == "not_confirmed" else "unavailable"
+        return _unavailable_export(output, article, state, confirmation.get("reason") or status)
+    pivots, unavailable_pairs = _exact_pivots(article, confirmation)
+    if not pivots:
+        pairs = ", ".join(unavailable_pairs) or "none recorded"
+        reason = f"exact pair could not be materialized: {pairs}"
+        return _unavailable_export(output, article, "unavailable", reason)
+    DATA.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps({
+        "article": article,
+        "corpus_horizon": confirmation.get("corpus_horizon"),
+        "pivots": pivots,
+        "unavailable_pairs": unavailable_pairs,
+    }, ensure_ascii=False), encoding="utf-8")
+    print(f"  pivots {article}: {len(pivots)} exact confirmed pivot(s)")
+    return {"state": "finding", "reason": "confirmed"}
+
+
+def _export_legacy_coarse_pivots(article, output):
+    """Compatibility export for frozen findings created before exact confirmations existed."""
+
     con = duckdb.connect(str(config.DB), read_only=True)
     try:
         corpus = Corpus(con)
@@ -153,6 +233,14 @@ def export_pivots(article):
         json.dumps({"article": article, "pivots": pivs}, ensure_ascii=False), encoding="utf-8")
     print(f"  pivots {article}: {len(pivs)} pivot(s)")
     return {"state": "finding", "reason": verdict.get("verdict") or "PIVOT?"}
+
+
+def export_pivots(article):
+    output = DATA / f"{config.slugify(article)}.pivots.json"
+    confirmation = drift.load_confirmation(article)
+    if confirmation:
+        return _export_exact_pivots(article, confirmation, output)
+    return _export_legacy_coarse_pivots(article, output)
 
 
 if __name__ == "__main__":

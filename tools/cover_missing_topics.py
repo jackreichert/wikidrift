@@ -39,7 +39,7 @@ from typing import Callable, TextIO
 
 import duckdb
 
-from wikidrift import config, provenance
+from wikidrift import config, pipeline, provenance
 from wikidrift.corpus import Corpus
 
 DEFAULT_REQUIRED_LAYERS = ["receipts", "stance", "sources", "profile"]
@@ -56,6 +56,33 @@ DEFAULT_CONTROLS = [
 EXCLUDED_AUTO_TOPICS = {"Demo Topic"}
 DEFAULT_ARTICLES_DIR = Path(".planning/spikes/data/articles")
 DEFAULT_JOBS = 1
+
+
+def _fresh_confirmed_shard_topics(articles_dir: Path) -> set[str]:
+    """Select only fresh exact confirmations that can be upgraded without network access."""
+    topics = set()
+    for artifact in sorted(articles_dir.glob("*/findings/*.l1-confirmation.json")):
+        try:
+            confirmation = json.loads(artifact.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        if confirmation.get("status") != "confirmed":
+            continue
+        article = confirmation.get("article")
+        database = artifact.parent.parent / "provenance.duckdb"
+        if not article or not database.is_file():
+            continue
+        try:
+            con = duckdb.connect(str(database), read_only=True)
+            try:
+                horizon = Corpus(con).latest_snapshot(article)
+            finally:
+                con.close()
+        except (duckdb.Error, OSError):
+            continue
+        if pipeline.confirmation_is_fresh(confirmation, horizon):
+            topics.add(article)
+    return topics
 
 
 def _fetch_extract_error_count(errors: list[dict]) -> int:
@@ -567,6 +594,11 @@ def main() -> int:
         help="Select every article with at least three snapshots in the local DuckDB corpus",
     )
     parser.add_argument(
+        "--all-shards",
+        action="store_true",
+        help="Select every fresh confirmed article-owned shard without network title resolution",
+    )
+    parser.add_argument(
         "--controls",
         nargs="*",
         default=DEFAULT_CONTROLS,
@@ -649,9 +681,13 @@ def main() -> int:
     if args.jobs < 1:
         parser.error("--jobs must be at least 1")
 
-    selectors = bool(args.topics) + bool(args.topics_file) + bool(args.only_controls) + bool(args.all_corpus)
+    selectors = sum(map(bool, (
+        args.topics, args.topics_file, args.only_controls, args.all_corpus, args.all_shards,
+    )))
     if selectors > 1:
-        parser.error("choose only one of --topics, --topics-file, --only-controls, or --all-corpus")
+        parser.error(
+            "choose only one of --topics, --topics-file, --only-controls, --all-corpus, or --all-shards"
+        )
     if args.mode == "framing" and args.no_llm:
         parser.error("--mode framing requires an LLM; remove --no-llm")
 
@@ -690,7 +726,9 @@ def main() -> int:
             if identity.requested_title != identity.canonical_title:
                 print(f"resolved redirect: {identity.requested_title} -> {identity.canonical_title}")
 
-    if args.all_corpus:
+    if args.all_shards:
+        candidates = _fresh_confirmed_shard_topics(args.articles_dir)
+    elif args.all_corpus:
         if not config.DB.exists():
             print(f"error: token corpus not found: {config.DB}", file=sys.stderr)
             return 2

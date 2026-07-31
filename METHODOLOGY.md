@@ -116,6 +116,25 @@ analysis and reach exact `confirmed` status before appearing in a rewrite-lead l
 membership, or shared account can never promote an article. Exact confirmation establishes durable content
 change only; it does not establish bias, motive, policy violation, or coordination.
 
+### Publication and schema backfill
+
+Published rewrite panels consume the exact confirmation artifact before any legacy coarse pivot export. A fresh
+confirmed artifact supplies the exact revision IDs, timestamps, duration, durable-spine drop, PWR mass, corpus
+horizon, and structured attribution receipt. A fresh rejection suppresses coarse pivot output; stale or unavailable
+evidence renders as unavailable rather than healthy. Public attribution wording is limited to accounts associated
+with terminal removals and origin authors of surviving replacement text.
+
+New confirmation artifacts use schema version 2. Existing fresh confirmed shards can be upgraded offline without
+rerunning L1 or changing their evidence:
+
+```text
+python tools/cover_missing_topics.py --all-shards --mode attribution --execute --jobs 3 --no-resume
+```
+
+The selector opens each article-owned corpus read-only and admits only confirmations matching the current corpus
+horizon and threshold contract. Workers remain article-isolated and bounded; stale, rejected, malformed, or missing
+artifacts are not rewritten.
+
 ## 5. The conjunction — so a finding stays a "smoking gun"
 
 Change alone ≠ bias. A defensible L1 finding is a **stack**, not any single factor:

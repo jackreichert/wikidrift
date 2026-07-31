@@ -300,11 +300,12 @@ class AttributionBackfill(unittest.TestCase):
         episode = self.confirmation["confirmed_episodes"][0]
         self.assertEqual(episode["attribution"], attribution)
         self.assertEqual(episode["duration_seconds"], 1080)
+        self.assertEqual(self.confirmation["schema_version"], drift.CONFIRMATION_SCHEMA_VERSION)
         self.assertEqual(report["updated_episodes"], 1)
         self.assertEqual(report["skipped_episodes"], 0)
         write_findings.assert_called_once_with("A.l1-confirmation.json", self.confirmation)
 
-    def test_complete_episode_is_skipped_idempotently(self):
+    def test_complete_legacy_episode_is_upgraded_without_recomputation(self):
         self.confirmation["confirmed_episodes"][0]["attribution"] = {
             "duration_seconds": 1080,
         }
@@ -316,6 +317,33 @@ class AttributionBackfill(unittest.TestCase):
         self.assertEqual(report["updated_episodes"], 0)
         self.assertEqual(report["skipped_episodes"], 1)
         event_attribution.assert_not_called()
+        write_findings.assert_called_once_with("A.l1-confirmation.json", self.confirmation)
+        self.assertEqual(self.confirmation["schema_version"], drift.CONFIRMATION_SCHEMA_VERSION)
+
+    def test_complete_versioned_episode_is_skipped_idempotently(self):
+        self.confirmation["schema_version"] = drift.CONFIRMATION_SCHEMA_VERSION
+        self.confirmation["confirmed_episodes"][0]["attribution"] = {
+            "duration_seconds": 1080,
+        }
+        with mock.patch.object(drift, "load_confirmation", return_value=self.confirmation), \
+             mock.patch.object(drift, "event_attribution") as event_attribution, \
+             mock.patch.object(drift.config, "write_findings") as write_findings:
+            report = drift.backfill_attribution("A", con=self.con)
+
+        self.assertEqual(report["updated_episodes"], 0)
+        self.assertEqual(report["skipped_episodes"], 1)
+        event_attribution.assert_not_called()
+        write_findings.assert_not_called()
+
+    def test_future_schema_is_rejected_without_downgrade(self):
+        future_version = drift.CONFIRMATION_SCHEMA_VERSION + 1
+        self.confirmation["schema_version"] = future_version
+        with mock.patch.object(drift, "load_confirmation", return_value=self.confirmation), \
+             mock.patch.object(drift.config, "write_findings") as write_findings:
+            with self.assertRaisesRegex(ValueError, "newer than supported"):
+                drift.backfill_attribution("A", con=self.con)
+
+        self.assertEqual(self.confirmation["schema_version"], future_version)
         write_findings.assert_not_called()
 
     def test_stale_confirmation_is_rejected_before_token_fetch(self):

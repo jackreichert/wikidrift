@@ -16,7 +16,11 @@ import urllib.parse
 from collections import Counter
 from dataclasses import dataclass, field
 
+import duckdb
 import markdown as _md
+
+from wikidrift import pipeline
+from wikidrift.corpus import Corpus
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 FIND = ROOT / ".planning" / "spikes" / "data" / "findings"
@@ -239,6 +243,37 @@ def _load_article_findings(directories, suffix):
     return findings
 
 
+def _load_confirmations(directories):
+    """Load confirmations, checking freshness when the corresponding local corpus is available."""
+    confirmations = {}
+    for directory in directories:
+        for finding_path in directory.glob("*.l1-confirmation.json"):
+            confirmation = load(finding_path)
+            article = confirmation.get("article") if isinstance(confirmation, dict) else None
+            if not article or article in EXCLUDE_ARTICLES:
+                continue
+            database = directory.parent / "provenance.duckdb"
+            if database.is_file():
+                try:
+                    con = duckdb.connect(str(database), read_only=True)
+                    try:
+                        horizon = Corpus(con).latest_snapshot(article)
+                    finally:
+                        con.close()
+                    is_fresh = pipeline.confirmation_is_fresh(confirmation, horizon)
+                except (duckdb.Error, OSError):
+                    is_fresh = False
+                if not is_fresh:
+                    confirmation = {
+                        **confirmation,
+                        "status": "unavailable",
+                        "reason": "stale exact confirmation",
+                        "confirmed_episodes": [],
+                    }
+            confirmations[article] = confirmation
+    return confirmations
+
+
 def gather():
     finding_dirs = _finding_dirs()
     receipts = _load_article_findings(finding_dirs, "receipts")
@@ -247,7 +282,7 @@ def gather():
     lexical = _load_article_findings(finding_dirs, "lexical")
     profiles = _load_article_findings(finding_dirs, "profile")
     framings = _load_article_findings(finding_dirs, "framing")
-    confirmations = _load_article_findings(finding_dirs, "l1-confirmation")
+    confirmations = _load_confirmations(finding_dirs)
     factchecks = {}
     for directory in finding_dirs:
         for finding_path in directory.glob("*.factcheck.json"):
@@ -726,6 +761,12 @@ def _unavailable_rewrite_copy(reason):
             "L1 found a candidate interval, but its exact revision text could not be exported. "
             "The candidate should not be interpreted without that evidence.",
         )
+    if reason == "stale exact confirmation":
+        return (
+            "Rewrite analysis needs refresh",
+            "The saved exact result does not match the current local corpus or detector thresholds. "
+            "It is withheld until refreshed, rather than shown as a current finding.",
+        )
     return (
         "Rewrite analysis is not available",
         "No current rewrite result is available for this article. This is missing coverage, "
@@ -1063,10 +1104,77 @@ def missing_diff_section(state="unavailable", reason=None):
     return f'<h2>{esc(title)}</h2><p class="missing-note">{esc(note)}</p>'
 
 
+def _confirmation_horizon_note(confirmation):
+    horizon = confirmation.get("corpus_horizon") or {}
+    if not horizon.get("snapshot_date"):
+        return ""
+    return (
+        '<p class="coverage-note">Snapshot corpus through '
+        f'<b>{esc(horizon["snapshot_date"])}</b> '
+        f'(revision {esc(horizon.get("snapshot_revid") or "unknown")}).</p>'
+    )
+
+
+def _format_duration(duration_seconds):
+    if not isinstance(duration_seconds, (int, float)) or duration_seconds < 0:
+        return "unknown"
+    if duration_seconds < 3600:
+        return f"{int(duration_seconds) // 60} minutes"
+    return f"{duration_seconds / 3600:.1f} hours"
+
+
+def _confirmation_episode_row(episode):
+    before_revid = episode.get("before_revid")
+    after_revid = episode.get("after_revid")
+    before = (f'<a href="{oldid("en", before_revid)}" target="_blank" rel="noopener">'
+              f'{esc(episode.get("before_timestamp") or before_revid)}</a>')
+    after = (f'<a href="{oldid("en", after_revid)}" target="_blank" rel="noopener">'
+             f'{esc(episode.get("after_timestamp") or after_revid)}</a>')
+    drop = 100 * (episode.get("durable_spine_drop") or 0)
+    duration = _format_duration(episode.get("duration_seconds"))
+    return (
+        f'<tr><td>{before}</td><td>{after}</td><td>{drop:.1f}% durable-spine drop</td>'
+        f'<td>{int(episode.get("pwr_mass") or 0):,}</td><td>{esc(duration)}</td></tr>'
+    )
+
+
+def _attribution_receipt(episode):
+    attribution = episode.get("attribution")
+    if not isinstance(attribution, dict):
+        reason = episode.get("attribution_unavailable") or "not available"
+        return (
+            '<p class="coverage-note muted"><b>Exact-event attribution unavailable:</b> '
+            f'{esc(reason)}.</p>'
+        )
+    removal_rows = attribution.get("removals_by_editor") or []
+    replacement_rows = attribution.get("replacement_by_editor") or []
+    details = [
+        f'<b>{int(attribution.get("removed_tokens") or 0):,}</b> tokens removed',
+        f'<b>{int(attribution.get("replacement_tokens") or 0):,}</b> surviving replacement tokens',
+    ]
+    if removal_rows and attribution.get("top_removal_share") is not None:
+        details.append(
+            f'<b>{esc(removal_rows[0].get("editor"))}</b> was associated with '
+            f'<b>{100 * attribution["top_removal_share"]:.1f}%</b> of removals'
+        )
+    if replacement_rows and attribution.get("top_replacement_share") is not None:
+        details.append(
+            f'<b>{esc(replacement_rows[0].get("editor"))}</b> was the origin author of '
+            f'<b>{100 * attribution["top_replacement_share"]:.1f}%</b> of surviving replacement text'
+        )
+    return (
+        '<div class="evidence-receipt" role="note"><h3>Exact-event attribution: revisions '
+        f'{esc(episode.get("before_revid"))} → {esc(episode.get("after_revid"))}</h3>'
+        f'<p>{" · ".join(details)}.</p></div>'
+    )
+
+
 def confirmation_section(confirmation):
     """Render authoritative exact-confirmation episodes and revision receipts."""
     if confirmation.get("status") == "unavailable":
-        reason = "too few snapshots" if confirmation.get("coarse_verdict") == "SKIP" else None
+        reason = confirmation.get("reason")
+        if not reason and confirmation.get("coarse_verdict") == "SKIP":
+            reason = "too few snapshots"
         return missing_diff_section("unavailable", reason)
     episodes = confirmation.get("confirmed_episodes") or []
     if not episodes:
@@ -1076,27 +1184,20 @@ def confirmation_section(confirmation):
             'durable-spine drop. This is a completed negative result for that detector, not a claim '
             'that the article never changed.</p>'
         )
-    rows = ""
-    for episode in episodes:
-        before_revid = episode.get("before_revid")
-        after_revid = episode.get("after_revid")
-        before = (f'<a href="{oldid("en", before_revid)}" target="_blank" rel="noopener">'
-                  f'{esc(episode.get("before_timestamp") or before_revid)}</a>')
-        after = (f'<a href="{oldid("en", after_revid)}" target="_blank" rel="noopener">'
-                 f'{esc(episode.get("after_timestamp") or after_revid)}</a>')
-        drop = 100 * (episode.get("durable_spine_drop") or 0)
-        rows += (
-            f'<tr><td>{before}</td><td>{after}</td><td>{drop:.1f}% durable-spine drop</td>'
-            f'<td>{int(episode.get("pwr_mass") or 0):,}</td></tr>'
-        )
+    horizon_note = _confirmation_horizon_note(confirmation)
+    rows = "".join(_confirmation_episode_row(episode) for episode in episodes)
+    receipts = "".join(_attribution_receipt(episode) for episode in episodes)
     count = len(episodes)
     return (
         f'<h2>{count} confirmed rewrite episode{"s" if count != 1 else ""}</h2>'
         '<p>Exact revision pairs where long-lived wording was substantially replaced.</p>'
+        f'{horizon_note}'
         '<div class="tablewrap"><table><thead><tr><th scope="col">Before</th>'
         '<th scope="col">After</th><th scope="col">Durable change</th>'
-        '<th scope="col">PWR mass</th></tr></thead>'
-        f'<tbody>{rows}</tbody></table></div>'
+        '<th scope="col">PWR mass</th><th scope="col">Duration</th></tr></thead>'
+        f'<tbody>{rows}</tbody></table></div>{receipts}'
+        '<p class="muted">Attribution describes public revision-history associations and origin authorship. '
+        'It does not establish bias, motive, or misconduct.</p>'
     )
 
 
