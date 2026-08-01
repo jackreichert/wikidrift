@@ -217,6 +217,9 @@ def ensure_schema(con):
         article TEXT PRIMARY KEY, source_status TEXT, source_checked_at TEXT,
         source_latest_revid BIGINT, expected_snapshots INT, loaded_snapshots INT, reason TEXT)""")
     con.execute("CREATE TABLE IF NOT EXISTS revisions(article TEXT, rev_id BIGINT, ts TEXT, user TEXT)")
+    con.execute("""CREATE TABLE IF NOT EXISTS revision_metadata(
+        article TEXT, rev_id BIGINT, parent_id BIGINT, sha1 TEXT, comment TEXT,
+        tags TEXT, minor BOOLEAN, user_hidden BOOLEAN, retrieved_at TEXT)""")
     con.execute("CREATE TABLE IF NOT EXISTS tokens(article TEXT, token_id BIGINT, str TEXT, editor TEXT, o_rev_id BIGINT, n_in INT, n_out INT)")
     con.execute("CREATE TABLE IF NOT EXISTS rev_size(article TEXT, rev_id BIGINT, size BIGINT)")
     con.execute("CREATE TABLE IF NOT EXISTS rsnap(article TEXT, snap_date TEXT, snap_rev BIGINT, token_id BIGINT, o_rev_id BIGINT)")
@@ -521,6 +524,7 @@ def ensure_indexes(con):
         "CREATE INDEX IF NOT EXISTS ix_snapint_art_rev ON snapshot_integrity(article, snap_rev)",
         "CREATE INDEX IF NOT EXISTS ix_endpoint_art_mode ON endpoint_receipts(article, mode)",
         "CREATE INDEX IF NOT EXISTS ix_rev_art_id ON revisions(article, rev_id)",
+        "CREATE INDEX IF NOT EXISTS ix_revmeta_art_id ON revision_metadata(article, rev_id)",
         "CREATE INDEX IF NOT EXISTS ix_revsize_art_id ON rev_size(article, rev_id)",
         "CREATE INDEX IF NOT EXISTS ix_tokens_art_tok ON tokens(article, token_id)",
     ):
@@ -548,7 +552,8 @@ def ensure_sizes(con, article):
     latest = con.execute("SELECT max(rev_id) FROM revisions WHERE article=?", [article]).fetchone()[0]
 
     params = {"action": "query", "format": "json", "formatversion": "2", "prop": "revisions",
-              "redirects": 1, "titles": article, "rvprop": "ids|timestamp|user|size",
+              "redirects": 1, "titles": article,
+              "rvprop": "ids|timestamp|user|size|comment|tags|sha1|flags",
               "rvlimit": "max", "rvdir": "newer", "maxlag": "5"}
     if latest:
         params["rvstartid"] = latest   # resume from last known rev (inclusive — deduped below)
@@ -571,7 +576,8 @@ def ensure_sizes(con, article):
                 reason=f"history retrieval failed: {exc}",
             )
             raise
-        revrows, szrows = [], []
+        revrows, szrows, metadata_rows = [], [], []
+        retrieved_at = dt.datetime.now(dt.timezone.utc).isoformat()
         for pg in d.get("query", {}).get("pages", []):
             for rv in pg.get("revisions", []):
                 rid = int(rv["revid"])
@@ -580,9 +586,15 @@ def ensure_sizes(con, article):
                 seen.add(rid)
                 revrows.append((article, rid, rv["timestamp"], rv.get("user", "<hidden>")))
                 szrows.append((article, rid, int(rv.get("size", 0))))
+                metadata_rows.append((
+                    article, rid, rv.get("parentid"), rv.get("sha1"), rv.get("comment"),
+                    json.dumps(rv.get("tags", []), ensure_ascii=False, sort_keys=True),
+                    bool(rv.get("minor", False)), "userhidden" in rv, retrieved_at,
+                ))
         if revrows:
             con.executemany("INSERT INTO revisions VALUES (?,?,?,?)", revrows)
             con.executemany("INSERT INTO rev_size VALUES (?,?,?)", szrows)
+            con.executemany("INSERT INTO revision_metadata VALUES (?,?,?,?,?,?,?,?,?)", metadata_rows)
             total += len(revrows)
         print(f"\r  history: {total:,} revisions…", end="", flush=True)
         if "continue" in d:

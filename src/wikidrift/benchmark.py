@@ -75,6 +75,48 @@ CONCENTRATION_SHARE_FEATURES = (
 )
 
 
+def _validate_revision_attribution(article, pair, attribution, removal_rows, replacement_rows):
+    if attribution.get("schema_version", 1) < 3:
+        return
+    revisions = attribution.get("revisions") or []
+    gross = attribution.get("gross") or {}
+    net_standing = attribution.get("net_standing") or {}
+    gross_fields = {
+        "removed_tokens": "gross_removed_tokens",
+        "added_tokens": "gross_added_tokens",
+        "restored_tokens": "restored_tokens",
+    }
+    for aggregate_field, revision_field in gross_fields.items():
+        revision_total = sum(row.get(revision_field, 0) for row in revisions)
+        if revision_total != gross.get(aggregate_field):
+            raise ValueError(
+                f"{article!r} event {pair} {aggregate_field} does not match revision rows"
+            )
+
+    revision_removals = {}
+    revision_replacements = {}
+    for row in revisions:
+        account = row.get("account", "<hidden>")
+        revision_removals[account] = (
+            revision_removals.get(account, 0) + row.get("standing_removed_tokens", 0)
+        )
+        revision_replacements[account] = (
+            revision_replacements.get(account, 0) + row.get("standing_added_tokens", 0)
+        )
+    revision_removals = {account: count for account, count in revision_removals.items() if count}
+    revision_replacements = {account: count for account, count in revision_replacements.items() if count}
+    displayed_removals = {row["editor"]: row["tokens"] for row in removal_rows}
+    displayed_replacements = {row["editor"]: row["tokens"] for row in replacement_rows}
+    if revision_removals != displayed_removals:
+        raise ValueError(f"{article!r} event {pair} revision removal rows do not match editor rows")
+    if revision_replacements != displayed_replacements:
+        raise ValueError(f"{article!r} event {pair} revision replacement rows do not match editor rows")
+    if sum(revision_removals.values()) != net_standing.get("removed_tokens"):
+        raise ValueError(f"{article!r} event {pair} net-standing removal total does not match revision rows")
+    if sum(revision_replacements.values()) != net_standing.get("replacement_tokens"):
+        raise ValueError(f"{article!r} event {pair} net-standing replacement total does not match revision rows")
+
+
 def concentration_event(article, episode):
     """Extract independently recomputable editor-attribution measures for one exact event."""
     attribution = episode.get("attribution")
@@ -90,6 +132,9 @@ def concentration_event(article, episode):
         raise ValueError(f"{article!r} event {pair} removal attribution total does not match editor rows")
     if replacement_tokens != attribution.get("replacement_tokens"):
         raise ValueError(f"{article!r} event {pair} replacement attribution total does not match editor rows")
+    _validate_revision_attribution(
+        article, pair, attribution, removal_rows, replacement_rows
+    )
 
     top_removal = removal_rows[0] if removal_rows else None
     top_replacement = replacement_rows[0] if replacement_rows else None

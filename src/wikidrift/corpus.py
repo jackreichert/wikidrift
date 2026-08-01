@@ -14,6 +14,9 @@ Remaining polish (deferred, low value / higher churn): a `Corpus.open(read_only=
 `duckdb.connect(str(config.DB), ...)` sites into one — callers currently pass the raw `con` widely, so that's
 a separate pass.
 """
+import json
+
+import duckdb
 
 
 class Corpus:
@@ -144,6 +147,33 @@ class Corpus:
         return self.con.execute(
             "SELECT rev_id, ts, user FROM revisions WHERE article=? AND ts>? AND ts<=? ORDER BY ts",
             [article, start_ts, end_ts]).fetchall()
+
+    def revision_evidence_between(self, article, start_ts, end_ts):
+        """Revision timeline plus optional process metadata for start_ts <= ts <= end_ts."""
+        try:
+            rows = self.con.execute("""
+                SELECT r.rev_id, r.ts, r.user, m.parent_id, m.sha1, m.comment, m.tags,
+                       m.minor, m.user_hidden, z.size
+                FROM revisions r
+                LEFT JOIN revision_metadata m ON m.article=r.article AND m.rev_id=r.rev_id
+                LEFT JOIN rev_size z ON z.article=r.article AND z.rev_id=r.rev_id
+                WHERE r.article=? AND r.ts>=? AND r.ts<=?
+                ORDER BY r.ts, r.rev_id
+            """, [article, start_ts, end_ts]).fetchall()
+        except duckdb.CatalogException:  # Legacy read-only shards may predate the metadata table.
+            return [{
+                "revision_id": revision_id, "timestamp": timestamp, "account": account,
+            } for revision_id, timestamp, account in self.con.execute(
+                """SELECT rev_id, ts, user FROM revisions
+                   WHERE article=? AND ts>=? AND ts<=? ORDER BY ts, rev_id""",
+                [article, start_ts, end_ts],
+            ).fetchall()]
+        return [{
+            "revision_id": row[0], "timestamp": row[1], "account": row[2],
+            "parent_id": row[3], "sha1": row[4], "comment": row[5],
+            "tags": json.loads(row[6]) if row[6] else [], "minor": row[7],
+            "account_type": "hidden" if row[8] else None, "size": row[9],
+        } for row in rows]
 
     def revision_ts(self, article):
         """{rev_id: ts} for every revision of the article."""

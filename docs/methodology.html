@@ -174,19 +174,30 @@ the text present at the start and searches the underlying revisions for the pair
 that text drops most sharply.</p>
 <p>The durable text must decline by at least 20 percentage points across the interval to confirm the
 pivot. This keeps a coarse snapshot gap from looking decisive when the revisions inside it do not
-show the same collapse. Findings record whether the confirmed candidate came from the primary
-interval pass or the rolling pass.</p>
+show the same collapse. The confirmation artifact keeps an audit receipt for every candidate sent to
+this exact check: its source pass, coarse dates and revisions, PWR mass, peak loss, exact revision pair
+and measured durable-spine drop when resolvable, plus the decision. Rejections state either that the
+drop was below the required threshold or that there was insufficient revision evidence to resolve an
+exact pair. Candidates not sent to exact checking are not represented as rejected. Findings also record
+whether a confirmed candidate came from the primary interval pass or the rolling pass.</p>
 <h3>Attributing public edits</h3>
-<p>For a confirmed episode, L1 can describe two groups:</p>
+<p>For a confirmed episode, L1 resolves the ordered revisions between the stable before and after states.
+It reports two kinds of accounting:</p>
 <ul>
-<li><strong>Removal attribution:</strong> accounts whose edits removed established text during the window. The text
-  must still be absent from the latest snapshot.</li>
-<li><strong>Post-pivot contributors:</strong> leading origin accounts for current text introduced after the pivot
-  began.</li>
+<li><strong>Gross activity:</strong> every observed addition, removal, and restoration in the bounded sequence.</li>
+<li><strong>Net-standing contribution:</strong> removals still absent at the after state and replacement wording that
+  survives there. Reverted intermediate work remains visible in gross activity but not standing shares.</li>
 </ul>
-<p>The full analysis attributes up to the two largest confirmed episodes. It reports public editing
-actions, not motive, off-wiki identity, or coordination. Concentrated authorship is context, not a
-finding on its own.</p>
+<p>Per-revision rows reproduce every displayed share. Hidden names, anonymous IPs, bots, renamed accounts,
+and unavailable account states remain distinct without identity inference. The full analysis attributes
+up to the two largest confirmed episodes. It reports public editing actions, not motive, off-wiki identity,
+or coordination. Concentration labels remain disabled pending control-set calibration.</p>
+<h3>Editorial-process context</h3>
+<p>An opt-in receipt can add bounded edit summaries, tags, restoration relationships, talk-page activity,
+protection state, page operations, and selected dispute templates. Displayed items link to exact public
+revisions or logs and preserve <code>observed</code>, <code>not_observed</code>, and <code>unavailable</code> states. This context can identify
+alternatives worth inspecting, but it cannot change confirmation or corroboration and does not establish
+motive, coordination, bias, or misconduct.</p>
 <h3>What L1 can and cannot say</h3>
 <p>L1 detects durable replacement. It does not determine whether the replacement was more accurate,
 better sourced, more neutral, or worse. A legitimate reorganization can produce a large pivot. A
@@ -201,14 +212,23 @@ mention a focal entity, and classifies how each passage treats that entity:</p>
 <li>sympathetic;</li>
 <li>absent.</li>
 </ul>
-<p>If the user does not name an entity, L2 uses the article title. It also records whether the passage
-appears to depart from an encyclopedic neutrality standard and keeps a short supporting quotation.
-It compares the first and last usable observations in the selected time range; the user can narrow
-that range with a start date.</p>
+<p>If the user does not name an entity, L2 uses the article title. Every classification retains the exact
+passage, revision link, passage hash, prompt and model contract, confidence, evidence spans, and raw run.
+When initial labels differ across adjacent observations, L2 repeats both classifications. It reports an
+audited shift only when the passage text changed, repeated runs meet the agreement and evidence-coverage
+floors, and the prompt/model contracts are compatible. Otherwise it identifies model instability, combined
+text and model change, or insufficient evidence. The user can narrow the range with a start date.</p>
 <p>This check is useful when the article grew or churned without a large net deletion. It can also help
 separate a structural overhaul with broadly stable stance from one accompanied by a semantic shift.</p>
 <p>Because L2 uses a language model, its output is inspectable evidence rather than a final label. It is
 a temporal comparison, so it may also miss framing that was stable from the article's beginning.</p>
+<h2>L2a: tracing additive and formative framing</h2>
+<p>The deterministic framing trajectory compares exact revisions selected from integrity-usable snapshots
+through the stable endpoint. It classifies sentence-level units as added, removed, retained, or relocated;
+separates lead and body weight; records section changes and parseable citation-domain changes; and marks
+additions as standing or transient across later selected revisions. Formative, interval, and explicit
+exact-event modes are available. These receipts are framing-change research leads only: additions do not
+independently establish bias, factual error, intent, or misconduct and do not increase corroboration counts.</p>
 <h2>L2.5: showing which vocabulary changed</h2>
 <p>L2.5 is an offline vocabulary comparison. When L1 finds a pivot, it compares snapshots immediately
 before and after the episode. Otherwise, it compares the oldest and newest usable snapshots.</p>
@@ -370,6 +390,7 @@ content evidence. More detailed paper notes are available in the repository's
   interpretations rather than oracles.</li>
 <li>The published site is static HTML built from saved result files in the
   <a href="https://github.com/jackreichert/wikidrift/">open-source repository</a>.</li>
+<li>Process-context receipts preserve exact public revision or log links and explicit availability states.</li>
 </ul></div></main>
 <footer class="site">
   <div class="footer-inner">

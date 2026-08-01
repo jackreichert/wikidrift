@@ -79,6 +79,66 @@ def _index_html():
 
 
 class FindingsDiscovery(unittest.TestCase):
+    def test_expanded_political_topics_have_a_descriptive_category(self):
+        political_topics = [
+            "Xi Jinping",
+            "Ilhan Omar",
+            "Democratic Socialists of America",
+            "Socialism",
+            "Capitalism",
+            "Democratic Party (United States)",
+            "Republican Party (United States)",
+            "Elizabeth Warren",
+        ]
+
+        categories = build.resolve_categories([*political_topics, "Unmoved mover"])
+
+        self.assertEqual(
+            {categories[article] for article in political_topics},
+            {"Politics & ideology"},
+        )
+        self.assertEqual(categories["Unmoved mover"], "Other")
+        self.assertLessEqual(
+            set(build.CATEGORY.values()) | {build.DEFAULT_CATEGORY},
+            set(build.CATEGORY_OPTIONS),
+        )
+
+        rendered = build.index_page(
+            ["Xi Jinping"],
+            build.Findings(),
+            categories={"Xi Jinping": "Politics & ideology"},
+        )
+        self.assertIn('data-cat="Politics &amp; ideology"', rendered)
+        self.assertIn('>Politics &amp; ideology</button>', rendered)
+
+    def test_explicit_category_overrides_model_assisted_cache(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            cache_path = pathlib.Path(temp_dir) / "topic_categories.json"
+            cache_path.write_text(
+                json.dumps({"version": 1, "categories": {"Xi Jinping": "Other"}}),
+                encoding="utf-8",
+            )
+
+            categories = build.resolve_categories(
+                ["Xi Jinping"],
+                use_llm=True,
+                cache_path=cache_path,
+            )
+
+        self.assertEqual(categories["Xi Jinping"], "Politics & ideology")
+
+    def test_category_cache_rejects_unknown_filter_labels(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            cache_path = pathlib.Path(temp_dir) / "topic_categories.json"
+            cache_path.write_text(
+                json.dumps({"version": 1, "categories": {"Testland": "Unlisted label"}}),
+                encoding="utf-8",
+            )
+
+            categories = build._load_category_cache(cache_path)
+
+        self.assertEqual(categories, {})
+
     def test_stale_shard_confirmation_degrades_to_unavailable(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             data_dir = pathlib.Path(temp_dir)
@@ -227,19 +287,123 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("No candidate rewrite window was confirmed", out)
         self.assertNotIn("Candidate rewrite window", out)
 
+    def test_exact_not_confirmed_relabels_legacy_lexical_pivot(self):
+        findings = build.Findings(
+            confirmations={"Testland": {
+                "article": "Testland",
+                "status": "not_confirmed",
+                "thresholds": {"confirm_drop": 0.2},
+                "interval_profile": [
+                    {
+                        "start": "2023-07-01", "end": "2024-01-01",
+                        "size": 900, "pwr_loss": 4.0, "pwr_removed": 300,
+                        "mature": False,
+                    },
+                    {
+                        "start": "2024-01-01", "end": "2024-07-01",
+                        "size": 4200, "pwr_loss": 69.5, "pwr_removed": 240130,
+                        "mature": True,
+                    },
+                ],
+                "evaluated_candidates": [{
+                    "candidate_start": "2024-01-01",
+                    "candidate_end": "2024-07-01",
+                    "candidate_before_revid": 10,
+                    "candidate_after_revid": 20,
+                    "source": "interval",
+                    "pwr_mass": 1200,
+                    "peak_pct": 30.0,
+                    "exact_before_revid": 11,
+                    "exact_before_timestamp": "2024-03-01T00:00:00Z",
+                    "exact_after_revid": 12,
+                    "exact_after_timestamp": "2024-03-02T00:00:00Z",
+                    "durable_spine_drop": 0.1,
+                    "decision": "rejected",
+                    "rejection_reason": "durable_spine_drop_below_threshold",
+                }],
+            }},
+            lexical={"Testland": {
+                "span": "2024-01-01 -> 2024-07-01 (around L1 pivot ~2024-01-01)",
+                "pivot": "2024-01-01",
+                "before": {"date": "2024-01-01", "tokens": 100},
+                "after": {"date": "2024-07-01", "tokens": 110},
+            }},
+            pivots={"Testland": {"pivots": [{
+                "start": "2024-01-01",
+                "end": "2024-07-01",
+                "peak_pct": 30.0,
+                "pwr_mass": 1200,
+                "status": "rejected",
+                "before_text": "old",
+                "after_text": "new",
+            }]}},
+        )
+
+        out = build.article_page("Testland", findings)
+
+        self.assertIn("No candidate rewrite window was confirmed", out)
+        self.assertIn("around L1 candidate date 2024-01-01", out)
+        self.assertIn("exact checking did not confirm a durable rewrite", out)
+        self.assertNotIn("around L1 pivot", out)
+        self.assertIn("Candidates checked exactly", out)
+        self.assertIn("Persistence-weighted loss by interval", out)
+        self.assertIn("69.5%", out)
+        self.assertIn("240,130 PWR", out)
+        self.assertIn("Rejected candidate window", out)
+        self.assertIn("Excluded: article below mature size", out)
+        self.assertIn("2024-01-01 → 2024-07-01", out)
+        self.assertIn("10.0% durable-spine drop", out)
+        self.assertIn("below the required 20.0%", out)
+        self.assertIn("Rejected", out)
+        self.assertIn('href="Testland.p0.html"', out)
+        self.assertIn("View redline", out)
+
     def test_confirmed_analysis_renders_exact_episode_summary(self):
-        findings = build.Findings(confirmations={"Testland": {
-            "article": "Testland",
-            "status": "confirmed",
-            "confirmed_episodes": [{
-                "before_revid": 11,
-                "before_timestamp": "2024-01-01T00:00:00Z",
-                "after_revid": 12,
-                "after_timestamp": "2024-01-01T00:20:00Z",
-                "durable_spine_drop": 0.75,
+        findings = build.Findings(
+            confirmations={"Testland": {
+                "article": "Testland",
+                "status": "confirmed",
+                "interval_profile": [
+                    {
+                        "start": "2023-07-01",
+                        "end": "2024-01-01",
+                        "pwr_loss": 31.0,
+                        "pwr_removed": 300,
+                        "mature": True,
+                    },
+                    {
+                        "start": "2024-01-01",
+                        "end": "2024-07-01",
+                        "pwr_loss": 42.0,
+                        "pwr_removed": 500,
+                        "mature": True,
+                    },
+                ],
+                "evaluated_candidates": [{
+                    "candidate_start": "2023-07-01",
+                    "candidate_end": "2024-07-01",
+                    "decision": "confirmed",
+                    "peak_pct": 42.0,
+                    "pwr_mass": 500,
+                }],
+                "confirmed_episodes": [{
+                    "before_revid": 11,
+                    "before_timestamp": "2024-01-01T00:00:00Z",
+                    "after_revid": 12,
+                    "after_timestamp": "2024-01-01T00:20:00Z",
+                    "durable_spine_drop": 0.75,
+                    "pwr_mass": 500,
+                }],
+            }},
+            pivots={"Testland": {"pivots": [{
+                "start": "2023-07-01",
+                "end": "2024-07-01",
+                "peak_pct": 42.0,
                 "pwr_mass": 500,
-            }],
-        }})
+                "before_text": "old",
+                "after_text": "new",
+            }]}},
+        )
 
         out = build.article_page("Testland", findings)
 
@@ -247,6 +411,9 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("75.0% durable-spine drop", out)
         self.assertIn("oldid=11", out)
         self.assertIn("oldid=12", out)
+        self.assertIn('href="Testland.p0.html"', out)
+        self.assertIn("View redline", out)
+        self.assertEqual(out.count("Confirmed candidate window"), 2)
 
     def test_confirmed_analysis_discloses_horizon_duration_and_neutral_attribution(self):
         findings = build.Findings(confirmations={"Testland": {
@@ -271,6 +438,28 @@ class ArticlePageRendering(unittest.TestCase):
                     "same_top_editor": True,
                     "top_two_removal_share": 1.0,
                 },
+                "process_context": {
+                    "semantic_role": "descriptive_process_context",
+                    "revision_activity": [{
+                        "revision_id": 12, "timestamp": "2024-01-01T00:20:00Z",
+                        "account": "Editor A", "section": "History", "comment": "reorganize",
+                        "source_url": "https://en.wikipedia.org/w/index.php?title=Testland&oldid=12",
+                    }],
+                    "revert_relationships": [{
+                        "revision_id": 12, "restores_revision_id": 10,
+                        "signals": ["sha1_restoration"],
+                        "source_url": "https://en.wikipedia.org/w/index.php?title=Testland&oldid=12",
+                    }],
+                    "talk_activity": [],
+                    "page_operations": [{
+                        "log_id": 9, "type": "protect", "action": "protect",
+                        "timestamp": "2024-01-01T00:15:00Z", "comment": "temporary",
+                        "source_url": "https://en.wikipedia.org/w/index.php?title=Special:Log&logid=9",
+                    }],
+                    "availability": {
+                        "talk_activity": {"status": "unavailable", "reason": "retrieval timed out"},
+                    },
+                },
             }],
         }})
 
@@ -283,6 +472,13 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("associated with <b>100.0%</b> of removals", out)
         self.assertIn("origin author of <b>100.0%</b> of surviving replacement text", out)
         self.assertIn("does not establish bias, motive, or misconduct", out)
+        self.assertIn("Editorial process context", out)
+        self.assertIn("History", out)
+        self.assertIn("oldid=12", out)
+        self.assertIn("logid=9", out)
+        self.assertIn("Talk-page activity unavailable", out)
+        self.assertIn("retrieval timed out", out)
+        self.assertLess(out.index("Editorial process context"), out.index("Exact-event attribution"))
 
     def test_unavailable_confirmation_remains_unavailable_when_article_is_published(self):
         findings = build.Findings(
@@ -632,7 +828,7 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("42% persistence-weighted loss", out)
         self.assertNotIn("42% of the article changed", out)
         pivot = build.pivot_page("Testland", findings.pivots["Testland"]["pivots"][0], 0)
-        self.assertIn("Candidate rewrite", pivot)
+        self.assertIn("Candidate redline", pivot)
 
     def test_overview_lists_every_candidate_window(self):
         findings = build.Findings(pivots={"Testland": {"pivots": [
@@ -709,6 +905,10 @@ class SiteRouting(unittest.TestCase):
             "Summary of findings", build.SUMMARY_BODY, None, path="summary.html"
         )
         self.assertIn("Persistence-weighted loss detects durable replacement", summary)
+        self.assertIn("<h2>Politics &amp; ideology</h2>", summary)
+        self.assertIn("seven-topic browsing category", summary)
+        self.assertIn('href="article/Unmoved_mover.html">Unmoved mover</a>', summary)
+        self.assertIn("remains outside this category", summary)
         self.assertNotIn('aria-current="page"', summary)
         self.assertIn('<a class="wiki-link" href="findings.html">Browse all findings', summary)
         page = build.render_page(title="Test", body="<h1>Test</h1>", root="../")
@@ -719,6 +919,24 @@ class SiteRouting(unittest.TestCase):
             page,
         )
         self.assertIn('<footer class="site">', page)
+
+    def test_summary_unlinks_articles_withheld_from_publication(self):
+        body = (
+            '<p><a href="article/Published_Topic.html">Published topic</a> and '
+            '<a href="article/Withheld_Topic_%28test%29.html">Withheld topic</a>, '
+            '<a class="wiki-link" href="article/Other_Withheld.html#lead">its lead</a>, and '
+            '<a href="article/Published_Topic.html?view=history">published history</a>.</p>'
+        )
+
+        rendered = build._unlink_unpublished_article_links(body, ["Published Topic"])
+
+        self.assertIn('<a href="article/Published_Topic.html">Published topic</a>', rendered)
+        self.assertIn("Withheld topic, its lead", rendered)
+        self.assertIn(
+            '<a href="article/Published_Topic.html?view=history">published history</a>', rendered
+        )
+        self.assertNotIn("Withheld_Topic", rendered)
+        self.assertNotIn("Other_Withheld", rendered)
 
     def test_mermaid_runtime_is_loaded_only_for_pages_with_diagrams(self):
         methodology = build.simple_page(

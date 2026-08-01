@@ -1,6 +1,7 @@
 {
+  "schema_version": 2,
   "article": "Racial conceptions of Jewish identity in Zionism",
-  "run_ts": "2026-07-19T17:49:11.138020+00:00",
+  "run_ts": "2026-08-01T22:23:59.558083+00:00",
   "corpus_horizon": {
     "snapshot_date": "2026-07-01",
     "snapshot_revid": 1357172037
@@ -9,9 +10,72 @@
     "confirm_drop": 0.2,
     "durable_quantile": 0.5,
     "min_cohort": 500,
-    "magnitude_floor": 25.0
+    "magnitude_floor": 25.0,
+    "rolling_window_months": 12,
+    "rolling_tolerance_days": 35,
+    "rolling_drop": 20.0
+  },
+  "source_state": {
+    "article": "Racial conceptions of Jewish identity in Zionism",
+    "source_status": "current_complete",
+    "source_checked_at": "2026-08-01T22:23:59.406380+00:00",
+    "source_latest_revid": 1357172037,
+    "expected_snapshots": 7,
+    "loaded_snapshots": 7,
+    "reason": null
   },
   "coarse_verdict": "HEALTHY",
   "status": "not_confirmed",
-  "confirmed_episodes": []
+  "confirmed_episodes": [],
+  "evaluated_candidates": [],
+  "interval_profile": [
+    {
+      "start": "2023-07-01",
+      "end": "2024-01-01",
+      "size": 7927,
+      "pwr_loss": 68.22,
+      "pwr_removed": 5408,
+      "mature": false
+    },
+    {
+      "start": "2024-01-01",
+      "end": "2024-07-01",
+      "size": 32392,
+      "pwr_loss": 0.76,
+      "pwr_removed": 267,
+      "mature": true
+    },
+    {
+      "start": "2024-07-01",
+      "end": "2025-01-01",
+      "size": 32529,
+      "pwr_loss": 6.72,
+      "pwr_removed": 4514,
+      "mature": true
+    },
+    {
+      "start": "2025-01-01",
+      "end": "2025-07-01",
+      "size": 32647,
+      "pwr_loss": 0.02,
+      "pwr_removed": 21,
+      "mature": true
+    },
+    {
+      "start": "2025-07-01",
+      "end": "2026-01-01",
+      "size": 32755,
+      "pwr_loss": 7.35,
+      "pwr_removed": 9409,
+      "mature": true
+    },
+    {
+      "start": "2026-01-01",
+      "end": "2026-07-01",
+      "size": 32750,
+      "pwr_loss": 0.04,
+      "pwr_removed": 60,
+      "mature": true
+    }
+  ]
 }

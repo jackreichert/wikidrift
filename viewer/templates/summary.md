@@ -10,7 +10,23 @@ The clearest pattern is not that controversial articles simply change more. It i
 
 The collection also shows why textual turnover cannot be treated as evidence of wrongdoing. Large replacement appears in science and cross-domain controls as well as political articles. In [Water](article/Water.html), a major rewrite includes the cleanup of obvious vandalism. [Climate change](article/Climate_change.html) has rewrite peaks comparable to several contentious subjects. Persistence-weighted loss detects durable replacement; it does not explain why the replacement happened.
 
-The latest corpus expansion sharpens both sides of that result. Exact confirmation found multiple durable episodes in [Xi Jinping](article/Xi_Jinping.html), [Democratic Socialists of America](article/Democratic_Socialists_of_America.html), [Socialism](article/Socialism.html), [Capitalism](article/Capitalism.html), and the canonical [Democratic](article/Democratic_Party_%28United_States%29.html) and [Republican](article/Republican_Party_%28United_States%29.html) Party articles. It also rejected the coarse [Elizabeth Warren](article/Elizabeth_Warren.html) candidate, while [Unmoved mover](article/Unmoved_mover.html) exposed how a large whole-history vocabulary score can come from an inadequate baseline rather than a confirmed rewrite.
+## Politics & ideology
+
+The **Politics & ideology** filter is a seven-topic browsing category, not an analytical label or a claim that the articles changed for the same reason. It brings together political figures ([Xi Jinping](article/Xi_Jinping.html) and [Elizabeth Warren](article/Elizabeth_Warren.html)), parties and organizations ([Democratic Party](article/Democratic_Party_%28United_States%29.html), [Republican Party](article/Republican_Party_%28United_States%29.html), and [Democratic Socialists of America](article/Democratic_Socialists_of_America.html)), and broad ideologies ([Socialism](article/Socialism.html) and [Capitalism](article/Capitalism.html)).
+
+### Rapid and long-standing rewrites
+
+The new exact-confirmation run found three episodes in [Xi Jinping](article/Xi_Jinping.html). The strongest recent event lost 27.1% of its durable spine and was localized to an 18-minute revision pair in December 2025. [Democratic Socialists of America](article/Democratic_Socialists_of_America.html) also had three confirmed episodes; its November 2025 event removed 87.5% of the durable spine across a 41-minute pair. These are unusually concentrated editing events worth revision-level review, but the measurements do not establish motive or whether the resulting text was better or worse.
+
+The ideology articles show a different time profile. [Socialism](article/Socialism.html) had one confirmed 58.8% durable-spine drop localized to August 2021. [Capitalism](article/Capitalism.html) had two much older confirmed drops, 96.4% and 79.0%, localized to 2006 and 2008. Their age matters: WikiDrift is surfacing standing changes that have persisted, not necessarily recent interventions.
+
+Canonical-title resolution also changed the party-article result. The old “Democratic Party of the United States” and “Republican Party of the United States” shards contained only redirect-page history. After resolving those aliases before storage selection, both canonical articles produced 25 snapshots through 2026. [Democratic Party (United States)](article/Democratic_Party_%28United_States%29.html) had two confirmed episodes, including a 29.4% drop localized to November 2023; [Republican Party (United States)](article/Republican_Party_%28United_States%29.html) had three, including a 29.0% drop localized to 16 minutes in April 2025. The earlier unavailable result was an ingestion defect, not a substantive finding about either article.
+
+### Negative results are informative
+
+[Elizabeth Warren](article/Elizabeth_Warren.html) is the clearest false-positive guard in the category: a large coarse candidate did not survive exact durable-spine confirmation. This shows why coarse intervals should not be promoted to rewrite findings without exact confirmation.
+
+[Unmoved mover](article/Unmoved_mover.html) remains outside this category as a philosophy/control topic. It had no confirmed episode, despite a high whole-history lexical divergence produced by a very small early baseline. Its result separately shows why vocabulary change needs an adequate baseline before interpretation.
 
 ## Strongest recurring signals
 
@@ -35,18 +51,6 @@ That transition deserves close review because it changes the encyclopedia's epis
 ### Cross-language disagreement
 
 Where language comparisons are available, editions sometimes select different facts, causal explanations, or descriptions for their openings. A contradiction or difference is a prompt to inspect the cited evidence and local editorial context. It does not establish which edition is correct, and absence from one opening does not mean the fact is absent from the full article.
-
-### Rapid and long-standing rewrites in the expanded corpus
-
-The new exact-confirmation run found three episodes in [Xi Jinping](article/Xi_Jinping.html). The strongest recent event lost 27.1% of its durable spine and was localized to an 18-minute revision pair in December 2025. [Democratic Socialists of America](article/Democratic_Socialists_of_America.html) also had three confirmed episodes; its November 2025 event removed 87.5% of the durable spine across a 41-minute pair. These are unusually concentrated editing events worth revision-level review, but the measurements do not establish motive or whether the resulting text was better or worse.
-
-The ideology articles show a different time profile. [Socialism](article/Socialism.html) had one confirmed 58.8% durable-spine drop localized to August 2021. [Capitalism](article/Capitalism.html) had two much older confirmed drops, 96.4% and 79.0%, localized to 2006 and 2008. Their age matters: WikiDrift is surfacing standing changes that have persisted, not necessarily recent interventions.
-
-Canonical-title resolution also changed the party-article result. The old “Democratic Party of the United States” and “Republican Party of the United States” shards contained only redirect-page history. After resolving those aliases before storage selection, both canonical articles produced 25 snapshots through 2026. [Democratic Party (United States)](article/Democratic_Party_%28United_States%29.html) had two confirmed episodes, including a 29.4% drop localized to November 2023; [Republican Party (United States)](article/Republican_Party_%28United_States%29.html) had three, including a 29.0% drop localized to 16 minutes in April 2025. The earlier unavailable result was an ingestion defect, not a substantive finding about either article.
-
-### Negative results are informative
-
-[Elizabeth Warren](article/Elizabeth_Warren.html) is the clearest false-positive guard in the new set: a large coarse candidate did not survive exact durable-spine confirmation. [Unmoved mover](article/Unmoved_mover.html) had no confirmed episode, despite a high whole-history lexical divergence produced by a very small early baseline. Together they show why coarse intervals and vocabulary change should not be promoted to rewrite findings without exact confirmation and adequacy checks.
 
 ## What editor attribution can show
 

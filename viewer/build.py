@@ -57,8 +57,8 @@ WHAT = {
     "blame": 'Who introduced each part of the current opening paragraph. Each color is one Wikipedia account.',
     "sources": 'How the article\'s own footnotes changed across the rewrite: which websites and books '
                'were cited more or less. We only show the mix — we do <b>not</b> rate sources as good or bad.',
-    "lexical": 'Words that became more common or less common after the rewrite. Handy for noticing a '
-               'shift in topic or tone — not a score of bias.',
+    "lexical": 'Words that became more common or less common between the compared versions. Handy for '
+               'noticing a shift in topic or tone — not a score of bias.',
     "framing": 'How the opening of the article presents the topic in different languages. '
                'Disagreement is a reason to read carefully, not a final answer.',
     "facts": 'Simple factual questions checked in several languages. Editions may agree, differ, '
@@ -81,6 +81,13 @@ CATEGORY = {
     "Naliboki massacre": "Holocaust in Poland",
     "Rescue of Jews by Poles during the Holocaust": "Holocaust in Poland",
     "Collaboration in German-occupied Poland": "Holocaust in Poland",
+    # Political figures, parties, and ideology
+    "Xi Jinping": "Politics & ideology", "Ilhan Omar": "Politics & ideology",
+    "Elizabeth Warren": "Politics & ideology",
+    "Democratic Party (United States)": "Politics & ideology",
+    "Republican Party (United States)": "Politics & ideology",
+    "Democratic Socialists of America": "Politics & ideology",
+    "Socialism": "Politics & ideology", "Capitalism": "Politics & ideology",
     # Controls / cross-domain (mostly off-site, kept for when they gain findings)
     "Photosynthesis": "Science (control)", "Water": "Science (control)", "Chess": "Science (control)",
     "Brontosaurus": "Science (control)", "Abortion": "Cross-domain", "Climate change": "Cross-domain",
@@ -90,6 +97,7 @@ CATEGORY_CACHE = FIND / "topic_categories.json"
 CATEGORY_OPTIONS = [
     "Israel–Palestine",
     "Holocaust in Poland",
+    "Politics & ideology",
     "Science (control)",
     "Cross-domain",
     "Other",
@@ -109,7 +117,7 @@ def _load_category_cache(path):
         return {}
     out = {}
     for k, v in cats.items():
-        if isinstance(k, str) and isinstance(v, str):
+        if isinstance(k, str) and isinstance(v, str) and v in CATEGORY_OPTIONS:
             out[k] = v
     return out
 
@@ -151,8 +159,9 @@ def resolve_categories(articles, use_llm=False, refresh=False, cache_path=CATEGO
         return categories
 
     cache = _load_category_cache(cache_path)
-    categories.update({a: cache[a] for a in articles if a in cache})
-    needed = [a for a in articles if refresh or a not in cache]
+    uncategorized = [article for article in articles if article not in CATEGORY]
+    categories.update({article: cache[article] for article in uncategorized if article in cache})
+    needed = [article for article in uncategorized if refresh or article not in cache]
     if not needed:
         return categories
 
@@ -665,7 +674,7 @@ def diff_section(diff):
     )
 
 
-def render_pivots(pv, slug):
+def _pivot_links(pv, slug):
     pivs = pv.get("pivots") or []
     items = []
     for i, p in enumerate(pivs):
@@ -675,32 +684,44 @@ def render_pivots(pv, slug):
         else:
             pct_s = "high persistence-weighted loss"
         items.append(
-            f'<a class="pv-link" href="{slug}.p{i}.html">'
+            f'<li><a class="pv-link" href="{slug}.p{i}.html">'
             f'<span><b>{esc(p["start"])} → {esc(p["end"])}</b>'
             f'<span class="muted"> · {esc(pct_s)}</span></span>'
-            f'<span class="f-go" aria-hidden="true">→</span></a>'
+            f'<span class="f-go" aria-hidden="true">→</span></a></li>'
         )
+    return "".join(items)
+
+
+def render_pivots(pv, slug):
+    pivs = pv.get("pivots") or []
     n = len(pivs)
     return (
         f'<h2>Which candidate rewrite windows stood out?</h2>'
         f'<p class="lead">{WHAT["diff"]}</p>'
         f'<p class="brief-sum">The coarse PWR scan found <b>{n}</b> candidate window{"s" if n != 1 else ""}. '
         f'Open one to read the old wording next to the new wording.</p>'
-        f'<div class="pvlinks">{"".join(items)}</div>'
+        f'<ul class="pvlinks">{_pivot_links(pv, slug)}</ul>'
     )
 
 
 def pivot_page(article, p, i):
     slug = slugify(article)
     status = _pivot_status(p)
-    title = "Confirmed rewrite" if status == "confirmed" else "Candidate rewrite"
+    title = {
+        "confirmed": "Confirmed candidate redline",
+        "rejected": "Rejected candidate redline",
+    }.get(status, "Candidate redline")
+    exact_status = {
+        "confirmed": "Exact checking confirmed a rewrite within this broad window",
+        "rejected": "Exact checking rejected this candidate",
+    }.get(status, "Exact decision unavailable")
     body = (
         f'<div class="page-intro"><p class="kicker"><a href="{slug}.html">← {esc(article)}</a></p>'
         f'<h1>{title} · {esc(p["start"])} → {esc(p["end"])}</h1>'
         f'<p class="summary">The peak interval measured {_pwr_read(p.get("peak_pct"))}. '
         f'Read it like tracked changes: <del>struck-out text</del> was removed; '
         f'<ins>highlighted text</ins> was added (color hints which account added it).</p>'
-        f'<p class="disclaimer">{"Binary-search confirmed" if status == "confirmed" else "Coarse PWR candidate; not binary-search confirmed"}. '
+        f'<p class="disclaimer">{exact_status}. This is the coarse candidate window, not the exact event pair. '
         f'Something to inspect — not a finished judgment.</p></div>'
         f'<div class="workspace">'
         + redline(p["before_text"], p["after_text"], p.get("authors_after"), p.get("authors_before"))
@@ -1189,6 +1210,116 @@ def _confirmation_episode_row(episode):
     )
 
 
+def _candidate_decision(candidate, required_drop):
+    decision = candidate.get("decision")
+    reason = candidate.get("rejection_reason")
+    drop = candidate.get("durable_spine_drop")
+    if decision == "confirmed":
+        return "Confirmed"
+    if reason == "durable_spine_drop_below_threshold" and isinstance(drop, (int, float)):
+        return (
+            f'Rejected: {100 * drop:.1f}% durable-spine drop, '
+            f'below the required {100 * required_drop:.1f}%'
+        )
+    if reason == "insufficient_revision_evidence":
+        return "Rejected: insufficient revisions to resolve an exact pair"
+    return f'Rejected: {str(reason or "exact threshold not met").replace("_", " ")}'
+
+
+def _candidate_evaluations_receipt(confirmation, pivots=None, slug=None):
+    candidates = confirmation.get("evaluated_candidates") or []
+    if not candidates:
+        return ""
+    required_drop = (confirmation.get("thresholds") or {}).get("confirm_drop", 0.2)
+    pivot_indexes = {
+        (pivot.get("start"), pivot.get("end")): index
+        for index, pivot in enumerate((pivots or {}).get("pivots") or [])
+    }
+    rows = []
+    for candidate in candidates:
+        source = "rolling second pass" if candidate.get("source") == "rolling" else "coarse interval"
+        window = (candidate.get("candidate_start"), candidate.get("candidate_end"))
+        pivot_index = pivot_indexes.get(window)
+        evidence = (
+            f'<a href="{slug}.p{pivot_index}.html">View redline</a>'
+            if slug and pivot_index is not None
+            else '<span class="muted">Redline unavailable</span>'
+        )
+        rows.append(
+            f'<tr><td>{esc(candidate.get("candidate_start"))} → '
+            f'{esc(candidate.get("candidate_end"))}</td>'
+            f'<td>{esc(source)} · {esc(_pwr_read(candidate.get("peak_pct")))} · '
+            f'{int(candidate.get("pwr_mass") or 0):,} PWR mass</td>'
+            f'<td>{esc(_candidate_decision(candidate, required_drop))}</td>'
+            f'<td>{evidence}</td></tr>'
+        )
+    return (
+        '<h3>Candidates checked exactly</h3>'
+        '<p class="muted">These coarse windows were leads sent to the revision-level check. '
+        'A rejected candidate remains useful context, but it is not a confirmed rewrite.</p>'
+        '<div class="tablewrap"><table><thead><tr><th scope="col">Candidate window</th>'
+        '<th scope="col">Coarse signal</th><th scope="col">Exact decision</th>'
+        '<th scope="col">Evidence</th></tr></thead>'
+        f'<tbody>{"".join(rows)}</tbody></table></div>'
+    )
+
+
+def _interval_profile_chart(confirmation):
+    intervals = confirmation.get("interval_profile") or []
+    if not intervals:
+        return ""
+    candidates = confirmation.get("evaluated_candidates") or []
+    rows = []
+    for interval in intervals:
+        loss = float(interval.get("pwr_loss") or 0)
+        mature = bool(interval.get("mature"))
+        interval_start = interval.get("start")
+        interval_end = interval.get("end")
+        candidate = next((
+            item for item in candidates
+            if item.get("candidate_start") and item.get("candidate_end")
+            and interval_start and interval_end
+            and item["candidate_start"] <= interval_start
+            and interval_end <= item["candidate_end"]
+        ), None)
+        candidate_decision = candidate.get("decision") if candidate else None
+        is_candidate = candidate is not None
+        state = {
+            "confirmed": "Confirmed candidate window",
+            "rejected": "Rejected candidate window",
+        }.get(candidate_decision, "Candidate") if is_candidate else (
+            "Measured" if mature else "Excluded: article below mature size"
+        )
+        classes = ["drift-row"]
+        if is_candidate:
+            classes.append("candidate")
+            if candidate_decision in {"confirmed", "rejected"}:
+                classes.append(f"candidate-{candidate_decision}")
+        if not mature:
+            classes.append("excluded")
+        rows.append(
+            f'<li class="{" ".join(classes)}">'
+            f'<span class="drift-date">{esc(interval.get("end"))}</span>'
+            '<span class="drift-track" aria-hidden="true">'
+            f'<span class="drift-bar" style="width:{min(max(loss, 0), 100):.2f}%"></span></span>'
+            f'<span class="drift-value">{loss:.1f}%</span>'
+            f'<span class="drift-mass">{int(interval.get("pwr_removed") or 0):,} PWR</span>'
+            f'<span class="drift-state">{esc(state)}</span></li>'
+        )
+    return (
+        '<figure class="drift-profile" aria-labelledby="drift-profile-title">'
+        '<figcaption><h3 id="drift-profile-title">Persistence-weighted loss by interval</h3>'
+        '<p>Each bar is the share of established wording lost by the interval end date. '
+        'Measured means the interval was scored but not sent to exact checking. '
+        'Candidate-window labels report the exact revision-level decision for the broader window '
+        'containing that interval.</p></figcaption>'
+        '<div class="drift-axis" aria-hidden="true"><span>0%</span><span>25% candidate floor</span>'
+        '<span>50%</span><span>75%</span><span>100%</span></div>'
+        f'<ul class="drift-plot">{"".join(rows)}</ul>'
+        '</figure>'
+    )
+
+
 def _attribution_receipt(episode):
     attribution = episode.get("attribution")
     if not isinstance(attribution, dict):
@@ -1220,7 +1351,84 @@ def _attribution_receipt(episode):
     )
 
 
-def confirmation_section(confirmation):
+def _process_context_receipt(episode):
+    context = episode.get("process_context")
+    if not isinstance(context, dict):
+        reason = episode.get("process_context_unavailable")
+        if not reason:
+            return ""
+        return (
+            '<p class="coverage-note muted"><b>Editorial process context unavailable:</b> '
+            f'{esc(reason)}. Missing process evidence is not a negative finding.</p>'
+        )
+
+    activity = []
+    for row in context.get("revision_activity") or []:
+        section = f' · section “{esc(row["section"])}”' if row.get("section") else ""
+        comment = f' · {esc(row["comment"])}' if row.get("comment") else ""
+        activity.append(
+            f'<li><a href="{esc(row.get("source_url"))}" target="_blank" rel="noopener">'
+            f'revision {esc(row.get("revision_id"))}</a> · {esc(row.get("account"))}'
+            f'{section}{comment}</li>'
+        )
+    restorations = []
+    for row in context.get("revert_relationships") or []:
+        target = row.get("restores_revision_id")
+        target_text = f" restores the content state at revision {target}" if target else " has a revert tag"
+        restorations.append(
+            f'<li><a href="{esc(row.get("source_url"))}" target="_blank" rel="noopener">'
+            f'revision {esc(row.get("revision_id"))}</a>{esc(target_text)}.</li>'
+        )
+    talk = []
+    for row in context.get("talk_activity") or []:
+        section = f' · section “{esc(row["section"])}”' if row.get("section") else ""
+        talk.append(
+            f'<li><a href="{esc(row.get("source_url"))}" target="_blank" rel="noopener">'
+            f'talk revision {esc(row.get("revision_id"))}</a>{section}</li>'
+        )
+    operations = []
+    for row in context.get("page_operations") or []:
+        label = row.get("action") or row.get("type") or "page operation"
+        operations.append(
+            f'<li><a href="{esc(row.get("source_url"))}" target="_blank" rel="noopener">'
+            f'{esc(label)}</a> · {esc(row.get("timestamp"))}</li>'
+        )
+
+    availability = context.get("availability") or {}
+    talk_status = availability.get("talk_activity") or {}
+    if talk_status.get("status") == "unavailable":
+        talk_note = (
+            '<p class="coverage-note muted"><b>Talk-page activity unavailable:</b> '
+            f'{esc(talk_status.get("reason") or "retrieval unavailable")}. '
+            'Missing discussion evidence is not evidence that no discussion occurred.</p>'
+        )
+    elif talk_status.get("status") == "not_observed":
+        talk_note = (
+            '<p class="coverage-note muted">No talk-page revisions were observed in the bounded '
+            'retrieval window. This does not establish that no discussion occurred elsewhere.</p>'
+        )
+    else:
+        talk_note = ""
+
+    groups = []
+    if activity:
+        groups.append(f'<h4>Bounded revision activity</h4><ul>{"".join(activity)}</ul>')
+    if restorations:
+        groups.append(f'<h4>Restoration or revert alternatives</h4><ul>{"".join(restorations)}</ul>')
+    if talk:
+        groups.append(f'<h4>Talk-page activity</h4><ul>{"".join(talk)}</ul>')
+    if operations:
+        groups.append(f'<h4>Page operations</h4><ul>{"".join(operations)}</ul>')
+    return (
+        '<section class="process-context" aria-label="Editorial process context">'
+        '<h3>Editorial process context</h3>'
+        '<p class="muted">Descriptive public metadata for interpreting this event. It does not alter '
+        'confirmation and does not establish motive, coordination, bias, or misconduct.</p>'
+        f'{"".join(groups)}{talk_note}</section>'
+    )
+
+
+def confirmation_section(confirmation, pivots=None, slug=None):
     """Render authoritative exact-confirmation episodes and revision receipts."""
     if confirmation.get("status") == "unavailable":
         reason = confirmation.get("reason")
@@ -1228,25 +1436,30 @@ def confirmation_section(confirmation):
             reason = "too few snapshots"
         return missing_diff_section("unavailable", reason)
     episodes = confirmation.get("confirmed_episodes") or []
+    interval_chart = _interval_profile_chart(confirmation)
+    candidate_receipt = _candidate_evaluations_receipt(confirmation, pivots, slug)
     if not episodes:
         return (
             '<h2>No candidate rewrite window was confirmed</h2>'
             '<p class="missing-note">The exact L1 check ran, but no candidate showed the required '
             'durable-spine drop. This is a completed negative result for that detector, not a claim '
-            'that the article never changed.</p>'
+            f'that the article never changed.</p>{interval_chart}{candidate_receipt}'
         )
     horizon_note = _confirmation_horizon_note(confirmation)
     rows = "".join(_confirmation_episode_row(episode) for episode in episodes)
-    receipts = "".join(_attribution_receipt(episode) for episode in episodes)
+    receipts = "".join(
+        _process_context_receipt(episode) + _attribution_receipt(episode)
+        for episode in episodes
+    )
     count = len(episodes)
     return (
         f'<h2>{count} confirmed rewrite episode{"s" if count != 1 else ""}</h2>'
-        '<p>Exact revision pairs where long-lived wording was substantially replaced.</p>'
+        '<p>Events bounded by stable revisions where long-lived wording was substantially replaced.</p>'
         f'{horizon_note}'
         '<div class="tablewrap"><table><thead><tr><th scope="col">Before</th>'
         '<th scope="col">After</th><th scope="col">Durable change</th>'
         '<th scope="col">PWR mass</th><th scope="col">Duration</th></tr></thead>'
-        f'<tbody>{rows}</tbody></table></div>{receipts}'
+        f'<tbody>{rows}</tbody></table></div>{interval_chart}{candidate_receipt}{receipts}'
         '<p class="muted">Attribution describes public revision-history associations and origin authorship. '
         'It does not establish bias, motive, or misconduct.</p>'
     )
@@ -1330,9 +1543,27 @@ def _term_chips(items, kind):
     return f'<ul class="term-list" aria-label="{kind} terms">{"".join(chips)}</ul>'
 
 
-def lexical_section(lex):
+def _lexical_comparison_span(lex, confirmation):
+    span = lex.get("span", "")
+    if confirmation.get("status") != "not_confirmed" or lex.get("pivot") is None:
+        return span
+    before = lex.get("before") or {}
+    after = lex.get("after") or {}
+    interval = (
+        f'{before["date"]} -> {after["date"]}'
+        if before.get("date") and after.get("date")
+        else "the selected before-and-after versions"
+    )
+    return (
+        f'{interval} (around L1 candidate date {lex["pivot"]}; '
+        'exact checking did not confirm a durable rewrite)'
+    )
+
+
+def lexical_section(lex, confirmation=None):
     if not lex:
         return ""
+    confirmation = confirmation or {}
     over = _filter_lex_terms(lex.get("overrepresented_after_terms") or lex.get("gained_terms") or [])
     under = _filter_lex_terms(lex.get("underrepresented_after_terms") or lex.get("lost_terms") or [])
     b = lex.get("before") or {}
@@ -1342,7 +1573,7 @@ def lexical_section(lex):
     except (TypeError, ValueError):
         jsd = 0.0
     lab = _lex_label(jsd) or "small vocabulary change"
-    span = lex.get("span", "")
+    span = _lexical_comparison_span(lex, confirmation)
     return (
         '<h2>Which words grew or shrank?</h2>'
         f'<p class="lead">{WHAT["lexical"]}</p>'
@@ -1559,7 +1790,7 @@ def article_page(article, f, categories=None):
     panels = [("Overview", overview_section(article, f, layers), "overview")]
     confirmation = f.confirmations.get(article)
     if confirmation:
-        panels.append(("Rewrite", confirmation_section(confirmation), "diff"))
+        panels.append(("Rewrite", confirmation_section(confirmation, pv, slugify(article)), "diff"))
     elif pv:
         panels.append(("Rewrite", render_pivots(pv, slugify(article)), "diff"))
     elif diff:
@@ -1568,7 +1799,7 @@ def article_page(article, f, categories=None):
         rewrite_state, rewrite_reason = _rewrite_info(article, f)
         panels.append(("Rewrite", missing_diff_section(rewrite_state, rewrite_reason), "diff"))
     if lex:
-        panels.append(("Vocabulary", lexical_section(lex), "lexical"))
+        panels.append(("Vocabulary", lexical_section(lex, confirmation), "lexical"))
     if src:
         panels.append(("Citations", sources_section(article, src), "sources"))
     framing_html = framing_tab(article, f)
@@ -1731,6 +1962,18 @@ def index_page(articles, f, categories=None):
     )
 
 
+def _unlink_unpublished_article_links(body, articles):
+    published = {f"{slugify(article)}.html" for article in articles}
+
+    def retain_or_unlink(match):
+        target_path = urllib.parse.unquote(urllib.parse.urlsplit(match.group("target")).path)
+        target_name = target_path.rsplit("/", 1)[-1]
+        return match.group(0) if target_name in published else match.group("label")
+
+    pattern = r'<a\b[^>]*\bhref="article/(?P<target>[^"]+)"[^>]*>(?P<label>.*?)</a>'
+    return re.sub(pattern, retain_or_unlink, body)
+
+
 def simple_page(title, body, active, path=None):
     path = path or (f"{active}.html" if active != "about" else "index.html")
     page_title = {
@@ -1853,8 +2096,9 @@ def main(argv=None):
     (SITE / "index.html").write_text(about_home, encoding="utf-8")
     (SITE / "about.html").write_text(simple_page("About", ABOUT_BODY, "about", path="about.html"), encoding="utf-8")
     (SITE / "findings.html").write_text(index_page(articles, f, categories), encoding="utf-8")
+    summary_body = _unlink_unpublished_article_links(SUMMARY_BODY, articles)
     (SITE / "summary.html").write_text(
-        simple_page("Summary of findings", SUMMARY_BODY, None, path="summary.html"), encoding="utf-8")
+        simple_page("Summary of findings", summary_body, None, path="summary.html"), encoding="utf-8")
     (SITE / "methodology.html").write_text(
         simple_page("How it works", METHODOLOGY_BODY, "methodology"), encoding="utf-8")
     # Still published at glossary.html so old bookmarks work; page is "Glossary."

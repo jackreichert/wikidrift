@@ -21,13 +21,23 @@ class PublishedArticleDiscovery(unittest.TestCase):
             self.assertEqual(published_articles(root), ["Alpha", "Zed"])
 
 
-class ExactPivotExport(unittest.TestCase):
-    def test_confirmed_export_uses_exact_pair_and_carries_event_receipt(self):
+class CandidatePivotExport(unittest.TestCase):
+    def test_confirmed_export_uses_coarse_candidate_pair(self):
         confirmation = {
             "article": "Example",
             "status": "confirmed",
             "corpus_horizon": {"snapshot_date": "2026-01-01", "snapshot_revid": 900},
             "thresholds": export_l3.config.confirmation_thresholds(),
+            "evaluated_candidates": [{
+                "candidate_start": "2024-01-01",
+                "candidate_end": "2025-01-01",
+                "candidate_before_revid": 90,
+                "candidate_after_revid": 110,
+                "decision": "confirmed",
+                "durable_spine_drop": 0.75,
+                "peak_pct": 42.0,
+                "pwr_mass": 500,
+            }],
             "confirmed_episodes": [{
                 "before_revid": 101,
                 "before_timestamp": "2025-01-01T00:00:00Z",
@@ -66,12 +76,53 @@ class ExactPivotExport(unittest.TestCase):
 
         self.assertEqual(status["state"], "finding")
         self.assertEqual(exported["corpus_horizon"]["snapshot_revid"], 900)
-        self.assertEqual(exported["pivots"][0]["before_rev"], 101)
-        self.assertEqual(exported["pivots"][0]["after_rev"], 102)
+        self.assertEqual(exported["pivots"][0]["before_rev"], 90)
+        self.assertEqual(exported["pivots"][0]["after_rev"], 110)
         self.assertEqual(exported["pivots"][0]["status"], "confirmed")
-        self.assertEqual(exported["pivots"][0]["duration_seconds"], 1200)
-        self.assertEqual(exported["pivots"][0]["attribution"]["removed_tokens"], 80)
+        self.assertEqual(exported["pivots"][0]["metric"], "persistence_weighted_loss")
+        self.assertEqual(exported["pivots"][0]["before_text"], "text 90")
+        self.assertEqual(exported["pivots"][0]["after_text"], "text 110")
         coarse_verdict.assert_not_called()
+
+    def test_rejected_candidate_still_exports_a_redline(self):
+        confirmation = {
+            "article": "Example",
+            "status": "not_confirmed",
+            "corpus_horizon": {"snapshot_date": "2026-01-01", "snapshot_revid": 900},
+            "thresholds": export_l3.config.confirmation_thresholds(),
+            "evaluated_candidates": [{
+                "candidate_start": "2024-01-01",
+                "candidate_end": "2025-01-01",
+                "candidate_before_revid": 90,
+                "candidate_after_revid": 110,
+                "decision": "rejected",
+                "rejection_reason": "durable_spine_drop_below_threshold",
+                "durable_spine_drop": 0.1,
+                "peak_pct": 42.0,
+                "pwr_mass": 500,
+            }],
+        }
+        with tempfile.TemporaryDirectory() as temp_dir, \
+                mock.patch.object(export_l3, "DATA", pathlib.Path(temp_dir)), \
+                mock.patch.object(export_l3.drift, "load_confirmation", return_value=confirmation), \
+                mock.patch.object(export_l3, "_confirmation_trust", return_value={
+                    "status": "published", "reason": None,
+                }), \
+                mock.patch.object(export_l3, "_current_horizon", return_value=("2026-01-01", 900)), \
+                mock.patch.object(export_l3.provenance, "tokens_at", return_value=[{"str": "word"}]), \
+                mock.patch.object(export_l3, "prose_at", side_effect=lambda revision: f"text {revision}"), \
+                mock.patch.object(export_l3, "_revision_authors", return_value={}):
+            status = export_l3.export_pivots("Example")
+            exported = json.loads(
+                (pathlib.Path(temp_dir) / "Example.pivots.json").read_text(encoding="utf-8")
+            )
+
+        self.assertEqual(status["state"], "finding")
+        self.assertEqual(exported["pivots"][0]["status"], "rejected")
+        self.assertEqual(
+            exported["pivots"][0]["rejection_reason"],
+            "durable_spine_drop_below_threshold",
+        )
 
     def test_withheld_confirmation_removes_existing_export(self):
         confirmation = {"article": "Example", "status": "confirmed"}

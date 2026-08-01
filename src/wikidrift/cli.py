@@ -95,6 +95,13 @@ def main(argv=None):
     sp.add_argument("article")
     sp.add_argument("--force", action="store_true", help="recompute episodes that already have attribution")
 
+    sp = sub.add_parser(
+        "backfill-process-context",
+        help="attach neutral editorial-process receipts to current exact confirmations",
+    )
+    sp.add_argument("article")
+    sp.add_argument("--force", action="store_true", help="refetch episodes that already have process context")
+
     sp = sub.add_parser("validate", help="offline PWR candidate verdicts (no WikiWho)")
     sp.add_argument("articles", nargs="*")
 
@@ -163,6 +170,8 @@ def main(argv=None):
                     help="run L5 cross-language lead comparison (prefers fresh confirmed L1 pair; needs an LLM key)")
     sp.add_argument("--additive", action="store_true",
                     help="trace persistent additions across exact stable revisions")
+    sp.add_argument("--process-context", action="store_true",
+                    help="fetch neutral editorial-process receipts for fresh confirmed events")
     add_llm_flags(sp)
 
     sp = sub.add_parser("framing-trajectory", help="deterministic addition-side framing trajectory")
@@ -229,6 +238,15 @@ def main(argv=None):
         )
         if report["failed_episodes"]:
             raise RuntimeError(f"attribution failed for {report['failed_episodes']} episode(s)")
+    elif args.cmd == "backfill-process-context":
+        article = _normalize_article_arg(args.article)
+        report = drift.backfill_process_context(article, force=args.force)
+        print(
+            f"{article}: {report['updated_episodes']} updated, "
+            f"{report['skipped_episodes']} unchanged, {report['failed_episodes']} failed"
+        )
+        if report["failed_episodes"]:
+            raise RuntimeError(f"process context failed for {report['failed_episodes']} episode(s)")
     elif args.cmd == "validate":
         con = duckdb.connect(str(config.DB), read_only=True)
         targets = args.articles or Corpus(con).articles_with_snapshots(3)
@@ -308,6 +326,7 @@ def main(argv=None):
     elif args.cmd == "pipeline":
         pipeline.run(_normalize_article_arg(args.article), llm=args.llm, corroborate=args.mscore,
                      framing=args.framing, additive=args.additive,
+                     process=args.process_context,
                      provider=args.provider, model=args.model, base_url=args.base_url)
     elif args.cmd == "framing-trajectory":
         revision_ids = [

@@ -72,6 +72,11 @@ not a weaker verdict: both sources must still show at least a 20% collapse of th
 underlying revisions. This separates candidate recall from confirmation precision and catches sustained
 medium-sized replacement without globally lowering the primary threshold.
 
+Each candidate sent to revision-level confirmation is retained in the confirmation artifact with its source
+pass, coarse interval, PWR mass, peak loss, exact drop when measurable, decision, and rejection reason. A
+candidate is rejected when its durable-spine drop is below the 20% confirmation threshold or when the exact
+revision pair cannot be resolved from sufficient evidence. Candidates not checked are not labeled rejected.
+
 ### Exact-event editor-concentration calibration
 
 Every fresh confirmed event can expose transparent structure without assigning motive: durable-spine drop,
@@ -93,12 +98,25 @@ splits or merges, copyedits, and neutral controls have been adjudicated and comp
 primary evidence after any future rule is calibrated.
 
 The report also exposes `calibration_ready` and explicit `calibration_blockers`. Editor-share features need at
-least two observations and observable variance before threshold calibration can proceed. Current confirmed
-boundaries are adjacent revisions, so removals and replacement origins inside that exact pair can only resolve
-to the editor of the single later revision. The initial corpus therefore produces 100% for every non-null
-editor-share measure. Those values are valid exact-pair receipts but cannot distinguish concentrated from
-distributed rewrite activity; calibration remains blocked until a separately justified multi-revision event
-window is defined and its rewrite classes are adjudicated.
+least two observations and observable variance before threshold calibration can proceed. Confirmed stable
+boundaries now resolve to the complete ordered revision sequence between them. Adjacent token-state differences
+record gross additions, removals, and restorations; final-boundary differences separately record net-standing
+removals and replacement text. A reverted contribution remains visible in gross activity but does not inflate
+standing participation. Every displayed share is recomputed from per-revision rows. Concentration labels remain
+disabled until adjudicated concentrated rewrites, distributed rewrites, reverts, vandalism recovery, splits or
+merges, copyedits, and neutral controls produce discriminating distributions.
+
+### Editorial-process context
+
+Process context is an opt-in, descriptive evidence family for fresh exact events. Bounded Action API retrieval
+records edit summaries, tags, SHA-based restoration relationships, talk-page activity, protection state, page
+operations, and selected dispute templates when available. Every displayed revision or log item links to its
+public oldid or log receipt. Each family reports `observed`, `not_observed`, or `unavailable`; no observed talk
+activity means only that the bounded query found none, not that discussion did not occur elsewhere.
+
+Process context cannot change L1 confirmation and is excluded from corroboration counts. Edit summaries,
+reverts, protection, dispute templates, and talk activity can identify alternatives worth inspecting, but they
+do not establish identity, coordination, motive, ownership, factual quality, bias, or misconduct.
 
 ### Confirmed cross-article discovery
 
@@ -122,11 +140,12 @@ change only; it does not establish bias, motive, policy violation, or coordinati
 Published rewrite panels consume the exact confirmation artifact before any legacy coarse pivot export. A fresh
 confirmed artifact supplies the exact revision IDs, timestamps, duration, durable-spine drop, PWR mass, corpus
 horizon, and structured attribution receipt. A fresh rejection suppresses coarse pivot output; stale or unavailable
-evidence renders as unavailable rather than healthy. Public attribution wording is limited to accounts associated
-with terminal removals and origin authors of surviving replacement text.
+evidence renders as unavailable rather than healthy. Schema-v3 attribution resolves every revision between the
+stable boundaries and separates gross additions, removals, and restorations from net-standing removals and
+replacement text. Public wording describes observable account/revision associations only.
 
-New confirmation artifacts use schema version 2. Existing fresh confirmed shards can be upgraded offline without
-rerunning L1 or changing their evidence:
+Confirmation artifacts use schema version 2 and may embed schema-v3 attribution receipts. Existing fresh confirmed
+shards can upgrade attribution offline without rerunning L1 or changing the confirmed boundaries:
 
 ```text
 python tools/cover_missing_topics.py --all-shards --mode attribution --execute --jobs 3 --no-resume
@@ -135,6 +154,16 @@ python tools/cover_missing_topics.py --all-shards --mode attribution --execute -
 The selector opens each article-owned corpus read-only and admits only confirmations matching the current corpus
 horizon and threshold contract. Workers remain article-isolated and bounded; stale, rejected, malformed, or missing
 artifacts are not rewritten.
+
+Neutral editorial-process context is a separate opt-in backfill:
+
+```text
+wikidrift backfill-process-context "Article title"
+```
+
+Each evidence family preserves exact public links and distinguishes `observed`, `not_observed`, and `unavailable`.
+Process context cannot change confirmation or enter corroboration counts. Existing shards still require explicit
+attribution and process-context backfill before the viewer can display these Wave 3 receipts.
 
 ## 5. The conjunction — so a finding stays a "smoking gun"
 

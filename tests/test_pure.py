@@ -26,6 +26,7 @@ from wikidrift import pipeline
 from wikidrift import config
 from wikidrift import provenance
 from wikidrift import framing_trajectory
+from wikidrift import process_context
 from wikidrift.registry import focal_entities
 
 
@@ -163,6 +164,22 @@ class AdaptiveL5CapPolicy(unittest.TestCase):
         ]])
         self.assertEqual(notes, [])
 
+    def test_refresh_mode_only_reruns_analysis(self):
+        commands, notes = cover_missing_topics._topic_commands(
+            "Testland", use_llm=False, include_mscore=False, include_framing=False,
+            mode="refresh", l5_max_langs=None, required=set(), have=set(),
+        )
+        self.assertEqual(commands, [[
+            sys.executable, "-m", "wikidrift.cli", "analyze", "Testland",
+        ]])
+        self.assertEqual(notes, [])
+
+    def test_refresh_defaults_to_rerun_but_honors_explicit_resume(self):
+        self.assertFalse(cover_missing_topics._resume_enabled("refresh", None))
+        self.assertTrue(cover_missing_topics._resume_enabled("refresh", True))
+        self.assertFalse(cover_missing_topics._resume_enabled("refresh", False))
+        self.assertTrue(cover_missing_topics._resume_enabled("fill", None))
+
     def test_fill_mode_uses_crosslingual_for_stance_and_receipts(self):
         commands, _ = cover_missing_topics._topic_commands(
             "Testland", use_llm=True, include_mscore=False, include_framing=False,
@@ -232,6 +249,38 @@ class ParallelTopicCoverage(unittest.TestCase):
             topics = cover_missing_topics._fresh_confirmed_shard_topics(articles_dir)
 
         self.assertEqual(topics, {"Fresh"})
+
+    def test_stale_shard_topics_selects_horizon_and_threshold_mismatches(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            articles_dir = pathlib.Path(temp_dir)
+            current_thresholds = config.confirmation_thresholds()
+            for article, saved_revid, thresholds in (
+                ("Fresh", 900, current_thresholds),
+                ("Old horizon", 899, current_thresholds),
+                ("Old contract", 900, {"confirm_drop": config.CONFIRM_DROP}),
+            ):
+                article_dir = articles_dir / article
+                findings_dir = article_dir / "findings"
+                findings_dir.mkdir(parents=True)
+                con = duckdb.connect(str(article_dir / "provenance.duckdb"))
+                provenance.ensure_schema(con)
+                con.execute("INSERT INTO rsnap VALUES (?,?,?,?,?)", (article, "2026-01-01", 900, 1, 100))
+                con.close()
+                confirmation = {
+                    "article": article,
+                    "status": "not_confirmed",
+                    "thresholds": thresholds,
+                    "corpus_horizon": {
+                        "snapshot_date": "2026-01-01", "snapshot_revid": saved_revid,
+                    },
+                }
+                (findings_dir / f"{article}.l1-confirmation.json").write_text(
+                    json.dumps(confirmation), encoding="utf-8",
+                )
+
+            topics = cover_missing_topics._stale_shard_topics(articles_dir)
+
+        self.assertEqual(topics, {"Old horizon", "Old contract"})
 
     def test_analysis_outcome_reads_confirmation_status(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -1162,6 +1211,24 @@ class ConcentrationCalibration(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "replacement attribution total"):
             benchmark.concentration_dataset([(confirmation, ("2026-01-01", 900))])
 
+    def test_v3_revision_rows_must_reproduce_editor_totals(self):
+        confirmation = self._confirmation()
+        attribution = confirmation["confirmed_episodes"][0]["attribution"]
+        attribution.update({
+            "schema_version": 3,
+            "gross": {"removed_tokens": 10, "added_tokens": 8, "restored_tokens": 0},
+            "net_standing": {"removed_tokens": 10, "replacement_tokens": 8},
+            "revisions": [
+                {"account": "Editor A", "gross_removed_tokens": 7, "gross_added_tokens": 8,
+                 "restored_tokens": 0, "standing_removed_tokens": 7, "standing_added_tokens": 8},
+                {"account": "Editor B", "gross_removed_tokens": 3, "gross_added_tokens": 0,
+                 "restored_tokens": 0, "standing_removed_tokens": 2, "standing_added_tokens": 0},
+            ],
+        })
+
+        with self.assertRaisesRegex(ValueError, "revision removal rows"):
+            benchmark.concentration_dataset([(confirmation, ("2026-01-01", 900))])
+
     def test_unconfirmed_artifact_is_excluded(self):
         confirmation = self._confirmation()
         confirmation["status"] = "not_confirmed"
@@ -1202,6 +1269,83 @@ class ConcentrationCalibration(unittest.TestCase):
             cli.main(["calibrate-concentration", "/tmp/article-shards", "--json"])
 
         run_concentration.assert_called_once_with(pathlib.Path("/tmp/article-shards"), as_json=True)
+
+
+class EditorialProcessContext(unittest.TestCase):
+    def test_builds_neutral_exact_receipts_without_promoting_process_evidence(self):
+        episode = {
+            "before_revid": 100,
+            "before_timestamp": "2025-01-01T00:00:00Z",
+            "after_revid": 130,
+            "after_timestamp": "2025-01-01T00:30:00Z",
+        }
+        revision_metadata = [
+            {"revision_id": 100, "parent_id": 90, "timestamp": episode["before_timestamp"],
+             "account": "Before", "sha1": "sha-before", "comment": "", "tags": []},
+            {"revision_id": 110, "parent_id": 100, "timestamp": "2025-01-01T00:10:00Z",
+             "account": "Editor A", "sha1": "sha-change",
+             "comment": "/* History */ reorganize chronology", "tags": ["visualeditor"]},
+            {"revision_id": 120, "parent_id": 110, "timestamp": "2025-01-01T00:20:00Z",
+             "account": "Editor B", "sha1": "sha-before",
+             "comment": "Undid revision 110", "tags": ["mw-undo"]},
+            {"revision_id": 130, "parent_id": 120, "timestamp": episode["after_timestamp"],
+             "account": "Editor C", "sha1": "sha-final", "comment": "copyedit", "tags": []},
+        ]
+        talk_revisions = [{
+            "revision_id": 210, "timestamp": "2025-01-01T00:15:00Z", "account": "Discussant",
+            "comment": "/* Sources */ new section", "tags": [],
+        }]
+        log_events = [{
+            "log_id": 9, "timestamp": "2025-01-01T00:25:00Z", "type": "protect",
+            "action": "protect", "account": "Admin", "comment": "temporary protection",
+        }]
+
+        receipt = process_context.build_process_context(
+            "Example", episode, revision_metadata, talk_revisions=talk_revisions,
+            log_events=log_events, protection={"status": "observed", "items": []},
+            dispute_templates={"status": "not_observed", "items": []},
+            arbitration={"status": "unavailable", "reason": "source not configured"},
+            retrieved_at="2025-01-02T00:00:00Z",
+        )
+
+        self.assertEqual(receipt["schema_version"], 1)
+        self.assertEqual(receipt["semantic_role"], "descriptive_process_context")
+        self.assertFalse(receipt["affects_confirmation"])
+        self.assertFalse(receipt["affects_corroboration"])
+        self.assertEqual(receipt["revision_activity"][1]["section"], "History")
+        self.assertEqual(receipt["revert_relationships"][0]["revision_id"], 120)
+        self.assertEqual(receipt["revert_relationships"][0]["restores_revision_id"], 100)
+        self.assertIn("oldid=120", receipt["revert_relationships"][0]["source_url"])
+        self.assertEqual(receipt["talk_activity"][0]["section"], "Sources")
+        self.assertIn("oldid=210", receipt["talk_activity"][0]["source_url"])
+        self.assertIn("logid=9", receipt["page_operations"][0]["source_url"])
+        self.assertEqual(receipt["availability"]["talk_activity"]["status"], "observed")
+        self.assertEqual(receipt["availability"]["dispute_templates"]["status"], "not_observed")
+        self.assertEqual(receipt["availability"]["arbitration"]["status"], "unavailable")
+
+    def test_retrieval_keeps_unavailable_talk_evidence_distinct_from_no_activity(self):
+        episode = {
+            "before_revid": 100,
+            "before_timestamp": "2025-01-01T00:00:00Z",
+            "after_revid": 130,
+            "after_timestamp": "2025-01-01T00:30:00Z",
+        }
+        revisions = [{
+            "revision_id": 100, "timestamp": episode["before_timestamp"],
+            "account": "Before", "tags": [],
+        }]
+        with patch.object(process_context, "_fetch_revision_activity", return_value=revisions), \
+             patch.object(process_context, "_fetch_talk_activity", side_effect=TimeoutError("timed out")), \
+             patch.object(process_context, "_fetch_page_operations", return_value=[]), \
+             patch.object(process_context, "_fetch_protection", return_value=[]), \
+             patch.object(process_context, "_fetch_dispute_templates", return_value=[]):
+            receipt = process_context.retrieve_process_context("Example", episode)
+
+        self.assertEqual(receipt["availability"]["revision_activity"]["status"], "observed")
+        self.assertEqual(receipt["availability"]["talk_activity"]["status"], "unavailable")
+        self.assertIn("timed out", receipt["availability"]["talk_activity"]["reason"])
+        self.assertEqual(receipt["availability"]["page_operations"]["status"], "not_observed")
+        self.assertFalse(receipt["affects_confirmation"])
 
 
 class PipelineCorroboration(unittest.TestCase):
@@ -1615,6 +1759,23 @@ class PipelinePivotWindow(unittest.TestCase):
         self.assertEqual(state["confirmation_status"], "not_confirmed")
         self.assertEqual(state["resolved_status"], "not_confirmed")
 
+    def test_not_confirmed_artifact_does_not_override_healthy_coarse_verdict(self):
+        confirmation = {
+            "status": "not_confirmed",
+            "corpus_horizon": {"snapshot_date": "2024-01-01", "snapshot_revid": 900},
+            "thresholds": config.confirmation_thresholds(),
+            "confirmed_episodes": [],
+        }
+        state = pipeline.resolve_l1_state(
+            {"verdict": "HEALTHY", "episodes": []},
+            confirmation,
+            ("2024-01-01", 900),
+        )
+        self.assertEqual(state["analysis_status"], "available")
+        self.assertEqual(state["candidate_status"], "no_candidate")
+        self.assertEqual(state["confirmation_status"], "not_applicable")
+        self.assertEqual(state["resolved_status"], "healthy")
+
     def test_partial_source_coverage_is_unavailable(self):
         state = pipeline.resolve_l1_state(
             {"verdict": "PIVOT?", "episodes": [{"start": "2020-01-01"}]},
@@ -1631,7 +1792,7 @@ class PipelinePivotWindow(unittest.TestCase):
         self.assertEqual(state["resolved_status"], "unavailable")
         self.assertEqual(state["reason"], "loaded 24 of 25 expected snapshots")
 
-    def test_source_revision_ahead_of_cached_horizon_is_unavailable(self):
+    def test_source_revision_ahead_of_stable_cadence_snapshot_remains_available(self):
         state = pipeline.resolve_l1_state(
             {"verdict": "HEALTHY"},
             None,
@@ -1643,9 +1804,9 @@ class PipelinePivotWindow(unittest.TestCase):
             },
             now=dt.datetime(2026, 7, 30, tzinfo=dt.timezone.utc),
         )
-        self.assertEqual(state["analysis_status"], "unavailable")
-        self.assertEqual(state["resolved_status"], "unavailable")
-        self.assertIn("ahead of cached snapshot revision", state["reason"])
+        self.assertEqual(state["analysis_status"], "available")
+        self.assertEqual(state["resolved_status"], "healthy")
+        self.assertIsNone(state["reason"])
 
     def test_expired_source_check_is_unavailable(self):
         state = pipeline.resolve_l1_state(

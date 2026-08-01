@@ -23,7 +23,7 @@ import datetime as dt
 
 import duckdb
 
-from . import config, drift, framing_trajectory, prerank, stance, lexical, mscore, provenance
+from . import config, drift, framing_trajectory, prerank, process_context, stance, lexical, mscore, provenance
 from .corpus import Corpus
 
 
@@ -88,12 +88,6 @@ def _source_adequacy(source_state, current_horizon, now=None):
         if current_time - checked > SOURCE_CHECK_MAX_AGE:
             return "stale", f"source check expired after {SOURCE_CHECK_MAX_AGE.days} days"
 
-    source_revid = state.get("source_latest_revid")
-    cached_revid = current_horizon[1] if current_horizon else None
-    if source_revid is not None and cached_revid is not None and source_revid > cached_revid:
-        return "stale", (
-            f"source revision {source_revid} is ahead of cached snapshot revision {cached_revid}"
-        )
     return status, None
 
 
@@ -118,7 +112,9 @@ def resolve_l1_state(verdict, confirmation, current_horizon, source_state=None, 
     if is_source_inadequate:
         resolved_status = "unavailable"
         confirmation_status = "unavailable"
-    elif exact_status in {"confirmed", "not_confirmed", "unavailable"}:
+    elif candidate_status != "no_candidate" and exact_status in {
+        "confirmed", "not_confirmed", "unavailable",
+    }:
         resolved_status = exact_status
         confirmation_status = exact_status
     elif candidate_status == "no_candidate":
@@ -245,7 +241,7 @@ def _corroboration(result):
     return {"count": len(signals), "signals": signals}
 
 
-def run(article, llm=False, corroborate=False, framing=False, additive=False,
+def run(article, llm=False, corroborate=False, framing=False, additive=False, process=False,
     provider=None, model=None, base_url=None):
     """Orchestrate the layers for one article. Returns a consolidated result dict.
 
@@ -407,10 +403,16 @@ def run(article, llm=False, corroborate=False, framing=False, additive=False,
         print(f"  framing  : {n} divergence(s) [{mode}] — see findings/{article.replace(' ','_')}.framing.json")
     else:
         print("  L5 framing: run via `wikidrift framing` or `wikidrift pipeline --framing` (separate instrument)")
+    process_receipts = []
+    if process:
+        for episode in l1_state["confirmed_episodes"]:
+            process_receipts.append(process_context.retrieve_process_context(article, episode))
+        print(f"  process   : {len(process_receipts)} exact-event receipt(s) [descriptive only]")
     result = {"article": article, "l1": label, "l1_state": l1_state,
               "leads": leads, "l2_adjudicated": l2_done,
               "l2": l2_summary, "trajectory": trajectory,
-              "mscore": m, "lexical": lex, "l5": framing_result}
+              "mscore": m, "lexical": lex, "l5": framing_result,
+              "process_context": process_receipts}
     corr = _corroboration(result)
     print(f"  corroboration: {corr['count']} signal(s) — {corr['signals'] or '(none)'}")
     return result

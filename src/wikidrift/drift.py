@@ -26,7 +26,7 @@ from bisect import bisect_right
 
 import duckdb
 
-from . import config, provenance
+from . import config, event_attribution as event_ledger, process_context, provenance
 from .corpus import Corpus
 from .config import (MIN_COHORT, MIN_MATURE, MAG_FLOOR, CONFIRM_DROP,
                      CREEP_MEAN, DURABLE_Q, RECENT_YEARS, ELEVATED,
@@ -121,6 +121,22 @@ def print_coarse_report(snaps, members, present):
         mean = statistics.mean(vals); med = statistics.median(vals)
         print("-" * 52)
         print(f"persistence-weighted loss: mean {mean:.1f}%  median {med:.1f}%  peak {max(vals):.1f}%")
+
+
+def _coarse_profile(snaps, members, present):
+    """Serialize the terminal PWR interval series for downstream visualizations."""
+    return [
+        {
+            "start": start_date,
+            "end": end_date,
+            "size": size,
+            "pwr_loss": round(ratio, 2),
+            "pwr_removed": int(weighted_loss),
+            "mature": mature,
+        }
+        for start_date, _start_revid, end_date, _end_revid, ratio, size, weighted_loss, mature
+        in _intervals(snaps, members, present)
+    ]
 
 
 def build_episodes(series, elevated=ELEVATED):
@@ -256,85 +272,41 @@ def removal_attribution(article, con, peak):
     return removals_by_editor, removed_count, origin_ts, editor_of, latest
 
 
-def _editor_rows(counts):
-    return [
-        {"editor": editor, "tokens": tokens}
-        for editor, tokens in sorted(counts.items(), key=lambda item: (-item[1], item[0]))
-    ]
-
-
 def _timestamp(value):
     parsed = dt.datetime.fromisoformat(value.replace("Z", "+00:00"))
     return parsed if parsed.tzinfo else parsed.replace(tzinfo=dt.timezone.utc)
 
 
 def event_attribution(article, con, episode):
-    """Return exact-pair removal and surviving-replacement attribution for one confirmed event."""
+    """Return a multi-revision activity ledger for one exact event between stable boundaries."""
     before_revid = episode["before_revid"]
     after_revid = episode["after_revid"]
     before_timestamp = episode["before_timestamp"]
     after_timestamp = episode["after_timestamp"]
-    before_tokens = provenance.tokens_at(article, before_revid, io=True)
-    after_tokens = provenance.tokens_at(article, after_revid)
-    before_ids = {token["token_id"] for token in before_tokens}
-    after_ids = {token["token_id"] for token in after_tokens}
     corpus = Corpus(con)
-    revision_timestamps = corpus.revision_ts(article)
-    revision_editors = corpus.revision_editor(article)
+    revisions = corpus.revision_evidence_between(article, before_timestamp, after_timestamp)
+    revision_ids = [revision["revision_id"] for revision in revisions]
+    if before_revid not in revision_ids:
+        raise ValueError(
+            f"{article!r} event before-boundary revision {before_revid} is absent from the timeline"
+        )
+    if after_revid not in revision_ids:
+        raise ValueError(
+            f"{article!r} event after-boundary revision {after_revid} is absent from the timeline"
+        )
+    before_index = revision_ids.index(before_revid)
+    after_index = revision_ids.index(after_revid)
+    if before_index >= after_index:
+        raise ValueError(f"{article!r} event boundaries are not in chronological revision order")
+    revisions = revisions[before_index:after_index + 1]
+    for revision in revisions:
+        revision["tokens"] = provenance.tokens_at(article, revision["revision_id"])
 
-    removals = {}
-    for token in before_tokens:
-        if token["token_id"] in after_ids:
-            continue
-        removal_revisions = [
-            revision for revision in token.get("out", [])
-            if before_timestamp < (revision_timestamps.get(revision) or "") <= after_timestamp
-        ]
-        if not removal_revisions:
-            continue
-        terminal_revision = max(removal_revisions, key=lambda revision: revision_timestamps[revision])
-        editor = revision_editors.get(terminal_revision, "<hidden>")
-        removals[editor] = removals.get(editor, 0) + 1
-
-    replacements = {}
-    for token in after_tokens:
-        if token["token_id"] in before_ids:
-            continue
-        origin_revision = token["o_rev_id"]
-        origin_timestamp = revision_timestamps.get(origin_revision)
-        if not origin_timestamp or not (before_timestamp < origin_timestamp <= after_timestamp):
-            continue
-        editor = revision_editors.get(origin_revision, "<hidden>")
-        replacements[editor] = replacements.get(editor, 0) + 1
-
-    removal_rows = _editor_rows(removals)
-    replacement_rows = _editor_rows(replacements)
-    removed_tokens = sum(removals.values())
-    replacement_tokens = sum(replacements.values())
-    top_removal = removal_rows[0] if removal_rows else None
-    top_replacement = replacement_rows[0] if replacement_rows else None
-    return {
-        "before_revid": before_revid,
-        "before_timestamp": before_timestamp,
-        "after_revid": after_revid,
-        "after_timestamp": after_timestamp,
+    result = event_ledger.attribute_revision_sequence(article, revisions)
+    result.update({
         "duration_seconds": int((_timestamp(after_timestamp) - _timestamp(before_timestamp)).total_seconds()),
-        "removed_tokens": removed_tokens,
-        "replacement_tokens": replacement_tokens,
-        "removals_by_editor": removal_rows,
-        "replacement_by_editor": replacement_rows,
-        "top_removal_share": round(top_removal["tokens"] / removed_tokens, 6) if top_removal else None,
-        "top_replacement_share": (
-            round(top_replacement["tokens"] / replacement_tokens, 6) if top_replacement else None
-        ),
-        "same_top_editor": bool(
-            top_removal and top_replacement and top_removal["editor"] == top_replacement["editor"]
-        ),
-        "top_two_removal_share": (
-            round(sum(row["tokens"] for row in removal_rows[:2]) / removed_tokens, 6)
-            if removed_tokens else None
-        ),
-    }
+    })
+    return result
 
 
 def attribute(article, con, episode, render=True):
@@ -409,6 +381,44 @@ def backfill_attribution(article, con=None, persist=True, force=False):
             changed = True
         if changed:
             confirmation["attribution_backfill_ts"] = dt.datetime.now(dt.timezone.utc).isoformat()
+            if persist:
+                config.write_findings(confirmation_name(article), confirmation)
+        return {
+            "article": article,
+            "updated_episodes": updated,
+            "skipped_episodes": skipped,
+            "failed_episodes": failed,
+        }
+    finally:
+        if owns_connection:
+            con.close()
+
+
+def backfill_process_context(article, con=None, persist=True, force=False):
+    """Attach neutral process receipts to current exact episodes without rerunning L1."""
+    owns_connection = con is None
+    if owns_connection:
+        con = duckdb.connect(str(config.DB), read_only=True)
+    try:
+        confirmation = load_confirmation(article)
+        _validate_confirmation_for_backfill(con, article, confirmation)
+        updated = 0
+        skipped = 0
+        failed = 0
+        for episode in confirmation["confirmed_episodes"]:
+            if episode.get("process_context") and not force:
+                skipped += 1
+                continue
+            try:
+                episode["process_context"] = process_context.retrieve_process_context(article, episode)
+                episode.pop("process_context_unavailable", None)
+                updated += 1
+            except Exception as exc:  # noqa: BLE001 - preserve per-episode availability
+                episode["process_context"] = None
+                episode["process_context_unavailable"] = str(exc)
+                failed += 1
+        if updated or failed:
+            confirmation["process_context_backfill_ts"] = dt.datetime.now(dt.timezone.utc).isoformat()
             if persist:
                 config.write_findings(confirmation_name(article), confirmation)
         return {
@@ -565,6 +575,57 @@ def profile_report(article, con=None, persist=True):
     return p
 
 
+def _candidate_evaluation(candidate, confirmation):
+    """Build an audit receipt for one candidate sent through exact checking."""
+    evaluation = {
+        "candidate_start": candidate["start"][0],
+        "candidate_end": candidate["end"][0],
+        "candidate_before_revid": candidate["start"][1],
+        "candidate_after_revid": candidate["end"][1],
+        "source": candidate.get("source", "interval"),
+        "pwr_mass": int(candidate["abs"]),
+        "peak_pct": round(candidate["peak"], 2),
+    }
+    if confirmation is None:
+        return {
+            **evaluation,
+            "decision": "rejected",
+            "rejection_reason": "insufficient_revision_evidence",
+        }
+
+    before, after, decline = confirmation
+    confirmed = decline >= CONFIRM_DROP
+    return {
+        **evaluation,
+        "exact_before_revid": before[0],
+        "exact_before_timestamp": before[1],
+        "exact_after_revid": after[0],
+        "exact_after_timestamp": after[1],
+        "durable_spine_drop": round(decline, 6),
+        "decision": "confirmed" if confirmed else "rejected",
+        "rejection_reason": None if confirmed else "durable_spine_drop_below_threshold",
+    }
+
+
+def _confirmed_episode(evaluation):
+    """Translate a successful candidate receipt into the established episode shape."""
+    return {
+        "candidate_start": evaluation["candidate_start"],
+        "candidate_end": evaluation["candidate_end"],
+        "candidate_before_revid": evaluation["candidate_before_revid"],
+        "candidate_after_revid": evaluation["candidate_after_revid"],
+        "before_revid": evaluation["exact_before_revid"],
+        "before_timestamp": evaluation["exact_before_timestamp"],
+        "after_revid": evaluation["exact_after_revid"],
+        "after_timestamp": evaluation["exact_after_timestamp"],
+        "durable_spine_drop": evaluation["durable_spine_drop"],
+        "pwr_mass": evaluation["pwr_mass"],
+        "peak_pct": evaluation["peak_pct"],
+        "source": evaluation["source"],
+        "status": "confirmed",
+    }
+
+
 def analyze(article, con=None, persist=True):
     """Full L1 pipeline for one article, with confirmation + attribution.
 
@@ -597,6 +658,8 @@ def analyze(article, con=None, persist=True):
             "reason": source_state.get("reason") or "source coverage is incomplete",
             "source_state": source_state,
             "confirmed_episodes": [],
+            "evaluated_candidates": [],
+            "interval_profile": [],
         }
         print(f"  unavailable: {result['reason']}")
         if persist:
@@ -617,6 +680,8 @@ def analyze(article, con=None, persist=True):
         "coarse_verdict": "SKIP" if len(snaps) < 3 else verdict_dict(con, article)["verdict"],
         "status": "unavailable" if len(snaps) < 3 else "not_confirmed",
         "confirmed_episodes": [],
+        "evaluated_candidates": [],
+        "interval_profile": _coarse_profile(snaps, members, present),
     }
     if len(snaps) < 3:
         print("  too few snapshots to analyze")
@@ -637,23 +702,10 @@ def analyze(article, con=None, persist=True):
             span = (e["start"][0], e["start"][1], e["end"][0], e["end"][1], e["peak"])
             print(f"\n-- confirming {e['start'][0]} → {e['end'][0]} --")
             conf = refine(article, con, snaps, members, present, idx_of_rev, span)
-            if conf and conf[2] >= CONFIRM_DROP:
-                before, after, decline = conf
-                confirmed.append((e, span, {
-                    "candidate_start": e["start"][0],
-                    "candidate_end": e["end"][0],
-                    "candidate_before_revid": e["start"][1],
-                    "candidate_after_revid": e["end"][1],
-                    "before_revid": before[0],
-                    "before_timestamp": before[1],
-                    "after_revid": after[0],
-                    "after_timestamp": after[1],
-                    "durable_spine_drop": round(decline, 6),
-                    "pwr_mass": int(e["abs"]),
-                    "peak_pct": round(e["peak"], 2),
-                    "source": e.get("source", "interval"),
-                    "status": "confirmed",
-                }))
+            evaluation = _candidate_evaluation(e, conf)
+            result["evaluated_candidates"].append(evaluation)
+            if evaluation["decision"] == "confirmed":
+                confirmed.append((e, span, _confirmed_episode(evaluation)))
 
     if not confirmed:
         rolling = non_overlapping_candidates(
@@ -666,16 +718,10 @@ def analyze(article, con=None, persist=True):
             print(f"\n-- confirming rolling {e['start'][0]} → {e['end'][0]} "
                   f"({e['peak']:.0f}%, ~{int(e['abs']):,} PWR) --")
             conf = refine(article, con, snaps, members, present, idx_of_rev, span)
-            if conf and conf[2] >= CONFIRM_DROP:
-                before, after, decline = conf
-                confirmed.append((e, span, {
-                    "candidate_start": e["start"][0], "candidate_end": e["end"][0],
-                    "candidate_before_revid": e["start"][1], "candidate_after_revid": e["end"][1],
-                    "before_revid": before[0], "before_timestamp": before[1],
-                    "after_revid": after[0], "after_timestamp": after[1],
-                    "durable_spine_drop": round(decline, 6), "pwr_mass": int(e["abs"]),
-                    "peak_pct": round(e["peak"], 2), "source": "rolling", "status": "confirmed",
-                }))
+            evaluation = _candidate_evaluation(e, conf)
+            result["evaluated_candidates"].append(evaluation)
+            if evaluation["decision"] == "confirmed":
+                confirmed.append((e, span, _confirmed_episode(evaluation)))
 
     if confirmed:
         confirmed.sort(key=lambda item: -item[0]["abs"])

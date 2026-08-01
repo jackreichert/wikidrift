@@ -11,7 +11,7 @@ from unittest import mock
 
 import duckdb
 
-from wikidrift import benchmark, cli, config, provenance, drift, l4, prerank, trust
+from wikidrift import benchmark, cli, config, event_attribution, provenance, drift, l4, prerank, trust
 from wikidrift.corpus import Corpus
 
 
@@ -55,6 +55,11 @@ class ArticleTitleResolution(unittest.TestCase):
                 "timestamp": "2026-01-01T00:00:00Z",
                 "user": "Editor",
                 "size": 100,
+                "parentid": 9,
+                "sha1": "abc123",
+                "comment": "/* History */ clarify chronology",
+                "tags": ["visualeditor"],
+                "minor": True,
             }]}]}
         }
 
@@ -66,6 +71,11 @@ class ArticleTitleResolution(unittest.TestCase):
         self.assertEqual(
             con.execute("SELECT requested_title, canonical_title, page_id FROM article_identity").fetchone(),
             ("Testland", "Testland", 123),
+        )
+        self.assertEqual(
+            con.execute("""SELECT parent_id, sha1, comment, tags, minor
+                FROM revision_metadata WHERE article='Testland' AND rev_id=10""").fetchone(),
+            (9, "abc123", "/* History */ clarify chronology", '["visualeditor"]', True),
         )
 
 
@@ -252,9 +262,18 @@ class RemovalAttribution(unittest.TestCase):
             {"token_id": 2, "o_rev_id": 100},
             {"token_id": 3, "o_rev_id": 560},
         ]
-        with mock.patch.object(provenance, "tokens_at", side_effect=[before, after]):
+        token_states = {
+            500: before,
+            550: [{"token_id": 2, "o_rev_id": 100}],
+            560: after,
+            600: after,
+        }
+        with mock.patch.object(
+                provenance, "tokens_at", side_effect=lambda article, revision, io=False: token_states[revision]):
             result = drift.event_attribution("A", self.con, episode)
 
+        self.assertEqual(result["schema_version"], 3)
+        self.assertEqual([row["revision_id"] for row in result["revisions"]], [500, 550, 560, 600])
         self.assertEqual(result["removed_tokens"], 1)
         self.assertEqual(result["replacement_tokens"], 1)
         self.assertEqual(result["removals_by_editor"], [
@@ -267,6 +286,110 @@ class RemovalAttribution(unittest.TestCase):
         self.assertEqual(result["top_removal_share"], 1.0)
         self.assertEqual(result["top_replacement_share"], 1.0)
         self.assertFalse(result["same_top_editor"])
+
+
+class MultiRevisionEventAttribution(unittest.TestCase):
+    def test_reverted_activity_stays_gross_while_surviving_work_is_distributed(self):
+        revisions = [
+            {"revision_id": 100, "timestamp": "2021-01-01T00:00:00Z", "account": "Before",
+             "tokens": [{"token_id": 1, "o_rev_id": 50}, {"token_id": 2, "o_rev_id": 50}]},
+            {"revision_id": 110, "timestamp": "2021-01-01T00:05:00Z", "account": "Alice",
+             "tokens": [{"token_id": 2, "o_rev_id": 50}, {"token_id": 3, "o_rev_id": 110}]},
+            {"revision_id": 120, "timestamp": "2021-01-01T00:10:00Z", "account": "Bob",
+             "tokens": [{"token_id": 2, "o_rev_id": 50}, {"token_id": 3, "o_rev_id": 110},
+                        {"token_id": 4, "o_rev_id": 120}]},
+            {"revision_id": 130, "timestamp": "2021-01-01T00:15:00Z", "account": "Carol",
+             "tokens": [{"token_id": 1, "o_rev_id": 50}, {"token_id": 2, "o_rev_id": 50},
+                        {"token_id": 3, "o_rev_id": 110}, {"token_id": 4, "o_rev_id": 120},
+                        {"token_id": 5, "o_rev_id": 130}]},
+            {"revision_id": 140, "timestamp": "2021-01-01T00:20:00Z", "account": "Dave",
+             "tokens": [{"token_id": 2, "o_rev_id": 50}, {"token_id": 3, "o_rev_id": 110},
+                        {"token_id": 4, "o_rev_id": 120}, {"token_id": 5, "o_rev_id": 130}]},
+        ]
+
+        result = event_attribution.attribute_revision_sequence("Example", revisions)
+
+        self.assertEqual(result["schema_version"], 3)
+        self.assertEqual(result["gross"], {
+            "removed_tokens": 2, "added_tokens": 4, "restored_tokens": 1,
+        })
+        self.assertEqual(result["net_standing"], {
+            "removed_tokens": 1, "replacement_tokens": 3,
+        })
+        self.assertEqual(result["removals_by_editor"], [{"editor": "Dave", "tokens": 1}])
+        self.assertEqual(result["replacement_by_editor"], [
+            {"editor": "Alice", "tokens": 1},
+            {"editor": "Bob", "tokens": 1},
+            {"editor": "Carol", "tokens": 1},
+        ])
+        self.assertAlmostEqual(result["participation"]["top_replacement_share"], 1 / 3, places=6)
+        self.assertEqual(result["revisions"][1]["role"], "initiating_change")
+        self.assertEqual(result["revisions"][3]["role"], "restoration")
+        self.assertEqual(result["revisions"][3]["restores_revision_id"], 100)
+        self.assertEqual(result["revisions"][4]["role"], "consolidation")
+        self.assertEqual(result["revisions"][1]["gross_removed_tokens"], 1)
+        self.assertEqual(result["revisions"][1]["standing_removed_tokens"], 0)
+        self.assertEqual(result["revisions"][4]["standing_removed_tokens"], 1)
+
+    def test_account_states_remain_distinct_without_identity_inference(self):
+        cases = [
+            ({}, "hidden"),
+            ({"account": "192.0.2.1"}, "anonymous_ip"),
+            ({"account": "ExampleBot"}, "bot"),
+            ({"account": "Renamed account", "account_type": "renamed"}, "renamed"),
+            ({"account": "<unavailable>", "account_type": "unavailable"}, "unavailable"),
+        ]
+        for account_fields, expected in cases:
+            with self.subTest(account_type=expected):
+                revisions = [
+                    {"revision_id": 1, "timestamp": "2025-01-01T00:00:00Z", "account": "Before",
+                     "tokens": [{"token_id": 1, "o_rev_id": 1}]},
+                    {"revision_id": 2, "timestamp": "2025-01-01T00:01:00Z", **account_fields,
+                     "tokens": [{"token_id": 2, "o_rev_id": 2}]},
+                ]
+                result = event_attribution.attribute_revision_sequence("Example", revisions)
+                self.assertEqual(result["revisions"][1]["account_type"], expected)
+
+    def test_fully_restored_sequence_preserves_gross_activity_as_reverted(self):
+        revisions = [
+            {"revision_id": 1, "timestamp": "2025-01-01T00:00:00Z", "account": "Before",
+             "tokens": [{"token_id": 1, "o_rev_id": 1}]},
+            {"revision_id": 2, "timestamp": "2025-01-01T00:01:00Z", "account": "Changer",
+             "tokens": [{"token_id": 2, "o_rev_id": 2}]},
+            {"revision_id": 3, "timestamp": "2025-01-01T00:02:00Z", "account": "Restorer",
+             "tokens": [{"token_id": 1, "o_rev_id": 1}]},
+        ]
+
+        result = event_attribution.attribute_revision_sequence("Example", revisions)
+
+        self.assertEqual(result["event_status"], "reverted")
+        self.assertEqual(result["gross"]["removed_tokens"], 2)
+        self.assertEqual(result["net_standing"], {"removed_tokens": 0, "replacement_tokens": 0})
+        self.assertEqual(result["revisions"][-1]["role"], "revert")
+        self.assertEqual(result["revisions"][-1]["restores_revision_id"], 1)
+
+
+class RevisionEvidenceCompatibility(unittest.TestCase):
+    def test_legacy_shard_without_metadata_returns_timeline_evidence(self):
+        con = duckdb.connect(":memory:")
+        self.addCleanup(con.close)
+        con.execute("CREATE TABLE revisions(article TEXT, rev_id BIGINT, ts TEXT, user TEXT)")
+        con.execute("INSERT INTO revisions VALUES ('A', 1, '2025-01-01T00:00:00Z', 'Editor')")
+
+        rows = Corpus(con).revision_evidence_between(
+            "A", "2025-01-01T00:00:00Z", "2025-01-01T00:00:00Z"
+        )
+
+        self.assertEqual(rows, [{
+            "revision_id": 1, "timestamp": "2025-01-01T00:00:00Z", "account": "Editor",
+        }])
+
+    def test_non_catalog_database_errors_are_not_hidden_as_legacy_schema(self):
+        con = mock.Mock()
+        con.execute.side_effect = duckdb.InternalException("database failure")
+
+        with self.assertRaisesRegex(duckdb.InternalException, "database failure"):
+            Corpus(con).revision_evidence_between("A", "start", "end")
 
 
 class AttributionBackfill(unittest.TestCase):
@@ -304,6 +427,21 @@ class AttributionBackfill(unittest.TestCase):
         self.assertEqual(self.confirmation["schema_version"], drift.CONFIRMATION_SCHEMA_VERSION)
         self.assertEqual(report["updated_episodes"], 1)
         self.assertEqual(report["skipped_episodes"], 0)
+        write_findings.assert_called_once_with("A.l1-confirmation.json", self.confirmation)
+
+    def test_backfills_process_context_and_persists_confirmation(self):
+        receipt = {"schema_version": 1, "semantic_role": "descriptive_process_context"}
+        with mock.patch.object(drift, "load_confirmation", return_value=self.confirmation), \
+             mock.patch.object(
+                 drift.process_context, "retrieve_process_context", return_value=receipt
+             ) as retrieve, \
+             mock.patch.object(drift.config, "write_findings") as write_findings:
+            report = drift.backfill_process_context("A", con=self.con)
+
+        episode = self.confirmation["confirmed_episodes"][0]
+        self.assertEqual(episode["process_context"], receipt)
+        self.assertEqual(report["updated_episodes"], 1)
+        retrieve.assert_called_once_with("A", episode)
         write_findings.assert_called_once_with("A.l1-confirmation.json", self.confirmation)
 
     def test_complete_legacy_episode_is_upgraded_without_recomputation(self):
@@ -575,6 +713,14 @@ class AnalyzeConfirmationContract(unittest.TestCase):
             "same_top_editor": False,
             "top_two_removal_share": 1.0,
         }
+        interval_profile = [{
+            "start": "2020-01-01",
+            "end": "2021-01-01",
+            "size": 1200,
+            "pwr_loss": 40.0,
+            "pwr_removed": 42000,
+            "mature": True,
+        }]
 
         with mock.patch.object(provenance, "ensure_sizes"), \
              mock.patch.object(provenance, "ensure_indexes"), \
@@ -583,6 +729,7 @@ class AnalyzeConfirmationContract(unittest.TestCase):
              mock.patch.object(drift, "verdict_dict", return_value={"verdict": "PIVOT?"}), \
              mock.patch.object(drift, "refine", return_value=confirmation), \
              mock.patch.object(drift, "attribute", return_value=attribution), \
+             mock.patch.object(drift, "_coarse_profile", return_value=interval_profile), \
              mock.patch.object(drift, "print_coarse_report"), \
              mock.patch.object(drift.config, "write_findings") as write_findings:
             result = drift.analyze("A", con=con)
@@ -596,6 +743,7 @@ class AnalyzeConfirmationContract(unittest.TestCase):
         self.assertEqual(confirmed["durable_spine_drop"], 0.4)
         self.assertEqual(confirmed["duration_seconds"], 86400)
         self.assertEqual(confirmed["attribution"], attribution)
+        self.assertEqual(result["interval_profile"], interval_profile)
         write_findings.assert_called_once_with("A.l1-confirmation.json", result)
 
     def test_rolling_second_pass_runs_when_primary_candidates_do_not_confirm(self):
@@ -634,6 +782,40 @@ class AnalyzeConfirmationContract(unittest.TestCase):
         self.assertEqual(result["status"], "confirmed")
         self.assertEqual(result["confirmed_episodes"][0]["source"], "rolling")
         self.assertEqual(result["confirmed_episodes"][0]["before_revid"], 211)
+        self.assertEqual(result["evaluated_candidates"], [
+            {
+                "candidate_start": "2021-01-01",
+                "candidate_end": "2022-01-01",
+                "candidate_before_revid": 10,
+                "candidate_after_revid": 20,
+                "source": "interval",
+                "pwr_mass": 100000,
+                "peak_pct": 40.0,
+                "exact_before_revid": 111,
+                "exact_before_timestamp": "2021-06-01T00:00:00Z",
+                "exact_after_revid": 112,
+                "exact_after_timestamp": "2021-06-02T00:00:00Z",
+                "durable_spine_drop": 0.1,
+                "decision": "rejected",
+                "rejection_reason": "durable_spine_drop_below_threshold",
+            },
+            {
+                "candidate_start": "2023-01-01",
+                "candidate_end": "2024-01-01",
+                "candidate_before_revid": 30,
+                "candidate_after_revid": 40,
+                "source": "rolling",
+                "pwr_mass": 90000,
+                "peak_pct": 24.0,
+                "exact_before_revid": 211,
+                "exact_before_timestamp": "2023-06-01T00:00:00Z",
+                "exact_after_revid": 212,
+                "exact_after_timestamp": "2023-06-02T00:00:00Z",
+                "durable_spine_drop": 0.3,
+                "decision": "confirmed",
+                "rejection_reason": None,
+            },
+        ])
 
 
 class SourceCoverageState(unittest.TestCase):

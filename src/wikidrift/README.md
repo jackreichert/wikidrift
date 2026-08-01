@@ -12,8 +12,11 @@ Full design + methodology live in the vault:
 | --- | --- | --- |
 | `config.py` | Paths, endpoints, HTTP session, all tuned thresholds | (was duplicated everywhere) |
 | `provenance.py` | DuckDB schema + WikiWho/Action-API fetching, persistent snapshots | 001a, 005 |
-| `drift.py` | **L1** PWR engine: primary interval episodes → rolling fallback candidates → binary-search confirm → attribution; offline `verdict_dict`; descriptive `profile` (recency + editor concentration) | 005, 002 |
+| `drift.py` | **L1** PWR engine: primary interval episodes → rolling fallback candidates → binary-search confirm → bounded event attribution; offline `verdict_dict`; descriptive `profile` | 005, 002 |
+| `event_attribution.py` | Pure schema-v3 ordered-revision ledger: gross additions/removals/restorations, net-standing contribution, and recomputable participation shares | Wave 3 |
+| `process_context.py` | Neutral, opt-in edit-summary, restoration, talk-page, protection, page-operation, and dispute-template receipts | Wave 3 |
 | `prerank.py` | Metadata-only candidate pre-ranker (`removal→PWR` / `addition→L2`) | 008 |
+| `framing_trajectory.py` | Deterministic addition-side/formative framing trajectories with exact revision receipts | Wave 2 |
 | `stance.py` | **L2** LLM stance classifier (NPOV axis, not sentiment) | 010 |
 | `benchmark.py` | Adjudicated ground-truth roster + scoring | 009 |
 | `l5_crosslingual.py` | **L5 cross-language stance comparison** (static + pivot-relative stance spread) | 012a/b/c |
@@ -44,7 +47,10 @@ uv run wikidrift validate             # offline PWR candidate verdicts (no WikiW
 uv run wikidrift prerank              # metadata pre-ranker (offline)
 uv run wikidrift profile "Brontosaurus" # descriptive L1 drift profile: recency + editor concentration (offline)
 uv run wikidrift analyze "Climate change" # full L1 pipeline (+ WikiWho for confirm/attribute)
+uv run wikidrift backfill-attribution "Climate change" # upgrade a fresh confirmation to sequence attribution
+uv run wikidrift backfill-process-context "Climate change" # attach bounded public process receipts
 uv run wikidrift stance "Abortion"    # L2 stance over time (needs an LLM key)
+uv run wikidrift framing-trajectory "Abortion" --mode formative # deterministic addition-side trajectory
 uv run wikidrift framing "Gaza war"   # L5 Lite matched historical leads (needs an LLM key)
 uv run wikidrift framing "Gaza war" --static  # L5 Lite current-lead comparison
 uv run wikidrift crosslingual "Zionism"                     # L5 cross-language stance comparison (needs key)
@@ -54,6 +60,7 @@ uv run wikidrift discover "Nakba"                              # L5→L4 graph-g
 uv run wikidrift sources "Palestine"                           # L5 #3b citation-source change from → to across the pivot
 uv run wikidrift ingest "Naliboki massacre"                    # local wikiwho_rs backend → rsnap (then analyze/validate offline)
 uv run wikidrift migrate-shards                                # copy + verify canonical data into article-owned shards
+uv run wikidrift pipeline "Hamas" --process-context            # opt-in process context for confirmed events
 ```
 
 `migrate-shards` never modifies the canonical corpus. It verifies every copied table and artifact, writes a
@@ -67,8 +74,18 @@ Single-article verbs accept either an article title or a Wikipedia URL (for exam
 with stronger article coverage; English kept when present for pivot-relative comparability). Pass
 `--langs` to pin an explicit comparison set.
 
-`analyze` persists the exact pair from durable-spine confirmation with the corpus horizon and thresholds
-used. `framing` prefers that artifact while it remains current, uses the exact English revisions, and
+`analyze` persists stable before/after boundaries from durable-spine confirmation with the corpus horizon and
+thresholds used. Attribution resolves the ordered revision sequence between those boundaries, preserving gross
+activity separately from removals and replacement text still standing at the after state. Reverted intermediate
+work remains visible without inflating standing participation. Concentration labels remain disabled pending
+adjudicated calibration.
+
+`backfill-process-context` adds descriptive public metadata to a fresh exact confirmation. Edit summaries,
+restoration signals, talk-page activity, protection, page operations, and selected dispute templates retain exact
+revision/log links and independent `observed`, `not_observed`, or `unavailable` states. This evidence cannot alter
+L1 confirmation or corroboration and does not establish motive, coordination, bias, or misconduct.
+
+`framing` prefers the confirmation artifact while it remains current, uses the exact English revisions, and
 matches other editions to their timestamps. That result is pivot-relative. A missing or stale artifact
 falls back to the top coarse candidate and is labeled candidate-relative; no candidate falls back to
 current leads. Pass `--static` to request the last mode directly.

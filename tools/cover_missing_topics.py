@@ -85,6 +85,31 @@ def _fresh_confirmed_shard_topics(articles_dir: Path) -> set[str]:
     return topics
 
 
+def _stale_shard_topics(articles_dir: Path) -> set[str]:
+    """Select shard confirmations that no longer match their corpus or detector contract."""
+    topics = set()
+    for artifact in sorted(articles_dir.glob("*/findings/*.l1-confirmation.json")):
+        try:
+            confirmation = json.loads(artifact.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        article = confirmation.get("article")
+        database = artifact.parent.parent / "provenance.duckdb"
+        if not article or not database.is_file():
+            continue
+        try:
+            con = duckdb.connect(str(database), read_only=True)
+            try:
+                horizon = Corpus(con).latest_snapshot(article)
+            finally:
+                con.close()
+        except (duckdb.Error, OSError):
+            continue
+        if not pipeline.confirmation_is_fresh(confirmation, horizon):
+            topics.add(article)
+    return topics
+
+
 def _fetch_extract_error_count(errors: list[dict]) -> int:
     stages = {"fetch", "extract"}
     return sum(1 for err in errors if err.get("stage") in stages)
@@ -312,11 +337,20 @@ def _run_streaming_command(
             log.write(line)
             log.flush()
             _emit_topic_output(topic, line, output_lock, output_stream)
-    except BaseException:
+    except BaseException as exc:
+        log.write(f"PROCESS KILLED: {type(exc).__name__}\n")
+        log.flush()
         process.kill()
         process.wait()
         raise
     return subprocess.CompletedProcess(command, process.wait())
+
+
+def _resume_enabled(mode: str, requested: bool | None) -> bool:
+    """Resolve mode-aware resume defaults while preserving explicit flags."""
+    if requested is not None:
+        return requested
+    return mode != "refresh"
 
 
 def _run_topic_commands(
@@ -534,6 +568,10 @@ def _topic_commands(topic: str, use_llm: bool, include_mscore: bool, include_fra
         cmds.append(base + ["backfill-attribution", topic])
         return cmds, notes
 
+    if mode == "refresh":
+        cmds.append(base + ["analyze", topic])
+        return cmds, notes
+
     if mode == "full":
         cmds.append(base + ["analyze", topic])
         cmds.append(_pipeline_cmd(topic, use_llm=use_llm, include_mscore=include_mscore,
@@ -596,7 +634,8 @@ def main() -> int:
     parser.add_argument(
         "--all-shards",
         action="store_true",
-        help="Select every fresh confirmed article-owned shard without network title resolution",
+        help=("Select article-owned shards without network title resolution: fresh confirmed shards "
+              "normally, or stale shards in refresh mode"),
     )
     parser.add_argument(
         "--controls",
@@ -612,10 +651,11 @@ def main() -> int:
     )
     parser.add_argument(
         "--mode",
-          choices=["fill", "full", "framing", "pipeline", "attribution"],
+                    choices=["fill", "full", "framing", "pipeline", "attribution", "refresh"],
         default="fill",
           help=("fill: only run missing layers; pipeline: run analyze then pipeline; "
               "attribution: backfill current confirmed exact pairs; "
+                            "refresh: rerun stale exact analysis with live per-article logs; "
               "full: run pipeline+sources+profile; "
               "framing: run analyze then Framing Lite to create confirmed temporal receipts"),
     )
@@ -639,8 +679,9 @@ def main() -> int:
     parser.add_argument(
         "--resume",
         action=argparse.BooleanOptionalAction,
-        default=True,
-        help="Skip stages recorded as successful in each article's coverage-state.json (default: on)",
+        default=None,
+        help=("Skip stages recorded as successful in each article's coverage-state.json "
+              "(default: off for refresh, on otherwise)"),
     )
     parser.add_argument(
         "--no-llm",
@@ -690,6 +731,8 @@ def main() -> int:
         )
     if args.mode == "framing" and args.no_llm:
         parser.error("--mode framing requires an LLM; remove --no-llm")
+    if args.mode == "refresh" and not (args.all_shards or args.topics or args.topics_file):
+        parser.error("--mode refresh requires --all-shards, --topics, or --topics-file")
 
     findings_dir = Path(args.findings_dir)
     if not findings_dir.exists():
@@ -727,7 +770,11 @@ def main() -> int:
                 print(f"resolved redirect: {identity.requested_title} -> {identity.canonical_title}")
 
     if args.all_shards:
-        candidates = _fresh_confirmed_shard_topics(args.articles_dir)
+        candidates = (
+            _stale_shard_topics(args.articles_dir)
+            if args.mode == "refresh"
+            else _fresh_confirmed_shard_topics(args.articles_dir)
+        )
     elif args.all_corpus:
         if not config.DB.exists():
             print(f"error: token corpus not found: {config.DB}", file=sys.stderr)
@@ -792,12 +839,15 @@ def main() -> int:
 
     _write_article_identities(args.articles_dir.resolve(), identities)
     print(f"\nRunning {len(topic_commands)} topic(s) with jobs={args.jobs} in {args.articles_dir}")
+    resume = _resume_enabled(args.mode, args.resume)
+    if args.mode == "refresh" and not resume:
+        print("Refresh mode reruns stale analyze stages regardless of prior coverage state.")
     try:
         results = _run_topics_parallel(
             topic_commands=topic_commands,
             articles_dir=args.articles_dir.resolve(),
             jobs=args.jobs,
-            resume=args.resume,
+            resume=resume,
         )
     except KeyboardInterrupt:
         print("\nInterrupted; completed stages remain resumable.", file=sys.stderr)

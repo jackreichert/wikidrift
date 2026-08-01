@@ -1,6 +1,7 @@
 {
+  "schema_version": 2,
   "article": "Rafah offensive",
-  "run_ts": "2026-07-19T17:49:27.555157+00:00",
+  "run_ts": "2026-08-01T22:24:00.707450+00:00",
   "corpus_horizon": {
     "snapshot_date": "2026-07-01",
     "snapshot_revid": 1357159391
@@ -9,9 +10,56 @@
     "confirm_drop": 0.2,
     "durable_quantile": 0.5,
     "min_cohort": 500,
-    "magnitude_floor": 25.0
+    "magnitude_floor": 25.0,
+    "rolling_window_months": 12,
+    "rolling_tolerance_days": 35,
+    "rolling_drop": 20.0
+  },
+  "source_state": {
+    "article": "Rafah offensive",
+    "source_status": "current_complete",
+    "source_checked_at": "2026-08-01T22:24:00.364659+00:00",
+    "source_latest_revid": 1357159391,
+    "expected_snapshots": 5,
+    "loaded_snapshots": 5,
+    "reason": null
   },
   "coarse_verdict": "HEALTHY",
   "status": "not_confirmed",
-  "confirmed_episodes": []
+  "confirmed_episodes": [],
+  "evaluated_candidates": [],
+  "interval_profile": [
+    {
+      "start": "2024-07-01",
+      "end": "2025-01-01",
+      "size": 59159,
+      "pwr_loss": 0.8,
+      "pwr_removed": 473,
+      "mature": true
+    },
+    {
+      "start": "2025-01-01",
+      "end": "2025-07-01",
+      "size": 117635,
+      "pwr_loss": 1.22,
+      "pwr_removed": 2152,
+      "mature": true
+    },
+    {
+      "start": "2025-07-01",
+      "end": "2026-01-01",
+      "size": 141810,
+      "pwr_loss": 1.67,
+      "pwr_removed": 5281,
+      "mature": true
+    },
+    {
+      "start": "2026-01-01",
+      "end": "2026-07-01",
+      "size": 142652,
+      "pwr_loss": 0.07,
+      "pwr_removed": 298,
+      "mature": true
+    }
+  ]
 }

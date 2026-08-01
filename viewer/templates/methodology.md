@@ -163,21 +163,34 @@ that text drops most sharply.
 
 The durable text must decline by at least 20 percentage points across the interval to confirm the
 pivot. This keeps a coarse snapshot gap from looking decisive when the revisions inside it do not
-show the same collapse. Findings record whether the confirmed candidate came from the primary
-interval pass or the rolling pass.
+show the same collapse. The confirmation artifact keeps an audit receipt for every candidate sent to
+this exact check: its source pass, coarse dates and revisions, PWR mass, peak loss, exact revision pair
+and measured durable-spine drop when resolvable, plus the decision. Rejections state either that the
+drop was below the required threshold or that there was insufficient revision evidence to resolve an
+exact pair. Candidates not sent to exact checking are not represented as rejected. Findings also record
+whether a confirmed candidate came from the primary interval pass or the rolling pass.
 
 ### Attributing public edits
 
-For a confirmed episode, L1 can describe two groups:
+For a confirmed episode, L1 resolves the ordered revisions between the stable before and after states.
+It reports two kinds of accounting:
 
-- **Removal attribution:** accounts whose edits removed established text during the window. The text
-  must still be absent from the latest snapshot.
-- **Post-pivot contributors:** leading origin accounts for current text introduced after the pivot
-  began.
+- **Gross activity:** every observed addition, removal, and restoration in the bounded sequence.
+- **Net-standing contribution:** removals still absent at the after state and replacement wording that
+  survives there. Reverted intermediate work remains visible in gross activity but not standing shares.
 
-The full analysis attributes up to the two largest confirmed episodes. It reports public editing
-actions, not motive, off-wiki identity, or coordination. Concentrated authorship is context, not a
-finding on its own.
+Per-revision rows reproduce every displayed share. Hidden names, anonymous IPs, bots, renamed accounts,
+and unavailable account states remain distinct without identity inference. The full analysis attributes
+up to the two largest confirmed episodes. It reports public editing actions, not motive, off-wiki identity,
+or coordination. Concentration labels remain disabled pending control-set calibration.
+
+### Editorial-process context
+
+An opt-in receipt can add bounded edit summaries, tags, restoration relationships, talk-page activity,
+protection state, page operations, and selected dispute templates. Displayed items link to exact public
+revisions or logs and preserve `observed`, `not_observed`, and `unavailable` states. This context can identify
+alternatives worth inspecting, but it cannot change confirmation or corroboration and does not establish
+motive, coordination, bias, or misconduct.
 
 ### What L1 can and cannot say
 
@@ -418,3 +431,4 @@ content evidence. More detailed paper notes are available in the repository's
   interpretations rather than oracles.
 - The published site is static HTML built from saved result files in the
   [open-source repository](https://github.com/jackreichert/wikidrift/).
+- Process-context receipts preserve exact public revision or log links and explicit availability states.

@@ -50,10 +50,11 @@ Context only — not evidence of a conspiracy.
 
 ## “Exact-event attribution”
 
-For one confirmed before/after revision pair, the public edit history identifies accounts associated
-with terminal removals and the origin authors of replacement wording that survived. The receipt shows
-raw token counts and shares. It describes observable revision history, not bias, motive, coordination,
-or misconduct.
+For one confirmed event, the public edit history is read as an ordered sequence between stable before
+and after states. The receipt separates every observed addition, removal, and restoration from the
+removals and replacement wording still standing at the after state. Raw per-revision counts reproduce
+the displayed shares. It describes observable revision history, not bias, motive, coordination, or
+misconduct.
 
 ## “Heavily contested” vs “not heavily contested”
 
