@@ -1,0 +1,301 @@
+{
+  "article": "Elizabeth Warren",
+  "span": "2020-07-01 -> 2021-01-01 (around L1 pivot ~2020-07-01)",
+  "pivot": "2020-07-01",
+  "before": {
+    "date": "2020-07-01",
+    "rev": 965616537,
+    "tokens": 3726
+  },
+  "after": {
+    "date": "2021-01-01",
+    "rev": 997638575,
+    "tokens": 3784
+  },
+  "js_divergence": 0.0079,
+  "overrepresented_after_terms": [
+    {
+      "term": "tax",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.1828
+    },
+    {
+      "term": "wealth",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 1.9313
+    },
+    {
+      "term": "harris",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 1.084
+    },
+    {
+      "term": "descent",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8324
+    },
+    {
+      "term": "administration",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.4956
+    },
+    {
+      "term": "americans",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.4956
+    },
+    {
+      "term": "announcement",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.4956
+    },
+    {
+      "term": "donors",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.4956
+    },
+    {
+      "term": "kamala",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.4956
+    },
+    {
+      "term": "officially",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.4956
+    },
+    {
+      "term": "politico",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.4956
+    },
+    {
+      "term": "primaries",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.4956
+    },
+    {
+      "term": "progressive",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.4956
+    },
+    {
+      "term": "rise",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.4956
+    },
+    {
+      "term": "secretary",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.4956
+    },
+    {
+      "term": "show",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.4956
+    },
+    {
+      "term": "super",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.4956
+    },
+    {
+      "term": "told",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.4956
+    },
+    {
+      "term": "trap",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.4956
+    },
+    {
+      "term": "turn",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.4956
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "beleaguered",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.5265
+    },
+    {
+      "term": "house",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.5265
+    },
+    {
+      "term": "leaders",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.5265
+    },
+    {
+      "term": "meme",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.5265
+    },
+    {
+      "term": "phrase",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.5265
+    },
+    {
+      "term": "ran",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.5265
+    },
+    {
+      "term": "views",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.5265
+    },
+    {
+      "term": "becoming",
+      "before": 3,
+      "after": 2,
+      "delta": -1,
+      "log_odds": -0.3522
+    },
+    {
+      "term": "days",
+      "before": 3,
+      "after": 2,
+      "delta": -1,
+      "log_odds": -0.3522
+    },
+    {
+      "term": "economics",
+      "before": 3,
+      "after": 2,
+      "delta": -1,
+      "log_odds": -0.3522
+    },
+    {
+      "term": "hard",
+      "before": 3,
+      "after": 2,
+      "delta": -1,
+      "log_odds": -0.3522
+    },
+    {
+      "term": "internet",
+      "before": 3,
+      "after": 2,
+      "delta": -1,
+      "log_odds": -0.3522
+    },
+    {
+      "term": "led",
+      "before": 3,
+      "after": 2,
+      "delta": -1,
+      "log_odds": -0.3522
+    },
+    {
+      "term": "obtained",
+      "before": 3,
+      "after": 2,
+      "delta": -1,
+      "log_odds": -0.3522
+    },
+    {
+      "term": "story",
+      "before": 3,
+      "after": 2,
+      "delta": -1,
+      "log_odds": -0.3522
+    },
+    {
+      "term": "academic",
+      "before": 4,
+      "after": 3,
+      "delta": -1,
+      "log_odds": -0.267
+    },
+    {
+      "term": "become",
+      "before": 4,
+      "after": 3,
+      "delta": -1,
+      "log_odds": -0.267
+    },
+    {
+      "term": "career",
+      "before": 5,
+      "after": 4,
+      "delta": -1,
+      "log_odds": -0.2164
+    },
+    {
+      "term": "help",
+      "before": 5,
+      "after": 4,
+      "delta": -1,
+      "log_odds": -0.2164
+    },
+    {
+      "term": "political",
+      "before": 5,
+      "after": 4,
+      "delta": -1,
+      "log_odds": -0.2164
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

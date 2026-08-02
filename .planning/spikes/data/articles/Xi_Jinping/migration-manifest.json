@@ -1,0 +1,25 @@
+{
+  "article": "Xi Jinping",
+  "artifacts": [
+    "findings/Xi_Jinping.category.json",
+    "findings/Xi_Jinping.framing.json",
+    "findings/Xi_Jinping.l1-confirmation.json",
+    "findings/Xi_Jinping.lexical.json",
+    "findings/Xi_Jinping.profile.json",
+    "logs/analysis-2026-07-30/Xi_Jinping.log",
+    "logs/analysis-2026-07-30/Xi_Jinping.pipeline-evaluation.log",
+    "logs/analysis-2026-07-30/Xi_Jinping.rolling-corpus-benchmark.log",
+    "logs/analysis-2026-07-30/Xi_Jinping.rolling-v2.log",
+    "mscore/Xi_Jinping.json"
+  ],
+  "slug": "Xi_Jinping",
+  "tables": {
+    "articles": 0,
+    "rev_size": 7014,
+    "revisions": 7014,
+    "rsnap": 1529008,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

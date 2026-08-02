@@ -1,0 +1,26 @@
+{
+  "article": "Gaza genocide",
+  "artifacts": [
+    "findings/Gaza_genocide.category.json",
+    "findings/Gaza_genocide.cost.json",
+    "findings/Gaza_genocide.factcheck.json",
+    "findings/Gaza_genocide.framing.json",
+    "findings/Gaza_genocide.l1-confirmation.json",
+    "findings/Gaza_genocide.lexical.json",
+    "findings/Gaza_genocide.profile.json",
+    "findings/Gaza_genocide.receipts.json",
+    "findings/Gaza_genocide.sources.json",
+    "findings/Gaza_genocide.stance.json",
+    "mscore/Gaza_genocide.json"
+  ],
+  "slug": "Gaza_genocide",
+  "tables": {
+    "articles": 0,
+    "rev_size": 6942,
+    "revisions": 6942,
+    "rsnap": 797642,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

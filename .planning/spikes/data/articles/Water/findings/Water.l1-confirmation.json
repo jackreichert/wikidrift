@@ -1,0 +1,545 @@
+{
+  "schema_version": 2,
+  "article": "Water",
+  "run_ts": "2026-08-01T22:24:07.594755+00:00",
+  "corpus_horizon": {
+    "snapshot_date": "2026-07-01",
+    "snapshot_revid": 1361772051
+  },
+  "thresholds": {
+    "confirm_drop": 0.2,
+    "durable_quantile": 0.5,
+    "min_cohort": 500,
+    "magnitude_floor": 25.0,
+    "rolling_window_months": 12,
+    "rolling_tolerance_days": 35,
+    "rolling_drop": 20.0
+  },
+  "source_state": {
+    "article": "Water",
+    "source_status": "current_complete",
+    "source_checked_at": "2026-08-01T22:24:06.857032+00:00",
+    "source_latest_revid": 1366569788,
+    "expected_snapshots": 25,
+    "loaded_snapshots": 25,
+    "reason": null
+  },
+  "coarse_verdict": "PIVOT?",
+  "status": "confirmed",
+  "confirmed_episodes": [
+    {
+      "candidate_start": "2007-07-01",
+      "candidate_end": "2008-01-01",
+      "candidate_before_revid": 141767077,
+      "candidate_after_revid": 181417682,
+      "before_revid": 175167658,
+      "before_timestamp": "2007-12-02T01:00:19Z",
+      "after_revid": 175175239,
+      "after_timestamp": "2007-12-02T01:43:14Z",
+      "durable_spine_drop": 0.434967,
+      "pwr_mass": 17570,
+      "peak_pct": 40.39,
+      "source": "interval",
+      "status": "confirmed",
+      "duration_seconds": 2575,
+      "attribution": {
+        "schema_version": 3,
+        "policy_version": "multi-revision-attribution-v1",
+        "article": "Water",
+        "before_revid": 175167658,
+        "before_timestamp": "2007-12-02T01:00:19Z",
+        "after_revid": 175175239,
+        "after_timestamp": "2007-12-02T01:43:14Z",
+        "event_status": "standing",
+        "semantic_role": "event_participation_receipt",
+        "revisions": [
+          {
+            "revision_id": 175167658,
+            "timestamp": "2007-12-02T01:00:19Z",
+            "account": "Snek01",
+            "account_type": "registered",
+            "role": "stable_before",
+            "restores_revision_id": null,
+            "parent_id": null,
+            "sha1": null,
+            "edit_summary": null,
+            "tags": [],
+            "size": 81547,
+            "size_delta": null,
+            "gross_removed_tokens": 0,
+            "gross_added_tokens": 0,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 0,
+            "standing_added_tokens": 0
+          },
+          {
+            "revision_id": 175175239,
+            "timestamp": "2007-12-02T01:43:14Z",
+            "account": "Snek01",
+            "account_type": "registered",
+            "role": "consolidation",
+            "restores_revision_id": null,
+            "parent_id": null,
+            "sha1": null,
+            "edit_summary": null,
+            "tags": [],
+            "size": 67312,
+            "size_delta": -14235,
+            "gross_removed_tokens": 3501,
+            "gross_added_tokens": 14,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 3501,
+            "standing_added_tokens": 14
+          }
+        ],
+        "gross": {
+          "removed_tokens": 3501,
+          "added_tokens": 14,
+          "restored_tokens": 0
+        },
+        "net_standing": {
+          "removed_tokens": 3501,
+          "replacement_tokens": 14
+        },
+        "removals_by_editor": [
+          {
+            "editor": "Snek01",
+            "tokens": 3501
+          }
+        ],
+        "replacement_by_editor": [
+          {
+            "editor": "Snek01",
+            "tokens": 14
+          }
+        ],
+        "participation": {
+          "top_removal_share": 1.0,
+          "top_replacement_share": 1.0,
+          "top_two_removal_share": 1.0,
+          "same_top_editor": true
+        },
+        "removed_tokens": 3501,
+        "replacement_tokens": 14,
+        "top_removal_share": 1.0,
+        "top_replacement_share": 1.0,
+        "top_two_removal_share": 1.0,
+        "same_top_editor": true,
+        "note": "Counts describe observable public revision operations and surviving token states; they do not establish identity, coordination, motive, ownership, or misconduct.",
+        "duration_seconds": 2575
+      }
+    }
+  ],
+  "evaluated_candidates": [
+    {
+      "candidate_start": "2007-07-01",
+      "candidate_end": "2008-01-01",
+      "candidate_before_revid": 141767077,
+      "candidate_after_revid": 181417682,
+      "source": "interval",
+      "pwr_mass": 17570,
+      "peak_pct": 40.39,
+      "exact_before_revid": 175167658,
+      "exact_before_timestamp": "2007-12-02T01:00:19Z",
+      "exact_after_revid": 175175239,
+      "exact_after_timestamp": "2007-12-02T01:43:14Z",
+      "durable_spine_drop": 0.434967,
+      "decision": "confirmed",
+      "rejection_reason": null
+    }
+  ],
+  "interval_profile": [
+    {
+      "start": "2002-01-01",
+      "end": "2002-07-01",
+      "size": 588,
+      "pwr_loss": 28.06,
+      "pwr_removed": 165,
+      "mature": false
+    },
+    {
+      "start": "2002-07-01",
+      "end": "2003-01-01",
+      "size": 2149,
+      "pwr_loss": 46.77,
+      "pwr_removed": 1203,
+      "mature": false
+    },
+    {
+      "start": "2003-01-01",
+      "end": "2003-07-01",
+      "size": 2917,
+      "pwr_loss": 1.7,
+      "pwr_removed": 73,
+      "mature": false
+    },
+    {
+      "start": "2003-07-01",
+      "end": "2004-01-01",
+      "size": 3611,
+      "pwr_loss": 6.65,
+      "pwr_removed": 520,
+      "mature": false
+    },
+    {
+      "start": "2004-01-01",
+      "end": "2004-07-01",
+      "size": 4428,
+      "pwr_loss": 15.27,
+      "pwr_removed": 1791,
+      "mature": false
+    },
+    {
+      "start": "2004-07-01",
+      "end": "2005-01-01",
+      "size": 5189,
+      "pwr_loss": 87.36,
+      "pwr_removed": 13219,
+      "mature": false
+    },
+    {
+      "start": "2005-01-01",
+      "end": "2005-07-01",
+      "size": 3328,
+      "pwr_loss": 5.71,
+      "pwr_removed": 299,
+      "mature": false
+    },
+    {
+      "start": "2005-07-01",
+      "end": "2006-01-01",
+      "size": 4209,
+      "pwr_loss": 9.8,
+      "pwr_removed": 897,
+      "mature": false
+    },
+    {
+      "start": "2006-01-01",
+      "end": "2006-07-01",
+      "size": 5739,
+      "pwr_loss": 15.63,
+      "pwr_removed": 2187,
+      "mature": false
+    },
+    {
+      "start": "2006-07-01",
+      "end": "2007-01-01",
+      "size": 11082,
+      "pwr_loss": 25.28,
+      "pwr_removed": 5790,
+      "mature": false
+    },
+    {
+      "start": "2007-01-01",
+      "end": "2007-07-01",
+      "size": 13166,
+      "pwr_loss": 10.19,
+      "pwr_removed": 3094,
+      "mature": false
+    },
+    {
+      "start": "2007-07-01",
+      "end": "2008-01-01",
+      "size": 16088,
+      "pwr_loss": 40.39,
+      "pwr_removed": 17570,
+      "mature": true
+    },
+    {
+      "start": "2008-01-01",
+      "end": "2008-07-01",
+      "size": 14753,
+      "pwr_loss": 1.84,
+      "pwr_removed": 752,
+      "mature": false
+    },
+    {
+      "start": "2008-07-01",
+      "end": "2009-01-01",
+      "size": 15682,
+      "pwr_loss": 1.99,
+      "pwr_removed": 1110,
+      "mature": true
+    },
+    {
+      "start": "2009-01-01",
+      "end": "2009-07-01",
+      "size": 16891,
+      "pwr_loss": 3.57,
+      "pwr_removed": 2560,
+      "mature": true
+    },
+    {
+      "start": "2009-07-01",
+      "end": "2010-01-01",
+      "size": 17575,
+      "pwr_loss": 11.89,
+      "pwr_removed": 10323,
+      "mature": true
+    },
+    {
+      "start": "2010-01-01",
+      "end": "2010-07-01",
+      "size": 16432,
+      "pwr_loss": 2.36,
+      "pwr_removed": 2198,
+      "mature": true
+    },
+    {
+      "start": "2010-07-01",
+      "end": "2011-01-01",
+      "size": 17327,
+      "pwr_loss": 3.76,
+      "pwr_removed": 4072,
+      "mature": true
+    },
+    {
+      "start": "2011-01-01",
+      "end": "2011-07-01",
+      "size": 17477,
+      "pwr_loss": 4.67,
+      "pwr_removed": 5691,
+      "mature": true
+    },
+    {
+      "start": "2011-07-01",
+      "end": "2012-01-01",
+      "size": 18398,
+      "pwr_loss": 3.61,
+      "pwr_removed": 4859,
+      "mature": true
+    },
+    {
+      "start": "2012-01-01",
+      "end": "2012-07-01",
+      "size": 19285,
+      "pwr_loss": 0.53,
+      "pwr_removed": 792,
+      "mature": true
+    },
+    {
+      "start": "2012-07-01",
+      "end": "2013-01-01",
+      "size": 19357,
+      "pwr_loss": 0.67,
+      "pwr_removed": 1117,
+      "mature": true
+    },
+    {
+      "start": "2013-01-01",
+      "end": "2013-07-01",
+      "size": 19677,
+      "pwr_loss": 6.29,
+      "pwr_removed": 11730,
+      "mature": true
+    },
+    {
+      "start": "2013-07-01",
+      "end": "2014-01-01",
+      "size": 18831,
+      "pwr_loss": 1.12,
+      "pwr_removed": 2167,
+      "mature": true
+    },
+    {
+      "start": "2014-01-01",
+      "end": "2014-07-01",
+      "size": 19429,
+      "pwr_loss": 2.19,
+      "pwr_removed": 4631,
+      "mature": true
+    },
+    {
+      "start": "2014-07-01",
+      "end": "2015-01-01",
+      "size": 21213,
+      "pwr_loss": 2.58,
+      "pwr_removed": 5887,
+      "mature": true
+    },
+    {
+      "start": "2015-01-01",
+      "end": "2015-07-01",
+      "size": 21838,
+      "pwr_loss": 1.27,
+      "pwr_removed": 3106,
+      "mature": true
+    },
+    {
+      "start": "2015-07-01",
+      "end": "2016-01-01",
+      "size": 22580,
+      "pwr_loss": 0.34,
+      "pwr_removed": 895,
+      "mature": true
+    },
+    {
+      "start": "2016-01-01",
+      "end": "2016-07-01",
+      "size": 23411,
+      "pwr_loss": 0.8,
+      "pwr_removed": 2289,
+      "mature": true
+    },
+    {
+      "start": "2016-07-01",
+      "end": "2017-01-01",
+      "size": 23728,
+      "pwr_loss": 7.8,
+      "pwr_removed": 23997,
+      "mature": true
+    },
+    {
+      "start": "2017-01-01",
+      "end": "2017-07-01",
+      "size": 24596,
+      "pwr_loss": 0.76,
+      "pwr_removed": 2332,
+      "mature": true
+    },
+    {
+      "start": "2017-07-01",
+      "end": "2018-01-01",
+      "size": 25979,
+      "pwr_loss": 6.4,
+      "pwr_removed": 21243,
+      "mature": true
+    },
+    {
+      "start": "2018-01-01",
+      "end": "2018-07-01",
+      "size": 25643,
+      "pwr_loss": 1.09,
+      "pwr_removed": 3665,
+      "mature": true
+    },
+    {
+      "start": "2018-07-01",
+      "end": "2019-01-01",
+      "size": 26447,
+      "pwr_loss": 2.19,
+      "pwr_removed": 7859,
+      "mature": true
+    },
+    {
+      "start": "2019-01-01",
+      "end": "2019-07-01",
+      "size": 32418,
+      "pwr_loss": 3.27,
+      "pwr_removed": 12533,
+      "mature": true
+    },
+    {
+      "start": "2019-07-01",
+      "end": "2020-01-01",
+      "size": 32751,
+      "pwr_loss": 0.96,
+      "pwr_removed": 3870,
+      "mature": true
+    },
+    {
+      "start": "2020-01-01",
+      "end": "2020-07-01",
+      "size": 32972,
+      "pwr_loss": 4.28,
+      "pwr_removed": 18544,
+      "mature": true
+    },
+    {
+      "start": "2020-07-01",
+      "end": "2021-01-01",
+      "size": 36815,
+      "pwr_loss": 0.77,
+      "pwr_removed": 3475,
+      "mature": true
+    },
+    {
+      "start": "2021-01-01",
+      "end": "2021-07-01",
+      "size": 38280,
+      "pwr_loss": 2.81,
+      "pwr_removed": 13678,
+      "mature": true
+    },
+    {
+      "start": "2021-07-01",
+      "end": "2022-01-01",
+      "size": 38689,
+      "pwr_loss": 0.13,
+      "pwr_removed": 681,
+      "mature": true
+    },
+    {
+      "start": "2022-01-01",
+      "end": "2022-07-01",
+      "size": 39464,
+      "pwr_loss": 0.6,
+      "pwr_removed": 3332,
+      "mature": true
+    },
+    {
+      "start": "2022-07-01",
+      "end": "2023-01-01",
+      "size": 40011,
+      "pwr_loss": 1.65,
+      "pwr_removed": 9696,
+      "mature": true
+    },
+    {
+      "start": "2023-01-01",
+      "end": "2023-07-01",
+      "size": 43367,
+      "pwr_loss": 2.15,
+      "pwr_removed": 13372,
+      "mature": true
+    },
+    {
+      "start": "2023-07-01",
+      "end": "2024-01-01",
+      "size": 43433,
+      "pwr_loss": 0.28,
+      "pwr_removed": 1839,
+      "mature": true
+    },
+    {
+      "start": "2024-01-01",
+      "end": "2024-07-01",
+      "size": 43828,
+      "pwr_loss": 0.49,
+      "pwr_removed": 3381,
+      "mature": true
+    },
+    {
+      "start": "2024-07-01",
+      "end": "2025-01-01",
+      "size": 45668,
+      "pwr_loss": 0.37,
+      "pwr_removed": 2725,
+      "mature": true
+    },
+    {
+      "start": "2025-01-01",
+      "end": "2025-07-01",
+      "size": 46947,
+      "pwr_loss": 0.34,
+      "pwr_removed": 2619,
+      "mature": true
+    },
+    {
+      "start": "2025-07-01",
+      "end": "2026-01-01",
+      "size": 46939,
+      "pwr_loss": 2.99,
+      "pwr_removed": 24679,
+      "mature": true
+    },
+    {
+      "start": "2026-01-01",
+      "end": "2026-07-01",
+      "size": 47485,
+      "pwr_loss": 0.52,
+      "pwr_removed": 4389,
+      "mature": true
+    }
+  ]
+}

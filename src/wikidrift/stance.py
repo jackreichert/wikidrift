@@ -14,7 +14,11 @@ Known limit (born-framed wall): L2-as-shift-detector is still temporal + interna
 to born-framed articles (Nakba reads flat). Consistent NPOV flags are a signal, but adjudicating whether
 that POV is legitimate or capture needs L5 (external reference).
 """
+import datetime as dt
+import hashlib
 import re
+from collections import Counter
+from difflib import SequenceMatcher
 
 import duckdb
 import mwparserfromhell
@@ -25,6 +29,12 @@ from .corpus import Corpus
 _S = config.session()
 
 STANCE_VAL = {"critical": -1, "neutral": 0, "absent": 0, "sympathetic": 1}
+STANCE_PROMPT_VERSION = "stance-v3"
+STANCE_SCHEMA_VERSION = 1
+DEFAULT_REPEATED_RUNS = 3
+DEFAULT_AGREEMENT_FLOOR = 0.8
+DEFAULT_EVIDENCE_COVERAGE_FLOOR = 1.0
+DEFAULT_TEXT_SIMILARITY_FLOOR = 0.98
 
 SCHEMA = {
     "type": "object",
@@ -37,9 +47,11 @@ SCHEMA = {
                     "entity": {"type": "string"},
                     "stance": {"type": "string", "enum": ["critical", "neutral", "sympathetic", "absent"]},
                     "npov_departure": {"type": "boolean"},
+                    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
                     "evidence": {"type": "string"},
+                    "evidence_spans": {"type": "array", "items": {"type": "string"}},
                 },
-                "required": ["entity", "stance", "npov_departure", "evidence"],
+                "required": ["entity", "stance", "npov_departure", "confidence", "evidence", "evidence_spans"],
                 "additionalProperties": False,
             },
         }
@@ -55,11 +67,229 @@ judge how THIS passage frames it, on an encyclopedic-neutrality axis:
   - "neutral": described in even, encyclopedic terms.
   - "absent": the entity is not meaningfully discussed here.
 Set npov_departure=true only if the framing departs from neutral encyclopedic tone toward a viewpoint.
-Give a short evidence quote. This is a LEAD for a human, not a verdict — a real-world event can
+Give a calibrated confidence from 0 to 1 and short verbatim evidence spans from this passage. Also put
+the primary span in evidence for backward compatibility. This is a LEAD for a human, not a verdict — a real-world event can
 legitimately reshape framing. Focal entities: {entities}
 
 PASSAGE:
 {passage}"""
+
+
+def summarize_entity_runs(receipt, entity):
+    """Summarize repeated raw labels for one entity without discarding disagreement."""
+    records = [
+        record
+        for run in receipt.get("runs", [])
+        for record in run.get("entities", [])
+        if record.get("entity") == entity
+    ]
+    if not records:
+        return None
+    counts = Counter(record.get("stance", "absent") for record in records)
+    label, count = counts.most_common(1)[0]
+    evidence_records = [record for record in records if record.get("evidence_spans") or record.get("evidence")]
+    confidences = [record["confidence"] for record in records if isinstance(record.get("confidence"), (int, float))]
+    return {
+        "label": label,
+        "agreement": round(count / len(records), 4),
+        "runs": len(records),
+        "label_counts": dict(sorted(counts.items())),
+        "evidence_coverage": round(len(evidence_records) / len(records), 4),
+        "mean_confidence": round(sum(confidences) / len(confidences), 4) if confidences else None,
+    }
+
+
+def audit_transition(before, after, entity, agreement_floor=DEFAULT_AGREEMENT_FLOOR,
+                     text_similarity_floor=DEFAULT_TEXT_SIMILARITY_FLOOR,
+                     evidence_coverage_floor=DEFAULT_EVIDENCE_COVERAGE_FLOOR):
+    """Separate an observed text change from repeated-run model disagreement."""
+    before_summary = summarize_entity_runs(before, entity)
+    after_summary = summarize_entity_runs(after, entity)
+    if before_summary is None or after_summary is None:
+        return {
+            "state": "insufficient_evidence",
+            "entity": entity,
+            "audited_shift": False,
+            "reason": "one or both passages have no classification for the entity",
+        }
+    before_contracts = _run_contracts(before)
+    after_contracts = _run_contracts(after)
+    if (
+        len(before_contracts) > 1
+        or len(after_contracts) > 1
+        or (before_contracts and after_contracts and before_contracts != after_contracts)
+    ):
+        return {
+            "state": "insufficient_evidence",
+            "entity": entity,
+            "audited_shift": False,
+            "reason": "prompt or model run contracts are incompatible",
+            "before_contracts": sorted(before_contracts),
+            "after_contracts": sorted(after_contracts),
+        }
+    text_similarity = SequenceMatcher(
+        None, before.get("passage", ""), after.get("passage", "")
+    ).ratio()
+    text_changed = text_similarity < text_similarity_floor
+    model_unstable = (
+        before_summary["agreement"] < agreement_floor
+        or after_summary["agreement"] < agreement_floor
+    )
+    evidence_complete = (
+        before_summary["evidence_coverage"] >= evidence_coverage_floor
+        and after_summary["evidence_coverage"] >= evidence_coverage_floor
+    )
+    label_changed = before_summary["label"] != after_summary["label"]
+    if not evidence_complete:
+        state = "insufficient_evidence"
+    elif text_changed and model_unstable:
+        state = "both_changed"
+    elif model_unstable or (label_changed and not text_changed):
+        state = "model_unstable"
+    elif text_changed:
+        state = "text_changed"
+    else:
+        state = "no_change"
+    return {
+        "state": state,
+        "entity": entity,
+        "text_similarity": round(text_similarity, 4),
+        "text_changed": text_changed,
+        "label_changed": label_changed,
+        "before_label": before_summary["label"],
+        "after_label": after_summary["label"],
+        "before_agreement": before_summary["agreement"],
+        "after_agreement": after_summary["agreement"],
+        "before_evidence_coverage": before_summary["evidence_coverage"],
+        "after_evidence_coverage": after_summary["evidence_coverage"],
+        "agreement_floor": agreement_floor,
+        "evidence_coverage_floor": evidence_coverage_floor,
+        "text_similarity_floor": text_similarity_floor,
+        "audited_shift": bool(text_changed and label_changed and not model_unstable and evidence_complete),
+    }
+
+
+def _run_contracts(receipt):
+    return {
+        (run.get("prompt_version"), run.get("provider"), run.get("model"))
+        for run in receipt.get("runs", [])
+        if any(run.get(field) is not None for field in ("prompt_version", "provider", "model"))
+    }
+
+
+def build_stance_trajectory(article, entities, revision_passages, client,
+                            repeated_runs=DEFAULT_REPEATED_RUNS, run_timestamp=None):
+    """Classify exact revision passages and repeat calls only around apparent transitions."""
+    if repeated_runs < 1:
+        raise ValueError("repeated_runs must be at least 1")
+    timestamp_factory = run_timestamp or _utc_now
+    receipts = [
+        _initial_receipt(article, entities, revision_passage, client, timestamp_factory)
+        for revision_passage in revision_passages
+    ]
+    transition_indexes = set()
+    for index, (before, after) in enumerate(zip(receipts, receipts[1:])):
+        if any(
+            before_label is not None and after_label is not None and before_label != after_label
+            for entity in entities
+            for before_label, after_label in [
+                (_initial_label(before, entity), _initial_label(after, entity))
+            ]
+        ):
+            transition_indexes.update({index, index + 1})
+    for index in sorted(transition_indexes):
+        while len(receipts[index]["runs"]) < repeated_runs:
+            receipts[index]["runs"].append(
+                _classification_run(client, entities, receipts[index]["passage"], timestamp_factory)
+            )
+    for receipt in receipts:
+        for run_index, run in enumerate(receipt["runs"], start=1):
+            run["run_index"] = run_index
+        receipt["summaries"] = {
+            entity: summary
+            for entity in entities
+            if (summary := summarize_entity_runs(receipt, entity)) is not None
+        }
+    transitions = []
+    for before, after in zip(receipts, receipts[1:]):
+        transitions.append({
+            "before_revision_id": before["revision_id"],
+            "after_revision_id": after["revision_id"],
+            "entities": {
+                entity: audit_transition(before, after, entity)
+                for entity in entities
+            },
+        })
+    return {
+        "schema_version": STANCE_SCHEMA_VERSION,
+        "prompt_version": STANCE_PROMPT_VERSION,
+        "article": article,
+        "entities": entities,
+        "repeated_run_policy": {
+            "runs_near_apparent_transition": repeated_runs,
+            "agreement_floor": DEFAULT_AGREEMENT_FLOOR,
+            "text_similarity_floor": DEFAULT_TEXT_SIMILARITY_FLOOR,
+        },
+        "revisions": receipts,
+        "transitions": transitions,
+    }
+
+
+def _initial_receipt(article, entities, revision_passage, client, timestamp_factory):
+    passage = revision_passage.get("passage", "")
+    revision_id = int(revision_passage["revision_id"])
+    return {
+        "schema_version": STANCE_SCHEMA_VERSION,
+        "prompt_version": STANCE_PROMPT_VERSION,
+        "article": article,
+        "revision_id": revision_id,
+        "timestamp": revision_passage.get("timestamp"),
+        "oldid_url": (
+            f"https://en.wikipedia.org/w/index.php?title="
+            f"{article.replace(' ', '_')}&oldid={revision_id}"
+        ),
+        "passage_hash": f"sha256:{hashlib.sha256(passage.encode('utf-8')).hexdigest()}",
+        "passage": passage,
+        "has_focal_prose": bool(passage),
+        "entities": entities,
+        "runs": [
+            _classification_run(client, entities, passage, timestamp_factory)
+        ] if passage else [],
+    }
+
+
+def _classification_run(client, entities, passage, timestamp_factory):
+    records = [_normalize_classification(record) for record in classify(client, entities, passage)]
+    return {
+        "run_index": None,
+        "run_timestamp": timestamp_factory(),
+        "provider": getattr(client, "provider", None),
+        "model": getattr(client, "model", None),
+        "prompt_version": STANCE_PROMPT_VERSION,
+        "entities": records,
+    }
+
+
+def _normalize_classification(record):
+    normalized = dict(record)
+    evidence = str(normalized.get("evidence") or "")
+    normalized.setdefault("confidence", None)
+    normalized.setdefault("evidence_spans", [evidence] if evidence else [])
+    return normalized
+
+
+def _initial_label(receipt, entity):
+    runs = receipt.get("runs") or []
+    if not runs:
+        return None
+    for record in runs[0].get("entities", []):
+        if record.get("entity") == entity:
+            return record.get("stance")
+    return None
+
+
+def _utc_now():
+    return dt.datetime.now(dt.timezone.utc).isoformat()
 
 
 def prose_at(rev_id):
@@ -93,7 +323,7 @@ def default_entities(article):
 
 
 def stance_over_time(article, entities=None, max_snaps=0, since=None, provider=None, model=None, base_url=None,
-                     client=None):
+                     client=None, repeated_runs=DEFAULT_REPEATED_RUNS, persist=True):
     """Classify focal-entity stance across the article's snapshots and report the directional shift.
 
     `client` is the LLM port (dependency-injected). When None it is built from provider/model/base_url, so
@@ -116,43 +346,67 @@ def stance_over_time(article, entities=None, max_snaps=0, since=None, provider=N
     print(f"=== L2 STANCE over time — {article} ===\nfocal entities: {entities}\n")
     header = "date        | " + " | ".join(f"{e[:14]:>14}" for e in entities)
     print(header + "\n" + "-" * len(header))
-    traj = {e: [] for e in entities}
+    revision_passages = []
     for sd, sr in snaps:
         prose = prose_at(sr)
         passage = focal_passage(prose, entities)
         if not passage:
-            print(f"{sd} | (no focal prose)"); continue
-        rows = {r["entity"]: r for r in classify(client, entities, passage)}
+            print(f"{sd} | (no focal prose)")
+        revision_passages.append({
+            "revision_id": sr,
+            "timestamp": str(sd),
+            "passage": passage,
+        })
+    audit = build_stance_trajectory(
+        article, entities, revision_passages, client, repeated_runs=repeated_runs
+    )
+    for revision in audit["revisions"]:
+        summaries = revision.get("summaries") or {}
         cells = []
-        for e in entities:
-            r = rows.get(e, {"stance": "absent", "npov_departure": False})
-            val = STANCE_VAL.get(r["stance"], 0)
-            traj[e].append(val)
-            mark = "!" if r.get("npov_departure") else " "
-            cells.append(f"{r['stance'][:12]:>12}{mark} ")
-        print(f"{sd} | " + "| ".join(cells))
-    print("\n── directional shift (stance start → end; SIGNAL, not proof) ──")
-    for e in entities:
-        v = traj[e]
-        if len(v) >= 2 and v[0] != v[-1]:
-            print(f"  {e}: {v[0]:+d} → {v[-1]:+d}  ⇒ framing shifted (lead for a researcher + L5)")
-        elif v:
-            print(f"  {e}: flat ({v[0]:+d}) — no directional shift detected")
+        for entity in entities:
+            summary = summaries.get(entity)
+            if not summary:
+                cells.append(f"{'absent':>12}  ")
+                continue
+            agreement = summary["agreement"]
+            cells.append(f"{summary['label'][:9]:>9} {agreement:>4.2f} ")
+        print(f"{revision['timestamp']} | " + "| ".join(cells))
 
+    print("\n── audited transitions (text change separated from model agreement) ──")
     shifts = {}
-    for e in entities:
-        v = traj.get(e, [])
-        if not v:
+    for entity in entities:
+        summaries = [
+            revision["summaries"][entity]
+            for revision in audit["revisions"]
+            if entity in revision.get("summaries", {})
+        ]
+        if not summaries:
             continue
-        shifts[e] = {
-            "start": v[0],
-            "end": v[-1],
-            "shifted": len(v) >= 2 and v[0] != v[-1],
-            "n": len(v),
+        entity_transitions = [
+            transition["entities"][entity]
+            for transition in audit["transitions"]
+            if entity in transition["entities"]
+        ]
+        audited_transitions = [
+            transition for transition in entity_transitions if transition.get("audited_shift")
+        ]
+        start = STANCE_VAL.get(summaries[0]["label"], 0)
+        end = STANCE_VAL.get(summaries[-1]["label"], 0)
+        shifts[entity] = {
+            "start": start,
+            "end": end,
+            "shifted": bool(audited_transitions),
+            "n": len(summaries),
+            "audited_transition_count": len(audited_transitions),
+            "transition_states": [transition["state"] for transition in entity_transitions],
         }
-    return {
-        "article": article,
-        "entities": entities,
-        "shifts": shifts,
-        "since": since,
-    }
+        if audited_transitions:
+            print(f"  {entity}: {len(audited_transitions)} audited text-linked stance transition(s)")
+        elif entity_transitions:
+            states = ", ".join(transition["state"] for transition in entity_transitions)
+            print(f"  {entity}: no audited stance transition ({states})")
+    audit["shifts"] = shifts
+    audit["since"] = since
+    if persist:
+        config.write_findings(f"{config.slugify(article)}.stance-trajectory.json", audit)
+    return audit

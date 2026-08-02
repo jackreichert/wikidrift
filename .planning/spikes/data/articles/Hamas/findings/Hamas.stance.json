@@ -1,0 +1,67 @@
+{
+  "article": "Hamas",
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "entities": [
+    "Hamas"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Hamas": {
+          "entity": "Hamas",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "The passage presents historical, political, and diplomatic details—founding, elections, charter changes, and international designations—largely in descriptive terms, while also noting attacks on civilians and terrorist designations without editorializing."
+        }
+      },
+      "lead": {
+        "Hamas": {
+          "entity": "Hamas",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "a Sunni Islamist Palestinian nationalist political organisation with a military wing known as the al-Qassam Brigades... has been criticized for human rights violations... Hamas has attacked Israeli civilians, including through suicide bombings... designated Hamas as a terrorist organisation"
+        }
+      }
+    },
+    "he": {
+      "focal": {
+        "Hamas": {
+          "entity": "Hamas",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "מטיפים לדמוניזציה של העם היהודי כולו ומתירים פגיעה בו... מתקפה אשר כללה שכללה פשעי מלחמה, פשעים נגד האנושות, אלימות מינית וחטיפת אזרחים המוחזקים כבני ערובה"
+        }
+      },
+      "lead": {
+        "Hamas": {
+          "entity": "Hamas",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "הארגון הוקם בעזה בשנת 1987... הוא מבצע פיגועים, ירי רקטות, חטיפות ופעולות טרור אחרות נגד אזרחים וחיילים ישראלים... מתקפה אשר כללה שכללה פשעי מלחמה, פשעים נגד האנושות, אלימות מינית וחטיפת אזרחים המוחזקים כבני ערובה"
+        }
+      }
+    },
+    "ar": {
+      "focal": {
+        "Hamas": {
+          "entity": "Hamas",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "وتعرف نفسها على أنها حركة تحرر وطني ذات فكر إسلامي وسطي معتدل... تعمل على توفير الظروف الملائمة لتحقيق تحرر الشعب الفلسطيني وتحرير أرضه من الاحتلال الإسرائيلي"
+        }
+      },
+      "lead": {
+        "Hamas": {
+          "entity": "Hamas",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "وتعرف نفسها على أنها حركة تحرر وطني ذات فكر إسلامي وسطي معتدل، تحصر نضالها وعملها في قضية فلسطين، ولا تتدخل في شؤون الآخرين... والتصدي للمشروع الصهيوني المدعوم من قبل قوى الاستعمار الحديث"
+        }
+      }
+    }
+  }
+}

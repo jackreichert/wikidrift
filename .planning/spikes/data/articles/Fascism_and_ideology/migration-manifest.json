@@ -1,0 +1,26 @@
+{
+  "article": "Fascism and ideology",
+  "artifacts": [
+    "findings/Fascism_and_ideology.category.json",
+    "findings/Fascism_and_ideology.cost.json",
+    "findings/Fascism_and_ideology.framing.json",
+    "findings/Fascism_and_ideology.l1-confirmation.json",
+    "findings/Fascism_and_ideology.lexical.json",
+    "findings/Fascism_and_ideology.profile.json",
+    "findings/Fascism_and_ideology.receipts.json",
+    "findings/Fascism_and_ideology.sources.json",
+    "findings/Fascism_and_ideology.stance.json",
+    "logs/analysis-2026-07-30/Fascism_and_ideology.rolling-corpus-benchmark.log",
+    "mscore/Fascism_and_ideology.json"
+  ],
+  "slug": "Fascism_and_ideology",
+  "tables": {
+    "articles": 0,
+    "rev_size": 1695,
+    "revisions": 1695,
+    "rsnap": 1098251,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

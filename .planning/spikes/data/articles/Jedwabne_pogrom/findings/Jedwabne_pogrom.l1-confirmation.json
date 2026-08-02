@@ -1,0 +1,564 @@
+{
+  "schema_version": 2,
+  "article": "Jedwabne pogrom",
+  "run_ts": "2026-08-01T22:22:01.487285+00:00",
+  "corpus_horizon": {
+    "snapshot_date": "2026-07-01",
+    "snapshot_revid": 1363438688
+  },
+  "thresholds": {
+    "confirm_drop": 0.2,
+    "durable_quantile": 0.5,
+    "min_cohort": 500,
+    "magnitude_floor": 25.0,
+    "rolling_window_months": 12,
+    "rolling_tolerance_days": 35,
+    "rolling_drop": 20.0
+  },
+  "source_state": {
+    "article": "Jedwabne pogrom",
+    "source_status": "current_complete",
+    "source_checked_at": "2026-08-01T22:22:01.018241+00:00",
+    "source_latest_revid": 1363506741,
+    "expected_snapshots": 50,
+    "loaded_snapshots": 50,
+    "reason": null
+  },
+  "coarse_verdict": "PIVOT?",
+  "status": "confirmed",
+  "confirmed_episodes": [
+    {
+      "candidate_start": "2020-01-01",
+      "candidate_end": "2020-07-01",
+      "candidate_before_revid": 932771603,
+      "candidate_after_revid": 962603609,
+      "before_revid": 950771412,
+      "before_timestamp": "2020-04-13T19:12:42Z",
+      "after_revid": 950809202,
+      "after_timestamp": "2020-04-13T23:29:42Z",
+      "durable_spine_drop": 0.425399,
+      "pwr_mass": 232392,
+      "peak_pct": 80.07,
+      "source": "interval",
+      "status": "confirmed",
+      "duration_seconds": 15420,
+      "attribution": {
+        "schema_version": 3,
+        "policy_version": "multi-revision-attribution-v1",
+        "article": "Jedwabne pogrom",
+        "before_revid": 950771412,
+        "before_timestamp": "2020-04-13T19:12:42Z",
+        "after_revid": 950809202,
+        "after_timestamp": "2020-04-13T23:29:42Z",
+        "event_status": "standing",
+        "semantic_role": "event_participation_receipt",
+        "revisions": [
+          {
+            "revision_id": 950771412,
+            "timestamp": "2020-04-13T19:12:42Z",
+            "account": "SlimVirgin",
+            "account_type": "registered",
+            "role": "stable_before",
+            "restores_revision_id": null,
+            "parent_id": null,
+            "sha1": null,
+            "edit_summary": null,
+            "tags": [],
+            "size": 81878,
+            "size_delta": null,
+            "gross_removed_tokens": 0,
+            "gross_added_tokens": 0,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 0,
+            "standing_added_tokens": 0
+          },
+          {
+            "revision_id": 950809202,
+            "timestamp": "2020-04-13T23:29:42Z",
+            "account": "SlimVirgin",
+            "account_type": "registered",
+            "role": "consolidation",
+            "restores_revision_id": null,
+            "parent_id": null,
+            "sha1": null,
+            "edit_summary": null,
+            "tags": [],
+            "size": 78588,
+            "size_delta": -3290,
+            "gross_removed_tokens": 3290,
+            "gross_added_tokens": 2240,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 3290,
+            "standing_added_tokens": 2240
+          }
+        ],
+        "gross": {
+          "removed_tokens": 3290,
+          "added_tokens": 2240,
+          "restored_tokens": 0
+        },
+        "net_standing": {
+          "removed_tokens": 3290,
+          "replacement_tokens": 2240
+        },
+        "removals_by_editor": [
+          {
+            "editor": "SlimVirgin",
+            "tokens": 3290
+          }
+        ],
+        "replacement_by_editor": [
+          {
+            "editor": "SlimVirgin",
+            "tokens": 2240
+          }
+        ],
+        "participation": {
+          "top_removal_share": 1.0,
+          "top_replacement_share": 1.0,
+          "top_two_removal_share": 1.0,
+          "same_top_editor": true
+        },
+        "removed_tokens": 3290,
+        "replacement_tokens": 2240,
+        "top_removal_share": 1.0,
+        "top_replacement_share": 1.0,
+        "top_two_removal_share": 1.0,
+        "same_top_editor": true,
+        "note": "Counts describe observable public revision operations and surviving token states; they do not establish identity, coordination, motive, ownership, or misconduct.",
+        "duration_seconds": 15420
+      }
+    }
+  ],
+  "evaluated_candidates": [
+    {
+      "candidate_start": "2020-01-01",
+      "candidate_end": "2020-07-01",
+      "candidate_before_revid": 932771603,
+      "candidate_after_revid": 962603609,
+      "source": "interval",
+      "pwr_mass": 232392,
+      "peak_pct": 80.07,
+      "exact_before_revid": 950771412,
+      "exact_before_timestamp": "2020-04-13T19:12:42Z",
+      "exact_after_revid": 950809202,
+      "exact_after_timestamp": "2020-04-13T23:29:42Z",
+      "durable_spine_drop": 0.425399,
+      "decision": "confirmed",
+      "rejection_reason": null
+    },
+    {
+      "candidate_start": "2026-07-01",
+      "candidate_end": "2026-07-01",
+      "candidate_before_revid": 1357128039,
+      "candidate_after_revid": 1363438688,
+      "source": "interval",
+      "pwr_mass": 202132,
+      "peak_pct": 65.88,
+      "decision": "rejected",
+      "rejection_reason": "insufficient_revision_evidence"
+    }
+  ],
+  "interval_profile": [
+    {
+      "start": "2002-01-01",
+      "end": "2002-07-01",
+      "size": 249,
+      "pwr_loss": 9.64,
+      "pwr_removed": 24,
+      "mature": false
+    },
+    {
+      "start": "2002-07-01",
+      "end": "2003-01-01",
+      "size": 249,
+      "pwr_loss": 3.59,
+      "pwr_removed": 17,
+      "mature": false
+    },
+    {
+      "start": "2003-01-01",
+      "end": "2003-07-01",
+      "size": 250,
+      "pwr_loss": 5.8,
+      "pwr_removed": 41,
+      "mature": false
+    },
+    {
+      "start": "2003-07-01",
+      "end": "2004-01-01",
+      "size": 278,
+      "pwr_loss": 2.12,
+      "pwr_removed": 20,
+      "mature": false
+    },
+    {
+      "start": "2004-01-01",
+      "end": "2004-07-01",
+      "size": 343,
+      "pwr_loss": 0.08,
+      "pwr_removed": 1,
+      "mature": false
+    },
+    {
+      "start": "2004-07-01",
+      "end": "2005-01-01",
+      "size": 444,
+      "pwr_loss": 9.57,
+      "pwr_removed": 164,
+      "mature": false
+    },
+    {
+      "start": "2005-01-01",
+      "end": "2005-07-01",
+      "size": 509,
+      "pwr_loss": 38.92,
+      "pwr_removed": 801,
+      "mature": false
+    },
+    {
+      "start": "2005-07-01",
+      "end": "2006-01-01",
+      "size": 690,
+      "pwr_loss": 21.52,
+      "pwr_removed": 419,
+      "mature": false
+    },
+    {
+      "start": "2006-01-01",
+      "end": "2006-07-01",
+      "size": 1186,
+      "pwr_loss": 38.21,
+      "pwr_removed": 1037,
+      "mature": false
+    },
+    {
+      "start": "2006-07-01",
+      "end": "2007-01-01",
+      "size": 1360,
+      "pwr_loss": 5.7,
+      "pwr_removed": 173,
+      "mature": false
+    },
+    {
+      "start": "2007-01-01",
+      "end": "2007-07-01",
+      "size": 1558,
+      "pwr_loss": 17.65,
+      "pwr_removed": 782,
+      "mature": false
+    },
+    {
+      "start": "2007-07-01",
+      "end": "2008-01-01",
+      "size": 1903,
+      "pwr_loss": 6.02,
+      "pwr_removed": 334,
+      "mature": false
+    },
+    {
+      "start": "2008-01-01",
+      "end": "2008-07-01",
+      "size": 2265,
+      "pwr_loss": 16.66,
+      "pwr_removed": 1250,
+      "mature": false
+    },
+    {
+      "start": "2008-07-01",
+      "end": "2009-01-01",
+      "size": 4018,
+      "pwr_loss": 3.82,
+      "pwr_removed": 392,
+      "mature": false
+    },
+    {
+      "start": "2009-01-01",
+      "end": "2009-07-01",
+      "size": 4195,
+      "pwr_loss": 12.54,
+      "pwr_removed": 1766,
+      "mature": false
+    },
+    {
+      "start": "2009-07-01",
+      "end": "2010-01-01",
+      "size": 6687,
+      "pwr_loss": 14.04,
+      "pwr_removed": 2668,
+      "mature": false
+    },
+    {
+      "start": "2010-01-01",
+      "end": "2010-07-01",
+      "size": 8778,
+      "pwr_loss": 3.5,
+      "pwr_removed": 881,
+      "mature": false
+    },
+    {
+      "start": "2010-07-01",
+      "end": "2011-01-01",
+      "size": 8558,
+      "pwr_loss": 2.03,
+      "pwr_removed": 669,
+      "mature": false
+    },
+    {
+      "start": "2011-01-01",
+      "end": "2011-07-01",
+      "size": 9003,
+      "pwr_loss": 3.29,
+      "pwr_removed": 1358,
+      "mature": false
+    },
+    {
+      "start": "2011-07-01",
+      "end": "2012-01-01",
+      "size": 10319,
+      "pwr_loss": 24.3,
+      "pwr_removed": 12210,
+      "mature": false
+    },
+    {
+      "start": "2012-01-01",
+      "end": "2012-07-01",
+      "size": 14010,
+      "pwr_loss": 1.34,
+      "pwr_removed": 698,
+      "mature": false
+    },
+    {
+      "start": "2012-07-01",
+      "end": "2013-01-01",
+      "size": 14580,
+      "pwr_loss": 4.31,
+      "pwr_removed": 2842,
+      "mature": false
+    },
+    {
+      "start": "2013-01-01",
+      "end": "2013-07-01",
+      "size": 16255,
+      "pwr_loss": 3.22,
+      "pwr_removed": 2560,
+      "mature": true
+    },
+    {
+      "start": "2013-07-01",
+      "end": "2014-01-01",
+      "size": 16462,
+      "pwr_loss": 2.31,
+      "pwr_removed": 2163,
+      "mature": true
+    },
+    {
+      "start": "2014-01-01",
+      "end": "2014-07-01",
+      "size": 16311,
+      "pwr_loss": 0.29,
+      "pwr_removed": 315,
+      "mature": true
+    },
+    {
+      "start": "2014-07-01",
+      "end": "2015-01-01",
+      "size": 16359,
+      "pwr_loss": 0.5,
+      "pwr_removed": 623,
+      "mature": true
+    },
+    {
+      "start": "2015-01-01",
+      "end": "2015-07-01",
+      "size": 16518,
+      "pwr_loss": 1.8,
+      "pwr_removed": 2522,
+      "mature": true
+    },
+    {
+      "start": "2015-07-01",
+      "end": "2016-01-01",
+      "size": 16613,
+      "pwr_loss": 0.03,
+      "pwr_removed": 44,
+      "mature": true
+    },
+    {
+      "start": "2016-01-01",
+      "end": "2016-07-01",
+      "size": 16659,
+      "pwr_loss": 0.25,
+      "pwr_removed": 419,
+      "mature": true
+    },
+    {
+      "start": "2016-07-01",
+      "end": "2017-01-01",
+      "size": 16762,
+      "pwr_loss": 2.22,
+      "pwr_removed": 4143,
+      "mature": true
+    },
+    {
+      "start": "2017-01-01",
+      "end": "2017-07-01",
+      "size": 16757,
+      "pwr_loss": 0.1,
+      "pwr_removed": 195,
+      "mature": true
+    },
+    {
+      "start": "2017-07-01",
+      "end": "2018-01-01",
+      "size": 16960,
+      "pwr_loss": 0.08,
+      "pwr_removed": 173,
+      "mature": true
+    },
+    {
+      "start": "2018-01-01",
+      "end": "2018-07-01",
+      "size": 17835,
+      "pwr_loss": 14.88,
+      "pwr_removed": 34924,
+      "mature": true
+    },
+    {
+      "start": "2018-07-01",
+      "end": "2019-01-01",
+      "size": 24898,
+      "pwr_loss": 1.19,
+      "pwr_removed": 2681,
+      "mature": true
+    },
+    {
+      "start": "2019-01-01",
+      "end": "2019-07-01",
+      "size": 25511,
+      "pwr_loss": 1.42,
+      "pwr_removed": 3527,
+      "mature": true
+    },
+    {
+      "start": "2019-07-01",
+      "end": "2020-01-01",
+      "size": 25047,
+      "pwr_loss": 2.03,
+      "pwr_removed": 5479,
+      "mature": true
+    },
+    {
+      "start": "2020-01-01",
+      "end": "2020-07-01",
+      "size": 25087,
+      "pwr_loss": 80.07,
+      "pwr_removed": 232392,
+      "mature": true
+    },
+    {
+      "start": "2020-07-01",
+      "end": "2021-01-01",
+      "size": 18470,
+      "pwr_loss": 1.01,
+      "pwr_removed": 773,
+      "mature": true
+    },
+    {
+      "start": "2021-01-01",
+      "end": "2021-07-01",
+      "size": 18799,
+      "pwr_loss": 2.84,
+      "pwr_removed": 2699,
+      "mature": true
+    },
+    {
+      "start": "2021-07-01",
+      "end": "2022-01-01",
+      "size": 19743,
+      "pwr_loss": 4.56,
+      "pwr_removed": 5138,
+      "mature": true
+    },
+    {
+      "start": "2022-01-01",
+      "end": "2022-07-01",
+      "size": 20118,
+      "pwr_loss": 0.42,
+      "pwr_removed": 532,
+      "mature": true
+    },
+    {
+      "start": "2022-07-01",
+      "end": "2023-01-01",
+      "size": 20248,
+      "pwr_loss": 0.21,
+      "pwr_removed": 313,
+      "mature": true
+    },
+    {
+      "start": "2023-01-01",
+      "end": "2023-07-01",
+      "size": 20338,
+      "pwr_loss": 2.75,
+      "pwr_removed": 4613,
+      "mature": true
+    },
+    {
+      "start": "2023-07-01",
+      "end": "2024-01-01",
+      "size": 20449,
+      "pwr_loss": 0.04,
+      "pwr_removed": 74,
+      "mature": true
+    },
+    {
+      "start": "2024-01-01",
+      "end": "2024-07-01",
+      "size": 20536,
+      "pwr_loss": 0.43,
+      "pwr_removed": 880,
+      "mature": true
+    },
+    {
+      "start": "2024-07-01",
+      "end": "2025-01-01",
+      "size": 20555,
+      "pwr_loss": 0.05,
+      "pwr_removed": 102,
+      "mature": true
+    },
+    {
+      "start": "2025-01-01",
+      "end": "2025-07-01",
+      "size": 20622,
+      "pwr_loss": 0.17,
+      "pwr_removed": 428,
+      "mature": true
+    },
+    {
+      "start": "2025-07-01",
+      "end": "2026-01-01",
+      "size": 20607,
+      "pwr_loss": 0.04,
+      "pwr_removed": 103,
+      "mature": true
+    },
+    {
+      "start": "2026-01-01",
+      "end": "2026-07-01",
+      "size": 20859,
+      "pwr_loss": 0.02,
+      "pwr_removed": 64,
+      "mature": true
+    },
+    {
+      "start": "2026-07-01",
+      "end": "2026-07-01",
+      "size": 20932,
+      "pwr_loss": 65.88,
+      "pwr_removed": 202132,
+      "mature": true
+    }
+  ]
+}

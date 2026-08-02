@@ -19,7 +19,9 @@ import duckdb
 import mwparserfromhell
 
 from . import config, drift
-from .stance import classify, focal_passage, STANCE_VAL, default_entities
+from .corpus import Corpus
+from .stance import (STANCE_PROMPT_VERSION, STANCE_SCHEMA_VERSION, STANCE_VAL, classify,
+                     default_entities, focal_passage)
 
 _S = config.session()
 MAX_CHARS = 6000
@@ -211,9 +213,19 @@ def _en_gap(vals_by_lang, ents):
 
 
 def _l1_pivot(article):
-    """(pivot_date, source) from L1's top episode start, else the Oct-2023 fallback."""
+    """Return a supported pivot date, suppressing candidates rejected by fresh L1 confirmation."""
+    from . import pipeline
+
     con = duckdb.connect(str(config.DB), read_only=True)
     try:
+        corpus = Corpus(con)
+        horizon = corpus.latest_snapshot(article)
+        confirmation = drift.load_confirmation(article)
+        if pipeline.confirmation_is_fresh(confirmation, horizon):
+            if confirmation.get("status") != "confirmed":
+                return None, "fresh L1 confirmation rejected the candidate"
+            episode = (confirmation.get("confirmed_episodes") or [])[0]
+            return episode["candidate_start"], "confirmed L1"
         d = drift.verdict_dict(con, article)
     finally:
         con.close()
@@ -233,6 +245,8 @@ def _read_gap(gb, ga, eps=0.25):
 def pivot_relative(client, article, langs, links, ents, labels):
     """English-vs-others stance gap before vs after the L1 pivot."""
     pivot_date, src = _l1_pivot(article)
+    if pivot_date is None:
+        return None
     snap = {"before": {}, "after": {}}
     for when, ts in (("before", f"{pivot_date}T00:00:00Z"), ("after", None)):
         for l in langs:
@@ -246,15 +260,24 @@ def pivot_relative(client, article, langs, links, ents, labels):
             "read": read, "before": snap["before"], "after": snap["after"]}
 
 
-def emit_findings(article, qid, langs, ents, meta, stat, pr=None):
+def emit_findings(article, qid, langs, ents, meta, stat, pr=None, model_contract=None):
     """Persist viewer-shaped findings (receipts + stance + divergence) into config.FINDINGS,
     mirroring the frozen 012a/012b/012c shapes so a NEW article flows straight to the site."""
     slug = config.slugify(article)
     config.write_findings(f"{slug}.receipts.json", {"article": article, "qid": qid, "editions": meta})
     config.write_findings(f"{slug}.stance.json",
-                          {"article": article, "langs": langs, "entities": ents, "editions": stat["editions"]})
+                          {"schema_version": STANCE_SCHEMA_VERSION,
+                           "prompt_version": STANCE_PROMPT_VERSION,
+                           "model_contract": model_contract,
+                           "article": article, "langs": langs, "entities": ents,
+                           "editions": stat["editions"]})
     div = config.load_findings("divergence.json", {"static": {}, "pivot_relative": {}})
-    div.setdefault("static", {})[article] = {"variants": stat["variants"]}
+    div.setdefault("static", {})[article] = {
+        "schema_version": STANCE_SCHEMA_VERSION,
+        "prompt_version": STANCE_PROMPT_VERSION,
+        "model_contract": model_contract,
+        "variants": stat["variants"],
+    }
     if pr:
         div.setdefault("pivot_relative", {})[article] = pr
     config.write_findings("divergence.json", div)
@@ -293,14 +316,23 @@ def crosslingual(article, langs=None, pivot=True, persist=True, provider=None, m
     for v in ("lead", "focal"):
         d = stat["variants"][v]
         print(f"    [{v:>5}] {d['divergence']:.2f}   {d['spreads']}")
-    result = {"article": article, "langs": langs, "static": stat}
+    model_contract = {
+        "provider": getattr(client, "provider", None),
+        "model": getattr(client, "model", None),
+        "prompt_version": STANCE_PROMPT_VERSION,
+    }
+    result = {"article": article, "langs": langs, "static": stat,
+              "model_contract": model_contract}
     pr = None
     if pivot:
         pr = pivot_relative(client, article, langs, links, ents, labels)
-        print(f"  PIVOT-RELATIVE: pivot {pr['pivot']} [{pr['pivot_source']}]")
-        print(f"    English-vs-others gap: before {pr['en_gap_before']} → after {pr['en_gap_after']}  ⇒ {pr['read']}")
-        result["pivot_relative"] = pr
+        if pr:
+            print(f"  PIVOT-RELATIVE: pivot {pr['pivot']} [{pr['pivot_source']}]")
+            print(f"    English-vs-others gap: before {pr['en_gap_before']} → after {pr['en_gap_after']}  ⇒ {pr['read']}")
+            result["pivot_relative"] = pr
+        else:
+            print("  PIVOT-RELATIVE: skipped (fresh L1 confirmation rejected the candidate)")
     if persist:
-        emit_findings(article, qid, langs, ents, meta, stat, pr)
+        emit_findings(article, qid, langs, ents, meta, stat, pr, model_contract)
     print("  (LEAD, not a verdict — makes cross-lingual disagreement legible.)")
     return result

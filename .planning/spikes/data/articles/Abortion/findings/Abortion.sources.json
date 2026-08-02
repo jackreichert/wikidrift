@@ -1,0 +1,935 @@
+{
+  "article": "Abortion",
+  "pivot": "2010-01-01",
+  "span": "2010-01-01 → 2026-01-01  (across the L1 pivot ~2010-01-01)",
+  "before": {
+    "date": "2010-01-01",
+    "refs": 153,
+    "n_domains": 70,
+    "cite_mix": {
+      "journal": 50,
+      "web": 22,
+      "book": 22,
+      "news": 7
+    },
+    "domains": {
+      "books.google.com": 13,
+      "guttmacher.org": 9,
+      "who.int": 6,
+      "news.bbc.co.uk": 2,
+      "medicinenet.com": 1,
+      "ncsl.org": 1,
+      "emedicine.com": 2,
+      "cdc.gov": 2,
+      "webmd.com": 1,
+      "encarta.msn.com": 1,
+      "webcitation.org": 1,
+      "informaworld.com": 1,
+      "content.karger.com": 1,
+      "blackwell-synergy.com": 1,
+      "nuffieldbioethics.org": 1,
+      "racgp.org.au": 1,
+      "womensmedcenter.com": 1,
+      "pbs.org": 1,
+      "jstor.org": 1,
+      "findarticles.com": 1,
+      "apa.org": 1,
+      "nytimes.com": 3,
+      "jhsph.edu": 1,
+      "washingtonmonthly.com": 1,
+      "dh.gov.uk": 1,
+      "popline.org": 1,
+      "stoa.org": 1,
+      "facts.randomhistory.com": 1,
+      "en.wikisource.org": 1,
+      "civilliberty.about.com": 1,
+      "mysite.verizon.net": 1,
+      "cbctrust.com": 2,
+      "census.gov": 1,
+      "www2.eastwestcenter.org": 1,
+      "cgi.unc.edu": 1,
+      "hsph.harvard.edu": 2,
+      "alertnet.org": 2,
+      "agi-usa.org": 1,
+      "china.org.cn": 1,
+      "infoforhealth.org": 1,
+      "media.mcclatchydc.com": 1,
+      "people-press.org": 1,
+      "thebrusselsconnection.be": 1,
+      "pewresearch.org": 1,
+      "angus-reid.com": 4,
+      "rcog.org.uk": 2,
+      "oversight.house.gov": 1,
+      "msnbc.msn.com": 1,
+      "washingtonpost.com": 2,
+      "seminperinat.com": 1,
+      "ohioroundtable.org": 1,
+      "americancatholic.org": 1,
+      "press-pubs.uchicago.edu": 1,
+      "hlsl5.law.harvard.edu": 1,
+      "members.aol.com": 1,
+      "un.org": 2,
+      "lawserver.com": 1,
+      "ipas.org": 1,
+      "insidecostarica.com": 1,
+      "csmonitor.com": 1,
+      "prochoice.org": 1,
+      "rhrealitycheck.org": 1,
+      "statehealthfacts.kff.org": 1,
+      "teara.govt.nz": 1,
+      "nature.com": 1,
+      "af.czu.cz": 1,
+      "ivb.cz": 1,
+      "springerlink.com": 2,
+      "nlm.nih.gov": 1,
+      "johnstonsarchive.net": 1
+    }
+  },
+  "after": {
+    "date": "2026-01-01",
+    "refs": 375,
+    "n_domains": 107,
+    "cite_mix": {
+      "journal": 42,
+      "web": 27,
+      "book": 24,
+      "news": 5,
+      "report": 1,
+      "press": 0
+    },
+    "domains": {
+      "oxfordbibliographies.com": 2,
+      "oxcon.ouplaw.com": 1,
+      "oed.com": 2,
+      "en.oxforddictionaries.com": 2,
+      "books.google.com": 30,
+      "nichd.nih.gov": 2,
+      "srhr.org": 4,
+      "merckmanuals.com": 2,
+      "guttmacher.org": 38,
+      "who.int": 24,
+      "foreignpolicy.com": 2,
+      "foxnews.com": 2,
+      "huffingtonpost.com": 2,
+      "apnews.com": 4,
+      "media.wiley.com": 4,
+      "apps.who.int": 9,
+      "emedicine.com": 1,
+      "emedicine.medscape.com": 1,
+      "contraceptionjournal.org": 8,
+      "fam.state.gov": 2,
+      "medicinenet.com": 2,
+      "archive.org": 12,
+      "ncsl.org": 1,
+      "archive.today": 2,
+      "fda.gov": 2,
+      "escholarship.org": 2,
+      "whqlibdoc.who.int": 6,
+      "gov.uk": 1,
+      "assets.publishing.service.gov.uk": 1,
+      "sante.gouv.fr": 2,
+      "bfs.admin.ch": 2,
+      "stakes.fi": 2,
+      "webmd.com": 2,
+      "glowm.com": 2,
+      "prochoice.org": 8,
+      "racgp.org.au": 2,
+      "thelancet.com": 2,
+      "nap.edu": 2,
+      "cdc.gov": 4,
+      "archfami.ama-assn.org": 2,
+      "researchonline.lshtm.ac.uk": 2,
+      "acog.org": 4,
+      "iris.unina.it": 2,
+      "ajog.org": 2,
+      "apa.org": 6,
+      "cancer.gov": 2,
+      "cancer.org": 2,
+      "rcog.org.uk": 2,
+      "jogc.org": 2,
+      "sogc.org": 2,
+      "zenodo.org": 2,
+      "samj.org.za": 2,
+      "info.k4health.org": 2,
+      "nytimes.com": 2,
+      "insse.ro": 2,
+      "dh.gov.uk": 2,
+      "ncbi.nlm.nih.gov": 1,
+      "kff.org": 2,
+      "researchgate.net": 2,
+      "perseus.tufts.edu": 2,
+      "nationalgeographic.com": 2,
+      "time.com": 2,
+      "npr.org": 2,
+      "fivethirtyeight.com": 2,
+      "clioandthecontemporary.com": 2,
+      "washingtonpost.com": 1,
+      "bbc.com": 4,
+      "cbctrust.com": 1,
+      "legacyicons.com": 2,
+      "embryo.asu.edu": 2,
+      "daily.jstor.org": 2,
+      "newadvent.org": 2,
+      "vatican.va": 2,
+      "myjewishlearning.com": 2,
+      "reclaimingjudaism.org": 2,
+      "ncjw.org": 1,
+      "ghostarchive.org": 1,
+      "aljazeera.com": 2,
+      "bbc.co.uk": 2,
+      "prb.org": 2,
+      "hinduism.stackexchange.com": 1,
+      "ijcrt.org": 1,
+      "pewresearch.org": 5,
+      "wma.net": 2,
+      "internationalfamilyplanningperspectives.org": 2,
+      "theguardian.com": 4,
+      "ipas.org": 2,
+      "insidecostarica.com": 2,
+      "rhrealitycheck.org": 2,
+      "census.gov": 2,
+      "alertnet.org": 2,
+      "hsph.harvard.edu": 2,
+      "loc.gov": 2,
+      "china.org.cn": 2,
+      "unfpa.org": 2,
+      "assembly.coe.int": 2,
+      "csis-scrs.gc.ca": 2,
+      "teara.govt.nz": 2,
+      "ag.arizona.edu": 2,
+      "painthorsejournal.com": 2,
+      "marxiv.org": 2,
+      "petmd.com": 4,
+      "carolsferals.org": 4,
+      "af.czu.cz": 2,
+      "ivb.cz": 2,
+      "un.org": 2,
+      "guideline.gov": 1
+    }
+  },
+  "added": [
+    {
+      "domain": "guttmacher.org",
+      "from": 9,
+      "to": 38
+    },
+    {
+      "domain": "who.int",
+      "from": 6,
+      "to": 24
+    },
+    {
+      "domain": "books.google.com",
+      "from": 13,
+      "to": 30
+    },
+    {
+      "domain": "archive.org",
+      "from": 0,
+      "to": 12
+    },
+    {
+      "domain": "apps.who.int",
+      "from": 0,
+      "to": 9
+    },
+    {
+      "domain": "contraceptionjournal.org",
+      "from": 0,
+      "to": 8
+    },
+    {
+      "domain": "prochoice.org",
+      "from": 1,
+      "to": 8
+    },
+    {
+      "domain": "whqlibdoc.who.int",
+      "from": 0,
+      "to": 6
+    },
+    {
+      "domain": "apa.org",
+      "from": 1,
+      "to": 6
+    },
+    {
+      "domain": "pewresearch.org",
+      "from": 1,
+      "to": 5
+    },
+    {
+      "domain": "petmd.com",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "apnews.com",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "srhr.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "theguardian.com",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "media.wiley.com",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "acog.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "carolsferals.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "bbc.com",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "time.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "info.k4health.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "marxiv.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "daily.jstor.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "nap.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "researchgate.net",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "stakes.fi",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "vatican.va",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "merckmanuals.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "kff.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "fivethirtyeight.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "legacyicons.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "iris.unina.it",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "archfami.ama-assn.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "ag.arizona.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "internationalfamilyplanningperspectives.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "fda.gov",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "zenodo.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "prb.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "en.oxforddictionaries.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "jogc.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "cancer.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "bfs.admin.ch",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "perseus.tufts.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "embryo.asu.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "cdc.gov",
+      "from": 2,
+      "to": 4
+    },
+    {
+      "domain": "clioandthecontemporary.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "glowm.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "reclaimingjudaism.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "thelancet.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "sogc.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "archive.today",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "csis-scrs.gc.ca",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "unfpa.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "nationalgeographic.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "aljazeera.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "oed.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "npr.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "ajog.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "loc.gov",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "insse.ro",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "foreignpolicy.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "researchonline.lshtm.ac.uk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "escholarship.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "newadvent.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "nichd.nih.gov",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "cancer.gov",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "fam.state.gov",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "foxnews.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "bbc.co.uk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "assembly.coe.int",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "myjewishlearning.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "oxfordbibliographies.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "samj.org.za",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "huffingtonpost.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "painthorsejournal.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "sante.gouv.fr",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "wma.net",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "rhrealitycheck.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "gov.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "medicinenet.com",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "ijcrt.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ivb.cz",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "teara.govt.nz",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "dh.gov.uk",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "assets.publishing.service.gov.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "oxcon.ouplaw.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "census.gov",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "ghostarchive.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "hinduism.stackexchange.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ncjw.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "china.org.cn",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "ncbi.nlm.nih.gov",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "guideline.gov",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "webmd.com",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "af.czu.cz",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "ipas.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "emedicine.medscape.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "racgp.org.au",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "insidecostarica.com",
+      "from": 1,
+      "to": 2
+    }
+  ],
+  "dropped": [
+    {
+      "domain": "angus-reid.com",
+      "from": 4,
+      "to": 0
+    },
+    {
+      "domain": "news.bbc.co.uk",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "springerlink.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "content.karger.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "thebrusselsconnection.be",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "pbs.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "washingtonmonthly.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "cbctrust.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "stoa.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "civilliberty.about.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "americancatholic.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "emedicine.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "findarticles.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "msnbc.msn.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "informaworld.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "popline.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "nlm.nih.gov",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "mysite.verizon.net",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "webcitation.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "lawserver.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "nature.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "cgi.unc.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "johnstonsarchive.net",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "csmonitor.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "people-press.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "agi-usa.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "seminperinat.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "media.mcclatchydc.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "washingtonpost.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "statehealthfacts.kff.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "members.aol.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "jhsph.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "nuffieldbioethics.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "facts.randomhistory.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "encarta.msn.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "womensmedcenter.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "hlsl5.law.harvard.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "www2.eastwestcenter.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "en.wikisource.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "nytimes.com",
+      "from": 3,
+      "to": 2
+    },
+    {
+      "domain": "ohioroundtable.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "oversight.house.gov",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "jstor.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "infoforhealth.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "blackwell-synergy.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "press-pubs.uchicago.edu",
+      "from": 1,
+      "to": 0
+    }
+  ],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD."
+}

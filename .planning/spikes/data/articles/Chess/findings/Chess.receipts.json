@@ -1,0 +1,27 @@
+{
+  "article": "Chess",
+  "qid": "Q718",
+  "editions": {
+    "en": {
+      "present": true,
+      "revid": 1363948440,
+      "title": "Chess",
+      "timestamp": "2026-07-13T14:01:55Z",
+      "prose_chars": 81282
+    },
+    "he": {
+      "present": true,
+      "revid": 43585683,
+      "title": "שחמט",
+      "timestamp": "2026-07-13T00:13:54Z",
+      "prose_chars": 60984
+    },
+    "ar": {
+      "present": true,
+      "revid": 75672078,
+      "title": "شطرنج",
+      "timestamp": "2026-06-26T08:14:48Z",
+      "prose_chars": 30493
+    }
+  }
+}

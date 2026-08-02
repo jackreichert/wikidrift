@@ -12,6 +12,12 @@ Something worth opening and checking. **Not** a conviction, and **not** proof of
 A stretch of time when a large share of wording that had been stable for a long time was replaced and
 the replacement stayed. Open the before-and-after view and read it yourself.
 
+## “Candidate” vs “confirmed”
+
+A **candidate** is a time window selected for closer inspection. It may come from one sharp interval or
+from sustained loss across roughly twelve months. **Confirmed** means the underlying revision history
+also shows the required collapse of long-lived wording. Neither term means the rewrite was biased.
+
 ## “Overview”
 
 The short briefing at the top of an article page. Begin there; use the other tabs only if you want
@@ -41,6 +47,14 @@ Ignore it if the rewrite text already makes the story clear.
 
 A large share of today’s text comes from a small number of accounts. Common on specialist pages.
 Context only — not evidence of a conspiracy.
+
+## “Exact-event attribution”
+
+For one confirmed event, the public edit history is read as an ordered sequence between stable before
+and after states. The receipt separates every observed addition, removal, and restoration from the
+removals and replacement wording still standing at the after state. Raw per-revision counts reproduce
+the displayed shares. It describes observable revision history, not bias, motive, coordination, or
+misconduct.
 
 ## “Heavily contested” vs “not heavily contested”
 

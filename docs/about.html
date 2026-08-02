@@ -80,7 +80,7 @@
 </tr>
 <tr>
 <td><strong>L1: Find the rewrite</strong></td>
-<td>Looks for large, lasting removal of wording that had been stable for a long time. A full analysis then narrows the strongest candidate windows to the dominant revision pair and attributes the public edits.</td>
+<td>Looks for large, lasting removal of wording that had been stable for a long time. It checks sharp interval changes first, then rolling twelve-month loss if those candidates do not confirm. Every candidate must pass the same revision-level collapse test before attribution.</td>
 <td><a href="https://doi.org/10.1145/1641309.1641332">Persistent Word Revisions (Halfaker et al., 2009)</a>, <a href="https://archives.iw3c2.org/www2007/papers/paper692.pdf">WikiTrust (Adler &amp; de Alfaro, 2007)</a>, <a href="https://doi.org/10.1145/2566486.2568026">WikiWho</a>, and <a href="https://arxiv.org/abs/1703.08244">TokTrack</a></td>
 </tr>
 <tr>
@@ -133,6 +133,7 @@
 <h2>What's Novel?</h2>
 <p>No one publication supplies the entire pipeline. This project's contribution is the composition:
 - Discover content displacement without a seed list
+- Separate a high-precision interval search from a rolling recall pass while keeping one confirmation standard
 - Refine a coarse change window to the dominant revision pair by binary-searching the survival of long-lived wording
 - Attribute the measured change through provenance
 - Add semantic and external-reference checks

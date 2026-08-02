@@ -1,0 +1,119 @@
+{
+  "article": "Palestinian political violence",
+  "category": "israeli-palestinian",
+  "mode": "static",
+  "pivot_window": null,
+  "editions_compared": [
+    "en",
+    "ar",
+    "he",
+    "fr",
+    "simple"
+  ],
+  "lead_chars": {
+    "en": 2245,
+    "ar": 805,
+    "he": 344,
+    "fr": 190,
+    "simple": 349
+  },
+  "snapshots": null,
+  "divergences": [
+    {
+      "topic": "Core framing/naming of phenomenon",
+      "editions_differ": [
+        "AR"
+      ],
+      "en_says": "Frames the topic as 'Palestinian political violence' taking the form of insurgency due to lack of a recognized state, listing objectives like self-determination and ending occupation.",
+      "other_says": "Frames the topic as 'Palestinian Resistance' (المقاومة الفلسطينية), a term describing civil, popular, and armed resistance to Zionist occupation and colonization, tracing back to 1918 British occupation.",
+      "verdict": "contradict",
+      "evidence_en": "much of Palestinian political violence in the context of the Israeli–Palestinian conflict has taken the form of insurgency",
+      "evidence_other": "المقاومة الفلسطينية هو مصطلح يشير إلى الحراك والسياسات والدعوات والعمليات التي تدعو أو تدعم مقاومة الاحتلال والاضطهاد والاستعمار الصهيوني"
+    },
+    {
+      "topic": "Terrorism characterization",
+      "editions_differ": [
+        "HE",
+        "FR"
+      ],
+      "en_says": "Describes actions as 'political violence' and only notes some groups are 'considered terrorist organizations' by certain Western governments.",
+      "other_says": "Directly defines the entire phenomenon as 'terrorism' (טרור פלסטיני / terrorisme palestinien) without qualification about differing government designations.",
+      "verdict": "contradict",
+      "evidence_en": "Several of these groups are considered terrorist organizations by the governments of the United States, Canada, the United Kingdom, Japan, New Zealand and the European Union.",
+      "evidence_other": "טרור פלסטיני הוא טרור המבוצע על ידי פרטים או ארגונים פלסטיניים."
+    },
+    {
+      "topic": "Historical starting point",
+      "editions_differ": [
+        "AR",
+        "HE"
+      ],
+      "en_says": "Does not specify a historical starting date, focuses on modern Israeli-Palestinian conflict era with named groups like PLO, Fatah, Hamas.",
+      "other_says": "AR traces the concept back to 1918 British occupation and 1936 revolt; HE mentions Arab attacks on Jews during the British Mandate period even before the term 'Palestinian terrorism' existed.",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": "يستخدم المصطلح للإشارة إلى الفترة بين بدء الاحتلال البريطاني لفلسطين عام 1918م وحتى اليوم"
+    },
+    {
+      "topic": "Statistics on suicide bombings and public opinion",
+      "editions_differ": [
+        "AR",
+        "HE",
+        "FR",
+        "SIMPLE"
+      ],
+      "en_says": "Provides specific statistics: suicide bombings were 0.5% of attacks but caused half of Israeli deaths in first two years of Second Intifada; 59% of Palestinians as of 2022 believe armed attacks are effective, 56% support them.",
+      "other_says": "No statistical data provided in any other edition's lead.",
+      "verdict": "absent_other",
+      "evidence_en": null,
+      "evidence_other": null
+    },
+    {
+      "topic": "Named organizations and tactics list",
+      "editions_differ": [
+        "HE",
+        "FR",
+        "SIMPLE",
+        "AR"
+      ],
+      "en_says": "Lists specific organizations (PLO, Fatah, PFLP, Hamas, etc.) and detailed tactics (hijacking, suicide bombings, rocket attacks, October 7 attacks).",
+      "other_says": "HE and FR give only general definitional statements without naming specific organizations or tactics; AR mentions only Hamas by name; SIMPLE gives no organizations or tactics.",
+      "verdict": "absent_other",
+      "evidence_en": null,
+      "evidence_other": "Le terrorisme palestinien fait référence aux actes de terrorisme perpétrés par des individus ou des organisations palestiniennes"
+    },
+    {
+      "topic": "Goals of violence",
+      "editions_differ": [
+        "SIMPLE"
+      ],
+      "en_says": "States goals include self-determination, sovereignty, one-state solution or recognition of Palestinian state, ending occupation, prisoner release, and right of return.",
+      "other_says": "States the goal is 'disestablishment of the current State of Israel' and recognition of an 'all-Palestinian state', a notably different and more absolutist framing than EN's occupation-ending/coexistence framing.",
+      "verdict": "contradict",
+      "evidence_en": "seeking a one-state solution, or the recognition of a Palestinian state. This includes the objective of ending the Israeli occupation.",
+      "evidence_other": "The goals of Palestinian political violence include the disestablishment of the current State of Israel and the recognition of an all-Palestinian state."
+    }
+  ],
+  "summary": "The editions diverge significantly in framing and scope. EN presents a detailed, statistics-heavy account centered on 'political violence'/insurgency with nuanced terrorism designations, named groups, and tactics. AR reframes the entire topic as legitimate 'resistance' (المقاومة) spanning back to 1918, avoiding the term terrorism entirely. HE and FR define the topic outright as 'terrorism' without EN's qualifications about differing international designations. SIMPLE presents a more absolutist goal (disestablishing Israel) compared to EN's more measured framing around ending occupation and self-determination. Statistical data and named organizations present in EN are largely absent from the shorter other-language leads.",
+  "run_ts": "2026-07-19T17:47:54.229892+00:00",
+  "model": "claude-sonnet-5",
+  "llm_usage": {
+    "calls": 1,
+    "input_tokens": 2769,
+    "output_tokens": 1929,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 2769,
+        "output_tokens": 1929,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
+  },
+  "elapsed_seconds": 25.866
+}

@@ -1,0 +1,75 @@
+{
+  "article": "Israeli–Palestinian conflict",
+  "asof": null,
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "citation": {
+    "mean_jaccard": 0.04,
+    "domains_per_edition": {
+      "en": 157,
+      "he": 23,
+      "ar": 30
+    }
+  },
+  "claim": {
+    "per_edition": {
+      "en": {
+        "When is the conflict said to have begun?": {
+          "question": "When is the conflict said to have begun?",
+          "answer": "The conflict began in the late 19th and early 20th centuries, with the rise of political Zionism and the arrival of Zionist settlers to Palestine.",
+          "value": "late 19th–early 20th century",
+          "evidence": "The Israeli–Palestinian conflict began in the late 19th and early 20th centuries, with the development of political Zionism and the arrival of Zionist settlers to Palestine."
+        },
+        "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+          "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+          "answer": "The article lists Palestinian refugees, the Israeli occupation of the West Bank and Gaza Strip, the status of Jerusalem, Israeli settlements, borders, security, water rights, the permit regime in the West Bank and Gaza Strip, Palestinian freedom of movement, and the Palestinian right of return.",
+          "value": "refugees, occupation of West Bank/Gaza, Jerusalem status, settlements, borders, security, water rights, permit regime, freedom of movement, right of return",
+          "evidence": "Key aspects of the conflict have included Palestinian refugees, the Israeli occupation of the West Bank and Gaza Strip, the status of Jerusalem, Israeli settlements, borders, security, water rights, the permit regime in the West Bank and in the Gaza Strip, Palestinian freedom of movement, and the Palestinian right of return."
+        }
+      },
+      "he": {
+        "When is the conflict said to have begun?": {
+          "question": "When is the conflict said to have begun?",
+          "answer": "The accepted view is that the conflict began with the British Balfour Declaration in 1917, though the underlying Jewish-Arab struggle predates the establishment of the State of Israel and continued afterward.",
+          "value": "1917",
+          "evidence": "העמדה המקובלת היא שראשיתו של הסכסוך בהצהרת בלפור הבריטית ב-1917"
+        },
+        "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+          "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+          "answer": "The article lists six main issues at the heart of the dispute: permanent borders, the status of Palestinian refugees (right of return), control over Jerusalem and the Temple Mount, division of water resources, settlements, and security arrangements.",
+          "value": "borders, refugees/right of return, Jerusalem/Temple Mount, water resources, settlements, security arrangements",
+          "evidence": "שש סוגיות עיקריות, העומדות כיום במוקד המחלוקת בין הצדדים הן – גבולות הקבע, מעמד הפליטים הפלסטינים (זכות השיבה), השליטה בירושלים ובהר הבית, חלוקת משאבי המים, ההתנחלויות והסדרי הביטחון."
+        }
+      },
+      "ar": {
+        "When is the conflict said to have begun?": {
+          "question": "When is the conflict said to have begun?",
+          "answer": "The conflict is said to have begun in 1897, with the First Zionist Congress.",
+          "value": "1897",
+          "evidence": "مصطلح يشار به إلى الخلاف السياسي والتاريخي والمشكلة الإنسانية في فلسطين بدءاً من عام 1897 (المؤتمر الصهيوني الأول) وحتى الوقت الحالي."
+        },
+        "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+          "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+          "answer": "The article centers the issue on the Zionist movement and Jewish immigration/settlement in Palestine, the legitimacy of the State of Israel, its occupation of Palestinian lands in stages, and the Palestinian refugee issue; it does not explicitly list borders, Jerusalem, or settlements as separate core disputed issues in this passage.",
+          "value": "refugees; legitimacy/occupation of Israel; Zionist settlement and immigration (borders, Jerusalem, and settlements not explicitly stated as separate core issues)",
+          "evidence": "كما تتمحور القضية الفلسطينية حول قضية اللاجئين الفلسطينيين وشرعية دولة إسرائيل واحتلالها للأراضي الفلسطينية بعدة مراحل."
+        }
+      }
+    },
+    "adjudication": [
+      {
+        "question": "When is the conflict said to have begun?",
+        "verdict": "contradict",
+        "note": "en cites late 19th–early 20th century, he cites 1917 (Balfour Declaration), ar cites 1897 (First Zionist Congress) — differing specific start dates/events."
+      },
+      {
+        "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+        "verdict": "differ",
+        "note": "All mention refugees, Jerusalem, and settlements/borders in some form, but en and he give explicit itemized lists of similar core issues while ar frames the dispute more broadly around Zionist immigration and Israel's legitimacy rather than listing discrete issues."
+      }
+    ]
+  }
+}

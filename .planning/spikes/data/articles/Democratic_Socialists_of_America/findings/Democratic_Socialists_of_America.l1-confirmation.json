@@ -1,0 +1,141 @@
+{
+  "article": "Democratic Socialists of America",
+  "run_ts": "2026-07-30T21:22:27.871529+00:00",
+  "corpus_horizon": {
+    "snapshot_date": "2026-07-01",
+    "snapshot_revid": 1362095016
+  },
+  "thresholds": {
+    "confirm_drop": 0.2,
+    "durable_quantile": 0.5,
+    "min_cohort": 500,
+    "magnitude_floor": 25.0,
+    "rolling_window_months": 12,
+    "rolling_tolerance_days": 35,
+    "rolling_drop": 20.0
+  },
+  "coarse_verdict": "PIVOT?",
+  "status": "confirmed",
+  "confirmed_episodes": [
+    {
+      "candidate_start": "2025-01-01",
+      "candidate_end": "2026-01-01",
+      "candidate_before_revid": 1266721233,
+      "candidate_after_revid": 1330568891,
+      "before_revid": 1321624877,
+      "before_timestamp": "2025-11-11T17:36:50Z",
+      "after_revid": 1321630141,
+      "after_timestamp": "2025-11-11T18:17:24Z",
+      "durable_spine_drop": 0.874827,
+      "pwr_mass": 204057,
+      "peak_pct": 85.19,
+      "source": "interval",
+      "status": "confirmed",
+      "duration_seconds": 2434,
+      "attribution": {
+        "before_revid": 1321624877,
+        "before_timestamp": "2025-11-11T17:36:50Z",
+        "after_revid": 1321630141,
+        "after_timestamp": "2025-11-11T18:17:24Z",
+        "duration_seconds": 2434,
+        "removed_tokens": 24741,
+        "replacement_tokens": 2046,
+        "removals_by_editor": [
+          {
+            "editor": "Goszei",
+            "tokens": 24741
+          }
+        ],
+        "replacement_by_editor": [
+          {
+            "editor": "Goszei",
+            "tokens": 2046
+          }
+        ],
+        "top_removal_share": 1.0,
+        "top_replacement_share": 1.0,
+        "same_top_editor": true,
+        "top_two_removal_share": 1.0
+      }
+    },
+    {
+      "candidate_start": "2021-01-01",
+      "candidate_end": "2024-07-01",
+      "candidate_before_revid": 998119705,
+      "candidate_after_revid": 1232289456,
+      "before_revid": 1221073215,
+      "before_timestamp": "2024-04-27T18:13:50Z",
+      "after_revid": 1221188190,
+      "after_timestamp": "2024-04-28T11:42:11Z",
+      "durable_spine_drop": 0.462529,
+      "pwr_mass": 75322,
+      "peak_pct": 28.52,
+      "source": "interval",
+      "status": "confirmed",
+      "duration_seconds": 62901,
+      "attribution": {
+        "before_revid": 1221073215,
+        "before_timestamp": "2024-04-27T18:13:50Z",
+        "after_revid": 1221188190,
+        "after_timestamp": "2024-04-28T11:42:11Z",
+        "duration_seconds": 62901,
+        "removed_tokens": 1848,
+        "replacement_tokens": 116,
+        "removals_by_editor": [
+          {
+            "editor": "Isaidnoway",
+            "tokens": 1848
+          }
+        ],
+        "replacement_by_editor": [
+          {
+            "editor": "Isaidnoway",
+            "tokens": 116
+          }
+        ],
+        "top_removal_share": 1.0,
+        "top_replacement_share": 1.0,
+        "same_top_editor": true,
+        "top_two_removal_share": 1.0
+      }
+    },
+    {
+      "candidate_start": "2020-01-01",
+      "candidate_end": "2020-07-01",
+      "candidate_before_revid": 933512719,
+      "candidate_after_revid": 965429042,
+      "before_revid": 951975376,
+      "before_timestamp": "2020-04-19T22:56:43Z",
+      "after_revid": 951977396,
+      "after_timestamp": "2020-04-19T23:12:16Z",
+      "durable_spine_drop": 0.340969,
+      "pwr_mass": 53292,
+      "peak_pct": 33.65,
+      "source": "interval",
+      "status": "confirmed",
+      "duration_seconds": 933,
+      "attribution": {
+        "before_revid": 951975376,
+        "before_timestamp": "2020-04-19T22:56:43Z",
+        "after_revid": 951977396,
+        "after_timestamp": "2020-04-19T23:12:16Z",
+        "duration_seconds": 933,
+        "removed_tokens": 2120,
+        "replacement_tokens": 0,
+        "removals_by_editor": [
+          {
+            "editor": "Wikieditor19920",
+            "tokens": 2120
+          }
+        ],
+        "replacement_by_editor": [],
+        "top_removal_share": 1.0,
+        "top_replacement_share": null,
+        "same_top_editor": false,
+        "top_two_removal_share": 1.0
+      }
+    }
+  ],
+  "attribution_backfill_ts": "2026-07-31T17:45:32.144208+00:00",
+  "schema_version": 2
+}

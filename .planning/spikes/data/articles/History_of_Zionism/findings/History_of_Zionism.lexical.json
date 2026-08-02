@@ -1,0 +1,301 @@
+{
+  "article": "History of Zionism",
+  "span": "2008-01-01 -> 2023-07-01 (no L1 pivot — whole history)",
+  "pivot": null,
+  "before": {
+    "date": "2008-01-01",
+    "rev": 178743838,
+    "tokens": 5464
+  },
+  "after": {
+    "date": "2023-07-01",
+    "rev": 1161219018,
+    "tokens": 8718
+  },
+  "js_divergence": 0.1522,
+  "overrepresented_after_terms": [
+    {
+      "term": "betar",
+      "before": 0,
+      "after": 20,
+      "delta": 20,
+      "log_odds": 3.2487
+    },
+    {
+      "term": "central",
+      "before": 0,
+      "after": 7,
+      "delta": 7,
+      "log_odds": 2.2417
+    },
+    {
+      "term": "levin",
+      "before": 0,
+      "after": 7,
+      "delta": 7,
+      "log_odds": 2.2417
+    },
+    {
+      "term": "nora",
+      "before": 0,
+      "after": 7,
+      "delta": 7,
+      "log_odds": 2.2417
+    },
+    {
+      "term": "trumpeldor",
+      "before": 0,
+      "after": 7,
+      "delta": 7,
+      "log_odds": 2.2417
+    },
+    {
+      "term": "america",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 2.0985
+    },
+    {
+      "term": "fee",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 2.0985
+    },
+    {
+      "term": "jehuda",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 2.0985
+    },
+    {
+      "term": "paying",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 2.0985
+    },
+    {
+      "term": "president",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 2.0985
+    },
+    {
+      "term": "protocols",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 2.0985
+    },
+    {
+      "term": "reinharz",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 2.0985
+    },
+    {
+      "term": "trotsky",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 2.0985
+    },
+    {
+      "term": "youth",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 2.0985
+    },
+    {
+      "term": "administration",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 1.9313
+    },
+    {
+      "term": "armies",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 1.9313
+    },
+    {
+      "term": "bjpa",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 1.9313
+    },
+    {
+      "term": "bolsheviks",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 1.9313
+    },
+    {
+      "term": "defense",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 1.9313
+    },
+    {
+      "term": "england",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 1.9313
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "isbn",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.866
+    },
+    {
+      "term": "attempted",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.6651
+    },
+    {
+      "term": "finkelstein",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.6651
+    },
+    {
+      "term": "too",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.6651
+    },
+    {
+      "term": "expulsion",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.4136
+    },
+    {
+      "term": "hilchos",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.4136
+    },
+    {
+      "term": "image",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.4136
+    },
+    {
+      "term": "intellectual",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.4136
+    },
+    {
+      "term": "nasser",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.4136
+    },
+    {
+      "term": "thinker",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.4136
+    },
+    {
+      "term": "upon",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.4136
+    },
+    {
+      "term": "whether",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.4136
+    },
+    {
+      "term": "even",
+      "before": 7,
+      "after": 1,
+      "delta": -6,
+      "log_odds": -2.0778
+    },
+    {
+      "term": "argued",
+      "before": 6,
+      "after": 1,
+      "delta": -5,
+      "log_odds": -1.9345
+    },
+    {
+      "term": "centuries",
+      "before": 6,
+      "after": 1,
+      "delta": -5,
+      "log_odds": -1.9345
+    },
+    {
+      "term": "others",
+      "before": 5,
+      "after": 1,
+      "delta": -4,
+      "log_odds": -1.7673
+    },
+    {
+      "term": "alternative",
+      "before": 4,
+      "after": 1,
+      "delta": -3,
+      "log_odds": -1.5664
+    },
+    {
+      "term": "presence",
+      "before": 4,
+      "after": 1,
+      "delta": -3,
+      "log_odds": -1.5664
+    },
+    {
+      "term": "proposals",
+      "before": 4,
+      "after": 1,
+      "delta": -3,
+      "log_odds": -1.5664
+    },
+    {
+      "term": "rather",
+      "before": 4,
+      "after": 1,
+      "delta": -3,
+      "log_odds": -1.5664
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

@@ -1,0 +1,104 @@
+{
+  "article": "Palestinian political violence",
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "entities": [
+    "Palestinians",
+    "Israel"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "Most of the people in question were refugees attempting to return to their homes... to gather crops from their former fields and orchards inside the new Israeli state."
+        },
+        "Israel": {
+          "entity": "Israel",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "Meron Benivasti states that the fact that the 'infiltrators' were for the most part former inhabitants of the land returning for personal, economic and sentimental reasons was suppressed in Israel as it was feared that this may lead to an understanding of their motives and to the justification of their actions."
+        }
+      },
+      "lead": {
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "Common objectives of political violence by Palestinian groups include self-determination... including the objective of ending the Israeli occupation... release of Palestinian prisoners held by Israel and recognition of the Palestinian right of return."
+        },
+        "Israel": {
+          "entity": "Israel",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "the West Bank including Jerusalem was captured and occupied from Jordan and Gaza was occupied from Egypt... the Palestinians were placed under Israeli military administration."
+        }
+      }
+    },
+    "he": {
+      "focal": {
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "פעולותיהם התמימות התחלפו במהרה למעשים אלימים, שכללו רצח של תושבים באזורי הספר; הם היו הראשונים שהפכו מטוסי נוסעים ליעדי נשק... הראשונים שטבחו בנוסעים בנמלי תעופה"
+        },
+        "Israel": {
+          "entity": "Israel",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "ישראל סירבה לנהל משא-ומתן עם טרוריסטים... למערכת הביטחון של ישראל יצא מוניטין בין-לאומי כמומחים ללוחמה בטרור"
+        }
+      },
+      "lead": {
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "טרור פלסטיני הוא טרור המבוצע על ידי פרטים או ארגונים פלסטיניים... מופנה נגד אזרחים יהודים"
+        },
+        "Israel": {
+          "entity": "Israel",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "בעקבות פעולות טרור באו פעולות תגמול חריפות של ישראל...לאחר אחת מפעולות תגמול אלו... בעקבות רצח תושב ישראלי"
+        }
+      }
+    },
+    "ar": {
+      "focal": {
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "عملية حمام الشط، إحدى أكبر وأخطر العمليات بحق الفلسطينيين... أدى إلى سقوط 68 قتيلاً وأكثر من 100 جريح من فلسطينيين"
+        },
+        "Israel": {
+          "entity": "Israel",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "يُقدّر أن 1,300 فلسطيني قتلوا أثناء أحداث الانتفاضة الأولى على يد الجيش الإسرائيلي... شرارة اندلاعها دخول رئيس الوزراء الإسرائيلي أرئيل شارون إلى باحة المسجد الأقصى"
+        }
+      },
+      "lead": {
+        "Palestinians": {
+          "entity": "Palestinians",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "يشير إلى الحراك والسياسات والدعوات والعمليات التي تدعو أو تدعم مقاومة الاحتلال والاضطهاد والاستعمار الصهيوني للفلسطينيين"
+        },
+        "Israel": {
+          "entity": "Israel",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "بدأت إسرائيل غارات انتقامية ضد لبنان لتشجيع الشعب اللبناني نفسه على التعامل مع الفدائيين... قصفت إسرائيل مطار بيروت الدولي للانتقام، ودمرت 13 طائرة مدنية"
+        }
+      }
+    }
+  }
+}

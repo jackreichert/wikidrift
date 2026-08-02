@@ -1,13 +1,20 @@
 """Findings persistence — the per-article JSON store the viewer reads (a small Repository)."""
 import json
+import uuid
 
 from .storage import FINDINGS
 
 
 def write_findings(name, obj):
-    """Overwrite a findings artifact (per-article file) in the canonical FINDINGS dir."""
+    """Atomically overwrite a findings artifact in the canonical FINDINGS directory."""
     FINDINGS.mkdir(parents=True, exist_ok=True)
-    (FINDINGS / name).write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding="utf-8")
+    output = FINDINGS / name
+    temporary = output.with_name(f".{output.name}.{uuid.uuid4().hex}.tmp")
+    try:
+        temporary.write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding="utf-8")
+        temporary.replace(output)
+    finally:
+        temporary.unlink(missing_ok=True)
 
 
 def load_findings(name, default=None):

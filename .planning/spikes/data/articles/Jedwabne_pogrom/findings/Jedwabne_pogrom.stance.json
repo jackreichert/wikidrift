@@ -1,0 +1,67 @@
+{
+  "article": "Jedwabne pogrom",
+  "langs": [
+    "en",
+    "pl",
+    "de"
+  ],
+  "entities": [
+    "Jedwabne pogrom"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Jedwabne pogrom": {
+          "entity": "Jedwabne pogrom",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "a massacre of Polish Jews in the town of Jedwabne, German-occupied Poland, on 10 July 1941, during World War II and the early stages of the Holocaust"
+        }
+      },
+      "lead": {
+        "Jedwabne pogrom": {
+          "entity": "Jedwabne pogrom",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "The passage presents multiple, sometimes conflicting, scholarly estimates of victims and details of the massacre in an even, sourced, encyclopedic manner, e.g. 'Estimates of the number of victims vary from 300 to 1,600' and citing differing historians' views without endorsing one."
+        }
+      }
+    },
+    "pl": {
+      "focal": {
+        "Jedwabne pogrom": {
+          "entity": "Jedwabne pogrom",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Pogrom w Jedwabnem (również: mord w Jedwabnem) stał się znany w Polsce i na świecie za sprawą książki Jana Tomasza Grossa Sąsiedzi."
+        }
+      },
+      "lead": {
+        "Jedwabne pogrom": {
+          "entity": "Jedwabne pogrom",
+          "stance": "critical",
+          "npov_departure": false,
+          "evidence": "masowe morderstwo żydowskich mieszkańców miasta dokonane 10 lipca 1941 przez polskich mieszkańców miasta Jedwabne... Większość z ofiar została spalona żywcem w stodole"
+        }
+      }
+    },
+    "de": {
+      "focal": {
+        "Jedwabne pogrom": {
+          "entity": "Jedwabne pogrom",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Das Massaker von Jedwabne war ein Pogrom polnischer Bürger von Jedwabne und der Umgebung an jüdischen Einwohnern der Kleinstadt im Nordosten Polens"
+        }
+      },
+      "lead": {
+        "Jedwabne pogrom": {
+          "entity": "Jedwabne pogrom",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "gilt als gemeinsames Verbrechen einer Gruppe von polnischen Einwohnern und deutscher Besatzungsmacht"
+        }
+      }
+    }
+  }
+}

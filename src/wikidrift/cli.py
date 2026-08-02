@@ -1,9 +1,12 @@
 """wikidrift command-line entry point.
 
   wikidrift analyze "Zionism"          # full L1 pipeline (fetches as needed) + attribution
+    wikidrift backfill-attribution "Zionism"  # add attribution to current exact confirmations
   wikidrift validate ["Zionism" ...]   # offline PWR candidate verdicts (no WikiWho); default = whole cache
   wikidrift prerank ["Zionism" ...]    # metadata pre-ranker (offline)
   wikidrift benchmark [--json]         # score the adjudicated roster
+    wikidrift calibrate-concentration ARTICLES_DIR [--json]  # raw exact-event feature report (offline)
+    wikidrift confirmed-graph ARTICLES_DIR [--json]  # fresh exact cross-article graph (offline)
   wikidrift stance "Nakba" [--entities a,b,c] [--max-snaps N]   # L2 stance classifier (needs an LLM key)
     wikidrift crosslingual "Zionism" [--langs en,he,ar] [--no-pivot]  # cross-language stance (needs key)
   wikidrift factcheck "Warsaw concentration camp" [--langs ..] [--asof 2018-06-01]  # L5 #2 fact divergence (needs key)
@@ -18,14 +21,17 @@ OpenAI-compatible endpoint (OpenRouter/Together/Groq/DeepSeek; local Ollama/LM S
 provider's env var (ANTHROPIC_API_KEY/OPENAI_API_KEY/GOOGLE_API_KEY) or WIKIDRIFT_LLM_API_KEY; env equivalents
 WIKIDRIFT_LLM_PROVIDER/_MODEL/_BASE_URL.
 """
+import json
 import sys
 import argparse
+import pathlib
 from urllib.parse import urlparse, parse_qs, unquote
 
 import duckdb
 
 from . import (config, drift, prerank, benchmark, stance, l5_crosslingual, l5_factcheck,  # noqa: F401
-               mscore, ingest, pipeline, l4, l5_sources, lexical, bootstrap)
+               framing_trajectory, provenance,
+               mscore, ingest, pipeline, l4, l5_sources, lexical, bootstrap, shards)
 from .corpus import Corpus
 
 
@@ -57,6 +63,14 @@ def _normalize_article_arg(value):
     return title or raw
 
 
+def _migrate_shards(args):
+    """Copy and verify canonical data into independently writable article shards."""
+    source_dir = args.source_data_dir or config.DATA_DIR
+    report = shards.migrate_all(source_dir, args.articles_dir)
+    print(f"migrated {report['article_count']} article shard(s) into "
+          f"{args.articles_dir or source_dir / 'articles'}")
+
+
 def main(argv=None):
     argv = list(sys.argv[1:] if argv is None else argv)
     p = argparse.ArgumentParser(prog="wikidrift", description="editor-agnostic Wikipedia narrative-drift detector")
@@ -74,6 +88,20 @@ def main(argv=None):
     sp = sub.add_parser("analyze", help="full L1 pipeline for one article (+ attribution)")
     sp.add_argument("article")
 
+    sp = sub.add_parser(
+        "backfill-attribution",
+        help="add exact-event attribution to a current confirmation without rerunning L1",
+    )
+    sp.add_argument("article")
+    sp.add_argument("--force", action="store_true", help="recompute episodes that already have attribution")
+
+    sp = sub.add_parser(
+        "backfill-process-context",
+        help="attach neutral editorial-process receipts to current exact confirmations",
+    )
+    sp.add_argument("article")
+    sp.add_argument("--force", action="store_true", help="refetch episodes that already have process context")
+
     sp = sub.add_parser("validate", help="offline PWR candidate verdicts (no WikiWho)")
     sp.add_argument("articles", nargs="*")
 
@@ -83,12 +111,21 @@ def main(argv=None):
     sp = sub.add_parser("benchmark", help="score the adjudicated ground-truth roster")
     sp.add_argument("--json", action="store_true")
 
+    sp = sub.add_parser(
+        "calibrate-concentration",
+        help="report raw concentration features from fresh article-owned confirmations",
+    )
+    sp.add_argument("articles_dir", type=pathlib.Path)
+    sp.add_argument("--json", action="store_true")
+
     sp = sub.add_parser("stance", help="L2 LLM stance classifier over time")
     sp.add_argument("article")
     sp.add_argument("--entities", default=None,
                     help="comma-separated entities (default: article title, controversy-agnostic)")
     sp.add_argument("--max-snaps", type=int, default=0)
     sp.add_argument("--since", default=None, help="ISO date; only snapshots on/after it (target the L1 pivot window)")
+    sp.add_argument("--repeated-runs", type=int, default=stance.DEFAULT_REPEATED_RUNS,
+                    help="total runs for passages around an apparent transition")
     add_llm_flags(sp)
 
     sp = sub.add_parser("crosslingual", help="L5 cross-language stance comparison")
@@ -113,13 +150,37 @@ def main(argv=None):
     sp.add_argument("articles", nargs="+")
     sp.add_argument("--force", action="store_true", help="re-ingest via local even if snapshots exist")
 
+    sp = sub.add_parser("audit-snapshots", help="offline semantic-integrity audit of loaded snapshots")
+    sp.add_argument("articles", nargs="*", help="articles to audit (default: all loaded articles)")
+    sp.add_argument("--json", action="store_true")
+    sp.add_argument("--write", action="store_true",
+                    help="persist receipts and quarantine source state (default: report only)")
+
+    sp = sub.add_parser("audit-endpoints", help="offline stable-current-endpoint audit")
+    sp.add_argument("articles", nargs="*", help="articles to audit (default: all loaded articles)")
+    sp.add_argument("--json", action="store_true")
+    sp.add_argument("--write", action="store_true",
+                    help="persist endpoint receipts (default: report only)")
+
     sp = sub.add_parser("pipeline", help="L1→router→(L2/L5) orchestration for one article")
     sp.add_argument("article")
     sp.add_argument("--llm", action="store_true", help="run L2 stance on routed leads (needs an LLM key)")
     sp.add_argument("--mscore", action="store_true", help="also run the M-score controversy corroborator")
     sp.add_argument("--framing", action="store_true",
                     help="run L5 cross-language lead comparison (prefers fresh confirmed L1 pair; needs an LLM key)")
+    sp.add_argument("--additive", action="store_true",
+                    help="trace persistent additions across exact stable revisions")
+    sp.add_argument("--process-context", action="store_true",
+                    help="fetch neutral editorial-process receipts for fresh confirmed events")
     add_llm_flags(sp)
+
+    sp = sub.add_parser("framing-trajectory", help="deterministic addition-side framing trajectory")
+    sp.add_argument("article")
+    sp.add_argument("--mode", choices=["formative", "interval", "exact_event"], default="formative")
+    sp.add_argument("--start", default=None, help="interval start date (inclusive)")
+    sp.add_argument("--end", default=None, help="interval end date (inclusive)")
+    sp.add_argument("--revision-ids", default=None,
+                    help="ordered comma-separated revision IDs for exact_event mode")
 
     sp = sub.add_parser("framing", help="L5 cross-language lead comparison around confirmed L1 pair or candidate")
     sp.add_argument("article")
@@ -128,7 +189,11 @@ def main(argv=None):
     sp.add_argument("--recategorize", action="store_true", help="force re-run of the LLM category classification")
     add_llm_flags(sp)
 
-    sp = sub.add_parser("discover", help="L4 graph-guided discovery: seed → removal footprint → L1 re-test")
+    sp = sub.add_parser("confirmed-graph", help="L4 offline graph from fresh exact attribution in article shards")
+    sp.add_argument("articles_dir", type=pathlib.Path)
+    sp.add_argument("--json", action="store_true")
+
+    sp = sub.add_parser("discover", help="L4 graph-guided discovery: exact seed → footprint → exact L1 retest")
     sp.add_argument("article", nargs="?", default="Zionism", help="seed article (default: Zionism)")
     sp.add_argument("--top-n", type=int, default=l4.SEED_TOP_N,
                     help="seed from the top-N editors attributed with established-token removals")
@@ -149,10 +214,39 @@ def main(argv=None):
     sp = sub.add_parser("bootstrap", help="populate the token corpus for a slate (default: benchmark roster)")
     sp.add_argument("articles", nargs="*", help="articles to fetch (default: the adjudicated roster)")
 
+    sp = sub.add_parser("migrate-shards", help="copy and verify canonical data into per-article shards")
+    sp.add_argument("--source-data-dir", type=pathlib.Path, default=None,
+                    help="canonical data directory (default: WIKIDRIFT_DATA_DIR or historical location)")
+    sp.add_argument("--articles-dir", type=pathlib.Path, default=None,
+                    help="destination directory (default: <source>/articles)")
+    sp.set_defaults(handler=_migrate_shards)
+
     args = p.parse_args(argv)
+
+    if hasattr(args, "handler"):
+        args.handler(args)
+        return
 
     if args.cmd == "analyze":
         drift.analyze(_normalize_article_arg(args.article))
+    elif args.cmd == "backfill-attribution":
+        article = _normalize_article_arg(args.article)
+        report = drift.backfill_attribution(article, force=args.force)
+        print(
+            f"{article}: {report['updated_episodes']} updated, "
+            f"{report['skipped_episodes']} unchanged, {report['failed_episodes']} failed"
+        )
+        if report["failed_episodes"]:
+            raise RuntimeError(f"attribution failed for {report['failed_episodes']} episode(s)")
+    elif args.cmd == "backfill-process-context":
+        article = _normalize_article_arg(args.article)
+        report = drift.backfill_process_context(article, force=args.force)
+        print(
+            f"{article}: {report['updated_episodes']} updated, "
+            f"{report['skipped_episodes']} unchanged, {report['failed_episodes']} failed"
+        )
+        if report["failed_episodes"]:
+            raise RuntimeError(f"process context failed for {report['failed_episodes']} episode(s)")
     elif args.cmd == "validate":
         con = duckdb.connect(str(config.DB), read_only=True)
         targets = args.articles or Corpus(con).articles_with_snapshots(3)
@@ -167,10 +261,13 @@ def main(argv=None):
         prerank.run(args.articles or None)
     elif args.cmd == "benchmark":
         benchmark.run(as_json=args.json)
+    elif args.cmd == "calibrate-concentration":
+        benchmark.run_concentration(args.articles_dir, as_json=args.json)
     elif args.cmd == "stance":
         ents = [e.strip() for e in args.entities.split(",")] if args.entities else None
         stance.stance_over_time(_normalize_article_arg(args.article), entities=ents, max_snaps=args.max_snaps,
                                 since=args.since,
+                                repeated_runs=args.repeated_runs,
                                 provider=args.provider, model=args.model, base_url=args.base_url)
     elif args.cmd == "crosslingual":
         langs = [l.strip() for l in args.langs.split(",")] if args.langs else None
@@ -187,9 +284,64 @@ def main(argv=None):
                                      "Photosynthesis", "Climate change"], force=args.force)
     elif args.cmd == "ingest":
         ingest.ingest_articles(args.articles, force=args.force)
+    elif args.cmd == "audit-snapshots":
+        con = duckdb.connect(str(config.DB), read_only=not args.write)
+        try:
+            report = provenance.audit_snapshot_integrity(
+                con, args.articles or None, persist=args.write
+            )
+        finally:
+            con.close()
+        if args.json:
+            print(json.dumps(report, indent=2, sort_keys=True))
+        else:
+            totals = report["totals"]
+            print(
+                f"snapshot integrity: {report['article_count']} article(s), "
+                f"{totals['complete']} complete, {totals['suspect']} suspect, "
+                f"{totals['quarantined']} quarantined"
+            )
+            for article in report["articles"]:
+                if article["status"] != "complete":
+                    print(f"  {article['status'].upper():<11} {article['article']}: {article['counts']}")
+    elif args.cmd == "audit-endpoints":
+        con = duckdb.connect(str(config.DB), read_only=not args.write)
+        try:
+            report = provenance.audit_stable_endpoints(
+                con, args.articles or None, persist=args.write
+            )
+        finally:
+            con.close()
+        if args.json:
+            print(json.dumps(report, indent=2, sort_keys=True))
+        else:
+            totals = report["totals"]
+            print(
+                f"stable endpoints: {report['article_count']} article(s), "
+                f"{totals['stable']} stable, {totals['unstable']} unstable"
+            )
+            for article in report["articles"]:
+                if article["status"] == "unstable":
+                    print(f"  UNSTABLE    {article['article']}")
     elif args.cmd == "pipeline":
         pipeline.run(_normalize_article_arg(args.article), llm=args.llm, corroborate=args.mscore,
-                     framing=args.framing, provider=args.provider, model=args.model, base_url=args.base_url)
+                     framing=args.framing, additive=args.additive,
+                     process=args.process_context,
+                     provider=args.provider, model=args.model, base_url=args.base_url)
+    elif args.cmd == "framing-trajectory":
+        revision_ids = [
+            int(revision_id.strip())
+            for revision_id in (args.revision_ids or "").split(",")
+            if revision_id.strip()
+        ]
+        result = framing_trajectory.analyze_article(
+            _normalize_article_arg(args.article),
+            mode=args.mode,
+            start=args.start,
+            end=args.end,
+            revision_ids=revision_ids,
+        )
+        print(json.dumps(result, indent=2, sort_keys=True))
     elif args.cmd == "framing":
         from . import l5_framing_lite
         article = _normalize_article_arg(args.article)
@@ -197,6 +349,8 @@ def main(argv=None):
         l5_framing_lite.framing_lite(article, pivot_window=pivot_window,
                                      recategorize=args.recategorize,
                                      provider=args.provider, model=args.model, base_url=args.base_url)
+    elif args.cmd == "confirmed-graph":
+        l4.run_confirmed_graph(args.articles_dir, as_json=args.json)
     elif args.cmd == "discover":
         l4.discover(_normalize_article_arg(args.article), top_n=args.top_n, limit=args.limit)
     elif args.cmd == "sources":

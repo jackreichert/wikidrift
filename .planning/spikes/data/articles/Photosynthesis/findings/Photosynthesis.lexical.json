@@ -1,0 +1,175 @@
+{
+  "article": "Photosynthesis",
+  "span": "2002-01-01 -> 2026-07-01 (no L1 pivot — whole history)",
+  "pivot": null,
+  "before": {
+    "date": "2002-01-01",
+    "rev": 1019224726,
+    "tokens": 42
+  },
+  "after": {
+    "date": "2026-07-01",
+    "rev": 1358838651,
+    "tokens": 4528
+  },
+  "js_divergence": 0.521,
+  "overrepresented_after_terms": [
+    {
+      "term": "carbon",
+      "before": 0,
+      "after": 91,
+      "delta": 91,
+      "log_odds": 0.5611
+    },
+    {
+      "term": "photosynthetic",
+      "before": 0,
+      "after": 53,
+      "delta": 53,
+      "log_odds": 0.016
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "biochemical",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -4.1812
+    },
+    {
+      "term": "color",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": -4.1812
+    },
+    {
+      "term": "active",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": -3.593
+    },
+    {
+      "term": "glucose",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": -3.593
+    },
+    {
+      "term": "chemical",
+      "before": 2,
+      "after": 9,
+      "delta": 7,
+      "log_odds": -3.3799
+    },
+    {
+      "term": "absorbed",
+      "before": 1,
+      "after": 6,
+      "delta": 5,
+      "log_odds": -3.2248
+    },
+    {
+      "term": "converted",
+      "before": 1,
+      "after": 7,
+      "delta": 6,
+      "log_odds": -3.0815
+    },
+    {
+      "term": "overall",
+      "before": 1,
+      "after": 7,
+      "delta": 6,
+      "log_odds": -3.0815
+    },
+    {
+      "term": "above",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": -2.7221
+    },
+    {
+      "term": "absorbs",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": -2.7221
+    },
+    {
+      "term": "adapted",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": -2.7221
+    },
+    {
+      "term": "agents",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": -2.7221
+    },
+    {
+      "term": "ago",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": -2.7221
+    },
+    {
+      "term": "alarm",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": -2.7221
+    },
+    {
+      "term": "alga",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": -2.7221
+    },
+    {
+      "term": "allowing",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": -2.7221
+    },
+    {
+      "term": "among",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": -2.7221
+    },
+    {
+      "term": "anhydrase",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": -2.7221
+    },
+    {
+      "term": "archaea",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": -2.7221
+    },
+    {
+      "term": "available",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": -2.7221
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

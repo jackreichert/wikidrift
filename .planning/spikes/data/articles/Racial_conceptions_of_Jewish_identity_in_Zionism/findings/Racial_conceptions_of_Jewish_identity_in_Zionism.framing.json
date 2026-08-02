@@ -1,0 +1,105 @@
+{
+  "article": "Racial conceptions of Jewish identity in Zionism",
+  "category": "israeli-palestinian",
+  "mode": "static",
+  "pivot_window": null,
+  "editions_compared": [
+    "en",
+    "es"
+  ],
+  "lead_chars": {
+    "en": 3176,
+    "es": 521
+  },
+  "snapshots": null,
+  "divergences": [
+    {
+      "topic": "antisemitism and rationale for racial reframing",
+      "editions_differ": [
+        "ES"
+      ],
+      "en_says": "Zionists countered antisemitic claims that Jews were aliens and racially inferior, arguing a Jewish national home would enable physical regeneration and cultural renaissance",
+      "other_says": "not mentioned",
+      "verdict": "absent_other",
+      "evidence_en": "Countering antisemitic claims that Jews were both aliens and a racially inferior people who needed to be segregated or expelled, these Zionists drew on and appropriated elements from various race theories, to argue that only a Jewish national home could enable the physical regeneration of the Jewish people",
+      "evidence_other": null
+    },
+    {
+      "topic": "assimilationist viewpoint and internal Jewish debate",
+      "editions_differ": [
+        "ES"
+      ],
+      "en_says": "Describes a contrasting assimilationist view that Jewishness was religious/cultural, rejected by Orthodox and liberal establishments, and debated by Zionist and non-Zionist Jews",
+      "other_says": "not mentioned",
+      "verdict": "absent_other",
+      "evidence_en": "The contrasting assimilationist viewpoint was that Jewishness consisted in an attachment to Judaism as a religion and culture.",
+      "evidence_other": null
+    },
+    {
+      "topic": "1930s German Jews and Nazism",
+      "editions_differ": [
+        "ES"
+      ],
+      "en_says": "By the 1930s, some German Jews defensively asserted Jewish collective rights by redefining Jews as a race after Nazism rose to power",
+      "other_says": "not mentioned",
+      "verdict": "absent_other",
+      "evidence_en": "some German Jews, acting defensively, asserted Jewish collective rights by redefining Jews as a race after Nazism rose to power",
+      "evidence_other": null
+    },
+    {
+      "topic": "Holocaust and discrediting of race science",
+      "editions_differ": [
+        "ES"
+      ],
+      "en_says": "World War II led to the Holocaust's genocidal ethnic cleansing, which discredited race as a product of pseudoscience",
+      "other_says": "not mentioned",
+      "verdict": "absent_other",
+      "evidence_en": "which, by war's end, had utterly discredited race as the lethal product of pseudoscience",
+      "evidence_other": null
+    },
+    {
+      "topic": "Israel's establishment, Law of Return, and genetics",
+      "editions_differ": [
+        "ES"
+      ],
+      "en_says": "Discusses Israel's 1948 establishment, the Law of Return, Israeli geneticists avoiding racial language, and modern genetic studies criticized as influenced by Zionist narrative",
+      "other_says": "not mentioned",
+      "verdict": "absent_other",
+      "evidence_en": "With the establishment of Israel in 1948, the \"ingathering of the exiles\", and the Law of Return, the question of Jewish origins and biological unity came to assume particular importance",
+      "evidence_other": null
+    },
+    {
+      "topic": "overall article scope",
+      "editions_differ": [
+        "ES"
+      ],
+      "en_says": "EN provides a full multi-paragraph lead covering the 19th century origins through modern genetic studies and their political implications",
+      "other_says": "ES lead consists of only a single short paragraph covering only the initial 19th century racial reformulation by Zionist founders",
+      "verdict": "absent_other",
+      "evidence_en": "Questions of how political narratives impact the work of population genetics, and its connection to race, have a particular significance in Jewish history and culture.",
+      "evidence_other": null
+    }
+  ],
+  "summary": "The ES lead is a truncated stub covering only the opening 19th-century context about Zionist founders like Max Nordau reframing Jewishness in racial terms. It omits nearly all subsequent content present in the EN lead, including the assimilationist counter-view, internal Jewish debates over diaspora life, the 1930s German Jewish response to Nazism, the Holocaust's discrediting of race science, the founding of Israel and the Law of Return, and modern controversies over population genetics and Zionist narratives. These are omissions due to article incompleteness rather than direct contradictions, but they represent substantial informational gaps for a researcher comparing editions.",
+  "run_ts": "2026-07-19T17:49:26.782037+00:00",
+  "model": "claude-sonnet-5",
+  "llm_usage": {
+    "calls": 1,
+    "input_tokens": 2227,
+    "output_tokens": 1415,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 2227,
+        "output_tokens": 1415,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
+  },
+  "elapsed_seconds": 15.316
+}

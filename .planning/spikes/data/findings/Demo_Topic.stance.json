@@ -1,4 +1,7 @@
 {
+  "schema_version": 1,
+  "prompt_version": "stance-v3",
+  "model_contract": null,
   "article": "Demo Topic",
   "langs": [
     "en"

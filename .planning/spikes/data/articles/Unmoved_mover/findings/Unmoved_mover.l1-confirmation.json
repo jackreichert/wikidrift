@@ -1,0 +1,20 @@
+{
+  "article": "Unmoved mover",
+  "run_ts": "2026-07-30T21:26:31.564814+00:00",
+  "corpus_horizon": {
+    "snapshot_date": "2026-07-01",
+    "snapshot_revid": 1351047456
+  },
+  "thresholds": {
+    "confirm_drop": 0.2,
+    "durable_quantile": 0.5,
+    "min_cohort": 500,
+    "magnitude_floor": 25.0,
+    "rolling_window_months": 12,
+    "rolling_tolerance_days": 35,
+    "rolling_drop": 20.0
+  },
+  "coarse_verdict": "HEALTHY",
+  "status": "not_confirmed",
+  "confirmed_episodes": []
+}

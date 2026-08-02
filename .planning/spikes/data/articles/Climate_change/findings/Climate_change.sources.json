@@ -1,0 +1,1619 @@
+{
+  "article": "Climate change",
+  "pivot": "2018-01-01",
+  "span": "2018-01-01 → 2026-01-01  (across the L1 pivot ~2018-01-01)",
+  "before": {
+    "date": "2018-01-01",
+    "refs": 311,
+    "n_domains": 143,
+    "cite_mix": {
+      "journal": 40,
+      "web": 27,
+      "book": 21,
+      "news": 10,
+      "press": 1,
+      "report": 1
+    },
+    "domains": {
+      "nytimes.com": 5,
+      "en.oxforddictionaries.com": 1,
+      "climatechange2013.org": 6,
+      "epa.gov": 5,
+      "climate.nasa.gov": 4,
+      "ipcc.ch": 84,
+      "nationalacademies.org": 2,
+      "news.bbc.co.uk": 2,
+      "nagt.org": 1,
+      "opr.ca.gov": 2,
+      "onlinelibrary.wiley.com": 4,
+      "npr.org": 2,
+      "phys.org": 1,
+      "skepticalscience.com": 2,
+      "science.sciencemag.org": 4,
+      "unfccc.int": 9,
+      "nap.edu": 11,
+      "cnn.com": 1,
+      "theguardian.com": 6,
+      "pewglobal.org": 2,
+      "vortex.nsstc.uah.edu": 1,
+      "remss.com": 1,
+      "ipcc-wg1.unibe.ch": 2,
+      "ncdc.noaa.gov": 3,
+      "climatewatch.noaa.gov": 1,
+      "agu.org": 1,
+      "journals.ametsoc.org": 3,
+      "grida.no": 33,
+      "ftp.soest.hawaii.edu": 1,
+      "metoffice.gov.uk": 4,
+      "webarchive.nationalarchives.gov.uk": 1,
+      "realclimate.org": 4,
+      "noaanews.noaa.gov": 1,
+      "washingtonpost.com": 3,
+      "c2es.org": 2,
+      "rstl.royalsocietypublishing.org": 1,
+      "history.aip.org": 4,
+      "dx.doi.org": 1,
+      "education.nationalgeographic.org": 1,
+      "atmo.arizona.edu": 2,
+      "windows.ucar.edu": 1,
+      "sciencemag.org": 3,
+      "daycreek.com": 1,
+      "bbc.co.uk": 2,
+      "ft.com": 1,
+      "nature.com": 10,
+      "jpl.nasa.gov": 2,
+      "econ.worldbank.org": 2,
+      "rivm.nl": 1,
+      "pubs.giss.nasa.gov": 1,
+      "pnas.org": 4,
+      "rrcap.unep.org": 4,
+      "climate.gov": 3,
+      "www2.ucar.edu": 3,
+      "scientificamerican.com": 2,
+      "nsidc.org": 2,
+      "earthobservatory.nasa.gov": 2,
+      "books.nap.edu": 1,
+      "ametsoc.org": 1,
+      "gfdl.noaa.gov": 4,
+      "globalchange.gov": 8,
+      "books.google.com": 2,
+      "webpages.uidaho.edu": 1,
+      "iop.org": 1,
+      "pik-potsdam.de": 1,
+      "news.nationalgeographic.com": 1,
+      "pmel.noaa.gov": 1,
+      "docs.google.com": 1,
+      "news.uci.edu": 1,
+      "advances.sciencemag.org": 1,
+      "nwf.org": 1,
+      "ncadac.globalchange.gov": 2,
+      "economist.com": 1,
+      "rsta.royalsocietypublishing.org": 1,
+      "geology.gsapubs.org": 1,
+      "climatescience.gov": 2,
+      "nas-sites.org": 2,
+      "dels.nas.edu": 4,
+      "ipcc-wg2.gov": 22,
+      "thelancet.com": 2,
+      "unhcr.org": 1,
+      "news.uaf.edu": 1,
+      "pbl.nl": 2,
+      "report.mitigation2014.org": 10,
+      "event.arc.nasa.gov": 2,
+      "royalsociety.org": 3,
+      "downloads.globalchange.gov": 1,
+      "tyndall.ac.uk": 2,
+      "ynccf.net": 1,
+      "sciencedirect.com": 1,
+      "oxfordenergy.org": 1,
+      "unep.org": 4,
+      "webarchive.loc.gov": 2,
+      "publications.parliament.uk": 1,
+      "iopscience.iop.org": 1,
+      "academic.oup.com": 1,
+      "jstor.org": 1,
+      "aip.org": 2,
+      "sepp.org": 2,
+      "newsweek.com": 1,
+      "msnbc.msn.com": 1,
+      "abcnews.go.com": 1,
+      "usatoday.com": 1,
+      "csrwire.com": 1,
+      "uwosh.edu": 1,
+      "gallup.com": 4,
+      "pewresearch.org": 1,
+      "nasa.gov": 1,
+      "archive.theccc.org.uk": 1,
+      "theccc.org.uk": 1,
+      "interacademies.net": 1,
+      "worldenergyoutlook.org": 1,
+      "mitigation2014.org": 1,
+      "cpo.noaa.gov": 2,
+      "unepmap.org": 1,
+      "library.globalchange.gov": 1,
+      "scribd.com": 1,
+      "soest.hawaii.edu": 1,
+      "climatewise.org.uk": 1,
+      "icess.ucsb.edu": 2,
+      "instaar.colorado.edu": 1,
+      "texmex.mit.edu": 1,
+      "therealnews.com": 1,
+      "oecd-ilibrary.org": 1,
+      "ideas.repec.org": 1,
+      "avturchin.narod.ru": 1,
+      "mpg.de": 1,
+      "orbooks.com": 1,
+      "cosis.net": 1,
+      "whfreeman.com": 2,
+      "econlib.org": 1,
+      "cc.oulu.fi": 2,
+      "climatesci.colorado.edu": 2,
+      "journals.plos.org": 1,
+      "cbmjournal.springeropen.com": 1,
+      "giss.nasa.gov": 1,
+      "edgcm.columbia.edu": 1,
+      "www-pcmdi.llnl.gov": 1,
+      "science2017.globalchange.gov": 1,
+      "climate.jpl.nasa.gov": 1,
+      "worldbank.org": 1,
+      "youtube.com": 3,
+      "geology.com": 1
+    }
+  },
+  "after": {
+    "date": "2026-01-01",
+    "refs": 484,
+    "n_domains": 157,
+    "cite_mix": {
+      "journal": 35,
+      "web": 27,
+      "book": 26,
+      "report": 6,
+      "news": 6
+    },
+    "domains": {
+      "data.giss.nasa.gov": 2,
+      "19january2017snapshot.epa.gov": 4,
+      "climate.ec.europa.eu": 1,
+      "theconversation.com": 1,
+      "ipcc.ch": 56,
+      "cbsnews.com": 1,
+      "climate.copernicus.eu": 1,
+      "theguardian.com": 8,
+      "nature.com": 8,
+      "bbc.com": 3,
+      "history.aip.org": 15,
+      "ncei.noaa.gov": 2,
+      "climate.gov": 9,
+      "archive.today": 2,
+      "climate.nasa.gov": 14,
+      "washingtonpost.com": 1,
+      "nasa.gov": 3,
+      "link.springer.com": 4,
+      "earthobservatory.nasa.gov": 3,
+      "essd.copernicus.org": 2,
+      "phys.org": 1,
+      "e360.yale.edu": 1,
+      "aoml.noaa.gov": 1,
+      "cosmosmagazine.com": 1,
+      "acs.org": 2,
+      "bbc.co.uk": 1,
+      "iea.org": 4,
+      "research.wri.org": 2,
+      "news.agu.org": 2,
+      "scripps.ucsd.edu": 1,
+      "acp.copernicus.org": 2,
+      "imo.org": 1,
+      "science2017.globalchange.gov": 12,
+      "nsidc.org": 2,
+      "carbonbrief.org": 17,
+      "worldweatherattribution.org": 4,
+      "c2es.org": 1,
+      "epa.gov": 7,
+      "pik-potsdam.de": 3,
+      "science.org": 2,
+      "reuters.com": 1,
+      "epic.awi.de": 2,
+      "onlinelibrary.wiley.com": 1,
+      "un.org": 2,
+      "irena.org": 1,
+      "ec.europa.eu": 3,
+      "oecd.org": 1,
+      "wri.org": 3,
+      "social.shorthand.com": 1,
+      "weforum.org": 1,
+      "sciencedirect.com": 2,
+      "undocs.org": 1,
+      "salatainstitute.harvard.edu": 1,
+      "cop30.br": 1,
+      "oxfamilibrary.openrepository.com": 1,
+      "unfccc.int": 12,
+      "ecowatch.com": 3,
+      "treaties.un.org": 1,
+      "ourworldindata.org": 4,
+      "climateactiontracker.org": 1,
+      "books.google.com": 13,
+      "peritia-trust.eu": 2,
+      "journals.sagepub.com": 3,
+      "undark.org": 1,
+      "commonslibrary.org": 2,
+      "icj-cij.org": 3,
+      "paperspast.natlib.govt.nz": 1,
+      "nsdl.library.cornell.edu": 3,
+      "nap.nationalacademies.org": 4,
+      "nytimes.com": 3,
+      "journals.ametsoc.org": 2,
+      "nap.edu": 3,
+      "interactive.carbonbrief.org": 2,
+      "scientificamerican.com": 4,
+      "doi.org": 1,
+      "commons.wikimedia.org": 1,
+      "archive.ipcc.ch": 13,
+      "climatechange2013.org": 1,
+      "cogitatiopress.com": 1,
+      "journals.uchicago.edu": 1,
+      "jetsam.ocean.washington.edu": 2,
+      "ynccf.net": 2,
+      "interfacejournal.net": 2,
+      "atmos-chem-phys.net": 1,
+      "retractionwatch.com": 1,
+      "zenodo.org": 1,
+      "oro.open.ac.uk": 1,
+      "centaur.reading.ac.uk": 1,
+      "boris.unibe.ch": 1,
+      "espace.library.uq.edu.au": 1,
+      "researchgate.net": 1,
+      "eprints.lse.ac.uk": 2,
+      "eprints.whiterose.ac.uk": 1,
+      "climateanalytics.org": 1,
+      "pure.aber.ac.uk": 1,
+      "eprints.soton.ac.uk": 1,
+      "rstl.royalsocietypublishing.org": 2,
+      "globalchange.gov": 2,
+      "s3.amazonaws.com": 1,
+      "nationalacademies.org": 2,
+      "iisd.org": 1,
+      "climatefocus.com": 2,
+      "hdr.undp.org": 1,
+      "lse.ac.uk": 2,
+      "tyndall.ac.uk": 2,
+      "publications.iom.int": 1,
+      "undp.org": 1,
+      "peoplesclimate.vote": 1,
+      "globalmethane.org": 1,
+      "openknowledge.worldbank.org": 1,
+      "iea.blob.core.windows.net": 2,
+      "elibrary.imf.org": 1,
+      "climatecommunication.yale.edu": 1,
+      "apo.org.au": 4,
+      "theicct.org": 1,
+      "oxfordenergy.org": 2,
+      "dels.nas.edu": 2,
+      "tidesandcurrents.noaa.gov": 2,
+      "pbl.nl": 1,
+      "pewresearch.org": 2,
+      "ren21.net": 1,
+      "publications.parliament.uk": 2,
+      "nrel.gov": 1,
+      "fao.org": 1,
+      "wedocs.unep.org": 1,
+      "unep.org": 1,
+      "unenvironment.org": 1,
+      "unhcr.org": 2,
+      "documents.worldbank.org": 1,
+      "www3.weforum.org": 1,
+      "apps.who.int": 2,
+      "csl.noaa.gov": 2,
+      "library.wmo.int": 2,
+      "files.wri.org": 1,
+      "apstylebook.com": 1,
+      "sciencefocus.com": 1,
+      "thebulletin.org": 2,
+      "euobserver.com": 2,
+      "europarl.europa.eu": 1,
+      "ncsl.org": 1,
+      "nationalgeographic.com": 1,
+      "nrdc.org": 1,
+      "politico.eu": 1,
+      "rivm.nl": 2,
+      "salon.com": 1,
+      "scienceblogs.com": 1,
+      "smithsonianmag.com": 1,
+      "sustainabilityconsortium.org": 1,
+      "ucsusa.org": 1,
+      "vice.com": 1,
+      "theverge.com": 1,
+      "vox.com": 1,
+      "who.int": 1,
+      "yaleclimateconnections.org": 2,
+      "metoffice.gov.uk": 1,
+      "noaa.gov": 1,
+      "royalsociety.org": 1
+    }
+  },
+  "added": [
+    {
+      "domain": "carbonbrief.org",
+      "from": 0,
+      "to": 17
+    },
+    {
+      "domain": "archive.ipcc.ch",
+      "from": 0,
+      "to": 13
+    },
+    {
+      "domain": "books.google.com",
+      "from": 2,
+      "to": 13
+    },
+    {
+      "domain": "science2017.globalchange.gov",
+      "from": 1,
+      "to": 12
+    },
+    {
+      "domain": "history.aip.org",
+      "from": 4,
+      "to": 15
+    },
+    {
+      "domain": "climate.nasa.gov",
+      "from": 4,
+      "to": 14
+    },
+    {
+      "domain": "climate.gov",
+      "from": 3,
+      "to": 9
+    },
+    {
+      "domain": "nap.nationalacademies.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "apo.org.au",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "link.springer.com",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "19january2017snapshot.epa.gov",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "iea.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "worldweatherattribution.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "ourworldindata.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "unfccc.int",
+      "from": 9,
+      "to": 12
+    },
+    {
+      "domain": "bbc.com",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "nsdl.library.cornell.edu",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "wri.org",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "ecowatch.com",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "ec.europa.eu",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "journals.sagepub.com",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "icj-cij.org",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "commonslibrary.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "nasa.gov",
+      "from": 1,
+      "to": 3
+    },
+    {
+      "domain": "acp.copernicus.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "theguardian.com",
+      "from": 6,
+      "to": 8
+    },
+    {
+      "domain": "lse.ac.uk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "science.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "interfacejournal.net",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "interactive.carbonbrief.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "pik-potsdam.de",
+      "from": 1,
+      "to": 3
+    },
+    {
+      "domain": "yaleclimateconnections.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "essd.copernicus.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "un.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "library.wmo.int",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "epa.gov",
+      "from": 5,
+      "to": 7
+    },
+    {
+      "domain": "ncei.noaa.gov",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "peritia-trust.eu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "research.wri.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "climatefocus.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "thebulletin.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "euobserver.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "apps.who.int",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "tidesandcurrents.noaa.gov",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "acs.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "data.giss.nasa.gov",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "iea.blob.core.windows.net",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "news.agu.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "eprints.lse.ac.uk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "jetsam.ocean.washington.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "archive.today",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "scientificamerican.com",
+      "from": 2,
+      "to": 4
+    },
+    {
+      "domain": "csl.noaa.gov",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "epic.awi.de",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "paperspast.natlib.govt.nz",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "pewresearch.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "rivm.nl",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "ynccf.net",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "centaur.reading.ac.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "hdr.undp.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "publications.iom.int",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "elibrary.imf.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "oxfordenergy.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "climateactiontracker.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "doi.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "files.wri.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "eprints.soton.ac.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "commons.wikimedia.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "retractionwatch.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "undark.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "nationalgeographic.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "www3.weforum.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "climateanalytics.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "peoplesclimate.vote",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "researchgate.net",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "zenodo.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "cbsnews.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "boris.unibe.ch",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "e360.yale.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "oxfamilibrary.openrepository.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "smithsonianmag.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "espace.library.uq.edu.au",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "noaa.gov",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "eprints.whiterose.ac.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "climate.copernicus.eu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "wedocs.unep.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "social.shorthand.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "theconversation.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ucsusa.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "pure.aber.ac.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "journals.uchicago.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "documents.worldbank.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "undp.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "imo.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "politico.eu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "aoml.noaa.gov",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "atmos-chem-phys.net",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "iisd.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "unhcr.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "fao.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "sustainabilityconsortium.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "reuters.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "sciencedirect.com",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "vice.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "weforum.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ren21.net",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "climatecommunication.yale.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "publications.parliament.uk",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "theicct.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "cop30.br",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "sciencefocus.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "salon.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "openknowledge.worldbank.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ncsl.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "cogitatiopress.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "apstylebook.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "treaties.un.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "theverge.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "globalmethane.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "climate.ec.europa.eu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "rstl.royalsocietypublishing.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "undocs.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "cosmosmagazine.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "scienceblogs.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "earthobservatory.nasa.gov",
+      "from": 2,
+      "to": 3
+    },
+    {
+      "domain": "s3.amazonaws.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "oecd.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "salatainstitute.harvard.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "unenvironment.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "irena.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "nrdc.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "nrel.gov",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "who.int",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "oro.open.ac.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "vox.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "scripps.ucsd.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "europarl.europa.eu",
+      "from": 0,
+      "to": 1
+    }
+  ],
+  "dropped": [
+    {
+      "domain": "grida.no",
+      "from": 33,
+      "to": 0
+    },
+    {
+      "domain": "ipcc.ch",
+      "from": 84,
+      "to": 56
+    },
+    {
+      "domain": "ipcc-wg2.gov",
+      "from": 22,
+      "to": 0
+    },
+    {
+      "domain": "report.mitigation2014.org",
+      "from": 10,
+      "to": 0
+    },
+    {
+      "domain": "nap.edu",
+      "from": 11,
+      "to": 3
+    },
+    {
+      "domain": "globalchange.gov",
+      "from": 8,
+      "to": 2
+    },
+    {
+      "domain": "climatechange2013.org",
+      "from": 6,
+      "to": 1
+    },
+    {
+      "domain": "science.sciencemag.org",
+      "from": 4,
+      "to": 0
+    },
+    {
+      "domain": "gallup.com",
+      "from": 4,
+      "to": 0
+    },
+    {
+      "domain": "gfdl.noaa.gov",
+      "from": 4,
+      "to": 0
+    },
+    {
+      "domain": "pnas.org",
+      "from": 4,
+      "to": 0
+    },
+    {
+      "domain": "rrcap.unep.org",
+      "from": 4,
+      "to": 0
+    },
+    {
+      "domain": "realclimate.org",
+      "from": 4,
+      "to": 0
+    },
+    {
+      "domain": "sciencemag.org",
+      "from": 3,
+      "to": 0
+    },
+    {
+      "domain": "ncdc.noaa.gov",
+      "from": 3,
+      "to": 0
+    },
+    {
+      "domain": "youtube.com",
+      "from": 3,
+      "to": 0
+    },
+    {
+      "domain": "onlinelibrary.wiley.com",
+      "from": 4,
+      "to": 1
+    },
+    {
+      "domain": "unep.org",
+      "from": 4,
+      "to": 1
+    },
+    {
+      "domain": "www2.ucar.edu",
+      "from": 3,
+      "to": 0
+    },
+    {
+      "domain": "metoffice.gov.uk",
+      "from": 4,
+      "to": 1
+    },
+    {
+      "domain": "jpl.nasa.gov",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "ipcc-wg1.unibe.ch",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "event.arc.nasa.gov",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "webarchive.loc.gov",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "sepp.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "whfreeman.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "nas-sites.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "cc.oulu.fi",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "climatesci.colorado.edu",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "nytimes.com",
+      "from": 5,
+      "to": 3
+    },
+    {
+      "domain": "royalsociety.org",
+      "from": 3,
+      "to": 1
+    },
+    {
+      "domain": "icess.ucsb.edu",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "washingtonpost.com",
+      "from": 3,
+      "to": 1
+    },
+    {
+      "domain": "npr.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "thelancet.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "atmo.arizona.edu",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "opr.ca.gov",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "skepticalscience.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "pewglobal.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "ncadac.globalchange.gov",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "cpo.noaa.gov",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "climatescience.gov",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "dels.nas.edu",
+      "from": 4,
+      "to": 2
+    },
+    {
+      "domain": "econ.worldbank.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "aip.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "news.bbc.co.uk",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "nature.com",
+      "from": 10,
+      "to": 8
+    },
+    {
+      "domain": "agu.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "worldenergyoutlook.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "iopscience.iop.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "books.nap.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "pubs.giss.nasa.gov",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "rsta.royalsocietypublishing.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "dx.doi.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "abcnews.go.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "library.globalchange.gov",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "nagt.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "climatewise.org.uk",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "docs.google.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "edgcm.columbia.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "news.nationalgeographic.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "academic.oup.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "pmel.noaa.gov",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "msnbc.msn.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "iop.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "avturchin.narod.ru",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "climatewatch.noaa.gov",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "worldbank.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "pbl.nl",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "economist.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "scribd.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "giss.nasa.gov",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "downloads.globalchange.gov",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "journals.ametsoc.org",
+      "from": 3,
+      "to": 2
+    },
+    {
+      "domain": "orbooks.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "archive.theccc.org.uk",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "csrwire.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "soest.hawaii.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "unepmap.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "ft.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "interacademies.net",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "nwf.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "newsweek.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "www-pcmdi.llnl.gov",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "texmex.mit.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "ametsoc.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "news.uci.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "ftp.soest.hawaii.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "mpg.de",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "theccc.org.uk",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "cbmjournal.springeropen.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "advances.sciencemag.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "ideas.repec.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "uwosh.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "en.oxforddictionaries.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "jstor.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "c2es.org",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "instaar.colorado.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "cosis.net",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "webarchive.nationalarchives.gov.uk",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "webpages.uidaho.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "remss.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "geology.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "therealnews.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "news.uaf.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "journals.plos.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "climate.jpl.nasa.gov",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "mitigation2014.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "daycreek.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "oecd-ilibrary.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "usatoday.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "cnn.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "econlib.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "noaanews.noaa.gov",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "education.nationalgeographic.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "vortex.nsstc.uah.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "geology.gsapubs.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "bbc.co.uk",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "windows.ucar.edu",
+      "from": 1,
+      "to": 0
+    }
+  ],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD."
+}

@@ -1,0 +1,25 @@
+{
+  "article": "Genocide of indigenous peoples",
+  "artifacts": [
+    "findings/Genocide_of_indigenous_peoples.category.json",
+    "findings/Genocide_of_indigenous_peoples.cost.json",
+    "findings/Genocide_of_indigenous_peoples.framing.json",
+    "findings/Genocide_of_indigenous_peoples.l1-confirmation.json",
+    "findings/Genocide_of_indigenous_peoples.lexical.json",
+    "findings/Genocide_of_indigenous_peoples.profile.json",
+    "findings/Genocide_of_indigenous_peoples.receipts.json",
+    "findings/Genocide_of_indigenous_peoples.sources.json",
+    "findings/Genocide_of_indigenous_peoples.stance.json",
+    "mscore/Genocide_of_indigenous_peoples.json"
+  ],
+  "slug": "Genocide_of_indigenous_peoples",
+  "tables": {
+    "articles": 0,
+    "rev_size": 2903,
+    "revisions": 2903,
+    "rsnap": 1150193,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

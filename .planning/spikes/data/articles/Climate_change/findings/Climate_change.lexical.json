@@ -1,0 +1,301 @@
+{
+  "article": "Climate change",
+  "span": "2018-01-01 -> 2019-01-01 (around L1 pivot ~2018-01-01)",
+  "pivot": "2018-01-01",
+  "before": {
+    "date": "2018-01-01",
+    "rev": 817863662,
+    "tokens": 5743
+  },
+  "after": {
+    "date": "2019-01-01",
+    "rev": 876151281,
+    "tokens": 5497
+  },
+  "js_divergence": 0.0353,
+  "overrepresented_after_terms": [
+    {
+      "term": "amplification",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 1.9902
+    },
+    {
+      "term": "upright",
+      "before": 1,
+      "after": 9,
+      "delta": 8,
+      "log_odds": 1.8911
+    },
+    {
+      "term": "africa",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 1.1429
+    },
+    {
+      "term": "commonly",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8914
+    },
+    {
+      "term": "humans",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8914
+    },
+    {
+      "term": "linked",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8914
+    },
+    {
+      "term": "populations",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8914
+    },
+    {
+      "term": "early",
+      "before": 2,
+      "after": 5,
+      "delta": 3,
+      "log_odds": 0.8328
+    },
+    {
+      "term": "across",
+      "before": 2,
+      "after": 4,
+      "delta": 2,
+      "log_odds": 0.6319
+    },
+    {
+      "term": "almost",
+      "before": 2,
+      "after": 4,
+      "delta": 2,
+      "log_odds": 0.6319
+    },
+    {
+      "term": "reduction",
+      "before": 2,
+      "after": 4,
+      "delta": 2,
+      "log_odds": 0.6319
+    },
+    {
+      "term": "refers",
+      "before": 2,
+      "after": 4,
+      "delta": 2,
+      "log_odds": 0.6319
+    },
+    {
+      "term": "thought",
+      "before": 2,
+      "after": 4,
+      "delta": 2,
+      "log_odds": 0.6319
+    },
+    {
+      "term": "issues",
+      "before": 4,
+      "after": 7,
+      "delta": 3,
+      "log_odds": 0.5552
+    },
+    {
+      "term": "access",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.5548
+    },
+    {
+      "term": "actions",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.5548
+    },
+    {
+      "term": "actual",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.5548
+    },
+    {
+      "term": "adaptive",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.5548
+    },
+    {
+      "term": "agents",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.5548
+    },
+    {
+      "term": "agricultural",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.5548
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "highest",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.1541
+    },
+    {
+      "term": "knew",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.1541
+    },
+    {
+      "term": "ghgs",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.9027
+    },
+    {
+      "term": "managed",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.9027
+    },
+    {
+      "term": "metres",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.9027
+    },
+    {
+      "term": "video",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.9027
+    },
+    {
+      "term": "attribution",
+      "before": 7,
+      "after": 1,
+      "delta": -6,
+      "log_odds": -1.5667
+    },
+    {
+      "term": "detection",
+      "before": 7,
+      "after": 1,
+      "delta": -6,
+      "log_odds": -1.5667
+    },
+    {
+      "term": "sustained",
+      "before": 5,
+      "after": 1,
+      "delta": -4,
+      "log_odds": -1.2562
+    },
+    {
+      "term": "detected",
+      "before": 4,
+      "after": 1,
+      "delta": -3,
+      "log_odds": -1.0554
+    },
+    {
+      "term": "already",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.8039
+    },
+    {
+      "term": "among",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.8039
+    },
+    {
+      "term": "decline",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.8039
+    },
+    {
+      "term": "extent",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.8039
+    },
+    {
+      "term": "factor",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.8039
+    },
+    {
+      "term": "greater",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.8039
+    },
+    {
+      "term": "however",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.8039
+    },
+    {
+      "term": "infrastructure",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.8039
+    },
+    {
+      "term": "particular",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.8039
+    },
+    {
+      "term": "rose",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.8039
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

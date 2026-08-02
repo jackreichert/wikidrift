@@ -34,19 +34,19 @@ _S = config.session()
 def fetch_history_xml(article):
     """Assemble a MediaWiki export-0.11 XML of the article's FULL history (oldest-first) from the
     Action API's revision content. Cached to disk (immutable). Returns (path, page_id)."""
+    resolved = provenance.resolve_article_title(article)
+    article = resolved.canonical_title
     config.XML_CACHE.mkdir(parents=True, exist_ok=True)
     safe = config.slugify(article)
     out = config.XML_CACHE / f"{safe}.xml"
-    info = _S.get(config.ACTION, params={"action": "query", "format": "json", "formatversion": "2",
-                  "titles": article, "prop": "info"}, timeout=30).json()
-    pg = info["query"]["pages"][0]
-    page_id, ns, title = pg["pageid"], pg.get("ns", 0), pg["title"]
+    page_id, title = resolved.page_id, resolved.canonical_title
+    ns = 0
     if out.exists() and out.stat().st_size > 0:
         print(f"  xml cached: {out.name}", flush=True)
         return out, page_id
 
     params = {"action": "query", "format": "json", "formatversion": "2", "prop": "revisions",
-              "titles": article, "rvprop": "ids|timestamp|user|content|flags",
+              "redirects": 1, "titles": article, "rvprop": "ids|timestamp|user|content|flags",
               "rvslots": "main", "rvlimit": "max", "rvdir": "newer", "maxlag": "5"}
     n = 0
     with open(out, "w", encoding="utf-8") as fh:
@@ -104,6 +104,9 @@ def run_helper(xml_path, rev_ids):
 
 def ingest(con, article, force=False):
     """Ingest one article's persistent-revision snapshots into rsnap via the local engine."""
+    resolved = provenance.resolve_article_title(article)
+    provenance.record_article_identity(con, resolved)
+    article = resolved.canonical_title
     print(f"=== INGEST (local wikiwho_rs): {article} ===", flush=True)
     provenance.ensure_sizes(con, article)
     provenance.ensure_indexes(con)
@@ -132,6 +135,23 @@ def ingest(con, article, force=False):
     try:
         con.execute("DELETE FROM rsnap WHERE article=?", [article])
         con.executemany("INSERT INTO rsnap VALUES (?,?,?,?,?)", rows)
+        integrity = provenance.refresh_snapshot_integrity(con, article)
+        provenance.refresh_stable_endpoint(con, article)
+        quarantined = [receipt for receipt in integrity if receipt["status"] == "quarantined"]
+        complete = bool(picks) and got == len(picks) and not quarantined
+        reason = None
+        if quarantined:
+            reason = f"{len(quarantined)} snapshot(s) failed integrity checks"
+        elif not complete:
+            reason = f"loaded {got} of {len(picks)} expected snapshots"
+        provenance.record_source_state(
+            con,
+            article,
+            source_status="current_complete" if complete else "partial",
+            expected_snapshots=len(picks),
+            loaded_snapshots=got,
+            reason=reason,
+        )
         con.execute("COMMIT")
     except Exception:
         con.execute("ROLLBACK")

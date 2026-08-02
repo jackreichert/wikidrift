@@ -1,6 +1,7 @@
 {
+  "schema_version": 2,
   "article": "Nakba",
-  "run_ts": "2026-07-19T17:42:40.963408+00:00",
+  "run_ts": "2026-08-01T22:45:03.227654+00:00",
   "corpus_horizon": {
     "snapshot_date": "2026-07-01",
     "snapshot_revid": 1362168059
@@ -9,9 +10,104 @@
     "confirm_drop": 0.2,
     "durable_quantile": 0.5,
     "min_cohort": 500,
-    "magnitude_floor": 25.0
+    "magnitude_floor": 25.0,
+    "rolling_window_months": 12,
+    "rolling_tolerance_days": 35,
+    "rolling_drop": 20.0
+  },
+  "source_state": {
+    "article": "Nakba",
+    "source_status": "current_complete",
+    "source_checked_at": "2026-08-01T22:45:02.919781+00:00",
+    "source_latest_revid": 1365853369,
+    "expected_snapshots": 11,
+    "loaded_snapshots": 11,
+    "reason": null
   },
   "coarse_verdict": "HEALTHY",
   "status": "not_confirmed",
-  "confirmed_episodes": []
+  "confirmed_episodes": [],
+  "evaluated_candidates": [],
+  "interval_profile": [
+    {
+      "start": "2021-07-01",
+      "end": "2022-01-01",
+      "size": 9540,
+      "pwr_loss": 1.15,
+      "pwr_removed": 110,
+      "mature": false
+    },
+    {
+      "start": "2022-01-01",
+      "end": "2022-07-01",
+      "size": 9532,
+      "pwr_loss": 4.39,
+      "pwr_removed": 833,
+      "mature": false
+    },
+    {
+      "start": "2022-07-01",
+      "end": "2023-01-01",
+      "size": 9837,
+      "pwr_loss": 2.08,
+      "pwr_removed": 582,
+      "mature": false
+    },
+    {
+      "start": "2023-01-01",
+      "end": "2023-07-01",
+      "size": 10623,
+      "pwr_loss": 1.5,
+      "pwr_removed": 572,
+      "mature": false
+    },
+    {
+      "start": "2023-07-01",
+      "end": "2024-01-01",
+      "size": 12625,
+      "pwr_loss": 24.32,
+      "pwr_removed": 12176,
+      "mature": false
+    },
+    {
+      "start": "2024-01-01",
+      "end": "2024-07-01",
+      "size": 36079,
+      "pwr_loss": 10.93,
+      "pwr_removed": 8087,
+      "mature": true
+    },
+    {
+      "start": "2024-07-01",
+      "end": "2025-01-01",
+      "size": 82633,
+      "pwr_loss": 0.82,
+      "pwr_removed": 1217,
+      "mature": true
+    },
+    {
+      "start": "2025-01-01",
+      "end": "2025-07-01",
+      "size": 83444,
+      "pwr_loss": 0.38,
+      "pwr_removed": 888,
+      "mature": true
+    },
+    {
+      "start": "2025-07-01",
+      "end": "2026-01-01",
+      "size": 85690,
+      "pwr_loss": 0.83,
+      "pwr_removed": 2617,
+      "mature": true
+    },
+    {
+      "start": "2026-01-01",
+      "end": "2026-07-01",
+      "size": 86166,
+      "pwr_loss": 0.41,
+      "pwr_removed": 1622,
+      "mature": true
+    }
+  ]
 }

@@ -19,10 +19,15 @@ language-selection complexity. See METHODOLOGY.md §7 for the known-limits note.
 
 Every output is a LEAD for a researcher, never a published verdict.
 """
+import datetime as dt
+
 import duckdb
 
-from . import config, drift, prerank, stance, lexical, mscore
+from . import config, drift, framing_trajectory, prerank, process_context, stance, lexical, mscore, provenance
 from .corpus import Corpus
+
+
+SOURCE_CHECK_MAX_AGE = dt.timedelta(days=7)
 
 
 def _snap_count(con, article):
@@ -52,17 +57,111 @@ def _pivot_window(verdict):
             "status": "candidate"}
 
 
+def confirmation_is_fresh(confirmation, current_horizon):
+    """Whether an L1 confirmation result matches the current corpus and threshold contract."""
+    if not confirmation or not current_horizon:
+        return False
+    if (confirmation.get("thresholds") or {}) != config.confirmation_thresholds():
+        return False
+    saved = confirmation.get("corpus_horizon") or {}
+    return (saved.get("snapshot_date"), saved.get("snapshot_revid")) == tuple(current_horizon)
+
+
+def _source_adequacy(source_state, current_horizon, now=None):
+    """Normalize explicit source metadata into a status and adequacy reason."""
+    state = source_state or {}
+    status = state.get("source_status", "unchecked")
+    if status in {"partial", "unavailable"}:
+        return status, state.get("reason")
+    if status != "current_complete":
+        return status, None
+
+    checked_at = state.get("source_checked_at")
+    if checked_at:
+        try:
+            checked = dt.datetime.fromisoformat(checked_at.replace("Z", "+00:00"))
+            if checked.tzinfo is None:
+                checked = checked.replace(tzinfo=dt.timezone.utc)
+        except (TypeError, ValueError):
+            return "stale", "source check timestamp is invalid"
+        current_time = now or dt.datetime.now(dt.timezone.utc)
+        if current_time - checked > SOURCE_CHECK_MAX_AGE:
+            return "stale", f"source check expired after {SOURCE_CHECK_MAX_AGE.days} days"
+
+    return status, None
+
+
+def resolve_l1_state(verdict, confirmation, current_horizon, source_state=None, now=None):
+    """Resolve cached coarse and exact L1 evidence into one authoritative state."""
+    coarse_status = (verdict or {}).get("verdict")
+    candidate_status = {
+        "PIVOT?": "pivot_candidate",
+        "CREEP?": "creep_candidate",
+        "HEALTHY": "no_candidate",
+        "SKIP": "unavailable",
+    }.get(coarse_status, "unavailable")
+    fresh = confirmation_is_fresh(confirmation, current_horizon)
+    exact_status = confirmation.get("status") if fresh else None
+    source_status, source_reason = _source_adequacy(source_state, current_horizon, now)
+    is_source_inadequate = source_status in {"partial", "stale", "unavailable"}
+
+    analysis_status = "unavailable" if candidate_status == "unavailable" else "available"
+    if exact_status == "unavailable" or is_source_inadequate:
+        analysis_status = "unavailable"
+
+    if is_source_inadequate:
+        resolved_status = "unavailable"
+        confirmation_status = "unavailable"
+    elif candidate_status != "no_candidate" and exact_status in {
+        "confirmed", "not_confirmed", "unavailable",
+    }:
+        resolved_status = exact_status
+        confirmation_status = exact_status
+    elif candidate_status == "no_candidate":
+        resolved_status = "healthy"
+        confirmation_status = "not_applicable"
+    elif candidate_status == "unavailable":
+        resolved_status = "unavailable"
+        confirmation_status = "unavailable"
+    else:
+        resolved_status = "candidate"
+        confirmation_status = "not_run"
+
+    reason = None
+    if is_source_inadequate:
+        reason = source_reason
+    elif exact_status == "unavailable":
+        reason = (confirmation or {}).get("reason")
+
+    return {
+        "command_status": "completed",
+        "source_status": source_status,
+        "analysis_status": analysis_status,
+        "candidate_status": candidate_status,
+        "confirmation_status": confirmation_status,
+        "confirmation_fresh": fresh,
+        "semantic_role": "research_lead",
+        "resolved_status": resolved_status,
+        "corpus_horizon": {
+            "snapshot_date": current_horizon[0],
+            "snapshot_revid": current_horizon[1],
+            "source_checked_at": (source_state or {}).get("source_checked_at"),
+            "source_latest_revid": (source_state or {}).get("source_latest_revid"),
+            "expected_snapshots": (source_state or {}).get("expected_snapshots"),
+            "loaded_snapshots": (source_state or {}).get("loaded_snapshots"),
+        } if current_horizon else None,
+        "reason": reason,
+        "confirmed_episodes": (
+            (confirmation or {}).get("confirmed_episodes") or []
+        ) if exact_status == "confirmed" else [],
+    }
+
+
 def _confirmed_window(confirmation, current_horizon):
     """Return a confirmed framing window only when its corpus horizon is still current."""
     if not confirmation or confirmation.get("status") != "confirmed":
         return None
-    thresholds = confirmation.get("thresholds") or {}
-    if thresholds != config.confirmation_thresholds():
-        return None
-    saved = confirmation.get("corpus_horizon") or {}
-    if not current_horizon or (
-        saved.get("snapshot_date"), saved.get("snapshot_revid")
-    ) != tuple(current_horizon):
+    if not confirmation_is_fresh(confirmation, current_horizon):
         return None
     episodes = confirmation.get("confirmed_episodes") or []
     if not episodes:
@@ -78,7 +177,7 @@ def _confirmed_window(confirmation, current_horizon):
 
 
 def framing_window(article):
-    """Prefer a fresh confirmed L1 pair; otherwise return the top cached coarse candidate."""
+    """Return framing context only when allowed by the authoritative L1 state."""
     if not config.DB.exists():
         return None
     con = duckdb.connect(str(config.DB), read_only=True)
@@ -87,8 +186,15 @@ def framing_window(article):
             return None
         corpus = Corpus(con)
         horizon = corpus.latest_snapshot(article)
-        confirmed = _confirmed_window(drift.load_confirmation(article), horizon)
-        return confirmed or _pivot_window(drift.verdict_dict(con, article))
+        confirmation = drift.load_confirmation(article)
+        verdict = drift.verdict_dict(con, article)
+        source_state = provenance.load_source_state(con, article)
+        state = resolve_l1_state(verdict, confirmation, horizon, source_state)
+        if state["resolved_status"] == "confirmed":
+            return _confirmed_window(confirmation, horizon)
+        if state["resolved_status"] == "candidate":
+            return _pivot_window(verdict)
+        return None
     finally:
         con.close()
 
@@ -98,7 +204,13 @@ def _corroboration(result):
     Each signal is an independent instrument; agreement adds confidence without compounding errors."""
     signals = []
     l1 = result.get("l1") or ""
-    if l1 and not l1.startswith(("HEALTHY", "SKIP", "n/a")):
+    l1_state = result.get("l1_state") or {}
+    confirmation_status = l1_state.get("confirmation_status")
+    if confirmation_status == "confirmed":
+        signals.append("l1_pivot")
+    elif confirmation_status not in {"not_confirmed", "unavailable", "not_applicable"} and (
+        l1 and not l1.startswith(("HEALTHY", "SKIP", "n/a"))
+    ):
         signals.append("l1_pivot")
     l2 = result.get("l2") or {}
     shifts = (l2.get("shifts") if isinstance(l2, dict) else None) or {}
@@ -107,7 +219,12 @@ def _corroboration(result):
     ):
         signals.append("l2_shift")
     lex = result.get("lexical") or {}
-    if isinstance(lex, dict) and (lex.get("js_divergence") or 0) > 0.05:
+    if (
+        isinstance(lex, dict)
+        and lex.get("mode") == "pivot_relative"
+        and lex.get("adequate") is True
+        and (lex.get("js_divergence") or 0) > 0.05
+    ):
         signals.append("lexical_drift")
     m = result.get("mscore") or {}
     if isinstance(m, dict):
@@ -124,12 +241,15 @@ def _corroboration(result):
     return {"count": len(signals), "signals": signals}
 
 
-def run(article, llm=False, corroborate=False, framing=False, provider=None, model=None, base_url=None):
+def run(article, llm=False, corroborate=False, framing=False, additive=False, process=False,
+    provider=None, model=None, base_url=None):
     """Orchestrate the layers for one article. Returns a consolidated result dict.
 
     provider/model/base_url select the LLM backend for the opt-in L2 + framing layers (see llm.py).
     The cross-language lead comparison (L5) is opt-in via --framing. It uses matched historical revisions when
     L1 supplies a candidate window and falls back to a current static comparison otherwise."""
+    article = provenance.resolve_article_title(article).canonical_title
+
     # Build the LLM client ONCE and share it across L2 + L5 (was threaded as 3 loose params into each verb).
     # NB the `llm` parameter here is the bool opt-in flag, so import the module under an alias.
     client = None
@@ -148,20 +268,55 @@ def run(article, llm=False, corroborate=False, framing=False, provider=None, mod
     verdict = drift.verdict_dict(con, article) if _snap_count(con, article) >= 3 else None
     label = drift.candidate_verdict(con, article)[1] if verdict else "n/a (too few snapshots)"
     horizon = Corpus(con).latest_snapshot(article) if verdict else None
-    pivot_window = _confirmed_window(drift.load_confirmation(article), horizon) or _pivot_window(verdict)
+    confirmation = drift.load_confirmation(article)
+    source_state = provenance.load_source_state(con, article)
+    l1_state = resolve_l1_state(verdict, confirmation, horizon, source_state=source_state)
+    if l1_state["confirmation_status"] == "confirmed":
+        pivot_window = _confirmed_window(confirmation, horizon)
+    elif l1_state["resolved_status"] == "candidate":
+        pivot_window = _pivot_window(verdict)
+    else:
+        pivot_window = None
+    if l1_state["resolved_status"] == "confirmed":
+        episode_count = len(l1_state["confirmed_episodes"])
+        label = f"CONFIRMED — {episode_count} exact episode(s)"
+    elif l1_state["resolved_status"] == "not_confirmed":
+        label = "NOT_CONFIRMED — exact analysis rejected the coarse candidate"
+    elif l1_state["resolved_status"] == "unavailable":
+        reason = l1_state["reason"] or "insufficient cached evidence"
+        label = f"UNAVAILABLE — {reason}"
     print(f"\nL1 drift verdict: {label}")
 
     # ---- pre-rank router (metadata-only) ----
     leads = []
-    try:
-        leads = prerank.prerank(con, article).get("leads", [])
-    except Exception as e:                                  # noqa: BLE001 — degrade if metadata missing
-        print(f"router: unavailable ({e})")
+    if l1_state["analysis_status"] == "unavailable":
+        print(f"router: unavailable ({l1_state['reason'] or 'L1 evidence unavailable'})")
+    else:
+        try:
+            leads = prerank.prerank(con, article).get("leads", [])
+        except Exception as e:                              # noqa: BLE001 — degrade if metadata missing
+            print(f"router: unavailable ({e})")
     con.close()
     print(f"router leads: {', '.join(leads) if leads else '(no structural anomaly)'}")
 
     # ---- adjudicate the routed L2 leads (the gap this pipeline closes) ----
     l2_leads = [l for l in leads if l.endswith("→L2")]
+    trajectory = None
+    if additive and "addition→L2" in l2_leads:
+        print("\n→ tracing persistent additions across exact stable revisions:\n")
+        try:
+            trajectory = framing_trajectory.analyze_article(article, mode="formative")
+        except Exception as e:                              # noqa: BLE001
+            trajectory = {
+                "article": article,
+                "mode": "formative",
+                "status": "unavailable",
+                "semantic_role": "framing_change_lead",
+                "framing_change_lead": False,
+                "reason": str(e),
+                "events": [],
+            }
+            print(f"  additive trajectory unavailable: {e}")
     l2_done = False
     l2_summary = None
     if l2_leads:
@@ -187,7 +342,11 @@ def run(article, llm=False, corroborate=False, framing=False, provider=None, mod
     lex = None
     try:
         print()
-        lex = lexical.lexical_drift(article)
+        lexical_mode = (
+            "pivot_relative" if l1_state["confirmation_status"] == "confirmed"
+            else "not_applicable"
+        )
+        lex = lexical.lexical_drift(article, mode=lexical_mode, window=pivot_window)
     except Exception as e:                                  # noqa: BLE001
         print(f"lexical drift skipped: {e}")
 
@@ -219,21 +378,41 @@ def run(article, llm=False, corroborate=False, framing=False, provider=None, mod
         else:
             l2_read = "adjudicated — no endpoint shift detected"
         print(f"  L2 stance: {l2_read}")
+    if trajectory:
+        if trajectory.get("status") == "available":
+            summary = trajectory.get("summary") or {}
+            print(
+                "  additive : "
+                f"{summary.get('standing_additions', 0)} standing / "
+                f"{summary.get('transient_additions', 0)} transient addition(s)"
+            )
+        else:
+            print(f"  additive : unavailable — {trajectory.get('reason', 'unknown reason')}")
     if m is not None:
         refined = m.get("refined", {}).get("M") if isinstance(m.get("refined"), dict) else m.get("refined")
         read = "low ⇒ not fought-over" if not refined else "contested (controversy ≠ malice)"
         print(f"  M-score  : refined M={refined} — {read}")
     if lex is not None and isinstance(lex, dict):
-        print(f"  lexical  : JS divergence={lex.get('js_divergence', 'n/a')}")
+        print(
+            f"  lexical  : {lex.get('mode', 'unknown')}"
+            f"; JS divergence={lex.get('js_divergence', 'n/a')}"
+        )
     if framing_result:
         n = len(framing_result.get("divergences") or [])
         mode = "static" if not framing_result.get("pivot_window") else "pivot-corroborator"
         print(f"  framing  : {n} divergence(s) [{mode}] — see findings/{article.replace(' ','_')}.framing.json")
     else:
         print("  L5 framing: run via `wikidrift framing` or `wikidrift pipeline --framing` (separate instrument)")
-    result = {"article": article, "l1": label, "leads": leads, "l2_adjudicated": l2_done,
-              "l2": l2_summary,
-              "mscore": m, "lexical": lex, "l5": framing_result}
+    process_receipts = []
+    if process:
+        for episode in l1_state["confirmed_episodes"]:
+            process_receipts.append(process_context.retrieve_process_context(article, episode))
+        print(f"  process   : {len(process_receipts)} exact-event receipt(s) [descriptive only]")
+    result = {"article": article, "l1": label, "l1_state": l1_state,
+              "leads": leads, "l2_adjudicated": l2_done,
+              "l2": l2_summary, "trajectory": trajectory,
+              "mscore": m, "lexical": lex, "l5": framing_result,
+              "process_context": process_receipts}
     corr = _corroboration(result)
     print(f"  corroboration: {corr['count']} signal(s) — {corr['signals'] or '(none)'}")
     return result

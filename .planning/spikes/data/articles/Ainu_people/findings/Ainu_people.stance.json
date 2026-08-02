@@ -1,0 +1,67 @@
+{
+  "article": "Ainu people",
+  "langs": [
+    "en",
+    "ru",
+    "fr"
+  ],
+  "entities": [
+    "Ainu people"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Ainu people": {
+          "entity": "Ainu people",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "underscored the long history of the oppression of the Ainu people by Japan's majority... urged him to recognize the Japanese genocide against the Ainu people"
+        }
+      },
+      "lead": {
+        "Ainu people": {
+          "entity": "Ainu people",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "The Ainu were subject to forced assimilation during the Japanese colonization of Hokkaido since at least the 18th century... Ainu people were not allowed to practice their religion and were placed into Japanese-language schools, where speaking the Hokkaido Ainu language was forbidden."
+        }
+      }
+    },
+    "ru": {
+      "focal": {
+        "Ainu people": {
+          "entity": "Ainu people",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "Айны находились фактически на положении рабов... в условиях неестественной скученности, не имея возможности поддерживать традиционный образ жизни."
+        }
+      },
+      "lead": {
+        "Ainu people": {
+          "entity": "Ainu people",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "народ, являющийся древнейшим населением Японских островов"
+        }
+      }
+    },
+    "fr": {
+      "focal": {
+        "Ainu people": {
+          "entity": "Ainu people",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "leurs parents la leur ayant dissimulée pour les protéger de la discrimination et du racisme"
+        }
+      },
+      "lead": {
+        "Ainu people": {
+          "entity": "Ainu people",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "leurs parents la leur ayant dissimulée pour les protéger de la discrimination et du racisme"
+        }
+      }
+    }
+  }
+}

@@ -329,6 +329,9 @@
       }
     },
     "Demo Topic": {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "model_contract": null,
       "variants": {
         "lead": {
           "divergence": 1.2,
@@ -462,6 +465,22 @@
           "divergence": 2.0,
           "spreads": {
             "Rafah offensive": 2
+          }
+        }
+      }
+    },
+    "Ilhan Omar": {
+      "variants": {
+        "lead": {
+          "divergence": 0.0,
+          "spreads": {
+            "Ilhan Omar": 0
+          }
+        },
+        "focal": {
+          "divergence": 1.0,
+          "spreads": {
+            "Ilhan Omar": 1
           }
         }
       }
@@ -1205,6 +1224,35 @@
         },
         "pl": {
           "Rescue of Jews by Poles during the Holocaust": 1
+        }
+      }
+    },
+    "Ilhan Omar": {
+      "pivot": "2024-01-01",
+      "pivot_source": "L1 (peak 69.5%, 240,130 PWR, age 2.0yr)",
+      "en_gap_before": 0.5,
+      "en_gap_after": 0.0,
+      "read": "converged",
+      "before": {
+        "en": {
+          "Ilhan Omar": 0
+        },
+        "de": {
+          "Ilhan Omar": 1
+        },
+        "zh": {
+          "Ilhan Omar": 0
+        }
+      },
+      "after": {
+        "en": {
+          "Ilhan Omar": 1
+        },
+        "de": {
+          "Ilhan Omar": 1
+        },
+        "zh": {
+          "Ilhan Omar": 1
         }
       }
     }

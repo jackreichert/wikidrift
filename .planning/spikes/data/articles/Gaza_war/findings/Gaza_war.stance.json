@@ -1,0 +1,67 @@
+{
+  "article": "Gaza war",
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "entities": [
+    "Gaza war"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Gaza war": {
+          "entity": "Gaza war",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "The Gaza war is an armed conflict in the Gaza Strip and Israel, fought as part of the unresolved Israeli–Palestinian and Gaza–Israel conflicts."
+        }
+      },
+      "lead": {
+        "Gaza war": {
+          "entity": "Gaza war",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "The Gaza war is an armed conflict in the Gaza Strip and Israel, fought as part of the unresolved Israeli–Palestinian and Gaza–Israel conflicts."
+        }
+      }
+    },
+    "he": {
+      "focal": {
+        "Gaza war": {
+          "entity": "Gaza war",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "זירת רצועת עזה במלחמת חרבות ברזל (המכונה גם מלחמת עזה) היא זירת הלחימה ברצועת עזה במלחמת חרבות ברזל, שהייתה הזירה המרכזית לאורך רוב חודשי המלחמה"
+        }
+      },
+      "lead": {
+        "Gaza war": {
+          "entity": "Gaza war",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "היא זירת הלחימה ברצועת עזה במלחמת חרבות ברזל, שהייתה הזירה המרכזית לאורך רוב חודשי המלחמה"
+        }
+      }
+    },
+    "ar": {
+      "focal": {
+        "Gaza war": {
+          "entity": "Gaza war",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "وبحلول أوائل عام 2025، تسبّبت إسرائيل في دمار غير مسبوق في غزة وجعلت أجزاء كبيرة منها غير صالحة للسكن... حيث يعتبر هذا تهجيراً قسرياً من شأنه أن يرقى إلى جريمة حرب"
+        }
+      },
+      "lead": {
+        "Gaza war": {
+          "entity": "Gaza war",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "وبحلول أوائل عام 2025، تسبّبت إسرائيل في دمار غير مسبوق في غزة وجعلت أجزاء كبيرة منها غير صالحة للسكن... وقد صرّح خبراء ومنظمات حقوق الإنسان بأن إسرائيل وحماس ارتكبتا جرائم حرب وأن الأحداث في غزة كانت إبادة جماعية"
+        }
+      }
+    }
+  }
+}

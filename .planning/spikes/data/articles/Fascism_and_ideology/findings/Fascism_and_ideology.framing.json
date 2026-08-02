@@ -1,0 +1,113 @@
+{
+  "article": "Fascism and ideology",
+  "category": "general",
+  "mode": "pivot_relative",
+  "pivot_window": {
+    "start": "2026-01-01",
+    "end": "2026-07-01",
+    "pwr_mass": 450944,
+    "status": "confirmed",
+    "before_revid": 1358156368,
+    "before_timestamp": "2026-06-06T23:24:52Z",
+    "after_revid": 1358346972,
+    "after_timestamp": "2026-06-08T03:29:46Z",
+    "durable_spine_drop": 0.606833
+  },
+  "editions_compared": [
+    "en",
+    "sr",
+    "ko"
+  ],
+  "lead_chars": {
+    "en": 2705,
+    "sr": 2666,
+    "ko": 1268
+  },
+  "snapshots": {
+    "before": {
+      "en": {
+        "revid": 1358156368,
+        "timestamp": "2026-06-06T23:24:52Z",
+        "title": "Fascism and ideology",
+        "lead": "thumb|A Fascist propaganda poster featuring Benito Mussolini, the Duce of Italy, it says Win! And we will win.\n\nThe history of fascist ideology is long and draws on many sources. Fascists took inspiration from sources as ancient as the Spartans for their focus on racial purity and their emphasis on rule by an elite minority. Researchers have also seen links between fascism and the ideals of Plato, though there are key differences between the two. Italian Fascism styled itself as the ideological successor to Ancient Rome, particularly the Roman Empire. Georg Wilhelm Friedrich Hegel's view on the absolute authority of the state also strongly influenced fascist thinking. The 1789 French Revolution was a major influence insofar as the Nazis saw themselves as fighting back against many of the ideas which it brought to prominence, especially liberalism, liberal democracy and racial equality, whereas on the other hand, fascism drew heavily on the revolutionary ideal of nationalism. The prejudice of a \"high and noble\" Aryan culture as opposed to a \"parasitic\" Semitic culture was core to Nazi racial views, while other early forms of fascism concerned themselves with non-racialized conceptions of their respective nations.\n\nCommon themes among fascist movements include: authoritarianism, nationalism, hierarchy, elitism, and militarism. Other aspects of fascism – such as a perception of decadence, anti-egalitarianism and totalitarianism – can be seen to originate from these ideas. Roger Griffin has proposed that fascism is a synthesis of totalitarianism and ultranationalism sacralized through a myth of national rebirth and regeneration, which he terms \"palingenetic ultranationalism\".\n\nFascism had a complex relationship with other ideologies that were contemporary with it. Fascism frequently considered those ideologies its adversaries, but at the same time it was also focused on co-opting their more popular aspects. Fascism supported private property – except for the groups which it persecuted – and the profit motive of capitalism, but it sought to eliminate the autonomy of large-scale capitalism from the state. Fascists shared many of the goals of the conservatives of their day and they often allied themselves with them by drawing recruits from disaffected conservative ranks, but they presented themselves as holding a more modern ideology – with less focus on things like traditional religion – and sought to radically reshape society through revolutionary action rather than preserving the status quo. Fascism opposed class conflict and the egalitarian and international character of socialism. It strongly opposed liberalism, communism, anarchism, and democratic socialism."
+      },
+      "sr": {
+        "revid": 31004564,
+        "timestamp": "2026-06-04T14:51:11Z",
+        "title": "Фашистичка идеологија",
+        "lead": "мини|Фашистички пропагандни плакат на којем је приказан Бенито Мусолини, италијански дуче, са натписом „Победити! И победићемо”\n\nИсторија фашистичке идеологије је дуга и ослања се на многе изворе. Фашисти су црпели инспирацију из извора старих попут Спартанаца због њиховог фокуса на расну чистоћу и њиховог нагласка на владавини елитне мањине. Истраживачи су такође уочили везе између фашизма и идеала Платона, иако постоје кључне разлике између њих. Италијански фашизам се представљао као идеолошки наследник Старог Рима, а посебно Римског царства. Став Георга Вилхелма Фридриха Хегела о апсолутном ауторитету државе такође је снажно утицао на фашистичко размишљање. Француска револуција из 1789. године имала је велики утицај утолико што су нацисти сматрали да се боре против многих идеја које је она истакла у први план, посебно против либерализма, либералне демократије и расне једнакости, док се с друге стране фашизам у великој мери ослањао на револуционарни идеал национализма. Предрасуда о „високој и племенитој” аријевској култури насупрот „паразитској” семитској култури била је срж нацистичких расних погледа, док су се други рани облици фашизма бавили нерасистичким концепцијама својих нација.\n\nУобичајене теме међу фашистичким покретима укључују: ауторитаризам, национализам (укључујући расни национализам и верски национализам), хијерархију, елитизам и милитаризам. Може се сматрати да и други аспекти фашизма — попут перцепције декаденције, антиегалитаризма и тоталитаризма — потичу из ових идеја. Роџер Грифин је предложио да је фашизам синтеза тоталитаризма и ултранационализма, сакрализована кроз мит о националном препороду и регенерацији, коју он назива „палингенетски ултранационализам”.\n\nФашизам је имао сложен однос са другим идеологијама које су му биле савремене. Фашизам је те идеологије често сматрао својим противницима, али је у исто време био фокусиран и на кооптирање њихових популарнијих аспеката. Фашизам је подржавао приватну својину — са изузетком група које је прогонио — и мотив профита у капитализму, али је настојао да елиминише аутономију крупног капитализма у односу на државу. Фашисти су делили многе циљеве конзервативаца свог времена и често су ступали у савез са њима привлачећи регруте из незадовољних конзервативних редова, али су се представљали као заступници модерније идеологије — са мање фокуса на ствари попут традиционалне религије — и настојали су да радикално преобликују друштво кроз револуционарну акцију, уместо да очувају статус кво. Фашизам се противио класном сукобу и егалитарном и интернационалном карактеру социјализма. Снажно се противио либерализму, комунизму, анархизму и демократском социјализму."
+      },
+      "ko": {
+        "revid": 41815100,
+        "timestamp": "2026-05-20T20:30:22Z",
+        "title": "파시즘의 이념",
+        "lead": "섬네일|이탈리아의 두체인 베니토 무솔리니가 등장하는 파시스트 선전 포스터. \"승리하라! 그리고 우리는 승리할 것이다\"라고 적혀 있다.\n\n파시즘의 이념의 역사는 길며 많은 원천에서 영감을 얻었다. 파시스트들은 인종적 순결에 대한 집중과 정예 소수자에 의한 통치를 강조하기 위해 스파르타와 같은 고대 사회에서 영감을 얻었다. 연구자들은 파시즘과 플라톤의 이상 사이의 연관성을 보기도 했으나, 두 체제 사이에는 핵심적인 차이점도 존재한다. 이탈리아 파시즘은 스스로를 고대 로마, 특히 로마 제국의 이념적 계승자로 규정했다. 게오르크 빌헬름 프리드리히 헤겔의 국가의 절대적 권위에 대한 견해 또한 파시스트 사상에 강한 영향을 미쳤다. 1789년 프랑스 혁명은 나치가 그 혁명이 부각시킨 많은 아이디어, 특히 자유주의, 자유민주주의 및 인종적 평등에 맞서 싸우는 것으로 스스로를 인식했다는 점에서 주요한 영향을 미쳤으며, 반면에 파시즘은 내셔널리즘이라는 혁명적 이상에서 큰 영향을 받았다. \"기생적인\" 셈족 문화에 반대되는 \"고귀한\" 아리아인 문화라는 편견은 나치의 인종관의 핵심이었으며, 다른 초기 형태의 파시즘은 각자의 국민에 대한 비인종화된 개념에 관심을 가졌다.\n\n파시즘 운동의 공통적인 주제에는 권위주의, 내셔널리즘(인종국민주의 및 종교적 내셔널리즘 포함), 계층, 엘리트주의, 그리고 군국주의가 포함된다. 데카당스에 대한 인식, 반평등주의 및 전체주의와 같은 파시즘의 다른 측면들은 이러한 사상들로부터 기원한 것으로 볼 수 있다. 로저 그리핀은 파시즘이 국가의 재탄생과 재생이라는 신화를 통해 신성시된 전체주의와 국수주의의 합성물이라고 제안했으며, 이를 \"재생적 국수주의\"라고 명명했다.\n\n파시즘은 당대의 다른 이념들과 복잡한 관계를 맺었다. 파시즘은 종종 이러한 이념들을 적대자로 간주했지만, 동시에 그들의 대중적인 측면을 흡수하는 데 집중하기도 했다. 파시즘은 자신들이 박해하는 집단을 제외하고는 사유재산과 자본주의의 이윤 동기를 지지했으나, 대규모 자본주의가 국가로부터 누리는 자율성을 제거하고자 했다. 파시스트들은 당대 보수주의자들과 많은 목표를 공유했으며, 불만을 품은 보수 세력으로부터 신규 당원을 모집함으로써 종종 그들과 연합했다. 하지만 그들은 전통적인 종교와 같은 것들에 덜 집중하고 혁명적 행동을 통해 사회를 근본적으로 재편하려 한다는 점에서 자신들을 더 현대적인 이념을 가진 존재로 제시했다. 파시즘은 계급투쟁과 사회주의의 평등주의적이고 국제주의적인 성격에 반대했다. 또한 자유주의, 공산주의, 아나키즘, 그리고 민주사회주의에 강력히 반대했다."
+      }
+    },
+    "after": {
+      "en": {
+        "revid": 1358346972,
+        "timestamp": "2026-06-08T03:29:46Z",
+        "title": "Fascism and ideology",
+        "lead": "thumb|A Fascist propaganda poster featuring Benito Mussolini, the Duce of Italy, it says Win! And we will win.\n\nThe history of fascist ideology is long and draws on many sources. Fascists took inspiration from sources as ancient as the Spartans for their focus on racial purity and their emphasis on rule by an elite minority. Researchers have also seen links between fascism and the ideals of Plato, though there are key differences between the two. Italian Fascism styled itself as the ideological successor to Ancient Rome, particularly the Roman Empire. Georg Wilhelm Friedrich Hegel's view on the absolute authority of the state also strongly influenced fascist thinking. The 1789 French Revolution was a major influence insofar as the Nazis saw themselves as fighting back against many of the ideas which it brought to prominence, especially liberalism, liberal democracy and racial equality, whereas on the other hand, fascism drew heavily on the revolutionary ideal of nationalism. The prejudice of a \"high and noble\" Aryan culture as opposed to a \"parasitic\" Semitic culture was core to Nazi racial views, while other early forms of fascism concerned themselves with non-racialized conceptions of their respective nations.\n\nCommon themes among fascist movements include: authoritarianism, nationalism, hierarchy, elitism, and militarism. Other aspects of fascism – such as a perception of decadence, anti-egalitarianism and totalitarianism – can be seen to originate from these ideas. Roger Griffin has proposed that fascism is a synthesis of totalitarianism and ultranationalism sacralized through a myth of national rebirth and regeneration, which he terms \"palingenetic ultranationalism\".\n\nFascism had a complex relationship with other ideologies that were contemporary with it. Fascism frequently considered those ideologies its adversaries, but at the same time it was also focused on co-opting their more popular aspects. Fascism supported private property – except for the groups which it persecuted – and the profit motive of capitalism, but it sought to eliminate the autonomy of large-scale capitalism from the state. Fascists shared many of the goals of the conservatives of their day and they often allied themselves with them by drawing recruits from disaffected conservative ranks, but they presented themselves as holding a more modern ideology – with less focus on things like traditional religion – and sought to radically reshape society through revolutionary action rather than preserving the status quo. Fascism opposed class conflict and the egalitarian and international character of socialism. It strongly opposed liberalism, communism, anarchism, and democratic socialism."
+      },
+      "sr": {
+        "revid": 31013059,
+        "timestamp": "2026-06-08T19:56:55Z",
+        "title": "Фашистичка идеологија",
+        "lead": "мини|Фашистички пропагандни плакат на којем је приказан Бенито Мусолини, италијански дуче, са натписом „Победити! И победићемо”\n\nИсторија фашистичке идеологије је дуга и ослања се на многе изворе. Фашисти су црпели инспирацију из извора старих попут Спартанаца због њиховог фокуса на расну чистоћу и њиховог нагласка на владавини елитне мањине. Истраживачи су такође уочили везе између фашизма и идеала Платона, иако постоје кључне разлике између њих. Италијански фашизам се представљао као идеолошки наследник Старог Рима, а посебно Римског царства. Став Георга Вилхелма Фридриха Хегела о апсолутном ауторитету државе такође је снажно утицао на фашистичко размишљање. Француска револуција из 1789. године имала је велики утицај утолико што су нацисти сматрали да се боре против многих идеја које је она истакла у први план, посебно против либерализма, либералне демократије и расне једнакости, док се с друге стране фашизам у великој мери ослањао на револуционарни идеал национализма. Предрасуда о „високој и племенитој” аријевској култури насупрот „паразитској” семитској култури била је срж нацистичких расних погледа, док су се други рани облици фашизма бавили нерасистичким концепцијама својих нација.\n\nУобичајене теме међу фашистичким покретима укључују: ауторитаризам, национализам (укључујући расни национализам и верски национализам), хијерархију, елитизам и милитаризам. Може се сматрати да и други аспекти фашизма — попут перцепције декаденције, антиегалитаризма и тоталитаризма — потичу из ових идеја. Роџер Грифин је предложио да је фашизам синтеза тоталитаризма и ултранационализма, сакрализована кроз мит о националном препороду и регенерацији, коју он назива „палингенетски ултранационализам”.\n\nФашизам је имао сложен однос са другим идеологијама које су му биле савремене. Фашизам је те идеологије често сматрао својим противницима, али је у исто време био фокусиран и на кооптирање њихових популарнијих аспеката. Фашизам је подржавао приватну својину — са изузетком група које је прогонио — и мотив профита у капитализму, али је настојао да елиминише аутономију крупног капитализма у односу на државу. Фашисти су делили многе циљеве конзервативаца свог времена и често су ступали у савез са њима привлачећи регруте из незадовољних конзервативних редова, али су се представљали као заступници модерније идеологије — са мање фокуса на ствари попут традиционалне религије — и настојали су да радикално преобликују друштво кроз револуционарну акцију, уместо да очувају статус кво. Фашизам се противио класном сукобу и егалитарном и интернационалном карактеру социјализма. Снажно се противио либерализму, комунизму, анархизму и демократском социјализму."
+      },
+      "ko": {
+        "revid": 41967864,
+        "timestamp": "2026-06-21T05:42:55Z",
+        "title": "파시즘의 이념",
+        "lead": "섬네일|이탈리아의 두체인 베니토 무솔리니가 등장하는 파시스트 선전 포스터. \"승리하라! 그리고 우리는 승리할 것이다\"라고 적혀 있다.\n\n파시즘의 이념의 역사는 길며 많은 원천에서 영감을 얻었다. 파시스트들은 인종적 순결에 대한 집중과 정예 소수자에 의한 통치를 강조하기 위해 스파르타와 같은 고대 사회에서 영감을 얻었다. 연구자들은 파시즘과 플라톤의 이상 사이의 연관성을 보기도 했으나, 두 체제 사이에는 핵심적인 차이점도 존재한다. 이탈리아 파시즘은 스스로를 고대 로마, 특히 로마 제국의 이념적 계승자로 규정했다. 게오르크 빌헬름 프리드리히 헤겔의 국가의 절대적 권위에 대한 견해 또한 파시스트 사상에 강한 영향을 미쳤다. 1789년 프랑스 혁명은 나치가 그 혁명이 부각시킨 많은 아이디어, 특히 자유주의, 자유민주주의 및 인종적 평등에 맞서 싸우는 것으로 스스로를 인식했다는 점에서 주요한 영향을 미쳤으며, 반면에 파시즘은 내셔널리즘이라는 혁명적 이상에서 큰 영향을 받았다. \"기생적인\" 셈족 문화에 반대되는 \"고귀한\" 아리아인 문화라는 편견은 나치의 인종관의 핵심이었으며, 다른 초기 형태의 파시즘은 각자의 국민에 대한 비인종화된 개념에 관심을 가졌다.\n\n파시즘 운동의 공통적인 주제에는 권위주의, 내셔널리즘(인종국민주의 및 종교적 내셔널리즘 포함), 계층, 엘리트주의, 그리고 군국주의가 포함된다. 데카당스에 대한 인식, 반평등주의 및 전체주의와 같은 파시즘의 다른 측면들은 이러한 사상들로부터 기원한 것으로 볼 수 있다. 로저 그리핀은 파시즘이 국가의 재탄생과 재생이라는 신화를 통해 신성시된 전체주의와 국수주의의 합성물이라고 제안했으며, 이를 \"재생적 국수주의\"라고 명명했다.\n\n파시즘은 당대의 다른 이념들과 복잡한 관계를 맺었다. 파시즘은 종종 이러한 이념들을 적대자로 간주했지만, 동시에 그들의 대중적인 측면을 흡수하는 데 집중하기도 했다. 파시즘은 자신들이 박해하는 집단을 제외하고는 사유재산과 자본주의의 이윤 동기를 지지했으나, 대규모 자본주의가 국가로부터 누리는 자율성을 제거하고자 했다. 파시스트들은 당대 보수주의자들과 많은 목표를 공유했으며, 불만을 품은 보수 세력으로부터 신규 당원을 모집함으로써 종종 그들과 연합했다. 하지만 그들은 전통적인 종교와 같은 것들에 덜 집중하고 혁명적 행동을 통해 사회를 근본적으로 재편하려 한다는 점에서 자신들을 더 현대적인 이념을 가진 존재로 제시했다. 파시즘은 계급투쟁과 사회주의의 평등주의적이고 국제주의적인 성격에 반대했다. 또한 자유주의, 공산주의, 아나키즘, 그리고 민주사회주의에 강력히 반대했다."
+      }
+    }
+  },
+  "divergences": [
+    {
+      "topic": "Nationalism subtypes mentioned in common fascist themes",
+      "editions_differ": [
+        "KO",
+        "SR"
+      ],
+      "en_says": "authoritarianism, nationalism, hierarchy, elitism, and militarism",
+      "other_says": "ауторитаризам, национализам (укључујући расни национализам и верски национализам), хијерархију, елитизам и милитаризам",
+      "verdict": "differ",
+      "evidence_en": "Common themes among fascist movements include: authoritarianism, nationalism, hierarchy, elitism, and militarism.",
+      "evidence_other": "национализам (укључујући расни национализам и верски национализам)",
+      "temporal_read": "difference_persisted",
+      "en_before": "authoritarianism, nationalism, hierarchy, elitism, and militarism",
+      "en_after": "authoritarianism, nationalism, hierarchy, elitism, and militarism",
+      "other_before": "национализам (укључујући расни национализам и верски национализам)",
+      "other_after": "национализам (укључујући расни национализам и верски национализам)",
+      "evidence_en_before": "Common themes among fascist movements include: authoritarianism, nationalism, hierarchy, elitism, and militarism.",
+      "evidence_en_after": "Common themes among fascist movements include: authoritarianism, nationalism, hierarchy, elitism, and militarism.",
+      "evidence_other_before": "национализам (укључујући расни национализам и верски национализам)",
+      "evidence_other_after": "национализам (укључујући расни национализам и верски национализам)"
+    }
+  ],
+  "summary": "No genuine temporal divergence emerged in this window: the EN before/after texts are identical, as are the KO and SR before/after texts. The only cross-edition difference found—KO and SR specifying 'nationalism (including racial nationalism and religious nationalism)' versus EN's plain 'nationalism'—predates and persists through the entire comparison window, with no edits made to either side during this period.",
+  "run_ts": "2026-07-19T17:19:38.969765+00:00",
+  "model": "claude-sonnet-5",
+  "llm_usage": {
+    "calls": 1,
+    "input_tokens": 8180,
+    "output_tokens": 638,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 8180,
+        "output_tokens": 638,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
+  },
+  "elapsed_seconds": 13.707
+}

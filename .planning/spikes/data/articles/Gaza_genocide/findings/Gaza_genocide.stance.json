@@ -1,0 +1,67 @@
+{
+  "article": "Gaza genocide",
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "entities": [
+    "Gaza genocide"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Gaza genocide": {
+          "entity": "Gaza genocide",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "The Gaza genocide is the ongoing, intentional, and systematic destruction of the Palestinian people in the Gaza Strip carried out by Israel during the Gaza war."
+        }
+      },
+      "lead": {
+        "Gaza genocide": {
+          "entity": "Gaza genocide",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "The Gaza genocide is the ongoing, intentional, and systematic destruction of the Palestinian people in the Gaza Strip carried out by Israel during the Gaza war."
+        }
+      }
+    },
+    "he": {
+      "focal": {
+        "Gaza genocide": {
+          "entity": "Gaza genocide",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "טענות לרצח עם ברצועת עזה הועלו במהלך מלחמת חרבות ברזל על ידי מספר גורמים בין-לאומיים, מומחים וחוקרים"
+        }
+      },
+      "lead": {
+        "Gaza genocide": {
+          "entity": "Gaza genocide",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "הפסקה מציגה בהרחבה ובפירוט רב את הטענות והראיות לתמיכה בטענת רצח העם (מספרי הרוגים, ציטוטים ממומחים, החלטות בין-לאומיות), בעוד שהכחשת ישראל מוצגת בקצרה יחסית ומתויגת כ'מנגד', מה שמייצר נטייה מבנית לכיוון אימוץ הנרטיב תוך שימוש בשפה כמו 'שטחי השמדה' ו'הריגה ללא משפט'"
+        }
+      }
+    },
+    "ar": {
+      "focal": {
+        "Gaza genocide": {
+          "entity": "Gaza genocide",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "التدمير والاستهداف الممنهج والمتعمد والمستمر للشعب الفلسطيني في قطاع غزة، والذي تنفذه إسرائيل"
+        }
+      },
+      "lead": {
+        "Gaza genocide": {
+          "entity": "Gaza genocide",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "الإبادة الجماعية لغزة هي التدمير والاستهداف الممنهج والمتعمد والمستمر للشعب الفلسطيني في قطاع غزة، والذي تنفذه إسرائيل خلال حرب غزة"
+        }
+      }
+    }
+  }
+}

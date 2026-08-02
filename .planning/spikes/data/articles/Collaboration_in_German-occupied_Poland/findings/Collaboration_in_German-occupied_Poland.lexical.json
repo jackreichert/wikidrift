@@ -1,0 +1,301 @@
+{
+  "article": "Collaboration in German-occupied Poland",
+  "span": "2018-07-01 -> 2019-01-01 (around L1 pivot ~2018-07-01)",
+  "pivot": "2018-07-01",
+  "before": {
+    "date": "2018-07-01",
+    "rev": 848275255,
+    "tokens": 3245
+  },
+  "after": {
+    "date": "2019-01-01",
+    "rev": 874414418,
+    "tokens": 3276
+  },
+  "js_divergence": 0.0813,
+  "overrepresented_after_terms": [
+    {
+      "term": "another",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 1.9373
+    },
+    {
+      "term": "largest",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 1.9373
+    },
+    {
+      "term": "nationalist",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 1.9373
+    },
+    {
+      "term": "punished",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 1.9373
+    },
+    {
+      "term": "servicemen",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 1.9373
+    },
+    {
+      "term": "hiding",
+      "before": 2,
+      "after": 7,
+      "delta": 5,
+      "log_odds": 1.0906
+    },
+    {
+      "term": "journal",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 1.09
+    },
+    {
+      "term": "theater",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 1.09
+    },
+    {
+      "term": "family",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8384
+    },
+    {
+      "term": "gorals",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8384
+    },
+    {
+      "term": "helped",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8384
+    },
+    {
+      "term": "helping",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8384
+    },
+    {
+      "term": "individual",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8384
+    },
+    {
+      "term": "nazis",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8384
+    },
+    {
+      "term": "operated",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8384
+    },
+    {
+      "term": "perform",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8384
+    },
+    {
+      "term": "piotrowski",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8384
+    },
+    {
+      "term": "pro",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8384
+    },
+    {
+      "term": "publishing",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8384
+    },
+    {
+      "term": "smaller",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8384
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "jasińska",
+      "before": 7,
+      "after": 0,
+      "delta": -7,
+      "log_odds": -2.7197
+    },
+    {
+      "term": "puretz",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -2.5763
+    },
+    {
+      "term": "due",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.208
+    },
+    {
+      "term": "datner",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.9563
+    },
+    {
+      "term": "higher",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.9563
+    },
+    {
+      "term": "jasińskiej",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.9563
+    },
+    {
+      "term": "jednak",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.9563
+    },
+    {
+      "term": "marta",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.9563
+    },
+    {
+      "term": "grabowski",
+      "before": 11,
+      "after": 2,
+      "delta": -9,
+      "log_odds": -1.5383
+    },
+    {
+      "term": "żydów",
+      "before": 5,
+      "after": 1,
+      "delta": -4,
+      "log_odds": -1.31
+    },
+    {
+      "term": "number",
+      "before": 13,
+      "after": 5,
+      "delta": -8,
+      "log_odds": -0.9099
+    },
+    {
+      "term": "się",
+      "before": 8,
+      "after": 3,
+      "delta": -5,
+      "log_odds": -0.8984
+    },
+    {
+      "term": "acted",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.8574
+    },
+    {
+      "term": "compared",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.8574
+    },
+    {
+      "term": "contacts",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.8574
+    },
+    {
+      "term": "escapees",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.8574
+    },
+    {
+      "term": "functionaries",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.8574
+    },
+    {
+      "term": "international",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.8574
+    },
+    {
+      "term": "killing",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.8574
+    },
+    {
+      "term": "law",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.8574
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

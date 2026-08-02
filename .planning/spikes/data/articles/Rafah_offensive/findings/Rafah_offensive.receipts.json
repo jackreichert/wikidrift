@@ -1,0 +1,27 @@
+{
+  "article": "Rafah offensive",
+  "qid": "Q124512668",
+  "editions": {
+    "en": {
+      "present": true,
+      "revid": 1357159391,
+      "title": "Rafah offensive",
+      "timestamp": "2026-06-01T02:12:34Z",
+      "prose_chars": 138834
+    },
+    "he": {
+      "present": true,
+      "revid": 43466530,
+      "title": "קרב רפיח (2024)",
+      "timestamp": "2026-06-21T11:28:33Z",
+      "prose_chars": 24271
+    },
+    "ar": {
+      "present": true,
+      "revid": 74208236,
+      "title": "هجوم رفح 2024",
+      "timestamp": "2026-04-08T18:04:03Z",
+      "prose_chars": 18997
+    }
+  }
+}

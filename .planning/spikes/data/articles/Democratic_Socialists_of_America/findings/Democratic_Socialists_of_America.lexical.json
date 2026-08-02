@@ -1,0 +1,301 @@
+{
+  "article": "Democratic Socialists of America",
+  "span": "2025-01-01 -> 2025-07-01 (around L1 pivot ~2025-01-01)",
+  "pivot": "2025-01-01",
+  "before": {
+    "date": "2025-01-01",
+    "rev": 1266721233,
+    "tokens": 3880
+  },
+  "after": {
+    "date": "2025-07-01",
+    "rev": 1298147008,
+    "tokens": 3829
+  },
+  "js_divergence": 0.043,
+  "overrepresented_after_terms": [
+    {
+      "term": "abolishing",
+      "before": 0,
+      "after": 8,
+      "delta": 8,
+      "log_odds": 2.8485
+    },
+    {
+      "term": "college",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.2115
+    },
+    {
+      "term": "wall",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 1.9599
+    },
+    {
+      "term": "care",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 1.1126
+    },
+    {
+      "term": "politics",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 1.1126
+    },
+    {
+      "term": "recent",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 1.1126
+    },
+    {
+      "term": "away",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8611
+    },
+    {
+      "term": "demand",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8611
+    },
+    {
+      "term": "development",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8611
+    },
+    {
+      "term": "establish",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8611
+    },
+    {
+      "term": "industry",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8611
+    },
+    {
+      "term": "movements",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8611
+    },
+    {
+      "term": "relations",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8611
+    },
+    {
+      "term": "reparations",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8611
+    },
+    {
+      "term": "republic",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8611
+    },
+    {
+      "term": "shifted",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8611
+    },
+    {
+      "term": "slavery",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8611
+    },
+    {
+      "term": "transition",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8611
+    },
+    {
+      "term": "free",
+      "before": 2,
+      "after": 5,
+      "delta": 3,
+      "log_odds": 0.8025
+    },
+    {
+      "term": "past",
+      "before": 2,
+      "after": 5,
+      "delta": 3,
+      "log_odds": 0.8025
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "class",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.185
+    },
+    {
+      "term": "program",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.9335
+    },
+    {
+      "term": "universal",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.9335
+    },
+    {
+      "term": "organization",
+      "before": 33,
+      "after": 8,
+      "delta": -25,
+      "log_odds": -1.3647
+    },
+    {
+      "term": "degrowth",
+      "before": 5,
+      "after": 1,
+      "delta": -4,
+      "log_odds": -1.2871
+    },
+    {
+      "term": "founding",
+      "before": 4,
+      "after": 1,
+      "delta": -3,
+      "log_odds": -1.0862
+    },
+    {
+      "term": "hamas",
+      "before": 9,
+      "after": 3,
+      "delta": -6,
+      "log_odds": -0.9868
+    },
+    {
+      "term": "featured",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.8346
+    },
+    {
+      "term": "healthcare",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.8346
+    },
+    {
+      "term": "included",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.8346
+    },
+    {
+      "term": "like",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.8346
+    },
+    {
+      "term": "place",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.8346
+    },
+    {
+      "term": "supports",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.8346
+    },
+    {
+      "term": "took",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.8346
+    },
+    {
+      "term": "call",
+      "before": 5,
+      "after": 2,
+      "delta": -3,
+      "log_odds": -0.776
+    },
+    {
+      "term": "ehrenreich",
+      "before": 5,
+      "after": 2,
+      "delta": -3,
+      "log_odds": -0.776
+    },
+    {
+      "term": "abolition",
+      "before": 6,
+      "after": 3,
+      "delta": -3,
+      "log_odds": -0.6066
+    },
+    {
+      "term": "barbara",
+      "before": 4,
+      "after": 2,
+      "delta": -2,
+      "log_odds": -0.5751
+    },
+    {
+      "term": "economy",
+      "before": 4,
+      "after": 2,
+      "delta": -2,
+      "log_odds": -0.5751
+    },
+    {
+      "term": "foreign",
+      "before": 4,
+      "after": 2,
+      "delta": -2,
+      "log_odds": -0.5751
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

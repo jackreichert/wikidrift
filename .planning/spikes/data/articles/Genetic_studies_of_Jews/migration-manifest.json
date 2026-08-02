@@ -1,0 +1,26 @@
+{
+  "article": "Genetic studies of Jews",
+  "artifacts": [
+    "findings/Genetic_studies_of_Jews.category.json",
+    "findings/Genetic_studies_of_Jews.cost.json",
+    "findings/Genetic_studies_of_Jews.factcheck.json",
+    "findings/Genetic_studies_of_Jews.framing.json",
+    "findings/Genetic_studies_of_Jews.l1-confirmation.json",
+    "findings/Genetic_studies_of_Jews.lexical.json",
+    "findings/Genetic_studies_of_Jews.profile.json",
+    "findings/Genetic_studies_of_Jews.receipts.json",
+    "findings/Genetic_studies_of_Jews.sources.json",
+    "findings/Genetic_studies_of_Jews.stance.json",
+    "mscore/Genetic_studies_of_Jews.json"
+  ],
+  "slug": "Genetic_studies_of_Jews",
+  "tables": {
+    "articles": 0,
+    "rev_size": 3091,
+    "revisions": 3091,
+    "rsnap": 988449,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "article": "Nakba",
+  "artifacts": [
+    "findings/Nakba.category.json",
+    "findings/Nakba.cost.json",
+    "findings/Nakba.factcheck.json",
+    "findings/Nakba.framing.json",
+    "findings/Nakba.l1-confirmation.json",
+    "findings/Nakba.lexical.json",
+    "findings/Nakba.profile.json",
+    "findings/Nakba.receipts.json",
+    "findings/Nakba.sources.json",
+    "findings/Nakba.stance.json",
+    "mscore/Nakba.json"
+  ],
+  "slug": "Nakba",
+  "tables": {
+    "articles": 0,
+    "rev_size": 1239,
+    "revisions": 1239,
+    "rsnap": 514060,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

@@ -1,0 +1,301 @@
+{
+  "article": "Abortion",
+  "span": "2010-01-01 -> 2011-01-01 (around L1 pivot ~2010-01-01)",
+  "pivot": "2010-01-01",
+  "before": {
+    "date": "2010-01-01",
+    "rev": 335280912,
+    "tokens": 3906
+  },
+  "after": {
+    "date": "2011-01-01",
+    "rev": 405120187,
+    "tokens": 3638
+  },
+  "js_divergence": 0.0876,
+  "overrepresented_after_terms": [
+    {
+      "term": "art",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 2.4703
+    },
+    {
+      "term": "safe",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 2.4703
+    },
+    {
+      "term": "decrease",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.0178
+    },
+    {
+      "term": "film",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.0178
+    },
+    {
+      "term": "restricted",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.0178
+    },
+    {
+      "term": "part",
+      "before": 1,
+      "after": 5,
+      "delta": 4,
+      "log_odds": 1.3715
+    },
+    {
+      "term": "uterine",
+      "before": 2,
+      "after": 8,
+      "delta": 6,
+      "log_odds": 1.2965
+    },
+    {
+      "term": "major",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 1.1705
+    },
+    {
+      "term": "varies",
+      "before": 1,
+      "after": 4,
+      "delta": 3,
+      "log_odds": 1.1705
+    },
+    {
+      "term": "mortality",
+      "before": 2,
+      "after": 6,
+      "delta": 4,
+      "log_odds": 1.0277
+    },
+    {
+      "term": "available",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.9189
+    },
+    {
+      "term": "back",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.9189
+    },
+    {
+      "term": "frequency",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.9189
+    },
+    {
+      "term": "herself",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.9189
+    },
+    {
+      "term": "knowledge",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.9189
+    },
+    {
+      "term": "limits",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.9189
+    },
+    {
+      "term": "main",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.9189
+    },
+    {
+      "term": "percent",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.9189
+    },
+    {
+      "term": "perforation",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.9189
+    },
+    {
+      "term": "aborted",
+      "before": 2,
+      "after": 5,
+      "delta": 3,
+      "log_odds": 0.8604
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "pain",
+      "before": 15,
+      "after": 0,
+      "delta": -15,
+      "log_odds": -3.3668
+    },
+    {
+      "term": "crime",
+      "before": 7,
+      "after": 0,
+      "delta": -7,
+      "log_odds": -2.6388
+    },
+    {
+      "term": "breast",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -2.4954
+    },
+    {
+      "term": "levitt",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.3281
+    },
+    {
+      "term": "believe",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.1272
+    },
+    {
+      "term": "donohue",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.1272
+    },
+    {
+      "term": "hypothesis",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.1272
+    },
+    {
+      "term": "left",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.1272
+    },
+    {
+      "term": "mexico",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.1272
+    },
+    {
+      "term": "president",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.1272
+    },
+    {
+      "term": "promoting",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.1272
+    },
+    {
+      "term": "third",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.1272
+    },
+    {
+      "term": "washington",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.1272
+    },
+    {
+      "term": "august",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.8756
+    },
+    {
+      "term": "barry",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.8756
+    },
+    {
+      "term": "city",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.8756
+    },
+    {
+      "term": "connections",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.8756
+    },
+    {
+      "term": "developmental",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.8756
+    },
+    {
+      "term": "economists",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.8756
+    },
+    {
+      "term": "essential",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.8756
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

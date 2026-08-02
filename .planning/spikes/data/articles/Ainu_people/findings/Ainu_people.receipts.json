@@ -1,0 +1,27 @@
+{
+  "article": "Ainu people",
+  "qid": "Q101828",
+  "editions": {
+    "en": {
+      "present": true,
+      "revid": 1360770633,
+      "title": "Ainu people",
+      "timestamp": "2026-06-23T13:58:05Z",
+      "prose_chars": 72110
+    },
+    "ru": {
+      "present": true,
+      "revid": 153941604,
+      "title": "Айны",
+      "timestamp": "2026-07-13T16:22:20Z",
+      "prose_chars": 53067
+    },
+    "fr": {
+      "present": true,
+      "revid": 237739840,
+      "title": "Aïnous (ethnie du Japon et de Russie)",
+      "timestamp": "2026-07-11T18:20:12Z",
+      "prose_chars": 48466
+    }
+  }
+}

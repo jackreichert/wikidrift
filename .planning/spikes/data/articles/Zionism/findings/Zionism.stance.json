@@ -1,0 +1,105 @@
+{
+  "article": "Zionism",
+  "langs": [
+    "en",
+    "he",
+    "ar",
+    "de",
+    "ja"
+  ],
+  "entities": [
+    "Zionism"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "He argues that \"transfer\" was \"inevitable and inbuilt into Zionism\" and that a land that was primarily Arab could not be transformed into a Jewish state without displacing the Arab population."
+        }
+      },
+      "lead": {
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "Zionists wanted to create a Jewish state in Palestine with as much land, as many Jews, and as few Palestinian Arabs as possible."
+        }
+      }
+    },
+    "he": {
+      "focal": {
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "הציונות היא מסכת רעיונות רחבה, שבה כלולה לא רק השאיפה לשטח מדיני מובטח כחוק בשביל העם היהודי, אלא גם השאיפה לשלמות מוסרית ורוחנית"
+        }
+      },
+      "lead": {
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "מטרתה קיום בית לאומי לעם היהודי בארץ ישראל ושמירה על קיומו... שאיפה לשלמות מוסרית ורוחנית"
+        }
+      }
+    },
+    "ar": {
+      "focal": {
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "سعت لإنشاء دولة قومية خاصّة لهم باستعمار بلاد خارج اوروبا، ومضت عبر حرب التطهير العرقي لفلسطين 1947–1948 لإنشاء إثنوقراطية يهودية في فلسطين"
+        }
+      },
+      "lead": {
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "سعت لإنشاء دولة قومية خاصّة لهم باستعمار بلاد خارج اوروبا، ومضت عبر حرب التطهير العرقي لفلسطين 1947–1948 لإنشاء إثنوقراطية يهودية في فلسطين"
+        }
+      }
+    },
+    "de": {
+      "focal": {
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Die historische Bewertung des Zionismus ist abhängig von der Sprecherposition."
+        }
+      },
+      "lead": {
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Der Zionismus war eine ethnonationalistische Bewegung, die Ende des 19. Jahrhunderts in Reaktion auf Antisemitismus und Verfolgung in Europa entstand."
+        }
+      }
+    },
+    "ja": {
+      "focal": {
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "シオニズム運動とは、迫害の対象であり国民的同一性を共有する先住民族を、古代史に記されているように祖先の故郷の地に帰還させるための民族解放運動である"
+        }
+      },
+      "lead": {
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "シオニズムにも多くの側面があり、植民地主義、人種差別主義...などの、を通じたイデオロギーや運動としてのシオニズム批判がある"
+        }
+      }
+    }
+  }
+}

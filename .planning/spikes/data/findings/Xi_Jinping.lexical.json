@@ -1,0 +1,301 @@
+{
+  "article": "Xi Jinping",
+  "span": "2021-07-01 -> 2022-01-01 (around L1 pivot ~2021-07-01)",
+  "pivot": "2021-07-01",
+  "before": {
+    "date": "2021-07-01",
+    "rev": 1031548599,
+    "tokens": 6435
+  },
+  "after": {
+    "date": "2022-01-01",
+    "rev": 1063137962,
+    "tokens": 6624
+  },
+  "js_divergence": 0.0063,
+  "overrepresented_after_terms": [
+    {
+      "term": "companies",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8187
+    },
+    {
+      "term": "freedom",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8187
+    },
+    {
+      "term": "include",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8187
+    },
+    {
+      "term": "non",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 0.8187
+    },
+    {
+      "term": "among",
+      "before": 2,
+      "after": 4,
+      "delta": 2,
+      "log_odds": 0.5591
+    },
+    {
+      "term": "attend",
+      "before": 2,
+      "after": 4,
+      "delta": 2,
+      "log_odds": 0.5591
+    },
+    {
+      "term": "projects",
+      "before": 2,
+      "after": 4,
+      "delta": 2,
+      "log_odds": 0.5591
+    },
+    {
+      "term": "abroad",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.482
+    },
+    {
+      "term": "adopted",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.482
+    },
+    {
+      "term": "began",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.482
+    },
+    {
+      "term": "build",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.482
+    },
+    {
+      "term": "common",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.482
+    },
+    {
+      "term": "declared",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.482
+    },
+    {
+      "term": "delegation",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.482
+    },
+    {
+      "term": "different",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.482
+    },
+    {
+      "term": "emissions",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.482
+    },
+    {
+      "term": "existing",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.482
+    },
+    {
+      "term": "fines",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.482
+    },
+    {
+      "term": "framework",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.482
+    },
+    {
+      "term": "goals",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.482
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "action",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.8766
+    },
+    {
+      "term": "brother",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.5399
+    },
+    {
+      "term": "cave",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.5399
+    },
+    {
+      "term": "despite",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.5399
+    },
+    {
+      "term": "environmental",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.5399
+    },
+    {
+      "term": "little",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.5399
+    },
+    {
+      "term": "remains",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.5399
+    },
+    {
+      "term": "town",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.5399
+    },
+    {
+      "term": "tracker",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.5399
+    },
+    {
+      "term": "achieve",
+      "before": 3,
+      "after": 2,
+      "delta": -1,
+      "log_odds": -0.3656
+    },
+    {
+      "term": "announcement",
+      "before": 3,
+      "after": 2,
+      "delta": -1,
+      "log_odds": -0.3656
+    },
+    {
+      "term": "criticism",
+      "before": 3,
+      "after": 2,
+      "delta": -1,
+      "log_odds": -0.3656
+    },
+    {
+      "term": "five",
+      "before": 3,
+      "after": 2,
+      "delta": -1,
+      "log_odds": -0.3656
+    },
+    {
+      "term": "major",
+      "before": 3,
+      "after": 2,
+      "delta": -1,
+      "log_odds": -0.3656
+    },
+    {
+      "term": "nations",
+      "before": 3,
+      "after": 2,
+      "delta": -1,
+      "log_odds": -0.3656
+    },
+    {
+      "term": "zhongxun",
+      "before": 3,
+      "after": 2,
+      "delta": -1,
+      "log_odds": -0.3656
+    },
+    {
+      "term": "left",
+      "before": 8,
+      "after": 6,
+      "delta": -2,
+      "log_odds": -0.2975
+    },
+    {
+      "term": "served",
+      "before": 4,
+      "after": 3,
+      "delta": -1,
+      "log_odds": -0.2804
+    },
+    {
+      "term": "very",
+      "before": 4,
+      "after": 3,
+      "delta": -1,
+      "log_odds": -0.2804
+    },
+    {
+      "term": "climate",
+      "before": 5,
+      "after": 4,
+      "delta": -1,
+      "log_odds": -0.2298
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

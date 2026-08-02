@@ -26,10 +26,13 @@ from bisect import bisect_right
 
 import duckdb
 
-from . import config, provenance
+from . import config, event_attribution as event_ledger, process_context, provenance
 from .corpus import Corpus
 from .config import (MIN_COHORT, MIN_MATURE, MAG_FLOOR, CONFIRM_DROP,
-                     CREEP_MEAN, DURABLE_Q, RECENT_YEARS, ELEVATED, SLOW_BLEED_FLOOR)
+                     CREEP_MEAN, DURABLE_Q, RECENT_YEARS, ELEVATED,
+                     MASS_FLOOR, ROLLING_WINDOW_MONTHS, ROLLING_TOLERANCE_DAYS, ROLLING_DROP)
+
+CONFIRMATION_SCHEMA_VERSION = 2
 
 
 def confirmation_name(article):
@@ -120,6 +123,22 @@ def print_coarse_report(snaps, members, present):
         print(f"persistence-weighted loss: mean {mean:.1f}%  median {med:.1f}%  peak {max(vals):.1f}%")
 
 
+def _coarse_profile(snaps, members, present):
+    """Serialize the terminal PWR interval series for downstream visualizations."""
+    return [
+        {
+            "start": start_date,
+            "end": end_date,
+            "size": size,
+            "pwr_loss": round(ratio, 2),
+            "pwr_removed": int(weighted_loss),
+            "mature": mature,
+        }
+        for start_date, _start_revid, end_date, _end_revid, ratio, size, weighted_loss, mature
+        in _intervals(snaps, members, present)
+    ]
+
+
 def build_episodes(series, elevated=ELEVATED):
     """Group time-contiguous intervals with persistence-weighted loss >= `elevated` into episodes.
     `abs` accumulates PWR-mass removed (the ranking key); `peak` is the max interval loss %."""
@@ -130,11 +149,58 @@ def build_episodes(series, elevated=ELEVATED):
                 cur["end"] = (d1, r1); cur["abs"] += absd; cur["peak"] = max(cur["peak"], ratio)
             else:
                 if cur: episodes.append(cur)
-                cur = {"start": (d0, r0), "end": (d1, r1), "abs": absd, "peak": ratio}
+                cur = {"start": (d0, r0), "end": (d1, r1), "abs": absd, "peak": ratio,
+                       "source": "interval"}
         elif cur:
             episodes.append(cur); cur = None
     if cur: episodes.append(cur)
     return episodes
+
+
+def rolling_candidates(snaps, members, present, months=ROLLING_WINDOW_MONTHS,
+                       tolerance_days=ROLLING_TOLERANCE_DAYS, threshold=ROLLING_DROP,
+                       mass_floor=MASS_FLOOR, min_mature=MIN_MATURE):
+    """Find direct weighted cohort loss near the target window length.
+
+    This second pass catches sustained medium loss that does not cross the high-precision threshold in
+    any single snapshot interval. Sparse histories without a snapshot inside the tolerance are skipped.
+    """
+    candidates = []
+    target_days = round(months * 365.25 / 12)
+    snap_dates = [dt.date.fromisoformat(snap[0]) for snap in snaps]
+    for start in range(len(snaps) - 1):
+        start_date = snap_dates[start]
+        eligible = [
+            end for end in range(start + 1, len(snaps))
+            if abs((snap_dates[end] - start_date).days - target_days) <= tolerance_days
+        ]
+        if not eligible or len(members[start]) < min_mature:
+            continue
+        end = min(eligible, key=lambda index: abs((snap_dates[index] - start_date).days - target_days))
+        at_start, at_end = members[start], members[end]
+        total_weight = sum(_pwr(present, token, start) for token in at_start)
+        lost_weight = sum(_pwr(present, token, start) for token in at_start - at_end)
+        loss_pct = 100.0 * lost_weight / total_weight if total_weight else 0.0
+        if loss_pct >= threshold and lost_weight >= mass_floor:
+            candidates.append({
+                "start": snaps[start], "end": snaps[end], "abs": lost_weight,
+                "peak": loss_pct, "source": "rolling",
+            })
+    return annotate_episodes(candidates, snaps[-1][0]) if snaps else []
+
+
+def non_overlapping_candidates(candidates, blocked=()):
+    """Keep the highest-PWR candidate from each overlapping time range."""
+    selected = []
+
+    def overlaps(left, right):
+        return left["start"][0] < right["end"][0] and right["start"][0] < left["end"][0]
+
+    for candidate in sorted(candidates, key=lambda item: -item["abs"]):
+        if any(overlaps(candidate, other) for other in (*blocked, *selected)):
+            continue
+        selected.append(candidate)
+    return selected
 
 
 def refine(article, con, snaps, members, present, idx_of_rev, peak):
@@ -206,27 +272,164 @@ def removal_attribution(article, con, peak):
     return removals_by_editor, removed_count, origin_ts, editor_of, latest
 
 
-def attribute(article, con, peak):
-    """Attribute established-token removals and current post-pivot contributions."""
-    d0, r0, d1, r1, _ = peak
-    print(f"\n  ── ATTRIBUTION ({d0} → {d1}) ──")
-    removals_by_editor, removed_count, origin_ts, editor_of, latest = removal_attribution(article, con, peak)
-    d0ts = d0 + "T00:00:00Z"
-    print(f"  REMOVALS — editors associated with terminal removals in this window ({removed_count:,} tokens removed):")
-    for u, n in sorted(removals_by_editor.items(), key=lambda x: -x[1])[:8]:
-        print(f"    {n:>6,}  {u}")
-    post_pivot_by_editor = {}
-    if latest:
-        for tok_id, o_rev in Corpus(con).snapshot_tokens(article, latest[0]):
-            ots = origin_ts.get(o_rev)
-            if ots and ots > d0ts:
-                u = editor_of.get(o_rev, "?")
-                post_pivot_by_editor[u] = post_pivot_by_editor.get(u, 0) + 1
-    top = sorted(post_pivot_by_editor.items(), key=lambda x: -x[1])[:8]
-    total_new = sum(n for _, n in top)
-    print(f"  POST-PIVOT CONTRIBUTORS — top authors of current text written after {d0} ({total_new:,}+ tokens shown):")
-    for u, n in top:
-        print(f"    {n:>6,}  {u}")
+def _timestamp(value):
+    parsed = dt.datetime.fromisoformat(value.replace("Z", "+00:00"))
+    return parsed if parsed.tzinfo else parsed.replace(tzinfo=dt.timezone.utc)
+
+
+def event_attribution(article, con, episode):
+    """Return a multi-revision activity ledger for one exact event between stable boundaries."""
+    before_revid = episode["before_revid"]
+    after_revid = episode["after_revid"]
+    before_timestamp = episode["before_timestamp"]
+    after_timestamp = episode["after_timestamp"]
+    corpus = Corpus(con)
+    revisions = corpus.revision_evidence_between(article, before_timestamp, after_timestamp)
+    revision_ids = [revision["revision_id"] for revision in revisions]
+    if before_revid not in revision_ids:
+        raise ValueError(
+            f"{article!r} event before-boundary revision {before_revid} is absent from the timeline"
+        )
+    if after_revid not in revision_ids:
+        raise ValueError(
+            f"{article!r} event after-boundary revision {after_revid} is absent from the timeline"
+        )
+    before_index = revision_ids.index(before_revid)
+    after_index = revision_ids.index(after_revid)
+    if before_index >= after_index:
+        raise ValueError(f"{article!r} event boundaries are not in chronological revision order")
+    revisions = revisions[before_index:after_index + 1]
+    for revision in revisions:
+        revision["tokens"] = provenance.tokens_at(article, revision["revision_id"])
+
+    result = event_ledger.attribute_revision_sequence(article, revisions)
+    result.update({
+        "duration_seconds": int((_timestamp(after_timestamp) - _timestamp(before_timestamp)).total_seconds()),
+    })
+    return result
+
+
+def attribute(article, con, episode, render=True):
+    """Calculate exact-event attribution and optionally render its neutral terminal receipt."""
+    result = event_attribution(article, con, episode)
+    if not render:
+        return result
+    print(f"\n  ── ATTRIBUTION (rev {result['before_revid']} → {result['after_revid']}) ──")
+    print(
+        "  REMOVALS — editors associated with terminal removals in this exact event "
+        f"({result['removed_tokens']:,} tokens removed):"
+    )
+    for row in result["removals_by_editor"][:8]:
+        print(f"    {row['tokens']:>6,}  {row['editor']}")
+    print(
+        "  REPLACEMENT — origin authors of surviving replacement text in this exact event "
+        f"({result['replacement_tokens']:,} tokens):"
+    )
+    for row in result["replacement_by_editor"][:8]:
+        print(f"    {row['tokens']:>6,}  {row['editor']}")
+    return result
+
+
+def _validate_confirmation_for_backfill(con, article, confirmation):
+    """Require a confirmed artifact produced for the current corpus and threshold contract."""
+    schema_version = confirmation.get("schema_version", 1)
+    if schema_version > CONFIRMATION_SCHEMA_VERSION:
+        raise ValueError(
+            f"{article!r} confirmation schema version {schema_version} is newer than supported "
+            f"version {CONFIRMATION_SCHEMA_VERSION}"
+        )
+    if confirmation.get("status") != "confirmed":
+        raise ValueError(f"{article!r} has no confirmed attribution target")
+    if (confirmation.get("thresholds") or {}) != config.confirmation_thresholds():
+        raise ValueError(f"{article!r} confirmation threshold contract is stale")
+    current_horizon = Corpus(con).latest_snapshot(article)
+    saved_horizon = confirmation.get("corpus_horizon") or {}
+    saved = (saved_horizon.get("snapshot_date"), saved_horizon.get("snapshot_revid"))
+    if not current_horizon or saved != tuple(current_horizon):
+        raise ValueError(f"{article!r} confirmation corpus horizon is stale")
+    if not confirmation.get("confirmed_episodes"):
+        raise ValueError(f"{article!r} confirmation has no exact episodes")
+
+
+def backfill_attribution(article, con=None, persist=True, force=False):
+    """Add exact-event attribution to a current confirmation artifact without rerunning L1."""
+    owns_connection = con is None
+    if owns_connection:
+        con = duckdb.connect(str(config.DB), read_only=True)
+    try:
+        confirmation = load_confirmation(article)
+        _validate_confirmation_for_backfill(con, article, confirmation)
+        updated = 0
+        skipped = 0
+        failed = 0
+        changed = confirmation.get("schema_version") != CONFIRMATION_SCHEMA_VERSION
+        confirmation["schema_version"] = CONFIRMATION_SCHEMA_VERSION
+        for episode in confirmation["confirmed_episodes"]:
+            if episode.get("attribution") and not force:
+                skipped += 1
+                continue
+            try:
+                attribution = event_attribution(article, con, episode)
+                episode["duration_seconds"] = attribution["duration_seconds"]
+                episode["attribution"] = attribution
+                episode.pop("attribution_unavailable", None)
+                updated += 1
+            except Exception as exc:  # noqa: BLE001
+                episode["attribution"] = None
+                episode["attribution_unavailable"] = str(exc)
+                failed += 1
+            changed = True
+        if changed:
+            confirmation["attribution_backfill_ts"] = dt.datetime.now(dt.timezone.utc).isoformat()
+            if persist:
+                config.write_findings(confirmation_name(article), confirmation)
+        return {
+            "article": article,
+            "updated_episodes": updated,
+            "skipped_episodes": skipped,
+            "failed_episodes": failed,
+        }
+    finally:
+        if owns_connection:
+            con.close()
+
+
+def backfill_process_context(article, con=None, persist=True, force=False):
+    """Attach neutral process receipts to current exact episodes without rerunning L1."""
+    owns_connection = con is None
+    if owns_connection:
+        con = duckdb.connect(str(config.DB), read_only=True)
+    try:
+        confirmation = load_confirmation(article)
+        _validate_confirmation_for_backfill(con, article, confirmation)
+        updated = 0
+        skipped = 0
+        failed = 0
+        for episode in confirmation["confirmed_episodes"]:
+            if episode.get("process_context") and not force:
+                skipped += 1
+                continue
+            try:
+                episode["process_context"] = process_context.retrieve_process_context(article, episode)
+                episode.pop("process_context_unavailable", None)
+                updated += 1
+            except Exception as exc:  # noqa: BLE001 - preserve per-episode availability
+                episode["process_context"] = None
+                episode["process_context_unavailable"] = str(exc)
+                failed += 1
+        if updated or failed:
+            confirmation["process_context_backfill_ts"] = dt.datetime.now(dt.timezone.utc).isoformat()
+            if persist:
+                config.write_findings(confirmation_name(article), confirmation)
+        return {
+            "article": article,
+            "updated_episodes": updated,
+            "skipped_episodes": skipped,
+            "failed_episodes": failed,
+        }
+    finally:
+        if owns_connection:
+            con.close()
 
 
 def _age_years(end_date, horizon):
@@ -269,31 +472,6 @@ def ranked_episodes(con, article):
     return snaps, members, present, idx_of_rev, series, stats, episodes
 
 
-def _cumulative_loss_windows(series, months=12, threshold=SLOW_BLEED_FLOOR):
-    """12-month rolling window slow-bleed detector: steady per-interval losses that never individually
-    trigger ELEVATED (and thus never form an episode) but accumulate to a large fraction of content mass.
-    ratio = sum(wlost) / peak_size across the window. Returns (start_date, end_date, ratio) of the worst
-    window that exceeds threshold, or None if no window qualifies."""
-    if len(series) < 2:
-        return None
-    delta_days = months * 30
-    best = None
-    for i in range(len(series)):
-        d0 = dt.date.fromisoformat(series[i][0])
-        cutoff = d0 + dt.timedelta(days=delta_days)
-        window = [s for s in series[i:] if dt.date.fromisoformat(s[0]) <= cutoff]
-        if len(window) < 2:
-            continue
-        peak_size = max(s[5] for s in window)
-        if not peak_size:
-            continue
-        total_wlost = sum(s[6] for s in window)
-        ratio = total_wlost / peak_size
-        if best is None or ratio > best[2]:
-            best = (window[0][0], window[-1][2], round(ratio, 3))
-    return best if (best and best[2] >= threshold) else None
-
-
 def verdict_dict(con, article):
     """Structured, machine-scorable OFFLINE verdict (no WikiWho): the coarse PWR metric, episodes ranked
     by PWR-mass with recency as a descriptor. UNCONFIRMED candidate — binary-search confirmation
@@ -317,9 +495,6 @@ def verdict_dict(con, article):
         out["verdict"] = "CREEP?"; out["top_mass"] = 0
     else:
         out["verdict"] = "HEALTHY"; out["top_mass"] = 0
-    slow = _cumulative_loss_windows(series)
-    if slow:
-        out["slow_bleed"] = {"start": slow[0], "end": slow[1], "ratio": slow[2]}
     return out
 
 
@@ -400,6 +575,57 @@ def profile_report(article, con=None, persist=True):
     return p
 
 
+def _candidate_evaluation(candidate, confirmation):
+    """Build an audit receipt for one candidate sent through exact checking."""
+    evaluation = {
+        "candidate_start": candidate["start"][0],
+        "candidate_end": candidate["end"][0],
+        "candidate_before_revid": candidate["start"][1],
+        "candidate_after_revid": candidate["end"][1],
+        "source": candidate.get("source", "interval"),
+        "pwr_mass": int(candidate["abs"]),
+        "peak_pct": round(candidate["peak"], 2),
+    }
+    if confirmation is None:
+        return {
+            **evaluation,
+            "decision": "rejected",
+            "rejection_reason": "insufficient_revision_evidence",
+        }
+
+    before, after, decline = confirmation
+    confirmed = decline >= CONFIRM_DROP
+    return {
+        **evaluation,
+        "exact_before_revid": before[0],
+        "exact_before_timestamp": before[1],
+        "exact_after_revid": after[0],
+        "exact_after_timestamp": after[1],
+        "durable_spine_drop": round(decline, 6),
+        "decision": "confirmed" if confirmed else "rejected",
+        "rejection_reason": None if confirmed else "durable_spine_drop_below_threshold",
+    }
+
+
+def _confirmed_episode(evaluation):
+    """Translate a successful candidate receipt into the established episode shape."""
+    return {
+        "candidate_start": evaluation["candidate_start"],
+        "candidate_end": evaluation["candidate_end"],
+        "candidate_before_revid": evaluation["candidate_before_revid"],
+        "candidate_after_revid": evaluation["candidate_after_revid"],
+        "before_revid": evaluation["exact_before_revid"],
+        "before_timestamp": evaluation["exact_before_timestamp"],
+        "after_revid": evaluation["exact_after_revid"],
+        "after_timestamp": evaluation["exact_after_timestamp"],
+        "durable_spine_drop": evaluation["durable_spine_drop"],
+        "pwr_mass": evaluation["pwr_mass"],
+        "peak_pct": evaluation["peak_pct"],
+        "source": evaluation["source"],
+        "status": "confirmed",
+    }
+
+
 def analyze(article, con=None, persist=True):
     """Full L1 pipeline for one article, with confirmation + attribution.
 
@@ -408,22 +634,54 @@ def analyze(article, con=None, persist=True):
     structured result, and persists it by default for downstream instruments."""
     owns = con is None
     if owns:
+        resolved = provenance.resolve_article_title(article)
+        article = resolved.canonical_title
         con = duckdb.connect(str(config.DB))
+        provenance.record_article_identity(con, resolved)
     print(f"=== ANALYZE: {article} ===", flush=True)
     provenance.ensure_sizes(con, article)
     provenance.ensure_indexes(con)
     provenance.build_snapshots(con, article)
+    source_state = provenance.load_source_state(con, article)
+    if (source_state or {}).get("source_status") in {"partial", "unavailable"}:
+        horizon = Corpus(con).latest_snapshot(article)
+        result = {
+            "schema_version": CONFIRMATION_SCHEMA_VERSION,
+            "article": article,
+            "run_ts": dt.datetime.now(dt.timezone.utc).isoformat(),
+            "corpus_horizon": {
+                "snapshot_date": horizon[0], "snapshot_revid": horizon[1],
+            } if horizon else None,
+            "thresholds": config.confirmation_thresholds(),
+            "coarse_verdict": "UNAVAILABLE",
+            "status": "unavailable",
+            "reason": source_state.get("reason") or "source coverage is incomplete",
+            "source_state": source_state,
+            "confirmed_episodes": [],
+            "evaluated_candidates": [],
+            "interval_profile": [],
+        }
+        print(f"  unavailable: {result['reason']}")
+        if persist:
+            config.write_findings(confirmation_name(article), result)
+        if owns:
+            con.close()
+        return result
     snaps, members, present, idx_of_rev, series, (mean, med, std), episodes = ranked_episodes(con, article)
     result = {
+        "schema_version": CONFIRMATION_SCHEMA_VERSION,
         "article": article,
         "run_ts": dt.datetime.now(dt.timezone.utc).isoformat(),
         "corpus_horizon": {
             "snapshot_date": snaps[-1][0], "snapshot_revid": snaps[-1][1],
         } if snaps else None,
         "thresholds": config.confirmation_thresholds(),
+        "source_state": source_state,
         "coarse_verdict": "SKIP" if len(snaps) < 3 else verdict_dict(con, article)["verdict"],
         "status": "unavailable" if len(snaps) < 3 else "not_confirmed",
         "confirmed_episodes": [],
+        "evaluated_candidates": [],
+        "interval_profile": _coarse_profile(snaps, members, present),
     }
     if len(snaps) < 3:
         print("  too few snapshots to analyze")
@@ -434,50 +692,66 @@ def analyze(article, con=None, persist=True):
     print(f"  {len(snaps)} persistent snapshots {snaps[0][0]}..{snaps[-1][0]}", flush=True)
     print_coarse_report(snaps, members, present)
 
+    confirmed = []
     if episodes:
         print(f"\ncandidate pivot episodes (ranked by PWR-mass removed; recency = context, NOT a demoter):")
         for e in episodes:
             print(f"  {e['start'][0]} → {e['end'][0]}   peak {e['peak']:.0f}%   ~{int(e['abs']):,} PWR   "
                   f"age {e['age']:.1f}yr  [{_recency_tag(e['age'])}]")
-        confirmed = []
         for e in episodes[:3]:                      # confirm the top few (by PWR-mass) via binary search
             span = (e["start"][0], e["start"][1], e["end"][0], e["end"][1], e["peak"])
             print(f"\n-- confirming {e['start'][0]} → {e['end'][0]} --")
             conf = refine(article, con, snaps, members, present, idx_of_rev, span)
-            if conf and conf[2] >= CONFIRM_DROP:
-                before, after, decline = conf
-                confirmed.append((e, span, {
-                    "candidate_start": e["start"][0],
-                    "candidate_end": e["end"][0],
-                    "candidate_before_revid": e["start"][1],
-                    "candidate_after_revid": e["end"][1],
-                    "before_revid": before[0],
-                    "before_timestamp": before[1],
-                    "after_revid": after[0],
-                    "after_timestamp": after[1],
-                    "durable_spine_drop": round(decline, 6),
-                    "pwr_mass": int(e["abs"]),
-                    "peak_pct": round(e["peak"], 2),
-                    "status": "confirmed",
-                }))
-        if confirmed:
-            confirmed.sort(key=lambda x: -x[0]["abs"])
-            top = confirmed[0][0]
-            result["status"] = "confirmed"
-            result["confirmed_episodes"] = [record for _, _, record in confirmed]
-            kind = ("recent retrofit" if top["age"] <= RECENT_YEARS
-                    else f"standing distortion — persisted {top['age']:.0f}yr (a long-standing-distortion candidate)")
-            print(f"\nVERDICT: PIVOT ({kind}) — {len(confirmed)} confirmed episode(s), by PWR-mass:")
-            for e, _, _ in confirmed:
-                print(f"  • {e['start'][0]} → {e['end'][0]}  (~{int(e['abs']):,} PWR, age {e['age']:.1f}yr, "
-                      f"peak {e['peak']:.0f}%)  [{_recency_tag(e['age'])}]")
-            for e, span, _ in confirmed[:2]:         # attribute the two largest (by PWR-mass)
-                attribute(article, con, span)
-        else:                                        # candidate episodes existed but none binary-search-confirmed
-            nuance = ("elevated destruction, no single episode binary-search-confirmed"
-                      if mean > CREEP_MEAN else "candidate episodes not confirmed")
-            print(f"\nVERDICT: {_creep_or_healthy_label(mean)} ({nuance})")
-    else:                                            # no candidate episodes at all
+            evaluation = _candidate_evaluation(e, conf)
+            result["evaluated_candidates"].append(evaluation)
+            if evaluation["decision"] == "confirmed":
+                confirmed.append((e, span, _confirmed_episode(evaluation)))
+
+    if not confirmed:
+        rolling = non_overlapping_candidates(
+            rolling_candidates(snaps, members, present), blocked=episodes,
+        )[:3]
+        if rolling:
+            print("\nrolling second-pass candidates (12-month weighted loss):")
+        for e in rolling:
+            span = (e["start"][0], e["start"][1], e["end"][0], e["end"][1], e["peak"])
+            print(f"\n-- confirming rolling {e['start'][0]} → {e['end'][0]} "
+                  f"({e['peak']:.0f}%, ~{int(e['abs']):,} PWR) --")
+            conf = refine(article, con, snaps, members, present, idx_of_rev, span)
+            evaluation = _candidate_evaluation(e, conf)
+            result["evaluated_candidates"].append(evaluation)
+            if evaluation["decision"] == "confirmed":
+                confirmed.append((e, span, _confirmed_episode(evaluation)))
+
+    if confirmed:
+        confirmed.sort(key=lambda item: -item[0]["abs"])
+        top = confirmed[0][0]
+        result["status"] = "confirmed"
+        kind = ("recent retrofit" if top["age"] <= RECENT_YEARS
+                else f"standing distortion — persisted {top['age']:.0f}yr (a long-standing-distortion candidate)")
+        print(f"\nVERDICT: PIVOT ({kind}) — {len(confirmed)} confirmed episode(s), by PWR-mass:")
+        for e, _, record in confirmed:
+            print(f"  • {e['start'][0]} → {e['end'][0]}  (~{int(e['abs']):,} PWR, age {e['age']:.1f}yr, "
+                  f"peak {e['peak']:.0f}%, {record['source']})  [{_recency_tag(e['age'])}]")
+        for index, (_episode, _span, record) in enumerate(confirmed):
+            try:
+                attribution = attribute(article, con, record, render=index < 2)
+                if not isinstance(attribution, dict):
+                    raise ValueError("structured attribution was not returned")
+                record["duration_seconds"] = attribution["duration_seconds"]
+                record["attribution"] = attribution
+            except Exception as exc:  # noqa: BLE001
+                record["duration_seconds"] = int(
+                    (_timestamp(record["after_timestamp"]) - _timestamp(record["before_timestamp"])).total_seconds()
+                )
+                record["attribution"] = None
+                record["attribution_unavailable"] = str(exc)
+        result["confirmed_episodes"] = [record for _, _, record in confirmed]
+    elif episodes:
+        nuance = ("elevated destruction, no episode binary-search-confirmed"
+                  if mean > CREEP_MEAN else "candidate episodes not confirmed")
+        print(f"\nVERDICT: {_creep_or_healthy_label(mean)} ({nuance})")
+    else:
         print(f"\nVERDICT: {_creep_or_healthy_label(mean)}")
     if persist:
         config.write_findings(confirmation_name(article), result)

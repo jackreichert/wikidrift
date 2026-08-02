@@ -1,0 +1,76 @@
+{
+  "article": "Bar Kokhba Revolt",
+  "asof": null,
+  "langs": [
+    "en",
+    "he"
+  ],
+  "citation": {
+    "mean_jaccard": 0.15,
+    "domains_per_edition": {
+      "en": 22,
+      "he": 17
+    }
+  },
+  "claim": {
+    "per_edition": {
+      "en": {
+        "Approximately how many Jewish casualties resulted from the Bar Kokhba revolt?": {
+          "question": "Approximately how many Jewish casualties resulted from the Bar Kokhba revolt?",
+          "answer": "Hundreds of thousands killed",
+          "value": "hundreds of thousands",
+          "evidence": "Ancient and contemporary sources estimate that hundreds of thousands were killed, with many others enslaved and displaced."
+        },
+        "What were the revolt's consequences for the Jewish population of Judea?": {
+          "question": "What were the revolt's consequences for the Jewish population of Judea?",
+          "answer": "Near-total depopulation of Judea, with mass killings, enslavement, displacement, religious prohibitions, and exclusion from Jerusalem",
+          "value": "near-total depopulation, mass killings, enslavement, displacement",
+          "evidence": "leading to the near-total depopulation of Judea proper, along with mass killings, enslavement, and displacement."
+        },
+        "Did the Romans rename the province after the revolt, and to what name?": {
+          "question": "Did the Romans rename the province after the revolt, and to what name?",
+          "answer": "Yes, from Judaea to Syria Palaestina",
+          "value": "Syria Palaestina",
+          "evidence": "More enduring was the renaming of the province from Judaea to Syria Palaestina, an act intended to sever the region's historical association with the Jewish people"
+        }
+      },
+      "he": {
+        "Approximately how many Jewish casualties resulted from the Bar Kokhba revolt?": {
+          "question": "Approximately how many Jewish casualties resulted from the Bar Kokhba revolt?",
+          "answer": "Tens of thousands, if not hundreds of thousands, of rebels and Jewish civilians were killed",
+          "value": "tens of thousands to hundreds of thousands",
+          "evidence": "והחוקרים מעריכים, שרבבות, אם לא מאות אלפי מורדים ואזרחים יהודיים נהרגו במהלך דיכוי המרד"
+        },
+        "What were the revolt's consequences for the Jewish population of Judea?": {
+          "question": "What were the revolt's consequences for the Jewish population of Judea?",
+          "answer": "Massive destruction occurred, hundreds of settlements were destroyed, and Judea was emptied of its Jewish inhabitants; the spiritual, demographic and cultural center of the Jewish population moved to the Galilee",
+          "value": "Judea depopulated of Jews; center shifted to Galilee",
+          "evidence": "ומאות מקומות יישוב נחרבו, כך שחבל יהודה התרוקן מיושביו. המרכז הרוחני, הדמוגרפי והתרבותי של יהדות ארץ ישראל נדד אל הגליל"
+        },
+        "Did the Romans rename the province after the revolt, and to what name?": {
+          "question": "Did the Romans rename the province after the revolt, and to what name?",
+          "answer": "Not stated in the passage",
+          "value": "not stated",
+          "evidence": "The passage does not mention a renaming of the province to 'Syria Palaestina' or any other name after the revolt."
+        }
+      }
+    },
+    "adjudication": [
+      {
+        "question": "Approximately how many Jewish casualties resulted from the Bar Kokhba revolt?",
+        "verdict": "agree",
+        "note": "Both cite huge losses; he gives a broader range (tens to hundreds of thousands) overlapping with en's hundreds of thousands."
+      },
+      {
+        "question": "What were the revolt's consequences for the Jewish population of Judea?",
+        "verdict": "agree",
+        "note": "Both describe near-total depopulation, destruction, and demographic shift, though phrased differently."
+      },
+      {
+        "question": "Did the Romans rename the province after the revolt, and to what name?",
+        "verdict": "insufficient",
+        "note": "he does not mention the renaming, so cross-edition comparison is inconclusive."
+      }
+    ]
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "article": "Gaza war",
+  "asof": null,
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "citation": {
+    "mean_jaccard": 0.19,
+    "domains_per_edition": {
+      "en": 173,
+      "he": 50,
+      "ar": 205
+    }
+  },
+  "claim": {
+    "per_edition": {
+      "en": {
+        "How many total deaths are reported, and among whom?": {
+          "question": "How many total deaths are reported, and among whom?",
+          "answer": "1,195 Israelis and foreign nationals killed in the initial attack, and over 73,000 Palestinians in Gaza killed since the Israeli offensive began",
+          "value": "1,195 Israelis/foreign nationals; 73,000+ Palestinians",
+          "evidence": "in which 1,195 Israelis and foreign nationals were killed and 251 were taken hostage. Since the start of the Israeli offensive that followed, over 73,000 Palestinians in Gaza have been killed."
+        },
+        "On what date did the war begin?": {
+          "question": "On what date did the war begin?",
+          "answer": "7 October 2023",
+          "value": "2023-10-07",
+          "evidence": "The war began on 7 October 2023, when the Palestinian militant group Hamas led a surprise attack on Israel"
+        }
+      },
+      "he": {
+        "How many total deaths are reported, and among whom?": {
+          "question": "How many total deaths are reported, and among whom?",
+          "answer": "The passage does not give a single total death count; it reports IDF strikes killed tens of thousands of civilians in Gaza (per Israel's critics), alongside destruction of infrastructure, and separately mentions about 1,500 terrorists killed in Israeli territory in phase one, about 200 terrorists killed by sea and land forces, 60 terrorists killed in the sea infiltration attempt, and 356 terrorists killed by police and border police.",
+          "value": "tens of thousands of civilians (Gaza); ~1,500 terrorists in Israel (phase 1); ~200 terrorists (naval/land forces); 60 terrorists (sea infiltration); 356 terrorists (police)",
+          "evidence": "תקיפות אלו גרמו להרג של עשרות אלפי אזרחים... כלל הריגה של כ-1,500 מחבלים בשטח ישראל... הכוחות הרגו עד כה בים וביבשה כ-200 מחבלים... מדובר על 60 מחבלים שנהרגו... שוטרי משטרת ישראל ומשמר הגבול הרגו 356 מחבלים"
+        },
+        "On what date did the war begin?": {
+          "question": "On what date did the war begin?",
+          "answer": "The war began on October 7, 2023.",
+          "value": "October 7, 2023",
+          "evidence": "ב-7 באוקטובר 2023, שמחת תורה, כ\"ב בתשרי ה'תשפ\"ד"
+        }
+      },
+      "ar": {
+        "How many total deaths are reported, and among whom?": {
+          "question": "How many total deaths are reported, and among whom?",
+          "answer": "At least 50,000 Palestinians reported killed (majority women and children), with a Lancet estimate of at least 70,000 direct deaths; also 1,195 Israelis/foreigners killed on Oct 7.",
+          "value": "≥50,000 Palestinians (Lancet estimate ≥70,000); 1,195 Israelis/foreigners",
+          "evidence": "منذ بداية الهجوم الإسرائيلي، تمّ الإبلاغ عن استشهاد ما لا يقلُّ عن 50 ألف فلسطيني غالبيتهم من النساء والأطفال... وقد قدّرت مجلة ذا لانسيت الطبية أن عدد الوفيات لا يقلُّ عن 70 ألف حالة وفاة مباشرة بسبب الإصابات المؤلمة."
+        },
+        "On what date did the war begin?": {
+          "question": "On what date did the war begin?",
+          "answer": "The war began on October 7, 2023.",
+          "value": "October 7, 2023",
+          "evidence": "بدأت الحرب في 7 تشرين الأول/أكتوبر 2023م بعد هجوم مفاجئ شنَّته حركة حماس على إسرائيل والذي أسمته بعملية طوفان الأقصى."
+        }
+      }
+    },
+    "adjudication": [
+      {
+        "question": "How many total deaths are reported, and among whom?",
+        "verdict": "contradict",
+        "note": "Numbers diverge sharply (73,000+ vs ≥50,000/≥70,000 vs no total given) and Hebrew edition frames Palestinian deaths as civilians per critics vs combatant/terrorist counts, indicating incompatible framing and figures."
+      },
+      {
+        "question": "On what date did the war begin?",
+        "verdict": "agree",
+        "note": "All three editions agree the war began on 7 October 2023."
+      }
+    ]
+  }
+}

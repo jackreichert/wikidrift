@@ -1,0 +1,27 @@
+{
+  "article": "Climate change",
+  "qid": "Q125928",
+  "editions": {
+    "en": {
+      "present": true,
+      "revid": 1363907785,
+      "title": "Climate change",
+      "timestamp": "2026-07-13T06:24:39Z",
+      "prose_chars": 82710
+    },
+    "he": {
+      "present": true,
+      "revid": 43520022,
+      "title": "שינוי אקלים",
+      "timestamp": "2026-07-02T00:47:33Z",
+      "prose_chars": 21734
+    },
+    "ar": {
+      "present": true,
+      "revid": 75703810,
+      "title": "تغير المناخ",
+      "timestamp": "2026-06-28T08:56:09Z",
+      "prose_chars": 13299
+    }
+  }
+}

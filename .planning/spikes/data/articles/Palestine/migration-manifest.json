@@ -1,0 +1,27 @@
+{
+  "article": "Palestine",
+  "artifacts": [
+    "findings/Palestine.category.json",
+    "findings/Palestine.cost.json",
+    "findings/Palestine.factcheck.json",
+    "findings/Palestine.framing.json",
+    "findings/Palestine.l1-confirmation.json",
+    "findings/Palestine.lexical.json",
+    "findings/Palestine.profile.json",
+    "findings/Palestine.receipts.json",
+    "findings/Palestine.sources.json",
+    "findings/Palestine.stance.json",
+    "logs/analysis-2026-07-30/Palestine.rolling-corpus-benchmark.log",
+    "mscore/Palestine.json"
+  ],
+  "slug": "Palestine",
+  "tables": {
+    "articles": 0,
+    "rev_size": 6029,
+    "revisions": 6029,
+    "rsnap": 1225828,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "article": "Ainu people",
+  "run_ts": "2026-07-30T18:15:28.138098+00:00",
+  "corpus_horizon": {
+    "snapshot_date": "2026-07-01",
+    "snapshot_revid": 1360770633
+  },
+  "thresholds": {
+    "confirm_drop": 0.2,
+    "durable_quantile": 0.5,
+    "min_cohort": 500,
+    "magnitude_floor": 25.0,
+    "rolling_window_months": 12,
+    "rolling_tolerance_days": 35,
+    "rolling_drop": 20.0
+  },
+  "coarse_verdict": "HEALTHY",
+  "status": "confirmed",
+  "confirmed_episodes": [
+    {
+      "candidate_start": "2023-07-01",
+      "candidate_end": "2024-07-01",
+      "candidate_before_revid": 1163199784,
+      "candidate_after_revid": 1231936646,
+      "before_revid": 1221801648,
+      "before_timestamp": "2024-05-02T01:43:44Z",
+      "after_revid": 1221809882,
+      "after_timestamp": "2024-05-02T02:52:27Z",
+      "durable_spine_drop": 0.317842,
+      "pwr_mass": 170246,
+      "peak_pct": 31.29,
+      "source": "rolling",
+      "status": "confirmed",
+      "duration_seconds": 4123,
+      "attribution": {
+        "before_revid": 1221801648,
+        "before_timestamp": "2024-05-02T01:43:44Z",
+        "after_revid": 1221809882,
+        "after_timestamp": "2024-05-02T02:52:27Z",
+        "duration_seconds": 4123,
+        "removed_tokens": 2302,
+        "replacement_tokens": 622,
+        "removals_by_editor": [
+          {
+            "editor": "Eievie",
+            "tokens": 2302
+          }
+        ],
+        "replacement_by_editor": [
+          {
+            "editor": "Eievie",
+            "tokens": 622
+          }
+        ],
+        "top_removal_share": 1.0,
+        "top_replacement_share": 1.0,
+        "same_top_editor": true,
+        "top_two_removal_share": 1.0
+      }
+    }
+  ],
+  "attribution_backfill_ts": "2026-07-31T17:45:31.862884+00:00",
+  "schema_version": 2
+}

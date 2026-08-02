@@ -1,0 +1,26 @@
+{
+  "article": "Rescue of Jews by Poles during the Holocaust",
+  "artifacts": [
+    "findings/Rescue_of_Jews_by_Poles_during_the_Holocaust.category.json",
+    "findings/Rescue_of_Jews_by_Poles_during_the_Holocaust.cost.json",
+    "findings/Rescue_of_Jews_by_Poles_during_the_Holocaust.factcheck.json",
+    "findings/Rescue_of_Jews_by_Poles_during_the_Holocaust.framing.json",
+    "findings/Rescue_of_Jews_by_Poles_during_the_Holocaust.l1-confirmation.json",
+    "findings/Rescue_of_Jews_by_Poles_during_the_Holocaust.lexical.json",
+    "findings/Rescue_of_Jews_by_Poles_during_the_Holocaust.profile.json",
+    "findings/Rescue_of_Jews_by_Poles_during_the_Holocaust.receipts.json",
+    "findings/Rescue_of_Jews_by_Poles_during_the_Holocaust.sources.json",
+    "findings/Rescue_of_Jews_by_Poles_during_the_Holocaust.stance.json",
+    "mscore/Rescue_of_Jews_by_Poles_during_the_Holocaust.json"
+  ],
+  "slug": "Rescue_of_Jews_by_Poles_during_the_Holocaust",
+  "tables": {
+    "articles": 0,
+    "rev_size": 1440,
+    "revisions": 1440,
+    "rsnap": 1014590,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

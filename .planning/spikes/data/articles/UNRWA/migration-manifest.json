@@ -1,0 +1,27 @@
+{
+  "article": "UNRWA",
+  "artifacts": [
+    "findings/UNRWA.category.json",
+    "findings/UNRWA.cost.json",
+    "findings/UNRWA.factcheck.json",
+    "findings/UNRWA.framing.json",
+    "findings/UNRWA.l1-confirmation.json",
+    "findings/UNRWA.lexical.json",
+    "findings/UNRWA.profile.json",
+    "findings/UNRWA.receipts.json",
+    "findings/UNRWA.sources.json",
+    "findings/UNRWA.stance.json",
+    "logs/analysis-2026-07-30/UNRWA.rolling-corpus-benchmark.log",
+    "mscore/UNRWA.json"
+  ],
+  "slug": "UNRWA",
+  "tables": {
+    "articles": 0,
+    "rev_size": 2046,
+    "revisions": 2046,
+    "rsnap": 993179,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

@@ -1,0 +1,301 @@
+{
+  "article": "Ainu people",
+  "span": "2002-01-01 -> 2026-07-01 (no L1 pivot — whole history)",
+  "pivot": null,
+  "before": {
+    "date": "2002-01-01",
+    "rev": 235241,
+    "tokens": 741
+  },
+  "after": {
+    "date": "2026-07-01",
+    "rev": 1360770633,
+    "tokens": 6539
+  },
+  "js_divergence": 0.4412,
+  "overrepresented_after_terms": [
+    {
+      "term": "called",
+      "before": 0,
+      "after": 37,
+      "delta": 37,
+      "log_odds": 2.1462
+    },
+    {
+      "term": "thumb",
+      "before": 0,
+      "after": 30,
+      "delta": 30,
+      "log_odds": 1.9385
+    },
+    {
+      "term": "indigenous",
+      "before": 0,
+      "after": 29,
+      "delta": 29,
+      "log_odds": 1.905
+    },
+    {
+      "term": "russian",
+      "before": 0,
+      "after": 26,
+      "delta": 26,
+      "log_odds": 1.7973
+    },
+    {
+      "term": "kuril",
+      "before": 0,
+      "after": 20,
+      "delta": 20,
+      "log_odds": 1.5397
+    },
+    {
+      "term": "peoples",
+      "before": 0,
+      "after": 20,
+      "delta": 20,
+      "log_odds": 1.5397
+    },
+    {
+      "term": "traditionally",
+      "before": 0,
+      "after": 20,
+      "delta": 20,
+      "log_odds": 1.5397
+    },
+    {
+      "term": "hokkaido",
+      "before": 1,
+      "after": 60,
+      "delta": 59,
+      "log_odds": 1.5281
+    },
+    {
+      "term": "century",
+      "before": 0,
+      "after": 18,
+      "delta": 18,
+      "log_odds": 1.4367
+    },
+    {
+      "term": "qing",
+      "before": 0,
+      "after": 18,
+      "delta": 18,
+      "log_odds": 1.4367
+    },
+    {
+      "term": "groups",
+      "before": 0,
+      "after": 17,
+      "delta": 17,
+      "log_odds": 1.381
+    },
+    {
+      "term": "sakhalin",
+      "before": 1,
+      "after": 49,
+      "delta": 48,
+      "log_odds": 1.3257
+    },
+    {
+      "term": "east",
+      "before": 0,
+      "after": 16,
+      "delta": 16,
+      "log_odds": 1.322
+    },
+    {
+      "term": "hokkaidō",
+      "before": 0,
+      "after": 16,
+      "delta": 16,
+      "log_odds": 1.322
+    },
+    {
+      "term": "part",
+      "before": 0,
+      "after": 16,
+      "delta": 16,
+      "log_odds": 1.322
+    },
+    {
+      "term": "population",
+      "before": 0,
+      "after": 16,
+      "delta": 16,
+      "log_odds": 1.322
+    },
+    {
+      "term": "russia",
+      "before": 0,
+      "after": 16,
+      "delta": 16,
+      "log_odds": 1.322
+    },
+    {
+      "term": "early",
+      "before": 0,
+      "after": 14,
+      "delta": 14,
+      "log_odds": 1.1925
+    },
+    {
+      "term": "living",
+      "before": 0,
+      "after": 14,
+      "delta": 14,
+      "log_odds": 1.1925
+    },
+    {
+      "term": "tribute",
+      "before": 0,
+      "after": 14,
+      "delta": 14,
+      "log_odds": 1.1925
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "caucasian",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -4.1269
+    },
+    {
+      "term": "whose",
+      "before": 4,
+      "after": 1,
+      "delta": -3,
+      "log_odds": -3.2808
+    },
+    {
+      "term": "worship",
+      "before": 4,
+      "after": 1,
+      "delta": -3,
+      "log_odds": -3.2808
+    },
+    {
+      "term": "eating",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -3.0281
+    },
+    {
+      "term": "exist",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -3.0281
+    },
+    {
+      "term": "much",
+      "before": 4,
+      "after": 2,
+      "delta": -2,
+      "log_odds": -2.7698
+    },
+    {
+      "term": "chiefs",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.6903
+    },
+    {
+      "term": "eastern",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.6903
+    },
+    {
+      "term": "eat",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.6903
+    },
+    {
+      "term": "feet",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.6903
+    },
+    {
+      "term": "places",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.6903
+    },
+    {
+      "term": "saru",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.6903
+    },
+    {
+      "term": "short",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.6903
+    },
+    {
+      "term": "skins",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.6903
+    },
+    {
+      "term": "sun",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.6903
+    },
+    {
+      "term": "theory",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -2.6903
+    },
+    {
+      "term": "jomon",
+      "before": 3,
+      "after": 2,
+      "delta": -1,
+      "log_odds": -2.5172
+    },
+    {
+      "term": "god",
+      "before": 4,
+      "after": 5,
+      "delta": 1,
+      "log_odds": -1.9809
+    },
+    {
+      "term": "times",
+      "before": 3,
+      "after": 4,
+      "delta": 1,
+      "log_odds": -1.9291
+    },
+    {
+      "term": "aborigines",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": -1.8427
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

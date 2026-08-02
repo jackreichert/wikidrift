@@ -1,0 +1,67 @@
+{
+  "article": "Rafah offensive",
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "entities": [
+    "Rafah offensive"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Rafah offensive": {
+          "entity": "Rafah offensive",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "the systematic razing of Rafah by the IDF... constituted a violation of the Palestinians' right for safety... would take the nightmare being inflicted on people in Gaza into a new, dystopian, dimension"
+        }
+      },
+      "lead": {
+        "Rafah offensive": {
+          "entity": "Rafah offensive",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "The Rafah offensive was an Israeli military offensive in and around the city of Rafah, beginning on 6 May 2024 as part of Israel's invasion of the Gaza Strip during the Gaza war."
+        }
+      }
+    },
+    "he": {
+      "focal": {
+        "Rafah offensive": {
+          "entity": "Rafah offensive",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "עד אוגוסט הוכרעה חטיבת רפיח של חמאס. עד 12 בספטמבר 2024, צה\"ל הרג יותר מ-2,000 מחבלים והשמיד 13 ק\"מ של מנהרות טרור ותוואי תת-קרקעי — framing centers on IDF operational success and terror infrastructure destruction, alongside detailed accounts of humanitarian preparations (tents, evacuation coordination), presenting the offensive as carefully planned and justified rather than critically examining civilian harm."
+        }
+      },
+      "lead": {
+        "Rafah offensive": {
+          "entity": "Rafah offensive",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "עד אוגוסט הוכרעה חטיבת רפיח של חמאס... צה\"ל הרג יותר מ-2,000 מחבלים והשמיד 13 ק\"מ של מנהרות טרור; text frames the operation via IDF military achievements and humanitarian preparations (tents, evacuation coordination) while attributing civilian risk to Hamas's fighters hiding among displaced population and to international pressure, rather than critically examining IDF conduct itself."
+        }
+      }
+    },
+    "ar": {
+      "focal": {
+        "Rafah offensive": {
+          "entity": "Rafah offensive",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "حذّر المجتمع الدولي من أزمة إنسانية إذا إستمر الهجوم... وحذروا من أن الأمر بإخلاء رفح قد يرقى إلى مستوى جريمة حرب"
+        }
+      },
+      "lead": {
+        "Rafah offensive": {
+          "entity": "Rafah offensive",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "حذر اللاجئون في المنطقة من أن المنطقة مكتظة ولا تزال تفتقر إلى الإمدادات... حذروا من أن الأمر بإخلاء رفح قد يرقى إلى مستوى جريمة حرب"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "article": "Water",
+  "category": "general",
+  "mode": "pivot_relative",
+  "pivot_window": {
+    "start": "2007-07-01",
+    "end": "2008-01-01",
+    "pwr_mass": 17570,
+    "status": "confirmed",
+    "before_revid": 175167658,
+    "before_timestamp": "2007-12-02T01:00:19Z",
+    "after_revid": 175175239,
+    "after_timestamp": "2007-12-02T01:43:14Z",
+    "durable_spine_drop": 0.434967
+  },
+  "editions_compared": [
+    "en",
+    "ta",
+    "ar"
+  ],
+  "lead_chars": {
+    "en": 2555,
+    "ta": 363,
+    "ar": 350
+  },
+  "snapshots": {
+    "before": {
+      "en": {
+        "revid": 175167658,
+        "timestamp": "2007-12-02T01:00:19Z",
+        "title": "Water",
+        "lead": "|right|thumb|280px|Impact from a water drop causes an upward \"rebound\" jet surrounded by circular capillary waves.\nWater is a common chemical substance that is essential to all known forms of life.http://pubs.acs.org/cgi-bin/abstract.cgi/bichaw/1997/36/i43/abs/bi971323j.html\nIn typical usage, water refers only to its liquid form or state, but the substance also has a solid state, ice, and a gaseous state, water vapor.  About 1,460 teratonnes (Tt) of water covers 71% of the Earth's surface, mostly in oceans and other large water bodies,  with 1.6% of water below ground in aquifers and 0.001% in the air as vapor, clouds (formed of solid and liquid water particles suspended in air), and precipitation.Water Vapor in the Climate System, Special Report, [AGU], December 1995 (linked 4/2007). Vital Water UNEP. Some of the Earth's water is contained within man-made and natural objects near the Earth's surface such as water towers, animal and plant bodies, manufactured products, and food stores.\n\nSaltwater oceans hold 97% of surface water, glaciers and polar ice caps 2.4%, and other land surface water such as rivers and lakes 0.6%. Water moves continually through a cycle of evaporation or transpiration (evapotranspiration), precipitation, and runoff, usually reaching the sea. Winds carry water vapor over land at the same rate as runoff into the sea, about 36 Tt per year. Over land, evaporation and transpiration contribute another 71 Tt per year to the precipitation of 107 Tt per year over land. Some water is trapped for varying periods in ice caps, glaciers, aquifers, or in lakes, sometimes providing fresh water for life on land. Clean, fresh water is essential to human and other life. In many parts of the world, it is in short supply.  Many organic molecules as well as salts, sugars, acids, alkalis, and some gases (especially oxygen), are soluble in water.\n\nBeyond the Earth, a significant quantity of water is thought to exist underground on the planet Mars, on the moons Europa and Enceladus, and on the exoplanets known as HD 189733 b[http://www.time.com/time/health/article/0,8599,1642811,00.html Water Found on Distant Planet July 12, 2007 By LAURA BLUE TIME and HD 209458 b. Water Found in Extrasolar Planet's Atmosphere - Space.com \n\nright|thumb|150px|Water covers 71% of the Earth's surface; the oceans contain 97.2% of the Earth's water. The Antarctic ice sheet, which contains 90% of all fresh water on Earth, is visible at the bottom. Condensed atmospheric water can be seen as clouds, contributing to the Earth's albedo."
+      },
+      "ta": {
+        "revid": 190161,
+        "timestamp": "2007-11-30T02:21:36Z",
+        "title": "நீர்",
+        "lead": "thumb|300px|நீர் சுழற்சி\nthumb|250px|நீர்த்துளி\nநீர் என்பது ஒரு சுவையற்ற, மணமற்ற, கிட்டத்தட்ட நிறமற்ற  திரவ வடிவிலுள்ள ஒரு பருப்பொருளாகும். பூமியில் வாழும் உயிரினங்கள் அனைத்திற்கும் நீர் மிகவும் இன்றியமையாததாகும். பெரும்பாலான பொருட்களைக் கரைப்பதற்கு உதவும் கரைப்பானாகவும் இது பயன்படுகிறது. மேலும் புவியில் மிகக்கூடுதலாகக்  கிடைக்கும் பொருட்களில் நீரும் ஒன்றாகும்."
+      },
+      "ar": {
+        "revid": 1157634,
+        "timestamp": "2007-11-24T10:28:55Z",
+        "title": "ماء",
+        "lead": "thumb|رسم توضيحي لجزيء الماء يبين خصائصة الهندسية والإلكترونية\nتصغير|الماء ضروري لحياة الكائنات\nالماء سائل شفاف دون طعم أو رائحة أو لون. تركيبه الجزيئي مكون من ذرتي هيدروجين وذرة من الاكسجين. ينتشر الماء على الأرض بأشكاله المختلفة، السائل والصلب والغازي. \nكما أن 70% من سطح الأرض مغطى بالماء، ويعتبر العلماء الماء أساس الحياة على أي كوكب."
+      }
+    },
+    "after": {
+      "en": {
+        "revid": 175175239,
+        "timestamp": "2007-12-02T01:43:14Z",
+        "title": "Water",
+        "lead": "|right|thumb|280px|Impact from a water drop causes an upward \"rebound\" jet surrounded by circular capillary waves.\nWater is a common chemical substance that is essential to all known forms of life.http://pubs.acs.org/cgi-bin/abstract.cgi/bichaw/1997/36/i43/abs/bi971323j.html\nIn typical usage, water refers only to its liquid form or state, but the substance also has a solid state, ice, and a gaseous state, water vapor.  About 1,460 teratonnes (Tt) of water covers 71% of the Earth's surface, mostly in oceans and other large water bodies,  with 1.6% of water below ground in aquifers and 0.001% in the air as vapor, clouds (formed of solid and liquid water particles suspended in air), and precipitation.Water Vapor in the Climate System, Special Report, [AGU], December 1995 (linked 4/2007). Vital Water UNEP. Some of the Earth's water is contained within man-made and natural objects near the Earth's surface such as water towers, animal and plant bodies, manufactured products, and food stores.\n\nSaltwater oceans hold 97% of surface water, glaciers and polar ice caps 2.4%, and other land surface water such as rivers and lakes 0.6%. Water moves continually through a cycle of evaporation or transpiration (evapotranspiration), precipitation, and runoff, usually reaching the sea. Winds carry water vapor over land at the same rate as runoff into the sea, about 36 Tt per year. Over land, evaporation and transpiration contribute another 71 Tt per year to the precipitation of 107 Tt per year over land. Some water is trapped for varying periods in ice caps, glaciers, aquifers, or in lakes, sometimes providing fresh water for life on land. Clean, fresh water is essential to human and other life. In many parts of the world, it is in short supply.  Many organic molecules as well as salts, sugars, acids, alkalis, and some gases (especially oxygen), are soluble in water.\n\nBeyond the Earth, a significant quantity of water is thought to exist underground on the planet Mars, on the moons Europa and Enceladus, and on the exoplanets known as HD 189733 b[http://www.time.com/time/health/article/0,8599,1642811,00.html Water Found on Distant Planet July 12, 2007 By LAURA BLUE TIME and HD 209458 b. Water Found in Extrasolar Planet's Atmosphere - Space.com \n\nright|thumb|150px|Water covers 71% of the Earth's surface; the oceans contain 97.2% of the Earth's water. The Antarctic ice sheet, which contains 90% of all fresh water on Earth, is visible at the bottom. Condensed atmospheric water can be seen as clouds, contributing to the Earth's albedo."
+      },
+      "ta": {
+        "revid": 199808,
+        "timestamp": "2008-01-03T07:52:39Z",
+        "title": "நீர்",
+        "lead": "thumb|300px|நீர் சுழற்சி\nthumb|250px|நீர்த்துளி\nநீர் என்பது ஒரு சுவையற்ற, மணமற்ற, கிட்டத்தட்ட நிறமற்ற  திரவ வடிவிலுள்ள ஒரு பருப்பொருளாகும். பூமியில் வாழும் உயிரினங்கள் அனைத்திற்கும் நீர் மிகவும் இன்றியமையாததாகும். பெரும்பாலான பொருட்களைக் கரைப்பதற்கு உதவும் கரைப்பானாகவும் இது பயன்படுகிறது. மேலும் புவியில் மிகக்கூடுதலாகக்  கிடைக்கும் பொருட்களில் நீரும் ஒன்றாகும்."
+      },
+      "ar": {
+        "revid": 1180557,
+        "timestamp": "2007-12-02T22:32:57Z",
+        "title": "ماء",
+        "lead": "thumb|رسم توضيحي لجزيء الماء يبين خصائصة الهندسية والإلكترونية\nتصغير|الماء ضروري لحياة الكائنات\nالماء سائل شفاف دون طعم أو رائحة أو لون. تركيبه الجزيئي مكون من ذرتي هيدروجين وذرة من الاكسجين. ينتشر الماء على الأرض بأشكاله المختلفة، السائل والصلب والغازي. \nكما أن 70% من سطح الأرض مغطى بالماء، ويعتبر العلماء الماء أساس الحياة على أي كوكب.\nتصغير|الماء"
+      }
+    }
+  },
+  "divergences": [
+    {
+      "topic": "English lead unchanged while AR/TA leads unchanged too; no substantive divergence introduced in this window",
+      "editions_differ": [
+        "AR",
+        "TA"
+      ],
+      "en_says": "Water is a common chemical substance that is essential to all known forms of life... About 1,460 teratonnes (Tt) of water covers 71% of the Earth's surface",
+      "other_says": "الماء سائل شفاف دون طعم أو رائحة أو لون... كما أن 70% من سطح الأرض مغطى بالماء",
+      "verdict": "differ",
+      "evidence_en": "About 1,460 teratonnes (Tt) of water covers 71% of the Earth's surface, mostly in oceans and other large water bodies",
+      "evidence_other": "كما أن 70% من سطح الأرض مغطى بالماء",
+      "temporal_read": "difference_persisted",
+      "en_before": "Water is a common chemical substance that is essential to all known forms of life... About 1,460 teratonnes (Tt) of water covers 71% of the Earth's surface",
+      "en_after": "Water is a common chemical substance that is essential to all known forms of life... About 1,460 teratonnes (Tt) of water covers 71% of the Earth's surface",
+      "other_before": "الماء سائل شفاف دون طعم أو رائحة أو لون... كما أن 70% من سطح الأرض مغطى بالماء",
+      "other_after": "الماء سائل شفاف دون طعم أو رائحة أو لون... كما أن 70% من سطح الأرض مغطى بالماء، تصغير|الماء",
+      "evidence_en_before": "About 1,460 teratonnes (Tt) of water covers 71% of the Earth's surface",
+      "evidence_en_after": "About 1,460 teratonnes (Tt) of water covers 71% of the Earth's surface",
+      "evidence_other_before": "كما أن 70% من سطح الأرض مغطى بالماء",
+      "evidence_other_after": null
+    },
+    {
+      "topic": "AR added a thumbnail image caption 'الماء' with no textual content change",
+      "editions_differ": [
+        "AR"
+      ],
+      "en_says": "Water is a common chemical substance that is essential to all known forms of life.",
+      "other_says": "الماء سائل شفاف دون طعم أو رائحة أو لون... تصغير|الماء",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": "تصغير|الماء",
+      "temporal_read": "unclear",
+      "en_before": "No equivalent image caption addition present.",
+      "en_after": "No equivalent image caption addition present.",
+      "other_before": "No trailing image caption present in the lead.",
+      "other_after": "تصغير|الماء added at the end of the lead.",
+      "evidence_en_before": null,
+      "evidence_en_after": null,
+      "evidence_other_before": null,
+      "evidence_other_after": "تصغير|الماء"
+    }
+  ],
+  "summary": "In this narrow time window, the English lead text remained textually identical before and after (only revision metadata differs), so no genuine English-side change occurred. The Arabic and Tamil leads also remained essentially unchanged in substance, with Arabic only adding a trailing image caption ('الماء'). Since English did not change, no temporal divergence (moving away, converging, or parallel change) can be established; the only persistent difference is the pre-existing gap in detail and figures between English (highly quantitative, ~1,460 Tt, 71% coverage, aquifer/vapor percentages) versus the much shorter Arabic and Tamil descriptions (basic definition, 70% coverage, no numeric detail), which predates and persists through this window.",
+  "run_ts": "2026-07-19T17:54:27.535622+00:00",
+  "model": "claude-sonnet-5",
+  "llm_usage": {
+    "calls": 1,
+    "input_tokens": 4675,
+    "output_tokens": 1211,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 4675,
+        "output_tokens": 1211,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
+  },
+  "elapsed_seconds": 85.617
+}

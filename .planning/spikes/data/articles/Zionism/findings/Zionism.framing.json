@@ -1,0 +1,210 @@
+{
+  "article": "Zionism",
+  "category": "israeli-palestinian",
+  "mode": "pivot_relative",
+  "pivot_window": {
+    "start": "2024-07-01",
+    "end": "2026-01-01",
+    "pwr_mass": 824017,
+    "status": "confirmed",
+    "before_revid": 1269542024,
+    "before_timestamp": "2025-01-15T05:43:30Z",
+    "after_revid": 1269542260,
+    "after_timestamp": "2025-01-15T05:46:03Z",
+    "durable_spine_drop": 0.739749
+  },
+  "editions_compared": [
+    "en",
+    "ar",
+    "he",
+    "ja",
+    "ur"
+  ],
+  "lead_chars": {
+    "en": 2743,
+    "ar": 3000,
+    "he": 1875,
+    "ja": 3000,
+    "ur": 3000
+  },
+  "snapshots": {
+    "before": {
+      "en": {
+        "revid": 1269542024,
+        "timestamp": "2025-01-15T05:43:30Z",
+        "title": "Zionism",
+        "lead": "thumb|right|Theodor Herzl was the founder of the modern Zionist movement. In his 1896 pamphlet , he envisioned the founding of a future independent Jewish state during the 20th century.\n\nZionism is an ethnocultural nationalist movement that emerged in Europe in the late 19th century and aimed for the establishment of a national home for the Jewish people through the colonization of Palestine, an area roughly corresponding to the Land of Israel in Judaism, and of central importance in Jewish history. Zionists wanted to create a Jewish state in Palestine with as much land, as many Jews, and as few Palestinian Arabs as possible.\n\nZionism initially emerged in Central and Eastern Europe as a secular nationalist movement in the late 19th century, in reaction to newer waves of antisemitism and in response to the Haskalah, or Jewish Enlightenment. The arrival of Zionist settlers to Palestine during this period is widely seen as the start of the Israeli–Palestinian conflict. The Zionist claim to Palestine was based on the notion that the Jews' historical right to the land outweighed that of the Arabs.\n\nIn 1917 the Balfour Declaration established Britain's support for the movement. In 1922, the British Mandate for Palestine governed by Britain explicitly privileged Jewish settlers over the local Palestinian population. In 1948, the State of Israel was established and the first Arab-Israeli war broke out. During the war, Israel expanded its territory to control over 78% of Mandatory Palestine. As a result of the 1948 Palestinian expulsion and flight, an estimated 160,000 of 870,000 Palestinians in the territory remained, forming a Palestinian minority in Israel.\n\nThe Zionist mainstream has historically included liberal, labor, revisionist, and cultural Zionism, while groups like Brit Shalom and Ihud have been dissident factions within the movement. Mainstream Zionist groups for the most part differ more in style than substance, having in some cases adopted similar strategies to achieve their goals, such as violence or compulsory transfer to deal with the Palestinians. Religious Zionism is a variant of Zionist ideology which brings together secular nationalism and religious conservatism. Advocates of Zionism have viewed it as a national liberation movement for the repatriation of an indigenous people (which were subject to persecution and share a national identity through national consciousness), to the homeland of their ancestors. Similarly, anti-Zionism has many aspects, which include criticism of Zionism as a colonialist, racist, or exceptionalist ideology or as a settler colonialist movement.See for example: M. Shahid Alam (2010), Israeli Exceptionalism: The Destabilizing Logic of Zionism Paperback, or"
+      },
+      "ar": {
+        "revid": 68429669,
+        "timestamp": "2024-11-06T11:40:05Z",
+        "title": "صهيونية",
+        "lead": "الصِّهْيُونِيَّة  ، هي أيدولوجية وحركة قومية إثنو-ثقافية ظهرت بين يهود شرق ووسط أوروبا أواخر القرن التاسع عشر، سعت لإنشاء دولة قومية خاصّة لهم باستعمار بلاد خارج اوروبا، تمخض عنها عام 1948 تأسيسها إثنوقراطية في فلسطين؛ المنطقة التي تماثل \"أرض يعقوب\" (إيريتس يسرائيل) ذات الأهمية الخاصّة في التاريخ اليهودي وأسميت الدولة الجديدة دولة إسرائيل، وأصبحت الصهيونية هي الأيدلوجية الوطنية لتلك الدولة التي تشكل فيها اليهودية كلاً من القومية والدين وحصرت حق تقرير المصير فيها للقومية اليهودية وحدها.\n\nفي ظل صعود القومية -التي ستعيد تشكيل أوروبا- أواخر القرن التاسع عشر وإصدام مركباتها العنصرية مع يهود إمبراطوريات شرق ووسط أوروبا الذين كانوا يعيشون كأقليات. يعاني معظم مجتمعاتهم الفقر والعداء ويتعرضون لهجمات عنيفة ومذابح منظمة، وفي ذلك السياق، نشأت إتجاهات داخل مجتمعات يهود شرق أوروبا مثل التمسك باليهودية الأرثوذكسية(الحاسيدية)، الهسكلة (الإندماج في المجتمع الاوروبي)، الصهيونية (صياغة هوية يهودية قومية)، الإحتفاء بالهوية الوطنية الإشتراكية (البوندييون) والهجرة للولايات المتحدة وأوروبا الغربية، وكانت الأيدولوجية الصهيونية تؤسس لهوية يهودية قومية؛ لم تنظر لليهود كمجموعة دينية أو إثنية، بل كقومية. ولم يكن الصهاينة متدينيين، ورأوا أنهم بهذه الهوية (القومية) لا مستقبل لهم في تلك البلاد؛ ورفضت اندماج اليهود في المجتمعات الأخرى كسبيل للتحرر من معاداة السامية والاضطهاد، ورأت أن السبيل الوحيد للنجاة والتحرر هو إنشاء والإنتقال إلى دولة قومية جديدة منفصلة لهم.\n\nلم تكن أعداد المهاجرين اليهود المستجيبين لدعوات الصهيونية للهجرة لإنشاء دولة قومية صدى واسعاً مقارنة بالأعداد التي هاجرت إلى الولايات المتحدة الأمريكية مثلا، ورأى الصهاينة أن إنشاء دولة قومية لن يكون ممكنا في اوروبا. فكانت عدّة بقع جغرافية اقترحت في كتابات الصهاينة لإنشاء هذه الدولة إستعمارياً، من ضمنها الأرجنتين وفلسطين، وبعد فترة اضحى واضحا في الرواية القومية للصهيانة تناسب الدعوة للهجرة إلى أرض فلسطين مع الأحداث التوراتية، وأنها ستكون -قومياً- أرض الآباء والأجداد (إيريتس يسرائيل) وأن الهجرة إليها هو عكس للظلم الذي وقع عليهم في الشتات، فطلب قادة الحركة الصهيونية بإنشاء دولة منشودة في فلسطين والتي كانت ضمن أراضي الدولة العثمانية.*David Hazony , Yoram Hazony, and Michael B. Oren, eds., \"New Essays on Zionism,\" Shalem Press, 2007. ارتبطت الحركة الصهيونية الحديثة بشخصية اليهودي النمساوي هرتزل الذي يعد الداعية الأول للفكر الصهيوني الحديث والذي تقوم على آرائه الحركة الصهيونية في العالمالصهيونية إعداد الندوة العالمية للشباب الإسلامي وبعد تأسيس دولة إسرائيل عام 1948م أخذت الحركة الصهيونية على عاتقها توفير الدعم المالي والمعنوي لدولة إسرائيل An Error Occurred Setting Your User Cookie An Error Occurred Setting Your User Cookie  وقد عقد أول مؤتمر للحركة الصهيونية في بازل بسويسرا ليتم تطبيق الصهيونية بشكل عملي على فلسطين فعملت على تسهيل الهجرة اليهودية ودعم المشاريع الاقتصادية اليهودية.الصهيونية العالمية، عباس محمود العقادالصهيونية بين تاريخين، عبد الله النجار كمال الحاج\n\nيرى أنصار الصهيونية أنها حركة تحرير وطنية لإعادة شعب مضطهد مقيم كأقليات في مجموعة متنوعة من الدول إلى وطن أجداده، وقد ساهمت محرقة الهولوكوست في إقناع اليهود بأفكار الحركة الصهيونية كثيرًا بدعوي المظلومية ودافعًا كبيرًا للهجرة والقتال لإقامة دولتهم اليهودية في "
+      },
+      "he": {
+        "revid": 40313645,
+        "timestamp": "2025-01-12T12:10:14Z",
+        "title": "ציונות",
+        "lead": "שמאל|ממוזער|250px|בנימין זאב הרצל נואם בקונגרס הציוני השני בבזל 1898.\nשמאל|ממוזער|250px|דגל התנועה הציונית מונף בכינוס אספת הנבחרים בשנת 1944\nהציונות היא תנועה לאומית ואידאולוגיה שמטרתה קיום מדינת בית לאומי לעם היהודי בארץ ישראל. התנועה הציונית, כתנועה לאומית-יהודית, קמה בשליש האחרון של המאה ה-19, בעיקר במרכז ומזרח אירופה.\n\nזמן קצר לאחר הקמת התנועה הציונית קישרו רוב מנהיגי התנועה את מטרתה הראשית עם חידוש הריבונות היהודית בארץ ישראל – הקמת מדינה יהודית. עם הקמת מדינת ישראל, הציונות ממשיכה לפעול לתמיכה בישראל, הבטחת קיומה וחיזוקה.\n\nשורשי הציונות נעוצים במניעים ובערכים עתיקי-יומין הטבועים במסורת הדתית מזה, ובאידאולוגיות הלאומיות שפרחו באירופה במאה ה-19 מזה. הציונות כתנועה פוליטית עממית שהתפתחה בקרב היהודים במזרח אירופה דורבנה על ידי פרצי אנטישמיות וניזונה מתהליך חילון שהתעצם בקרב האוכלוסייה היהודית מאמצע המאה ה-19, שנתן אותותיו גם בחילון הכמיהה הדתית בת-שנות-אלפיים לציון. העולם המודרני הוביל לכך שמצד אחד הדת חדלה מלהיות מגדיר זהות מספק עבורם. קונפליקט זה הוביל ליצירתה של הגדרה עצמית לאומית חדשה.\n\nמראשיתה היו מטרות הציונות שיבת ציון, קיבוץ הגלויות, החייאת התרבות והשפה העברית, יצירת יהודי חדש – יהדות השרירים על פי מכס נורדאו וביסוס ריבונות יהודית עצמאית. לפי בנימין זאב תאודור הרצל, הנחשב להוגה הציונות המודרנית, הציונות היא מסכת רעיונות רחבה, שבה כלולה לא רק השאיפה לשטח מדיני מובטח כחוק בשביל העם היהודי, אלא גם השאיפה לשלמות מוסרית ורוחנית. מאז הקמת מדינת ישראל ב-1948 ממשיכה התנועה הציונית בעיקר לתמוך בישראל, ולטפל באיומים על קיומה וביטחונה.\n\nמראשיתה, לא הייתה הציונות הומוגנית. הוגיה, מנהיגיה ומפלגותיה היו שונים זה מזה ואף סותרים בדעתם. צורך השעה לצד הכמיהה לשוב למולדת האבות הביאו לפשרות ולוויתורים למען מטרה תרבותית ופוליטית משותפת.\n\nציונות כאידאולוגיה נפוצה לא רק אצל יהודים וישנם למשל נוצרים-אוונגליסטים ברחבי העולם המגדירים את עצמם כציונים, אך סיבותיהם שונות לחלוטין."
+      },
+      "ja": {
+        "revid": 102590184,
+        "timestamp": "2024-11-15T20:57:48Z",
+        "title": "シオニズム",
+        "lead": "シオニズム（, ）、シオン運動、シオン主義は、イスラエルの地に故郷を再建しよう、あるいはユダヤ教、ユダヤ・イディッシュ・イスラエル文化の復興運動を興そうとするユダヤ人の近代的運動。後者の立場を「文化シオニズム」と呼ぶことがある。\n\n右|サムネイル|テオドール・ヘルツルは、現代シオニズム運動の創始者である。1896年に出版した小冊子『ユダヤ人国家』()で、20世紀中に独立したユダヤ人国家の創設を構想していた。\nシオニズムは、19世紀にをパレスチナに建設するために生まれたナショナリズム運動 であり 、パレスチナはにおけるイスラエルの地にほぼ相当する \"The preoccupation of rabbinic literature in all its forms with the Land of Israel is without question intensive and constant. It is no wonder that this literature offers historians of the Land of Israel a wealth of information for the clarification of a wide variety of topics.\"。シオニズムは民族主義 の一形態、もしくは市民ナショナリストの要素を持つ民族文化的ナショナリズムの一形態と説明される。の後、シオニズムはユダヤ人国家としてのイスラエル国の発展と保護を支援するイデオロギーとなった。\n\n一方、ユダヤ教超正統派の基本的なグループの思想基盤はシオニズムではなく、それよりも古くから存在するハシディズム（敬虔主義運動）であり、世界最大のハシディズムグループであるサトマール派やエダ・ハチャレイディス派などがこれにあたり、ハシディストの超正統派グループはシオニズムに反対していたヤコブ・M・ラブキン「トーラーの名において　シオニズムに対するユダヤ教の抵抗の歴史」。\n\nメイル・カハネが唱えたカハネ主義（カハニズム）は、シオニズムの中でも特に過激な思想であり、ベンヤミン・ネタニヤフなどがそれにあたる。\n\nシオニズムは19 世紀後半にとして中央および東ヨーロッパで始まった運動であり、反ユダヤ主義の新たな高まりに対する反動と、ハスカーラー、すなわちユダヤ教の啓蒙運動の結果として起こった。運動が起きてすぐに、多くのシオニズムの指導者は、当時オスマン帝国の支配下にあったパレスチナにユダヤ人が切望する故郷を建設することが主な目標であると考えた。 この建国の過程は、シオニズム運動において「」（キブツ・ガルヨット (kibbutz galuyot））、すなわちユダヤ人が歴史的な祖国に戻ることによってユダヤ人の脱出と迫害の歴史に終止符を打つ試みとみなされた。\n\n1897年から1948年までのシオニズム運動の主な目標は、パレスチナにユダヤ人の祖国の基礎を確立し、それを強化することであった。民族自決の原則の独自の一形態として、1884 年にホヴェヴェイ・ツィヨン（「シオンの恋人たち」の意）が結成され、1897年に最初のシオニスト会議が組織された。19世紀後半から20世紀初頭にかけて多くのユダヤ人が初代オスマン帝国と後の委任統治領パレスチナに移住し、それと同時に世界的な承認と支持を得るための外交努力も行われた。1948年のイスラエル建国以来、シオニズムはイスラエル国に代わって国を擁護し、国の存続と安全に対する脅威に対処し続けている。\n\nシオニズムは決して画一的な運動ではなく、その指導者、政党、イデオロギーは互いに異なることが度々あった。反ユダヤ主義が高まるにつれてユダヤ人が祖先の国への帰還を切望した結果、共通の文化的、政治的目標を達成するために妥協と譲歩が行われた。、、労働シオニズム、、、などの、さまざまな類型のシオニズムができた。シオニズム支持者の視点では、シオニズム運動とは、迫害の対象であり国民的同一性を共有する先住民族を、古代史に記されているように祖先の故郷の地に帰還させるための民族解放運動であるIsrael Affairs.  Volume 13, Issue 4, 2007 – Special Issue: Postcolonial Theory and the Arab-Israel Conflict – De-Judaizing the Homeland: Academic Politics in Rewriting the History of Palestine.  S. Ilan Troen\"Zionism and British imperialism II: Imperial financing in Palestine\", Journal of Israeli History: Politics, Society, Culture.。同様に反シオニズムにも多くの側面があり、植民地主義* Shafir, Gershon, Being Israeli: The Dynamics of Multiple Citizenship, Cambridge University Press, 2002, pp. 37–38\n Bareli, Avi, \"Forgetting Europe: Perspectives on the Debate about Zionism and Colonialism\", in Israeli Historical Revisionism: From Left to Right, Psychology Press, 2003, pp. 99–116\n Pappé Ilan, A History of Modern Palestine: One Land, Two Peoples, Cambridge University Press, 2006, pp. 72–121\n Prior, Michael, The Bible and colonialism: a moral critique, Continuum International Publishing Group, 1997, pp. 106–215\n Shafir, Gershon, \"Zionism and Colonialism\", in The Israel / Palestinian Question, by Ilan Pappe, Psychology Press, 1999, pp. 72–85\n Lustick, Ian, For the Land and the Lord ...\n Zuriek, Elia, The Palestinians in Israel: A Study in Internal Colonialism, Routledge & K. Paul, 1979\n Penslar, Derek J., \"Zionism, Colonialism and Postcolonialism\", in Israeli Historical Revisionism: From Le"
+      },
+      "ur": {
+        "revid": 6272496,
+        "timestamp": "2024-06-26T07:38:15Z",
+        "title": "صہیونیت",
+        "lead": "[[فائل:Theodore Herzl.jpg|بائیں|تصغیر|تھیوڈور ہرتذل کو جدید صہیونی تحریک کا بانی تصور کیا جاتا ہے۔ 1896ء کی اپنی کتاب دیر یودنستات' (یہودی ریاست) میں انھوں نے بیسویں صدی میں مستقبل کی خود مختار یہودی ریاست کا تصور دیا۔]]\n\nتصغیر|(مفکرصہیونیت) تھیوڈور ہرتزل کی کتاب یہودی ریاست کی اشاعت سے مہینہ قبل 17جنوری 1896ء کے یہودی اخبار کا صفحہ اول \nصہیونیت (؛  از) قومی تحریک ہے جو یہودی لوگوں کی دوبارہ یہودی وطن یعنی ملک اسرائیل (جو کنعان، ارض مقدس اور فلسطین پر مشتمل ہے)۔ قیام کی حمایت کرتی ہے جدید صیہونیت انیسویں صدی کے اواخر میں وسطی اور مشرقی یورپ میں ایک یہودی قومی احیاء کی تحریک کے طور پر ابھر کر سامنے آئی، جس نے سام دشمنی کے رد عمل اور اخراجی قوم پرست تحریکوں کے جواب میں جنم لیا۔ اس کے بعد جلد ہی، اس کے زیادہ تر رہنماؤں نے اس تحریک کا مقصد مطلوبہ ریاست فلسطین اور بعد میں سلطنت عثمانیہ کے زیر حکومت علاقوں میں قائم کرنے سے وابستہ کر لیا۔Ilan Pappe, The Ethnic Cleansing of Palestine, 2006, p.10–11\n\n1948ء تک صیہونیت کے بنیادی مقاصد میں دوبارہ یہود کو ارض مقدسہ میں تاریخی خود مختاری دلوانے، اجتماعِ جلاوطن یہود ، سام دشمنی، امتیازی سلوک اور یہود پرظلم و ستم سے آزادی پر مرکوز تھے جس کا سامنا انھوں نے یہودی جلاوطنی میں کیا تھا۔ 1948ء میں اسرائیل کی ریاست کے قیام کے بعد صیہونیت بنیادی طور پر منجانب اسرائیل اس کی مسلسل موجودگی، توسیع اور دفاع کے خطرات سے نمٹنے کے لیے وکالت اور حمایت کا نام ہے۔\n\nمذہبی قسم کی ایک صیہونیت یہودی تشخص برقرار رکھنے کی حمایتی ہے اور اسے مذہبی یہودیت سے وابستگی کو متعرف کرتا ہے اور یہودیوں کے دوسرے معاشروں میں انجذاب کی مخالفت کرتا ہے اور یہودیوں کی اسرائیل واپسی کو یہودیوں کی اپنی ایک علاحدہ ریاست میں اکثریتی قوم بننے کے ایک ذریعے کے طور پر وکالت کرتا ہے۔ ثقافتی صیہونیت ایک قسم کی صیہونیت ہے جس کی سب سے زیادہ نمایاں نمائندگی احد ہعام نے کی اور اس کی بنیاد رکھی اور اسرائیل میں ایک یہودی ’’روحانی مرکز ‘‘کے سیکولر (غیر مذہب) نقطہ نظر کو فروغ دیا۔ سیاسی صیہونیت کے بانی ہرتضل کے برعکس احد ہعام کی جدوجہد اسرائیل کو ’’یہودی ریاست نہ کہ صرف یہودیوں کی ریاست‘‘ بنانے کے لیے تھی۔Ahad Ha'am, The Jewish State and Jewish Problem, trans. from the Hebrew by Leon Simon c 1912, Jewish Publication Society of America, Essential Texts of Zionism\n\nصیہونیت کے حمایتی اور وکیل اسے مختلف قوموں میں رہنے والی مظلوم یہودی اقلیتوں کو واپس اپنے آبائی وطن میں بسانے کی ایک قومی تحریک آزادی کے طور پر دیکھتے ہیں۔ صیہونیت کے ناقدین اسے استعمار پسندی نسل پرستی اور امتیاز پسندی کے نظریے جس نے اپنے پیرو انتداب فلسطین کے دوران یہودی صیہونی تشدد کی جانب راغب کرتی تحریک کے طور پر جانتے ہیں، جس نے فلسطینی نکبت اور انھیں آج تک مسلسل 1948ءکی جنگ کے دوران چھینے گئے فلسطینی جائداد اور املاک کی واپسی سے محروم رکھا۔Nur Masalha (September 15, 2007). The Bible and Zionism: Invented Traditions, Archaeology and Post-Colonialism in Palestine- Israel. Zed Books. p. 314. ISBN 978-1-84277-761-9. Ned Curthoys; Debjani Ganguly (2007). Edward Said: The Legacy of a Public Intellectual. Academic Monographs. p. 315. ISBN 978-0-522-85357-5. Retrieved May 12, 2013.Nādira Shalhūb Kīfūrkiyān (May 7, 2009). Militarization and Violence Against Women in Conflict Zones in the Middle East: A Palestinian "
+      }
+    },
+    "after": {
+      "en": {
+        "revid": 1269542260,
+        "timestamp": "2025-01-15T05:46:03Z",
+        "title": "Zionism",
+        "lead": "thumb|right|Theodor Herzl was the founder of the modern Zionist movement. In his 1896 pamphlet , he envisioned the founding of a future independent Jewish state during the 20th century.\n\nZionism is an ethnocultural nationalist movement that emerged in Europe in the late 19th century and aimed for the establishment of a national home for the Jewish people through the colonization of Palestine, an area roughly corresponding to the Land of Israel in Judaism, and of central importance in Jewish history. Zionists wanted to create a Jewish state in Palestine with as much land, as many Jews, and as few Palestinian Arabs as possible.\n\nZionism initially emerged in Central and Eastern Europe as a secular nationalist movement in the late 19th century, in reaction to newer waves of antisemitism and in response to the Haskalah, or Jewish Enlightenment. The arrival of Zionist settlers to Palestine during this period is widely seen as the start of the Israeli–Palestinian conflict. The Zionist claim to Palestine was based on the notion that the Jews' historical right to the land outweighed that of the Arabs.\n\nIn 1917 the Balfour Declaration established Britain's support for the movement. In 1922, the British Mandate for Palestine governed by Britain explicitly privileged Jewish settlers over the local Palestinian population. In 1948, the State of Israel was established and the first Arab-Israeli war broke out. During the war, Israel expanded its territory to control over 78% of Mandatory Palestine. As a result of the 1948 Palestinian expulsion and flight, an estimated 160,000 of 870,000 Palestinians in the territory remained, forming a Palestinian minority in Israel.\n\nThe Zionist mainstream has historically included liberal, labor, revisionist, and cultural Zionism, while groups like Brit Shalom and Ihud have been dissident factions within the movement. Mainstream Zionist groups for the most part differ more in style than substance, having in some cases adopted similar strategies to achieve their goals, such as violence or compulsory transfer to deal with the Palestinians. Religious Zionism is a variant of Zionist ideology which brings together secular nationalism and religious conservatism. Advocates of Zionism have viewed it as a national liberation movement for the repatriation of an indigenous people (which were subject to persecution and share a national identity through national consciousness), to the homeland of their ancestors. Similarly, anti-Zionism has many aspects, which include criticism of Zionism as a colonialist, racist, or exceptionalist ideology or as a settler colonialist movement.See for example: M. Shahid Alam (2010), Israeli Exceptionalism: The Destabilizing Logic of Zionism Paperback, or"
+      },
+      "ar": {
+        "revid": 69347760,
+        "timestamp": "2025-01-19T21:31:03Z",
+        "title": "صهيونية",
+        "lead": "الصِّهْيُونِيَّة  ، هي أيدولوجية وحركة قومية إثنو-ثقافية ظهرت بين يهود شرق ووسط أوروبا أواخر القرن التاسع عشر، سعت لإنشاء دولة قومية خاصّة لهم باستعمار بلاد خارج اوروبا، تمخض عنها عام 1948 تأسيسها إثنوقراطية في فلسطين؛ المنطقة التي تماثل \"أرض يعقوب\" (إيريتس يسرائيل) ذات الأهمية الخاصّة في التاريخ اليهودي وأسميت الدولة الجديدة دولة إسرائيل، وأصبحت الصهيونية هي الأيدلوجية الوطنية لتلك الدولة التي تشكل فيها اليهودية كلاً من القومية والدين وحصرت حق تقرير المصير فيها للقومية اليهودية وحدها.\n\nفي ظل صعود القومية -التي ستعيد تشكيل أوروبا- أواخر القرن التاسع عشر وإصدام مركباتها العنصرية مع يهود إمبراطوريات شرق ووسط أوروبا الذين كانوا يعيشون كأقليات. يعاني معظم مجتمعاتهم الفقر والعداء ويتعرضون لهجمات عنيفة ومذابح منظمة، وفي ذلك السياق، نشأت إتجاهات داخل مجتمعات يهود شرق أوروبا مثل التمسك باليهودية الأرثوذكسية(الحاسيدية)، الهسكلة (الإندماج في المجتمع الاوروبي)، الصهيونية (صياغة هوية يهودية قومية)، الإحتفاء بالهوية الوطنية الإشتراكية (البوندييون) والهجرة للولايات المتحدة وأوروبا الغربية، وكانت الأيدولوجية الصهيونية تؤسس لهوية يهودية قومية؛ لم تنظر لليهود كمجموعة دينية أو إثنية، بل كقومية. ولم يكن الصهاينة متدينيين، ورأوا أنهم بهذه الهوية (القومية) لا مستقبل لهم في تلك البلاد؛ ورفضت اندماج اليهود في المجتمعات الأخرى كسبيل للتحرر من معاداة السامية والاضطهاد، ورأت أن السبيل الوحيد للنجاة والتحرر هو إنشاء والإنتقال إلى دولة قومية جديدة منفصلة لهم.\n\nلم تكن أعداد المهاجرين اليهود المستجيبين لدعوات الصهيونية للهجرة لإنشاء دولة قومية صدى واسعاً مقارنة بالأعداد التي هاجرت إلى الولايات المتحدة الأمريكية مثلا، ورأى الصهاينة أن إنشاء دولة قومية لن يكون ممكنا في اوروبا. فكانت عدّة بقع جغرافية اقترحت في كتابات الصهاينة لإنشاء هذه الدولة إستعمارياً، من ضمنها الأرجنتين وفلسطين، وبعد فترة اضحى واضحا في الرواية القومية للصهيانة تناسب الدعوة للهجرة إلى أرض فلسطين مع الأحداث التوراتية، وأنها ستكون -قومياً- أرض الآباء والأجداد (إيريتس يسرائيل) وأن الهجرة إليها هو عكس للظلم الذي وقع عليهم في الشتات، فطلب قادة الحركة الصهيونية بإنشاء دولة منشودة في فلسطين والتي كانت ضمن أراضي الدولة العثمانية.*David Hazony , Yoram Hazony, and Michael B. Oren, eds., \"New Essays on Zionism,\" Shalem Press, 2007. ارتبطت الحركة الصهيونية الحديثة بشخصية اليهودي النمساوي هرتزل الذي يعد الداعية الأول للفكر الصهيوني الحديث والذي تقوم على آرائه الحركة الصهيونية في العالمالصهيونية إعداد الندوة العالمية للشباب الإسلامي وبعد تأسيس دولة إسرائيل عام 1948م أخذت الحركة الصهيونية على عاتقها توفير الدعم المالي والمعنوي لدولة إسرائيل An Error Occurred Setting Your User Cookie An Error Occurred Setting Your User Cookie  وقد عقد أول مؤتمر للحركة الصهيونية في بازل بسويسرا ليتم تطبيق الصهيونية بشكل عملي على فلسطين فعملت على تسهيل الهجرة اليهودية ودعم المشاريع الاقتصادية اليهودية.الصهيونية العالمية، عباس محمود العقادالصهيونية بين تاريخين، عبد الله النجار كمال الحاج\n\nيرى أنصار الصهيونية أنها حركة تحرير وطنية لإعادة شعب مضطهد مقيم كأقليات في مجموعة متنوعة من الدول إلى وطن أجداده، وقد ساهمت محرقة الهولوكوست في إقناع اليهود بأفكار الحركة الصهيونية كثيرًا بدعوي المظلومية ودافعًا كبيرًا للهجرة والقتال لإقامة دولتهم اليهودية في "
+      },
+      "he": {
+        "revid": 40362726,
+        "timestamp": "2025-01-20T14:24:38Z",
+        "title": "ציונות",
+        "lead": "שמאל|ממוזער|250px|בנימין זאב הרצל נואם בקונגרס הציוני השני בבזל 1898.\nשמאל|ממוזער|250px|דגל התנועה הציונית מונף בכינוס אספת הנבחרים בשנת 1944\n\nhttps://he.m.wikipedia.org/wiki/%D7%A2%D7%99%D7%93%D7%9F_%D7%A2%D7%9E%D7%93%D7%99\nהציונות היא תנועה לאומית ואידאולוגיה שמטרתה קיום מדינת בית לאומי לעם היהודי בארץ ישראל. התנועה הציונית, כתנועה לאומית-יהודית, קמה בשליש האחרון של המאה ה-19, בעיקר במרכז ומזרח אירופה.\n\nזמן קצר לאחר הקמת התנועה הציונית קישרו רוב מנהיגי התנועה את מטרתה הראשית עם חידוש הריבונות היהודית בארץ ישראל – הקמת מדינה יהודית. עם הקמת מדינת ישראל, הציונות ממשיכה לפעול לתמיכה בישראל, הבטחת קיומה וחיזוקה.\n\nשורשי הציונות נעוצים במניעים ובערכים עתיקי-יומין הטבועים במסורת הדתית מזה, ובאידאולוגיות הלאומיות שפרחו באירופה במאה ה-19 מזה. הציונות כתנועה פוליטית עממית שהתפתחה בקרב היהודים במזרח אירופה דורבנה על ידי פרצי אנטישמיות וניזונה מתהליך חילון שהתעצם בקרב האוכלוסייה היהודית מאמצע המאה ה-19, שנתן אותותיו גם בחילון הכמיהה הדתית בת-שנות-אלפיים לציון. העולם המודרני הוביל לכך שמצד אחד הדת חדלה מלהיות מגדיר זהות מספק עבורם. קונפליקט זה הוביל ליצירתה של הגדרה עצמית לאומית חדשה.\n\nמראשיתה היו מטרות הציונות שיבת ציון, קיבוץ הגלויות, החייאת התרבות והשפה העברית, יצירת יהודי חדש – יהדות השרירים על פי מכס נורדאו וביסוס ריבונות יהודית עצמאית. לפי בנימין זאב תאודור הרצל, הנחשב להוגה הציונות המודרנית, הציונות היא מסכת רעיונות רחבה, שבה כלולה לא רק השאיפה לשטח מדיני מובטח כחוק בשביל העם היהודי, אלא גם השאיפה לשלמות מוסרית ורוחנית. מאז הקמת מדינת ישראל ב-1948 ממשיכה התנועה הציונית בעיקר לתמוך בישראל, ולטפל באיומים על קיומה וביטחונה.\n\nמראשיתה, לא הייתה הציונות הומוגנית. הוגיה, מנהיגיה ומפלגותיה היו שונים זה מזה ואף סותרים בדעתם. צורך השעה לצד הכמיהה לשוב למולדת האבות הביאו לפשרות ולוויתורים למען מטרה תרבותית ופוליטית משותפת.\n\nציונות כאידאולוגיה נפוצה לא רק אצל יהודים וישנם למשל נוצרים-אוונגליסטים ברחבי העולם המגדירים את עצמם כציונים, אך סיבותיהם שונות לחלוטין."
+      },
+      "ja": {
+        "revid": 103367414,
+        "timestamp": "2025-01-17T02:59:01Z",
+        "title": "シオニズム",
+        "lead": "シオニズム（, ）、シオン運動、シオン主義は、イスラエルの地に故郷を再建しよう、あるいはユダヤ教、ユダヤ・イディッシュ・イスラエル文化の復興運動を興そうとするユダヤ人の近代的運動。後者の立場を「文化シオニズム」と呼ぶことがある。\n\n右|サムネイル|テオドール・ヘルツルは、現代シオニズム運動の創始者である。1896年に出版した小冊子『ユダヤ人国家』()で、20世紀中に独立したユダヤ人国家の創設を構想していた。\nシオニズムは、19世紀にをパレスチナに建設するために生まれたナショナリズム運動 であり 、パレスチナはにおけるイスラエルの地にほぼ相当する \"The preoccupation of rabbinic literature in all its forms with the Land of Israel is without question intensive and constant. It is no wonder that this literature offers historians of the Land of Israel a wealth of information for the clarification of a wide variety of topics.\"。シオニズムは民族主義 の一形態、もしくは市民ナショナリストの要素を持つ民族文化的ナショナリズムの一形態と説明される。の後、シオニズムはユダヤ人国家としてのイスラエル国の発展と保護を支援するイデオロギーとなった。\n\n一方、ユダヤ教超正統派の基本的なグループの思想基盤はシオニズムではなく、それよりも古くから存在するハシディズム（敬虔主義運動）であり、世界最大のハシディズムグループであるサトマール派やエダ・ハチャレイディス派などがこれにあたり、ハシディストの超正統派グループはシオニズムに反対していたヤコブ・M・ラブキン「トーラーの名において　シオニズムに対するユダヤ教の抵抗の歴史」。\n\nメイル・カハネが唱えたカハネ主義（カハニズム）は、シオニズムの中でも特に過激な思想であり、ベンヤミン・ネタニヤフなどがそれにあたる。\n\nシオニズムは19 世紀後半にとして中央および東ヨーロッパで始まった運動であり、反ユダヤ主義の新たな高まりに対する反動と、ハスカーラー、すなわちユダヤ教の啓蒙運動の結果として起こった。運動が起きてすぐに、多くのシオニズムの指導者は、当時オスマン帝国の支配下にあったパレスチナにユダヤ人が切望する故郷を建設することが主な目標であると考えた。 この建国の過程は、シオニズム運動において「」（キブツ・ガルヨット (kibbutz galuyot））、すなわちユダヤ人が歴史的な祖国に戻ることによってユダヤ人の脱出と迫害の歴史に終止符を打つ試みとみなされた。\n\n1897年から1948年までのシオニズム運動の主な目標は、パレスチナにユダヤ人の祖国の基礎を確立し、それを強化することであった。民族自決の原則の独自の一形態として、1884 年にホヴェヴェイ・ツィヨン（「シオンの恋人たち」の意）が結成され、1897年に最初のシオニスト会議が組織された。19世紀後半から20世紀初頭にかけて多くのユダヤ人が初代オスマン帝国と後の委任統治領パレスチナに移住し、それと同時に世界的な承認と支持を得るための外交努力も行われた。1948年のイスラエル建国以来、シオニズムはイスラエル国に代わって国を擁護し、国の存続と安全に対する脅威に対処し続けている。\n\nシオニズムは決して画一的な運動ではなく、その指導者、政党、イデオロギーは互いに異なることが度々あった。反ユダヤ主義が高まるにつれてユダヤ人が祖先の国への帰還を切望した結果、共通の文化的、政治的目標を達成するために妥協と譲歩が行われた。、、労働シオニズム、、、などの、さまざまな類型のシオニズムができた。シオニズム支持者の視点では、シオニズム運動とは、迫害の対象であり国民的同一性を共有する先住民族を、古代史に記されているように祖先の故郷の地に帰還させるための民族解放運動であるIsrael Affairs.  Volume 13, Issue 4, 2007 – Special Issue: Postcolonial Theory and the Arab-Israel Conflict – De-Judaizing the Homeland: Academic Politics in Rewriting the History of Palestine.  S. Ilan Troen\"Zionism and British imperialism II: Imperial financing in Palestine\", Journal of Israeli History: Politics, Society, Culture.。同様に反シオニズムにも多くの側面があり、植民地主義* Shafir, Gershon, Being Israeli: The Dynamics of Multiple Citizenship, Cambridge University Press, 2002, pp. 37–38\n Bareli, Avi, \"Forgetting Europe: Perspectives on the Debate about Zionism and Colonialism\", in Israeli Historical Revisionism: From Left to Right, Psychology Press, 2003, pp. 99–116\n Pappé Ilan, A History of Modern Palestine: One Land, Two Peoples, Cambridge University Press, 2006, pp. 72–121\n Prior, Michael, The Bible and colonialism: a moral critique, Continuum International Publishing Group, 1997, pp. 106–215\n Shafir, Gershon, \"Zionism and Colonialism\", in The Israel / Palestinian Question, by Ilan Pappe, Psychology Press, 1999, pp. 72–85\n Lustick, Ian, For the Land and the Lord ...\n Zuriek, Elia, The Palestinians in Israel: A Study in Internal Colonialism, Routledge & K. Paul, 1979\n Penslar, Derek J., \"Zionism, Colonialism and Postcolonialism\", in Israeli Historical Revisionism: From Le"
+      },
+      "ur": {
+        "revid": 6548982,
+        "timestamp": "2025-01-30T19:12:26Z",
+        "title": "صہیونیت",
+        "lead": "[[فائل:Theodore Herzl.jpg|بائیں|تصغیر|تھیوڈور ہرتذل کو جدید صہیونی تحریک کا بانی تصور کیا جاتا ہے۔ 1896ء کی اپنی کتاب دیر یودنستات' (یہودی ریاست) میں انھوں نے بیسویں صدی میں مستقبل کی خود مختار یہودی ریاست کا تصور دیا۔]]\n\nتصغیر|(مفکرصہیونیت) تھیوڈور ہرتزل کی کتاب یہودی ریاست کی اشاعت سے مہینہ قبل 17جنوری 1896ء کے یہودی اخبار کا صفحہ اول \nصہیونیت (؛  از) قومی تحریک ہے جو یہودی لوگوں کی دوبارہ یہودی وطن یعنی ملک اسرائیل (جو کنعان، ارض مقدس اور فلسطین پر مشتمل ہے)۔ قیام کی حمایت کرتی ہے جدید صیہونیت انیسویں صدی کے اواخر میں وسطی اور مشرقی یورپ میں ایک یہودی قومی احیاء کی تحریک کے طور پر ابھر کر سامنے آئی، جس نے سام دشمنی کے رد عمل اور اخراجی قوم پرست تحریکوں کے جواب میں جنم لیا۔ اس کے بعد جلد ہی، اس کے زیادہ تر رہنماؤں نے اس تحریک کا مقصد مطلوبہ ریاست فلسطین اور بعد میں سلطنت عثمانیہ کے زیر حکومت علاقوں میں قائم کرنے سے وابستہ کر لیا۔Ilan Pappe, The Ethnic Cleansing of Palestine, 2006, p.10–11\n\n1948ء تک صیہونیت کے بنیادی مقاصد میں دوبارہ یہود کو ارض مقدسہ میں تاریخی خود مختاری دلوانے، اجتماعِ جلاوطن یہود ، سام دشمنی، امتیازی سلوک اور یہود پرظلم و ستم سے آزادی پر مرکوز تھے جس کا سامنا انھوں نے یہودی جلاوطنی میں کیا تھا۔ 1948ء میں اسرائیل کی ریاست کے قیام کے بعد صیہونیت بنیادی طور پر منجانب اسرائیل اس کی مسلسل موجودگی، توسیع اور دفاع کے خطرات سے نمٹنے کے لیے وکالت اور حمایت کا نام ہے۔\n\nمذہبی قسم کی ایک صیہونیت یہودی تشخص برقرار رکھنے کی حمایتی ہے اور اسے مذہبی یہودیت سے وابستگی کو متعرف کرتا ہے اور یہودیوں کے دوسرے معاشروں میں انجذاب کی مخالفت کرتا ہے اور یہودیوں کی اسرائیل واپسی کو یہودیوں کی اپنی ایک علاحدہ ریاست میں اکثریتی قوم بننے کے ایک ذریعے کے طور پر وکالت کرتا ہے۔ ثقافتی صیہونیت ایک قسم کی صیہونیت ہے جس کی سب سے زیادہ نمایاں نمائندگی احد ہعام نے کی اور اس کی بنیاد رکھی اور اسرائیل میں ایک یہودی ’’روحانی مرکز ‘‘کے سیکولر (غیر مذہب) نقطہ نظر کو فروغ دیا۔ سیاسی صیہونیت کے بانی ہرتضل کے برعکس احد ہعام کی جدوجہد اسرائیل کو ’’یہودی ریاست نہ کہ صرف یہودیوں کی ریاست‘‘ بنانے کے لیے تھی۔Ahad Ha'am, The Jewish State and Jewish Problem, trans. from the Hebrew by Leon Simon c 1912, Jewish Publication Society of America, Essential Texts of Zionism\n\nصیہونیت کے حمایتی اور وکیل اسے مختلف قوموں میں رہنے والی مظلوم یہودی اقلیتوں کو واپس اپنے آبائی وطن میں بسانے کی ایک قومی تحریک آزادی کے طور پر دیکھتے ہیں۔ صیہونیت کے ناقدین اسے استعمار پسندی نسل پرستی اور امتیاز پسندی کے نظریے جس نے اپنے پیرو انتداب فلسطین کے دوران یہودی صیہونی تشدد کی جانب راغب کرتی تحریک کے طور پر جانتے ہیں، جس نے فلسطینی نکبت اور انھیں آج تک مسلسل 1948ءکی جنگ کے دوران چھینے گئے فلسطینی جائداد اور املاک کی واپسی سے محروم رکھا۔Nur Masalha (September 15, 2007). The Bible and Zionism: Invented Traditions, Archaeology and Post-Colonialism in Palestine- Israel. Zed Books. p. 314. ISBN 978-1-84277-761-9. Ned Curthoys; Debjani Ganguly (2007). Edward Said: The Legacy of a Public Intellectual. Academic Monographs. p. 315. ISBN 978-0-522-85357-5. Retrieved May 12, 2013.Nādira Shalhūb Kīfūrkiyān (May 7, 2009). Militarization and Violence Against Women in Conflict Zones in the Middle East: A Palestinian "
+      }
+    }
+  },
+  "divergences": [
+    {
+      "topic": "Definition of Zionism as movement vs establishment framing",
+      "editions_differ": [
+        "AR",
+        "HE",
+        "JA",
+        "UR"
+      ],
+      "en_says": "Zionism is an ethnocultural nationalist movement that emerged in Europe in the late 19th century and aimed for the establishment of a national home for the Jewish people through the colonization of Palestine",
+      "other_says": "הציונות היא תנועה לאומית ואידאולוגיה שמטרתה קיום מדינת בית לאומי לעם היהודי בארץ ישראל",
+      "verdict": "differ",
+      "evidence_en": "Zionism is an ethnocultural nationalist movement that emerged in Europe in the late 19th century and aimed for the establishment of a national home for the Jewish people through the colonization of Palestine",
+      "evidence_other": "הציונות היא תנועה לאומית ואידאולוגיה שמטרתה קיום מדינת בית לאומי לעם היהודי בארץ ישראל",
+      "temporal_read": "difference_persisted",
+      "en_before": "Zionism is an ethnocultural nationalist movement that emerged in Europe in the late 19th century and aimed for the establishment of a national home for the Jewish people through the colonization of Palestine",
+      "en_after": "Zionism is an ethnocultural nationalist movement that emerged in Europe in the late 19th century and aimed for the establishment of a national home for the Jewish people through the colonization of Palestine",
+      "other_before": "הציונות היא תנועה לאומית ואידאולוגיה שמטרתה קיום מדינת בית לאומי לעם היהודי בארץ ישראל",
+      "other_after": "הציונות היא תנועה לאומית ואידאולוגיה שמטרתה קיום מדינת בית לאומי לעם היהודי בארץ ישראל",
+      "evidence_en_before": "Zionism is an ethnocultural nationalist movement that emerged in Europe in the late 19th century",
+      "evidence_en_after": "Zionism is an ethnocultural nationalist movement that emerged in Europe in the late 19th century",
+      "evidence_other_before": "הציונות היא תנועה לאומית ואידאולוגיה שמטרתה קיום מדינת בית לאומי לעם היהודי בארץ ישראל",
+      "evidence_other_after": "הציונות היא תנועה לאומית ואידאולוגיה שמטרתה קיום מדינת בית לאומי לעם היהודי בארץ ישראל"
+    },
+    {
+      "topic": "Zionist goal regarding Palestinian Arabs",
+      "editions_differ": [
+        "AR",
+        "HE",
+        "JA",
+        "UR"
+      ],
+      "en_says": "Zionists wanted to create a Jewish state in Palestine with as much land, as many Jews, and as few Palestinian Arabs as possible",
+      "other_says": "صهيونية (صياغة هوية يهودية قومية)... ورأت أن السبيل الوحيد للنجاة والتحرر هو إنشاء والإنتقال إلى دولة قومية جديدة منفصلة لهم",
+      "verdict": "absent_other",
+      "evidence_en": "Zionists wanted to create a Jewish state in Palestine with as much land, as many Jews, and as few Palestinian Arabs as possible",
+      "evidence_other": "ورأت أن السبيل الوحيد للنجاة والتحرر هو إنشاء والإنتقال إلى دولة قومية جديدة منفصلة لهم",
+      "temporal_read": "difference_persisted",
+      "en_before": "Zionists wanted to create a Jewish state in Palestine with as much land, as many Jews, and as few Palestinian Arabs as possible",
+      "en_after": "Zionists wanted to create a Jewish state in Palestine with as much land, as many Jews, and as few Palestinian Arabs as possible",
+      "other_before": "ورأت أن السبيل الوحيد للنجاة والتحرر هو إنشاء والإنتقال إلى دولة قومية جديدة منفصلة لهم",
+      "other_after": "ورأت أن السبيل الوحيد للنجاة والتحرر هو إنشاء والإنتقال إلى دولة قومية جديدة منفصلة لهم",
+      "evidence_en_before": "as few Palestinian Arabs as possible",
+      "evidence_en_after": "as few Palestinian Arabs as possible",
+      "evidence_other_before": null,
+      "evidence_other_after": null
+    },
+    {
+      "topic": "Framing of 1948 events and Palestinian expulsion",
+      "editions_differ": [
+        "AR",
+        "HE",
+        "JA",
+        "UR"
+      ],
+      "en_says": "As a result of the 1948 Palestinian expulsion and flight, an estimated 160,000 of 870,000 Palestinians in the territory remained, forming a Palestinian minority in Israel",
+      "other_says": "جس نے فلسطینی نکبت اور انھیں آج تک مسلسل 1948ءکی جنگ کے دوران چھینے گئے فلسطینی جائداد اور املاک کی واپسی سے محروم رکھا",
+      "verdict": "differ",
+      "evidence_en": "As a result of the 1948 Palestinian expulsion and flight, an estimated 160,000 of 870,000 Palestinians in the territory remained",
+      "evidence_other": "جس نے فلسطینی نکبت اور انھیں آج تک مسلسل 1948ءکی جنگ کے دوران چھینے گئے فلسطینی جائداد اور املاک کی واپسی سے محروم رکھا",
+      "temporal_read": "difference_persisted",
+      "en_before": "As a result of the 1948 Palestinian expulsion and flight, an estimated 160,000 of 870,000 Palestinians in the territory remained, forming a Palestinian minority in Israel",
+      "en_after": "As a result of the 1948 Palestinian expulsion and flight, an estimated 160,000 of 870,000 Palestinians in the territory remained, forming a Palestinian minority in Israel",
+      "other_before": "جس نے فلسطینی نکبت اور انھیں آج تک مسلسل 1948ءکی جنگ کے دوران چھینے گئے فلسطینی جائداد اور املاک کی واپسی سے محروم رکھا",
+      "other_after": "جس نے فلسطینی نکبت اور انھیں آج تک مسلسل 1948ءکی جنگ کے دوران چھینے گئے فلسطینی جائداد اور املاک کی واپسی سے محروم رکھا",
+      "evidence_en_before": "an estimated 160,000 of 870,000 Palestinians in the territory remained",
+      "evidence_en_after": "an estimated 160,000 of 870,000 Palestinians in the territory remained",
+      "evidence_other_before": null,
+      "evidence_other_after": null
+    },
+    {
+      "topic": "Anti-Zionism characterization",
+      "editions_differ": [
+        "UR",
+        "JA"
+      ],
+      "en_says": "anti-Zionism has many aspects, which include criticism of Zionism as a colonialist, racist, or exceptionalist ideology or as a settler colonialist movement",
+      "other_says": "صیہونیت کے ناقدین اسے استعمار پسندی نسل پرستی اور امتیاز پسندی کے نظریے... کے طور پر جانتے ہیں",
+      "verdict": "agree",
+      "evidence_en": "anti-Zionism has many aspects, which include criticism of Zionism as a colonialist, racist, or exceptionalist ideology",
+      "evidence_other": null,
+      "temporal_read": "difference_persisted",
+      "en_before": "anti-Zionism has many aspects, which include criticism of Zionism as a colonialist, racist, or exceptionalist ideology or as a settler colonialist movement",
+      "en_after": "anti-Zionism has many aspects, which include criticism of Zionism as a colonialist, racist, or exceptionalist ideology or as a settler colonialist movement",
+      "other_before": "صیہونیت کے ناقدین اسے استعمار پسندی نسل پرستی اور امتیاز پسندی کے نظریے... کے طور پر جانتے ہیں",
+      "other_after": "صیہونیت کے ناقدین اسے استعمار پسندی نسل پرستی اور امتیاز پسندی کے نظریے... کے طور پر جانتے ہیں",
+      "evidence_en_before": "colonialist, racist, or exceptionalist ideology",
+      "evidence_en_after": "colonialist, racist, or exceptionalist ideology",
+      "evidence_other_before": "استعمار پسندی نسل پرستی اور امتیاز پسندی",
+      "evidence_other_after": "استعمار پسندی نسل پرستی اور امتیاز پسندی"
+    }
+  ],
+  "summary": "No genuine temporal divergence was found: the English lead text is byte-identical between the BEFORE and AFTER revisions in this window, and the same holds for Arabic, Hebrew, Japanese, and Urdu editions (only a stray link was added in Hebrew, with no textual change). Thus any cross-edition differences identified—such as the AR/HE/JA/UR articles' differing framing of Zionism's origins, goals regarding Palestinian Arabs, characterization of 1948 events, and treatment of anti-Zionism—are static, pre-existing divergences rather than changes driven by the English rewrite. These reflect long-standing editorial differences in emphasis (e.g., Urdu and Arabic framing Zionism more critically via colonialism/ethnic cleansing language, while English's stable phrasing on 'as few Palestinian Arabs as possible' has no equivalent in the other editions) that persisted unchanged across the compared revisions.",
+  "run_ts": "2026-07-19T17:58:57.723999+00:00",
+  "model": "claude-sonnet-5",
+  "llm_usage": {
+    "calls": 1,
+    "input_tokens": 18264,
+    "output_tokens": 3254,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 18264,
+        "output_tokens": 3254,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
+  },
+  "elapsed_seconds": 59.188
+}

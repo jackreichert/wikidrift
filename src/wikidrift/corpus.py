@@ -14,35 +14,78 @@ Remaining polish (deferred, low value / higher churn): a `Corpus.open(read_only=
 `duckdb.connect(str(config.DB), ...)` sites into one — callers currently pass the raw `con` widely, so that's
 a separate pass.
 """
+import json
+
+import duckdb
 
 
 class Corpus:
     def __init__(self, con):
         self.con = con
 
+    def _has_integrity_receipts(self):
+        return bool(self.con.execute("""SELECT count(*) FROM information_schema.tables
+            WHERE table_schema='main' AND table_name='snapshot_integrity'""").fetchone()[0])
+
+    def _usable_snapshot_clause(self, alias="rsnap"):
+        if not self._has_integrity_receipts():
+            return "TRUE"
+        return f"""NOT EXISTS (
+            SELECT 1 FROM snapshot_integrity integrity
+            WHERE integrity.article={alias}.article AND integrity.snap_rev={alias}.snap_rev
+              AND integrity.status='quarantined')"""
+
+    def _stable_endpoint(self, article):
+        has_receipts = bool(self.con.execute("""SELECT count(*) FROM information_schema.tables
+            WHERE table_schema='main' AND table_name='endpoint_receipts'""").fetchone()[0])
+        if not has_receipts:
+            return False, None
+        row = self.con.execute("""SELECT selected_snapshot_date, selected_revid, status
+            FROM endpoint_receipts WHERE article=? AND mode='current_stable'
+            ORDER BY checked_at DESC LIMIT 1""", [article]).fetchone()
+        return True, row
+
     # --- rsnap (persistent-revision snapshots) ------------------------------
     def snapshots(self, article):
         """[(snap_date, snap_rev)] in time order (distinct)."""
         return self.con.execute(
-            "SELECT DISTINCT snap_date, snap_rev FROM rsnap WHERE article=? ORDER BY snap_date, snap_rev",
+            f"SELECT DISTINCT snap_date, snap_rev FROM rsnap WHERE article=? "
+            f"AND {self._usable_snapshot_clause()} ORDER BY snap_date, snap_rev",
             [article]).fetchall()
 
     def membership_rows(self, article):
         """(snap_date, snap_rev, token_id) rows, grouped by snapshot in time order (PWR membership source)."""
         return self.con.execute(
-            "SELECT snap_date, snap_rev, token_id FROM rsnap WHERE article=? ORDER BY snap_date, snap_rev",
+            f"SELECT snap_date, snap_rev, token_id FROM rsnap WHERE article=? "
+            f"AND {self._usable_snapshot_clause()} ORDER BY snap_date, snap_rev",
             [article]).fetchall()
 
     def latest_snapshot(self, article):
         """(snap_date, snap_rev) of the most recent snapshot, or None."""
+        has_receipts, endpoint = self._stable_endpoint(article)
+        if has_receipts and endpoint:
+            return (endpoint[0], endpoint[1]) if endpoint[2] == "stable" else None
         return self.con.execute(
-            "SELECT snap_date, snap_rev FROM rsnap WHERE article=? ORDER BY snap_date DESC LIMIT 1",
+            f"SELECT snap_date, snap_rev FROM rsnap WHERE article=? "
+            f"AND {self._usable_snapshot_clause()} ORDER BY snap_date DESC LIMIT 1",
             [article]).fetchone()
 
     def latest_snap_rev(self, article):
         """(snap_rev,) of the most recent snapshot, or None."""
+        has_receipts, endpoint = self._stable_endpoint(article)
+        if has_receipts and endpoint:
+            return (endpoint[1],) if endpoint[2] == "stable" else None
         return self.con.execute(
-            "SELECT snap_rev FROM rsnap WHERE article=? ORDER BY snap_date DESC LIMIT 1", [article]).fetchone()
+            f"SELECT snap_rev FROM rsnap WHERE article=? AND {self._usable_snapshot_clause()} "
+            "ORDER BY snap_date DESC LIMIT 1", [article]).fetchone()
+
+    def snapshot_as_of(self, article, as_of_date):
+        """Return the latest usable historical snapshot on or before a requested date."""
+        return self.con.execute(
+            f"SELECT DISTINCT snap_date, snap_rev FROM rsnap WHERE article=? AND snap_date<=? "
+            f"AND {self._usable_snapshot_clause()} ORDER BY snap_date DESC, snap_rev DESC LIMIT 1",
+            [article, as_of_date],
+        ).fetchone()
 
     def snapshot_token_ids(self, article, snap_rev):
         """The set of token_ids present in one snapshot."""
@@ -63,12 +106,14 @@ class Corpus:
         """Number of distinct persistent-revision snapshots — the ≥3 existence gate that was copy-pasted
         into pipeline / bootstrap / l4 / ingest."""
         return self.con.execute(
-            "SELECT count(DISTINCT snap_rev) FROM rsnap WHERE article=?", [article]).fetchone()[0]
+            f"SELECT count(DISTINCT snap_rev) FROM rsnap WHERE article=? "
+            f"AND {self._usable_snapshot_clause()}", [article]).fetchone()[0]
 
     def articles_with_snapshots(self, min_snaps=3):
         """Articles with at least `min_snaps` snapshots — the default target set for the offline verbs."""
         return [r[0] for r in self.con.execute(
-            "SELECT article FROM rsnap GROUP BY article HAVING count(DISTINCT snap_rev) >= ? ORDER BY article",
+            f"SELECT article FROM rsnap WHERE {self._usable_snapshot_clause()} GROUP BY article "
+            "HAVING count(DISTINCT snap_rev) >= ? ORDER BY article",
             [min_snaps]).fetchall()]
 
     # --- revisions (the Action-API timeline) --------------------------------
@@ -102,6 +147,33 @@ class Corpus:
         return self.con.execute(
             "SELECT rev_id, ts, user FROM revisions WHERE article=? AND ts>? AND ts<=? ORDER BY ts",
             [article, start_ts, end_ts]).fetchall()
+
+    def revision_evidence_between(self, article, start_ts, end_ts):
+        """Revision timeline plus optional process metadata for start_ts <= ts <= end_ts."""
+        try:
+            rows = self.con.execute("""
+                SELECT r.rev_id, r.ts, r.user, m.parent_id, m.sha1, m.comment, m.tags,
+                       m.minor, m.user_hidden, z.size
+                FROM revisions r
+                LEFT JOIN revision_metadata m ON m.article=r.article AND m.rev_id=r.rev_id
+                LEFT JOIN rev_size z ON z.article=r.article AND z.rev_id=r.rev_id
+                WHERE r.article=? AND r.ts>=? AND r.ts<=?
+                ORDER BY r.ts, r.rev_id
+            """, [article, start_ts, end_ts]).fetchall()
+        except duckdb.CatalogException:  # Legacy read-only shards may predate the metadata table.
+            return [{
+                "revision_id": revision_id, "timestamp": timestamp, "account": account,
+            } for revision_id, timestamp, account in self.con.execute(
+                """SELECT rev_id, ts, user FROM revisions
+                   WHERE article=? AND ts>=? AND ts<=? ORDER BY ts, rev_id""",
+                [article, start_ts, end_ts],
+            ).fetchall()]
+        return [{
+            "revision_id": row[0], "timestamp": row[1], "account": row[2],
+            "parent_id": row[3], "sha1": row[4], "comment": row[5],
+            "tags": json.loads(row[6]) if row[6] else [], "minor": row[7],
+            "account_type": "hidden" if row[8] else None, "size": row[9],
+        } for row in rows]
 
     def revision_ts(self, article):
         """{rev_id: ts} for every revision of the article."""

@@ -1,0 +1,16 @@
+{
+  "article": "Elizabeth Warren",
+  "artifacts": [
+    "logs/analysis-2026-07-30/Elizabeth_Warren.l1-analyze.log"
+  ],
+  "slug": "Elizabeth_Warren",
+  "tables": {
+    "articles": 0,
+    "rev_size": 5672,
+    "revisions": 5672,
+    "rsnap": 413453,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

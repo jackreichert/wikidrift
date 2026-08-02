@@ -1,0 +1,66 @@
+{
+  "article": "Gaza genocide",
+  "run_ts": "2026-07-31T15:15:22.233078+00:00",
+  "corpus_horizon": {
+    "snapshot_date": "2026-07-01",
+    "snapshot_revid": 1362011806
+  },
+  "thresholds": {
+    "confirm_drop": 0.2,
+    "durable_quantile": 0.5,
+    "min_cohort": 500,
+    "magnitude_floor": 25.0,
+    "rolling_window_months": 12,
+    "rolling_tolerance_days": 35,
+    "rolling_drop": 20.0
+  },
+  "source_state": {
+    "article": "Gaza genocide",
+    "source_status": "current_complete",
+    "source_checked_at": "2026-07-31T15:15:21.706101+00:00",
+    "source_latest_revid": 1367024104,
+    "expected_snapshots": 6,
+    "loaded_snapshots": 6,
+    "reason": null
+  },
+  "coarse_verdict": "PIVOT?",
+  "status": "confirmed",
+  "confirmed_episodes": [
+    {
+      "candidate_start": "2024-07-01",
+      "candidate_end": "2026-01-01",
+      "candidate_before_revid": 1232016083,
+      "candidate_after_revid": 1330601202,
+      "before_revid": 1236875322,
+      "before_timestamp": "2024-07-27T00:35:59Z",
+      "after_revid": 1236982362,
+      "after_timestamp": "2024-07-27T14:27:06Z",
+      "durable_spine_drop": 0.741634,
+      "pwr_mass": 271444,
+      "peak_pct": 59.04,
+      "source": "interval",
+      "status": "confirmed",
+      "duration_seconds": 49867,
+      "attribution": {
+        "before_revid": 1236875322,
+        "before_timestamp": "2024-07-27T00:35:59Z",
+        "after_revid": 1236982362,
+        "after_timestamp": "2024-07-27T14:27:06Z",
+        "duration_seconds": 49867,
+        "removed_tokens": 14,
+        "replacement_tokens": 0,
+        "removals_by_editor": [
+          {
+            "editor": "Cdjp1",
+            "tokens": 14
+          }
+        ],
+        "replacement_by_editor": [],
+        "top_removal_share": 1.0,
+        "top_replacement_share": null,
+        "same_top_editor": false,
+        "top_two_removal_share": 1.0
+      }
+    }
+  ]
+}

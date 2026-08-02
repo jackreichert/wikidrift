@@ -1,0 +1,48 @@
+{
+  "article": "Genetic studies of Jews",
+  "langs": [
+    "en",
+    "he"
+  ],
+  "entities": [
+    "Genetic studies of Jews"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Genetic studies of Jews": {
+          "entity": "Genetic studies of Jews",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Passage presents multiple studies, methods, and caveats (e.g., 'leading to an underestimation of the Levantine component') in an even, academic tone without endorsing a single conclusion."
+        }
+      },
+      "lead": {
+        "Genetic studies of Jews": {
+          "entity": "Genetic studies of Jews",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Autosomal DNA evidence supports the historical narrative of Jewish populations originating from the ancient Levant, with genetic diversity shaped by migrations, admixture, and isolation over millennia."
+        }
+      }
+    },
+    "he": {
+      "focal": {
+        "Genetic studies of Jews": {
+          "entity": "Genetic studies of Jews",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "המחקרים מראים ומלמדים כי הקבוצות המרכזיות בעם היהודי – יהדות אשכנז, יהדות ספרד ויהדות המזרח – חולקות מוצא מזרח-תיכוני משותף"
+        }
+      },
+      "lead": {
+        "Genetic studies of Jews": {
+          "entity": "Genetic studies of Jews",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "המחקרים מראים ומלמדים כי הקבוצות המרכזיות בעם היהודי – יהדות אשכנז, יהדות ספרד ויהדות המזרח – חולקות מוצא מזרח-תיכוני משותף"
+        }
+      }
+    }
+  }
+}

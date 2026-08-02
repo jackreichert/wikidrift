@@ -1,0 +1,202 @@
+{
+  "schema_version": 2,
+  "article": "Ilhan Omar",
+  "run_ts": "2026-07-31T21:48:42.625355+00:00",
+  "corpus_horizon": {
+    "snapshot_date": "2026-07-01",
+    "snapshot_revid": 1362789157
+  },
+  "thresholds": {
+    "confirm_drop": 0.2,
+    "durable_quantile": 0.5,
+    "min_cohort": 500,
+    "magnitude_floor": 25.0,
+    "rolling_window_months": 12,
+    "rolling_tolerance_days": 35,
+    "rolling_drop": 20.0
+  },
+  "source_state": {
+    "article": "Ilhan Omar",
+    "source_status": "current_complete",
+    "source_checked_at": "2026-07-31T21:48:42.212491+00:00",
+    "source_latest_revid": 1364507894,
+    "expected_snapshots": 20,
+    "loaded_snapshots": 20,
+    "reason": null
+  },
+  "coarse_verdict": "PIVOT?",
+  "status": "not_confirmed",
+  "confirmed_episodes": [],
+  "evaluated_candidates": [
+    {
+      "candidate_start": "2024-01-01",
+      "candidate_end": "2024-07-01",
+      "candidate_before_revid": 1193450662,
+      "candidate_after_revid": 1231958572,
+      "source": "interval",
+      "pwr_mass": 240130,
+      "peak_pct": 69.51,
+      "exact_before_revid": 1222862585,
+      "exact_before_timestamp": "2024-05-08T11:08:00Z",
+      "exact_after_revid": 1222862761,
+      "exact_after_timestamp": "2024-05-08T11:10:18Z",
+      "durable_spine_drop": 0.000818,
+      "decision": "rejected",
+      "rejection_reason": "durable_spine_drop_below_threshold"
+    }
+  ],
+  "interval_profile": [
+    {
+      "start": "2017-01-01",
+      "end": "2017-07-01",
+      "size": 2893,
+      "pwr_loss": 1.73,
+      "pwr_removed": 50,
+      "mature": false
+    },
+    {
+      "start": "2017-07-01",
+      "end": "2018-01-01",
+      "size": 2985,
+      "pwr_loss": 6.71,
+      "pwr_removed": 391,
+      "mature": false
+    },
+    {
+      "start": "2018-01-01",
+      "end": "2018-07-01",
+      "size": 3859,
+      "pwr_loss": 1.6,
+      "pwr_removed": 149,
+      "mature": false
+    },
+    {
+      "start": "2018-07-01",
+      "end": "2019-01-01",
+      "size": 4731,
+      "pwr_loss": 23.18,
+      "pwr_removed": 3220,
+      "mature": false
+    },
+    {
+      "start": "2019-01-01",
+      "end": "2019-07-01",
+      "size": 7739,
+      "pwr_loss": 28.95,
+      "pwr_removed": 5335,
+      "mature": false
+    },
+    {
+      "start": "2019-07-01",
+      "end": "2020-01-01",
+      "size": 22886,
+      "pwr_loss": 8.9,
+      "pwr_removed": 3205,
+      "mature": true
+    },
+    {
+      "start": "2020-01-01",
+      "end": "2020-07-01",
+      "size": 30461,
+      "pwr_loss": 1.77,
+      "pwr_removed": 1123,
+      "mature": true
+    },
+    {
+      "start": "2020-07-01",
+      "end": "2021-01-01",
+      "size": 31285,
+      "pwr_loss": 3.7,
+      "pwr_removed": 3460,
+      "mature": true
+    },
+    {
+      "start": "2021-01-01",
+      "end": "2021-07-01",
+      "size": 33936,
+      "pwr_loss": 5.83,
+      "pwr_removed": 7232,
+      "mature": true
+    },
+    {
+      "start": "2021-07-01",
+      "end": "2022-01-01",
+      "size": 34949,
+      "pwr_loss": 0.76,
+      "pwr_removed": 1156,
+      "mature": true
+    },
+    {
+      "start": "2022-01-01",
+      "end": "2022-07-01",
+      "size": 35840,
+      "pwr_loss": 0.05,
+      "pwr_removed": 102,
+      "mature": true
+    },
+    {
+      "start": "2022-07-01",
+      "end": "2023-01-01",
+      "size": 36328,
+      "pwr_loss": 1.19,
+      "pwr_removed": 2646,
+      "mature": true
+    },
+    {
+      "start": "2023-01-01",
+      "end": "2023-07-01",
+      "size": 37483,
+      "pwr_loss": 0.63,
+      "pwr_removed": 1617,
+      "mature": true
+    },
+    {
+      "start": "2023-07-01",
+      "end": "2024-01-01",
+      "size": 38942,
+      "pwr_loss": 1.61,
+      "pwr_removed": 4740,
+      "mature": true
+    },
+    {
+      "start": "2024-01-01",
+      "end": "2024-07-01",
+      "size": 54797,
+      "pwr_loss": 69.51,
+      "pwr_removed": 240130,
+      "mature": true
+    },
+    {
+      "start": "2024-07-01",
+      "end": "2025-01-01",
+      "size": 13482,
+      "pwr_loss": 0.1,
+      "pwr_removed": 117,
+      "mature": false
+    },
+    {
+      "start": "2025-01-01",
+      "end": "2025-07-01",
+      "size": 56137,
+      "pwr_loss": 1.19,
+      "pwr_removed": 4931,
+      "mature": true
+    },
+    {
+      "start": "2025-07-01",
+      "end": "2026-01-01",
+      "size": 57028,
+      "pwr_loss": 3.52,
+      "pwr_removed": 16448,
+      "mature": true
+    },
+    {
+      "start": "2026-01-01",
+      "end": "2026-07-01",
+      "size": 58561,
+      "pwr_loss": 0.55,
+      "pwr_removed": 2795,
+      "mature": true
+    }
+  ]
+}

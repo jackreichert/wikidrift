@@ -1,7 +1,10 @@
 """Characterization tests for the viewer's HTML rendering (viewer/build.py)."""
+import json
 import pathlib
 import sys
+import tempfile
 import unittest
+from unittest import mock
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "viewer"))
 import build  # noqa: E402
@@ -75,7 +78,421 @@ def _index_html():
     )
 
 
+class FindingsDiscovery(unittest.TestCase):
+    def test_expanded_political_topics_have_a_descriptive_category(self):
+        political_topics = [
+            "Xi Jinping",
+            "Ilhan Omar",
+            "Democratic Socialists of America",
+            "Socialism",
+            "Capitalism",
+            "Democratic Party (United States)",
+            "Republican Party (United States)",
+            "Elizabeth Warren",
+        ]
+
+        categories = build.resolve_categories([*political_topics, "Unmoved mover"])
+
+        self.assertEqual(
+            {categories[article] for article in political_topics},
+            {"Politics & ideology"},
+        )
+        self.assertEqual(categories["Unmoved mover"], "Other")
+        self.assertLessEqual(
+            set(build.CATEGORY.values()) | {build.DEFAULT_CATEGORY},
+            set(build.CATEGORY_OPTIONS),
+        )
+
+        rendered = build.index_page(
+            ["Xi Jinping"],
+            build.Findings(),
+            categories={"Xi Jinping": "Politics & ideology"},
+        )
+        self.assertIn('data-cat="Politics &amp; ideology"', rendered)
+        self.assertIn('>Politics &amp; ideology</button>', rendered)
+
+    def test_explicit_category_overrides_model_assisted_cache(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            cache_path = pathlib.Path(temp_dir) / "topic_categories.json"
+            cache_path.write_text(
+                json.dumps({"version": 1, "categories": {"Xi Jinping": "Other"}}),
+                encoding="utf-8",
+            )
+
+            categories = build.resolve_categories(
+                ["Xi Jinping"],
+                use_llm=True,
+                cache_path=cache_path,
+            )
+
+        self.assertEqual(categories["Xi Jinping"], "Politics & ideology")
+
+    def test_category_cache_rejects_unknown_filter_labels(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            cache_path = pathlib.Path(temp_dir) / "topic_categories.json"
+            cache_path.write_text(
+                json.dumps({"version": 1, "categories": {"Testland": "Unlisted label"}}),
+                encoding="utf-8",
+            )
+
+            categories = build._load_category_cache(cache_path)
+
+        self.assertEqual(categories, {})
+
+    def test_stale_shard_confirmation_degrades_to_unavailable(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            data_dir = pathlib.Path(temp_dir)
+            article_dir = data_dir / "articles" / "Stale_Topic"
+            findings_dir = article_dir / "findings"
+            findings_dir.mkdir(parents=True)
+            con = build.duckdb.connect(str(article_dir / "provenance.duckdb"))
+            from wikidrift import provenance
+            provenance.ensure_schema(con)
+            con.execute("INSERT INTO rsnap VALUES (?,?,?,?,?)", ("Stale Topic", "2026-01-01", 901, 1, 100))
+            con.execute("INSERT INTO endpoint_receipts VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", (
+                "Stale Topic", "current_stable", 901, 901, "2026-01-01",
+                "2026-01-01T00:00:00Z", 172800, None, "stable", "[]",
+                provenance.STABLE_ENDPOINT_POLICY, "2026-01-03T00:00:00+00:00",
+            ))
+            con.close()
+            (findings_dir / "Stale_Topic.l1-confirmation.json").write_text(json.dumps({
+                "article": "Stale Topic",
+                "status": "confirmed",
+                "thresholds": build.pipeline.config.confirmation_thresholds(),
+                "corpus_horizon": {"snapshot_date": "2026-01-01", "snapshot_revid": 900},
+                "confirmed_episodes": [{"before_revid": 1, "after_revid": 2}],
+            }), encoding="utf-8")
+
+            with mock.patch.object(build, "FIND", data_dir / "findings"), \
+                    mock.patch.object(build, "ARTICLES", data_dir / "articles"), \
+                    mock.patch.object(build, "DATA", data_dir / "viewer-data"):
+                findings = build.gather()
+
+            confirmation = findings.confirmations["Stale Topic"]
+            rendered = build.confirmation_section(confirmation)
+
+        self.assertEqual(confirmation["status"], "unavailable")
+        self.assertEqual(confirmation["confirmed_episodes"], [])
+        self.assertIn("Rewrite analysis needs refresh", rendered)
+        self.assertNotIn("confirmed rewrite episode", rendered)
+
+    def test_unreceipted_shard_confirmation_is_withheld(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            data_dir = pathlib.Path(temp_dir)
+            findings_dir = data_dir / "articles" / "Analyzed_Topic" / "findings"
+            findings_dir.mkdir(parents=True)
+            (findings_dir / "Analyzed_Topic.l1-confirmation.json").write_text(
+                json.dumps({"article": "Analyzed Topic", "status": "not_confirmed"}),
+                encoding="utf-8",
+            )
+
+            with mock.patch.object(build, "FIND", data_dir / "findings"), \
+                    mock.patch.object(build, "ARTICLES", data_dir / "articles"), \
+                    mock.patch.object(build, "DATA", data_dir / "viewer-data"):
+                findings = build.gather()
+
+            self.assertEqual(findings.articles(), [])
+            self.assertEqual(findings.confirmations["Analyzed Topic"]["status"], "unavailable")
+            self.assertEqual(findings.confirmations["Analyzed Topic"]["trust_status"],
+                             "legacy_incompatible")
+            self.assertEqual(len(findings.trust_report["withheld"]), 1)
+
+    def test_trust_report_counts_and_explains_withheld_artifacts(self):
+        report = {
+            "published": [{"status": "published"}],
+            "withheld": [{
+                "article": "Analyzed Topic",
+                "artifact_kind": "stance",
+                "path": "Analyzed_Topic.stance.json",
+                "status": "legacy_incompatible",
+                "reason": "stance artifact lacks revision evidence",
+            }],
+        }
+
+        payload = build.trust_report_payload(report)
+        page = build.trust_report_page(report)
+
+        self.assertEqual(payload["counts"]["published"], 1)
+        self.assertEqual(payload["counts"]["withheld"], 1)
+        self.assertEqual(payload["counts"]["legacy_incompatible"], 1)
+        self.assertIn("stance artifact lacks revision evidence", page)
+
+    def test_unavailable_shard_does_not_publish_alias_page(self):
+        findings = build.Findings(confirmations={
+            "Old Alias": {"article": "Old Alias", "status": "unavailable"},
+        })
+
+        self.assertEqual(findings.articles(), [])
+
+    def test_article_shard_finding_overrides_legacy_copy(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            data_dir = pathlib.Path(temp_dir)
+            legacy_dir = data_dir / "findings"
+            shard_dir = data_dir / "articles" / "Analyzed_Topic" / "findings"
+            legacy_dir.mkdir(parents=True)
+            shard_dir.mkdir(parents=True)
+            (legacy_dir / "Analyzed_Topic.lexical.json").write_text(
+                json.dumps({
+                    "article": "Analyzed Topic", "js_divergence": 0.1,
+                    "interval_source": "snapshot_endpoints",
+                    "before": {"rev": 100}, "after": {"rev": 200},
+                }),
+                encoding="utf-8",
+            )
+            (shard_dir / "Analyzed_Topic.lexical.json").write_text(
+                json.dumps({
+                    "article": "Analyzed Topic", "js_divergence": 0.4,
+                    "interval_source": "snapshot_endpoints",
+                    "before": {"rev": 100}, "after": {"rev": 200},
+                }),
+                encoding="utf-8",
+            )
+            from wikidrift import provenance
+            con = build.duckdb.connect(str(shard_dir.parent / "provenance.duckdb"))
+            provenance.ensure_schema(con)
+            con.execute("INSERT INTO endpoint_receipts VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", (
+                "Analyzed Topic", "current_stable", 200, 200, "2026-01-01",
+                "2026-01-01T00:00:00Z", 172800, None, "stable", "[]",
+                provenance.STABLE_ENDPOINT_POLICY, "2026-01-03T00:00:00+00:00",
+            ))
+            con.executemany("INSERT INTO snapshot_integrity VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", [
+                ("Analyzed Topic", "2025-01-01", 100, "complete", 10, 10, 1000,
+                 0.0, None, None, None, None, None, provenance.SNAPSHOT_INTEGRITY_POLICY,
+                 "2026-01-03T00:00:00+00:00"),
+                ("Analyzed Topic", "2026-01-01", 200, "complete", 10, 10, 1000,
+                 0.0, None, None, None, None, None, provenance.SNAPSHOT_INTEGRITY_POLICY,
+                 "2026-01-03T00:00:00+00:00"),
+            ])
+            con.close()
+
+            with mock.patch.object(build, "FIND", legacy_dir), \
+                    mock.patch.object(build, "ARTICLES", data_dir / "articles"), \
+                    mock.patch.object(build, "DATA", data_dir / "viewer-data"):
+                findings = build.gather()
+
+            self.assertEqual(findings.lexical["Analyzed Topic"]["js_divergence"], 0.4)
+
+
 class ArticlePageRendering(unittest.TestCase):
+    def test_exact_not_confirmed_overrides_stale_coarse_pivot(self):
+        findings = build.Findings(
+            confirmations={"Testland": {"article": "Testland", "status": "not_confirmed"}},
+            pivots={"Testland": {"pivots": [{
+                "start": "2020-01-01", "end": "2021-01-01", "pwr_mass": 100,
+            }]}},
+        )
+
+        out = build.article_page("Testland", findings)
+
+        self.assertIn("No candidate rewrite window was confirmed", out)
+        self.assertNotIn("Candidate rewrite window", out)
+
+    def test_exact_not_confirmed_relabels_legacy_lexical_pivot(self):
+        findings = build.Findings(
+            confirmations={"Testland": {
+                "article": "Testland",
+                "status": "not_confirmed",
+                "thresholds": {"confirm_drop": 0.2},
+                "interval_profile": [
+                    {
+                        "start": "2023-07-01", "end": "2024-01-01",
+                        "size": 900, "pwr_loss": 4.0, "pwr_removed": 300,
+                        "mature": False,
+                    },
+                    {
+                        "start": "2024-01-01", "end": "2024-07-01",
+                        "size": 4200, "pwr_loss": 69.5, "pwr_removed": 240130,
+                        "mature": True,
+                    },
+                ],
+                "evaluated_candidates": [{
+                    "candidate_start": "2024-01-01",
+                    "candidate_end": "2024-07-01",
+                    "candidate_before_revid": 10,
+                    "candidate_after_revid": 20,
+                    "source": "interval",
+                    "pwr_mass": 1200,
+                    "peak_pct": 30.0,
+                    "exact_before_revid": 11,
+                    "exact_before_timestamp": "2024-03-01T00:00:00Z",
+                    "exact_after_revid": 12,
+                    "exact_after_timestamp": "2024-03-02T00:00:00Z",
+                    "durable_spine_drop": 0.1,
+                    "decision": "rejected",
+                    "rejection_reason": "durable_spine_drop_below_threshold",
+                }],
+            }},
+            lexical={"Testland": {
+                "span": "2024-01-01 -> 2024-07-01 (around L1 pivot ~2024-01-01)",
+                "pivot": "2024-01-01",
+                "before": {"date": "2024-01-01", "tokens": 100},
+                "after": {"date": "2024-07-01", "tokens": 110},
+            }},
+            pivots={"Testland": {"pivots": [{
+                "start": "2024-01-01",
+                "end": "2024-07-01",
+                "peak_pct": 30.0,
+                "pwr_mass": 1200,
+                "status": "rejected",
+                "before_text": "old",
+                "after_text": "new",
+            }]}},
+        )
+
+        out = build.article_page("Testland", findings)
+
+        self.assertIn("No candidate rewrite window was confirmed", out)
+        self.assertIn("around L1 candidate date 2024-01-01", out)
+        self.assertIn("exact checking did not confirm a durable rewrite", out)
+        self.assertNotIn("around L1 pivot", out)
+        self.assertIn("Candidates checked exactly", out)
+        self.assertIn("Persistence-weighted loss by interval", out)
+        self.assertIn("69.5%", out)
+        self.assertIn("240,130 PWR", out)
+        self.assertIn("Rejected candidate window", out)
+        self.assertIn("Excluded: article below mature size", out)
+        self.assertIn("2024-01-01 → 2024-07-01", out)
+        self.assertIn("10.0% durable-spine drop", out)
+        self.assertIn("below the required 20.0%", out)
+        self.assertIn("Rejected", out)
+        self.assertIn('href="Testland.p0.html"', out)
+        self.assertIn("View redline", out)
+
+    def test_confirmed_analysis_renders_exact_episode_summary(self):
+        findings = build.Findings(
+            confirmations={"Testland": {
+                "article": "Testland",
+                "status": "confirmed",
+                "interval_profile": [
+                    {
+                        "start": "2023-07-01",
+                        "end": "2024-01-01",
+                        "pwr_loss": 31.0,
+                        "pwr_removed": 300,
+                        "mature": True,
+                    },
+                    {
+                        "start": "2024-01-01",
+                        "end": "2024-07-01",
+                        "pwr_loss": 42.0,
+                        "pwr_removed": 500,
+                        "mature": True,
+                    },
+                ],
+                "evaluated_candidates": [{
+                    "candidate_start": "2023-07-01",
+                    "candidate_end": "2024-07-01",
+                    "decision": "confirmed",
+                    "peak_pct": 42.0,
+                    "pwr_mass": 500,
+                }],
+                "confirmed_episodes": [{
+                    "before_revid": 11,
+                    "before_timestamp": "2024-01-01T00:00:00Z",
+                    "after_revid": 12,
+                    "after_timestamp": "2024-01-01T00:20:00Z",
+                    "durable_spine_drop": 0.75,
+                    "pwr_mass": 500,
+                }],
+            }},
+            pivots={"Testland": {"pivots": [{
+                "start": "2023-07-01",
+                "end": "2024-07-01",
+                "peak_pct": 42.0,
+                "pwr_mass": 500,
+                "before_text": "old",
+                "after_text": "new",
+            }]}},
+        )
+
+        out = build.article_page("Testland", findings)
+
+        self.assertIn("1 confirmed rewrite episode", out)
+        self.assertIn("75.0% durable-spine drop", out)
+        self.assertIn("oldid=11", out)
+        self.assertIn("oldid=12", out)
+        self.assertIn('href="Testland.p0.html"', out)
+        self.assertIn("View redline", out)
+        self.assertEqual(out.count("Confirmed candidate window"), 2)
+
+    def test_confirmed_analysis_discloses_horizon_duration_and_neutral_attribution(self):
+        findings = build.Findings(confirmations={"Testland": {
+            "article": "Testland",
+            "status": "confirmed",
+            "corpus_horizon": {"snapshot_date": "2026-01-01", "snapshot_revid": 900},
+            "confirmed_episodes": [{
+                "before_revid": 11,
+                "before_timestamp": "2024-01-01T00:00:00Z",
+                "after_revid": 12,
+                "after_timestamp": "2024-01-01T00:20:00Z",
+                "duration_seconds": 1200,
+                "durable_spine_drop": 0.75,
+                "pwr_mass": 500,
+                "attribution": {
+                    "removed_tokens": 80,
+                    "replacement_tokens": 40,
+                    "removals_by_editor": [{"editor": "Editor A", "tokens": 80}],
+                    "replacement_by_editor": [{"editor": "Editor A", "tokens": 40}],
+                    "top_removal_share": 1.0,
+                    "top_replacement_share": 1.0,
+                    "same_top_editor": True,
+                    "top_two_removal_share": 1.0,
+                },
+                "process_context": {
+                    "semantic_role": "descriptive_process_context",
+                    "revision_activity": [{
+                        "revision_id": 12, "timestamp": "2024-01-01T00:20:00Z",
+                        "account": "Editor A", "section": "History", "comment": "reorganize",
+                        "source_url": "https://en.wikipedia.org/w/index.php?title=Testland&oldid=12",
+                    }],
+                    "revert_relationships": [{
+                        "revision_id": 12, "restores_revision_id": 10,
+                        "signals": ["sha1_restoration"],
+                        "source_url": "https://en.wikipedia.org/w/index.php?title=Testland&oldid=12",
+                    }],
+                    "talk_activity": [],
+                    "page_operations": [{
+                        "log_id": 9, "type": "protect", "action": "protect",
+                        "timestamp": "2024-01-01T00:15:00Z", "comment": "temporary",
+                        "source_url": "https://en.wikipedia.org/w/index.php?title=Special:Log&logid=9",
+                    }],
+                    "availability": {
+                        "talk_activity": {"status": "unavailable", "reason": "retrieval timed out"},
+                    },
+                },
+            }],
+        }})
+
+        out = build.article_page("Testland", findings)
+
+        self.assertIn("Snapshot corpus through <b>2026-01-01</b>", out)
+        self.assertIn("20 minutes", out)
+        self.assertIn("<b>80</b> tokens removed", out)
+        self.assertIn("<b>40</b> surviving replacement tokens", out)
+        self.assertIn("associated with <b>100.0%</b> of removals", out)
+        self.assertIn("origin author of <b>100.0%</b> of surviving replacement text", out)
+        self.assertIn("does not establish bias, motive, or misconduct", out)
+        self.assertIn("Editorial process context", out)
+        self.assertIn("History", out)
+        self.assertIn("oldid=12", out)
+        self.assertIn("logid=9", out)
+        self.assertIn("Talk-page activity unavailable", out)
+        self.assertIn("retrieval timed out", out)
+        self.assertLess(out.index("Editorial process context"), out.index("Exact-event attribution"))
+
+    def test_unavailable_confirmation_remains_unavailable_when_article_is_published(self):
+        findings = build.Findings(
+            confirmations={"Testland": {
+                "article": "Testland", "status": "unavailable", "coarse_verdict": "SKIP",
+            }},
+            lexical={"Testland": {"article": "Testland", "js_divergence": 0.1}},
+        )
+
+        out = build.article_page("Testland", findings)
+
+        self.assertIn("Too few snapshots for rewrite analysis", out)
+        self.assertNotIn("No candidate rewrite window was confirmed", out)
+
     def test_profile_discloses_snapshot_horizon(self):
         profile = {
             "horizon": "2026-01-01", "median_age_yrs": 4.2, "pct_recent": 25,
@@ -411,7 +828,7 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("42% persistence-weighted loss", out)
         self.assertNotIn("42% of the article changed", out)
         pivot = build.pivot_page("Testland", findings.pivots["Testland"]["pivots"][0], 0)
-        self.assertIn("Candidate rewrite", pivot)
+        self.assertIn("Candidate redline", pivot)
 
     def test_overview_lists_every_candidate_window(self):
         findings = build.Findings(pivots={"Testland": {"pivots": [
@@ -488,6 +905,10 @@ class SiteRouting(unittest.TestCase):
             "Summary of findings", build.SUMMARY_BODY, None, path="summary.html"
         )
         self.assertIn("Persistence-weighted loss detects durable replacement", summary)
+        self.assertIn("<h2>Politics &amp; ideology</h2>", summary)
+        self.assertIn("seven-topic browsing category", summary)
+        self.assertIn('href="article/Unmoved_mover.html">Unmoved mover</a>', summary)
+        self.assertIn("remains outside this category", summary)
         self.assertNotIn('aria-current="page"', summary)
         self.assertIn('<a class="wiki-link" href="findings.html">Browse all findings', summary)
         page = build.render_page(title="Test", body="<h1>Test</h1>", root="../")
@@ -498,6 +919,24 @@ class SiteRouting(unittest.TestCase):
             page,
         )
         self.assertIn('<footer class="site">', page)
+
+    def test_summary_unlinks_articles_withheld_from_publication(self):
+        body = (
+            '<p><a href="article/Published_Topic.html">Published topic</a> and '
+            '<a href="article/Withheld_Topic_%28test%29.html">Withheld topic</a>, '
+            '<a class="wiki-link" href="article/Other_Withheld.html#lead">its lead</a>, and '
+            '<a href="article/Published_Topic.html?view=history">published history</a>.</p>'
+        )
+
+        rendered = build._unlink_unpublished_article_links(body, ["Published Topic"])
+
+        self.assertIn('<a href="article/Published_Topic.html">Published topic</a>', rendered)
+        self.assertIn("Withheld topic, its lead", rendered)
+        self.assertIn(
+            '<a href="article/Published_Topic.html?view=history">published history</a>', rendered
+        )
+        self.assertNotIn("Withheld_Topic", rendered)
+        self.assertNotIn("Other_Withheld", rendered)
 
     def test_mermaid_runtime_is_loaded_only_for_pages_with_diagrams(self):
         methodology = build.simple_page(

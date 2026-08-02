@@ -1,0 +1,141 @@
+{
+  "article": "Republican Party (United States)",
+  "run_ts": "2026-07-30T22:22:31.407122+00:00",
+  "corpus_horizon": {
+    "snapshot_date": "2026-01-01",
+    "snapshot_revid": 1330402946
+  },
+  "thresholds": {
+    "confirm_drop": 0.2,
+    "durable_quantile": 0.5,
+    "min_cohort": 500,
+    "magnitude_floor": 25.0,
+    "rolling_window_months": 12,
+    "rolling_tolerance_days": 35,
+    "rolling_drop": 20.0
+  },
+  "coarse_verdict": "PIVOT?",
+  "status": "confirmed",
+  "confirmed_episodes": [
+    {
+      "candidate_start": "2025-01-01",
+      "candidate_end": "2026-01-01",
+      "candidate_before_revid": 1266540753,
+      "candidate_after_revid": 1330402946,
+      "before_revid": 1284886106,
+      "before_timestamp": "2025-04-10T09:52:46Z",
+      "after_revid": 1284887246,
+      "after_timestamp": "2025-04-10T10:08:31Z",
+      "durable_spine_drop": 0.289771,
+      "pwr_mass": 143511,
+      "peak_pct": 26.31,
+      "source": "interval",
+      "status": "confirmed",
+      "duration_seconds": 945,
+      "attribution": {
+        "before_revid": 1284886106,
+        "before_timestamp": "2025-04-10T09:52:46Z",
+        "after_revid": 1284887246,
+        "after_timestamp": "2025-04-10T10:08:31Z",
+        "duration_seconds": 945,
+        "removed_tokens": 21007,
+        "replacement_tokens": 0,
+        "removals_by_editor": [
+          {
+            "editor": "Tpbradbury",
+            "tokens": 21007
+          }
+        ],
+        "replacement_by_editor": [],
+        "top_removal_share": 1.0,
+        "top_replacement_share": null,
+        "same_top_editor": false,
+        "top_two_removal_share": 1.0
+      }
+    },
+    {
+      "candidate_start": "2016-01-01",
+      "candidate_end": "2017-01-01",
+      "candidate_before_revid": 697820155,
+      "candidate_after_revid": 757479657,
+      "before_revid": 700687073,
+      "before_timestamp": "2016-01-20T00:44:51Z",
+      "after_revid": 700688825,
+      "after_timestamp": "2016-01-20T00:57:25Z",
+      "durable_spine_drop": 0.282159,
+      "pwr_mass": 56963,
+      "peak_pct": 32.57,
+      "source": "interval",
+      "status": "confirmed",
+      "duration_seconds": 754,
+      "attribution": {
+        "before_revid": 700687073,
+        "before_timestamp": "2016-01-20T00:44:51Z",
+        "after_revid": 700688825,
+        "after_timestamp": "2016-01-20T00:57:25Z",
+        "duration_seconds": 754,
+        "removed_tokens": 4147,
+        "replacement_tokens": 11,
+        "removals_by_editor": [
+          {
+            "editor": "CaseyPenk",
+            "tokens": 4147
+          }
+        ],
+        "replacement_by_editor": [
+          {
+            "editor": "CaseyPenk",
+            "tokens": 11
+          }
+        ],
+        "top_removal_share": 1.0,
+        "top_replacement_share": 1.0,
+        "same_top_editor": true,
+        "top_two_removal_share": 1.0
+      }
+    },
+    {
+      "candidate_start": "2007-01-01",
+      "candidate_end": "2009-01-01",
+      "candidate_before_revid": 97632398,
+      "candidate_after_revid": 261285257,
+      "before_revid": 193983043,
+      "before_timestamp": "2008-02-25T18:51:35Z",
+      "after_revid": 194478643,
+      "after_timestamp": "2008-02-27T19:41:44Z",
+      "durable_spine_drop": 0.651762,
+      "pwr_mass": 27900,
+      "peak_pct": 53.68,
+      "source": "interval",
+      "status": "confirmed",
+      "duration_seconds": 175809,
+      "attribution": {
+        "before_revid": 193983043,
+        "before_timestamp": "2008-02-25T18:51:35Z",
+        "after_revid": 194478643,
+        "after_timestamp": "2008-02-27T19:41:44Z",
+        "duration_seconds": 175809,
+        "removed_tokens": 5562,
+        "replacement_tokens": 399,
+        "removals_by_editor": [
+          {
+            "editor": "Settler",
+            "tokens": 5562
+          }
+        ],
+        "replacement_by_editor": [
+          {
+            "editor": "Settler",
+            "tokens": 399
+          }
+        ],
+        "top_removal_share": 1.0,
+        "top_replacement_share": 1.0,
+        "same_top_editor": true,
+        "top_two_removal_share": 1.0
+      }
+    }
+  ],
+  "attribution_backfill_ts": "2026-07-31T17:45:32.284392+00:00",
+  "schema_version": 2
+}

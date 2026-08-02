@@ -1,0 +1,301 @@
+{
+  "article": "Water",
+  "span": "2007-07-01 -> 2008-01-01 (around L1 pivot ~2007-07-01)",
+  "pivot": "2007-07-01",
+  "before": {
+    "date": "2007-07-01",
+    "rev": 141767077,
+    "tokens": 4899
+  },
+  "after": {
+    "date": "2008-01-01",
+    "rev": 181417682,
+    "tokens": 4627
+  },
+  "js_divergence": 0.1186,
+  "overrepresented_after_terms": [
+    {
+      "term": "treatment",
+      "before": 0,
+      "after": 7,
+      "delta": 7,
+      "log_odds": 2.7667
+    },
+    {
+      "term": "heating",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 2.4561
+    },
+    {
+      "term": "bathing",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.2552
+    },
+    {
+      "term": "drizzle",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.2552
+    },
+    {
+      "term": "frozen",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.2552
+    },
+    {
+      "term": "pellets",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.2552
+    },
+    {
+      "term": "various",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.2552
+    },
+    {
+      "term": "below",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.0037
+    },
+    {
+      "term": "defined",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.0037
+    },
+    {
+      "term": "good",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.0037
+    },
+    {
+      "term": "highly",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.0037
+    },
+    {
+      "term": "particles",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.0037
+    },
+    {
+      "term": "reactor",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.0037
+    },
+    {
+      "term": "saturn",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.0037
+    },
+    {
+      "term": "scale",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.0037
+    },
+    {
+      "term": "study",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.0037
+    },
+    {
+      "term": "typically",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.0037
+    },
+    {
+      "term": "distribution",
+      "before": 1,
+      "after": 8,
+      "delta": 7,
+      "log_odds": 1.7932
+    },
+    {
+      "term": "minerals",
+      "before": 1,
+      "after": 7,
+      "delta": 6,
+      "log_odds": 1.6679
+    },
+    {
+      "term": "top",
+      "before": 1,
+      "after": 5,
+      "delta": 4,
+      "log_odds": 1.3573
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "israel",
+      "before": 15,
+      "after": 0,
+      "delta": -15,
+      "log_odds": -3.3799
+    },
+    {
+      "term": "cubic",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -2.5091
+    },
+    {
+      "term": "partial",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -2.5091
+    },
+    {
+      "term": "jordan",
+      "before": 16,
+      "after": 1,
+      "delta": -15,
+      "log_odds": -2.3438
+    },
+    {
+      "term": "bank",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.3418
+    },
+    {
+      "term": "become",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.3418
+    },
+    {
+      "term": "meters",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.3418
+    },
+    {
+      "term": "oecd",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.3418
+    },
+    {
+      "term": "privatization",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.3418
+    },
+    {
+      "term": "project",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.3418
+    },
+    {
+      "term": "surfaces",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -2.3418
+    },
+    {
+      "term": "arab",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.1409
+    },
+    {
+      "term": "dry",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.1409
+    },
+    {
+      "term": "making",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.1409
+    },
+    {
+      "term": "palestinians",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.1409
+    },
+    {
+      "term": "suez",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.1409
+    },
+    {
+      "term": "west",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -2.1409
+    },
+    {
+      "term": "forces",
+      "before": 10,
+      "after": 1,
+      "delta": -9,
+      "log_odds": -1.8906
+    },
+    {
+      "term": "america",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.8894
+    },
+    {
+      "term": "argentina",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.8894
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

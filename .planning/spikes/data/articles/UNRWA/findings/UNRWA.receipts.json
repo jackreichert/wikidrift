@@ -1,0 +1,27 @@
+{
+  "article": "UNRWA",
+  "qid": "Q846656",
+  "editions": {
+    "en": {
+      "present": true,
+      "revid": 1357185096,
+      "title": "UNRWA",
+      "timestamp": "2026-06-01T05:49:43Z",
+      "prose_chars": 70518
+    },
+    "he": {
+      "present": true,
+      "revid": 43537608,
+      "title": "אונר\"א",
+      "timestamp": "2026-07-05T10:14:25Z",
+      "prose_chars": 28151
+    },
+    "ar": {
+      "present": true,
+      "revid": 75516004,
+      "title": "وكالة الأمم المتحدة لإغاثة وتشغيل اللاجئين الفلسطينيين",
+      "timestamp": "2026-06-15T12:07:13Z",
+      "prose_chars": 14323
+    }
+  }
+}

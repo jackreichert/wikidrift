@@ -1,0 +1,75 @@
+{
+  "article": "Photosynthesis",
+  "asof": null,
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "citation": {
+    "mean_jaccard": 0.08,
+    "domains_per_edition": {
+      "en": 27,
+      "he": 5,
+      "ar": 6
+    }
+  },
+  "claim": {
+    "per_edition": {
+      "en": {
+        "What are the inputs and outputs of the overall photosynthesis reaction?": {
+          "question": "What are the inputs and outputs of the overall photosynthesis reaction?",
+          "answer": "Inputs are carbon dioxide and water (with light energy); outputs are carbohydrates/sugars and oxygen.",
+          "value": "inputs: CO2 + water + light; outputs: carbohydrates + O2",
+          "evidence": "photosynthesis captures energy from sunlight to convert carbon dioxide into carbohydrates ... In plants, algae, and cyanobacteria, photosynthesis releases oxygen"
+        },
+        "In which cellular structure does photosynthesis take place?": {
+          "question": "In which cellular structure does photosynthesis take place?",
+          "answer": "In chloroplasts (where chlorophyll pigments are held).",
+          "value": "chloroplasts",
+          "evidence": "these pigments are chlorophylls ... held inside chloroplasts, abundant in leaf cells"
+        }
+      },
+      "he": {
+        "What are the inputs and outputs of the overall photosynthesis reaction?": {
+          "question": "What are the inputs and outputs of the overall photosynthesis reaction?",
+          "answer": "The overall net formula given combines CO2 and water with light to produce glucose and oxygen.",
+          "value": "inputs: CO2, H2O, light; outputs: C6H12O6, O2",
+          "evidence": "C6H12O6 + 6O2 → אור + 6H2O + 6CO2"
+        },
+        "In which cellular structure does photosynthesis take place?": {
+          "question": "In which cellular structure does photosynthesis take place?",
+          "answer": "In prokaryotes it occurs in thylakoids, and in higher plants in chloroplasts.",
+          "value": "thylakoids (prokaryotes) / chloroplasts (plants)",
+          "evidence": "בתאים אורגניזמים פרוקריוטים מתרחשת באברונים בשם תילקואידים, ובצמחים עילאיים הם מתרחשים ... אברונים בשם כלורופלסטים"
+        }
+      },
+      "ar": {
+        "What are the inputs and outputs of the overall photosynthesis reaction?": {
+          "question": "What are the inputs and outputs of the overall photosynthesis reaction?",
+          "answer": "Inputs are carbon dioxide and water; outputs are carbohydrates (sugars) and oxygen as a byproduct.",
+          "value": "inputs: CO2 + H2O; outputs: carbohydrates + O2",
+          "evidence": "تُخزن هذه الطاقة الكيميائية في جزيئات الكربوهيدرات، مثل السكريات والنشويات، والتي تُصنع من ثاني أكسيد الكربون والماء ... يجري إطلاق الأكسجين أيضًا كمنتج ثانوي"
+        },
+        "In which cellular structure does photosynthesis take place?": {
+          "question": "In which cellular structure does photosynthesis take place?",
+          "answer": "In organelles called chloroplasts (found in leaf cells).",
+          "value": "chloroplasts (البلاستيدات الخضراء)",
+          "evidence": "تُحفظ هذه البروتينات داخل عضيات تسمى البلاستيدات الخضراء، التي توجد بكثرة في خلايا الأوراق"
+        }
+      }
+    },
+    "adjudication": [
+      {
+        "question": "What are the inputs and outputs of the overall photosynthesis reaction?",
+        "verdict": "agree",
+        "note": "All agree: CO2+water+light in, carbohydrates/glucose+O2 out; he specifies glucose formula."
+      },
+      {
+        "question": "In which cellular structure does photosynthesis take place?",
+        "verdict": "differ",
+        "note": "All mention chloroplasts; he adds thylakoids in prokaryotes, extra detail not incompatible."
+      }
+    ]
+  }
+}

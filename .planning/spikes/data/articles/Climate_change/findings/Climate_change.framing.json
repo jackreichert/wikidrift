@@ -1,0 +1,133 @@
+{
+  "article": "Climate change",
+  "category": "general",
+  "mode": "pivot_relative",
+  "pivot_window": {
+    "start": "2018-01-01",
+    "end": "2022-01-01",
+    "pwr_mass": 358747,
+    "status": "confirmed",
+    "before_revid": 840836880,
+    "before_timestamp": "2018-05-12T14:00:31Z",
+    "after_revid": 841297450,
+    "after_timestamp": "2018-05-15T00:34:18Z",
+    "durable_spine_drop": 0.874049
+  },
+  "editions_compared": [
+    "en",
+    "gu",
+    "zh"
+  ],
+  "lead_chars": {
+    "en": 3000,
+    "gu": 3000,
+    "zh": 16
+  },
+  "snapshots": {
+    "before": {
+      "en": {
+        "revid": 840836880,
+        "timestamp": "2018-05-12T14:00:31Z",
+        "title": "Climate change",
+        "lead": "thumb|upright=1.45|alt1=refer to caption|Global mean surface-temperature change from 1880 to 2017, relative to the 1951–1980 mean. The black line is the global annual mean, and the red line is the five-year local regression line. The blue uncertainty bars show a 95% confidence interval.\n\nGlobal warming, also referred to as climate change, is the observed century-scale rise in the average temperature of the Earth's climate system, and its related effects. Multiple lines of scientific evidence show that the climate system is warming. Many of the observed changes since the 1950s are unprecedented in the instrumental temperature record, which extends back to the mid-19th century, and in paleoclimate proxy records covering thousands of years.\n\nIn 2013, the Intergovernmental Panel on Climate Change (IPCC) Fifth Assessment Report concluded that \"It is extremely likely that human influence has been the dominant cause of the observed warming since the mid-20th century.\" The largest human influence has been the emission of greenhouse gases such as carbon dioxide, methane and nitrous oxide. Climate model projections summarized in the report indicated that during the 21st century, the global surface temperature is likely to rise a further  in the lowest emissions scenario, and  in the highest emissions scenario. These findings have been recognized by the national science academies of the major industrialized nations and are not disputed by any scientific body of national or international standing.\n\nFuture climate change and associated impacts will differ from region to region.Solomon et al., Technical Summary,\nSection TS.5.3: Regional-Scale Projections, in . Anticipated effects include increasing global temperatures, rising sea levels, changing precipitation, and expansion of deserts in the subtropics. Warming is expected to be greater over land than over the oceans and greatest in the Arctic, with the continuing retreat of glaciers, permafrost and sea ice. Other likely changes include more frequent extreme weather events such as heat waves, droughts, heavy rainfall with floods and heavy snowfall;On snowfall:\n \n \n  ocean acidification; and species extinctions due to shifting temperature regimes. Effects significant to humans include the threat to food security from decreasing crop yields and the abandonment of populated areas due to rising sea levels. Because the climate system has a large \"inertia\" and greenhouse gases will remain in the atmosphere for a long time, many of these effects will persist for not only decades or centuries, but for tens of thousands of years to come.\n\nPossible societal responses to global warming include mitigation by emissions reduction, adaptation to its effects, building systems resilient to its effects, and possible future climate engineering. Most countries are parties to the United Nations Framework Convention on Climate Change (UNFCCC),. Most countries in the world are Parties to the United Nations Framework Convention on C"
+      },
+      "gu": {
+        "revid": 534833,
+        "timestamp": "2017-11-21T11:02:32Z",
+        "title": "વૈશ્વિક આબોહવા પરિવર્તન",
+        "lead": "પૃથ્વીના તાપમાનમા થઇ રહેલા સતત વધારાને વૈશ્વિક ઉષ્ણતા કહેવામાં આવે છે. ઔદ્યોગિકરણને પરિણામે મોટાપાયાના ઉદ્યોગો શરૂ થયા, વાહનવ્યવહારનો વ્યાપ વધ્યો, પેટ્રોલ- ડીઝલ વગેરે ધૂમાડા વાળા બળતણથી પ્રદૂષણમાં સતત વધારો થવા લાગ્યો. સૂર્યની ગરમીને ઓછી કરતા ઓઝોન વાયુના પડમાં ગાબડા પડવાની શરૂઆત થઇ, પરિણામે સૂર્યના કિરણો સીધાં જમીન પર પડવા લાગ્યાં. જેને કારણે દુનિયાનાં તાપમાનમાં સતત વધારો થતો આવ્યો, જેને કારણે વૈશ્વિક ઉષ્ણતા થઇ રહ્યું છે. અને વૈશ્વિક ઉષ્ણતાને કારણે હવામાન અને તાપમાનમાં ધરખમ ફેરફાર થવા લાગ્યો છે.\n\nગ્લોબલ સપાટી તાપમાનમાં 2005ના અંતે પૂરા થતા વર્ષો દરમિયાનમાં ૦.૭૪± (±)૦.૧૮ અને એનબીએસપી;°સી (C) (૧.૩૩ ± ૦.૩૨ અને એનબીએસપી; °એફ  (F)) નો વધારો થયો છે. વૈશ્વિક સપાટી તાપમાનની આઇપીસીસી ફોર્થ એસેસમેન્ટ રિપોર્ટ (IPCC Fourth Assessment Report)માં વ્યાખ્યા આપવામાં આવી છે તે અનુસાર જમીન પર નજીકની સપાટીના હવાના તાપમાન અને સમુદ્રની સપાટીના તાપમાનની સરેરાશ. હવામાનમાં ફેરફાર અંગેની આંતરસરકાર પેનલે  અંતમાં જણાવે છે કે એન્થ્રોપોજેનિક  ગ્રીનહાઉસ ગેસ ના પ્રમાણમાં વધારાને કારણે  વીસમી સદીના મધ્યથી થયેલો તાપમાનમાં વધારો બિલકૂલ શક્ય છે.કુદરતી ઘટના જેવી કે સોલાર વિવધતા (solar variation) અને લાવા (volcano)ની 1950ના ઔદ્યોગિક સમય પહેલાથી શક્યતઃ ઓછી વોર્મિંગ ઓસર હતી અને 1950થી ઓછી કૂંલીંગ અસર હતી.  પાયાગત અંતને ઓછામાં ઓછા 30 જેટલા વૈજ્ઞાનિક સમુદાયો  2001ના સંયુક્ત નિવેદન પર ઓસ્ટ્રેલિયા , બેલ્જિયમ (Belgium), બ્રાઝિલ (Brazil), કેનેડા , ધ કેરિબીયન , ચીન (China), ફ્રાંસ, જર્મની (Germany), ભારત (India), ઇન્ડોનેશિયા , આયર્લેન્ડ, ઇટાલી (Italy), મલેશિયા , ન્યૂઝીલેન્ડ (New Zealand), સ્વીડન, અને  યુકે ના વિજ્ઞાન શિક્ષણિવિંદો દ્વારા હસ્તાક્ષર કરવામાં આવ્યા હતા. 2005ના નિવેદનમાં Japan જાપાન (Japan), રશિયા અને યુ.એસ.  (U.S.)નો ઉમેરો થયો હતો. તેમજ 2007ના નિવેદનમાં મેક્સિકો  અને દક્ષિણ આફ્રિકા (South Africa)નો ઉમેરો થયો હતો.વ્યાવસાયિક સમુદાયમાં અમેરિકન મીટીરીયોલોજીકલ સોસાયટી, અમેરિકન જિયોફીઝીકલ યુનિયન, અમેરિકન ઇન્સ્ટીટ્યુટ ઓફ ફિઝીક્સ, અમેરિકન એન્થ્રોનોમિકલ સોસાયટી, અમેરિકન એસોસિયેશન ફોર ધ એડવાન્સમેન્ટ ઓફ સાયંસ, સ્ટ્રેટીગ્રાફી કમિશન ઓફ ધ જિયોલોજીકલ સોસાયટી ઓફ લંડન, જિયોલોજીકલ સોસાયટી ઓફ અમેરિકા, અમેરિકન કેમિકલ સોસાયટી અને એન્જિનિયર્સ ઓસ્ટ્રેલીયાનો સમાવેશ થાય છે.   અને વૈજ્ઞાન શિક્ષણવિંદો દ્વારા સ્વીકૃતિ આપવામાં આવી છે, જેમાં મોટા ઔદ્યોગિક દેશો (major industrialized countries)ના વિજ્ઞાન ક્ષેત્રેના રાષ્ટ્રીય શિક્ષણવિંદોનો સમાવેશ થાય છે.  નાની લઘુમતીઓ (small minority)એ આ તારણો સાથે અસંમતિ વ્યક્ત કરી હતી ત્યારે હવામાન ફેરફાર પર કામ કરતી વૈજ્ઞાનિકોની અભૂતપૂર્વ બહુમતીએ આઇપીસીસીના મુખ્ય અંત પર સંમતિ વ્યક્ત કરી હતી. \n\nહવામાન મોડેલ (Climate model) અંદાજો સુચવે છે કે વૈશ્વિક સપાટી તાપમાનમાં 21મી સદી દરમિયાનમાં હજુ પણ વધારો થવાની શક્યતા છે. આ અંદાજમાં અનિશ્ચિતતા ભવિષ્યના ગ્રીનહાઉસ ગેસ પ્રદૂષણ (estimates of future greenhouse gas emissions)ના અલગ અલગ અંદાજોનો અને વિવિધ હવામાન સંવેદનશીલ (climate sensitivity)તા સાથેના મોડેલોના ઉપયોગ કરવાથી ઊભી થાય છે.અન્ય કેટલીક અનિશ્ચિતતાઓ (uncertainties)માં વોર્મિંગ અને સંબંધિત ફેરફારો વિશ્વમાં અલગ અલગ પ્રદેશોમાં કેવી રીતે અલગ પડશે તેનો સમાવેશ થાય છે.  મોટા ભાગના અભ્યાસો 2100 સુધીના ગાળા સુધી કેન્દ્રિત છે ત્યારે સમુદ્રની મહાકાય ગરમી ક્ષમતા અને વાતાવરણમાં સીઓ2 (CO2)ના નવા પ"
+      },
+      "zh": {
+        "revid": 38888995,
+        "timestamp": "2016-01-29T03:25:53Z",
+        "title": "氣候變化",
+        "lead": "重定向 氣候變遷"
+      }
+    },
+    "after": {
+      "en": {
+        "revid": 841297450,
+        "timestamp": "2018-05-15T00:34:18Z",
+        "title": "Climate change",
+        "lead": "thumb|upright=1.45|alt1=refer to caption|Global mean surface-temperature change from 1880 to 2017, relative to the 1951–1980 mean. The black line is the global annual mean, and the red line is the five-year local regression line. The blue uncertainty bars show a 95% confidence interval.\n\nGlobal warming, also referred to as climate change, is the observed century-scale rise in the average temperature of the Earth's climate system, and its related effects. Multiple lines of scientific evidence show that the climate system is warming. Many of the observed changes since the 1950s are unprecedented in the instrumental temperature record, which extends back to the mid-19th century, and in paleoclimate proxy records covering thousands of years.\n\nIn 2013, the Intergovernmental Panel on Climate Change (IPCC) Fifth Assessment Report concluded that \"It is extremely likely that human influence has been the dominant cause of the observed warming since the mid-20th century.\" The largest human influence has been the emission of greenhouse gases such as carbon dioxide, methane and nitrous oxide. Climate model projections summarized in the report indicated that during the 21st century, the global surface temperature is likely to rise a further  in the lowest emissions scenario, and  in the highest emissions scenario. These findings have been recognized by the national science academies of the major industrialized nations and are not disputed by any scientific body of national or international standing.\n\nFuture climate change and associated impacts will differ from region to region.Solomon et al., Technical Summary,\nSection TS.5.3: Regional-Scale Projections, in . Anticipated effects include increasing global temperatures, rising sea levels, changing precipitation, and expansion of deserts in the subtropics. Warming is expected to be greater over land than over the oceans and greatest in the Arctic, with the continuing retreat of glaciers, permafrost and sea ice. Other likely changes include more frequent extreme weather events such as heat waves, droughts, heavy rainfall with floods and heavy snowfall;On snowfall:\n \n \n  ocean acidification; and species extinctions due to shifting temperature regimes. Effects significant to humans include the threat to food security from decreasing crop yields and the abandonment of populated areas due to rising sea levels. Because the climate system has a large \"inertia\" and greenhouse gases will remain in the atmosphere for a long time, many of these effects will persist for not only decades or centuries, but for tens of thousands of years to come.\n\nPossible societal responses to global warming include mitigation by emissions reduction, adaptation to its effects, building systems resilient to its effects, and possible future climate engineering. Most countries are parties to the United Nations Framework Convention on Climate Change (UNFCCC),. Most countries in the world are Parties to the United Nations Framework Convention on C"
+      },
+      "gu": {
+        "revid": 642901,
+        "timestamp": "2018-11-23T15:14:23Z",
+        "title": "વૈશ્વિક આબોહવા પરિવર્તન",
+        "lead": "પૃથ્વીના તાપમાનમા થઇ રહેલા સતત વધારાને વૈશ્વિક ઉષ્ણતા કહેવામાં આવે છે. ઔદ્યોગિકરણને પરિણામે મોટાપાયાના ઉદ્યોગો શરૂ થયા, વાહનવ્યવહારનો વ્યાપ વધ્યો, પેટ્રોલ- ડીઝલ વગેરે ધૂમાડા વાળા બળતણથી પ્રદૂષણમાં સતત વધારો થવા લાગ્યો. સૂર્યની ગરમીને ઓછી કરતા ઓઝોન વાયુના પડમાં ગાબડા પડવાની શરૂઆત થઇ, પરિણામે સૂર્યના કિરણો સીધાં જમીન પર પડવા લાગ્યાં. જેને કારણે દુનિયાનાં તાપમાનમાં સતત વધારો થતો આવ્યો, જેને કારણે વૈશ્વિક ઉષ્ણતા થઇ રહ્યું છે. અને વૈશ્વિક ઉષ્ણતાને કારણે હવામાન અને તાપમાનમાં ધરખમ ફેરફાર થવા લાગ્યો છે.\n\nગ્લોબલ સપાટી તાપમાનમાં 2005ના અંતે પૂરા થતા વર્ષો દરમિયાનમાં ૦.૭૪± (±)૦.૧૮ અને એનબીએસપી;°સી (C) (૧.૩૩ ± ૦.૩૨ અને એનબીએસપી; °એફ  (F)) નો વધારો થયો છે. વૈશ્વિક સપાટી તાપમાનની આઇપીસીસી ફોર્થ એસેસમેન્ટ રિપોર્ટ (IPCC Fourth Assessment Report)માં વ્યાખ્યા આપવામાં આવી છે તે અનુસાર જમીન પર નજીકની સપાટીના હવાના તાપમાન અને સમુદ્રની સપાટીના તાપમાનની સરેરાશ. હવામાનમાં ફેરફાર અંગેની આંતરસરકાર પેનલે  અંતમાં જણાવે છે કે એન્થ્રોપોજેનિક  ગ્રીનહાઉસ ગેસ ના પ્રમાણમાં વધારાને કારણે  વીસમી સદીના મધ્યથી થયેલો તાપમાનમાં વધારો બિલકૂલ શક્ય છે.કુદરતી ઘટના જેવી કે સોલાર વિવધતા (solar variation) અને લાવા (volcano)ની 1950ના ઔદ્યોગિક સમય પહેલાથી શક્યતઃ ઓછી વોર્મિંગ ઓસર હતી અને 1950થી ઓછી કૂંલીંગ અસર હતી.  પાયાગત અંતને ઓછામાં ઓછા 30 જેટલા વૈજ્ઞાનિક સમુદાયો  2001ના સંયુક્ત નિવેદન પર ઓસ્ટ્રેલિયા , બેલ્જિયમ (Belgium), બ્રાઝિલ (Brazil), કેનેડા , ધ કેરિબીયન , ચીન (China), ફ્રાંસ, જર્મની (Germany), ભારત (India), ઇન્ડોનેશિયા , આયર્લેન્ડ, ઇટાલી (Italy), મલેશિયા , ન્યૂઝીલેન્ડ (New Zealand), સ્વીડન, અને  યુકે ના વિજ્ઞાન શિક્ષણિવિંદો દ્વારા હસ્તાક્ષર કરવામાં આવ્યા હતા. 2005ના નિવેદનમાં Japan જાપાન (Japan), રશિયા અને યુ.એસ.  (U.S.)નો ઉમેરો થયો હતો. તેમજ 2007ના નિવેદનમાં મેક્સિકો  અને દક્ષિણ આફ્રિકા (South Africa)નો ઉમેરો થયો હતો.વ્યાવસાયિક સમુદાયમાં અમેરિકન મીટીરીયોલોજીકલ સોસાયટી, અમેરિકન જિયોફીઝીકલ યુનિયન, અમેરિકન ઇન્સ્ટીટ્યુટ ઓફ ફિઝીક્સ, અમેરિકન એન્થ્રોનોમિકલ સોસાયટી, અમેરિકન એસોસિયેશન ફોર ધ એડવાન્સમેન્ટ ઓફ સાયંસ, સ્ટ્રેટીગ્રાફી કમિશન ઓફ ધ જિયોલોજીકલ સોસાયટી ઓફ લંડન, જિયોલોજીકલ સોસાયટી ઓફ અમેરિકા, અમેરિકન કેમિકલ સોસાયટી અને એન્જિનિયર્સ ઓસ્ટ્રેલીયાનો સમાવેશ થાય છે.   અને વૈજ્ઞાન શિક્ષણવિંદો દ્વારા સ્વીકૃતિ આપવામાં આવી છે, જેમાં મોટા ઔદ્યોગિક દેશો (major industrialized countries)ના વિજ્ઞાન ક્ષેત્રેના રાષ્ટ્રીય શિક્ષણવિંદોનો સમાવેશ થાય છે.  નાની લઘુમતીઓ (small minority)એ આ તારણો સાથે અસંમતિ વ્યક્ત કરી હતી ત્યારે હવામાન ફેરફાર પર કામ કરતી વૈજ્ઞાનિકોની અભૂતપૂર્વ બહુમતીએ આઇપીસીસીના મુખ્ય અંત પર સંમતિ વ્યક્ત કરી હતી. \n\nહવામાન મોડેલ (Climate model) અંદાજો સુચવે છે કે વૈશ્વિક સપાટી તાપમાનમાં 21મી સદી દરમિયાનમાં હજુ પણ વધારો થવાની શક્યતા છે. આ અંદાજમાં અનિશ્ચિતતા ભવિષ્યના ગ્રીનહાઉસ ગેસ પ્રદૂષણ (estimates of future greenhouse gas emissions)ના અલગ અલગ અંદાજોનો અને વિવિધ હવામાન સંવેદનશીલ (climate sensitivity)તા સાથેના મોડેલોના ઉપયોગ કરવાથી ઊભી થાય છે.અન્ય કેટલીક અનિશ્ચિતતાઓ (uncertainties)માં વોર્મિંગ અને સંબંધિત ફેરફારો વિશ્વમાં અલગ અલગ પ્રદેશોમાં કેવી રીતે અલગ પડશે તેનો સમાવેશ થાય છે.  મોટા ભાગના અભ્યાસો 2100 સુધીના ગાળા સુધી કેન્દ્રિત છે ત્યારે સમુદ્રની મહાકાય ગરમી ક્ષમતા અને વાતાવરણમાં સીઓ2 (CO2)ના નવા પ"
+      },
+      "zh": {
+        "revid": 77405052,
+        "timestamp": "2023-05-24T23:01:21Z",
+        "title": "氣候變化",
+        "lead": "REDIRECT 氣候變率與變化"
+      }
+    }
+  },
+  "divergences": [
+    {
+      "topic": "English lead text unchanged; Gujarati and Chinese versions remain outdated or are redirects rather than parallel articles",
+      "editions_differ": [
+        "gu",
+        "zh"
+      ],
+      "en_says": "Global warming, also referred to as climate change, is the observed century-scale rise in the average temperature of the Earth's climate system...In 2013, the IPCC Fifth Assessment Report concluded that 'It is extremely likely that human influence has been the dominant cause...'",
+      "other_says": "પૃથ્વીના તાપમાનમા થઇ રહેલા સતત વધારાને વૈશ્વિક ઉષ્ણતા કહેવામાં આવે છે...(references 2005/2007 IPCC Fourth Assessment Report data, unchanged)",
+      "verdict": "differ",
+      "evidence_en": "It is extremely likely that human influence has been the dominant cause of the observed warming since the mid-20th century.",
+      "evidence_other": null,
+      "temporal_read": "difference_persisted",
+      "en_before": "Global warming...is the observed century-scale rise...In 2013, the IPCC Fifth Assessment Report concluded that 'It is extremely likely that human influence has been the dominant cause of the observed warming since the mid-20th century.'",
+      "en_after": "Global warming...is the observed century-scale rise...In 2013, the IPCC Fifth Assessment Report concluded that 'It is extremely likely that human influence has been the dominant cause of the observed warming since the mid-20th century.'",
+      "other_before": "પૃથ્વીના તાપમાનમા થઇ રહેલા સતત વધારાને વૈશ્વિક ઉષ્ણતા કહેવામાં આવે છે...IPCC Fourth Assessment Report...2005ના નિવેદનમાં...2007ના નિવેદનમાં",
+      "other_after": "પૃથ્વીના તાપમાનમા થઇ રહેલા સતત વધારાને વૈશ્વિક ઉષ્ણતા કહેવામાં આવે છે...IPCC Fourth Assessment Report...2005ના નિવેદનમાં...2007ના નિવેદનમાં",
+      "evidence_en_before": "It is extremely likely that human influence has been the dominant cause of the observed warming since the mid-20th century.",
+      "evidence_en_after": "It is extremely likely that human influence has been the dominant cause of the observed warming since the mid-20th century.",
+      "evidence_other_before": null,
+      "evidence_other_after": null
+    },
+    {
+      "topic": "Chinese article status: redirect target changed from 'climate change' to 'climate variability and change'",
+      "editions_differ": [
+        "zh"
+      ],
+      "en_says": "Global warming, also referred to as climate change, is the observed century-scale rise in the average temperature of the Earth's climate system, and its related effects.",
+      "other_says": "REDIRECT 氣候變率與變化",
+      "verdict": "differ",
+      "evidence_en": "Global warming, also referred to as climate change, is the observed century-scale rise in the average temperature of the Earth's climate system, and its related effects.",
+      "evidence_other": "REDIRECT 氣候變率與變化",
+      "temporal_read": "unclear",
+      "en_before": "Global warming, also referred to as climate change, is the observed century-scale rise in the average temperature of the Earth's climate system, and its related effects.",
+      "en_after": "Global warming, also referred to as climate change, is the observed century-scale rise in the average temperature of the Earth's climate system, and its related effects.",
+      "other_before": "重定向 氣候變遷",
+      "other_after": "REDIRECT 氣候變率與變化",
+      "evidence_en_before": "Global warming, also referred to as climate change, is the observed century-scale rise in the average temperature of the Earth's climate system, and its related effects.",
+      "evidence_en_after": "Global warming, also referred to as climate change, is the observed century-scale rise in the average temperature of the Earth's climate system, and its related effects.",
+      "evidence_other_before": "重定向 氣候變遷",
+      "evidence_other_after": "REDIRECT 氣候變率與變化"
+    }
+  ],
+  "summary": "The English lead text is identical between the BEFORE and AFTER revisions in this short window (2018-05-12 to 2018-05-15), showing no substantive change. The Gujarati article also shows no textual change between its BEFORE (2017) and AFTER (2018) revisions, remaining anchored to older IPCC Fourth Assessment Report content (2005/2007 statements) rather than the Fifth Assessment Report cited in English, so the divergence between English and Gujarani content persisted across the window rather than changing. The Chinese entry is merely a redirect in both revisions, but the redirect target itself changed from 'climate change' (氣候變遷) to 'climate variability and change' (氣候變率與變化), a structural/title change with no comparable content to assess against English's stable lead. No genuine convergence or divergence in substantive content can be established from these snapshots beyond the persistence of the Gujarati/English gap and the Chinese redirect retargeting.",
+  "run_ts": "2026-07-19T17:18:17.160275+00:00",
+  "model": "claude-sonnet-5",
+  "llm_usage": {
+    "calls": 1,
+    "input_tokens": 8945,
+    "output_tokens": 1916,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 8945,
+        "output_tokens": 1916,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
+  },
+  "elapsed_seconds": 72.772
+}

@@ -1,10 +1,16 @@
 """Unit tests for pure engine functions (no network, no DB, no LLM)."""
 import importlib.util
+import datetime as dt
+import io
 import json
 import pathlib
+import sys
 import tempfile
+import threading
 import unittest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
+
+import duckdb
 
 from wikidrift import l5_factcheck as fc
 from wikidrift import l5_crosslingual as xl
@@ -14,9 +20,13 @@ from wikidrift import l5_sources as src
 from wikidrift import lexical
 from wikidrift import drift
 from wikidrift import benchmark
+from wikidrift import cli
 from wikidrift import stance
 from wikidrift import pipeline
 from wikidrift import config
+from wikidrift import provenance
+from wikidrift import framing_trajectory
+from wikidrift import process_context
 from wikidrift.registry import focal_entities
 
 
@@ -125,6 +135,60 @@ class AdaptiveL5CapPolicy(unittest.TestCase):
         ])
         self.assertEqual(notes, [])
 
+    def test_full_mode_includes_crosslingual_coverage(self):
+        commands, _ = cover_missing_topics._topic_commands(
+            "Testland", use_llm=True, include_mscore=False, include_framing=True,
+            mode="full", l5_max_langs=None, required=set(), have=set(),
+        )
+        stages = [command[-2:] for command in commands]
+        self.assertEqual(stages[0], ["analyze", "Testland"])
+        self.assertIn(["crosslingual", "Testland"], stages)
+
+    def test_pipeline_mode_only_analyzes_then_runs_pipeline(self):
+        commands, notes = cover_missing_topics._topic_commands(
+            "Testland", use_llm=False, include_mscore=False, include_framing=False,
+            mode="pipeline", l5_max_langs=None, required=set(), have=set(),
+        )
+        self.assertEqual([command[-2:] for command in commands], [
+            ["analyze", "Testland"], ["pipeline", "Testland"],
+        ])
+        self.assertEqual(notes, [])
+
+    def test_attribution_mode_only_backfills_confirmed_pairs(self):
+        commands, notes = cover_missing_topics._topic_commands(
+            "Testland", use_llm=False, include_mscore=False, include_framing=False,
+            mode="attribution", l5_max_langs=None, required=set(), have=set(),
+        )
+        self.assertEqual(commands, [[
+            sys.executable, "-m", "wikidrift.cli", "backfill-attribution", "Testland",
+        ]])
+        self.assertEqual(notes, [])
+
+    def test_refresh_mode_only_reruns_analysis(self):
+        commands, notes = cover_missing_topics._topic_commands(
+            "Testland", use_llm=False, include_mscore=False, include_framing=False,
+            mode="refresh", l5_max_langs=None, required=set(), have=set(),
+        )
+        self.assertEqual(commands, [[
+            sys.executable, "-m", "wikidrift.cli", "analyze", "Testland",
+        ]])
+        self.assertEqual(notes, [])
+
+    def test_refresh_defaults_to_rerun_but_honors_explicit_resume(self):
+        self.assertFalse(cover_missing_topics._resume_enabled("refresh", None))
+        self.assertTrue(cover_missing_topics._resume_enabled("refresh", True))
+        self.assertFalse(cover_missing_topics._resume_enabled("refresh", False))
+        self.assertTrue(cover_missing_topics._resume_enabled("fill", None))
+
+    def test_fill_mode_uses_crosslingual_for_stance_and_receipts(self):
+        commands, _ = cover_missing_topics._topic_commands(
+            "Testland", use_llm=True, include_mscore=False, include_framing=False,
+            mode="fill", l5_max_langs=None, required={"stance", "receipts"}, have=set(),
+        )
+        self.assertEqual([command[-2:] for command in commands], [
+            ["analyze", "Testland"], ["crosslingual", "Testland"],
+        ])
+
     def test_cost_report_combines_stage_time_and_framing_usage(self):
         with tempfile.TemporaryDirectory() as directory:
             findings = pathlib.Path(directory)
@@ -152,6 +216,265 @@ class AdaptiveL5CapPolicy(unittest.TestCase):
                 {"command": "framing", "elapsed_seconds": 3.25, "exit_code": 1},
             ])
         self.assertFalse(report["succeeded"])
+
+
+class ParallelTopicCoverage(unittest.TestCase):
+    def test_fresh_confirmed_shard_topics_excludes_stale_and_rejected_artifacts(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            articles_dir = pathlib.Path(temp_dir)
+            for article, status, saved_revid in (
+                ("Fresh", "confirmed", 900),
+                ("Stale", "confirmed", 899),
+                ("Rejected", "not_confirmed", 900),
+            ):
+                article_dir = articles_dir / article
+                findings_dir = article_dir / "findings"
+                findings_dir.mkdir(parents=True)
+                con = duckdb.connect(str(article_dir / "provenance.duckdb"))
+                provenance.ensure_schema(con)
+                con.execute("INSERT INTO rsnap VALUES (?,?,?,?,?)", (article, "2026-01-01", 900, 1, 100))
+                con.close()
+                confirmation = {
+                    "article": article,
+                    "status": status,
+                    "thresholds": config.confirmation_thresholds(),
+                    "corpus_horizon": {
+                        "snapshot_date": "2026-01-01", "snapshot_revid": saved_revid,
+                    },
+                }
+                (findings_dir / f"{article}.l1-confirmation.json").write_text(
+                    json.dumps(confirmation), encoding="utf-8",
+                )
+
+            topics = cover_missing_topics._fresh_confirmed_shard_topics(articles_dir)
+
+        self.assertEqual(topics, {"Fresh"})
+
+    def test_stale_shard_topics_selects_horizon_and_threshold_mismatches(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            articles_dir = pathlib.Path(temp_dir)
+            current_thresholds = config.confirmation_thresholds()
+            for article, saved_revid, thresholds in (
+                ("Fresh", 900, current_thresholds),
+                ("Old horizon", 899, current_thresholds),
+                ("Old contract", 900, {"confirm_drop": config.CONFIRM_DROP}),
+            ):
+                article_dir = articles_dir / article
+                findings_dir = article_dir / "findings"
+                findings_dir.mkdir(parents=True)
+                con = duckdb.connect(str(article_dir / "provenance.duckdb"))
+                provenance.ensure_schema(con)
+                con.execute("INSERT INTO rsnap VALUES (?,?,?,?,?)", (article, "2026-01-01", 900, 1, 100))
+                con.close()
+                confirmation = {
+                    "article": article,
+                    "status": "not_confirmed",
+                    "thresholds": thresholds,
+                    "corpus_horizon": {
+                        "snapshot_date": "2026-01-01", "snapshot_revid": saved_revid,
+                    },
+                }
+                (findings_dir / f"{article}.l1-confirmation.json").write_text(
+                    json.dumps(confirmation), encoding="utf-8",
+                )
+
+            topics = cover_missing_topics._stale_shard_topics(articles_dir)
+
+        self.assertEqual(topics, {"Old horizon", "Old contract"})
+
+    def test_analysis_outcome_reads_confirmation_status(self):
+        with tempfile.TemporaryDirectory() as directory:
+            data_dir = pathlib.Path(directory)
+            findings = data_dir / "findings"
+            findings.mkdir()
+            (findings / "Testland.l1-confirmation.json").write_text(
+                json.dumps({"status": "not_confirmed"}), encoding="utf-8",
+            )
+            self.assertEqual(
+                cover_missing_topics._analysis_outcome(data_dir, "Testland"),
+                "not_confirmed",
+            )
+
+    def test_analysis_outcome_is_unknown_when_artifact_missing(self):
+        with tempfile.TemporaryDirectory() as directory:
+            self.assertEqual(
+                cover_missing_topics._analysis_outcome(pathlib.Path(directory), "Testland"),
+                "unknown",
+            )
+
+    def test_canonicalize_topics_replaces_redirects_and_deduplicates_targets(self):
+        resolved = {
+            "Democratic Party of the United States": "Democratic Party (United States)",
+            "Democratic Party (United States)": "Democratic Party (United States)",
+        }
+
+        def resolve(topic):
+            return Mock(requested_title=topic, canonical_title=resolved[topic], page_id=5043544)
+
+        topics, identities = cover_missing_topics._canonicalize_topics(
+            list(resolved), resolver=resolve,
+        )
+
+        self.assertEqual(topics, ["Democratic Party (United States)"])
+        self.assertEqual([identity.requested_title for identity in identities], list(resolved))
+
+        with tempfile.TemporaryDirectory() as directory:
+            articles_dir = pathlib.Path(directory)
+            cover_missing_topics._write_article_identities(articles_dir, identities)
+            identity = json.loads((
+                articles_dir / "Democratic_Party_(United_States)" / "article-identity.json"
+            ).read_text(encoding="utf-8"))
+
+        self.assertEqual(identity["canonical_title"], "Democratic Party (United States)")
+        self.assertEqual(identity["page_id"], 5043544)
+        self.assertEqual(identity["requested_titles"], list(resolved))
+
+    def test_project_command_reuses_current_python_environment(self):
+        self.assertEqual(
+            cover_missing_topics._project_command(["analyze", "Testland"]),
+            [sys.executable, "-m", "wikidrift.cli", "analyze", "Testland"],
+        )
+
+    def test_stage_name_extracts_project_module_command(self):
+        command = cover_missing_topics._project_command(["backfill-attribution", "Testland"])
+
+        self.assertEqual(cover_missing_topics._stage_name(command), "backfill-attribution")
+
+    def test_streaming_command_logs_and_prefixes_each_output_line(self):
+        process = Mock(stdout=iter(["first line\n", "last line"]))
+        process.wait.return_value = 0
+        process_factory = Mock(return_value=process)
+        log = io.StringIO()
+        output = io.StringIO()
+
+        completed = cover_missing_topics._run_streaming_command(
+            cover_missing_topics._project_command(["analyze", "Testland"]),
+            env={"PYTHONUNBUFFERED": "1"},
+            log=log,
+            topic="Testland",
+            output_lock=threading.Lock(),
+            output_stream=output,
+            process_factory=process_factory,
+        )
+
+        self.assertEqual(completed.returncode, 0)
+        self.assertEqual(log.getvalue(), "first line\nlast line")
+        self.assertEqual(output.getvalue(), "[Testland] first line\n[Testland] last line\n")
+
+    def test_streaming_command_kills_child_when_output_fails(self):
+        process = Mock(stdout=iter(["first line\n"]))
+        process_factory = Mock(return_value=process)
+        output = Mock()
+        output.write.side_effect = OSError("terminal closed")
+
+        with self.assertRaisesRegex(OSError, "terminal closed"):
+            cover_missing_topics._run_streaming_command(
+                cover_missing_topics._project_command(["analyze", "Testland"]),
+                env={"PYTHONUNBUFFERED": "1"},
+                log=io.StringIO(),
+                topic="Testland",
+                output_lock=threading.Lock(),
+                output_stream=output,
+                process_factory=process_factory,
+            )
+
+        process.kill.assert_called_once_with()
+        process.wait.assert_called_once_with()
+
+    def test_run_topic_isolates_storage_and_resumes_completed_stages(self):
+        with tempfile.TemporaryDirectory() as directory:
+            articles_dir = pathlib.Path(directory)
+            data_dir = articles_dir / "Testland"
+            data_dir.mkdir()
+            (data_dir / "coverage-state.json").write_text(json.dumps({
+                "completed_stages": ["analyze"],
+            }), encoding="utf-8")
+            runner = Mock(return_value=Mock(returncode=0))
+
+            result = cover_missing_topics._run_topic_commands(
+                topic="Testland",
+                commands=[
+                    cover_missing_topics._project_command(["analyze", "Testland"]),
+                    cover_missing_topics._project_command(["pipeline", "Testland"]),
+                ],
+                articles_dir=articles_dir,
+                resume=True,
+                runner=runner,
+            )
+
+            self.assertTrue(result["succeeded"])
+            self.assertEqual(result["skipped_stages"], ["analyze"])
+            runner.assert_called_once()
+            self.assertEqual(
+                runner.call_args.args[0],
+                cover_missing_topics._project_command(["pipeline", "Testland"]),
+            )
+            self.assertEqual(runner.call_args.kwargs["env"]["WIKIDRIFT_DATA_DIR"], str(data_dir))
+            state = json.loads((data_dir / "coverage-state.json").read_text(encoding="utf-8"))
+            self.assertEqual(state["completed_stages"], ["analyze", "pipeline"])
+
+    def test_run_topic_stops_and_preserves_state_on_stage_failure(self):
+        with tempfile.TemporaryDirectory() as directory:
+            articles_dir = pathlib.Path(directory)
+            runner = Mock(side_effect=[Mock(returncode=0), Mock(returncode=1)])
+
+            result = cover_missing_topics._run_topic_commands(
+                topic="Testland",
+                commands=[
+                    cover_missing_topics._project_command(["analyze", "Testland"]),
+                    cover_missing_topics._project_command(["pipeline", "Testland"]),
+                    cover_missing_topics._project_command(["profile", "Testland"]),
+                ],
+                articles_dir=articles_dir,
+                resume=True,
+                runner=runner,
+            )
+
+            self.assertFalse(result["succeeded"])
+            self.assertEqual([stage["command"] for stage in result["stages"]],
+                             ["analyze", "pipeline"])
+            state = json.loads((articles_dir / "Testland" / "coverage-state.json").read_text())
+            self.assertEqual(state["completed_stages"], ["analyze"])
+
+    def test_run_topic_item_returns_failure_when_worker_raises(self):
+        with unittest.mock.patch.object(
+            cover_missing_topics, "_run_topic_commands", side_effect=ValueError("bad command")
+        ):
+            result = cover_missing_topics._run_topic_item(
+                ("Testland", [["bad"]]),
+                articles_dir=pathlib.Path("articles"),
+                resume=False,
+            )
+
+        self.assertFalse(result["succeeded"])
+        self.assertEqual(result["error"], "bad command")
+
+    def test_run_topics_rejects_duplicate_topics(self):
+        with self.assertRaisesRegex(ValueError, "duplicate topics"):
+            cover_missing_topics._run_topics_parallel(
+                topic_commands=[("Testland", []), ("Testland", [])],
+                articles_dir=pathlib.Path("articles"),
+                jobs=2,
+                resume=False,
+            )
+
+    def test_run_topics_uses_requested_worker_limit(self):
+        executor = Mock()
+        executor.__enter__ = Mock(return_value=executor)
+        executor.__exit__ = Mock(return_value=False)
+        executor.map.return_value = []
+        executor_factory = Mock(return_value=executor)
+
+        results = cover_missing_topics._run_topics_parallel(
+            topic_commands=[],
+            articles_dir=pathlib.Path("articles"),
+            jobs=3,
+            resume=False,
+            executor_factory=executor_factory,
+        )
+
+        self.assertEqual(results, [])
+        executor_factory.assert_called_once_with(max_workers=3)
 
 
 class StanceValue(unittest.TestCase):
@@ -249,6 +572,109 @@ class FocalPassage(unittest.TestCase):
         self.assertEqual(len(stance.focal_passage(prose, ["Israel"], max_chars=20)), 20)
 
 
+class FramingTrajectory(unittest.TestCase):
+    def test_unsupported_mode_fails_before_corpus_or_network_access(self):
+        with self.assertRaisesRegex(ValueError, "unsupported framing trajectory mode"):
+            framing_trajectory.analyze_article("Example", mode="formativ", persist=False)
+
+    def test_transient_lead_addition_and_section_move_keep_exact_evidence(self):
+        revisions = [
+            {
+                "revision_id": 100,
+                "timestamp": "2024-01-01T00:00:00Z",
+                "wikitext": "Intro remains.\n\n== History ==\nA durable fact.",
+            },
+            {
+                "revision_id": 200,
+                "timestamp": "2024-07-01T00:00:00Z",
+                "wikitext": (
+                    "Intro remains. A new lead claim.<ref>https://example.org/a</ref>\n\n"
+                    "== Background ==\nA durable fact."
+                ),
+            },
+            {
+                "revision_id": 300,
+                "timestamp": "2025-01-01T00:00:00Z",
+                "wikitext": "Intro remains.\n\n== Background ==\nA durable fact.",
+            },
+        ]
+
+        result = framing_trajectory.analyze_revision_sequence("Example", revisions)
+        first_event = result["events"][0]
+        addition = first_event["added"][0]
+
+        self.assertEqual(addition["text"], "A new lead claim.")
+        self.assertEqual(addition["location"], "lead")
+        self.assertEqual(addition["citation_domains"], ["example.org"])
+        self.assertFalse(addition["standing"])
+        self.assertEqual(addition["introduced_revision_id"], 200)
+        self.assertEqual(addition["persistence_snapshots"], 0)
+        self.assertEqual(first_event["removed"], [])
+        self.assertEqual(first_event["relocated"][0]["text"], "A durable fact.")
+        self.assertEqual(first_event["relocated"][0]["from_section"], "History")
+        self.assertEqual(first_event["relocated"][0]["to_section"], "Background")
+
+    def test_pure_body_addition_can_emit_neutral_standing_framing_lead(self):
+        revisions = [
+            {"revision_id": 10, "timestamp": "2020-01-01T00:00:00Z",
+             "wikitext": "Stable lead."},
+            {"revision_id": 20, "timestamp": "2021-01-01T00:00:00Z",
+             "wikitext": "Stable lead.\n\n== Context ==\nA lasting contextual claim."},
+            {"revision_id": 30, "timestamp": "2022-01-01T00:00:00Z",
+             "wikitext": "Stable lead.\n\n== Context ==\nA lasting contextual claim."},
+        ]
+
+        result = framing_trajectory.analyze_revision_sequence("Example", revisions)
+        event = result["events"][0]
+
+        self.assertTrue(result["framing_change_lead"])
+        self.assertEqual(event["removed"], [])
+        self.assertEqual(event["added"][0]["location"], "body")
+        self.assertTrue(event["added"][0]["standing"])
+        self.assertGreater(event["section_weights"]["after"]["Context"], 0)
+        self.assertEqual(result["semantic_role"], "framing_change_lead")
+
+    def test_exact_event_fetches_requested_oldids_and_fails_closed_when_missing(self):
+        revisions = {
+            11: {"revision_id": 11, "timestamp": "2020-01-01T00:00:00Z", "wikitext": "Before."},
+            12: {"revision_id": 12, "timestamp": "2020-01-02T00:00:00Z", "wikitext": "After."},
+        }
+        fetched = []
+
+        def fetch(revision_id):
+            fetched.append(revision_id)
+            return revisions.get(revision_id)
+
+        result = framing_trajectory.analyze_article(
+            "Example", mode="exact_event", revision_ids=[11, 12],
+            persist=False, fetch_revision=fetch,
+        )
+        unavailable = framing_trajectory.analyze_article(
+            "Example", mode="exact_event", revision_ids=[11, 13],
+            persist=False, fetch_revision=fetch,
+        )
+
+        self.assertEqual(result["status"], "available")
+        self.assertEqual(result["selection"]["selected_revision_ids"], [11, 12])
+        self.assertEqual(unavailable["status"], "unavailable")
+        self.assertIn("exact revision 13", unavailable["reason"])
+        self.assertIn(13, fetched)
+
+    def test_retained_claim_records_citation_source_change(self):
+        revisions = [
+            {"revision_id": 1, "timestamp": "2020-01-01T00:00:00Z",
+             "wikitext": "Claim.<ref>https://old.example/a</ref>"},
+            {"revision_id": 2, "timestamp": "2021-01-01T00:00:00Z",
+             "wikitext": "Claim.<ref>https://new.example/b</ref>"},
+        ]
+
+        event = framing_trajectory.analyze_revision_sequence("Example", revisions)["events"][0]
+        citation_change = event["retained"][0]["citation_change"]
+
+        self.assertEqual(citation_change["added_domains"], ["new.example"])
+        self.assertEqual(citation_change["removed_domains"], ["old.example"])
+
+
 class FocalRegistry(unittest.TestCase):
     def test_out_of_slate_article_uses_title_as_focal(self):
         self.assertEqual(focal_entities("Chess"), ["Chess"])
@@ -285,6 +711,165 @@ class ReadGap(unittest.TestCase):
 
 
 class L4Discovery(unittest.TestCase):
+    def _confirmation(self, article="Example", editor="Editor A", snapshot_revid=900):
+        return {
+            "article": article,
+            "status": "confirmed",
+            "thresholds": config.confirmation_thresholds(),
+            "corpus_horizon": {"snapshot_date": "2026-01-01", "snapshot_revid": snapshot_revid},
+            "confirmed_episodes": [{
+                "before_revid": 100,
+                "before_timestamp": "2025-01-01T00:00:00Z",
+                "after_revid": 101,
+                "after_timestamp": "2025-01-01T00:10:00Z",
+                "candidate_start": "2024-01-01",
+                "durable_spine_drop": 0.6,
+                "pwr_mass": 100_000,
+                "attribution": {
+                    "removed_tokens": 10,
+                    "replacement_tokens": 4,
+                    "removals_by_editor": [{"editor": editor, "tokens": 10}],
+                    "replacement_by_editor": [{"editor": editor, "tokens": 4}],
+                },
+            }],
+        }
+
+    def test_seed_uses_fresh_exact_attribution(self):
+        editors, metadata = l4.seed_removing_editors(
+            self._confirmation(), ("2026-01-01", 900), top_n=4,
+        )
+
+        self.assertEqual(editors, [("Editor A", 10)])
+        self.assertEqual(metadata["episode"]["before_revid"], 100)
+        self.assertEqual(metadata["removed_count"], 10)
+
+    def test_seed_rejects_stale_confirmation(self):
+        editors, metadata = l4.seed_removing_editors(
+            self._confirmation(), ("2026-01-01", 901), top_n=4,
+        )
+
+        self.assertEqual(editors, [])
+        self.assertEqual(metadata["reason"], "stale_confirmation")
+
+    def test_seed_rejects_mismatched_attribution_total(self):
+        confirmation = self._confirmation()
+        confirmation["confirmed_episodes"][0]["attribution"]["removed_tokens"] = 11
+
+        editors, metadata = l4.seed_removing_editors(confirmation, ("2026-01-01", 900))
+
+        self.assertEqual(editors, [])
+        self.assertEqual(metadata["reason"], "removal_attribution_mismatch")
+
+    def test_seed_rejects_confirmed_result_without_episodes(self):
+        confirmation = self._confirmation()
+        confirmation["confirmed_episodes"] = []
+
+        editors, metadata = l4.seed_removing_editors(confirmation, ("2026-01-01", 900))
+
+        self.assertEqual(editors, [])
+        self.assertEqual(metadata["reason"], "confirmed_episode_missing")
+
+    def test_seed_selects_highest_mass_exact_episode(self):
+        confirmation = self._confirmation(editor="Lower Mass")
+        higher_mass = self._confirmation(editor="Higher Mass")["confirmed_episodes"][0]
+        higher_mass["pwr_mass"] = 200_000
+        higher_mass["before_revid"] = 200
+        confirmation["confirmed_episodes"].append(higher_mass)
+
+        editors, metadata = l4.seed_removing_editors(confirmation, ("2026-01-01", 900))
+
+        self.assertEqual(editors, [("Higher Mass", 10)])
+        self.assertEqual(metadata["episode"]["before_revid"], 200)
+
+    def test_graph_ranks_literal_editor_by_confirmed_article_breadth(self):
+        first = self._confirmation(article="First")
+        second = self._confirmation(article="Second")
+        second["confirmed_episodes"][0]["before_revid"] = 200
+        second["confirmed_episodes"][0]["after_revid"] = 201
+        graph = l4.confirmed_event_graph([
+            (first, ("2026-01-01", 900)),
+            (second, ("2026-01-01", 900)),
+        ])
+
+        self.assertEqual(graph["exclusions"], [])
+        self.assertEqual(graph["events"][0]["article"], "First")
+        self.assertEqual(graph["editors"][0]["editor"], "Editor A")
+        self.assertEqual(graph["editors"][0]["article_count"], 2)
+        self.assertEqual(graph["editors"][0]["event_count"], 2)
+        self.assertEqual(graph["editors"][0]["removed_tokens"], 20)
+
+    def test_graph_excludes_stale_and_bot_attribution(self):
+        stale = self._confirmation(article="Stale")
+        bot = self._confirmation(article="Bot Event", editor="ExampleBot")
+        hidden = self._confirmation(article="Hidden Event", editor="<hidden>")
+        graph = l4.confirmed_event_graph([
+            (stale, ("2026-01-01", 901)),
+            (bot, ("2026-01-01", 900)),
+            (hidden, ("2026-01-01", 900)),
+        ])
+
+        self.assertEqual(graph["editors"], [])
+        self.assertTrue(all(not event["eligible_removing_editors"] for event in graph["events"]))
+        self.assertEqual(graph["exclusions"][0]["reason"], "stale_confirmation")
+
+    def test_classify_requires_exact_confirmation(self):
+        confirmed = {
+            "status": "confirmed",
+            "confirmed_episodes": [{"pwr_mass": 100_000}],
+            "age_at_pivot": l4.MATURE_PRIOR_YEARS + 1,
+        }
+        rejected = {"status": "not_confirmed", "coarse_verdict": "PIVOT?"}
+
+        self.assertEqual(l4._classify(confirmed), "confirmed-retrofit-lead")
+        self.assertEqual(l4._classify(rejected), "not_confirmed")
+
+    def test_classify_demotes_confirmed_low_mass_event(self):
+        result = {
+            "status": "confirmed",
+            "confirmed_episodes": [{"pwr_mass": l4.MASS_FLOOR - 1}],
+            "age_at_pivot": l4.MATURE_PRIOR_YEARS + 1,
+        }
+
+        self.assertEqual(l4._classify(result), "confirmed-low-mass")
+
+    def test_retest_runs_full_exact_analysis_and_measures_stable_prior(self):
+        exact_result = self._confirmation(article="Candidate")
+        with patch.object(l4.drift, "analyze", return_value=exact_result) as analyze, \
+             patch.object(l4, "Corpus") as corpus_type:
+            corpus_type.return_value.first_revision_ts.return_value = "2010-01-01T00:00:00Z"
+
+            results = l4.retest(object(), ["Candidate"])
+
+        analyze.assert_called_once_with("Candidate", con=unittest.mock.ANY, persist=False)
+        self.assertEqual(results[0]["status"], "confirmed")
+        self.assertGreater(results[0]["age_at_pivot"], l4.MATURE_PRIOR_YEARS)
+
+    def test_findings_lists_only_independently_confirmed_rewrite_leads(self):
+        confirmation = self._confirmation()
+        episode = confirmation["confirmed_episodes"][0]
+        confirmed = {**confirmation, "age_at_pivot": 10.0}
+        rejected = {"article": "Rejected", "status": "not_confirmed"}
+        classifications = {
+            "Example": "confirmed-retrofit-lead",
+            "Rejected": "not_confirmed",
+        }
+
+        findings = l4._build_findings(
+            "Example", 4, 12, episode, {"removed_count": 10}, [("Editor A", 10)], [],
+            [confirmed, rejected], classifications, [confirmed], [],
+        )
+
+        self.assertEqual(findings["confirmed_rewrite_leads"], ["Example"])
+        self.assertEqual(findings["retrofit_leads"], ["Example"])
+        self.assertNotIn("Rejected", findings["confirmed_rewrite_leads"])
+        self.assertEqual(findings["semantic_role"], "search_prior")
+
+    def test_cli_dispatches_offline_confirmed_graph(self):
+        with patch.object(l4, "run_confirmed_graph") as run_confirmed_graph:
+            cli.main(["confirmed-graph", "/tmp/article-shards", "--json"])
+
+        run_confirmed_graph.assert_called_once_with(pathlib.Path("/tmp/article-shards"), as_json=True)
+
     def test_norm_treats_underscores_as_spaces(self):
         self.assertEqual(l4._norm("Bar_Kokhba_Revolt"), "Bar Kokhba Revolt")
         self.assertEqual(l4._norm("  Palestine  "), "Palestine")
@@ -309,26 +894,24 @@ class L4Discovery(unittest.TestCase):
         out = l4._jsonable({"editors": {"b", "a"}, "n": 1, "nested": [{"s": {"x"}}]})
         self.assertEqual(out, {"editors": ["a", "b"], "n": 1, "nested": [{"s": ["x"]}]})
 
-    # _classify — the honesty gate: retrofit-lead vs born-in-contested vs demoted vs healthy.
-    def test_classify_retrofit_lead(self):
-        r = {"verdict": "PIVOT?", "top_mass": l4.MASS_FLOOR + 1, "age_at_pivot": l4.MATURE_PRIOR_YEARS + 1}
-        self.assertEqual(l4._classify(r), "retrofit-lead")
+    # _classify — exact confirmation is mandatory before a graph-surfaced rewrite lead can exist.
+    def test_classify_confirmed_retrofit_lead(self):
+        r = {"status": "confirmed", "confirmed_episodes": [{"pwr_mass": l4.MASS_FLOOR + 1}],
+             "age_at_pivot": l4.MATURE_PRIOR_YEARS + 1}
+        self.assertEqual(l4._classify(r), "confirmed-retrofit-lead")
 
-    def test_classify_born_in_contested_when_prior_too_young(self):
-        r = {"verdict": "PIVOT?", "top_mass": l4.MASS_FLOOR + 1, "age_at_pivot": l4.MATURE_PRIOR_YEARS - 1}
-        self.assertEqual(l4._classify(r), "born-in-contested")
+    def test_classify_confirmed_born_in_contested_when_prior_too_young(self):
+        r = {"status": "confirmed", "confirmed_episodes": [{"pwr_mass": l4.MASS_FLOOR + 1}],
+             "age_at_pivot": l4.MATURE_PRIOR_YEARS - 1}
+        self.assertEqual(l4._classify(r), "confirmed-born-in-contested")
 
-    def test_classify_demoted_when_below_mass_floor(self):
-        r = {"verdict": "PIVOT?", "top_mass": l4.MASS_FLOOR - 1, "age_at_pivot": 99}
-        self.assertEqual(l4._classify(r), "demoted")
+    def test_classify_missing_age_remains_unknown(self):
+        result = {"status": "confirmed", "confirmed_episodes": [{"pwr_mass": l4.MASS_FLOOR + 1}]}
+        self.assertEqual(l4._classify(result), "confirmed-age-unknown")
 
-    def test_classify_missing_age_defaults_to_born_in_contested(self):
-        # a PIVOT? over the mass floor but with no measured prior ⇒ conservative (not a retrofit claim)
-        self.assertEqual(l4._classify({"verdict": "PIVOT?", "top_mass": l4.MASS_FLOOR + 1}), "born-in-contested")
-
-    def test_classify_non_pivot_verdicts(self):
-        self.assertEqual(l4._classify({"verdict": "HEALTHY"}), "healthy")
-        self.assertEqual(l4._classify({"verdict": "INSUFFICIENT"}), "insufficient")
+    def test_classify_non_confirmed_results(self):
+        self.assertEqual(l4._classify({"status": "not_confirmed"}), "not_confirmed")
+        self.assertEqual(l4._classify({"status": "unavailable"}), "unavailable")
 
 
 class DriftEpisodes(unittest.TestCase):
@@ -358,6 +941,7 @@ class DriftEpisodes(unittest.TestCase):
         self.assertEqual((eps[0]["abs"], eps[0]["peak"]), (500, 30.0))   # 200+300 accumulated; peak = max
         self.assertEqual((eps[0]["start"], eps[0]["end"]), (("2020-07-01", 2), ("2021-07-01", 4)))
         self.assertEqual(eps[1]["abs"], 400)
+        self.assertTrue(all(episode["source"] == "interval" for episode in eps))
 
     def test_annotate_ranks_by_pwr_mass_and_sets_age(self):
         eps = [{"start": ("2020-01-01", 1), "end": ("2020-07-01", 2), "abs": 100, "peak": 20},
@@ -365,6 +949,56 @@ class DriftEpisodes(unittest.TestCase):
         out = drift.annotate_episodes(eps, "2026-01-01")
         self.assertEqual([e["abs"] for e in out], [500, 100])    # ranked by PWR-mass, age-agnostic
         self.assertGreater(out[1]["age"], out[0]["age"])         # the older episode carries the larger age
+
+    def test_rolling_candidates_detects_repeated_medium_loss_over_one_year(self):
+        snaps = [("2022-01-01", 1), ("2022-07-01", 2), ("2023-01-01", 3)]
+        members = [set(range(100)), set(range(90)), set(range(70))]
+        present = {token: [index for index, member in enumerate(members) if token in member]
+                   for token in range(100)}
+
+        candidates = drift.rolling_candidates(
+            snaps, members, present, min_mature=50, threshold=20.0, mass_floor=20,
+        )
+
+        self.assertEqual(len(candidates), 1)
+        self.assertEqual((candidates[0]["start"][0], candidates[0]["end"][0]),
+                         ("2022-01-01", "2023-01-01"))
+        self.assertEqual(candidates[0]["source"], "rolling")
+        self.assertGreaterEqual(candidates[0]["peak"], 20.0)
+
+    def test_rolling_candidates_skip_sparse_and_immature_starts(self):
+        snaps = [("2022-01-01", 1), ("2022-03-01", 2), ("2023-07-01", 3)]
+        members = [set(range(10)), set(range(100)), set(range(50))]
+        present = {token: [index for index, member in enumerate(members) if token in member]
+                   for token in range(100)}
+
+        candidates = drift.rolling_candidates(
+            snaps, members, present, min_mature=50, threshold=20.0, mass_floor=20,
+        )
+
+        self.assertEqual(candidates, [])
+
+    def test_non_overlapping_candidates_keeps_highest_mass_window(self):
+        candidates = [
+            {"start": ("2022-01-01", 1), "end": ("2023-01-01", 2), "abs": 100, "peak": 30},
+            {"start": ("2022-07-01", 3), "end": ("2023-07-01", 4), "abs": 200, "peak": 35},
+            {"start": ("2024-01-01", 5), "end": ("2025-01-01", 6), "abs": 150, "peak": 25},
+        ]
+
+        selected = drift.non_overlapping_candidates(candidates)
+
+        self.assertEqual([candidate["abs"] for candidate in selected], [200, 150])
+
+    def test_non_overlapping_candidates_respects_primary_blocked_windows(self):
+        blocked = [{"start": ("2022-01-01", 1), "end": ("2023-01-01", 2), "abs": 300}]
+        candidates = [
+            {"start": ("2022-07-01", 3), "end": ("2023-07-01", 4), "abs": 200},
+            {"start": ("2024-01-01", 5), "end": ("2025-01-01", 6), "abs": 150},
+        ]
+
+        selected = drift.non_overlapping_candidates(candidates, blocked=blocked)
+
+        self.assertEqual([candidate["abs"] for candidate in selected], [150])
 
 
 class DriftProfile(unittest.TestCase):
@@ -504,50 +1138,214 @@ class BenchmarkScoring(unittest.TestCase):
         self.assertEqual(r["status"], "PENDING")
 
 
-class SlowBleedWindow(unittest.TestCase):
-    """_cumulative_loss_windows: rolling 12-month cumulative PWR-loss detector."""
-    # series row: (d0, r0, d1, r1, ratio%, size, wlost)
+class ConcentrationCalibration(unittest.TestCase):
+    def _confirmation(self):
+        return {
+            "article": "Example",
+            "status": "confirmed",
+            "thresholds": config.confirmation_thresholds(),
+            "corpus_horizon": {"snapshot_date": "2026-01-01", "snapshot_revid": 900},
+            "confirmed_episodes": [{
+                "before_revid": 100,
+                "after_revid": 200,
+                "durable_spine_drop": 0.62,
+                "pwr_mass": 120000,
+                "attribution": {
+                    "duration_seconds": 1080,
+                    "removed_tokens": 10,
+                    "replacement_tokens": 8,
+                    "removals_by_editor": [
+                        {"editor": "Editor A", "tokens": 7},
+                        {"editor": "Editor B", "tokens": 3},
+                    ],
+                    "replacement_by_editor": [{"editor": "Editor A", "tokens": 8}],
+                },
+            }],
+        }
 
-    def _make_series(self, intervals):
-        """Build a minimal series from (d0, d1, size, wlost) tuples."""
-        return [(d0, 0, d1, 0, 100.0 * wlost / size if size else 0, size, wlost)
-                for d0, d1, size, wlost in intervals]
-
-    def test_returns_none_for_empty_series(self):
-        self.assertIsNone(drift._cumulative_loss_windows([]))
-
-    def test_returns_none_when_below_threshold(self):
-        # 4 quarters, each losing 20 tokens of 1000 → ratio 0.08 < SLOW_BLEED_FLOOR
-        series = self._make_series([
-            ("2022-01-01", "2022-04-01", 1000, 20),
-            ("2022-04-01", "2022-07-01", 1000, 20),
-            ("2022-07-01", "2022-10-01", 1000, 20),
-            ("2022-10-01", "2023-01-01", 1000, 20),
+    def test_extracts_recomputable_raw_event_without_label(self):
+        dataset = benchmark.concentration_dataset([
+            (self._confirmation(), ("2026-01-01", 900)),
         ])
-        self.assertIsNone(drift._cumulative_loss_windows(series))
 
-    def test_detects_slow_bleed_above_threshold(self):
-        # 4 intervals in one year, each removing 100 of 1000 tokens → ratio 0.4 ≥ SLOW_BLEED_FLOOR
-        series = self._make_series([
-            ("2022-01-01", "2022-04-01", 1000, 100),
-            ("2022-04-01", "2022-07-01", 1000, 100),
-            ("2022-07-01", "2022-10-01", 1000, 100),
-            ("2022-10-01", "2023-01-01", 1000, 100),
-        ])
-        result = drift._cumulative_loss_windows(series)
-        self.assertIsNotNone(result)
-        start, end, ratio = result
-        self.assertGreaterEqual(ratio, drift.SLOW_BLEED_FLOOR)
+        self.assertFalse(dataset["labels_enabled"])
+        self.assertEqual(dataset["exclusions"], [])
+        event = dataset["events"][0]
+        self.assertEqual(event["top_removal_share"], 0.7)
+        self.assertEqual(event["top_two_removal_share"], 1.0)
+        self.assertTrue(event["same_top_editor"])
+        self.assertNotIn("label", event)
 
-    def test_window_does_not_span_more_than_twelve_months(self):
-        # bleed spread over 18 months → should NOT trigger if no single 12-month window accumulates enough
-        series = self._make_series([
-            ("2021-01-01", "2021-07-01", 1000, 100),   # 6 months apart
-            ("2021-07-01", "2022-01-01", 1000, 100),   # another 6 (total = 12 months, ratio=0.2 < 0.35)
-            ("2022-01-01", "2022-07-01", 1000, 100),   # slides past first interval
+    def test_stale_confirmation_is_excluded(self):
+        dataset = benchmark.concentration_dataset([
+            (self._confirmation(), ("2026-01-01", 901)),
         ])
-        # Each 12-month window contains at most 2 intervals (200/1000=0.2) — below threshold
-        self.assertIsNone(drift._cumulative_loss_windows(series))
+
+        self.assertEqual(dataset["events"], [])
+        self.assertEqual(dataset["exclusions"][0]["reason"], "stale_confirmation")
+
+    def test_missing_attribution_is_excluded_with_reason(self):
+        confirmation = self._confirmation()
+        episode = confirmation["confirmed_episodes"][0]
+        episode["attribution"] = None
+        episode["attribution_unavailable"] = "token provenance unavailable"
+
+        dataset = benchmark.concentration_dataset([
+            (confirmation, ("2026-01-01", 900)),
+        ])
+
+        self.assertEqual(dataset["events"], [])
+        self.assertEqual(dataset["exclusions"][0]["reason"], "token provenance unavailable")
+
+    def test_mismatched_raw_counts_fail_closed(self):
+        confirmation = self._confirmation()
+        confirmation["confirmed_episodes"][0]["attribution"]["removed_tokens"] = 11
+
+        with self.assertRaisesRegex(ValueError, "removal attribution total"):
+            benchmark.concentration_dataset([(confirmation, ("2026-01-01", 900))])
+
+    def test_mismatched_replacement_counts_fail_closed(self):
+        confirmation = self._confirmation()
+        confirmation["confirmed_episodes"][0]["attribution"]["replacement_tokens"] = 9
+
+        with self.assertRaisesRegex(ValueError, "replacement attribution total"):
+            benchmark.concentration_dataset([(confirmation, ("2026-01-01", 900))])
+
+    def test_v3_revision_rows_must_reproduce_editor_totals(self):
+        confirmation = self._confirmation()
+        attribution = confirmation["confirmed_episodes"][0]["attribution"]
+        attribution.update({
+            "schema_version": 3,
+            "gross": {"removed_tokens": 10, "added_tokens": 8, "restored_tokens": 0},
+            "net_standing": {"removed_tokens": 10, "replacement_tokens": 8},
+            "revisions": [
+                {"account": "Editor A", "gross_removed_tokens": 7, "gross_added_tokens": 8,
+                 "restored_tokens": 0, "standing_removed_tokens": 7, "standing_added_tokens": 8},
+                {"account": "Editor B", "gross_removed_tokens": 3, "gross_added_tokens": 0,
+                 "restored_tokens": 0, "standing_removed_tokens": 2, "standing_added_tokens": 0},
+            ],
+        })
+
+        with self.assertRaisesRegex(ValueError, "revision removal rows"):
+            benchmark.concentration_dataset([(confirmation, ("2026-01-01", 900))])
+
+    def test_unconfirmed_artifact_is_excluded(self):
+        confirmation = self._confirmation()
+        confirmation["status"] = "not_confirmed"
+
+        dataset = benchmark.concentration_dataset([
+            (confirmation, ("2026-01-01", 900)),
+        ])
+
+        self.assertEqual(dataset["events"], [])
+        self.assertEqual(dataset["exclusions"][0]["reason"], "not_confirmed")
+
+    def test_summary_reports_feature_ranges_without_thresholds(self):
+        events = benchmark.concentration_dataset([
+            (self._confirmation(), ("2026-01-01", 900)),
+        ])["events"]
+
+        summary = benchmark.concentration_summary(events)
+
+        self.assertEqual(summary["event_count"], 1)
+        self.assertEqual(summary["top_removal_share"]["median"], 0.7)
+        self.assertEqual(summary["same_top_editor_count"], 1)
+        self.assertNotIn("threshold", summary)
+
+    def test_readiness_rejects_non_discriminating_editor_shares(self):
+        summary = {
+            "top_removal_share": {"count": 2, "min": 1.0, "median": 1.0, "max": 1.0},
+            "top_replacement_share": {"count": 2, "min": 1.0, "median": 1.0, "max": 1.0},
+            "top_two_removal_share": {"count": 2, "min": 1.0, "median": 1.0, "max": 1.0},
+        }
+
+        readiness = benchmark.concentration_readiness(summary)
+
+        self.assertFalse(readiness["calibration_ready"])
+        self.assertEqual(len(readiness["calibration_blockers"]), 3)
+
+    def test_cli_dispatches_offline_concentration_report(self):
+        with patch.object(benchmark, "run_concentration") as run_concentration:
+            cli.main(["calibrate-concentration", "/tmp/article-shards", "--json"])
+
+        run_concentration.assert_called_once_with(pathlib.Path("/tmp/article-shards"), as_json=True)
+
+
+class EditorialProcessContext(unittest.TestCase):
+    def test_builds_neutral_exact_receipts_without_promoting_process_evidence(self):
+        episode = {
+            "before_revid": 100,
+            "before_timestamp": "2025-01-01T00:00:00Z",
+            "after_revid": 130,
+            "after_timestamp": "2025-01-01T00:30:00Z",
+        }
+        revision_metadata = [
+            {"revision_id": 100, "parent_id": 90, "timestamp": episode["before_timestamp"],
+             "account": "Before", "sha1": "sha-before", "comment": "", "tags": []},
+            {"revision_id": 110, "parent_id": 100, "timestamp": "2025-01-01T00:10:00Z",
+             "account": "Editor A", "sha1": "sha-change",
+             "comment": "/* History */ reorganize chronology", "tags": ["visualeditor"]},
+            {"revision_id": 120, "parent_id": 110, "timestamp": "2025-01-01T00:20:00Z",
+             "account": "Editor B", "sha1": "sha-before",
+             "comment": "Undid revision 110", "tags": ["mw-undo"]},
+            {"revision_id": 130, "parent_id": 120, "timestamp": episode["after_timestamp"],
+             "account": "Editor C", "sha1": "sha-final", "comment": "copyedit", "tags": []},
+        ]
+        talk_revisions = [{
+            "revision_id": 210, "timestamp": "2025-01-01T00:15:00Z", "account": "Discussant",
+            "comment": "/* Sources */ new section", "tags": [],
+        }]
+        log_events = [{
+            "log_id": 9, "timestamp": "2025-01-01T00:25:00Z", "type": "protect",
+            "action": "protect", "account": "Admin", "comment": "temporary protection",
+        }]
+
+        receipt = process_context.build_process_context(
+            "Example", episode, revision_metadata, talk_revisions=talk_revisions,
+            log_events=log_events, protection={"status": "observed", "items": []},
+            dispute_templates={"status": "not_observed", "items": []},
+            arbitration={"status": "unavailable", "reason": "source not configured"},
+            retrieved_at="2025-01-02T00:00:00Z",
+        )
+
+        self.assertEqual(receipt["schema_version"], 1)
+        self.assertEqual(receipt["semantic_role"], "descriptive_process_context")
+        self.assertFalse(receipt["affects_confirmation"])
+        self.assertFalse(receipt["affects_corroboration"])
+        self.assertEqual(receipt["revision_activity"][1]["section"], "History")
+        self.assertEqual(receipt["revert_relationships"][0]["revision_id"], 120)
+        self.assertEqual(receipt["revert_relationships"][0]["restores_revision_id"], 100)
+        self.assertIn("oldid=120", receipt["revert_relationships"][0]["source_url"])
+        self.assertEqual(receipt["talk_activity"][0]["section"], "Sources")
+        self.assertIn("oldid=210", receipt["talk_activity"][0]["source_url"])
+        self.assertIn("logid=9", receipt["page_operations"][0]["source_url"])
+        self.assertEqual(receipt["availability"]["talk_activity"]["status"], "observed")
+        self.assertEqual(receipt["availability"]["dispute_templates"]["status"], "not_observed")
+        self.assertEqual(receipt["availability"]["arbitration"]["status"], "unavailable")
+
+    def test_retrieval_keeps_unavailable_talk_evidence_distinct_from_no_activity(self):
+        episode = {
+            "before_revid": 100,
+            "before_timestamp": "2025-01-01T00:00:00Z",
+            "after_revid": 130,
+            "after_timestamp": "2025-01-01T00:30:00Z",
+        }
+        revisions = [{
+            "revision_id": 100, "timestamp": episode["before_timestamp"],
+            "account": "Before", "tags": [],
+        }]
+        with patch.object(process_context, "_fetch_revision_activity", return_value=revisions), \
+             patch.object(process_context, "_fetch_talk_activity", side_effect=TimeoutError("timed out")), \
+             patch.object(process_context, "_fetch_page_operations", return_value=[]), \
+             patch.object(process_context, "_fetch_protection", return_value=[]), \
+             patch.object(process_context, "_fetch_dispute_templates", return_value=[]):
+            receipt = process_context.retrieve_process_context("Example", episode)
+
+        self.assertEqual(receipt["availability"]["revision_activity"]["status"], "observed")
+        self.assertEqual(receipt["availability"]["talk_activity"]["status"], "unavailable")
+        self.assertIn("timed out", receipt["availability"]["talk_activity"]["reason"])
+        self.assertEqual(receipt["availability"]["page_operations"]["status"], "not_observed")
+        self.assertFalse(receipt["affects_confirmation"])
 
 
 class PipelineCorroboration(unittest.TestCase):
@@ -560,11 +1358,30 @@ class PipelineCorroboration(unittest.TestCase):
         self.assertEqual(c["count"], 0)
         self.assertEqual(c["signals"], [])
 
+    def test_additive_framing_lead_does_not_independently_corroborate(self):
+        result = {
+            "l1": "HEALTHY (mean 2.0%)",
+            "trajectory": {"framing_change_lead": True, "semantic_role": "framing_change_lead"},
+            "lexical": None,
+            "mscore": None,
+        }
+
+        self.assertEqual(pipeline._corroboration(result), {"count": 0, "signals": []})
+
     def test_l1_pivot_fires_when_not_healthy(self):
         result = {"l1": "PIVOT? 2020-01-01→2022-01-01 ...", "l2_adjudicated": False,
                   "lexical": None, "mscore": None}
         c = pipeline._corroboration(result)
         self.assertIn("l1_pivot", c["signals"])
+
+    def test_fresh_rejection_suppresses_stale_coarse_pivot(self):
+        result = {
+            "l1": "PIVOT? 2020-01-01→2022-01-01 ...",
+            "l1_state": {"confirmation_status": "not_confirmed"},
+            "lexical": None,
+            "mscore": None,
+        }
+        self.assertNotIn("l1_pivot", pipeline._corroboration(result)["signals"])
 
     def test_l1_creep_also_fires(self):
         result = {"l1": "CREEP? mean 9.2%", "l2_adjudicated": False,
@@ -585,8 +1402,15 @@ class PipelineCorroboration(unittest.TestCase):
 
     def test_lexical_drift_fires_above_threshold(self):
         result = {"l1": "HEALTHY", "l2_adjudicated": False,
-                  "lexical": {"js_divergence": 0.08}, "mscore": None}
+                  "lexical": {"mode": "pivot_relative", "adequate": True,
+                              "js_divergence": 0.08}, "mscore": None}
         self.assertIn("lexical_drift", pipeline._corroboration(result)["signals"])
+
+    def test_whole_history_lexical_change_does_not_corroborate(self):
+        result = {"l1": "HEALTHY", "l2_adjudicated": False,
+                  "lexical": {"mode": "whole_history", "adequate": True,
+                              "js_divergence": 0.08}, "mscore": None}
+        self.assertNotIn("lexical_drift", pipeline._corroboration(result)["signals"])
 
     def test_lexical_drift_does_not_fire_below_threshold(self):
         result = {"l1": "HEALTHY", "l2_adjudicated": False,
@@ -596,7 +1420,8 @@ class PipelineCorroboration(unittest.TestCase):
     def test_count_matches_signals_length(self):
         result = {"l1": "PIVOT?", "l2_adjudicated": True,
                   "l2": {"shifts": {"Testland": {"start": -1, "end": 1, "shifted": True, "n": 2}}},
-                  "lexical": {"js_divergence": 0.09}, "mscore": None}
+                  "lexical": {"mode": "pivot_relative", "adequate": True,
+                              "js_divergence": 0.09}, "mscore": None}
         c = pipeline._corroboration(result)
         self.assertEqual(c["count"], len(c["signals"]))
 
@@ -884,6 +1709,9 @@ class PipelinePivotWindow(unittest.TestCase):
             "thresholds": {
                 "confirm_drop": config.CONFIRM_DROP, "durable_quantile": config.DURABLE_Q,
                 "min_cohort": config.MIN_COHORT, "magnitude_floor": config.MAG_FLOOR,
+                "rolling_window_months": config.ROLLING_WINDOW_MONTHS,
+                "rolling_tolerance_days": config.ROLLING_TOLERANCE_DAYS,
+                "rolling_drop": config.ROLLING_DROP,
             },
             "confirmed_episodes": [{
                 "candidate_start": "2020-01-01", "candidate_end": "2021-01-01",
@@ -903,10 +1731,98 @@ class PipelinePivotWindow(unittest.TestCase):
             "thresholds": {
                 "confirm_drop": config.CONFIRM_DROP, "durable_quantile": config.DURABLE_Q,
                 "min_cohort": config.MIN_COHORT, "magnitude_floor": config.MAG_FLOOR,
+                "rolling_window_months": config.ROLLING_WINDOW_MONTHS,
+                "rolling_tolerance_days": config.ROLLING_TOLERANCE_DAYS,
+                "rolling_drop": config.ROLLING_DROP,
             },
             "confirmed_episodes": [{"candidate_start": "2020-01-01"}],
         }
         self.assertIsNone(pipeline._confirmed_window(confirmation, ("2024-01-01", 900)))
+
+    def test_fresh_not_confirmed_result_is_authoritative(self):
+        confirmation = {
+            "status": "not_confirmed",
+            "corpus_horizon": {"snapshot_date": "2024-01-01", "snapshot_revid": 900},
+            "thresholds": config.confirmation_thresholds(),
+            "confirmed_episodes": [],
+        }
+        self.assertTrue(pipeline.confirmation_is_fresh(confirmation, ("2024-01-01", 900)))
+        self.assertIsNone(pipeline._confirmed_window(confirmation, ("2024-01-01", 900)))
+
+        state = pipeline.resolve_l1_state(
+            {"verdict": "PIVOT?", "episodes": [{"start": "2020-01-01"}]},
+            confirmation,
+            ("2024-01-01", 900),
+        )
+        self.assertEqual(state["analysis_status"], "available")
+        self.assertEqual(state["candidate_status"], "pivot_candidate")
+        self.assertEqual(state["confirmation_status"], "not_confirmed")
+        self.assertEqual(state["resolved_status"], "not_confirmed")
+
+    def test_not_confirmed_artifact_does_not_override_healthy_coarse_verdict(self):
+        confirmation = {
+            "status": "not_confirmed",
+            "corpus_horizon": {"snapshot_date": "2024-01-01", "snapshot_revid": 900},
+            "thresholds": config.confirmation_thresholds(),
+            "confirmed_episodes": [],
+        }
+        state = pipeline.resolve_l1_state(
+            {"verdict": "HEALTHY", "episodes": []},
+            confirmation,
+            ("2024-01-01", 900),
+        )
+        self.assertEqual(state["analysis_status"], "available")
+        self.assertEqual(state["candidate_status"], "no_candidate")
+        self.assertEqual(state["confirmation_status"], "not_applicable")
+        self.assertEqual(state["resolved_status"], "healthy")
+
+    def test_partial_source_coverage_is_unavailable(self):
+        state = pipeline.resolve_l1_state(
+            {"verdict": "PIVOT?", "episodes": [{"start": "2020-01-01"}]},
+            None,
+            ("2024-01-01", 900),
+            source_state={
+                "source_status": "partial",
+                "expected_snapshots": 25,
+                "loaded_snapshots": 24,
+                "reason": "loaded 24 of 25 expected snapshots",
+            },
+        )
+        self.assertEqual(state["analysis_status"], "unavailable")
+        self.assertEqual(state["resolved_status"], "unavailable")
+        self.assertEqual(state["reason"], "loaded 24 of 25 expected snapshots")
+
+    def test_source_revision_ahead_of_stable_cadence_snapshot_remains_available(self):
+        state = pipeline.resolve_l1_state(
+            {"verdict": "HEALTHY"},
+            None,
+            ("2024-01-01", 900),
+            source_state={
+                "source_status": "current_complete",
+                "source_checked_at": "2026-07-30T00:00:00+00:00",
+                "source_latest_revid": 901,
+            },
+            now=dt.datetime(2026, 7, 30, tzinfo=dt.timezone.utc),
+        )
+        self.assertEqual(state["analysis_status"], "available")
+        self.assertEqual(state["resolved_status"], "healthy")
+        self.assertIsNone(state["reason"])
+
+    def test_expired_source_check_is_unavailable(self):
+        state = pipeline.resolve_l1_state(
+            {"verdict": "HEALTHY"},
+            None,
+            ("2024-01-01", 900),
+            source_state={
+                "source_status": "current_complete",
+                "source_checked_at": "2026-07-01T00:00:00+00:00",
+                "source_latest_revid": 900,
+            },
+            now=dt.datetime(2026, 7, 30, tzinfo=dt.timezone.utc),
+        )
+        self.assertEqual(state["analysis_status"], "unavailable")
+        self.assertEqual(state["resolved_status"], "unavailable")
+        self.assertIn("source check expired", state["reason"])
 
     def test_confirmation_with_old_thresholds_is_rejected(self):
         confirmation = {
@@ -915,10 +1831,95 @@ class PipelinePivotWindow(unittest.TestCase):
             "thresholds": {
                 "confirm_drop": 0.1, "durable_quantile": config.DURABLE_Q,
                 "min_cohort": config.MIN_COHORT, "magnitude_floor": config.MAG_FLOOR,
+                "rolling_window_months": config.ROLLING_WINDOW_MONTHS,
+                "rolling_tolerance_days": config.ROLLING_TOLERANCE_DAYS,
+                "rolling_drop": config.ROLLING_DROP,
             },
             "confirmed_episodes": [{"candidate_start": "2020-01-01"}],
         }
         self.assertIsNone(pipeline._confirmed_window(confirmation, ("2024-01-01", 900)))
+
+
+class LexicalModeContract(unittest.TestCase):
+    def test_exact_confirmation_supplies_revision_pair(self):
+        window = {
+            "status": "confirmed",
+            "before_revid": 111,
+            "before_timestamp": "2025-01-01T00:00:00Z",
+            "after_revid": 112,
+            "after_timestamp": "2025-01-01T00:18:00Z",
+        }
+        selected = lexical._window_revs(Mock(), "A", mode="pivot_relative", window=window)
+
+        self.assertEqual((selected["before_rev"], selected["after_rev"]), (111, 112))
+        self.assertEqual(selected["interval_source"], "exact_confirmation")
+
+    def test_small_or_imbalanced_baseline_is_insufficient(self):
+        adequate, reason, ratio = lexical._baseline_adequacy(
+            before_tokens=51,
+            after_tokens=1066,
+            min_tokens=100,
+            max_size_ratio=4.0,
+        )
+
+        self.assertFalse(adequate)
+        self.assertIn("minimum token floor", reason)
+        self.assertGreater(ratio, 20)
+
+    def test_pivot_relative_analysis_fetches_exact_revisions(self):
+        window = {
+            "status": "confirmed",
+            "before_revid": 111,
+            "before_timestamp": "2025-01-01T00:00:00Z",
+            "after_revid": 112,
+            "after_timestamp": "2025-01-01T00:18:00Z",
+        }
+        with patch.object(lexical.duckdb, "connect", return_value=Mock()), \
+             patch.object(
+                 lexical,
+                 "prose_at",
+                 side_effect=["alpha " * 120, "beta " * 120],
+             ) as prose_at:
+            result = lexical.lexical_drift(
+                "A", mode="pivot_relative", window=window, persist=False
+            )
+
+        self.assertEqual([call.args[0] for call in prose_at.call_args_list], [111, 112])
+        self.assertEqual(result["mode"], "pivot_relative")
+        self.assertEqual(result["interval_source"], "exact_confirmation")
+        self.assertTrue(result["adequate"])
+
+    def test_not_applicable_skips_corpus_and_prose_reads(self):
+        with patch.object(lexical.duckdb, "connect") as connect, \
+             patch.object(lexical, "prose_at") as prose_at:
+            result = lexical.lexical_drift("A", mode="not_applicable", persist=False)
+
+        self.assertEqual(result["mode"], "not_applicable")
+        connect.assert_not_called()
+        prose_at.assert_not_called()
+
+    def test_imbalanced_analysis_is_persisted_as_insufficient(self):
+        window = {
+            "status": "confirmed",
+            "before_revid": 111,
+            "before_timestamp": "2025-01-01T00:00:00Z",
+            "after_revid": 112,
+            "after_timestamp": "2025-01-01T00:18:00Z",
+        }
+        with patch.object(lexical.duckdb, "connect", return_value=Mock()), \
+             patch.object(
+                 lexical,
+                 "prose_at",
+                 side_effect=["alpha " * 120, "beta " * 600],
+             ):
+            result = lexical.lexical_drift(
+                "A", mode="pivot_relative", window=window, persist=False
+            )
+
+        self.assertEqual(result["mode"], "insufficient_baseline")
+        self.assertEqual(result["requested_mode"], "pivot_relative")
+        self.assertFalse(result["adequate"])
+        self.assertEqual(result["size_ratio"], 5.0)
 
 
 if __name__ == "__main__":

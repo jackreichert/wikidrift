@@ -1,0 +1,301 @@
+{
+  "article": "Israeli–Palestinian conflict",
+  "span": "2024-01-01 -> 2024-07-01 (around L1 pivot ~2024-01-01)",
+  "pivot": "2024-01-01",
+  "before": {
+    "date": "2024-01-01",
+    "rev": 1192950462,
+    "tokens": 8385
+  },
+  "after": {
+    "date": "2024-07-01",
+    "rev": 1231920220,
+    "tokens": 9079
+  },
+  "js_divergence": 0.042,
+  "overrepresented_after_terms": [
+    {
+      "term": "consensus",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 2.4861
+    },
+    {
+      "term": "self",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 2.4861
+    },
+    {
+      "term": "record",
+      "before": 0,
+      "after": 5,
+      "delta": 5,
+      "log_odds": 2.3189
+    },
+    {
+      "term": "arrival",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.1182
+    },
+    {
+      "term": "determination",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.1182
+    },
+    {
+      "term": "head",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.1182
+    },
+    {
+      "term": "icj",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.1182
+    },
+    {
+      "term": "primarily",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.1182
+    },
+    {
+      "term": "repeatedly",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.1182
+    },
+    {
+      "term": "aliyah",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 1.8667
+    },
+    {
+      "term": "best",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 1.8667
+    },
+    {
+      "term": "incremental",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 1.8667
+    },
+    {
+      "term": "instead",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 1.8667
+    },
+    {
+      "term": "intelligence",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 1.8667
+    },
+    {
+      "term": "interpretation",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 1.8667
+    },
+    {
+      "term": "lethal",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 1.8667
+    },
+    {
+      "term": "ottoman",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 1.8667
+    },
+    {
+      "term": "sought",
+      "before": 1,
+      "after": 7,
+      "delta": 6,
+      "log_odds": 1.5306
+    },
+    {
+      "term": "historic",
+      "before": 1,
+      "after": 6,
+      "delta": 5,
+      "log_odds": 1.3874
+    },
+    {
+      "term": "zionist",
+      "before": 3,
+      "after": 14,
+      "delta": 11,
+      "log_odds": 1.3431
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "collision",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.0258
+    },
+    {
+      "term": "incursion",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.0258
+    },
+    {
+      "term": "jenin",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.0258
+    },
+    {
+      "term": "none",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -2.0258
+    },
+    {
+      "term": "official",
+      "before": 6,
+      "after": 1,
+      "delta": -5,
+      "log_odds": -1.5465
+    },
+    {
+      "term": "movements",
+      "before": 5,
+      "after": 1,
+      "delta": -4,
+      "log_odds": -1.3793
+    },
+    {
+      "term": "jihad",
+      "before": 4,
+      "after": 1,
+      "delta": -3,
+      "log_odds": -1.1785
+    },
+    {
+      "term": "current",
+      "before": 6,
+      "after": 2,
+      "delta": -4,
+      "log_odds": -1.0355
+    },
+    {
+      "term": "added",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.9271
+    },
+    {
+      "term": "counter",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.9271
+    },
+    {
+      "term": "counterproposal",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.9271
+    },
+    {
+      "term": "deep",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.9271
+    },
+    {
+      "term": "distrust",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.9271
+    },
+    {
+      "term": "happened",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.9271
+    },
+    {
+      "term": "hit",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.9271
+    },
+    {
+      "term": "longer",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.9271
+    },
+    {
+      "term": "naval",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.9271
+    },
+    {
+      "term": "offered",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.9271
+    },
+    {
+      "term": "positions",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.9271
+    },
+    {
+      "term": "possible",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.9271
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

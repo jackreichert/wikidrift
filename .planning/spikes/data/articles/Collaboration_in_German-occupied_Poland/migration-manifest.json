@@ -1,0 +1,26 @@
+{
+  "article": "Collaboration in German-occupied Poland",
+  "artifacts": [
+    "findings/Collaboration_in_German-occupied_Poland.category.json",
+    "findings/Collaboration_in_German-occupied_Poland.cost.json",
+    "findings/Collaboration_in_German-occupied_Poland.factcheck.json",
+    "findings/Collaboration_in_German-occupied_Poland.framing.json",
+    "findings/Collaboration_in_German-occupied_Poland.l1-confirmation.json",
+    "findings/Collaboration_in_German-occupied_Poland.lexical.json",
+    "findings/Collaboration_in_German-occupied_Poland.profile.json",
+    "findings/Collaboration_in_German-occupied_Poland.receipts.json",
+    "findings/Collaboration_in_German-occupied_Poland.sources.json",
+    "findings/Collaboration_in_German-occupied_Poland.stance.json",
+    "mscore/Collaboration_in_German-occupied_Poland.json"
+  ],
+  "slug": "Collaboration_in_German-occupied_Poland",
+  "tables": {
+    "articles": 0,
+    "rev_size": 2056,
+    "revisions": 2056,
+    "rsnap": 328947,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "article": "Brontosaurus",
+  "run_ts": "2026-08-01T22:32:09.155419+00:00",
+  "corpus_horizon": {
+    "snapshot_date": "2026-07-01",
+    "snapshot_revid": 1362749745
+  },
+  "thresholds": {
+    "confirm_drop": 0.2,
+    "durable_quantile": 0.5,
+    "min_cohort": 500,
+    "magnitude_floor": 25.0,
+    "rolling_window_months": 12,
+    "rolling_tolerance_days": 35,
+    "rolling_drop": 20.0
+  },
+  "coarse_verdict": "UNAVAILABLE",
+  "status": "unavailable",
+  "reason": "loaded 28 of 35 expected snapshots",
+  "source_state": {
+    "article": "Brontosaurus",
+    "source_status": "partial",
+    "source_checked_at": "2026-08-01T22:29:37.569990+00:00",
+    "source_latest_revid": 1362749745,
+    "expected_snapshots": 35,
+    "loaded_snapshots": 28,
+    "reason": "loaded 28 of 35 expected snapshots"
+  },
+  "confirmed_episodes": [],
+  "evaluated_candidates": [],
+  "interval_profile": []
+}

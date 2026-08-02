@@ -1,0 +1,67 @@
+{
+  "article": "Ilhan Omar",
+  "langs": [
+    "en",
+    "de",
+    "zh"
+  ],
+  "entities": [
+    "Ilhan Omar"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Ilhan Omar": {
+          "entity": "Ilhan Omar",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "Trump accused Omar of staging the incident, saying, \"she probably had herself sprayed, knowing her\" — presented alongside a mocking caption implying she should be 'proud,' framing her as target of attacks without critical distance"
+        }
+      },
+      "lead": {
+        "Ilhan Omar": {
+          "entity": "Ilhan Omar",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "Her political opponents, including Donald Trump, have made derogatory comments related to her background. She has also received several death threats."
+        }
+      }
+    },
+    "de": {
+      "focal": {
+        "Ilhan Omar": {
+          "entity": "Ilhan Omar",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Passage recounts controversies (headscarf ban repeal, 'Squad' membership, antisemitism controversy, apology, threats against her) largely in descriptive, sourced terms without strong editorializing, though it juxtaposes both critical reactions (McCarthy, Trump, Pelosi condemnation) and sympathetic elements (her apology, being target of assassination threat and physical attack) in a balanced, chronicling manner."
+        }
+      },
+      "lead": {
+        "Ilhan Omar": {
+          "entity": "Ilhan Omar",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "Sie beschreibt ihre Haltung selbst so: „Ich bin aus Prinzip gegen Krieg, weil ich einen Krieg überlebt habe.“ — the passage extensively presents her personal justifications and policy positions in her own words without critical counterpoint, and frames her achievements (first Somali-American, first Muslim woman in Congress) admiringly."
+        }
+      }
+    },
+    "zh": {
+      "focal": {
+        "Ilhan Omar": {
+          "entity": "Ilhan Omar",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "由于她的背景，她一直是包括唐纳德·特朗普在内的政治对手贬损言论的目标。她也是几次死亡威胁的目标。"
+        }
+      },
+      "lead": {
+        "Ilhan Omar": {
+          "entity": "Ilhan Omar",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "由于她的背景，她一直是包括唐纳德·特朗普在内的政治对手贬损言论的目标。她也是几次死亡威胁的目标。"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "article": "UNRWA",
+  "run_ts": "2026-07-19T17:51:24.814338+00:00",
+  "workflow": "confirmed_framing_refresh",
+  "succeeded": true,
+  "elapsed_seconds": 59.385,
+  "stages": [
+    {
+      "command": "analyze",
+      "elapsed_seconds": 23.662,
+      "exit_code": 0
+    },
+    {
+      "command": "framing",
+      "elapsed_seconds": 35.723,
+      "exit_code": 0
+    }
+  ],
+  "llm_usage": {
+    "calls": 1,
+    "input_tokens": 4228,
+    "output_tokens": 1883,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 4228,
+        "output_tokens": 1883,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
+  },
+  "estimated_external_usd": null,
+  "estimate_scope": "LLM token charges only. Wikipedia and WikiWho APIs are public and unpriced here; machine time, storage, payment fees, taxes, failed-response charges, and service margin are excluded."
+}

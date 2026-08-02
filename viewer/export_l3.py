@@ -16,9 +16,10 @@ from collections import Counter
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "src"))
 import duckdb  # noqa: E402
-from wikidrift import config, drift, provenance  # noqa: E402
+from wikidrift import config, drift, provenance, trust  # noqa: E402
 from wikidrift.corpus import Corpus  # noqa: E402
 from wikidrift.l5_crosslingual import fetch_asof  # noqa: E402
+from wikidrift.pipeline import confirmation_is_fresh  # noqa: E402
 from wikidrift.stance import prose_at  # noqa: E402
 
 DATA = pathlib.Path(__file__).resolve().parent / "data"
@@ -113,46 +114,157 @@ def _word_authors(toks, authors):
     return {w: c.most_common(1)[0][0] for w, c in counts.items()}
 
 
-def export_pivots(article):
-    output = DATA / f"{config.slugify(article)}.pivots.json"
+def _current_horizon(article):
     con = duckdb.connect(str(config.DB), read_only=True)
     try:
-        corpus = Corpus(con)
-        verdict = drift.verdict_dict(con, article)
-        eps = verdict.get("episodes", [])
-        snaprev = dict(corpus.snapshots(article))
-        authors = corpus.revision_editor(article)
+        return Corpus(con).latest_snapshot(article)
     finally:
         con.close()
-    pivs = []
-    for e in sorted(eps, key=lambda e: e["start"]):
-        br, ar = snaprev.get(e["start"]), snaprev.get(e["end"])
-        if not br or not ar:
+
+
+def _confirmation_trust(article, confirmation):
+    con = duckdb.connect(str(config.DB), read_only=True)
+    try:
+        return trust.resolve_artifact_trust(con, article, confirmation, "l1-confirmation")
+    finally:
+        con.close()
+
+
+def _revision_authors(article):
+    con = duckdb.connect(str(config.DB), read_only=True)
+    try:
+        return Corpus(con).revision_editor(article)
+    finally:
+        con.close()
+
+
+def _exact_pivots(article, confirmation):
+    authors = _revision_authors(article)
+    pivots = []
+    unavailable_pairs = []
+    for episode in confirmation.get("confirmed_episodes") or []:
+        before_revid = episode.get("before_revid")
+        after_revid = episode.get("after_revid")
+        before_tokens = provenance.tokens_at(article, before_revid)
+        after_tokens = provenance.tokens_at(article, after_revid)
+        if not before_tokens or not after_tokens:
+            unavailable_pairs.append(f"{before_revid}→{after_revid}")
             continue
-        bt, at = provenance.tokens_at(article, br), provenance.tokens_at(article, ar)
-        if not bt or not at:
+        pivots.append({
+            "start": episode.get("before_timestamp", "")[:10],
+            "end": episode.get("after_timestamp", "")[:10],
+            "peak_pct": round(100 * (episode.get("durable_spine_drop") or 0), 2),
+            "pwr_mass": episode.get("pwr_mass"),
+            "before_rev": before_revid,
+            "after_rev": after_revid,
+            "status": "confirmed",
+            "metric": "exact_durable_spine_drop",
+            "duration_seconds": episode.get("duration_seconds"),
+            "attribution": episode.get("attribution"),
+            "attribution_unavailable": episode.get("attribution_unavailable"),
+            "before_text": prose_at(before_revid),
+            "after_text": prose_at(after_revid),
+            "authors_before": _word_authors(before_tokens, authors),
+            "authors_after": _word_authors(after_tokens, authors),
+        })
+    return pivots, unavailable_pairs
+
+
+def _candidate_pivots(article, confirmation):
+    """Materialize each evaluated coarse candidate as an inspectable redline."""
+    authors = _revision_authors(article)
+    pivots = []
+    unavailable_pairs = []
+    for candidate in confirmation.get("evaluated_candidates") or []:
+        before_revid = candidate.get("candidate_before_revid")
+        after_revid = candidate.get("candidate_after_revid")
+        before_tokens = provenance.tokens_at(article, before_revid)
+        after_tokens = provenance.tokens_at(article, after_revid)
+        if not before_tokens or not after_tokens:
+            unavailable_pairs.append(f"{before_revid}→{after_revid}")
             continue
-        before_text = prose_at(br)
-        after_text = prose_at(ar)
-        pivs.append({"start": e["start"], "end": e["end"], "peak_pct": e["peak_pct"],
-                     "pwr_mass": e["pwr_mass"], "before_rev": br, "after_rev": ar,
-                 "status": "candidate", "metric": "persistence_weighted_loss",
-                     "before_text": before_text, "after_text": after_text,
-                     "authors_before": _word_authors(bt, authors), "authors_after": _word_authors(at, authors)})
-    if not pivs:
-        output.unlink(missing_ok=True)
-        state = "unavailable" if verdict.get("verdict") == "SKIP" or eps else "none"
-        reason = (
-            "candidate artifact could not be materialized" if eps
-            else verdict.get("reason") or verdict.get("verdict") or "unknown"
+        decision = candidate.get("decision") or "rejected"
+        pivots.append({
+            "start": candidate.get("candidate_start"),
+            "end": candidate.get("candidate_end"),
+            "peak_pct": candidate.get("peak_pct"),
+            "pwr_mass": candidate.get("pwr_mass"),
+            "before_rev": before_revid,
+            "after_rev": after_revid,
+            "status": "confirmed" if decision == "confirmed" else "rejected",
+            "decision": decision,
+            "rejection_reason": candidate.get("rejection_reason"),
+            "durable_spine_drop": candidate.get("durable_spine_drop"),
+            "metric": "persistence_weighted_loss",
+            "before_text": prose_at(before_revid),
+            "after_text": prose_at(after_revid),
+            "authors_before": _word_authors(before_tokens, authors),
+            "authors_after": _word_authors(after_tokens, authors),
+        })
+    return pivots, unavailable_pairs
+
+
+def _unavailable_export(output, article, state, reason):
+    output.unlink(missing_ok=True)
+    print(f"  pivots {article}: {state} (L1={reason})")
+    return {"state": state, "reason": reason}
+
+
+def _export_candidate_pivots(article, confirmation, output):
+    trust_decision = _confirmation_trust(article, confirmation)
+    if trust_decision["status"] != "published":
+        return _unavailable_export(
+            output,
+            article,
+            "unavailable",
+            f"artifact withheld: {trust_decision['reason']}",
         )
-        print(f"  pivots {article}: {'unavailable' if state == 'unavailable' else 'none'} (L1={reason})")
-        return {"state": state, "reason": reason}
+    horizon = _current_horizon(article)
+    if not confirmation_is_fresh(confirmation, horizon):
+        return _unavailable_export(output, article, "unavailable", "stale exact confirmation")
+    candidates = confirmation.get("evaluated_candidates") or []
+    if candidates:
+        pivots, unavailable_pairs = _candidate_pivots(article, confirmation)
+    elif confirmation.get("status") == "confirmed":
+        pivots, unavailable_pairs = _exact_pivots(article, confirmation)
+    else:
+        return _unavailable_export(
+            output,
+            article,
+            "none",
+            confirmation.get("reason") or confirmation.get("status"),
+        )
+    if not pivots:
+        pairs = ", ".join(unavailable_pairs) or "none recorded"
+        reason = f"candidate pair could not be materialized: {pairs}"
+        return _unavailable_export(output, article, "unavailable", reason)
     DATA.mkdir(parents=True, exist_ok=True)
-    output.write_text(
-        json.dumps({"article": article, "pivots": pivs}, ensure_ascii=False), encoding="utf-8")
-    print(f"  pivots {article}: {len(pivs)} pivot(s)")
-    return {"state": "finding", "reason": verdict.get("verdict") or "PIVOT?"}
+    output.write_text(json.dumps({
+        "article": article,
+        "corpus_horizon": confirmation.get("corpus_horizon"),
+        "pivots": pivots,
+        "unavailable_pairs": unavailable_pairs,
+    }, ensure_ascii=False), encoding="utf-8")
+    print(f"  pivots {article}: {len(pivots)} candidate redline(s)")
+    return {"state": "finding", "reason": "candidate redlines available"}
+
+
+def _export_legacy_coarse_pivots(article, output):
+    """Withhold frozen coarse candidates that predate compatible evidence receipts."""
+    return _unavailable_export(
+        output,
+        article,
+        "unavailable",
+        "legacy coarse pivot lacks compatible evidence receipt",
+    )
+
+
+def export_pivots(article):
+    output = DATA / f"{config.slugify(article)}.pivots.json"
+    confirmation = drift.load_confirmation(article)
+    if confirmation:
+        return _export_candidate_pivots(article, confirmation, output)
+    return _export_legacy_coarse_pivots(article, output)
 
 
 if __name__ == "__main__":

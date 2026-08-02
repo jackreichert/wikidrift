@@ -1,0 +1,26 @@
+{
+  "article": "Zionism",
+  "artifacts": [
+    "findings/Zionism.category.json",
+    "findings/Zionism.cost.json",
+    "findings/Zionism.factcheck.json",
+    "findings/Zionism.framing.json",
+    "findings/Zionism.l1-confirmation.json",
+    "findings/Zionism.lexical.json",
+    "findings/Zionism.profile.json",
+    "findings/Zionism.receipts.json",
+    "findings/Zionism.sources.json",
+    "findings/Zionism.stance.json",
+    "mscore/Zionism.json"
+  ],
+  "slug": "Zionism",
+  "tables": {
+    "articles": 1,
+    "rev_size": 12531,
+    "revisions": 12531,
+    "rsnap": 1454235,
+    "snap": 0,
+    "snapshots": 1389158,
+    "tokens": 88667
+  }
+}

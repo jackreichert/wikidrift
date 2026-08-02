@@ -1,0 +1,27 @@
+{
+  "article": "Nakba",
+  "qid": "Q3266633",
+  "editions": {
+    "en": {
+      "present": true,
+      "revid": 1362789734,
+      "title": "Nakba",
+      "timestamp": "2026-07-06T05:29:43Z",
+      "prose_chars": 37505
+    },
+    "he": {
+      "present": true,
+      "revid": 43391910,
+      "title": "הנכבה",
+      "timestamp": "2026-06-09T13:36:50Z",
+      "prose_chars": 19606
+    },
+    "ar": {
+      "present": true,
+      "revid": 75889902,
+      "title": "النكبة",
+      "timestamp": "2026-07-13T08:01:50Z",
+      "prose_chars": 55014
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "article": "Brontosaurus",
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "entities": [
+    "Brontosaurus"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Brontosaurus": {
+          "entity": "Brontosaurus",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "is a genus of herbivorous sauropod dinosaur that lived in present-day United States during the Late Jurassic period"
+        }
+      },
+      "lead": {
+        "Brontosaurus": {
+          "entity": "Brontosaurus",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "is a genus of herbivorous sauropod dinosaur that lived in present-day United States during the Late Jurassic period"
+        }
+      }
+    },
+    "he": {
+      "focal": {
+        "Brontosaurus": {
+          "entity": "Brontosaurus",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "מחקר זה קבע שהברונטוזאורוס הוא סוג נפרד מאפטוזאורוס ולכן הסוג 'ברונטוזאורוס' הוא טקסון תקף - the passage presents the taxonomic history and scientific debate in an even, descriptive manner without advocating a position."
+        }
+      },
+      "lead": {
+        "Brontosaurus": {
+          "entity": "Brontosaurus",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "תיאור אנציקלופדי מאוזן של הטקסונומיה, האנטומיה, הפיזיולוגיה ותולדות המחקר של הברונטוזאורוס, ללא נטייה ערכית."
+        }
+      }
+    },
+    "ar": {
+      "focal": {
+        "Brontosaurus": {
+          "entity": "Brontosaurus",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "هو منقرض من الحيوانات يتبع الدبلودوكات من عظائيات الأرجل"
+        }
+      },
+      "lead": {
+        "Brontosaurus": {
+          "entity": "Brontosaurus",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "هو منقرض من الحيوانات يتبع الدبلودوكات من عظائيات الأرجل"
+        }
+      }
+    }
+  }
+}

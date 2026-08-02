@@ -1,0 +1,301 @@
+{
+  "article": "Socialism",
+  "span": "2020-01-01 -> 2026-01-01 (around L1 pivot ~2020-01-01)",
+  "pivot": "2020-01-01",
+  "before": {
+    "date": "2020-01-01",
+    "rev": 933368202,
+    "tokens": 16269
+  },
+  "after": {
+    "date": "2026-01-01",
+    "rev": 1330743304,
+    "tokens": 9455
+  },
+  "js_divergence": 0.1324,
+  "overrepresented_after_terms": [
+    {
+      "term": "ethical",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 3.1083
+    },
+    {
+      "term": "respondents",
+      "before": 0,
+      "after": 6,
+      "delta": 6,
+      "log_odds": 3.1083
+    },
+    {
+      "term": "camp",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.7403
+    },
+    {
+      "term": "defines",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.7403
+    },
+    {
+      "term": "draper",
+      "before": 0,
+      "after": 4,
+      "delta": 4,
+      "log_odds": 2.7403
+    },
+    {
+      "term": "artistic",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.4889
+    },
+    {
+      "term": "canadians",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.4889
+    },
+    {
+      "term": "characteristic",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.4889
+    },
+    {
+      "term": "discussed",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.4889
+    },
+    {
+      "term": "energy",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.4889
+    },
+    {
+      "term": "grounds",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.4889
+    },
+    {
+      "term": "israeli",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.4889
+    },
+    {
+      "term": "peru",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.4889
+    },
+    {
+      "term": "pierson",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.4889
+    },
+    {
+      "term": "prefer",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.4889
+    },
+    {
+      "term": "quality",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.4889
+    },
+    {
+      "term": "socialistic",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.4889
+    },
+    {
+      "term": "symbol",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.4889
+    },
+    {
+      "term": "water",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.4889
+    },
+    {
+      "term": "young",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.4889
+    }
+  ],
+  "underrepresented_after_terms": [
+    {
+      "term": "president",
+      "before": 19,
+      "after": 0,
+      "delta": -19,
+      "log_odds": -3.122
+    },
+    {
+      "term": "october",
+      "before": 16,
+      "after": 0,
+      "delta": -16,
+      "log_odds": -2.9548
+    },
+    {
+      "term": "january",
+      "before": 14,
+      "after": 0,
+      "delta": -14,
+      "log_odds": -2.8255
+    },
+    {
+      "term": "july",
+      "before": 11,
+      "after": 0,
+      "delta": -11,
+      "log_odds": -2.5935
+    },
+    {
+      "term": "march",
+      "before": 11,
+      "after": 0,
+      "delta": -11,
+      "log_odds": -2.5935
+    },
+    {
+      "term": "protests",
+      "before": 11,
+      "after": 0,
+      "delta": -11,
+      "log_odds": -2.5935
+    },
+    {
+      "term": "cambridge",
+      "before": 10,
+      "after": 0,
+      "delta": -10,
+      "log_odds": -2.5024
+    },
+    {
+      "term": "conference",
+      "before": 10,
+      "after": 0,
+      "delta": -10,
+      "log_odds": -2.5024
+    },
+    {
+      "term": "eds",
+      "before": 9,
+      "after": 0,
+      "delta": -9,
+      "log_odds": -2.4023
+    },
+    {
+      "term": "military",
+      "before": 9,
+      "after": 0,
+      "delta": -9,
+      "log_odds": -2.4023
+    },
+    {
+      "term": "norway",
+      "before": 9,
+      "after": 0,
+      "delta": -9,
+      "log_odds": -2.4023
+    },
+    {
+      "term": "parliament",
+      "before": 9,
+      "after": 0,
+      "delta": -9,
+      "log_odds": -2.4023
+    },
+    {
+      "term": "paul",
+      "before": 9,
+      "after": 0,
+      "delta": -9,
+      "log_odds": -2.4023
+    },
+    {
+      "term": "african",
+      "before": 8,
+      "after": 0,
+      "delta": -8,
+      "log_odds": -2.291
+    },
+    {
+      "term": "denmark",
+      "before": 8,
+      "after": 0,
+      "delta": -8,
+      "log_odds": -2.291
+    },
+    {
+      "term": "february",
+      "before": 8,
+      "after": 0,
+      "delta": -8,
+      "log_odds": -2.291
+    },
+    {
+      "term": "macmillan",
+      "before": 8,
+      "after": 0,
+      "delta": -8,
+      "log_odds": -2.291
+    },
+    {
+      "term": "nationalised",
+      "before": 8,
+      "after": 0,
+      "delta": -8,
+      "log_odds": -2.291
+    },
+    {
+      "term": "review",
+      "before": 8,
+      "after": 0,
+      "delta": -8,
+      "log_odds": -2.291
+    },
+    {
+      "term": "thomas",
+      "before": 8,
+      "after": 0,
+      "delta": -8,
+      "log_odds": -2.291
+    }
+  ],
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+}

@@ -1,0 +1,199 @@
+{
+  "article": "United Nations General Assembly observers",
+  "pivot": null,
+  "span": "2005-07-01 → 2026-07-01  (no L1 pivot — whole history)",
+  "before": {
+    "date": "2005-07-01",
+    "refs": 0,
+    "n_domains": 1,
+    "cite_mix": {},
+    "domains": {
+      "un.org": 1
+    }
+  },
+  "after": {
+    "date": "2026-07-01",
+    "refs": 93,
+    "n_domains": 28,
+    "cite_mix": {
+      "web": 78,
+      "news": 11,
+      "book": 9,
+      "journal": 2
+    },
+    "domains": {
+      "books.google.com": 4,
+      "un.org": 34,
+      "news.un.org": 1,
+      "asil.org": 2,
+      "edition.cnn.com": 1,
+      "theguardian.com": 1,
+      "legal.un.org": 4,
+      "thedailybeast.com": 2,
+      "apnews.com": 1,
+      "unispal.un.org": 2,
+      "un.int": 5,
+      "reuters.com": 5,
+      "digitallibrary.un.org": 4,
+      "mfa.gov.il": 2,
+      "baltimoresun.com": 1,
+      "archive.wikiwix.com": 1,
+      "radionz.co.nz": 2,
+      "brookings.edu": 1,
+      "treaties.un.org": 2,
+      "mcgill.ca": 1,
+      "sknc.qdnd.vn": 1,
+      "europa-eu-un.org": 2,
+      "euobserver.com": 4,
+      "documents.un.org": 21,
+      "daccess-dds-ny.un.org": 4,
+      "undemocracy.com": 3,
+      "thehindu.com": 1,
+      "lib-unique.un.org": 1
+    }
+  },
+  "added": [
+    {
+      "domain": "un.org",
+      "from": 1,
+      "to": 34
+    },
+    {
+      "domain": "documents.un.org",
+      "from": 0,
+      "to": 21
+    },
+    {
+      "domain": "reuters.com",
+      "from": 0,
+      "to": 5
+    },
+    {
+      "domain": "un.int",
+      "from": 0,
+      "to": 5
+    },
+    {
+      "domain": "euobserver.com",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "books.google.com",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "legal.un.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "digitallibrary.un.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "daccess-dds-ny.un.org",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "undemocracy.com",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "treaties.un.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "radionz.co.nz",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "unispal.un.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "mfa.gov.il",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "thedailybeast.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "asil.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "europa-eu-un.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "news.un.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "edition.cnn.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "apnews.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "theguardian.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "sknc.qdnd.vn",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "thehindu.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "mcgill.ca",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "baltimoresun.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "archive.wikiwix.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "lib-unique.un.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "brookings.edu",
+      "from": 0,
+      "to": 1
+    }
+  ],
+  "dropped": [],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD."
+}

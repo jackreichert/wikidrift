@@ -9,7 +9,7 @@ import tempfile
 import types
 import unittest
 
-from wikidrift import config, llm
+from wikidrift import config, llm, stance
 
 
 class _Rec:
@@ -47,6 +47,167 @@ def _google_impl(rec):
 
 SCHEMA = {"type": "object", "additionalProperties": False, "required": ["ok"],
           "properties": {"ok": {"type": "integer"}}}
+
+
+class StanceTransitionAudit(unittest.TestCase):
+    def _receipt(self, passage, labels):
+        return {
+            "passage": passage,
+            "runs": [
+                {"entities": [{"entity": "Example", "stance": label,
+                                "npov_departure": label != "neutral", "confidence": 0.8,
+                                "evidence": passage, "evidence_spans": [passage]}]}
+                for label in labels
+            ],
+        }
+
+    def test_identical_text_with_inconsistent_labels_is_model_unstable(self):
+        before = self._receipt("The same passage.", ["neutral", "neutral", "neutral"])
+        after = self._receipt("The same passage.", ["critical", "neutral", "sympathetic"])
+
+        audit = stance.audit_transition(before, after, "Example")
+
+        self.assertEqual(audit["state"], "model_unstable")
+        self.assertFalse(audit["audited_shift"])
+        self.assertEqual(audit["text_similarity"], 1.0)
+
+    def test_changed_text_with_stable_changed_label_is_audited_transition(self):
+        before = self._receipt("Example was described neutrally.", ["neutral"] * 3)
+        after = self._receipt("Example was blamed for the outcome.", ["critical"] * 3)
+
+        audit = stance.audit_transition(before, after, "Example")
+
+        self.assertEqual(audit["state"], "text_changed")
+        self.assertTrue(audit["audited_shift"])
+        self.assertEqual(audit["before_agreement"], 1.0)
+        self.assertEqual(audit["after_agreement"], 1.0)
+
+    def test_changed_text_with_same_stable_label_is_not_a_stance_shift(self):
+        before = self._receipt("One neutral description.", ["neutral"] * 3)
+        after = self._receipt("Another neutral description.", ["neutral"] * 3)
+
+        audit = stance.audit_transition(before, after, "Example")
+
+        self.assertEqual(audit["state"], "text_changed")
+        self.assertFalse(audit["audited_shift"])
+
+    def test_apparent_transition_repeats_both_passages_and_preserves_raw_runs(self):
+        responses = ["neutral", "critical", "neutral", "neutral", "critical", "critical"]
+
+        class Client:
+            provider = "test-provider"
+            model = "test-model"
+
+            def complete_json(self, _schema, _prompt, max_tokens=1024):
+                label = responses.pop(0)
+                return {"entities": [{
+                    "entity": "Example", "stance": label, "npov_departure": label != "neutral",
+                    "confidence": 0.9, "evidence": label, "evidence_spans": [label],
+                }]}
+
+        result = stance.build_stance_trajectory(
+            "Example",
+            ["Example"],
+            [
+                {"revision_id": 10, "timestamp": "2020-01-01T00:00:00Z", "passage": "Neutral text."},
+                {"revision_id": 20, "timestamp": "2021-01-01T00:00:00Z", "passage": "Critical text."},
+            ],
+            Client(),
+            repeated_runs=3,
+            run_timestamp=lambda: "2026-01-01T00:00:00+00:00",
+        )
+
+        self.assertEqual([len(receipt["runs"]) for receipt in result["revisions"]], [3, 3])
+        self.assertEqual(result["transitions"][0]["entities"]["Example"]["state"], "text_changed")
+        self.assertTrue(result["transitions"][0]["entities"]["Example"]["audited_shift"])
+        self.assertEqual(result["revisions"][0]["runs"][0]["model"], "test-model")
+        self.assertEqual(responses, [])
+
+    def test_incompatible_model_contracts_are_not_compared(self):
+        before = self._receipt("Before text.", ["neutral"] * 3)
+        after = self._receipt("After text.", ["critical"] * 3)
+        for run in before["runs"]:
+            run.update({"prompt_version": "stance-v3", "provider": "p", "model": "model-a"})
+        for run in after["runs"]:
+            run.update({"prompt_version": "stance-v3", "provider": "p", "model": "model-b"})
+
+        audit = stance.audit_transition(before, after, "Example")
+
+        self.assertEqual(audit["state"], "insufficient_evidence")
+        self.assertFalse(audit["audited_shift"])
+        self.assertIn("incompatible", audit["reason"])
+
+    def test_low_evidence_coverage_is_insufficient(self):
+        before = self._receipt("Before text.", ["neutral"] * 3)
+        after = self._receipt("After text.", ["critical"] * 3)
+        after["runs"][0]["entities"][0].update({"evidence": "", "evidence_spans": []})
+
+        audit = stance.audit_transition(before, after, "Example")
+
+        self.assertEqual(audit["state"], "insufficient_evidence")
+        self.assertFalse(audit["audited_shift"])
+        self.assertLess(audit["after_evidence_coverage"], audit["evidence_coverage_floor"])
+
+    def test_changed_text_and_low_agreement_are_both_changed(self):
+        before = self._receipt("Before text.", ["neutral"] * 3)
+        after = self._receipt("After text.", ["critical", "neutral", "sympathetic"])
+
+        audit = stance.audit_transition(before, after, "Example")
+
+        self.assertEqual(audit["state"], "both_changed")
+        self.assertFalse(audit["audited_shift"])
+
+    def test_stable_text_and_label_are_no_change(self):
+        before = self._receipt("Same text.", ["neutral"] * 3)
+        after = self._receipt("Same text.", ["neutral"] * 3)
+
+        audit = stance.audit_transition(before, after, "Example")
+
+        self.assertEqual(audit["state"], "no_change")
+        self.assertFalse(audit["audited_shift"])
+
+    def test_stable_initial_labels_do_not_trigger_extra_model_calls(self):
+        class Client:
+            provider = "test-provider"
+            model = "test-model"
+            calls = 0
+
+            def complete_json(self, _schema, _prompt, max_tokens=1024):
+                self.calls += 1
+                return {"entities": [{
+                    "entity": "Example", "stance": "neutral", "npov_departure": False,
+                    "confidence": 0.9, "evidence": "neutral", "evidence_spans": ["neutral"],
+                }]}
+
+        client = Client()
+        result = stance.build_stance_trajectory(
+            "Example", ["Example"],
+            [
+                {"revision_id": 1, "passage": "First neutral passage."},
+                {"revision_id": 2, "passage": "Second neutral passage."},
+            ],
+            client,
+            repeated_runs=3,
+            run_timestamp=lambda: "2026-01-01T00:00:00+00:00",
+        )
+
+        self.assertEqual(client.calls, 2)
+        self.assertEqual([len(receipt["runs"]) for receipt in result["revisions"]], [1, 1])
+
+    def test_empty_passage_records_missing_focal_evidence_without_model_call(self):
+        class Client:
+            provider = "test-provider"
+            model = "test-model"
+
+            def complete_json(self, *_args, **_kwargs):
+                raise AssertionError("empty focal passage must not reach the model")
+
+        result = stance.build_stance_trajectory(
+            "Example", ["Example"], [{"revision_id": 1, "passage": ""}], Client()
+        )
+
+        self.assertFalse(result["revisions"][0]["has_focal_prose"])
+        self.assertEqual(result["revisions"][0]["runs"], [])
 
 
 class Resolution(unittest.TestCase):

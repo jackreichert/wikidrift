@@ -1,0 +1,406 @@
+{
+  "article": "Nakba",
+  "pivot": null,
+  "span": "2021-07-01 → 2026-07-01  (no L1 pivot — whole history)",
+  "before": {
+    "date": "2021-07-01",
+    "refs": 46,
+    "n_domains": 17,
+    "cite_mix": {
+      "book": 63,
+      "news": 17,
+      "web": 13,
+      "journal": 7
+    },
+    "domains": {
+      "jstor.org": 4,
+      "i-p-o.org": 1,
+      "haaretz.com": 2,
+      "nytimes.com": 2,
+      "books.google.com": 19,
+      "un.org": 2,
+      "jadal.mada-research.org": 2,
+      "pcbs.gov.ps": 1,
+      "lib.cet.ac.il": 1,
+      "badil.org": 1,
+      "doi.org": 2,
+      "unrwa.org": 1,
+      "articles.latimes.com": 1,
+      "adalah.org": 1,
+      "acri.org.il": 1,
+      "core.ac.uk": 1,
+      "ahram.org.eg": 2
+    }
+  },
+  "after": {
+    "date": "2026-07-01",
+    "refs": 175,
+    "n_domains": 58,
+    "cite_mix": {
+      "book": 42,
+      "journal": 30,
+      "web": 16,
+      "news": 12
+    },
+    "domains": {
+      "books.google.com": 66,
+      "btselem.org": 6,
+      "jpost.com": 4,
+      "pchrgaza.org": 2,
+      "ohchr.org": 2,
+      "theguardian.com": 3,
+      "aljazeera.com": 1,
+      "reuters.com": 5,
+      "nytimes.com": 4,
+      "doi.org": 1,
+      "columbialawreview.org": 2,
+      "jstor.org": 7,
+      "news.bbc.co.uk": 1,
+      "nla.gov.au": 1,
+      "archive.org": 2,
+      "un.org": 1,
+      "dx.doi.org": 2,
+      "kalw.org": 2,
+      "apnews.com": 2,
+      "haaretz.com": 6,
+      "washingtonpost.com": 2,
+      "nbcnews.com": 2,
+      "timesofisrael.com": 4,
+      "undocs.org": 2,
+      "jadal.mada-research.org": 2,
+      "pcbs.gov.ps": 2,
+      "lib.cet.ac.il": 2,
+      "badil.org": 2,
+      "law.haifa.ac.il": 2,
+      "amnesty.org": 2,
+      "papers.ssrn.com": 1,
+      "unrwa.org": 2,
+      "taylorfrancis.com": 2,
+      "adalah.org": 2,
+      "acri.org.il": 2,
+      "counterpunch.org": 2,
+      "mondoweiss.net": 4,
+      "oikoumene.org": 1,
+      "qna.org.qa": 1,
+      "jewishcurrents.org": 1,
+      "socialchangenyu.com": 1,
+      "insidehighered.com": 1,
+      "cairo24.com": 2,
+      "arabianews24.net": 2,
+      "luminosoa.org": 1,
+      "plands.org": 2,
+      "tandfonline.com": 10,
+      "euppublishing.com": 2,
+      "journals.sagepub.com": 2,
+      "link.springer.com": 2,
+      "ssrn.com": 1,
+      "journals.library.mun.ca": 2,
+      "online.ucpress.edu": 2,
+      "repository.kulib.kyoto-u.ac.jp": 2,
+      "vox.com": 1,
+      "academic.oup.com": 1,
+      "ahram.org.eg": 2,
+      "research.stmarys.ac.uk": 2
+    }
+  },
+  "added": [
+    {
+      "domain": "books.google.com",
+      "from": 19,
+      "to": 66
+    },
+    {
+      "domain": "tandfonline.com",
+      "from": 0,
+      "to": 10
+    },
+    {
+      "domain": "btselem.org",
+      "from": 0,
+      "to": 6
+    },
+    {
+      "domain": "reuters.com",
+      "from": 0,
+      "to": 5
+    },
+    {
+      "domain": "haaretz.com",
+      "from": 2,
+      "to": 6
+    },
+    {
+      "domain": "mondoweiss.net",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "jpost.com",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "timesofisrael.com",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "jstor.org",
+      "from": 4,
+      "to": 7
+    },
+    {
+      "domain": "theguardian.com",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "law.haifa.ac.il",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "columbialawreview.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "repository.kulib.kyoto-u.ac.jp",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "archive.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "link.springer.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "undocs.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "nytimes.com",
+      "from": 2,
+      "to": 4
+    },
+    {
+      "domain": "journals.sagepub.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "journals.library.mun.ca",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "taylorfrancis.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "online.ucpress.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "amnesty.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "kalw.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "counterpunch.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "plands.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "research.stmarys.ac.uk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "pchrgaza.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "dx.doi.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "arabianews24.net",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "euppublishing.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "cairo24.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "washingtonpost.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "apnews.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "ohchr.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "nbcnews.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "papers.ssrn.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "socialchangenyu.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "vox.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "pcbs.gov.ps",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "ssrn.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "nla.gov.au",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "unrwa.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "jewishcurrents.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "insidehighered.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "academic.oup.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "lib.cet.ac.il",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "badil.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "news.bbc.co.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "qna.org.qa",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "acri.org.il",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "aljazeera.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "oikoumene.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "adalah.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "luminosoa.org",
+      "from": 0,
+      "to": 1
+    }
+  ],
+  "dropped": [
+    {
+      "domain": "i-p-o.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "doi.org",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "un.org",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "core.ac.uk",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "articles.latimes.com",
+      "from": 1,
+      "to": 0
+    }
+  ],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD."
+}

@@ -1,0 +1,27 @@
+{
+  "article": "Palestinian political violence",
+  "qid": "Q2342867",
+  "editions": {
+    "en": {
+      "present": true,
+      "revid": 1362073853,
+      "title": "Palestinian political violence",
+      "timestamp": "2026-07-01T19:46:12Z",
+      "prose_chars": 69595
+    },
+    "he": {
+      "present": true,
+      "revid": 43058961,
+      "title": "טרור פלסטיני",
+      "timestamp": "2026-04-10T19:26:08Z",
+      "prose_chars": 40022
+    },
+    "ar": {
+      "present": true,
+      "revid": 75673851,
+      "title": "المقاومة الفلسطينية",
+      "timestamp": "2026-06-26T11:21:18Z",
+      "prose_chars": 14359
+    }
+  }
+}

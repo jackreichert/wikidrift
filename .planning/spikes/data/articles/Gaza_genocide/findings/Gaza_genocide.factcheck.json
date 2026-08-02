@@ -1,0 +1,98 @@
+{
+  "article": "Gaza genocide",
+  "asof": null,
+  "langs": [
+    "en",
+    "he",
+    "ar"
+  ],
+  "citation": {
+    "mean_jaccard": 0.17,
+    "domains_per_edition": {
+      "en": 231,
+      "he": 101,
+      "ar": 111
+    }
+  },
+  "claim": {
+    "per_edition": {
+      "en": {
+        "Which bodies, states, or scholars have characterized events in Gaza as genocide, and which reject that characterization?": {
+          "question": "Which bodies, states, or scholars have characterized events in Gaza as genocide, and which reject that characterization?",
+          "answer": "The genocide has been recognized by a UN special committee and commission of inquiry, the International Association of Genocide Scholars, multiple human rights groups, state governments, and numerous genocide studies and international law scholars. Israel and its supporters, along with some academics and countries, reject the characterization.",
+          "value": "mixed/contested",
+          "evidence": "The genocide has been recognised by a United Nations special committee and commission of inquiry, the International Association of Genocide Scholars, multiple human rights groups, state governments, numerous genocide studies and international law scholars, and other experts... Israel and its supporters maintain that its actions do not constitute genocide... although some academics and countries challenge it."
+        },
+        "What casualty figures does the article cite?": {
+          "question": "What casualty figures does the article cite?",
+          "answer": "At least 70,117 people killed as of December 2025, around 50% women and children, over 171,000 injured, 18,457 children listed among war dead by July 2025 (excluding indirect deaths), and a Lancet study estimating 64,260 traumatic injury deaths by June 2024 (41% undercount by Palestinian MoH).",
+          "value": "70,117 killed (Dec 2025); 171,000+ injured; 18,457 children (Jul 2025); Lancet estimate 64,260 traumatic deaths (Jun 2024)",
+          "evidence": "As of December 2025, at least 70,117 people in Gaza had been killed. The vast majority of the victims were civilians, and around 50% were women and children... We estimated 64,260 deaths (95% CI 55 298–78 525) due to traumatic injury during the study period, suggesting the Palestinian MoH under-reported mortality by 41%... The number of injured is greater than 171,000... In July 2025, 18,457 children were listed among the war dead by health authorities in Gaza, excluding indirect deaths and those buried under rubble."
+        },
+        "What is the status of genocide allegations in international legal proceedings (e.g. the ICJ)?": {
+          "question": "What is the status of genocide allegations in international legal proceedings (e.g. the ICJ)?",
+          "answer": "South Africa brought a case against Israel at the ICJ in December 2023 alleging violation of the Genocide Convention. In January 2024, the ICJ ordered provisional measures requiring Israel to prevent genocide, prevent and punish incitement to genocide, and allow humanitarian aid; it later ordered increased aid and a halt to the Rafah offensive. Israel has not fully complied with these orders. The case appears ongoing, with no final ruling mentioned.",
+          "value": "ongoing - provisional measures ordered, no final ruling stated",
+          "evidence": "In December 2023, the government of South Africa instituted proceedings, South Africa v. Israel, against Israel at the International Court of Justice (ICJ), alleging a violation of the Genocide Convention. In January 2024, the court ordered Israel to take all measures within its power to prevent the commission of acts of genocide, to prevent and punish incitement to genocide, and to allow basic humanitarian service, aid and supplies into Gaza... The court later ordered Israel to increase humanitarian aid into Gaza and to halt its Rafah offensive. Israel did not fully comply with the court's orders."
+        }
+      },
+      "he": {
+        "Which bodies, states, or scholars have characterized events in Gaza as genocide, and which reject that characterization?": {
+          "question": "Which bodies, states, or scholars have characterized events in Gaza as genocide, and which reject that characterization?",
+          "answer": "Bodies supporting the genocide characterization include the UN Independent International Commission of Inquiry on the Occupied Palestinian Territories, the UN Special Committee to Investigate Israeli Practices Affecting the Human Rights of the Palestinian People, and the International Association of Genocide Scholars; scholars/officials like Raz Segal and UN Special Rapporteur Francesca Albanese also made such claims, and South Africa filed a case at the ICJ. Israel rejects the accusations entirely, framing its actions as self-defense against Hamas, and the Begin-Sadat Center study also rejected the genocide claims as lacking legal and factual basis.",
+          "value": "contested; multiple UN bodies and scholars allege genocide, Israel and Begin-Sadat Center reject it",
+          "evidence": "בין הגופים התומכים בעמדה זו נמנים ועדת החקירה הבין-לאומית העצמאית בנושא השטחים הפלסטיניים הכבושים של האו\"ם, ועדה מיוחדת לחקירת פעולות ישראל המשפיעות על זכויות האדם של העם הפלסטיני, והאיגוד הבין-לאומי לחוקרי ג'נוסייד. ... מנגד, ישראל דוחה את ההאשמות מכל וכל ומדגישה כי הלחימה מתבצעת במסגרת זכותה להגנה עצמית"
+        },
+        "What casualty figures does the article cite?": {
+          "question": "What casualty figures does the article cite?",
+          "answer": "The article cites Hamas-run Gaza Health Ministry figures of at least an unspecified number of violent deaths including at least 20,633 children (3,150 infants under age three) and over an unspecified number wounded; Hamas claims 14,000 more missing. A Lancet study estimated 64,260 traumatic-injury deaths by June 2024, with a later estimate (January 2025) of about 80,000, and over 100,000 wounded. The October 7 attack killed about 1,163 Israelis and foreign nationals, wounded over 1,940, and more than 250 were kidnapped.",
+          "value": "Gaza: ~64,260–80,000 traumatic deaths (Lancet estimates), 20,633+ children killed; Israel: 1,163 killed, 1,940+ wounded, 250+ kidnapped on Oct 7",
+          "evidence": "מחקר שפורסם בכתב לאנסט העריך 64,260 מקרי מוות עקב פציעות טראומטיות עד יוני 2024 ... נכון לינואר 2025, הערכה דומה של מקרי מוות מפציעות טראומטיות היא כ-80,000 ... טבחו והרגו כ־1,163 ישראלים ואזרחים ממדינות אחרות, פצעו יותר מ־1,940, וחטפו יותר מ־250 אזרחים וחיילים"
+        },
+        "What is the status of genocide allegations in international legal proceedings (e.g. the ICJ)?": {
+          "question": "What is the status of genocide allegations in international legal proceedings (e.g. the ICJ)?",
+          "answer": "South Africa filed a case against Israel at the ICJ alleging violations of the Genocide Convention. In a preliminary ruling, the ICJ found South Africa had standing to bring the case and recognized Palestinians' right to protection from genocide; it ordered Israel to take measures to prevent genocide, punish incitement, and allow humanitarian aid, later ordering increased humanitarian aid and a halt to the Rafah offensive. Israel denies South Africa's claims. Separately, the ICC issued arrest warrants against Netanyahu and Gallant for war crimes and crimes against humanity (not genocide).",
+          "value": "ICJ case ongoing with provisional measures issued; no final genocide ruling; ICC issued arrest warrants for war crimes/crimes against humanity, not genocide",
+          "evidence": "בפסיקה ראשונית, קבע בית הדין הבין-לאומי לצדק כי דרום אפריקה זכאית להגיש תביעה נגד ישראל, והכיר בזכות הפלסטינים להגנה מפני רצח עם. בית המשפט הורה לישראל למלא את התחייבויותיה על פי אמנת רצח העם ... ב-21 בנובמבר 2024 בית הדין הפלילי הבין-לאומי (ICC) הודיע כי הוציא צווי מעצר נגד ראש הממשלה בנימין נתניהו ושר הביטחון לשעבר יואב גלנט בגין פשעי מלחמה ופשעים נגד האנושות"
+        }
+      },
+      "ar": {
+        "Which bodies, states, or scholars have characterized events in Gaza as genocide, and which reject that characterization?": {
+          "question": "Which bodies, states, or scholars have characterized events in Gaza as genocide, and which reject that characterization?",
+          "answer": "South Africa filed a genocide case at the ICJ; Israeli historian Raz Segal, journalists/scholars including Michael Fakhri, Francesca Albanese (UN human rights expert), Human Rights Watch, Amnesty International, Melanie Tanielian, Mark Levine, Elise Semerdjian, and various physicians (Lancet, BMJ Global Health articles) and legal scholars have characterized Israel's actions in Gaza as genocide. The Israeli government rejects this characterization, accusing the ICJ of antisemitism, and an Israeli official called famine allegations a 'blood libel' and 'fictitious'.",
+          "value": "South Africa (accuser), Raz Segal, Michael Fakhri, Francesca Albanese, HRW, Amnesty International, Tanielian, Levine, Semerdjian, Lancet/BMJ authors (affirm genocide) vs. Israeli government (reject)",
+          "evidence": "أقامت حكومة جنوب إفريقيا دعوى ضد إسرائيل في محكمة العدل الدولية، بدعوى الإبادة الجماعية... رفضت الحكومة الإسرائيلية قرار المحكمة واتهمت محكمة العدل الدولية بمعاداة السامية."
+        },
+        "What casualty figures does the article cite?": {
+          "question": "What casualty figures does the article cite?",
+          "answer": "By October 2025, Israeli forces had killed more than 80,000 Palestinians (1 in 75 people in Gaza), averaging 195 deaths per day; majority were civilians including over 25,000 women and children and about 122 journalists; thousands more bodies remain under rubble; 723 health workers killed.",
+          "value": "80,000+ killed; 25,000+ women and children; 122 journalists; 723 health workers; average 195 deaths/day",
+          "evidence": "بحلول اكتوبر/2025 قتلت القوات الإسرائيلية أكثر من 80 الف فلسطيني – واحد من كل 75 شخصًا في غزة – بمتوسط 195 حالة قتل يوميًا. وكان غالبية الضحايا من المدنيين، بما في ذلك أكثر من 25000 امرأة وطفل، وقرابة 122 صحفيًا... وبحلول اكتوبر/2025، قُتل 723 من العاملين في مجال الرعاية الصحية في غزة."
+        },
+        "What is the status of genocide allegations in international legal proceedings (e.g. the ICJ)?": {
+          "question": "What is the status of genocide allegations in international legal proceedings (e.g. the ICJ)?",
+          "answer": "The ICJ issued a provisional ruling finding Israel plausibly intended to commit genocidal acts and ordered Israel to comply with obligations under the Genocide Convention, including taking measures to prevent genocide, punishing incitement, and allowing humanitarian aid into Gaza. Israel rejected the ruling. Human rights organizations later stated Israel failed to comply with the ICJ's order by continuing to block aid.",
+          "value": "ICJ issued provisional measures (Jan 26) finding plausible genocidal intent; case ongoing; Israel non-compliant per HRW/Amnesty; Israel rejects ruling",
+          "evidence": "وفي حكم مؤقت وجدت محكمة العدل الدولية أن إسرائيل سعت في ظل نية معقولة لارتكاب أعمال الإبادة الجماعية، وأمرت إسرائيل بمراعاة التزاماتها بموجب اتفاقية الإبادة الجماعية... رفضت الحكومة الإسرائيلية قرار المحكمة واتهمت محكمة العدل الدولية بمعاداة السامية."
+        }
+      }
+    },
+    "adjudication": [
+      {
+        "question": "Which bodies, states, or scholars have characterized events in Gaza as genocide, and which reject that characterization?",
+        "verdict": "agree",
+        "note": "All editions agree it's a contested characterization with UN bodies, scholars, and rights groups affirming genocide while Israel and allied institutions reject it; lists differ in detail but are compatible."
+      },
+      {
+        "question": "What casualty figures does the article cite?",
+        "verdict": "contradict",
+        "note": "Death tolls range widely (64,260–80,000+) and children killed figures differ substantially (18,457 vs 20,633 vs 25,000+), constituting numeric contradictions beyond mere emphasis differences."
+      },
+      {
+        "question": "What is the status of genocide allegations in international legal proceedings (e.g. the ICJ)?",
+        "verdict": "agree",
+        "note": "All editions agree ICJ ordered provisional measures without a final ruling, with he/ar adding compatible details on ICC warrants and Israeli non-compliance."
+      }
+    ]
+  }
+}

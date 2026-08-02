@@ -1,0 +1,64 @@
+{
+  "article": "Fascism and ideology",
+  "run_ts": "2026-07-30T18:17:06.106152+00:00",
+  "corpus_horizon": {
+    "snapshot_date": "2026-07-01",
+    "snapshot_revid": 1358688575
+  },
+  "thresholds": {
+    "confirm_drop": 0.2,
+    "durable_quantile": 0.5,
+    "min_cohort": 500,
+    "magnitude_floor": 25.0,
+    "rolling_window_months": 12,
+    "rolling_tolerance_days": 35,
+    "rolling_drop": 20.0
+  },
+  "coarse_verdict": "PIVOT?",
+  "status": "confirmed",
+  "confirmed_episodes": [
+    {
+      "candidate_start": "2026-01-01",
+      "candidate_end": "2026-07-01",
+      "candidate_before_revid": 1333641995,
+      "candidate_after_revid": 1358688575,
+      "before_revid": 1358156368,
+      "before_timestamp": "2026-06-06T23:24:52Z",
+      "after_revid": 1358346972,
+      "after_timestamp": "2026-06-08T03:29:46Z",
+      "durable_spine_drop": 0.606833,
+      "pwr_mass": 450944,
+      "peak_pct": 65.5,
+      "source": "interval",
+      "status": "confirmed",
+      "duration_seconds": 101094,
+      "attribution": {
+        "before_revid": 1358156368,
+        "before_timestamp": "2026-06-06T23:24:52Z",
+        "after_revid": 1358346972,
+        "after_timestamp": "2026-06-08T03:29:46Z",
+        "duration_seconds": 101094,
+        "removed_tokens": 24579,
+        "replacement_tokens": 227,
+        "removals_by_editor": [
+          {
+            "editor": "AlferedNobel",
+            "tokens": 24579
+          }
+        ],
+        "replacement_by_editor": [
+          {
+            "editor": "AlferedNobel",
+            "tokens": 227
+          }
+        ],
+        "top_removal_share": 1.0,
+        "top_replacement_share": 1.0,
+        "same_top_editor": true,
+        "top_two_removal_share": 1.0
+      }
+    }
+  ],
+  "attribution_backfill_ts": "2026-07-31T17:45:32.143482+00:00",
+  "schema_version": 2
+}

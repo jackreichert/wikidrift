@@ -157,7 +157,64 @@ h3{font-weight:600;font-size:1rem;margin:0}
 h2.subhead{font-size:1rem;margin:1.4em 0 .45em}
 .sections-note{margin:.85rem 0 .35rem}
 .coverage-note{max-width:52rem;margin:.85rem 0 .35rem;font-size:.9rem}
+.evidence-receipt{
+  max-width:52rem;margin:1rem 0;padding:.8rem 1rem;border-left:3px solid var(--accent);
+  background:var(--surface);
+}
+.evidence-receipt h3{margin:0 0 .35rem;font-size:.95rem}
+.evidence-receipt p{margin:0;font-size:.9rem;line-height:1.5}
+.process-context{max-width:52rem;margin:1.25rem 0;padding-top:1rem;border-top:1px solid var(--line)}
+.process-context h3{font-size:1rem;margin:0 0 .35rem}
+.process-context h4{font-size:.88rem;margin:1rem 0 .3rem}
+.process-context ul{margin:.3rem 0;padding-left:1.25rem;font-size:.9rem;line-height:1.5}
 .col-h{font-size:.88rem;font-weight:700;margin:0 0 .55rem;letter-spacing:.01em}
+
+/* PWR interval profile */
+.drift-profile{margin:1.5rem 0 1.75rem;max-width:68rem}
+.drift-profile figcaption{display:flex;align-items:baseline;justify-content:space-between;gap:1.5rem}
+.drift-profile figcaption h3{font-weight:700}
+.drift-profile figcaption p{margin:0;max-width:42rem;color:var(--faint);font-size:.88rem}
+.drift-axis{
+  display:grid;grid-template-columns:repeat(5,1fr);margin:.9rem 15.5rem .35rem 7.5rem;
+  color:var(--dim);font-size:.7rem;font-variant-numeric:tabular-nums;
+}
+.drift-axis span:not(:first-child):not(:last-child){text-align:center}
+.drift-axis span:last-child{text-align:right}
+.drift-plot{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
+.drift-row{
+  display:grid;grid-template-columns:6.5rem minmax(12rem,1fr) 3.75rem 7rem 7.5rem;
+  gap:1rem;align-items:center;min-height:2.25rem;border-bottom:1px solid var(--line);
+  font-size:.82rem;font-variant-numeric:tabular-nums;
+}
+.drift-date{font-weight:600}
+.drift-track{
+  position:relative;height:.65rem;background:var(--chrome);overflow:hidden;
+  background-image:linear-gradient(to right,transparent 24.8%,var(--line-strong) 25%,transparent 25.2%,
+    transparent 49.8%,var(--line-strong) 50%,transparent 50.2%,transparent 74.8%,
+    var(--line-strong) 75%,transparent 75.2%);
+}
+.drift-bar{display:block;height:100%;background:var(--ink)}
+.drift-row.candidate .drift-bar{background:var(--warn-fg)}
+.drift-row.candidate-confirmed .drift-bar{background:var(--ok-fg)}
+.drift-row.excluded .drift-bar{background:var(--control)}
+.drift-row.excluded{color:var(--dim)}
+.drift-value{text-align:right;font-weight:700}
+.drift-mass{text-align:right;color:var(--faint)}
+.drift-state{color:var(--faint)}
+.drift-row.candidate .drift-state{color:var(--warn-fg);font-weight:700}
+.drift-row.candidate-confirmed .drift-state{color:var(--ok-fg)}
+
+@media(max-width:760px){
+  .drift-profile figcaption{display:block}
+  .drift-profile figcaption p{margin-top:.35rem}
+  .drift-axis{display:none}
+  .drift-row{
+    grid-template-columns:5.75rem minmax(7rem,1fr) 3.5rem;
+    gap:.65rem;padding:.5rem 0;min-height:3.25rem;
+  }
+  .drift-mass{grid-column:2;text-align:left}
+  .drift-state{grid-column:3;grid-row:2;text-align:right;font-size:.75rem}
+}
 
 /* vocabulary term chips */
 .term-list{
@@ -412,7 +469,7 @@ ins{background:var(--ok-bg);color:var(--ink);text-decoration:none;border-radius:
 .redline .eq{color:var(--ink)}
 .redline ins{background:var(--au,var(--ok-bg));-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .redline del{-webkit-box-decoration-break:clone;box-decoration-break:clone}
-.pvlinks{border-top:1px solid var(--line);margin-top:.5rem}
+.pvlinks{border-top:1px solid var(--line);margin:.5rem 0 0;padding:0;list-style:none}
 .pv-link{
   display:flex;justify-content:space-between;align-items:center;gap:1rem;
   padding:1rem 0;border-bottom:1px solid var(--line);text-decoration:none;color:inherit;

@@ -1,0 +1,27 @@
+{
+  "article": "Israeli–Palestinian conflict",
+  "qid": "Q151622",
+  "editions": {
+    "en": {
+      "present": true,
+      "revid": 1363861596,
+      "title": "Israeli–Palestinian conflict",
+      "timestamp": "2026-07-12T23:08:32Z",
+      "prose_chars": 144569
+    },
+    "he": {
+      "present": true,
+      "revid": 43276589,
+      "title": "הסכסוך הישראלי-פלסטיני",
+      "timestamp": "2026-05-19T07:15:15Z",
+      "prose_chars": 28024
+    },
+    "ar": {
+      "present": true,
+      "revid": 75126774,
+      "title": "القضية الفلسطينية",
+      "timestamp": "2026-06-07T01:15:04Z",
+      "prose_chars": 52166
+    }
+  }
+}

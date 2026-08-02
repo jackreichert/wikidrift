@@ -2,6 +2,10 @@
 package, so the split (facade re-exports) is proven behavior-preserving. These are the pure/logic bits;
 paths and provider tables are plain constants that the facade re-export covers structurally.
 """
+import os
+import pathlib
+import subprocess
+import sys
 import unittest
 from unittest import mock
 
@@ -13,6 +17,8 @@ class Slugify(unittest.TestCase):
         self.assertEqual(config.slugify("A B"), "A_B")
         self.assertEqual(config.slugify("A/B"), "A_B")     # CWE-22: no nested/escaping path
         self.assertEqual(config.slugify("A\\B"), "A_B")
+        self.assertEqual(config.slugify(".."), "__")
+        self.assertEqual(config.slugify("A\x00B"), "A_B")
 
     def test_preserves_unicode_letters(self):
         self.assertEqual(config.slugify("Israeli–Palestinian conflict"), "Israeli–Palestinian_conflict")
@@ -23,7 +29,25 @@ class Slugify(unittest.TestCase):
             "durable_quantile": config.DURABLE_Q,
             "min_cohort": config.MIN_COHORT,
             "magnitude_floor": config.MAG_FLOOR,
+            "rolling_window_months": config.ROLLING_WINDOW_MONTHS,
+            "rolling_tolerance_days": config.ROLLING_TOLERANCE_DAYS,
+            "rolling_drop": config.ROLLING_DROP,
         })
+
+
+class StoragePaths(unittest.TestCase):
+    def test_data_dir_environment_override_is_applied_in_a_fresh_process(self):
+        custom = pathlib.Path("/tmp/wikidrift-test-shard")
+        environment = os.environ.copy()
+        environment["WIKIDRIFT_DATA_DIR"] = str(custom)
+
+        output = subprocess.check_output(
+            [sys.executable, "-c", "from wikidrift import config; print(config.DATA_DIR)"],
+            env=environment,
+            text=True,
+        ).strip()
+
+        self.assertEqual(pathlib.Path(output), custom)
 
 
 class CitationDomains(unittest.TestCase):

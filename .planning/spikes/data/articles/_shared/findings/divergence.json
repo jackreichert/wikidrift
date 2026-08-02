@@ -1,0 +1,1257 @@
+{
+  "static": {
+    "Jedwabne pogrom": {
+      "variants": {
+        "lead": {
+          "divergence": 1.0,
+          "spreads": {
+            "Jedwabne pogrom": 1
+          }
+        },
+        "focal": {
+          "divergence": 0.0,
+          "spreads": {
+            "Jedwabne pogrom": 0
+          }
+        }
+      }
+    },
+    "Hamas": {
+      "variants": {
+        "lead": {
+          "divergence": 2.0,
+          "spreads": {
+            "Hamas": 2
+          }
+        },
+        "focal": {
+          "divergence": 2.0,
+          "spreads": {
+            "Hamas": 2
+          }
+        }
+      }
+    },
+    "Israeli–Palestinian conflict": {
+      "variants": {
+        "lead": {
+          "divergence": 1.0,
+          "spreads": {
+            "Israeli–Palestinian conflict": 1
+          }
+        },
+        "focal": {
+          "divergence": 1.0,
+          "spreads": {
+            "Israeli–Palestinian conflict": 1
+          }
+        }
+      }
+    },
+    "Naliboki massacre": {
+      "variants": {
+        "lead": {
+          "divergence": 0.0,
+          "spreads": {
+            "Naliboki massacre": 0
+          }
+        },
+        "focal": {
+          "divergence": 0.0,
+          "spreads": {
+            "Naliboki massacre": 0
+          }
+        }
+      }
+    },
+    "Rescue of Jews by Poles during the Holocaust": {
+      "variants": {
+        "lead": {
+          "divergence": 0.0,
+          "spreads": {
+            "Rescue of Jews by Poles during the Holocaust": 0
+          }
+        },
+        "focal": {
+          "divergence": 0.0,
+          "spreads": {
+            "Rescue of Jews by Poles during the Holocaust": 0
+          }
+        }
+      }
+    },
+    "Palestinian political violence": {
+      "variants": {
+        "lead": {
+          "divergence": 2.0,
+          "spreads": {
+            "Palestinians": 2,
+            "Israel": 2
+          }
+        },
+        "focal": {
+          "divergence": 2.0,
+          "spreads": {
+            "Palestinians": 2,
+            "Israel": 2
+          }
+        }
+      }
+    },
+    "Gaza war": {
+      "variants": {
+        "lead": {
+          "divergence": 1.0,
+          "spreads": {
+            "Gaza war": 1
+          }
+        },
+        "focal": {
+          "divergence": 1.0,
+          "spreads": {
+            "Gaza war": 1
+          }
+        }
+      }
+    },
+    "Palestine": {
+      "variants": {
+        "lead": {
+          "divergence": 2.0,
+          "spreads": {
+            "Palestine": 2
+          }
+        },
+        "focal": {
+          "divergence": 1.0,
+          "spreads": {
+            "Palestine": 1
+          }
+        }
+      }
+    },
+    "UNRWA": {
+      "variants": {
+        "lead": {
+          "divergence": 1.0,
+          "spreads": {
+            "UNRWA": 1,
+            "Israel": 1,
+            "Palestinians": 1
+          }
+        },
+        "focal": {
+          "divergence": 1.33,
+          "spreads": {
+            "UNRWA": 2,
+            "Israel": 1,
+            "Palestinians": 1
+          }
+        }
+      }
+    },
+    "Anti-Zionism": {
+      "variants": {
+        "lead": {
+          "divergence": 1.0,
+          "spreads": {
+            "Anti-Zionism": 1
+          }
+        },
+        "focal": {
+          "divergence": 2.0,
+          "spreads": {
+            "Anti-Zionism": 2
+          }
+        }
+      }
+    },
+    "Collaboration in German-occupied Poland": {
+      "variants": {
+        "lead": {
+          "divergence": 0.0,
+          "spreads": {}
+        },
+        "focal": {
+          "divergence": 0.0,
+          "spreads": {}
+        }
+      }
+    },
+    "History of Zionism": {
+      "variants": {
+        "lead": {
+          "divergence": 1.0,
+          "spreads": {
+            "History of Zionism": 1
+          }
+        },
+        "focal": {
+          "divergence": 0.0,
+          "spreads": {
+            "History of Zionism": 0
+          }
+        }
+      }
+    },
+    "Genetic studies of Jews": {
+      "variants": {
+        "lead": {
+          "divergence": 0.0,
+          "spreads": {
+            "Genetic studies of Jews": 0
+          }
+        },
+        "focal": {
+          "divergence": 0.0,
+          "spreads": {
+            "Genetic studies of Jews": 0
+          }
+        }
+      }
+    },
+    "Racial conceptions of Jewish identity in Zionism": {
+      "variants": {
+        "lead": {
+          "divergence": 0.0,
+          "spreads": {}
+        },
+        "focal": {
+          "divergence": 0.0,
+          "spreads": {}
+        }
+      }
+    },
+    "Bar Kokhba Revolt": {
+      "variants": {
+        "lead": {
+          "divergence": 1.0,
+          "spreads": {
+            "Bar Kokhba Revolt": 1
+          }
+        },
+        "focal": {
+          "divergence": 1.0,
+          "spreads": {
+            "Bar Kokhba Revolt": 1
+          }
+        }
+      }
+    },
+    "Gaza genocide": {
+      "variants": {
+        "lead": {
+          "divergence": 2.0,
+          "spreads": {
+            "Gaza genocide": 2
+          }
+        },
+        "focal": {
+          "divergence": 2.0,
+          "spreads": {
+            "Gaza genocide": 2
+          }
+        }
+      }
+    },
+    "Nakba": {
+      "variants": {
+        "lead": {
+          "divergence": 0.0,
+          "spreads": {
+            "Nakba": 0
+          }
+        },
+        "focal": {
+          "divergence": 2.0,
+          "spreads": {
+            "Nakba": 2
+          }
+        }
+      }
+    },
+    "Zionism": {
+      "variants": {
+        "lead": {
+          "divergence": 2.0,
+          "spreads": {
+            "Zionism": 2
+          }
+        },
+        "focal": {
+          "divergence": 2.0,
+          "spreads": {
+            "Zionism": 2
+          }
+        }
+      }
+    },
+    "Photosynthesis": {
+      "variants": {
+        "lead": {
+          "divergence": 0.0,
+          "spreads": {
+            "Photosynthesis": 0
+          }
+        },
+        "focal": {
+          "divergence": 0.0,
+          "spreads": {
+            "Photosynthesis": 0
+          }
+        }
+      }
+    },
+    "Warsaw concentration camp": {
+      "article": "Warsaw concentration camp",
+      "langs": [
+        "en",
+        "pl",
+        "de"
+      ],
+      "variants": {
+        "lead": {
+          "divergence": 0.33,
+          "spreads": {
+            "Poland": 0,
+            "Germany": 1,
+            "Jews": 0
+          }
+        },
+        "focal": {
+          "divergence": 0.0,
+          "spreads": {
+            "Poland": 0,
+            "Germany": 0,
+            "Jews": 0
+          }
+        }
+      }
+    },
+    "Demo Topic": {
+      "variants": {
+        "lead": {
+          "divergence": 1.2,
+          "spreads": {
+            "Israel": 1.2
+          }
+        },
+        "focal": {
+          "divergence": 1.0,
+          "spreads": {}
+        }
+      }
+    },
+    "Abortion": {
+      "variants": {
+        "lead": {
+          "divergence": 1.0,
+          "spreads": {
+            "Abortion": 1
+          }
+        },
+        "focal": {
+          "divergence": 1.0,
+          "spreads": {
+            "Abortion": 1
+          }
+        }
+      }
+    },
+    "Ainu people": {
+      "variants": {
+        "lead": {
+          "divergence": 1.0,
+          "spreads": {
+            "Ainu people": 1
+          }
+        },
+        "focal": {
+          "divergence": 0.0,
+          "spreads": {
+            "Ainu people": 0
+          }
+        }
+      }
+    },
+    "Brontosaurus": {
+      "variants": {
+        "lead": {
+          "divergence": 0.0,
+          "spreads": {
+            "Brontosaurus": 0
+          }
+        },
+        "focal": {
+          "divergence": 0.0,
+          "spreads": {
+            "Brontosaurus": 0
+          }
+        }
+      }
+    },
+    "Chess": {
+      "variants": {
+        "lead": {
+          "divergence": 0.0,
+          "spreads": {
+            "Chess": 0
+          }
+        },
+        "focal": {
+          "divergence": 0.0,
+          "spreads": {
+            "Chess": 0
+          }
+        }
+      }
+    },
+    "Climate change": {
+      "variants": {
+        "lead": {
+          "divergence": 1.0,
+          "spreads": {
+            "Climate change": 1
+          }
+        },
+        "focal": {
+          "divergence": 1.0,
+          "spreads": {
+            "Climate change": 1
+          }
+        }
+      }
+    },
+    "Fascism and ideology": {
+      "variants": {
+        "lead": {
+          "divergence": 0.0,
+          "spreads": {}
+        },
+        "focal": {
+          "divergence": 0.0,
+          "spreads": {}
+        }
+      }
+    },
+    "Genocide of indigenous peoples": {
+      "variants": {
+        "lead": {
+          "divergence": 2.0,
+          "spreads": {
+            "Genocide of indigenous peoples": 2
+          }
+        },
+        "focal": {
+          "divergence": 1.0,
+          "spreads": {
+            "Genocide of indigenous peoples": 1
+          }
+        }
+      }
+    },
+    "Rafah offensive": {
+      "variants": {
+        "lead": {
+          "divergence": 2.0,
+          "spreads": {
+            "Rafah offensive": 2
+          }
+        },
+        "focal": {
+          "divergence": 2.0,
+          "spreads": {
+            "Rafah offensive": 2
+          }
+        }
+      }
+    },
+    "Ilhan Omar": {
+      "variants": {
+        "lead": {
+          "divergence": 0.0,
+          "spreads": {
+            "Ilhan Omar": 0
+          }
+        },
+        "focal": {
+          "divergence": 1.0,
+          "spreads": {
+            "Ilhan Omar": 1
+          }
+        }
+      }
+    }
+  },
+  "pivot_relative": {
+    "Jedwabne pogrom": {
+      "pivot": "2020-01-01",
+      "pivot_source": "L1 (peak 80.1%, 232,392 PWR, age 6.0yr)",
+      "en_gap_before": 0.0,
+      "en_gap_after": 1.0,
+      "read": "PEELED AWAY",
+      "before": {
+        "en": {
+          "Jedwabne pogrom": 0
+        },
+        "pl": {
+          "Jedwabne pogrom": 0
+        },
+        "de": {
+          "Jedwabne pogrom": 0
+        }
+      },
+      "after": {
+        "en": {
+          "Jedwabne pogrom": 0
+        },
+        "pl": {
+          "Jedwabne pogrom": -1
+        },
+        "de": {
+          "Jedwabne pogrom": -1
+        }
+      }
+    },
+    "Hamas": {
+      "pivot": "2023-01-01",
+      "pivot_source": "L1 (peak 55.5%, 534,063 PWR, age 1.0yr)",
+      "en_gap_before": 1.0,
+      "en_gap_after": 0.0,
+      "read": "converged",
+      "before": {
+        "en": {
+          "Hamas": -1
+        },
+        "he": {
+          "Hamas": -1
+        },
+        "ar": {
+          "Hamas": 1
+        }
+      },
+      "after": {
+        "en": {
+          "Hamas": 0
+        },
+        "he": {
+          "Hamas": -1
+        },
+        "ar": {
+          "Hamas": 1
+        }
+      }
+    },
+    "Israeli–Palestinian conflict": {
+      "pivot": "2024-01-01",
+      "pivot_source": "L1 (peak 56.9%, 482,002 PWR, age 0.0yr)",
+      "en_gap_before": 0.0,
+      "en_gap_after": 1.5,
+      "read": "PEELED AWAY",
+      "before": {
+        "en": {
+          "Israeli–Palestinian conflict": 0
+        },
+        "he": {
+          "Israeli–Palestinian conflict": -1
+        },
+        "ar": {
+          "Israeli–Palestinian conflict": 1
+        }
+      },
+      "after": {
+        "en": {
+          "Israeli–Palestinian conflict": -1
+        },
+        "he": {
+          "Israeli–Palestinian conflict": 0
+        },
+        "ar": {
+          "Israeli–Palestinian conflict": 1
+        }
+      }
+    },
+    "Palestinian political violence": {
+      "pivot": "2023-10-01",
+      "pivot_source": "fallback (L1=HEALTHY — addition-side growth)",
+      "en_gap_before": 0.75,
+      "en_gap_after": 0.0,
+      "read": "converged",
+      "before": {
+        "en": {
+          "Palestinians": -1,
+          "Israel": 0
+        },
+        "he": {
+          "Palestinians": -1,
+          "Israel": 0
+        },
+        "ar": {
+          "Palestinians": 1,
+          "Israel": -1
+        }
+      },
+      "after": {
+        "en": {
+          "Palestinians": 0,
+          "Israel": 0
+        },
+        "he": {
+          "Palestinians": -1,
+          "Israel": 1
+        },
+        "ar": {
+          "Palestinians": 1,
+          "Israel": -1
+        }
+      }
+    },
+    "Gaza war": {
+      "pivot": "2024-01-01",
+      "pivot_source": "L1 (peak 72.3%, 194,861 PWR, age 0.0yr)",
+      "en_gap_before": 0.0,
+      "en_gap_after": 0.5,
+      "read": "PEELED AWAY",
+      "before": {
+        "en": {
+          "Gaza war": 0
+        },
+        "he": {
+          "Gaza war": 0
+        },
+        "ar": {
+          "Gaza war": 0
+        }
+      },
+      "after": {
+        "en": {
+          "Gaza war": 0
+        },
+        "he": {
+          "Gaza war": 0
+        },
+        "ar": {
+          "Gaza war": -1
+        }
+      }
+    },
+    "Palestine": {
+      "pivot": "2015-07-01",
+      "pivot_source": "L1 (peak 70.2%, 238,535 PWR, age 10.5yr)",
+      "en_gap_before": 1.0,
+      "en_gap_after": 0.5,
+      "read": "converged",
+      "before": {
+        "en": {
+          "Palestine": 0
+        },
+        "he": {
+          "Palestine": 1
+        },
+        "ar": {
+          "Palestine": 1
+        }
+      },
+      "after": {
+        "en": {
+          "Palestine": 1
+        },
+        "he": {
+          "Palestine": 1
+        },
+        "ar": {
+          "Palestine": 0
+        }
+      }
+    },
+    "UNRWA": {
+      "pivot": "2014-07-01",
+      "pivot_source": "L1 (peak 36.9%, 68,811 PWR, age 11.5yr)",
+      "en_gap_before": 0.5,
+      "en_gap_after": 0.67,
+      "read": "no net change",
+      "before": {
+        "en": {
+          "UNRWA": -1,
+          "Israel": 0,
+          "Palestinians": 0
+        },
+        "he": {
+          "UNRWA": -1,
+          "Israel": 1,
+          "Palestinians": -1
+        },
+        "ar": {
+          "UNRWA": 0,
+          "Israel": 0,
+          "Palestinians": 0
+        }
+      },
+      "after": {
+        "en": {
+          "UNRWA": 1,
+          "Israel": -1,
+          "Palestinians": 1
+        },
+        "he": {
+          "UNRWA": -1,
+          "Israel": 0,
+          "Palestinians": 0
+        },
+        "ar": {
+          "UNRWA": 1,
+          "Israel": -1,
+          "Palestinians": 1
+        }
+      }
+    },
+    "Anti-Zionism": {
+      "pivot": "2022-01-01",
+      "pivot_source": "L1 (peak 63.0%, 278,907 PWR, age 3.5yr)",
+      "en_gap_before": 1.5,
+      "en_gap_after": 0.5,
+      "read": "converged",
+      "before": {
+        "en": {
+          "Anti-Zionism": -1
+        },
+        "he": {
+          "Anti-Zionism": 0
+        },
+        "ar": {
+          "Anti-Zionism": 1
+        }
+      },
+      "after": {
+        "en": {
+          "Anti-Zionism": 0
+        },
+        "he": {
+          "Anti-Zionism": 0
+        },
+        "ar": {
+          "Anti-Zionism": 1
+        }
+      }
+    },
+    "Collaboration in German-occupied Poland": {
+      "pivot": "2018-07-01",
+      "pivot_source": "L1 (peak 31.5%, 5,822 PWR, age 7.5yr)",
+      "en_gap_before": 0.0,
+      "en_gap_after": 0.0,
+      "read": "no net change",
+      "before": {
+        "en": {
+          "Collaboration in German-occupied Poland": 0
+        }
+      },
+      "after": {
+        "en": {
+          "Collaboration in German-occupied Poland": 1
+        }
+      }
+    },
+    "History of Zionism": {
+      "pivot": "2023-10-01",
+      "pivot_source": "fallback (L1=HEALTHY — addition-side growth)",
+      "en_gap_before": 0.0,
+      "en_gap_after": 0.0,
+      "read": "no net change",
+      "before": {
+        "en": {
+          "History of Zionism": 1
+        },
+        "ar": {
+          "History of Zionism": 1
+        }
+      },
+      "after": {
+        "en": {
+          "History of Zionism": 1
+        },
+        "ar": {
+          "History of Zionism": 1
+        }
+      }
+    },
+    "Genetic studies of Jews": {
+      "pivot": "2023-10-01",
+      "pivot_source": "fallback (L1=HEALTHY — addition-side growth)",
+      "en_gap_before": 0.0,
+      "en_gap_after": 1.0,
+      "read": "PEELED AWAY",
+      "before": {
+        "en": {
+          "Genetic studies of Jews": 0
+        },
+        "he": {
+          "Genetic studies of Jews": 0
+        }
+      },
+      "after": {
+        "en": {
+          "Genetic studies of Jews": 0
+        },
+        "he": {
+          "Genetic studies of Jews": 1
+        }
+      }
+    },
+    "Racial conceptions of Jewish identity in Zionism": {
+      "pivot": "2023-10-01",
+      "pivot_source": "fallback (L1=HEALTHY — addition-side growth)",
+      "en_gap_before": 0.0,
+      "en_gap_after": 0.0,
+      "read": "no net change",
+      "before": {
+        "en": {
+          "Racial conceptions of Jewish identity in Zionism": -1
+        }
+      },
+      "after": {
+        "en": {
+          "Racial conceptions of Jewish identity in Zionism": -1
+        }
+      }
+    },
+    "Bar Kokhba Revolt": {
+      "pivot": "2025-01-01",
+      "pivot_source": "L1 (peak 61.0%, 311,631 PWR, age 0.0yr)",
+      "en_gap_before": 0.0,
+      "en_gap_after": 0.0,
+      "read": "no net change",
+      "before": {
+        "en": {
+          "Bar Kokhba Revolt": 1
+        },
+        "he": {
+          "Bar Kokhba Revolt": 1
+        }
+      },
+      "after": {
+        "en": {
+          "Bar Kokhba Revolt": 1
+        },
+        "he": {
+          "Bar Kokhba Revolt": 1
+        }
+      }
+    },
+    "Gaza genocide": {
+      "pivot": "2024-07-01",
+      "pivot_source": "L1 (peak 59.0%, 271,444 PWR, age 0.5yr)",
+      "en_gap_before": 0.0,
+      "en_gap_after": 2.0,
+      "read": "PEELED AWAY",
+      "before": {
+        "en": {
+          "Gaza genocide": 1
+        },
+        "ar": {
+          "Gaza genocide": 1
+        }
+      },
+      "after": {
+        "en": {
+          "Gaza genocide": -1
+        },
+        "he": {
+          "Gaza genocide": 1
+        },
+        "ar": {
+          "Gaza genocide": 1
+        }
+      }
+    },
+    "Nakba": {
+      "pivot": "2023-10-01",
+      "pivot_source": "fallback (L1=HEALTHY — addition-side growth)",
+      "en_gap_before": 0.0,
+      "en_gap_after": 0.0,
+      "read": "no net change",
+      "before": {
+        "en": {
+          "Nakba": 1
+        },
+        "he": {
+          "Nakba": 1
+        },
+        "ar": {
+          "Nakba": 1
+        }
+      },
+      "after": {
+        "en": {
+          "Nakba": 1
+        },
+        "he": {
+          "Nakba": 1
+        },
+        "ar": {
+          "Nakba": 1
+        }
+      }
+    },
+    "Zionism": {
+      "pivot": "2024-07-01",
+      "pivot_source": "L1 (peak 68.4%, 824,017 PWR, age 0.5yr)",
+      "en_gap_before": 0.0,
+      "en_gap_after": 1.0,
+      "read": "PEELED AWAY",
+      "before": {
+        "en": {
+          "Zionism": 0
+        },
+        "he": {
+          "Zionism": 1
+        },
+        "ar": {
+          "Zionism": -1
+        },
+        "de": {
+          "Zionism": 0
+        },
+        "ja": {
+          "Zionism": 0
+        }
+      },
+      "after": {
+        "en": {
+          "Zionism": -1
+        },
+        "he": {
+          "Zionism": 1
+        },
+        "ar": {
+          "Zionism": -1
+        },
+        "de": {
+          "Zionism": 0
+        },
+        "ja": {
+          "Zionism": 0
+        }
+      }
+    },
+    "Demo Topic": {
+      "pivot": "2023-10-01",
+      "read": "PEELED AWAY",
+      "en_gap_before": 0.2,
+      "en_gap_after": 0.7
+    },
+    "Abortion": {
+      "pivot": "2010-01-01",
+      "pivot_source": "L1 (peak 46.7%, 46,141 PWR, age 14.0yr)",
+      "en_gap_before": 0.5,
+      "en_gap_after": 0.0,
+      "read": "converged",
+      "before": {
+        "de": {
+          "Abortion": 0
+        },
+        "sv": {
+          "Abortion": 1
+        },
+        "en": {
+          "Abortion": 0
+        }
+      },
+      "after": {
+        "de": {
+          "Abortion": 0
+        },
+        "sv": {
+          "Abortion": 0
+        },
+        "en": {
+          "Abortion": 0
+        }
+      }
+    },
+    "Ainu people": {
+      "pivot": "2023-10-01",
+      "pivot_source": "fallback (L1=HEALTHY — addition-side growth)",
+      "en_gap_before": 0.5,
+      "en_gap_after": 0.5,
+      "read": "no net change",
+      "before": {
+        "en": {
+          "Ainu people": 1
+        },
+        "ru": {
+          "Ainu people": 0
+        },
+        "fr": {
+          "Ainu people": 1
+        }
+      },
+      "after": {
+        "en": {
+          "Ainu people": 1
+        },
+        "ru": {
+          "Ainu people": 0
+        },
+        "fr": {
+          "Ainu people": 1
+        }
+      }
+    },
+    "Brontosaurus": {
+      "pivot": "2023-10-01",
+      "pivot_source": "fallback (L1=HEALTHY — addition-side growth)",
+      "en_gap_before": 0.0,
+      "en_gap_after": 0.0,
+      "read": "no net change",
+      "before": {
+        "en": {
+          "Brontosaurus": 0
+        },
+        "he": {
+          "Brontosaurus": 0
+        },
+        "ar": {
+          "Brontosaurus": 0
+        }
+      },
+      "after": {
+        "en": {
+          "Brontosaurus": 0
+        },
+        "he": {
+          "Brontosaurus": 0
+        },
+        "ar": {
+          "Brontosaurus": 0
+        }
+      }
+    },
+    "Chess": {
+      "pivot": "2023-10-01",
+      "pivot_source": "fallback (L1=HEALTHY — addition-side growth)",
+      "en_gap_before": 0.0,
+      "en_gap_after": 0.0,
+      "read": "no net change",
+      "before": {
+        "en": {
+          "Chess": 0
+        },
+        "he": {
+          "Chess": 0
+        },
+        "ar": {
+          "Chess": 0
+        }
+      },
+      "after": {
+        "en": {
+          "Chess": 0
+        },
+        "he": {
+          "Chess": 0
+        },
+        "ar": {
+          "Chess": 0
+        }
+      }
+    },
+    "Climate change": {
+      "pivot": "2018-01-01",
+      "pivot_source": "L1 (peak 68.4%, 358,747 PWR, age 4.0yr)",
+      "en_gap_before": 0.5,
+      "en_gap_after": 0.5,
+      "read": "no net change",
+      "before": {
+        "en": {
+          "Climate change": 0
+        },
+        "he": {
+          "Climate change": 0
+        },
+        "ar": {
+          "Climate change": -1
+        }
+      },
+      "after": {
+        "en": {
+          "Climate change": -1
+        },
+        "he": {
+          "Climate change": 0
+        },
+        "ar": {
+          "Climate change": -1
+        }
+      }
+    },
+    "Photosynthesis": {
+      "pivot": "2023-10-01",
+      "pivot_source": "fallback (L1=HEALTHY — addition-side growth)",
+      "en_gap_before": 0.0,
+      "en_gap_after": 0.0,
+      "read": "no net change",
+      "before": {
+        "en": {
+          "Photosynthesis": 0
+        },
+        "he": {
+          "Photosynthesis": 0
+        },
+        "ar": {
+          "Photosynthesis": 0
+        }
+      },
+      "after": {
+        "en": {
+          "Photosynthesis": 0
+        },
+        "he": {
+          "Photosynthesis": 0
+        },
+        "ar": {
+          "Photosynthesis": 0
+        }
+      }
+    },
+    "Fascism and ideology": {
+      "pivot": "2026-01-01",
+      "pivot_source": "L1 (peak 65.5%, 450,944 PWR, age 0.0yr)",
+      "en_gap_before": 0.0,
+      "en_gap_after": 0.0,
+      "read": "no net change",
+      "before": {
+        "en": {
+          "Fascism and ideology": null
+        },
+        "ar": {
+          "Fascism and ideology": null
+        }
+      },
+      "after": {
+        "en": {
+          "Fascism and ideology": -1
+        },
+        "ar": {
+          "Fascism and ideology": null
+        }
+      }
+    },
+    "Genocide of indigenous peoples": {
+      "pivot": "2023-10-01",
+      "pivot_source": "fallback (L1=HEALTHY — addition-side growth)",
+      "en_gap_before": 0.0,
+      "en_gap_after": 0.0,
+      "read": "no net change",
+      "before": {
+        "en": {
+          "Genocide of indigenous peoples": 1
+        },
+        "ar": {
+          "Genocide of indigenous peoples": 1
+        }
+      },
+      "after": {
+        "en": {
+          "Genocide of indigenous peoples": 1
+        },
+        "ar": {
+          "Genocide of indigenous peoples": 1
+        }
+      }
+    },
+    "Naliboki massacre": {
+      "pivot": "2023-10-01",
+      "pivot_source": "fallback (L1=HEALTHY — addition-side growth)",
+      "en_gap_before": 0.0,
+      "en_gap_after": 0.0,
+      "read": "no net change",
+      "before": {
+        "en": {
+          "Naliboki massacre": -1
+        },
+        "pl": {
+          "Naliboki massacre": -1
+        }
+      },
+      "after": {
+        "en": {
+          "Naliboki massacre": -1
+        },
+        "pl": {
+          "Naliboki massacre": -1
+        }
+      }
+    },
+    "Rafah offensive": {
+      "pivot": "2023-10-01",
+      "pivot_source": "fallback (L1=HEALTHY — addition-side growth)",
+      "en_gap_before": 0.0,
+      "en_gap_after": 0.0,
+      "read": "no net change",
+      "before": {},
+      "after": {
+        "en": {
+          "Rafah offensive": 0
+        },
+        "he": {
+          "Rafah offensive": 1
+        },
+        "ar": {
+          "Rafah offensive": -1
+        }
+      }
+    },
+    "Rescue of Jews by Poles during the Holocaust": {
+      "pivot": "2023-10-01",
+      "pivot_source": "fallback (L1=HEALTHY — addition-side growth)",
+      "en_gap_before": 0.0,
+      "en_gap_after": 0.0,
+      "read": "no net change",
+      "before": {
+        "en": {
+          "Rescue of Jews by Poles during the Holocaust": 1
+        },
+        "pl": {
+          "Rescue of Jews by Poles during the Holocaust": 1
+        }
+      },
+      "after": {
+        "en": {
+          "Rescue of Jews by Poles during the Holocaust": 1
+        },
+        "pl": {
+          "Rescue of Jews by Poles during the Holocaust": 1
+        }
+      }
+    },
+    "Ilhan Omar": {
+      "pivot": "2024-01-01",
+      "pivot_source": "L1 (peak 69.5%, 240,130 PWR, age 2.0yr)",
+      "en_gap_before": 0.5,
+      "en_gap_after": 0.0,
+      "read": "converged",
+      "before": {
+        "en": {
+          "Ilhan Omar": 0
+        },
+        "de": {
+          "Ilhan Omar": 1
+        },
+        "zh": {
+          "Ilhan Omar": 0
+        }
+      },
+      "after": {
+        "en": {
+          "Ilhan Omar": 1
+        },
+        "de": {
+          "Ilhan Omar": 1
+        },
+        "zh": {
+          "Ilhan Omar": 1
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "article": "Water",
+  "artifacts": [
+    "findings/Water.category.json",
+    "findings/Water.cost.json",
+    "findings/Water.framing.json",
+    "findings/Water.l1-confirmation.json",
+    "findings/Water.lexical.json",
+    "findings/Water.profile.json",
+    "findings/Water.sources.json",
+    "mscore/Water.json"
+  ],
+  "slug": "Water",
+  "tables": {
+    "articles": 0,
+    "rev_size": 8307,
+    "revisions": 8307,
+    "rsnap": 1176479,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

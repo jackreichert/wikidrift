@@ -1,0 +1,223 @@
+{
+  "article": "Racial conceptions of Jewish identity in Zionism",
+  "pivot": null,
+  "span": "2023-07-01 → 2026-07-01  (no L1 pivot — whole history)",
+  "before": {
+    "date": "2023-07-01",
+    "refs": 21,
+    "n_domains": 10,
+    "cite_mix": {
+      "book": 48,
+      "journal": 45,
+      "web": 7
+    },
+    "domains": {
+      "dro.dur.ac.uk": 1,
+      "jstor.org": 6,
+      "books.google.com": 11,
+      "adalah.org": 1,
+      "pewresearch.org": 1,
+      "tandfonline.com": 2,
+      "academia.edu": 1,
+      "bjpa.org": 1,
+      "cambridge.org": 1,
+      "ncbi.nlm.nih.gov": 1
+    }
+  },
+  "after": {
+    "date": "2026-07-01",
+    "refs": 16,
+    "n_domains": 28,
+    "cite_mix": {
+      "book": 47,
+      "journal": 47,
+      "news": 4,
+      "web": 2
+    },
+    "domains": {
+      "books.google.com": 41,
+      "bjpa.org": 3,
+      "jstor.org": 9,
+      "researchgate.net": 3,
+      "science.org": 1,
+      "academia.edu": 11,
+      "archive.org": 1,
+      "doi.org": 7,
+      "dro.dur.ac.uk": 2,
+      "google.it": 2,
+      "ia800901.us.archive.org": 1,
+      "smithsonianmag.com": 1,
+      "link.springer.com": 5,
+      "infocenters.co.il": 2,
+      "google.com": 4,
+      "isita-org.com": 1,
+      "avotaynuonline.com": 1,
+      "columbia.edu": 1,
+      "tandfonline.com": 5,
+      "quest-cdecjournal.it": 1,
+      "forward.com": 1,
+      "degruyter.com": 1,
+      "cambridge.org": 1,
+      "pure.manchester.ac.uk": 1,
+      "academic.oup.com": 1,
+      "brill.com": 2,
+      "rosenberglab.stanford.edu": 1,
+      "haaretz.com": 2
+    }
+  },
+  "added": [
+    {
+      "domain": "books.google.com",
+      "from": 11,
+      "to": 41
+    },
+    {
+      "domain": "academia.edu",
+      "from": 1,
+      "to": 11
+    },
+    {
+      "domain": "doi.org",
+      "from": 0,
+      "to": 7
+    },
+    {
+      "domain": "link.springer.com",
+      "from": 0,
+      "to": 5
+    },
+    {
+      "domain": "google.com",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "tandfonline.com",
+      "from": 2,
+      "to": 5
+    },
+    {
+      "domain": "researchgate.net",
+      "from": 0,
+      "to": 3
+    },
+    {
+      "domain": "jstor.org",
+      "from": 6,
+      "to": 9
+    },
+    {
+      "domain": "infocenters.co.il",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "bjpa.org",
+      "from": 1,
+      "to": 3
+    },
+    {
+      "domain": "brill.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "google.it",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "haaretz.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "dro.dur.ac.uk",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "quest-cdecjournal.it",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "avotaynuonline.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "forward.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "science.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "rosenberglab.stanford.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "academic.oup.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "archive.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "degruyter.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "columbia.edu",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "smithsonianmag.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "pure.manchester.ac.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ia800901.us.archive.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "isita-org.com",
+      "from": 0,
+      "to": 1
+    }
+  ],
+  "dropped": [
+    {
+      "domain": "adalah.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "ncbi.nlm.nih.gov",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "pewresearch.org",
+      "from": 1,
+      "to": 0
+    }
+  ],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD."
+}

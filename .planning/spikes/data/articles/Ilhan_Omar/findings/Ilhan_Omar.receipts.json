@@ -1,0 +1,27 @@
+{
+  "article": "Ilhan Omar",
+  "qid": "Q26436159",
+  "editions": {
+    "en": {
+      "present": true,
+      "revid": 1364507894,
+      "title": "Ilhan Omar",
+      "timestamp": "2026-07-17T00:04:46Z",
+      "prose_chars": 51242
+    },
+    "de": {
+      "present": true,
+      "revid": 268063205,
+      "title": "Ilhan Omar",
+      "timestamp": "2026-06-19T18:41:17Z",
+      "prose_chars": 18728
+    },
+    "zh": {
+      "present": true,
+      "revid": 91685334,
+      "title": "伊尔汗·奥马尔",
+      "timestamp": "2026-02-27T04:16:46Z",
+      "prose_chars": 15322
+    }
+  }
+}

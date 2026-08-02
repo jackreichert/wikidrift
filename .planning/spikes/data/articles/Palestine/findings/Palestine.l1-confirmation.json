@@ -1,0 +1,100 @@
+{
+  "article": "Palestine",
+  "run_ts": "2026-07-30T18:23:19.872564+00:00",
+  "corpus_horizon": {
+    "snapshot_date": "2026-07-01",
+    "snapshot_revid": 1362384011
+  },
+  "thresholds": {
+    "confirm_drop": 0.2,
+    "durable_quantile": 0.5,
+    "min_cohort": 500,
+    "magnitude_floor": 25.0,
+    "rolling_window_months": 12,
+    "rolling_tolerance_days": 35,
+    "rolling_drop": 20.0
+  },
+  "coarse_verdict": "PIVOT?",
+  "status": "confirmed",
+  "confirmed_episodes": [
+    {
+      "candidate_start": "2015-07-01",
+      "candidate_end": "2016-01-01",
+      "candidate_before_revid": 668845786,
+      "candidate_after_revid": 697777807,
+      "before_revid": 682622162,
+      "before_timestamp": "2015-09-24T22:12:56Z",
+      "after_revid": 682622387,
+      "after_timestamp": "2015-09-24T22:15:04Z",
+      "durable_spine_drop": 0.728199,
+      "pwr_mass": 238535,
+      "peak_pct": 70.16,
+      "source": "interval",
+      "status": "confirmed",
+      "duration_seconds": 128,
+      "attribution": {
+        "before_revid": 682622162,
+        "before_timestamp": "2015-09-24T22:12:56Z",
+        "after_revid": 682622387,
+        "after_timestamp": "2015-09-24T22:15:04Z",
+        "duration_seconds": 128,
+        "removed_tokens": 2685,
+        "replacement_tokens": 0,
+        "removals_by_editor": [
+          {
+            "editor": "Onceinawhile",
+            "tokens": 2685
+          }
+        ],
+        "replacement_by_editor": [],
+        "top_removal_share": 1.0,
+        "top_replacement_share": null,
+        "same_top_editor": false,
+        "top_two_removal_share": 1.0
+      }
+    },
+    {
+      "candidate_start": "2010-07-01",
+      "candidate_end": "2011-07-01",
+      "candidate_before_revid": 371161458,
+      "candidate_after_revid": 437224148,
+      "before_revid": 398030599,
+      "before_timestamp": "2010-11-21T10:20:39Z",
+      "after_revid": 398133907,
+      "after_timestamp": "2010-11-21T22:26:06Z",
+      "durable_spine_drop": 0.382225,
+      "pwr_mass": 28648,
+      "peak_pct": 32.72,
+      "source": "interval",
+      "status": "confirmed",
+      "duration_seconds": 43527,
+      "attribution": {
+        "before_revid": 398030599,
+        "before_timestamp": "2010-11-21T10:20:39Z",
+        "after_revid": 398133907,
+        "after_timestamp": "2010-11-21T22:26:06Z",
+        "duration_seconds": 43527,
+        "removed_tokens": 6955,
+        "replacement_tokens": 7,
+        "removals_by_editor": [
+          {
+            "editor": "Alinor",
+            "tokens": 6955
+          }
+        ],
+        "replacement_by_editor": [
+          {
+            "editor": "Alinor",
+            "tokens": 7
+          }
+        ],
+        "top_removal_share": 1.0,
+        "top_replacement_share": 1.0,
+        "same_top_editor": true,
+        "top_two_removal_share": 1.0
+      }
+    }
+  ],
+  "attribution_backfill_ts": "2026-07-31T17:45:32.283034+00:00",
+  "schema_version": 2
+}

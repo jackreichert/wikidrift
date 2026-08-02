@@ -126,10 +126,23 @@ with at least 15% persistence-weighted loss can start or extend an episode, and 
 peak of at least 25% to become a pivot candidate. L1 ranks candidates by the total persistence-weighted
 text they removed, not by percentage alone.
 
-It also records a **slow bleed** when persistence-weighted losses across a rolling twelve-month window
-add up to at least 35% of the largest snapshot token count in that window. This catches a series of
-changes that may be too small to form one obvious pivot. Slow bleed is a separate annotation; it does
-not determine the main outcome below.
+Candidate detection has two passes:
+
+1. The primary pass checks the sharp interval episodes above and sends up to the three strongest to
+  revision-level confirmation.
+2. If none confirms, a rolling second pass measures the direct persistence-weighted loss of the same
+  starting cohort across approximately twelve months. It requires at least 20% loss and at least
+  50,000 persistence-weighted tokens removed. Overlapping windows are reduced to the strongest
+  non-overlapping candidates before confirmation.
+
+The rolling pass is a candidate search, not a second definition of a pivot. It improves recall for
+sustained medium-sized replacement without lowering the primary 25% threshold. Candidates from both
+passes face the same revision-level test below.
+
+The rolling candidate thresholds are preliminary. They recovered a confirmed case that the primary
+interval threshold missed, but the existing offline benchmark does not yet score this fallback end to
+end. A fixed slate of positive and control articles is still needed to measure its recall and false-
+candidate load. Until then, the unchanged revision-level confirmation is the main precision safeguard.
 
 The initial outcomes are:
 
@@ -143,26 +156,41 @@ rewrite is not discounted simply because it is old; its age is reported as conte
 
 ### Confirming the collapse
 
-For a full analysis, WikiDrift checks up to the three candidates with the most persistence-weighted
-loss. It takes the more persistent half of the text present at the start of each episode and searches
-the underlying revisions for the pair where survival of that text drops most sharply.
+For a full analysis, WikiDrift checks up to three primary candidates. If none confirms, it checks up
+to three non-overlapping rolling candidates. For each candidate, it takes the more persistent half of
+the text present at the start and searches the underlying revisions for the pair where survival of
+that text drops most sharply.
 
 The durable text must decline by at least 20 percentage points across the interval to confirm the
 pivot. This keeps a coarse snapshot gap from looking decisive when the revisions inside it do not
-show the same collapse.
+show the same collapse. The confirmation artifact keeps an audit receipt for every candidate sent to
+this exact check: its source pass, coarse dates and revisions, PWR mass, peak loss, exact revision pair
+and measured durable-spine drop when resolvable, plus the decision. Rejections state either that the
+drop was below the required threshold or that there was insufficient revision evidence to resolve an
+exact pair. Candidates not sent to exact checking are not represented as rejected. Findings also record
+whether a confirmed candidate came from the primary interval pass or the rolling pass.
 
 ### Attributing public edits
 
-For a confirmed episode, L1 can describe two groups:
+For a confirmed episode, L1 resolves the ordered revisions between the stable before and after states.
+It reports two kinds of accounting:
 
-- **Removal attribution:** accounts whose edits removed established text during the window. The text
-  must still be absent from the latest snapshot.
-- **Post-pivot contributors:** leading origin accounts for current text introduced after the pivot
-  began.
+- **Gross activity:** every observed addition, removal, and restoration in the bounded sequence.
+- **Net-standing contribution:** removals still absent at the after state and replacement wording that
+  survives there. Reverted intermediate work remains visible in gross activity but not standing shares.
 
-The full analysis attributes up to the two largest confirmed episodes. It reports public editing
-actions, not motive, off-wiki identity, or coordination. Concentrated authorship is context, not a
-finding on its own.
+Per-revision rows reproduce every displayed share. Hidden names, anonymous IPs, bots, renamed accounts,
+and unavailable account states remain distinct without identity inference. The full analysis attributes
+up to the two largest confirmed episodes. It reports public editing actions, not motive, off-wiki identity,
+or coordination. Concentration labels remain disabled pending control-set calibration.
+
+### Editorial-process context
+
+An opt-in receipt can add bounded edit summaries, tags, restoration relationships, talk-page activity,
+protection state, page operations, and selected dispute templates. Displayed items link to exact public
+revisions or logs and preserve `observed`, `not_observed`, and `unavailable` states. This context can identify
+alternatives worth inspecting, but it cannot change confirmation or corroboration and does not establish
+motive, coordination, bias, or misconduct.
 
 ### What L1 can and cannot say
 
@@ -181,16 +209,27 @@ mention a focal entity, and classifies how each passage treats that entity:
 - sympathetic;
 - absent.
 
-If the user does not name an entity, L2 uses the article title. It also records whether the passage
-appears to depart from an encyclopedic neutrality standard and keeps a short supporting quotation.
-It compares the first and last usable observations in the selected time range; the user can narrow
-that range with a start date.
+If the user does not name an entity, L2 uses the article title. Every classification retains the exact
+passage, revision link, passage hash, prompt and model contract, confidence, evidence spans, and raw run.
+When initial labels differ across adjacent observations, L2 repeats both classifications. It reports an
+audited shift only when the passage text changed, repeated runs meet the agreement and evidence-coverage
+floors, and the prompt/model contracts are compatible. Otherwise it identifies model instability, combined
+text and model change, or insufficient evidence. The user can narrow the range with a start date.
 
 This check is useful when the article grew or churned without a large net deletion. It can also help
 separate a structural overhaul with broadly stable stance from one accompanied by a semantic shift.
 
 Because L2 uses a language model, its output is inspectable evidence rather than a final label. It is
 a temporal comparison, so it may also miss framing that was stable from the article's beginning.
+
+## L2a: tracing additive and formative framing
+
+The deterministic framing trajectory compares exact revisions selected from integrity-usable snapshots
+through the stable endpoint. It classifies sentence-level units as added, removed, retained, or relocated;
+separates lead and body weight; records section changes and parseable citation-domain changes; and marks
+additions as standing or transient across later selected revisions. Formative, interval, and explicit
+exact-event modes are available. These receipts are framing-change research leads only: additions do not
+independently establish bias, factual error, intent, or misconduct and do not increase corroboration counts.
 
 ## L2.5: showing which vocabulary changed
 
@@ -218,21 +257,22 @@ edit war. M-score is context for a content finding, not a content finding itself
 
 ## L4: using a finding to discover other candidates
 
-L4 uses the top coarse L1 candidate episode as a starting point for finding other articles worth
-testing. It does not extend the seed article's result to other pages.
+L4 uses fresh structured attribution from an exact confirmed L1 event as a starting point for finding
+other articles worth testing. It does not extend the seed article's result to other pages.
 
 The process is:
 
-1. Take leading non-bot, non-anonymous accounts associated with durable-text removal in the seed
-   article's main L1 episode.
+1. Take leading named, non-bot accounts associated with removals in the seed article's exact confirmed
+  event. Anonymous IPs and hidden names do not become graph nodes.
 2. Examine their recent public contributions to other main-namespace articles.
 3. Keep articles where those accounts made substantial aggregate deletions.
 4. Rank candidates by shared accounts and bytes removed.
-5. Build each candidate's own history and run an independent L1 analysis.
+5. Build each candidate's own history and run full independent L1 confirmation.
 
 Editor overlap chooses where to look. It does not decide the result. L4 promotes a candidate to a
-retrofit lead only when that article's own history produces the required L1 signal and shows at least
-two years of prior history. It retains the other retest results as negative or insufficient evidence.
+retrofit lead only when that article's own history reaches exact confirmation and shows at least two
+years of prior history. A coarse candidate is not sufficient. L4 retains rejected and unavailable
+retest results as negative or insufficient evidence.
 A large change earlier in a young article is treated as a framing question rather than a retrofit.
 
 ## L5: comparisons outside the English article's timeline
@@ -391,3 +431,4 @@ content evidence. More detailed paper notes are available in the repository's
   interpretations rather than oracles.
 - The published site is static HTML built from saved result files in the
   [open-source repository](https://github.com/jackreichert/wikidrift/).
+- Process-context receipts preserve exact public revision or log links and explicit availability states.

@@ -79,8 +79,11 @@ uv run wikidrift bootstrap                      # populate the token corpus for 
 uv run wikidrift benchmark                     # score the adjudicated roster (offline)
 uv run wikidrift validate                      # offline PWR candidate verdicts (no WikiWho)
 uv run wikidrift profile "Brontosaurus"        # descriptive L1 profile: recency + editor concentration (offline)
-uv run wikidrift analyze "Climate change"      # full L1: drift → pivots → binary-search confirm → attribution
-uv run wikidrift discover "Nakba"              # L4: seed → removal footprint → independent L1 re-test
+uv run wikidrift analyze "Climate change"      # full L1: interval/rolling candidates → confirm → attribution
+uv run wikidrift backfill-attribution "Climate change"  # upgrade a fresh confirmation to sequence attribution
+uv run wikidrift backfill-process-context "Climate change"  # attach bounded public process receipts
+uv run wikidrift confirmed-graph .planning/spikes/data/articles  # L4: fresh exact cross-shard graph (offline)
+uv run wikidrift discover "Nakba"              # L4: exact seed → footprint → independent exact L1 confirmation
 uv run wikidrift sources "Palestine"           # L5 #3b: citation-source change (from → to across the pivot)
 uv run wikidrift stance "Abortion"             # L2 framing/stance over time            (needs an LLM key)
 uv run wikidrift framing "Gaza war"            # L5 Lite: prefers fresh confirmed L1 pair (LLM key)
@@ -89,7 +92,24 @@ uv run wikidrift crosslingual "Anti-Zionism"   # L5 cross-language stance compar
 uv run wikidrift factcheck "Warsaw concentration camp" --asof 2018-06-01   # L5 #2: fact divergence (LLM key)
 uv run wikidrift mscore                         # controversy corroborator (metadata only)
 uv run wikidrift pipeline "Hamas" --llm --framing  # L1 → router → L2 + cross-language lead comparison
+uv run wikidrift pipeline "Hamas" --process-context # opt-in descriptive process metadata for exact events
+uv run wikidrift migrate-shards                # lossless canonical corpus → article-owned DuckDB shards
+uv run python tools/cover_missing_topics.py --all-shards --mode attribution --execute --jobs 3 --no-resume
+                                                # offline schema/attribution backfill for fresh confirmed shards
+uv run python tools/cover_missing_topics.py --all-shards --mode refresh --execute --jobs 3
+                                                # refresh stale L1 results with tagged live output + per-shard logs
 ```
+
+`migrate-shards` leaves the canonical corpus untouched, verifies per-table row counts and artifact checksums,
+and stores corpus-wide outputs under `articles/_shared/`. To run independent writers in parallel, point each
+process at a different shard before startup:
+
+```bash
+WIKIDRIFT_DATA_DIR=.planning/spikes/data/articles/Ilhan_Omar \
+  uv run wikidrift analyze "Ilhan Omar"
+```
+
+The historical canonical location remains the default when `WIKIDRIFT_DATA_DIR` is unset.
 
 Single-article verbs (`analyze`, `stance`, `framing`, `crosslingual`, `factcheck`, `pipeline`, `discover`, `sources`,
 `lexical`, `profile`) accept either an article title or a Wikipedia URL (e.g.
@@ -121,8 +141,9 @@ uv run wikidrift framing "Zionism"
 uv run python viewer/build.py
 ```
 
-`analyze` writes the exact confirmed revision pair plus the corpus horizon and thresholds used. `framing`
-trusts that artifact only while those values still match, then fetches exact English revisions and
+`analyze` writes every exactly checked candidate and its decision or rejection reason, plus any confirmed
+revision pair, the corpus horizon, and the thresholds used. `framing` trusts that artifact only while those
+values still match, then fetches exact English revisions and
 timestamp-matched revisions from the other editions. The framing command itself does **not** rerun L1,
 lexical analysis, source analysis, or the other L5 instruments. It does call public Wikipedia APIs and
 the configured LLM.
@@ -168,7 +189,8 @@ stay on that machine. Run the commands above there, then commit and push the tra
 Use the helper script to pass an explicit topic list and choose either:
 
 - `--mode full` (always run pipeline + sources + profile), or
-- `--mode fill` (run only what is missing).
+- `--mode fill` (run only what is missing), or
+- `--mode refresh` (rerun stale article-shard rewrite analysis with live tagged output).
 
 Current helper defaults for pipeline invocations:
 
@@ -187,6 +209,9 @@ uv run python tools/cover_missing_topics.py --topics "Ainu people" "Genocide of 
 # execute explicit list, full workflow
 uv run python tools/cover_missing_topics.py --topics "Bar Kokhba Revolt" "UNRWA" --mode full --execute
 
+# analyze then run the pipeline in four article-isolated workers
+uv run python tools/cover_missing_topics.py --topics "Capitalism" "Socialism" --mode pipeline --jobs 4 --execute
+
 # execute explicit list, fill only missing layers
 uv run python tools/cover_missing_topics.py --topics "History of Zionism" "Gaza war" --mode fill --execute
 
@@ -203,6 +228,11 @@ uv run python tools/cover_missing_topics.py --mode full --execute --no-llm
 uv run python tools/cover_missing_topics.py --mode full --execute --l5-max-langs 0
 uv run python tools/cover_missing_topics.py --mode full --execute --l5-cap-policy fixed --l5-max-langs 6
 ```
+
+Parallel runs stream each child line with a topic prefix such as `[Capitalism]` while retaining the
+same output in `.planning/spikes/data/articles/<slug>/logs/coverage.log`. Successful stages are recorded
+in each article's `coverage-state.json`. Runs resume by default except in refresh mode, where stale
+analysis reruns by default; pass `--resume` or `--no-resume` to override either behavior explicitly.
 
 Full per-verb detail, the module map, and the LLM-backend options are in
 **[`src/wikidrift/README.md`](src/wikidrift/README.md)**.
@@ -246,6 +276,9 @@ uv run python viewer/build.py
 ```
 
 Optional: auto-categorize topic filters with an LLM during site build (cached for repeat runs):
+
+Curated topic mappings take precedence. Model-assisted categorization applies only to topics without an
+explicit category, including during a cache refresh.
 
 ```bash
 uv run python viewer/build.py --llm-categories

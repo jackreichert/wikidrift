@@ -1,0 +1,204 @@
+{
+  "article": "Gaza war",
+  "category": "israeli-palestinian",
+  "mode": "pivot_relative",
+  "pivot_window": {
+    "start": "2024-01-01",
+    "end": "2026-01-01",
+    "pwr_mass": 194861,
+    "status": "confirmed",
+    "before_revid": 1222571220,
+    "before_timestamp": "2024-05-06T18:13:49Z",
+    "after_revid": 1222590616,
+    "after_timestamp": "2024-05-06T20:16:01Z",
+    "durable_spine_drop": 0.254932
+  },
+  "editions_compared": [
+    "en",
+    "ar",
+    "he",
+    "es",
+    "fr"
+  ],
+  "lead_chars": {
+    "en": 3000,
+    "ar": 3000,
+    "he": 1400,
+    "es": 3000,
+    "fr": 3000
+  },
+  "snapshots": {
+    "before": {
+      "en": {
+        "revid": 1222571220,
+        "timestamp": "2024-05-06T18:13:49Z",
+        "title": "Gaza war",
+        "lead": "An armed conflict between Israel and Hamas-led Palestinian militant groups has been taking place chiefly in and around the Gaza Strip since 7 October 2023. It began when Hamas launched a surprise attack on southern Israel from the Gaza Strip. After clearing the militants from its territory, the Israeli military embarked on an extensive aerial bombardment of the Gaza Strip followed by a large-scale ground invasion beginning on 27 October. Clashes have also occurred in the Israeli-occupied West Bank and with Hezbollah along the Israel–Lebanon border. The fifth war of the Gaza–Israel conflict since 2008, it is part of the broader Israeli–Palestinian conflict, and the most significant military escalation in the region since the Yom Kippur War 50 years earlier.\n\nThe Hamas-led attack on 7 October involved a barrage of several thousand rockets directed at Israel concurrent to an estimated 3,000 militants breaching the Gaza–Israel barrier and attacking Israeli civilian communities and military bases. During this attack, 1,139 Israelis and foreign nationals including 766 civilians and 373 security personnel were killed, while 252 Israelis and foreigners were taken captive to the Gaza Strip with the stated goal to force Israel to release Palestinian prisoners.. The attack has been described as a major Israeli intelligence failure. Hamas said its attack was in response to the continued Israeli occupation of the Palestinian territories, the blockade of the Gaza Strip, the expansion of illegal Israeli settlements, threats to the status of the Al-Aqsa Mosque and the plight of Palestinian refugees and prisoners. In response, Israel declared a state of war, tightened its blockade and launched one of the deadliest and most destructive bombing campaigns in modern history, before commencing the ground invasion on 27 October with the stated dual-objective of destroying Hamas and releasing the hostages, stating it would control Gaza following the war. In spite of the declarations made by extreme right parties government officials clearly stated that Israel does not intend to occupy Gaza for a long time. \n\nSince the start of the Israeli operation, more than 34,000 Palestinians in Gaza have been killed, with a majority consisting of over 14,000 children and 9,000 women. Over 10,000 others are missing and presumed trapped under rubble. Nearly all of the strip's 2.3 million population has been internally displaced. Israel's tightened blockade cut off food, water and medicine, and its attacks on infrastructure have led to a humanitarian crisis in the Gaza Strip, including a collapse of the healthcare system and an ongoing famine, leading to accusations that Israel is using starvation as a weapon of war. By early 2024, Israeli forces had destroyed or damaged more than half of Gaza's houses, at least a third of its tree cover and farmland, most of its schools,  all of its twelve universities, hundreds of cultural landmarks, and dozens of cemeteries. Israel's ground invasion"
+      },
+      "ar": {
+        "revid": 66830470,
+        "timestamp": "2024-05-06T11:34:43Z",
+        "title": "الحرب الفلسطينية الإسرائيلية (2023–الآن)",
+        "lead": "عمليّة طُوفان الأقصى، أو الحرب الفلسطينية الإسرائيلية أو حرب حماس وإسرائيل وفي إسرائيل عمليّة السُّيُوف الحديديَّة، كما تُشير إليها بعض المصادر بالانتفاضة الثالثة أو مجزرة غزة، هو صراع مسلح مستمر بدأ في 7 أكتوبر 2023 بين الجماعات الفلسطينية المسلحة بقيادة حركة حماس من جهة وبين الجيش الإسرائيلي من جهة أخرى. انطلق النزاع بهجوم نوعي منسق ومُفاجئ شنته حركة حماس على إسرائيل، والذي بدأ في صباح يوم السبت (7 تشرين الأول/أكتوبر 2023 م) الموافق لـ (22 ربيع الأوَّل 1445 هـ) بإطلاق ما لا يقل عن 3000 صاروخ من قطاع غزة الذي تسيطر عليه حماس باتجاه إسرائيل. بالموازاة مع اختراق حوالي 2500 مسلح فلسطيني الحاجز بين غزة وإسرائيل بِشَنِّهِم لهجوم عبر السّيارات رُباعيّة الدّفع والدّراجات النّارية والطّائرات الشّراعيّة وغيرها على البلدات المتاخمة للقطاع، والتي تُعرف باسم غلاف غزة، حيث سيطروا على عددٍ من المواقع العسكريّة خاصة في سديروت، ووصلوا أوفاكيم، واقتحموا نتيفوت، وخاضوا اشتباكاتٍ عنيفة في المستوطنات الثلاثة وفي مستوطنات أخرى كما أسروا عددًا من الجنودوالمواطنين واقتادوهم لغَزَّة فضلًا عن اغتنامِ مجموعةٍ من الآليّات العسكريّة الإسرائيليَّة. أدى الهجوم إلى مقتل ما لا يقل عن 1400 إسرائيلي بما في ذلك 260 شخصًا في مهرجان رعيم الموسيقي. فيما بدأت إسرائيل في شن هجمات انتقامية قبل أن تعلن الحرب رسميًا على حماس في اليوم التالي. وبعد مرور شهر من الحرب، إرتفع قتلى غزة إلى34000 بينهم 19324 طفلاً و9823 امرأة.https://www.alarabiya.net/arab-and-world/2023/11/08/%D8%A7%D8%B4%D8%AA%D8%A8%D8%A7%D9%83%D8%A7%D8%AA-%D8%A8%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B7%D9%82-%D8%A7%D9%84%D8%B4%D8%B1%D9%82%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D8%B4%D9%85%D8%A7%D9%84%D9%8A%D8%A9-%D9%84%D9%82%D8%B7%D8%A7%D8%B9-%D8%BA%D8%B2%D8%A9-%D9%88%D8%B5%D9%81%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D8%A7%D9%86%D8%B0%D8%A7%D8%B1-%D8%AA%D8%AF%D9%88%D9%8A-%D8%A8%D8%A7%D9%84%D8%BA%D9%84%D8%A7%D9%81 \n\nاعتبرت قنوات إسرائيلية ووسائل إعلام غربية الهجوم الذي شنته حركة حماس على مهرجان موسيقى الرقص «تجمع سوبر نوفا سوكوت» خارج مستوطنة رعيم بـ«المذبحة» معتبرةً إياه أكثر الهجمات دموية في التاريخ. وتزامنت عملية طوفان الأقصى التي نفذتها حركة حماس مع نهاية عطلة عيد العرش اليهودي والذي يصادف مرور 50 عامًا على «حرب أكتوبر» عام 1973.\n\nيعود التاريخ الحديث للصراع بين غزة وإسرائيل إلى عام 2006. غير أن حركة حماس تجنبت الخوض في أي اشتباكات كبيرة مع إسرائيل منذ عام 2022 ومعظم عام 2023، ما دفع المحللين إلى استنتاج أنها كانت تستعد لهجومها الكبير الذي أسمته عملية طوفان الأقصى. كما وصرحت حماس بأنها تلقت دعمًا من إيران للهجوم، الذي تقول إنه جاء ردًا على عنف المستوطنين الإسرائيليين، والحصار المفروض على قطاع غزة، وتدنيس المسجد الأقصى في القدس، فضلاً عن الفظائع الإسرائيلية ضد الفلسطينيين على مدى العقود الماضية.\n\nبدأت قوات إسرائيل هجومها باستعادة السيطرة على المستوطنات التي سبق لقوات حماس السيطرة عليها كما نَفَّذَت غارات جوية على قطاع غزة، أدى الهجوم إلى مقتل 2,750 فلسطينيًا إلى حدود 15 أكتوبر/تشرين الأول. وأفادت الأمم المتحدة أن حوالي مليون فلسطيني، أي ما يقرب من نصف سكان غزة، قد نزحوا داخلياً. وتزايدت المخاوف من حدوث أزمة إنسانية بعد أن قطعت إسرائيل إمدادات الغذاء والمياه والكهرباء والوقود عن غزة، التي كانت بالفعل محاصرة من قبل كل من حكومة مصر وإسرائيل."
+      },
+      "he": {
+        "revid": 38597137,
+        "timestamp": "2024-05-06T18:13:15Z",
+        "title": "זירת רצועת עזה במלחמת חרבות ברזל",
+        "lead": "ממוזער|חיילים עוברים במעבר ארז במלחמת חרבות ברזל אל עבר שטחי צפון רצועת עזה\n300px|שמאל|lang=he\nממוזער|כרוז המכריז על המלצה דחופה לפינוי אוכלוסיה בעזה משכונות שונות, שפוזר באוויר במהלך מלחמת חרבות ברזל. למעלה מקור, למטה תרגום מכונה.\nהלחימה ברצועת עזה במלחמת חרבות ברזל היא הלחימה בזירה המרכזית במלחמת חרבות ברזל, עליה הכריזה מדינת ישראל בעקבות מתקפת הפתע על ישראל שבוצעה על ידי ארגוני הטרור מרצועת עזה בהובלת חמאס, ארגון טרור אסלאמיסטי-סוני פלסטיני, ב-7 באוקטובר 2023, שמחת תורה, כ\"ב בתשרי ה'תשפ\"ד.\n\nראשית המערכה החלה בתקיפת חיל האוויר הישראלי על אלפי יעדים ברצועת עזה, ואליה הצטרפו בהמשך חיל הים הישראלי וחילות הקרקע.\n\nהחל מ-26 באוקטובר החלו פשיטות קרקעיות לעומק שטח רצועת עזה במטרה להכין את השטח לקראת המערכה המרכזית לטיהור רצועת עזה ממחבלי חמאס, הג'יהאד האסלאמי הפלסטיני ויתר הפלגים של ארגוני הטרור הפלסטינים, וכן חיסול התשתית הצבאית של חמאס, על ידי חילות הרגלים והצנחנים, התותחנים, ההנדסה הקרבית והשריון.\n\nהחל מ-9 בנובמבר החלו כוחות הרגלים של צה\"ל לפשוט על הרובע הביטחוני של חמאס בעזה בשילוב מדויק של תקיפות מהאוויר על ידי חיל האוויר הישראלי במטרה \"לסכל כמה שיותר איומים ביטחוניים בטווח הזמן המיידי\".\n\nעד סוף נובמבר, פעלו הכוחות ברוב צפון הרצועה, כולל בבית חאנון וברובה של העיר עזה. בדצמבר, הרחיב צה\"ל את פעילותו הקרקעית לאזור ח'אן יונס ונכנס לשכונת שג'אעייה ולעומק העיר ג'באליה. הלחימה התחלקה למספר קרבות עיקריים: קרב בית חאנון, קרב ג'באליה, קרב עזה, קרב שג'עיה, קרב ח'אן יונס והקרב במחנות המרכז."
+      },
+      "es": {
+        "revid": 159949180,
+        "timestamp": "2024-05-06T18:05:44Z",
+        "title": "Guerra de Gaza",
+        "lead": "thumb|upright=1.8|Suma acumulada del número de víctimas del conflicto palestino-israelí desde el 1 de octubre de 2023 al 16 de febrero de 2024. Fuente: Kaggle\n\nLa guerra Israel-Gaza, también llamada guerra de Gaza, guerra en Gaza  y guerra Israel-Hamás, es un conflicto armado en curso que comenzó el 7 de octubre de 2023, mientras los israelíes festejaban la fiesta de Sucot, cuando grupos armados de militantes palestinos, principalmente de Hamás y la Yihad Islámica Palestina, lanzaron un gran ataque contra Israel desde la Franja de Gaza con una andanada de cohetes y un ataque de comandos en camiones, motocicletas y parapentes motorizados. El ataque, denominado «Operación Inundación de Al-Aqsa», tomó a Israel por sorpresa pese a ocurrir al día siguiente al 50.º aniversario de la guerra de Yom Kippur. Israel respondería poco después con una represalia denominada «Operación Espadas de Hierro», que incluiría bombardeos e incursiones militares contra la Franja de Gaza.\n\nLos militantes armados de Hamás capturaron un gran número de rehenes tras sucesivas razias en el sur de Israel, lo que llevó al Gobierno de Israel a declarar el estado de guerra por primera vez desde 1973. Los ataques con cohetes fueron acompañados por infiltraciones de militantes en varios de los kibutz que rodean Gaza y en la ciudad israelí de Sederot. Como resultado del ataque de Hamás en comunidades cercanas a la Franja de Gaza y en las bases del ejército israelí murieron 695 civiles israelíes (incluidos 36 menores de edad), 71 civiles extranjeros y 373 soldados y policías. Cerca del kibutz Reim, unos cincuenta milicianos provenientes de Gaza con uniforme militar mataron a 364 personas en el festival de música Supernova. Según Human Rights Watch, el ataque deliberado contra civiles, los ataques indiscriminados y la toma de civiles como rehenes por parte de Hamás constituyen crímenes de guerra según el derecho internacional humanitario.\n\nEl impacto en vidas humanas es el más alto desde que se tiene registro de conflictos entre Gaza e Israel. Los bombardeos que Israel ha lanzado en respuesta desde ese día sobre la Franja de Gaza han provocado la muerte de, al menos  personas, la gran mayoría civiles, entre ellos 14 500 niños y 8400 mujeres (en torno al 72 %), a los que se suman más de  heridos (incluidos 8663 niños y 6327 mujeres) y más de 10 000 desaparecidos, lo que elevaría la cifra de fallecidos aún más, entre ellos 4400 mujeres y niños, siendo las mujeres y los niños las principales víctimas de los ataques israelíes.Save the Children calculaba a mediados de abril que 26000 niños gazatíes habían muerto o resultado heridos por los ataques israelíes. Con más de mil casos, este conflicto ha causado el mayor número de amputaciones pediátricas de la historia. \n\nAlgunas de las acciones militares de Israel en territorio palestino han sido blanco de críticas de parte de la comunidad internacional por constituir violaciones al derecho internacional humanitario calificables como crímenes de"
+      },
+      "fr": {
+        "revid": 214882482,
+        "timestamp": "2024-05-06T16:20:00Z",
+        "title": "Guerre de Gaza depuis 2023",
+        "lead": "La guerre Israël-Hamas de 2023-2024, aussi appelée guerre Israël-Gaza de 2023-2024, est un conflit opposant originellement Israël au Hamas, organisation politico-militaire palestinienne, et d'autres groupes armés palestiniens. Elle commence avec l'attaque du Hamas contre Israël du , et se poursuit avec des bombardements aériens de la bande de Gaza entrepris par Israël, puis avec l'invasion de ce territoire palestinien. C'est le cinquième conflit entre Israël et Gaza ; elle s'inscrit plus largement dans le cadre du conflit israélo-palestinien.\n\nL'opération initiale appelée  (en  ) par ses instigateurs consiste en une série d'attaques terroristes lancées depuis la frontière entre la bande de Gaza et Israël par le Hamas, appuyé par le Jihad islamique palestinien, le Front populaire de libération de la Palestine et le Front démocratique pour la libération de la Palestine. Après le tir de plusieurs milliers de roquettes Qassam sur Israël, la barrière entre la bande de Gaza et Israël est enfoncée et plus de  envahissent plus de vingt villes et kibboutz de l'enveloppe de Gaza, dans le district sud d'Israël, faisant environ  (dont environ ) avant de prendre  en otage au moins.\n\nCette attaque, sans précédent dans le conflit israélo-arabe avec un nombre de morts et d'otages inédit dans l'histoire d'Israël, et la plus meurtrière pour les Juifs depuis la Shoah (dans un contexte historique très différent) représente pour eux un traumatisme, alors qu'ils croyaient ce type de tragédie révolue avec la création de l'État. L'attaque amorce un . Israël riposte le même jour avec l' (en  ; ), comprenant des bombardements aériens et le renforcement du blocus de la bande de Gaza déjà établi depuis 2007. À partir du , Israël entreprend une offensive terrestre initialement limitée puis s'intensifiant à partir du 27 octobre, à un moment où des roquettes palestiniennes continuent d'être tirées sur Israël.  sont évacués par mesure de sécurité.\n\nDans l'histoire des Palestiniens, le nombre de morts et les souffrances endurées à la suite des opérations militaires israéliennes sont d'une ampleur inédite. Selon le ministère de la Santé de Gaza, les bombardements sur Gaza tuent plus de , blessent , en majorité des civils. Israël impose le déplacement de plus de  (85 % de la population) du nord vers le sud et au moins  sont portées disparues. Les Gazaouis vivent cette tragédie comme une répétition de la Nakba de 1948, exode massif qui a fait, de , des réfugiés. La plupart des habitants de la bande de Gaza sont les descendants de ces Palestiniens déplacés. L'Organisation des Nations unies dénonce un risque de génocide palestinien.\n\nLe nombre de Palestiniens tués par jour atteint des niveaux très élevés comparés aux conflits récents, en Irak, en Syrie et en Ukraine. Il s'explique par l'intensité des bombardements israéliens, supérieure à celle observée durant toutes les guerres y compris la Seconde Guerre mondiale.\n\nUne crise humanitaire est provoquée par siège militaire par Israël "
+      }
+    },
+    "after": {
+      "en": {
+        "revid": 1222590616,
+        "timestamp": "2024-05-06T20:16:01Z",
+        "title": "Gaza war",
+        "lead": "An armed conflict between Israel and Hamas-led Palestinian militant groups has been taking place chiefly in and around the Gaza Strip since 7 October 2023. It began when Hamas launched a surprise attack on southern Israel from the Gaza Strip. After clearing the militants from its territory, the Israeli military embarked on an extensive aerial bombardment of the Gaza Strip followed by a large-scale ground invasion beginning on 27 October. Clashes have also occurred in the Israeli-occupied West Bank and with Hezbollah along the Israel–Lebanon border. The fifth war of the Gaza–Israel conflict since 2008, it is part of the broader Israeli–Palestinian conflict, and the most significant military escalation in the region since the Yom Kippur War 50 years earlier.\n\nThe Hamas-led attack on 7 October involved a barrage of several thousand rockets directed at Israel concurrent to an estimated 3,000 militants breaching the Gaza–Israel barrier and attacking Israeli civilian communities and military bases. During this attack, 1,139 Israelis and foreign nationals including 766 civilians and 373 security personnel were killed, while 252 Israelis and foreigners were taken captive to the Gaza Strip with the stated goal to force Israel to release Palestinian prisoners.. The attack has been described as a major Israeli intelligence failure. Hamas said its attack was in response to the continued Israeli occupation of the Palestinian territories, the blockade of the Gaza Strip, the expansion of illegal Israeli settlements, threats to the status of the Al-Aqsa Mosque and the plight of Palestinian refugees and prisoners. In response, Israel declared a state of war, tightened its blockade and launched one of the deadliest and most destructive bombing campaigns in modern history, before commencing the ground invasion on 27 October with the stated dual-objective of destroying Hamas and releasing the hostages, stating it would control Gaza following the war. In spite of the declarations made by extreme right parties government officials clearly stated that Israel does not intend to occupy Gaza for a long time. \n\nSince the start of the Israeli operation, more than 34,000 Palestinians in Gaza have been killed, with a majority consisting of over 14,000 children and 9,000 women. Over 10,000 others are missing and presumed trapped under rubble. Nearly all of the strip's 2.3 million population has been internally displaced. Israel's tightened blockade cut off food, water and medicine, and its attacks on infrastructure have led to a humanitarian crisis in the Gaza Strip, including a collapse of the healthcare system and an ongoing famine, leading to accusations that Israel is using starvation as a weapon of war. By early 2024, Israeli forces had destroyed or damaged more than half of Gaza's houses, at least a third of its tree cover and farmland, most of its schools,  all of its twelve universities, hundreds of cultural landmarks, and dozens of cemeteries. Israel's ground invasion"
+      },
+      "ar": {
+        "revid": 66844878,
+        "timestamp": "2024-05-08T10:41:52Z",
+        "title": "الحرب الفلسطينية الإسرائيلية (2023–الآن)",
+        "lead": "عمليّة طُوفان الأقصى، أو الحرب الفلسطينية الإسرائيلية أو حرب حماس وإسرائيل وفي إسرائيل عمليّة السُّيُوف الحديديَّة، كما تُشير إليها بعض المصادر بالانتفاضة الثالثة أو مجزرة غزة، هو صراع مسلح مستمر بدأ في 7 أكتوبر 2023 بين الجماعات الفلسطينية المسلحة بقيادة حركة حماس من جهة وبين الجيش الإسرائيلي من جهة أخرى. انطلق النزاع بهجوم نوعي منسق ومُفاجئ شنته حركة حماس على إسرائيل، والذي بدأ في صباح يوم السبت (7 تشرين الأول/أكتوبر 2023 م) الموافق لـ (22 ربيع الأوَّل 1445 هـ) بإطلاق ما لا يقل عن 3000 صاروخ من قطاع غزة الذي تسيطر عليه حماس باتجاه إسرائيل. بالموازاة مع اختراق حوالي 2500 مسلح فلسطيني الحاجز بين غزة وإسرائيل بِشَنِّهِم لهجوم عبر السّيارات رُباعيّة الدّفع والدّراجات النّارية والطّائرات الشّراعيّة وغيرها على البلدات المتاخمة للقطاع، والتي تُعرف باسم غلاف غزة، حيث سيطروا على عددٍ من المواقع العسكريّة خاصة في سديروت، ووصلوا أوفاكيم، واقتحموا نتيفوت، وخاضوا اشتباكاتٍ عنيفة في المستوطنات الثلاثة وفي مستوطنات أخرى كما أسروا عددًا من الجنودوالمواطنين واقتادوهم لغَزَّة فضلًا عن اغتنامِ مجموعةٍ من الآليّات العسكريّة الإسرائيليَّة. أدى الهجوم إلى مقتل ما لا يقل عن 1400 إسرائيلي بما في ذلك 260 شخصًا في مهرجان رعيم الموسيقي. فيما بدأت إسرائيل في شن هجمات انتقامية قبل أن تعلن الحرب رسميًا على حماس في اليوم التالي. وبعد مرور شهر من الحرب، إرتفع قتلى غزة إلى34000 بينهم 19324 طفلاً و9823 امرأة.https://www.alarabiya.net/arab-and-world/2023/11/08/%D8%A7%D8%B4%D8%AA%D8%A8%D8%A7%D9%83%D8%A7%D8%AA-%D8%A8%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B7%D9%82-%D8%A7%D9%84%D8%B4%D8%B1%D9%82%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D8%B4%D9%85%D8%A7%D9%84%D9%8A%D8%A9-%D9%84%D9%82%D8%B7%D8%A7%D8%B9-%D8%BA%D8%B2%D8%A9-%D9%88%D8%B5%D9%81%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D8%A7%D9%86%D8%B0%D8%A7%D8%B1-%D8%AA%D8%AF%D9%88%D9%8A-%D8%A8%D8%A7%D9%84%D8%BA%D9%84%D8%A7%D9%81 \n\nاعتبرت قنوات إسرائيلية ووسائل إعلام غربية الهجوم الذي شنته حركة حماس على مهرجان موسيقى الرقص «تجمع سوبر نوفا سوكوت» خارج مستوطنة رعيم بـ«المذبحة» معتبرةً إياه أكثر الهجمات دموية في التاريخ. وتزامنت عملية طوفان الأقصى التي نفذتها حركة حماس مع نهاية عطلة عيد العرش اليهودي والذي يصادف مرور 50 عامًا على «حرب أكتوبر» عام 1973.\n\nيعود التاريخ الحديث للصراع بين غزة وإسرائيل إلى عام 2006. غير أن حركة حماس تجنبت الخوض في أي اشتباكات كبيرة مع إسرائيل منذ عام 2022 ومعظم عام 2023، ما دفع المحللين إلى استنتاج أنها كانت تستعد لهجومها الكبير الذي أسمته عملية طوفان الأقصى. كما وصرحت حماس بأنها تلقت دعمًا من إيران للهجوم، الذي تقول إنه جاء ردًا على عنف المستوطنين الإسرائيليين، والحصار المفروض على قطاع غزة، وتدنيس المسجد الأقصى في القدس، فضلاً عن الفظائع الإسرائيلية ضد الفلسطينيين على مدى العقود الماضية.\n\nردًا على ذلك، بدأت قوات إسرائيل هجومها باستعادة السيطرة على المستوطنات التي سبق لقوات حماس السيطرة عليها، كما نَفَّذَت غارات جوية على قطاع غزة، وأعلنت حالة الحرب وشددت حصارها وشنت واحدة من أكثر حملات القصف دموية وتدميرًا في التاريخ الحديث، أدى الهجوم الإسرائيلي إلى مقتل 34,622 فلسطينيًا في غزة، منهم 14,944 طفلًا و9,849 إمرأة وهناك أكثر من 10,000 آخرين في عداد المفقودين ومحاصرون تحت الأنقاض. وأفادت الأمم المتحدة أن حوالي مليون فلسطيني، أي ما يقرب "
+      },
+      "he": {
+        "revid": 38597753,
+        "timestamp": "2024-05-06T20:24:29Z",
+        "title": "זירת רצועת עזה במלחמת חרבות ברזל",
+        "lead": "ממוזער|חיילים עוברים במעבר ארז במלחמת חרבות ברזל אל עבר שטחי צפון רצועת עזה\n300px|שמאל|lang=he\nממוזער|כרוז המכריז על המלצה דחופה לפינוי אוכלוסיה בעזה משכונות שונות, שפוזר באוויר במהלך מלחמת חרבות ברזל. למעלה מקור, למטה תרגום מכונה.\nהלחימה ברצועת עזה במלחמת חרבות ברזל היא הלחימה בזירה המרכזית במלחמת חרבות ברזל, עליה הכריזה מדינת ישראל בעקבות מתקפת הפתע על ישראל שבוצעה על ידי ארגוני הטרור מרצועת עזה בהובלת חמאס, ארגון טרור אסלאמיסטי-סוני פלסטיני, ב-7 באוקטובר 2023, שמחת תורה, כ\"ב בתשרי ה'תשפ\"ד.\n\nראשית המערכה החלה בתקיפת חיל האוויר הישראלי על אלפי יעדים ברצועת עזה, ואליה הצטרפו בהמשך חיל הים הישראלי וחילות הקרקע.\n\nהחל מ-26 באוקטובר החלו פשיטות קרקעיות לעומק שטח רצועת עזה במטרה להכין את השטח לקראת המערכה המרכזית לטיהור רצועת עזה ממחבלי חמאס, הג'יהאד האסלאמי הפלסטיני ויתר הפלגים של ארגוני הטרור הפלסטינים, וכן חיסול התשתית הצבאית של חמאס, על ידי חילות הרגלים והצנחנים, התותחנים, ההנדסה הקרבית והשריון.\n\nהחל מ-9 בנובמבר החלו כוחות הרגלים של צה\"ל לפשוט על הרובע הביטחוני של חמאס בעזה בשילוב מדויק של תקיפות מהאוויר על ידי חיל האוויר הישראלי במטרה \"לסכל כמה שיותר איומים ביטחוניים בטווח הזמן המיידי\".\n\nעד סוף נובמבר, פעלו הכוחות ברוב צפון הרצועה, כולל בבית חאנון וברובה של העיר עזה. בדצמבר, הרחיב צה\"ל את פעילותו הקרקעית לאזור ח'אן יונס ונכנס לשכונת שג'אעייה ולעומק העיר ג'באליה. הלחימה התחלקה למספר קרבות עיקריים: קרב בית חאנון, קרב ג'באליה, קרב עזה, קרב שג'עיה, קרב ח'אן יונס והקרב במחנות המרכז."
+      },
+      "es": {
+        "revid": 159954507,
+        "timestamp": "2024-05-06T22:35:13Z",
+        "title": "Guerra de Gaza",
+        "lead": "thumb|upright=1.8|Suma acumulada del número de víctimas del conflicto palestino-israelí desde el 1 de octubre de 2023 al 16 de febrero de 2024. Fuente: Kaggle\n\nLa guerra Israel-Gaza, también llamada guerra de Gaza, guerra en Gaza  y guerra Israel-Hamás, es un conflicto armado en curso que comenzó el 7 de octubre de 2023, mientras los israelíes festejaban la fiesta de Sucot, cuando grupos armados de militantes palestinos, principalmente de Hamás y la Yihad Islámica Palestina, lanzaron un gran ataque contra Israel desde la Franja de Gaza con una andanada de cohetes y un ataque de comandos en camiones, motocicletas y parapentes motorizados. El ataque, denominado «Operación Inundación de Al-Aqsa», tomó a Israel por sorpresa pese a ocurrir al día siguiente al 50.º aniversario de la guerra de Yom Kippur. Israel respondería poco después con una represalia denominada «Operación Espadas de Hierro», que incluiría bombardeos e incursiones militares contra la Franja de Gaza.\n\nLos militantes armados de Hamás capturaron un gran número de rehenes tras sucesivas razias en el sur de Israel, lo que llevó al Gobierno de Israel a declarar el estado de guerra por primera vez desde 1973. Los ataques con cohetes fueron acompañados por infiltraciones de militantes en varios de los kibutz que rodean Gaza y en la ciudad israelí de Sederot. Como resultado del ataque de Hamás en comunidades cercanas a la Franja de Gaza y en las bases del ejército israelí murieron 695 civiles israelíes (incluidos 36 menores de edad), 71 civiles extranjeros y 373 soldados y policías. Cerca del kibutz Reim, unos cincuenta milicianos provenientes de Gaza con uniforme militar mataron a 364 personas en el festival de música Supernova. Según Human Rights Watch, el ataque deliberado contra civiles, los ataques indiscriminados y la toma de civiles como rehenes por parte de Hamás constituyen crímenes de guerra según el derecho internacional humanitario.\n\nEl impacto en vidas humanas es el más alto desde que se tiene registro de conflictos entre Gaza e Israel. Los bombardeos que Israel ha lanzado en respuesta desde ese día sobre la Franja de Gaza han provocado la muerte de, al menos  personas, la gran mayoría civiles, entre ellos 14 500 niños y 8400 mujeres (en torno al 72 %), a los que se suman más de  heridos (incluidos 8663 niños y 6327 mujeres) y más de 10 000 desaparecidos, lo que elevaría la cifra de fallecidos aún más, entre ellos 4400 mujeres y niños, siendo las mujeres y los niños las principales víctimas de los ataques israelíes.Save the Children calculaba a mediados de abril que 26000 niños gazatíes habían muerto o resultado heridos por los ataques israelíes. Con más de mil casos, este conflicto ha causado el mayor número de amputaciones pediátricas de la historia. \n\nAlgunas de las acciones militares de Israel en territorio palestino han sido blanco de críticas de parte de la comunidad internacional por constituir violaciones al derecho internacional humanitario calificables como crímenes de"
+      },
+      "fr": {
+        "revid": 214891235,
+        "timestamp": "2024-05-06T22:26:07Z",
+        "title": "Guerre de Gaza depuis 2023",
+        "lead": "La guerre Israël-Hamas de 2023-2024, aussi appelée guerre Israël-Gaza de 2023-2024, est un conflit opposant originellement Israël au Hamas, organisation politico-militaire palestinienne, et d'autres groupes armés palestiniens. Elle commence avec l'attaque du Hamas contre Israël du , et se poursuit avec des bombardements aériens de la bande de Gaza entrepris par Israël, puis avec l'invasion de ce territoire palestinien. C'est le cinquième conflit entre Israël et Gaza ; elle s'inscrit plus largement dans le cadre du conflit israélo-palestinien.\n\nL'opération initiale appelée  (en  ) par ses instigateurs consiste en une série d'attaques terroristes lancées depuis la frontière entre la bande de Gaza et Israël par le Hamas, appuyé par le Jihad islamique palestinien, le Front populaire de libération de la Palestine et le Front démocratique pour la libération de la Palestine. Après le tir de plusieurs milliers de roquettes Qassam sur Israël, la barrière entre la bande de Gaza et Israël est enfoncée et plus de  envahissent plus de vingt villes et kibboutz de l'enveloppe de Gaza, dans le district sud d'Israël, faisant environ  (dont environ ) avant de prendre  en otage au moins.\n\nCette attaque, sans précédent dans le conflit israélo-arabe avec un nombre de morts et d'otages inédit dans l'histoire d'Israël, et la plus meurtrière pour les Juifs depuis la Shoah (dans un contexte historique très différent) représente pour eux un traumatisme, alors qu'ils croyaient ce type de tragédie révolue avec la création de l'État. L'attaque amorce un . Israël riposte le même jour avec l' (en  ; ), comprenant des bombardements aériens et le renforcement du blocus de la bande de Gaza déjà établi depuis 2007. À partir du , Israël entreprend une offensive terrestre initialement limitée puis s'intensifiant à partir du 27 octobre, à un moment où des roquettes palestiniennes continuent d'être tirées sur Israël.  sont évacués par mesure de sécurité.\n\nDans l'histoire des Palestiniens, le nombre de morts et les souffrances endurées à la suite des opérations militaires israéliennes sont d'une ampleur inédite. Selon le ministère de la Santé de Gaza, les bombardements sur Gaza tuent plus de , blessent , en majorité des civils. Israël impose le déplacement de plus de  (85 % de la population) du nord vers le sud et au moins  sont portées disparues. Les Gazaouis vivent cette tragédie comme une répétition de la Nakba de 1948, exode massif qui a fait, de , des réfugiés. La plupart des habitants de la bande de Gaza sont les descendants de ces Palestiniens déplacés. L'Organisation des Nations unies dénonce un risque de génocide palestinien.\n\nLe nombre de Palestiniens tués par jour atteint des niveaux très élevés comparés aux conflits récents, en Irak, en Syrie et en Ukraine. Il s'explique par l'intensité des bombardements israéliens, supérieure à celle observée durant toutes les guerres y compris la Seconde Guerre mondiale.\n\nUne crise humanitaire est provoquée par siège militaire par Israël "
+      }
+    }
+  },
+  "divergences": [
+    {
+      "topic": "Israeli deaths/hostages count in initial attack",
+      "editions_differ": [
+        "AR",
+        "ES"
+      ],
+      "en_says": "1,139 Israelis and foreign nationals including 766 civilians and 373 security personnel were killed, while 252 Israelis and foreigners were taken captive",
+      "other_says": "مقتل ما لا يقل عن 1400 إسرائيلي بما في ذلك 260 شخصًا في مهرجان رعيم الموسيقي",
+      "verdict": "contradict",
+      "evidence_en": "1,139 Israelis and foreign nationals including 766 civilians and 373 security personnel were killed",
+      "evidence_other": "أدى الهجوم إلى مقتل ما لا يقل عن 1400 إسرائيلي",
+      "temporal_read": "difference_persisted",
+      "en_before": "1,139 Israelis and foreign nationals including 766 civilians and 373 security personnel were killed, while 252 Israelis and foreigners were taken captive",
+      "en_after": "1,139 Israelis and foreign nationals including 766 civilians and 373 security personnel were killed, while 252 Israelis and foreigners were taken captive",
+      "other_before": "أدى الهجوم إلى مقتل ما لا يقل عن 1400 إسرائيلي بما في ذلك 260 شخصًا في مهرجان رعيم الموسيقي",
+      "other_after": "أدى الهجوم إلى مقتل ما لا يقل عن 1400 إسرائيلي بما في ذلك 260 شخصًا في مهرجان رعيم الموسيقي",
+      "evidence_en_before": "1,139 Israelis and foreign nationals including 766 civilians and 373 security personnel were killed",
+      "evidence_en_after": "1,139 Israelis and foreign nationals including 766 civilians and 373 security personnel were killed",
+      "evidence_other_before": "أدى الهجوم إلى مقتل ما لا يقل عن 1400 إسرائيلي",
+      "evidence_other_after": "أدى الهجوم إلى مقتل ما لا يقل عن 1400 إسرائيلي"
+    },
+    {
+      "topic": "Palestinian death toll in Gaza",
+      "editions_differ": [
+        "AR",
+        "ES"
+      ],
+      "en_says": "more than 34,000 Palestinians in Gaza have been killed, with a majority consisting of over 14,000 children and 9,000 women",
+      "other_says": "أدى الهجوم الإسرائيلي إلى مقتل 34,622 فلسطينيًا في غزة، منهم 14,944 طفلًا و9,849 إمرأة",
+      "verdict": "agree",
+      "evidence_en": "more than 34,000 Palestinians in Gaza have been killed, with a majority consisting of over 14,000 children and 9,000 women",
+      "evidence_other": "أدى الهجوم الإسرائيلي إلى مقتل 34,622 فلسطينيًا في غزة، منهم 14,944 طفلًا و9,849 إمرأة",
+      "temporal_read": "parallel_change",
+      "en_before": "more than 34,000 Palestinians in Gaza have been killed, with a majority consisting of over 14,000 children and 9,000 women",
+      "en_after": "more than 34,000 Palestinians in Gaza have been killed, with a majority consisting of over 14,000 children and 9,000 women",
+      "other_before": "إرتفع قتلى غزة إلى34000 بينهم 19324 طفلاً و9823 امرأة",
+      "other_after": "أدى الهجوم الإسرائيلي إلى مقتل 34,622 فلسطينيًا في غزة، منهم 14,944 طفلًا و9,849 إمرأة",
+      "evidence_en_before": "more than 34,000 Palestinians in Gaza have been killed, with a majority consisting of over 14,000 children and 9,000 women",
+      "evidence_en_after": "more than 34,000 Palestinians in Gaza have been killed, with a majority consisting of over 14,000 children and 9,000 women",
+      "evidence_other_before": "إرتفع قتلى غزة إلى34000 بينهم 19324 طفلاً و9823 امرأة",
+      "evidence_other_after": "أدى الهجوم الإسرائيلي إلى مقتل 34,622 فلسطينيًا في غزة، منهم 14,944 طفلًا و9,849 إمرأة"
+    },
+    {
+      "topic": "Arabic edition added causal/response framing and updated casualty synthesis",
+      "editions_differ": [
+        "AR"
+      ],
+      "en_says": "In response, Israel declared a state of war, tightened its blockade and launched one of the deadliest and most destructive bombing campaigns in modern history",
+      "other_says": "ردًا على ذلك، بدأت قوات إسرائيل هجومها... وأعلنت حالة الحرب وشددت حصارها وشنت واحدة من أكثر حملات القصف دموية وتدميرًا في التاريخ الحديث",
+      "verdict": "agree",
+      "evidence_en": "In response, Israel declared a state of war, tightened its blockade and launched one of the deadliest and most destructive bombing campaigns in modern history",
+      "evidence_other": "وأعلنت حالة الحرب وشددت حصارها وشنت واحدة من أكثر حملات القصف دموية وتدميرًا في التاريخ الحديث",
+      "temporal_read": "english_converged",
+      "en_before": "In response, Israel declared a state of war, tightened its blockade and launched one of the deadliest and most destructive bombing campaigns in modern history",
+      "en_after": "In response, Israel declared a state of war, tightened its blockade and launched one of the deadliest and most destructive bombing campaigns in modern history",
+      "other_before": "بدأت قوات إسرائيل هجومها باستعادة السيطرة على المستوطنات التي سبق لقوات حماس السيطرة عليها كما نَفَّذَت غارات جوية على قطاع غزة، أدى الهجوم إلى مقتل 2,750 فلسطينيًا",
+      "other_after": "ردًا على ذلك، بدأت قوات إسرائيل هجومها باستعادة السيطرة على المستوطنات... وأعلنت حالة الحرب وشددت حصارها وشنت واحدة من أكثر حملات القصف دموية وتدميرًا في التاريخ الحديث",
+      "evidence_en_before": "In response, Israel declared a state of war, tightened its blockade",
+      "evidence_en_after": "In response, Israel declared a state of war, tightened its blockade",
+      "evidence_other_before": "أدى الهجوم إلى مقتل 2,750 فلسطينيًا إلى حدود 15 أكتوبر/تشرين الأول",
+      "evidence_other_after": "وأعلنت حالة الحرب وشددت حصارها وشنت واحدة من أكثر حملات القصف دموية وتدميرًا في التاريخ الحديث"
+    },
+    {
+      "topic": "English and other editions unchanged in this snapshot window",
+      "editions_differ": [
+        "ES",
+        "FR",
+        "HE"
+      ],
+      "en_says": "An armed conflict between Israel and Hamas-led Palestinian militant groups has been taking place chiefly in and around the Gaza Strip since 7 October 2023.",
+      "other_says": "No textual change detected between before and after revisions for ES, FR, and HE leads in this window.",
+      "verdict": "agree",
+      "evidence_en": "An armed conflict between Israel and Hamas-led Palestinian militant groups has been taking place chiefly in and around the Gaza Strip since 7 October 2023.",
+      "evidence_other": null,
+      "temporal_read": "unclear",
+      "en_before": "An armed conflict between Israel and Hamas-led Palestinian militant groups has been taking place chiefly in and around the Gaza Strip since 7 October 2023.",
+      "en_after": "An armed conflict between Israel and Hamas-led Palestinian militant groups has been taking place chiefly in and around the Gaza Strip since 7 October 2023.",
+      "other_before": "La guerre Israël-Hamas de 2023-2024... est un conflit opposant originellement Israël au Hamas",
+      "other_after": "La guerre Israël-Hamas de 2023-2024... est un conflit opposant originellement Israël au Hamas",
+      "evidence_en_before": "An armed conflict between Israel and Hamas-led Palestinian militant groups",
+      "evidence_en_after": "An armed conflict between Israel and Hamas-led Palestinian militant groups",
+      "evidence_other_before": "La guerre Israël-Hamas de 2023-2024",
+      "evidence_other_after": "La guerre Israël-Hamas de 2023-2024"
+    }
+  ],
+  "summary": "The English lead text is byte-identical between the before and after revisions in this window, showing no substantive change. The Arabic edition, however, updated its Gaza casualty figures (from ~34,000/19,324 children/9,823 women to 34,622/14,944 children/9,849 women, closer to the English figures) and added explicit causal framing ('in response') linking Israel's declaration of war, blockade, and bombing campaign to the initial Hamas attack, converging its structure toward the English narrative. Spanish, French, and Hebrew leads show no textual changes across their respective before/after snapshots. A persistent contradiction exists between English (1,139 killed, 252 hostages) and Arabic (at least 1,400 killed, 260 at the festival) regarding initial Israeli casualties, unresolved by either edition's edits in this window.",
+  "run_ts": "2026-07-19T17:29:11.692367+00:00",
+  "model": "claude-sonnet-5",
+  "llm_usage": {
+    "calls": 1,
+    "input_tokens": 14969,
+    "output_tokens": 3194,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 14969,
+        "output_tokens": 3194,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
+  },
+  "elapsed_seconds": 56.347
+}

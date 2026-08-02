@@ -1,0 +1,26 @@
+{
+  "article": "Racial conceptions of Jewish identity in Zionism",
+  "artifacts": [
+    "findings/Racial_conceptions_of_Jewish_identity_in_Zionism.category.json",
+    "findings/Racial_conceptions_of_Jewish_identity_in_Zionism.cost.json",
+    "findings/Racial_conceptions_of_Jewish_identity_in_Zionism.factcheck.json",
+    "findings/Racial_conceptions_of_Jewish_identity_in_Zionism.framing.json",
+    "findings/Racial_conceptions_of_Jewish_identity_in_Zionism.l1-confirmation.json",
+    "findings/Racial_conceptions_of_Jewish_identity_in_Zionism.lexical.json",
+    "findings/Racial_conceptions_of_Jewish_identity_in_Zionism.profile.json",
+    "findings/Racial_conceptions_of_Jewish_identity_in_Zionism.receipts.json",
+    "findings/Racial_conceptions_of_Jewish_identity_in_Zionism.sources.json",
+    "findings/Racial_conceptions_of_Jewish_identity_in_Zionism.stance.json",
+    "mscore/Racial_conceptions_of_Jewish_identity_in_Zionism.json"
+  ],
+  "slug": "Racial_conceptions_of_Jewish_identity_in_Zionism",
+  "tables": {
+    "articles": 0,
+    "rev_size": 1224,
+    "revisions": 1224,
+    "rsnap": 203749,
+    "snap": 0,
+    "snapshots": 0,
+    "tokens": 0
+  }
+}

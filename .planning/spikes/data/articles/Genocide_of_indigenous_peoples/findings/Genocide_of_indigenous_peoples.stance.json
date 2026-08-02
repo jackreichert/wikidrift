@@ -1,0 +1,48 @@
+{
+  "article": "Genocide of indigenous peoples",
+  "langs": [
+    "en",
+    "ar"
+  ],
+  "entities": [
+    "Genocide of indigenous peoples"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Genocide of indigenous peoples": {
+          "entity": "Genocide of indigenous peoples",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "is the elimination of indigenous peoples as a part of the process of colonialism"
+        }
+      },
+      "lead": {
+        "Genocide of indigenous peoples": {
+          "entity": "Genocide of indigenous peoples",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "evidence": "colonialist violence against indigenous peoples inherently genocidal... criticize the view of the Holocaust as unique, arguing it diminishes the significance of Indigenous genocides"
+        }
+      }
+    },
+    "ar": {
+      "focal": {
+        "Genocide of indigenous peoples": {
+          "entity": "Genocide of indigenous peoples",
+          "stance": "critical",
+          "npov_departure": false,
+          "evidence": "الإبادة الجماعية للسكان الأصليين هي التدمير الشامل لكامل مجتمعات السكان الأصليين.（The genocide of indigenous peoples is the total destruction of entire indigenous communities.）"
+        }
+      },
+      "lead": {
+        "Genocide of indigenous peoples": {
+          "entity": "Genocide of indigenous peoples",
+          "stance": "critical",
+          "npov_departure": true,
+          "evidence": "تعرض السكان الأصليين في أمريكا للذبح، التعذيب، الترهيب، الإساءة الجنسية، الاحتلال العسكري المنظم"
+        }
+      }
+    }
+  }
+}

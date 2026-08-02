@@ -1,0 +1,114 @@
+{
+  "article": "Nakba",
+  "category": "israeli-palestinian",
+  "mode": "static",
+  "pivot_window": null,
+  "editions_compared": [
+    "en",
+    "ar",
+    "he",
+    "hu",
+    "hy"
+  ],
+  "lead_chars": {
+    "en": 2807,
+    "ar": 2551,
+    "he": 1633,
+    "hu": 2583,
+    "hy": 2508
+  },
+  "snapshots": null,
+  "divergences": [
+    {
+      "topic": "Framing as ethnic cleansing vs contested historiography",
+      "editions_differ": [
+        "HE"
+      ],
+      "en_says": "The Nakba is defined outright as the ethnic cleansing of Palestinian Arabs by Zionists.",
+      "other_says": "The Hebrew edition presents the causes of the exodus as a matter of deep historiographical dispute, citing the Zionist-establishment narrative (voluntary flight, institutional collapse, fear, calls by Arab leaders to evacuate) alongside Palestinian/critical historiography (systematic ethnic cleansing, Plan D) and New Historians' views.",
+      "verdict": "contradict",
+      "evidence_en": null,
+      "evidence_other": "לפי הנרטיב הציוני-ממסדי, מרבית העזיבה הייתה בריחה מרצון שנבעה מהתמוטטות המוסדות החברתיים הפלסטיניים, פחד מפעולות מלחמה"
+    },
+    {
+      "topic": "Refugee numbers",
+      "editions_differ": [
+        "HE"
+      ],
+      "en_says": "About 750,000 people were expelled or fled.",
+      "other_says": "Estimates range from 650,000 to 760,000, with 156,000–170,000 Arabs remaining within Israel's borders after the war.",
+      "verdict": "differ",
+      "evidence_en": "around 750,000 people – were expelled from their homes or made to flee",
+      "evidence_other": null
+    },
+    {
+      "topic": "Biological warfare claim",
+      "editions_differ": [
+        "HE",
+        "HU",
+        "HY",
+        "AR"
+      ],
+      "en_says": "Israel employed biological warfare against Palestinians by poisoning village wells.",
+      "other_says": "Not mentioned in HE, HU, HY, or AR leads (AR mentions massacres and looting but not well poisoning specifically as biological warfare).",
+      "verdict": "absent_other",
+      "evidence_en": "Israel employed biological warfare against Palestinians by poisoning village wells.",
+      "evidence_other": null
+    },
+    {
+      "topic": "Origin of the term / start date of Nakba",
+      "editions_differ": [
+        "AR"
+      ],
+      "en_says": "The term describes the events of the 1948 Palestine war and Israel's ongoing persecution and displacement of Palestinians.",
+      "other_says": "Arabic edition cites Joseph Massad's argument that the Nakba began in 1881 with Jewish colonization of Palestine, not in 1947/48, and that it is an ongoing process rather than a past event.",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": null
+    },
+    {
+      "topic": "UN General Assembly commemoration of Nakba Day",
+      "editions_differ": [
+        "HE"
+      ],
+      "en_says": "Not mentioned.",
+      "other_says": "In 2023, the UN officially marked Nakba Day for the first time at the General Assembly, an event boycotted by Israel and 31 other countries.",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": "בשנת 2023 ציין האו\"ם לראשונה באופן רשמי את יום השנה לנכבה בעצרת הכללית, אירוע שהוחרם על ידי ישראל ו-31 מדינות נוספות"
+    },
+    {
+      "topic": "Naming and codification of Nakba Day",
+      "editions_differ": [
+        "AR"
+      ],
+      "en_says": "Palestinians observe Nakba Day on 15 May without detail on its formal establishment.",
+      "other_says": "Arabic edition specifies that Yasser Arafat proposed in 1998 that Palestinians commemorate the 50th anniversary as Nakba Day, formalizing a date informally used since 1949.",
+      "verdict": "absent_en",
+      "evidence_en": "Palestinians observe Nakba Day on 15 May",
+      "evidence_other": null
+    }
+  ],
+  "summary": "The English, Hungarian, and Armenian leads closely mirror each other, framing the Nakba unambiguously as ethnic cleansing with specific figures (750,000 expelled, 500+ towns depopulated, 78% land control, biological warfare via well poisoning). The Hebrew edition diverges substantially, presenting the causes as a contested historiographical debate between Zionist, Palestinian, and New Historian perspectives, using a range of refugee estimates, and omitting claims like biological warfare while adding details like the 2023 UN commemoration. The Arabic edition uses starker language ('ethnic cleansing war'), includes additional details absent from EN such as Arafat's 1998 formalization of Nakba Day, Bedouin expulsion from the Negev, and Joseph Massad's argument that the Nakba's true origin dates to 1881, framing it as an ongoing colonial process rather than a bounded historical event.",
+  "run_ts": "2026-07-19T17:43:18.369269+00:00",
+  "model": "claude-sonnet-5",
+  "llm_usage": {
+    "calls": 1,
+    "input_tokens": 7572,
+    "output_tokens": 1787,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 7572,
+        "output_tokens": 1787,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
+  },
+  "elapsed_seconds": 36.785
+}

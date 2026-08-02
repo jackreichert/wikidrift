@@ -1,0 +1,474 @@
+{
+  "schema_version": 2,
+  "article": "Climate change",
+  "run_ts": "2026-08-01T21:56:47.879303+00:00",
+  "corpus_horizon": {
+    "snapshot_date": "2026-01-01",
+    "snapshot_revid": 1330693782
+  },
+  "thresholds": {
+    "confirm_drop": 0.2,
+    "durable_quantile": 0.5,
+    "min_cohort": 500,
+    "magnitude_floor": 25.0,
+    "rolling_window_months": 12,
+    "rolling_tolerance_days": 35,
+    "rolling_drop": 20.0
+  },
+  "source_state": {
+    "article": "Climate change",
+    "source_status": "current_complete",
+    "source_checked_at": "2026-08-01T21:56:47.016186+00:00",
+    "source_latest_revid": 1365481997,
+    "expected_snapshots": 25,
+    "loaded_snapshots": 25,
+    "reason": null
+  },
+  "coarse_verdict": "PIVOT?",
+  "status": "confirmed",
+  "confirmed_episodes": [
+    {
+      "candidate_start": "2018-01-01",
+      "candidate_end": "2022-01-01",
+      "candidate_before_revid": 817863662,
+      "candidate_after_revid": 1063123677,
+      "before_revid": 840836880,
+      "before_timestamp": "2018-05-12T14:00:31Z",
+      "after_revid": 841297450,
+      "after_timestamp": "2018-05-15T00:34:18Z",
+      "durable_spine_drop": 0.874049,
+      "pwr_mass": 358747,
+      "peak_pct": 68.44,
+      "source": "interval",
+      "status": "confirmed",
+      "duration_seconds": 210827,
+      "attribution": {
+        "schema_version": 3,
+        "policy_version": "multi-revision-attribution-v1",
+        "article": "Climate change",
+        "before_revid": 840836880,
+        "before_timestamp": "2018-05-12T14:00:31Z",
+        "after_revid": 841297450,
+        "after_timestamp": "2018-05-15T00:34:18Z",
+        "event_status": "standing",
+        "semantic_role": "event_participation_receipt",
+        "revisions": [
+          {
+            "revision_id": 840836880,
+            "timestamp": "2018-05-12T14:00:31Z",
+            "account": "EMsmile",
+            "account_type": "registered",
+            "role": "stable_before",
+            "restores_revision_id": null,
+            "parent_id": null,
+            "sha1": null,
+            "edit_summary": null,
+            "tags": [],
+            "size": 190615,
+            "size_delta": null,
+            "gross_removed_tokens": 0,
+            "gross_added_tokens": 0,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 0,
+            "standing_added_tokens": 0
+          },
+          {
+            "revision_id": 841297450,
+            "timestamp": "2018-05-15T00:34:18Z",
+            "account": "EMsmile",
+            "account_type": "registered",
+            "role": "consolidation",
+            "restores_revision_id": null,
+            "parent_id": null,
+            "sha1": null,
+            "edit_summary": null,
+            "tags": [],
+            "size": 183896,
+            "size_delta": -6719,
+            "gross_removed_tokens": 1817,
+            "gross_added_tokens": 0,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 1817,
+            "standing_added_tokens": 0
+          }
+        ],
+        "gross": {
+          "removed_tokens": 1817,
+          "added_tokens": 0,
+          "restored_tokens": 0
+        },
+        "net_standing": {
+          "removed_tokens": 1817,
+          "replacement_tokens": 0
+        },
+        "removals_by_editor": [
+          {
+            "editor": "EMsmile",
+            "tokens": 1817
+          }
+        ],
+        "replacement_by_editor": [],
+        "participation": {
+          "top_removal_share": 1.0,
+          "top_replacement_share": null,
+          "top_two_removal_share": 1.0,
+          "same_top_editor": false
+        },
+        "removed_tokens": 1817,
+        "replacement_tokens": 0,
+        "top_removal_share": 1.0,
+        "top_replacement_share": null,
+        "top_two_removal_share": 1.0,
+        "same_top_editor": false,
+        "note": "Counts describe observable public revision operations and surviving token states; they do not establish identity, coordination, motive, ownership, or misconduct.",
+        "duration_seconds": 210827
+      }
+    },
+    {
+      "candidate_start": "2009-01-01",
+      "candidate_end": "2012-01-01",
+      "candidate_before_revid": 260872821,
+      "candidate_after_revid": 468729122,
+      "before_revid": 289351976,
+      "before_timestamp": "2009-05-11T23:29:50Z",
+      "after_revid": 289402573,
+      "after_timestamp": "2009-05-12T05:12:01Z",
+      "durable_spine_drop": 0.687142,
+      "pwr_mass": 59131,
+      "peak_pct": 42.15,
+      "source": "interval",
+      "status": "confirmed",
+      "duration_seconds": 20531,
+      "attribution": {
+        "schema_version": 3,
+        "policy_version": "multi-revision-attribution-v1",
+        "article": "Climate change",
+        "before_revid": 289351976,
+        "before_timestamp": "2009-05-11T23:29:50Z",
+        "after_revid": 289402573,
+        "after_timestamp": "2009-05-12T05:12:01Z",
+        "event_status": "standing",
+        "semantic_role": "event_participation_receipt",
+        "revisions": [
+          {
+            "revision_id": 289351976,
+            "timestamp": "2009-05-11T23:29:50Z",
+            "account": "Stephan Schulz",
+            "account_type": "registered",
+            "role": "stable_before",
+            "restores_revision_id": null,
+            "parent_id": null,
+            "sha1": null,
+            "edit_summary": null,
+            "tags": [],
+            "size": 94449,
+            "size_delta": null,
+            "gross_removed_tokens": 0,
+            "gross_added_tokens": 0,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 0,
+            "standing_added_tokens": 0
+          },
+          {
+            "revision_id": 289402573,
+            "timestamp": "2009-05-12T05:12:01Z",
+            "account": "ChyranandChloe",
+            "account_type": "registered",
+            "role": "consolidation",
+            "restores_revision_id": null,
+            "parent_id": null,
+            "sha1": null,
+            "edit_summary": null,
+            "tags": [],
+            "size": 93346,
+            "size_delta": -1103,
+            "gross_removed_tokens": 610,
+            "gross_added_tokens": 173,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 610,
+            "standing_added_tokens": 173
+          }
+        ],
+        "gross": {
+          "removed_tokens": 610,
+          "added_tokens": 173,
+          "restored_tokens": 0
+        },
+        "net_standing": {
+          "removed_tokens": 610,
+          "replacement_tokens": 173
+        },
+        "removals_by_editor": [
+          {
+            "editor": "ChyranandChloe",
+            "tokens": 610
+          }
+        ],
+        "replacement_by_editor": [
+          {
+            "editor": "ChyranandChloe",
+            "tokens": 173
+          }
+        ],
+        "participation": {
+          "top_removal_share": 1.0,
+          "top_replacement_share": 1.0,
+          "top_two_removal_share": 1.0,
+          "same_top_editor": true
+        },
+        "removed_tokens": 610,
+        "replacement_tokens": 173,
+        "top_removal_share": 1.0,
+        "top_replacement_share": 1.0,
+        "top_two_removal_share": 1.0,
+        "same_top_editor": true,
+        "note": "Counts describe observable public revision operations and surviving token states; they do not establish identity, coordination, motive, ownership, or misconduct.",
+        "duration_seconds": 20531
+      }
+    }
+  ],
+  "evaluated_candidates": [
+    {
+      "candidate_start": "2018-01-01",
+      "candidate_end": "2022-01-01",
+      "candidate_before_revid": 817863662,
+      "candidate_after_revid": 1063123677,
+      "source": "interval",
+      "pwr_mass": 358747,
+      "peak_pct": 68.44,
+      "exact_before_revid": 840836880,
+      "exact_before_timestamp": "2018-05-12T14:00:31Z",
+      "exact_after_revid": 841297450,
+      "exact_after_timestamp": "2018-05-15T00:34:18Z",
+      "durable_spine_drop": 0.874049,
+      "decision": "confirmed",
+      "rejection_reason": null
+    },
+    {
+      "candidate_start": "2009-01-01",
+      "candidate_end": "2012-01-01",
+      "candidate_before_revid": 260872821,
+      "candidate_after_revid": 468729122,
+      "source": "interval",
+      "pwr_mass": 59131,
+      "peak_pct": 42.15,
+      "exact_before_revid": 289351976,
+      "exact_before_timestamp": "2009-05-11T23:29:50Z",
+      "exact_after_revid": 289402573,
+      "exact_after_timestamp": "2009-05-12T05:12:01Z",
+      "durable_spine_drop": 0.687142,
+      "decision": "confirmed",
+      "rejection_reason": null
+    },
+    {
+      "candidate_start": "2007-01-01",
+      "candidate_end": "2008-01-01",
+      "candidate_before_revid": 97639967,
+      "candidate_after_revid": 181731015,
+      "source": "interval",
+      "pwr_mass": 19360,
+      "peak_pct": 73.43,
+      "exact_before_revid": 149503121,
+      "exact_before_timestamp": "2007-08-06T08:32:42Z",
+      "exact_after_revid": 149575975,
+      "exact_after_timestamp": "2007-08-06T17:14:00Z",
+      "durable_spine_drop": 0.0,
+      "decision": "rejected",
+      "rejection_reason": "durable_spine_drop_below_threshold"
+    }
+  ],
+  "interval_profile": [
+    {
+      "start": "2002-01-01",
+      "end": "2003-01-01",
+      "size": 2845,
+      "pwr_loss": 45.87,
+      "pwr_removed": 1305,
+      "mature": false
+    },
+    {
+      "start": "2003-01-01",
+      "end": "2004-01-01",
+      "size": 4108,
+      "pwr_loss": 47.43,
+      "pwr_removed": 2679,
+      "mature": false
+    },
+    {
+      "start": "2004-01-01",
+      "end": "2005-01-01",
+      "size": 5563,
+      "pwr_loss": 40.34,
+      "pwr_removed": 3442,
+      "mature": false
+    },
+    {
+      "start": "2005-01-01",
+      "end": "2006-01-01",
+      "size": 9548,
+      "pwr_loss": 81.06,
+      "pwr_removed": 11868,
+      "mature": false
+    },
+    {
+      "start": "2006-01-01",
+      "end": "2007-01-01",
+      "size": 8376,
+      "pwr_loss": 36.16,
+      "pwr_removed": 4033,
+      "mature": false
+    },
+    {
+      "start": "2007-01-01",
+      "end": "2008-01-01",
+      "size": 18761,
+      "pwr_loss": 73.43,
+      "pwr_removed": 19360,
+      "mature": true
+    },
+    {
+      "start": "2008-01-01",
+      "end": "2009-01-01",
+      "size": 21893,
+      "pwr_loss": 12.83,
+      "pwr_removed": 3715,
+      "mature": true
+    },
+    {
+      "start": "2009-01-01",
+      "end": "2010-01-01",
+      "size": 26165,
+      "pwr_loss": 42.15,
+      "pwr_removed": 21705,
+      "mature": true
+    },
+    {
+      "start": "2010-01-01",
+      "end": "2011-01-01",
+      "size": 25324,
+      "pwr_loss": 36.77,
+      "pwr_removed": 20320,
+      "mature": true
+    },
+    {
+      "start": "2011-01-01",
+      "end": "2012-01-01",
+      "size": 28350,
+      "pwr_loss": 26.9,
+      "pwr_removed": 17106,
+      "mature": true
+    },
+    {
+      "start": "2012-01-01",
+      "end": "2013-01-01",
+      "size": 36655,
+      "pwr_loss": 11.34,
+      "pwr_removed": 9517,
+      "mature": true
+    },
+    {
+      "start": "2013-01-01",
+      "end": "2014-01-01",
+      "size": 40014,
+      "pwr_loss": 13.7,
+      "pwr_removed": 15794,
+      "mature": true
+    },
+    {
+      "start": "2014-01-01",
+      "end": "2015-01-01",
+      "size": 43593,
+      "pwr_loss": 11.74,
+      "pwr_removed": 16876,
+      "mature": true
+    },
+    {
+      "start": "2015-01-01",
+      "end": "2016-01-01",
+      "size": 43366,
+      "pwr_loss": 9.13,
+      "pwr_removed": 15613,
+      "mature": true
+    },
+    {
+      "start": "2016-01-01",
+      "end": "2017-01-01",
+      "size": 47827,
+      "pwr_loss": 3.7,
+      "pwr_removed": 7567,
+      "mature": true
+    },
+    {
+      "start": "2017-01-01",
+      "end": "2018-01-01",
+      "size": 51043,
+      "pwr_loss": 6.08,
+      "pwr_removed": 15067,
+      "mature": true
+    },
+    {
+      "start": "2018-01-01",
+      "end": "2019-01-01",
+      "size": 53319,
+      "pwr_loss": 25.98,
+      "pwr_removed": 74441,
+      "mature": true
+    },
+    {
+      "start": "2019-01-01",
+      "end": "2020-01-01",
+      "size": 52508,
+      "pwr_loss": 68.44,
+      "pwr_removed": 181475,
+      "mature": true
+    },
+    {
+      "start": "2020-01-01",
+      "end": "2021-01-01",
+      "size": 75175,
+      "pwr_loss": 47.35,
+      "pwr_removed": 77677,
+      "mature": true
+    },
+    {
+      "start": "2021-01-01",
+      "end": "2022-01-01",
+      "size": 72015,
+      "pwr_loss": 15.55,
+      "pwr_removed": 25154,
+      "mature": true
+    },
+    {
+      "start": "2022-01-01",
+      "end": "2023-01-01",
+      "size": 72397,
+      "pwr_loss": 6.43,
+      "pwr_removed": 13521,
+      "mature": true
+    },
+    {
+      "start": "2023-01-01",
+      "end": "2024-01-01",
+      "size": 74684,
+      "pwr_loss": 3.12,
+      "pwr_removed": 8507,
+      "mature": true
+    },
+    {
+      "start": "2024-01-01",
+      "end": "2025-01-01",
+      "size": 80239,
+      "pwr_loss": 13.43,
+      "pwr_removed": 46409,
+      "mature": true
+    },
+    {
+      "start": "2025-01-01",
+      "end": "2026-01-01",
+      "size": 85364,
+      "pwr_loss": 1.31,
+      "pwr_removed": 5072,
+      "mature": true
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "article": "Warsaw concentration camp",
+  "entities": [
+    "Poland",
+    "Germany",
+    "Jews"
+  ],
+  "langs": [
+    "en",
+    "pl",
+    "de"
+  ],
+  "editions": {
+    "en": {
+      "native_labels": {
+        "Poland": "Poland",
+        "Germany": "Germany",
+        "Jews": "Jews"
+      },
+      "focal_empty": false,
+      "focal": {
+        "Poland": {
+          "entity": "Poland",
+          "stance": "sympathetic",
+          "npov_departure": false,
+          "evidence": "liberated 348 Jews...the only German camp in Poland to be liberated by anti-Nazi resistance forces"
+        },
+        "Germany": {
+          "entity": "Germany",
+          "stance": "critical",
+          "npov_departure": false,
+          "evidence": "The guards were torturing and murdering the Jews on a whim, viewing them as enemies of the state"
+        },
+        "Jews": {
+          "entity": "Jews",
+          "stance": "sympathetic",
+          "npov_departure": false,
+          "evidence": "The Jews were subjected to extermination through labour...guards were torturing and murdering the Jews on a whim"
+        }
+      },
+      "lead": {
+        "Poland": {
+          "entity": "Poland",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "in German-occupied Poland during World War II... the victims being Polish political prisoners"
+        },
+        "Germany": {
+          "entity": "Germany",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "a Nazi concentration camp in German-occupied Poland... on the order of Reichsführer-SS Heinrich Himmler"
+        },
+        "Jews": {
+          "entity": "Jews",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "all but 300 of whom were Jews from various European countries... used as forced labor to clean the ruins of the Warsaw Ghetto"
+        }
+      }
+    },
+    "pl": {
+      "native_labels": {
+        "Poland": "Polska",
+        "Germany": "Niemcy",
+        "Jews": "Żydzi"
+      },
+      "focal_empty": false,
+      "focal": {
+        "Poland": {
+          "entity": "Poland",
+          "stance": "sympathetic",
+          "npov_departure": false,
+          "evidence": "Niemcy masowo rozstrzeliwali polskich więźniów politycznych, zakładników schwytanych w czasie ulicznych łapanek"
+        },
+        "Germany": {
+          "entity": "Germany",
+          "stance": "critical",
+          "npov_departure": false,
+          "evidence": "Niemcy masowo rozstrzeliwali polskich więźniów politycznych ... Żydów ujętych „po aryjskiej stronie”"
+        },
+        "Jews": {
+          "entity": "Jews",
+          "stance": "sympathetic",
+          "npov_departure": false,
+          "evidence": "których zmuszano do pracy ... Żydzi ukrywający się w ruinach getta, których często odnajdywano ... i rozstrzeliwano na miejscu"
+        }
+      },
+      "lead": {
+        "Poland": {
+          "entity": "Poland",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Masowo rozstrzeliwano tam polskich więźniów politycznych, ofiary łapanek... w tym ok. 10 tys. Polaków"
+        },
+        "Germany": {
+          "entity": "Germany",
+          "stance": "critical",
+          "npov_departure": false,
+          "evidence": "niemiecki nazistowski obóz koncentracyjny utworzony na rozkaz Reichsführera-SS Heinricha Himmlera"
+        },
+        "Jews": {
+          "entity": "Jews",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Byli to Żydzi z różnych krajów Europy, których zmuszano do pracy przy rozbiórce ruin getta"
+        }
+      }
+    },
+    "de": {
+      "native_labels": {
+        "Poland": "Polen",
+        "Germany": "Deutschland",
+        "Jews": "Juden"
+      },
+      "focal_empty": false,
+      "focal": {
+        "Poland": {
+          "entity": "Poland",
+          "stance": "sympathetic",
+          "npov_departure": false,
+          "evidence": "Etwa 200.000 Polen seien dort ermordet worden."
+        },
+        "Germany": {
+          "entity": "Germany",
+          "stance": "critical",
+          "npov_departure": false,
+          "evidence": "löste die SS die Ghettos im Generalgouvernement schrittweise auf und verschleppte die Juden in Vernichtungslager"
+        },
+        "Jews": {
+          "entity": "Jews",
+          "stance": "sympathetic",
+          "npov_departure": false,
+          "evidence": "verschleppte die Juden in Vernichtungslager der Aktion Reinhardt oder erschoss sie an Ort und Stelle"
+        }
+      },
+      "lead": {
+        "Poland": {
+          "entity": "Poland",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "Nach den Erkenntnissen des Polnischen Instituts für Nationales Gedenken starben im Lager etwa 20.000 Menschen."
+        },
+        "Germany": {
+          "entity": "Germany",
+          "stance": "critical",
+          "npov_departure": false,
+          "evidence": "Seit März 1942 löste die SS die Ghettos im Generalgouvernement schrittweise auf und verschleppte die Juden in Vernichtungslager... oder erschoss sie an Ort und Stelle."
+        },
+        "Jews": {
+          "entity": "Jews",
+          "stance": "neutral",
+          "npov_departure": false,
+          "evidence": "verschleppte die Juden in Vernichtungslager der Aktion Reinhardt oder erschoss sie an Ort und Stelle"
+        }
+      }
+    }
+  }
+}

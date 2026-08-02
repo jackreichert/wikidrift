@@ -1,0 +1,921 @@
+{
+  "article_count": 37,
+  "articles": [
+    {
+      "article": "2026 United States intervention in Venezuela",
+      "artifacts": [],
+      "slug": "2026_United_States_intervention_in_Venezuela",
+      "tables": {
+        "articles": 0,
+        "rev_size": 3956,
+        "revisions": 3956,
+        "rsnap": 98754,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Abortion",
+      "artifacts": [
+        "findings/Abortion.category.json",
+        "findings/Abortion.cost.json",
+        "findings/Abortion.factcheck.json",
+        "findings/Abortion.framing.json",
+        "findings/Abortion.l1-confirmation.json",
+        "findings/Abortion.lexical.json",
+        "findings/Abortion.profile.json",
+        "findings/Abortion.receipts.json",
+        "findings/Abortion.sources.json",
+        "findings/Abortion.stance.json",
+        "mscore/Abortion.json"
+      ],
+      "slug": "Abortion",
+      "tables": {
+        "articles": 0,
+        "rev_size": 13947,
+        "revisions": 13947,
+        "rsnap": 726083,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Ainu people",
+      "artifacts": [
+        "findings/Ainu_people.category.json",
+        "findings/Ainu_people.cost.json",
+        "findings/Ainu_people.factcheck.json",
+        "findings/Ainu_people.framing.json",
+        "findings/Ainu_people.l1-confirmation.json",
+        "findings/Ainu_people.lexical.json",
+        "findings/Ainu_people.profile.json",
+        "findings/Ainu_people.receipts.json",
+        "findings/Ainu_people.sources.json",
+        "findings/Ainu_people.stance.json",
+        "logs/analysis-2026-07-30/Ainu_people.rolling-corpus-benchmark.log",
+        "mscore/Ainu_people.json"
+      ],
+      "slug": "Ainu_people",
+      "tables": {
+        "articles": 0,
+        "rev_size": 4728,
+        "revisions": 4728,
+        "rsnap": 1028027,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Anti-Zionism",
+      "artifacts": [
+        "findings/Anti-Zionism.category.json",
+        "findings/Anti-Zionism.cost.json",
+        "findings/Anti-Zionism.factcheck.json",
+        "findings/Anti-Zionism.framing.json",
+        "findings/Anti-Zionism.l1-confirmation.json",
+        "findings/Anti-Zionism.lexical.json",
+        "findings/Anti-Zionism.profile.json",
+        "findings/Anti-Zionism.receipts.json",
+        "findings/Anti-Zionism.sources.json",
+        "findings/Anti-Zionism.stance.json",
+        "logs/analysis-2026-07-30/Anti-Zionism.rolling-corpus-benchmark.log",
+        "mscore/Anti-Zionism.json"
+      ],
+      "slug": "Anti-Zionism",
+      "tables": {
+        "articles": 0,
+        "rev_size": 6259,
+        "revisions": 6259,
+        "rsnap": 927200,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Bar Kokhba Revolt",
+      "artifacts": [
+        "findings/Bar_Kokhba_Revolt.category.json",
+        "findings/Bar_Kokhba_Revolt.cost.json",
+        "findings/Bar_Kokhba_Revolt.factcheck.json",
+        "findings/Bar_Kokhba_Revolt.framing.json",
+        "findings/Bar_Kokhba_Revolt.l1-confirmation.json",
+        "findings/Bar_Kokhba_Revolt.lexical.json",
+        "findings/Bar_Kokhba_Revolt.profile.json",
+        "findings/Bar_Kokhba_Revolt.receipts.json",
+        "findings/Bar_Kokhba_Revolt.sources.json",
+        "findings/Bar_Kokhba_Revolt.stance.json",
+        "mscore/Bar_Kokhba_Revolt.json"
+      ],
+      "slug": "Bar_Kokhba_Revolt",
+      "tables": {
+        "articles": 0,
+        "rev_size": 2611,
+        "revisions": 2611,
+        "rsnap": 581395,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Bioglass_45S5",
+      "artifacts": [],
+      "slug": "Bioglass_45S5",
+      "tables": {
+        "articles": 1,
+        "rev_size": 0,
+        "revisions": 246,
+        "rsnap": 0,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 6970
+      }
+    },
+    {
+      "article": "Brontosaurus",
+      "artifacts": [
+        "findings/Brontosaurus.category.json",
+        "findings/Brontosaurus.cost.json",
+        "findings/Brontosaurus.framing.json",
+        "findings/Brontosaurus.l1-confirmation.json",
+        "findings/Brontosaurus.lexical.json",
+        "findings/Brontosaurus.profile.json",
+        "findings/Brontosaurus.receipts.json",
+        "findings/Brontosaurus.sources.json",
+        "findings/Brontosaurus.stance.json",
+        "mscore/Brontosaurus.json"
+      ],
+      "slug": "Brontosaurus",
+      "tables": {
+        "articles": 0,
+        "rev_size": 1165,
+        "revisions": 1165,
+        "rsnap": 424864,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Chess",
+      "artifacts": [
+        "findings/Chess.category.json",
+        "findings/Chess.cost.json",
+        "findings/Chess.framing.json",
+        "findings/Chess.l1-confirmation.json",
+        "findings/Chess.lexical.json",
+        "findings/Chess.profile.json",
+        "findings/Chess.receipts.json",
+        "findings/Chess.sources.json",
+        "findings/Chess.stance.json",
+        "mscore/Chess.json"
+      ],
+      "slug": "Chess",
+      "tables": {
+        "articles": 0,
+        "rev_size": 11761,
+        "revisions": 11761,
+        "rsnap": 632024,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Climate change",
+      "artifacts": [
+        "findings/Climate_change.category.json",
+        "findings/Climate_change.cost.json",
+        "findings/Climate_change.framing.json",
+        "findings/Climate_change.l1-confirmation.json",
+        "findings/Climate_change.lexical.json",
+        "findings/Climate_change.profile.json",
+        "findings/Climate_change.receipts.json",
+        "findings/Climate_change.sources.json",
+        "findings/Climate_change.stance.json",
+        "mscore/Climate_change.json"
+      ],
+      "slug": "Climate_change",
+      "tables": {
+        "articles": 0,
+        "rev_size": 27352,
+        "revisions": 27352,
+        "rsnap": 1068495,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Collaboration in German-occupied Poland",
+      "artifacts": [
+        "findings/Collaboration_in_German-occupied_Poland.category.json",
+        "findings/Collaboration_in_German-occupied_Poland.cost.json",
+        "findings/Collaboration_in_German-occupied_Poland.factcheck.json",
+        "findings/Collaboration_in_German-occupied_Poland.framing.json",
+        "findings/Collaboration_in_German-occupied_Poland.l1-confirmation.json",
+        "findings/Collaboration_in_German-occupied_Poland.lexical.json",
+        "findings/Collaboration_in_German-occupied_Poland.profile.json",
+        "findings/Collaboration_in_German-occupied_Poland.receipts.json",
+        "findings/Collaboration_in_German-occupied_Poland.sources.json",
+        "findings/Collaboration_in_German-occupied_Poland.stance.json",
+        "mscore/Collaboration_in_German-occupied_Poland.json"
+      ],
+      "slug": "Collaboration_in_German-occupied_Poland",
+      "tables": {
+        "articles": 0,
+        "rev_size": 2056,
+        "revisions": 2056,
+        "rsnap": 328947,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Demo Topic",
+      "artifacts": [
+        "findings/Demo_Topic.receipts.json",
+        "findings/Demo_Topic.stance.json",
+        "mscore/Demo_Topic.json"
+      ],
+      "slug": "Demo_Topic",
+      "tables": {
+        "articles": 0,
+        "rev_size": 0,
+        "revisions": 0,
+        "rsnap": 0,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Elizabeth Warren",
+      "artifacts": [
+        "logs/analysis-2026-07-30/Elizabeth_Warren.l1-analyze.log"
+      ],
+      "slug": "Elizabeth_Warren",
+      "tables": {
+        "articles": 0,
+        "rev_size": 5672,
+        "revisions": 5672,
+        "rsnap": 413453,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Fascism and ideology",
+      "artifacts": [
+        "findings/Fascism_and_ideology.category.json",
+        "findings/Fascism_and_ideology.cost.json",
+        "findings/Fascism_and_ideology.framing.json",
+        "findings/Fascism_and_ideology.l1-confirmation.json",
+        "findings/Fascism_and_ideology.lexical.json",
+        "findings/Fascism_and_ideology.profile.json",
+        "findings/Fascism_and_ideology.receipts.json",
+        "findings/Fascism_and_ideology.sources.json",
+        "findings/Fascism_and_ideology.stance.json",
+        "logs/analysis-2026-07-30/Fascism_and_ideology.rolling-corpus-benchmark.log",
+        "mscore/Fascism_and_ideology.json"
+      ],
+      "slug": "Fascism_and_ideology",
+      "tables": {
+        "articles": 0,
+        "rev_size": 1695,
+        "revisions": 1695,
+        "rsnap": 1098251,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Gaza genocide",
+      "artifacts": [
+        "findings/Gaza_genocide.category.json",
+        "findings/Gaza_genocide.cost.json",
+        "findings/Gaza_genocide.factcheck.json",
+        "findings/Gaza_genocide.framing.json",
+        "findings/Gaza_genocide.l1-confirmation.json",
+        "findings/Gaza_genocide.lexical.json",
+        "findings/Gaza_genocide.profile.json",
+        "findings/Gaza_genocide.receipts.json",
+        "findings/Gaza_genocide.sources.json",
+        "findings/Gaza_genocide.stance.json",
+        "mscore/Gaza_genocide.json"
+      ],
+      "slug": "Gaza_genocide",
+      "tables": {
+        "articles": 0,
+        "rev_size": 6942,
+        "revisions": 6942,
+        "rsnap": 797642,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Gaza war",
+      "artifacts": [
+        "findings/Gaza_war.category.json",
+        "findings/Gaza_war.cost.json",
+        "findings/Gaza_war.factcheck.json",
+        "findings/Gaza_war.framing.json",
+        "findings/Gaza_war.l1-confirmation.json",
+        "findings/Gaza_war.lexical.json",
+        "findings/Gaza_war.profile.json",
+        "findings/Gaza_war.receipts.json",
+        "findings/Gaza_war.sources.json",
+        "findings/Gaza_war.stance.json",
+        "mscore/Gaza_war.json"
+      ],
+      "slug": "Gaza_war",
+      "tables": {
+        "articles": 0,
+        "rev_size": 20729,
+        "revisions": 20729,
+        "rsnap": 429728,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Genetic studies of Jews",
+      "artifacts": [
+        "findings/Genetic_studies_of_Jews.category.json",
+        "findings/Genetic_studies_of_Jews.cost.json",
+        "findings/Genetic_studies_of_Jews.factcheck.json",
+        "findings/Genetic_studies_of_Jews.framing.json",
+        "findings/Genetic_studies_of_Jews.l1-confirmation.json",
+        "findings/Genetic_studies_of_Jews.lexical.json",
+        "findings/Genetic_studies_of_Jews.profile.json",
+        "findings/Genetic_studies_of_Jews.receipts.json",
+        "findings/Genetic_studies_of_Jews.sources.json",
+        "findings/Genetic_studies_of_Jews.stance.json",
+        "mscore/Genetic_studies_of_Jews.json"
+      ],
+      "slug": "Genetic_studies_of_Jews",
+      "tables": {
+        "articles": 0,
+        "rev_size": 3091,
+        "revisions": 3091,
+        "rsnap": 988449,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Genocide of indigenous peoples",
+      "artifacts": [
+        "findings/Genocide_of_indigenous_peoples.category.json",
+        "findings/Genocide_of_indigenous_peoples.cost.json",
+        "findings/Genocide_of_indigenous_peoples.framing.json",
+        "findings/Genocide_of_indigenous_peoples.l1-confirmation.json",
+        "findings/Genocide_of_indigenous_peoples.lexical.json",
+        "findings/Genocide_of_indigenous_peoples.profile.json",
+        "findings/Genocide_of_indigenous_peoples.receipts.json",
+        "findings/Genocide_of_indigenous_peoples.sources.json",
+        "findings/Genocide_of_indigenous_peoples.stance.json",
+        "mscore/Genocide_of_indigenous_peoples.json"
+      ],
+      "slug": "Genocide_of_indigenous_peoples",
+      "tables": {
+        "articles": 0,
+        "rev_size": 2903,
+        "revisions": 2903,
+        "rsnap": 1150193,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Hamas",
+      "artifacts": [
+        "findings/Hamas.category.json",
+        "findings/Hamas.cost.json",
+        "findings/Hamas.factcheck.json",
+        "findings/Hamas.framing.json",
+        "findings/Hamas.l1-confirmation.json",
+        "findings/Hamas.lexical.json",
+        "findings/Hamas.profile.json",
+        "findings/Hamas.receipts.json",
+        "findings/Hamas.sources.json",
+        "findings/Hamas.stance.json",
+        "mscore/Hamas.json"
+      ],
+      "slug": "Hamas",
+      "tables": {
+        "articles": 0,
+        "rev_size": 14716,
+        "revisions": 14718,
+        "rsnap": 1215213,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "History of Zionism",
+      "artifacts": [
+        "findings/History_of_Zionism.category.json",
+        "findings/History_of_Zionism.cost.json",
+        "findings/History_of_Zionism.factcheck.json",
+        "findings/History_of_Zionism.framing.json",
+        "findings/History_of_Zionism.l1-confirmation.json",
+        "findings/History_of_Zionism.lexical.json",
+        "findings/History_of_Zionism.profile.json",
+        "findings/History_of_Zionism.receipts.json",
+        "findings/History_of_Zionism.sources.json",
+        "findings/History_of_Zionism.stance.json",
+        "logs/analysis-2026-07-30/History_of_Zionism.rolling-corpus-benchmark.log",
+        "mscore/History_of_Zionism.json"
+      ],
+      "slug": "History_of_Zionism",
+      "tables": {
+        "articles": 0,
+        "rev_size": 1472,
+        "revisions": 1472,
+        "rsnap": 932489,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "History of fascism",
+      "artifacts": [],
+      "slug": "History_of_fascism",
+      "tables": {
+        "articles": 0,
+        "rev_size": 164,
+        "revisions": 164,
+        "rsnap": 37170,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Ilhan Omar",
+      "artifacts": [
+        "findings/Ilhan_Omar.category.json",
+        "findings/Ilhan_Omar.framing.json",
+        "findings/Ilhan_Omar.l1-confirmation.json",
+        "findings/Ilhan_Omar.lexical.json",
+        "findings/Ilhan_Omar.profile.json",
+        "findings/Ilhan_Omar.receipts.json",
+        "findings/Ilhan_Omar.sources.json",
+        "findings/Ilhan_Omar.stance.json",
+        "logs/analysis-2026-07-30/Ilhan_Omar.crosslingual-static.log",
+        "logs/analysis-2026-07-30/Ilhan_Omar.crosslingual.log",
+        "logs/analysis-2026-07-30/Ilhan_Omar.full-pipeline.log",
+        "logs/analysis-2026-07-30/Ilhan_Omar.l1-confirmation.log",
+        "logs/analysis-2026-07-30/Ilhan_Omar.post-confirmation-refresh.log",
+        "mscore/Ilhan_Omar.json"
+      ],
+      "slug": "Ilhan_Omar",
+      "tables": {
+        "articles": 0,
+        "rev_size": 3858,
+        "revisions": 3858,
+        "rsnap": 624964,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Israeli–Palestinian conflict",
+      "artifacts": [
+        "findings/Israeli–Palestinian_conflict.category.json",
+        "findings/Israeli–Palestinian_conflict.cost.json",
+        "findings/Israeli–Palestinian_conflict.factcheck.json",
+        "findings/Israeli–Palestinian_conflict.framing.json",
+        "findings/Israeli–Palestinian_conflict.l1-confirmation.json",
+        "findings/Israeli–Palestinian_conflict.lexical.json",
+        "findings/Israeli–Palestinian_conflict.profile.json",
+        "findings/Israeli–Palestinian_conflict.receipts.json",
+        "findings/Israeli–Palestinian_conflict.sources.json",
+        "findings/Israeli–Palestinian_conflict.stance.json",
+        "mscore/Israeli–Palestinian_conflict.json"
+      ],
+      "slug": "Israeli–Palestinian_conflict",
+      "tables": {
+        "articles": 0,
+        "rev_size": 9748,
+        "revisions": 9748,
+        "rsnap": 1542146,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Jedwabne pogrom",
+      "artifacts": [
+        "findings/Jedwabne_pogrom.category.json",
+        "findings/Jedwabne_pogrom.cost.json",
+        "findings/Jedwabne_pogrom.factcheck.json",
+        "findings/Jedwabne_pogrom.framing.json",
+        "findings/Jedwabne_pogrom.l1-confirmation.json",
+        "findings/Jedwabne_pogrom.lexical.json",
+        "findings/Jedwabne_pogrom.profile.json",
+        "findings/Jedwabne_pogrom.receipts.json",
+        "findings/Jedwabne_pogrom.sources.json",
+        "findings/Jedwabne_pogrom.stance.json",
+        "mscore/Jedwabne_pogrom.json"
+      ],
+      "slug": "Jedwabne_pogrom",
+      "tables": {
+        "articles": 0,
+        "rev_size": 2348,
+        "revisions": 2348,
+        "rsnap": 658676,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Nakba",
+      "artifacts": [
+        "findings/Nakba.category.json",
+        "findings/Nakba.cost.json",
+        "findings/Nakba.factcheck.json",
+        "findings/Nakba.framing.json",
+        "findings/Nakba.l1-confirmation.json",
+        "findings/Nakba.lexical.json",
+        "findings/Nakba.profile.json",
+        "findings/Nakba.receipts.json",
+        "findings/Nakba.sources.json",
+        "findings/Nakba.stance.json",
+        "mscore/Nakba.json"
+      ],
+      "slug": "Nakba",
+      "tables": {
+        "articles": 0,
+        "rev_size": 1239,
+        "revisions": 1239,
+        "rsnap": 514060,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Naliboki massacre",
+      "artifacts": [
+        "findings/Naliboki_massacre.category.json",
+        "findings/Naliboki_massacre.cost.json",
+        "findings/Naliboki_massacre.factcheck.json",
+        "findings/Naliboki_massacre.framing.json",
+        "findings/Naliboki_massacre.l1-confirmation.json",
+        "findings/Naliboki_massacre.lexical.json",
+        "findings/Naliboki_massacre.profile.json",
+        "findings/Naliboki_massacre.receipts.json",
+        "findings/Naliboki_massacre.sources.json",
+        "findings/Naliboki_massacre.stance.json",
+        "history-xml/Naliboki_massacre.xml",
+        "mscore/Naliboki_massacre.json"
+      ],
+      "slug": "Naliboki_massacre",
+      "tables": {
+        "articles": 0,
+        "rev_size": 657,
+        "revisions": 657,
+        "rsnap": 96699,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Palestine",
+      "artifacts": [
+        "findings/Palestine.category.json",
+        "findings/Palestine.cost.json",
+        "findings/Palestine.factcheck.json",
+        "findings/Palestine.framing.json",
+        "findings/Palestine.l1-confirmation.json",
+        "findings/Palestine.lexical.json",
+        "findings/Palestine.profile.json",
+        "findings/Palestine.receipts.json",
+        "findings/Palestine.sources.json",
+        "findings/Palestine.stance.json",
+        "logs/analysis-2026-07-30/Palestine.rolling-corpus-benchmark.log",
+        "mscore/Palestine.json"
+      ],
+      "slug": "Palestine",
+      "tables": {
+        "articles": 0,
+        "rev_size": 6029,
+        "revisions": 6029,
+        "rsnap": 1225828,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Palestinian political violence",
+      "artifacts": [
+        "findings/Palestinian_political_violence.category.json",
+        "findings/Palestinian_political_violence.cost.json",
+        "findings/Palestinian_political_violence.factcheck.json",
+        "findings/Palestinian_political_violence.framing.json",
+        "findings/Palestinian_political_violence.l1-confirmation.json",
+        "findings/Palestinian_political_violence.lexical.json",
+        "findings/Palestinian_political_violence.profile.json",
+        "findings/Palestinian_political_violence.receipts.json",
+        "findings/Palestinian_political_violence.sources.json",
+        "findings/Palestinian_political_violence.stance.json",
+        "mscore/Palestinian_political_violence.json"
+      ],
+      "slug": "Palestinian_political_violence",
+      "tables": {
+        "articles": 0,
+        "rev_size": 2485,
+        "revisions": 2485,
+        "rsnap": 944221,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Photosynthesis",
+      "artifacts": [
+        "findings/Photosynthesis.category.json",
+        "findings/Photosynthesis.cost.json",
+        "findings/Photosynthesis.factcheck.json",
+        "findings/Photosynthesis.framing.json",
+        "findings/Photosynthesis.l1-confirmation.json",
+        "findings/Photosynthesis.lexical.json",
+        "findings/Photosynthesis.profile.json",
+        "findings/Photosynthesis.receipts.json",
+        "findings/Photosynthesis.sources.json",
+        "findings/Photosynthesis.stance.json",
+        "mscore/Photosynthesis.json"
+      ],
+      "slug": "Photosynthesis",
+      "tables": {
+        "articles": 1,
+        "rev_size": 5503,
+        "revisions": 5503,
+        "rsnap": 728812,
+        "snap": 26076,
+        "snapshots": 665892,
+        "tokens": 27158
+      }
+    },
+    {
+      "article": "Racial conceptions of Jewish identity in Zionism",
+      "artifacts": [
+        "findings/Racial_conceptions_of_Jewish_identity_in_Zionism.category.json",
+        "findings/Racial_conceptions_of_Jewish_identity_in_Zionism.cost.json",
+        "findings/Racial_conceptions_of_Jewish_identity_in_Zionism.factcheck.json",
+        "findings/Racial_conceptions_of_Jewish_identity_in_Zionism.framing.json",
+        "findings/Racial_conceptions_of_Jewish_identity_in_Zionism.l1-confirmation.json",
+        "findings/Racial_conceptions_of_Jewish_identity_in_Zionism.lexical.json",
+        "findings/Racial_conceptions_of_Jewish_identity_in_Zionism.profile.json",
+        "findings/Racial_conceptions_of_Jewish_identity_in_Zionism.receipts.json",
+        "findings/Racial_conceptions_of_Jewish_identity_in_Zionism.sources.json",
+        "findings/Racial_conceptions_of_Jewish_identity_in_Zionism.stance.json",
+        "mscore/Racial_conceptions_of_Jewish_identity_in_Zionism.json"
+      ],
+      "slug": "Racial_conceptions_of_Jewish_identity_in_Zionism",
+      "tables": {
+        "articles": 0,
+        "rev_size": 1224,
+        "revisions": 1224,
+        "rsnap": 203749,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Rafah offensive",
+      "artifacts": [
+        "findings/Rafah_offensive.category.json",
+        "findings/Rafah_offensive.cost.json",
+        "findings/Rafah_offensive.framing.json",
+        "findings/Rafah_offensive.l1-confirmation.json",
+        "findings/Rafah_offensive.lexical.json",
+        "findings/Rafah_offensive.profile.json",
+        "findings/Rafah_offensive.receipts.json",
+        "findings/Rafah_offensive.sources.json",
+        "findings/Rafah_offensive.stance.json",
+        "mscore/Rafah_offensive.json"
+      ],
+      "slug": "Rafah_offensive",
+      "tables": {
+        "articles": 0,
+        "rev_size": 2313,
+        "revisions": 2313,
+        "rsnap": 604354,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Rescue of Jews by Poles during the Holocaust",
+      "artifacts": [
+        "findings/Rescue_of_Jews_by_Poles_during_the_Holocaust.category.json",
+        "findings/Rescue_of_Jews_by_Poles_during_the_Holocaust.cost.json",
+        "findings/Rescue_of_Jews_by_Poles_during_the_Holocaust.factcheck.json",
+        "findings/Rescue_of_Jews_by_Poles_during_the_Holocaust.framing.json",
+        "findings/Rescue_of_Jews_by_Poles_during_the_Holocaust.l1-confirmation.json",
+        "findings/Rescue_of_Jews_by_Poles_during_the_Holocaust.lexical.json",
+        "findings/Rescue_of_Jews_by_Poles_during_the_Holocaust.profile.json",
+        "findings/Rescue_of_Jews_by_Poles_during_the_Holocaust.receipts.json",
+        "findings/Rescue_of_Jews_by_Poles_during_the_Holocaust.sources.json",
+        "findings/Rescue_of_Jews_by_Poles_during_the_Holocaust.stance.json",
+        "mscore/Rescue_of_Jews_by_Poles_during_the_Holocaust.json"
+      ],
+      "slug": "Rescue_of_Jews_by_Poles_during_the_Holocaust",
+      "tables": {
+        "articles": 0,
+        "rev_size": 1440,
+        "revisions": 1440,
+        "rsnap": 1014590,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "UNRWA",
+      "artifacts": [
+        "findings/UNRWA.category.json",
+        "findings/UNRWA.cost.json",
+        "findings/UNRWA.factcheck.json",
+        "findings/UNRWA.framing.json",
+        "findings/UNRWA.l1-confirmation.json",
+        "findings/UNRWA.lexical.json",
+        "findings/UNRWA.profile.json",
+        "findings/UNRWA.receipts.json",
+        "findings/UNRWA.sources.json",
+        "findings/UNRWA.stance.json",
+        "logs/analysis-2026-07-30/UNRWA.rolling-corpus-benchmark.log",
+        "mscore/UNRWA.json"
+      ],
+      "slug": "UNRWA",
+      "tables": {
+        "articles": 0,
+        "rev_size": 2046,
+        "revisions": 2046,
+        "rsnap": 993179,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "United Nations General Assembly observers",
+      "artifacts": [
+        "findings/United_Nations_General_Assembly_observers.category.json",
+        "findings/United_Nations_General_Assembly_observers.cost.json",
+        "findings/United_Nations_General_Assembly_observers.framing.json",
+        "findings/United_Nations_General_Assembly_observers.l1-confirmation.json",
+        "findings/United_Nations_General_Assembly_observers.lexical.json",
+        "findings/United_Nations_General_Assembly_observers.profile.json",
+        "findings/United_Nations_General_Assembly_observers.sources.json",
+        "mscore/United_Nations_General_Assembly_observers.json"
+      ],
+      "slug": "United_Nations_General_Assembly_observers",
+      "tables": {
+        "articles": 0,
+        "rev_size": 924,
+        "revisions": 924,
+        "rsnap": 403769,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Warsaw concentration camp",
+      "artifacts": [
+        "findings/Warsaw_concentration_camp.asof-2018-06-01.factcheck.json",
+        "findings/Warsaw_concentration_camp.category.json",
+        "findings/Warsaw_concentration_camp.cost.json",
+        "findings/Warsaw_concentration_camp.factcheck.json",
+        "findings/Warsaw_concentration_camp.framing.json",
+        "findings/Warsaw_concentration_camp.l1-confirmation.json",
+        "findings/Warsaw_concentration_camp.lexical.json",
+        "findings/Warsaw_concentration_camp.profile.json",
+        "findings/Warsaw_concentration_camp.receipts.json",
+        "findings/Warsaw_concentration_camp.sources.json",
+        "findings/Warsaw_concentration_camp.stance.json",
+        "mscore/Warsaw_concentration_camp.json"
+      ],
+      "slug": "Warsaw_concentration_camp",
+      "tables": {
+        "articles": 0,
+        "rev_size": 1124,
+        "revisions": 1124,
+        "rsnap": 434725,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Water",
+      "artifacts": [
+        "findings/Water.category.json",
+        "findings/Water.cost.json",
+        "findings/Water.framing.json",
+        "findings/Water.l1-confirmation.json",
+        "findings/Water.lexical.json",
+        "findings/Water.profile.json",
+        "findings/Water.sources.json",
+        "mscore/Water.json"
+      ],
+      "slug": "Water",
+      "tables": {
+        "articles": 0,
+        "rev_size": 8307,
+        "revisions": 8307,
+        "rsnap": 1176479,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Xi Jinping",
+      "artifacts": [
+        "findings/Xi_Jinping.category.json",
+        "findings/Xi_Jinping.framing.json",
+        "findings/Xi_Jinping.l1-confirmation.json",
+        "findings/Xi_Jinping.lexical.json",
+        "findings/Xi_Jinping.profile.json",
+        "logs/analysis-2026-07-30/Xi_Jinping.log",
+        "logs/analysis-2026-07-30/Xi_Jinping.pipeline-evaluation.log",
+        "logs/analysis-2026-07-30/Xi_Jinping.rolling-corpus-benchmark.log",
+        "logs/analysis-2026-07-30/Xi_Jinping.rolling-v2.log",
+        "mscore/Xi_Jinping.json"
+      ],
+      "slug": "Xi_Jinping",
+      "tables": {
+        "articles": 0,
+        "rev_size": 7014,
+        "revisions": 7014,
+        "rsnap": 1529008,
+        "snap": 0,
+        "snapshots": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "article": "Zionism",
+      "artifacts": [
+        "findings/Zionism.category.json",
+        "findings/Zionism.cost.json",
+        "findings/Zionism.factcheck.json",
+        "findings/Zionism.framing.json",
+        "findings/Zionism.l1-confirmation.json",
+        "findings/Zionism.lexical.json",
+        "findings/Zionism.profile.json",
+        "findings/Zionism.receipts.json",
+        "findings/Zionism.sources.json",
+        "findings/Zionism.stance.json",
+        "mscore/Zionism.json"
+      ],
+      "slug": "Zionism",
+      "tables": {
+        "articles": 1,
+        "rev_size": 12531,
+        "revisions": 12531,
+        "rsnap": 1454235,
+        "snap": 0,
+        "snapshots": 1389158,
+        "tokens": 88667
+      }
+    }
+  ],
+  "shared_artifacts": [
+    "findings/divergence.json",
+    "findings/l4_discovery.json",
+    "findings/mscore.json",
+    "findings/x.json",
+    "logs/analysis-2026-07-30/remaining-topics.batch-summary.log",
+    "logs/analysis-2026-07-30/rolling-corpus-census.log",
+    "logs/analysis-2026-07-30/rolling-corpus-report.json",
+    "logs/analysis-2026-07-30/rolling-corpus-report.log"
+  ]
+}

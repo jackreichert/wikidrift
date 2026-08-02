@@ -1,0 +1,214 @@
+{
+  "article": "Abortion",
+  "asof": null,
+  "langs": [
+    "de",
+    "sv",
+    "en"
+  ],
+  "citation": {
+    "mean_jaccard": 0.05,
+    "domains_per_edition": {
+      "de": 197,
+      "sv": 34,
+      "en": 105
+    }
+  },
+  "claim": {
+    "per_edition": {
+      "sv": {
+        "Inom hur många timmar kan akut-p-piller förhindra graviditet efter misslyckad preventivmetod?": {
+          "question": "Inom hur många timmar kan akut-p-piller förhindra graviditet efter misslyckad preventivmetod?",
+          "answer": "72 timmar",
+          "value": "72 hours",
+          "evidence": "det möjligt att inom 72 timmar med ett akut-p-piller förhindra att en graviditet uppstår"
+        },
+        "Till och med vilken graviditetsvecka kan medicinsk abort göras?": {
+          "question": "Till och med vilken graviditetsvecka kan medicinsk abort göras?",
+          "answer": "Graviditetsvecka 8+6",
+          "value": "8+6 weeks",
+          "evidence": "Medicinsk abort kan göras till och med graviditetsvecka 8+6."
+        },
+        "Till och med vilken graviditetsvecka kan kirurgisk abort göras?": {
+          "question": "Till och med vilken graviditetsvecka kan kirurgisk abort göras?",
+          "answer": "Graviditetsvecka 13+6",
+          "value": "13+6 weeks",
+          "evidence": "Kirurgisk abort görs fram till och med graviditetsvecka 13+6"
+        },
+        "Vilken metod för kirurgisk abort används för att tömma livmodern?": {
+          "question": "Vilken metod för kirurgisk abort används för att tömma livmodern?",
+          "answer": "Vakuumextirpation",
+          "value": "vakuumextirpation",
+          "evidence": "går ut på att man tömmer livmodern genom vakuumextirpation"
+        },
+        "Vilken metod används vid sent avbrytande efter vecka 13+5?": {
+          "question": "Vilken metod används vid sent avbrytande efter vecka 13+5?",
+          "answer": "Tvåstegs-metod",
+          "value": "tvåstegsmetod",
+          "evidence": "Efter vecka 13+5 används så kallad tvåstegs-metod"
+        },
+        "Hur länge kan patienten blöda som en mensblödning efter aborten?": {
+          "question": "Hur länge kan patienten blöda som en mensblödning efter aborten?",
+          "answer": "Upp till 4 veckor",
+          "value": "up to 4 weeks",
+          "evidence": "kan patienten blöda som en mensblödning upp till 4 veckor"
+        },
+        "Efter hur lång tid kommer mensen i regel efter aborten?": {
+          "question": "Efter hur lång tid kommer mensen i regel efter aborten?",
+          "answer": "Inom 2-4 veckor",
+          "value": "2-4 weeks",
+          "evidence": "Mensen kommer i regel inom 2-4 veckor."
+        },
+        "Efter hur lång tid kommer patienten på återbesök för att kontrollera aborten?": {
+          "question": "Efter hur lång tid kommer patienten på återbesök för att kontrollera aborten?",
+          "answer": "Efter cirka 2 veckor",
+          "value": "about 2 weeks",
+          "evidence": "Efter ca 2 veckor kommer patienten på återbesök för att undersöka att aborten är komplett"
+        },
+        "Vad kallas spontan abort hos djur?": {
+          "question": "Vad kallas spontan abort hos djur?",
+          "answer": "Kastning",
+          "value": "kastning",
+          "evidence": "Spontan abort hos djur kallas kastning."
+        },
+        "Vilket prov tas alltid innan en abort genomförs?": {
+          "question": "Vilket prov tas alltid innan en abort genomförs?",
+          "answer": "Klamydiaprov",
+          "value": "klamydiaprov",
+          "evidence": "Innan en abort genomförs tas alltid klamydiaprov, ibland tas också andra prover."
+        },
+        "Vad kallas ett foster som avvecklats vid en missed abortion i en flerbördsgraviditet och som föds fram tillsammans med moderkakan?": {
+          "question": "Vad kallas ett foster som avvecklats vid en missed abortion i en flerbördsgraviditet och som föds fram tillsammans med moderkakan?",
+          "answer": "Papyrusfoster",
+          "value": "papyrusfoster",
+          "evidence": "kan det foster som avvecklats födas fram tillsammans med moderkakan som ett så kallat papyrusfoster"
+        },
+        "Vilken typ av läkemedel tar patienten först vid medicinsk abort?": {
+          "question": "Vilken typ av läkemedel tar patienten först vid medicinsk abort?",
+          "answer": "Antiprogesteron (tabletter som blockerar graviditetsbevarande hormon)",
+          "value": "antiprogesteron",
+          "evidence": "Vid medicinsk abort tar patienten tabletter (antiprogesteron) som förhindrar att graviditeten fortsätter då det graviditetsbevarande hormonet blockeras."
+        }
+      },
+      "en": {
+        "What percentage of all pregnancies end in spontaneous abortion (miscarriage)?": {
+          "question": "What percentage of all pregnancies end in spontaneous abortion (miscarriage)?",
+          "answer": "Roughly 30–40% of all pregnancies",
+          "value": "30-40%",
+          "evidence": "occurs in roughly 30–40% of all pregnancies"
+        },
+        "How many unsafe abortion deaths occur each year?": {
+          "question": "How many unsafe abortion deaths occur each year?",
+          "answer": "Between 22,000 and 44,000 deaths annually",
+          "value": "22,000-44,000",
+          "evidence": "cause between 22,000 and 44,000 deaths and 6.9 million hospital admissions each year"
+        },
+        "How many hospital admissions result from unsafe abortions each year?": {
+          "question": "How many hospital admissions result from unsafe abortions each year?",
+          "answer": "6.9 million hospital admissions annually",
+          "value": "6.9 million",
+          "evidence": "cause between 22,000 and 44,000 deaths and 6.9 million hospital admissions each year"
+        },
+        "What percentage of maternal deaths are attributable to unsafe abortions?": {
+          "question": "What percentage of maternal deaths are attributable to unsafe abortions?",
+          "answer": "Between 5% and 13% of maternal deaths",
+          "value": "5-13%",
+          "evidence": "responsible for between 5% and 13% of maternal deaths, especially in low-income countries"
+        },
+        "How many abortions are performed each year in the world?": {
+          "question": "How many abortions are performed each year in the world?",
+          "answer": "Around 73 million abortions per year",
+          "value": "73 million",
+          "evidence": "Around 73 million abortions are performed each year in the world"
+        },
+        "What percentage of abortions performed worldwide are done unsafely?": {
+          "question": "What percentage of abortions performed worldwide are done unsafely?",
+          "answer": "About 45% are done unsafely",
+          "value": "45%",
+          "evidence": "with about 45% done unsafely"
+        },
+        "What percentage of the world's women had access to legal abortions without limits as to reason?": {
+          "question": "What percentage of the world's women had access to legal abortions without limits as to reason?",
+          "answer": "37% of the world's women",
+          "value": "37%",
+          "evidence": "37% of the world's women had access to legal abortions without limits as to reason"
+        },
+        "Since what year has there been a global trend toward greater legal access to abortion?": {
+          "question": "Since what year has there been a global trend toward greater legal access to abortion?",
+          "answer": "Since 1973",
+          "value": "1973",
+          "evidence": "Since 1973, there has been a global trend towards greater legal access to abortion"
+        },
+        "What proportion of pregnancies worldwide end with induced abortion?": {
+          "question": "What proportion of pregnancies worldwide end with induced abortion?",
+          "answer": "About one in five pregnancies",
+          "value": "1 in 5 (20%)",
+          "evidence": "About one in five pregnancies worldwide ends with an induced abortion."
+        },
+        "In the UK, what percentage of abortions are done because of genetic problems in the fetus?": {
+          "question": "In the UK, what percentage of abortions are done because of genetic problems in the fetus?",
+          "answer": "1 to 2% of abortions",
+          "value": "1-2%",
+          "evidence": "In the United Kingdom, 1 to 2% of abortions are done because of genetic problems in the fetus."
+        },
+        "What percentage of embryos do not progress to birth, according to US and China studies?": {
+          "question": "What percentage of embryos do not progress to birth, according to US and China studies?",
+          "answer": "Between 40% and 60% of embryos",
+          "value": "40-60%",
+          "evidence": "have shown that between 40% and 60% of embryos do not progress to birth"
+        },
+        "What percentage of known pregnancies end in clinically apparent miscarriage?": {
+          "question": "What percentage of known pregnancies end in clinically apparent miscarriage?",
+          "answer": "Between 15% and 30% of known pregnancies",
+          "value": "15-30%",
+          "evidence": "Between 15% and 30% of known pregnancies end in clinically apparent miscarriage"
+        },
+        "What percentage of spontaneous abortions happen in the first trimester?": {
+          "question": "What percentage of spontaneous abortions happen in the first trimester?",
+          "answer": "80% of spontaneous abortions",
+          "value": "80%",
+          "evidence": "80% of these spontaneous abortions happen in the first trimester."
+        },
+        "What percentage of early pregnancy losses are due to chromosomal abnormalities?": {
+          "question": "What percentage of early pregnancy losses are due to chromosomal abnormalities?",
+          "answer": "At least 50% of sampled early pregnancy losses",
+          "value": "50% or more",
+          "evidence": "accounting for at least 50% of sampled early pregnancy losses"
+        },
+        "Before what week of gestation is an unintentional pregnancy loss termed a miscarriage?": {
+          "question": "Before what week of gestation is an unintentional pregnancy loss termed a miscarriage?",
+          "answer": "Before the 24th week of gestation",
+          "value": "before 24 weeks",
+          "evidence": "Miscarriage, also known as spontaneous abortion, is the unintentional expulsion of an embryo or fetus before the 24th week of gestation."
+        },
+        "Up to what gestational age is the mifepristone-misoprostol regimen commonly used for early first trimester medical abortion?": {
+          "question": "Up to what gestational age is the mifepristone-misoprostol regimen commonly used for early first trimester medical abortion?",
+          "answer": "Up to 10 weeks (70 days) gestational age",
+          "value": "10 weeks (70 days)",
+          "evidence": "use mifepristone in combination with misoprostol...up to 10 weeks (70 days) gestational age"
+        },
+        "Up to what gestational age is methotrexate combined with a prostaglandin analog used?": {
+          "question": "Up to what gestational age is methotrexate combined with a prostaglandin analog used?",
+          "answer": "Up to 7 weeks gestation",
+          "value": "7 weeks",
+          "evidence": "methotrexate in combination with a prostaglandin analog up to 7 weeks gestation"
+        }
+      }
+    },
+    "adjudication": []
+  },
+  "diagnostics": {
+    "min_edition_count": 2,
+    "effective_langs": [
+      "sv",
+      "en"
+    ],
+    "errors": [
+      {
+        "lang": "de",
+        "stage": "extract",
+        "error": "Unterminated string starting at: line 1 column 3234 (char 3233)"
+      }
+    ]
+  }
+}

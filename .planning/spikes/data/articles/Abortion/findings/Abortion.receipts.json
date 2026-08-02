@@ -1,0 +1,27 @@
+{
+  "article": "Abortion",
+  "qid": "Q8452",
+  "editions": {
+    "de": {
+      "present": true,
+      "revid": 268731800,
+      "title": "Schwangerschaftsabbruch",
+      "timestamp": "2026-07-12T13:16:53Z",
+      "prose_chars": 230615
+    },
+    "sv": {
+      "present": true,
+      "revid": 59404481,
+      "title": "Abort",
+      "timestamp": "2026-06-21T12:58:23Z",
+      "prose_chars": 58340
+    },
+    "en": {
+      "present": true,
+      "revid": 1363916079,
+      "title": "Abortion",
+      "timestamp": "2026-07-13T07:41:33Z",
+      "prose_chars": 57718
+    }
+  }
+}

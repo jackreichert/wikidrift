@@ -1,6 +1,6 @@
 {
   "article": "UNRWA",
-  "run_ts": "2026-07-19T17:50:26.372946+00:00",
+  "run_ts": "2026-07-30T18:25:11.074543+00:00",
   "corpus_horizon": {
     "snapshot_date": "2026-07-01",
     "snapshot_revid": 1357185096
@@ -9,7 +9,10 @@
     "confirm_drop": 0.2,
     "durable_quantile": 0.5,
     "min_cohort": 500,
-    "magnitude_floor": 25.0
+    "magnitude_floor": 25.0,
+    "rolling_window_months": 12,
+    "rolling_tolerance_days": 35,
+    "rolling_drop": 20.0
   },
   "coarse_verdict": "PIVOT?",
   "status": "confirmed",
@@ -26,6 +29,7 @@
       "durable_spine_drop": 0.343122,
       "pwr_mass": 68811,
       "peak_pct": 36.92,
+      "source": "interval",
       "status": "confirmed"
     }
   ]
