@@ -55,5 +55,392 @@
     }
   ],
   "attribution_backfill_ts": "2026-07-31T17:45:31.862937+00:00",
-  "schema_version": 2
+  "schema_version": 2,
+  "interval_profile": [
+    {
+      "start": "2003-01-01",
+      "end": "2003-07-01",
+      "size": 3605,
+      "pwr_loss": 11.6,
+      "pwr_removed": 418,
+      "mature": false
+    },
+    {
+      "start": "2003-07-01",
+      "end": "2004-01-01",
+      "size": 4746,
+      "pwr_loss": 99.29,
+      "pwr_removed": 7877,
+      "mature": false
+    },
+    {
+      "start": "2004-01-01",
+      "end": "2004-07-01",
+      "size": 5333,
+      "pwr_loss": 18.8,
+      "pwr_removed": 1013,
+      "mature": false
+    },
+    {
+      "start": "2004-07-01",
+      "end": "2005-01-01",
+      "size": 6248,
+      "pwr_loss": 8.31,
+      "pwr_removed": 883,
+      "mature": false
+    },
+    {
+      "start": "2005-01-01",
+      "end": "2005-07-01",
+      "size": 7628,
+      "pwr_loss": 10.23,
+      "pwr_removed": 1777,
+      "mature": false
+    },
+    {
+      "start": "2005-07-01",
+      "end": "2006-01-01",
+      "size": 7886,
+      "pwr_loss": 10.05,
+      "pwr_removed": 2362,
+      "mature": false
+    },
+    {
+      "start": "2006-01-01",
+      "end": "2006-07-01",
+      "size": 8604,
+      "pwr_loss": 13.09,
+      "pwr_removed": 3893,
+      "mature": false
+    },
+    {
+      "start": "2006-07-01",
+      "end": "2007-01-01",
+      "size": 9979,
+      "pwr_loss": 25.47,
+      "pwr_removed": 9137,
+      "mature": false
+    },
+    {
+      "start": "2007-01-01",
+      "end": "2007-07-01",
+      "size": 9707,
+      "pwr_loss": 29.81,
+      "pwr_removed": 10875,
+      "mature": false
+    },
+    {
+      "start": "2007-07-01",
+      "end": "2008-01-01",
+      "size": 14518,
+      "pwr_loss": 23.47,
+      "pwr_removed": 9437,
+      "mature": false
+    },
+    {
+      "start": "2008-01-01",
+      "end": "2008-07-01",
+      "size": 14206,
+      "pwr_loss": 10.08,
+      "pwr_removed": 4534,
+      "mature": false
+    },
+    {
+      "start": "2008-07-01",
+      "end": "2009-01-01",
+      "size": 14409,
+      "pwr_loss": 39.81,
+      "pwr_removed": 21911,
+      "mature": false
+    },
+    {
+      "start": "2009-01-01",
+      "end": "2009-07-01",
+      "size": 13496,
+      "pwr_loss": 52.48,
+      "pwr_removed": 24521,
+      "mature": false
+    },
+    {
+      "start": "2009-07-01",
+      "end": "2010-01-01",
+      "size": 11949,
+      "pwr_loss": 1.6,
+      "pwr_removed": 552,
+      "mature": false
+    },
+    {
+      "start": "2010-01-01",
+      "end": "2010-07-01",
+      "size": 13072,
+      "pwr_loss": 2.58,
+      "pwr_removed": 1215,
+      "mature": false
+    },
+    {
+      "start": "2010-07-01",
+      "end": "2011-01-01",
+      "size": 14130,
+      "pwr_loss": 3.89,
+      "pwr_removed": 2341,
+      "mature": false
+    },
+    {
+      "start": "2011-01-01",
+      "end": "2011-07-01",
+      "size": 14787,
+      "pwr_loss": 4.54,
+      "pwr_removed": 3303,
+      "mature": false
+    },
+    {
+      "start": "2011-07-01",
+      "end": "2012-01-01",
+      "size": 15731,
+      "pwr_loss": 12.37,
+      "pwr_removed": 10619,
+      "mature": true
+    },
+    {
+      "start": "2012-01-01",
+      "end": "2012-07-01",
+      "size": 13819,
+      "pwr_loss": 4.6,
+      "pwr_removed": 4093,
+      "mature": false
+    },
+    {
+      "start": "2012-07-01",
+      "end": "2013-01-01",
+      "size": 13974,
+      "pwr_loss": 4.24,
+      "pwr_removed": 4201,
+      "mature": false
+    },
+    {
+      "start": "2013-01-01",
+      "end": "2013-07-01",
+      "size": 13771,
+      "pwr_loss": 2.05,
+      "pwr_removed": 2243,
+      "mature": false
+    },
+    {
+      "start": "2013-07-01",
+      "end": "2014-01-01",
+      "size": 13649,
+      "pwr_loss": 0.65,
+      "pwr_removed": 786,
+      "mature": false
+    },
+    {
+      "start": "2014-01-01",
+      "end": "2014-07-01",
+      "size": 13794,
+      "pwr_loss": 0.48,
+      "pwr_removed": 649,
+      "mature": false
+    },
+    {
+      "start": "2014-07-01",
+      "end": "2015-01-01",
+      "size": 17306,
+      "pwr_loss": 0.7,
+      "pwr_removed": 1056,
+      "mature": true
+    },
+    {
+      "start": "2015-01-01",
+      "end": "2015-07-01",
+      "size": 19733,
+      "pwr_loss": 9.02,
+      "pwr_removed": 15336,
+      "mature": true
+    },
+    {
+      "start": "2015-07-01",
+      "end": "2016-01-01",
+      "size": 26142,
+      "pwr_loss": 1.36,
+      "pwr_removed": 2463,
+      "mature": true
+    },
+    {
+      "start": "2016-01-01",
+      "end": "2016-07-01",
+      "size": 25825,
+      "pwr_loss": 20.5,
+      "pwr_removed": 42026,
+      "mature": true
+    },
+    {
+      "start": "2016-07-01",
+      "end": "2017-01-01",
+      "size": 20219,
+      "pwr_loss": 0.7,
+      "pwr_removed": 1274,
+      "mature": true
+    },
+    {
+      "start": "2017-01-01",
+      "end": "2017-07-01",
+      "size": 21111,
+      "pwr_loss": 3.3,
+      "pwr_removed": 6698,
+      "mature": true
+    },
+    {
+      "start": "2017-07-01",
+      "end": "2018-01-01",
+      "size": 21555,
+      "pwr_loss": 6.63,
+      "pwr_removed": 14476,
+      "mature": true
+    },
+    {
+      "start": "2018-01-01",
+      "end": "2018-07-01",
+      "size": 21620,
+      "pwr_loss": 6.37,
+      "pwr_removed": 14366,
+      "mature": true
+    },
+    {
+      "start": "2018-07-01",
+      "end": "2019-01-01",
+      "size": 19860,
+      "pwr_loss": 0.25,
+      "pwr_removed": 581,
+      "mature": true
+    },
+    {
+      "start": "2019-01-01",
+      "end": "2019-07-01",
+      "size": 20445,
+      "pwr_loss": 1.75,
+      "pwr_removed": 4390,
+      "mature": true
+    },
+    {
+      "start": "2019-07-01",
+      "end": "2020-01-01",
+      "size": 21435,
+      "pwr_loss": 0.85,
+      "pwr_removed": 2278,
+      "mature": true
+    },
+    {
+      "start": "2020-01-01",
+      "end": "2020-07-01",
+      "size": 21707,
+      "pwr_loss": 0.78,
+      "pwr_removed": 2265,
+      "mature": true
+    },
+    {
+      "start": "2020-07-01",
+      "end": "2021-01-01",
+      "size": 21833,
+      "pwr_loss": 1.86,
+      "pwr_removed": 5731,
+      "mature": true
+    },
+    {
+      "start": "2021-01-01",
+      "end": "2021-07-01",
+      "size": 22018,
+      "pwr_loss": 0.74,
+      "pwr_removed": 2417,
+      "mature": true
+    },
+    {
+      "start": "2021-07-01",
+      "end": "2022-01-01",
+      "size": 22270,
+      "pwr_loss": 1.1,
+      "pwr_removed": 3801,
+      "mature": true
+    },
+    {
+      "start": "2022-01-01",
+      "end": "2022-07-01",
+      "size": 22099,
+      "pwr_loss": 29.04,
+      "pwr_removed": 105413,
+      "mature": true
+    },
+    {
+      "start": "2022-07-01",
+      "end": "2023-01-01",
+      "size": 17597,
+      "pwr_loss": 62.99,
+      "pwr_removed": 173494,
+      "mature": true
+    },
+    {
+      "start": "2023-01-01",
+      "end": "2023-07-01",
+      "size": 30076,
+      "pwr_loss": 0.29,
+      "pwr_removed": 386,
+      "mature": true
+    },
+    {
+      "start": "2023-07-01",
+      "end": "2024-01-01",
+      "size": 31260,
+      "pwr_loss": 1.08,
+      "pwr_removed": 1783,
+      "mature": true
+    },
+    {
+      "start": "2024-01-01",
+      "end": "2024-07-01",
+      "size": 31830,
+      "pwr_loss": 5.5,
+      "pwr_removed": 10695,
+      "mature": true
+    },
+    {
+      "start": "2024-07-01",
+      "end": "2025-01-01",
+      "size": 33376,
+      "pwr_loss": 5.19,
+      "pwr_removed": 11322,
+      "mature": true
+    },
+    {
+      "start": "2025-01-01",
+      "end": "2025-07-01",
+      "size": 35995,
+      "pwr_loss": 2.39,
+      "pwr_removed": 5813,
+      "mature": true
+    },
+    {
+      "start": "2025-07-01",
+      "end": "2026-01-01",
+      "size": 34842,
+      "pwr_loss": 20.15,
+      "pwr_removed": 54967,
+      "mature": true
+    },
+    {
+      "start": "2026-01-01",
+      "end": "2026-07-01",
+      "size": 34601,
+      "pwr_loss": 5.1,
+      "pwr_removed": 12902,
+      "mature": true
+    },
+    {
+      "start": "2026-07-01",
+      "end": "2026-07-01",
+      "size": 36519,
+      "pwr_loss": 0.27,
+      "pwr_removed": 743,
+      "mature": true
+    }
+  ],
+  "interval_profile_backfill_ts": "2026-08-03T18:11:29.584006+00:00"
 }

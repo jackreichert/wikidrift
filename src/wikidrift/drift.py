@@ -330,16 +330,14 @@ def attribute(article, con, episode, render=True):
     return result
 
 
-def _validate_confirmation_for_backfill(con, article, confirmation):
-    """Require a confirmed artifact produced for the current corpus and threshold contract."""
+def _validate_confirmation_corpus(con, article, confirmation):
+    """Require an artifact produced for the current corpus and threshold contract."""
     schema_version = confirmation.get("schema_version", 1)
     if schema_version > CONFIRMATION_SCHEMA_VERSION:
         raise ValueError(
             f"{article!r} confirmation schema version {schema_version} is newer than supported "
             f"version {CONFIRMATION_SCHEMA_VERSION}"
         )
-    if confirmation.get("status") != "confirmed":
-        raise ValueError(f"{article!r} has no confirmed attribution target")
     if (confirmation.get("thresholds") or {}) != config.confirmation_thresholds():
         raise ValueError(f"{article!r} confirmation threshold contract is stale")
     current_horizon = Corpus(con).latest_snapshot(article)
@@ -347,8 +345,46 @@ def _validate_confirmation_for_backfill(con, article, confirmation):
     saved = (saved_horizon.get("snapshot_date"), saved_horizon.get("snapshot_revid"))
     if not current_horizon or saved != tuple(current_horizon):
         raise ValueError(f"{article!r} confirmation corpus horizon is stale")
+
+
+def _validate_confirmation_for_backfill(con, article, confirmation):
+    """Require a confirmed artifact produced for the current corpus and threshold contract."""
+    _validate_confirmation_corpus(con, article, confirmation)
+    if confirmation.get("status") != "confirmed":
+        raise ValueError(f"{article!r} has no confirmed attribution target")
     if not confirmation.get("confirmed_episodes"):
         raise ValueError(f"{article!r} confirmation has no exact episodes")
+
+
+def backfill_interval_profile(article, con=None, persist=True, force=False):
+    """Add interval-level PWR receipts to a current confirmation without rerunning L1."""
+    owns_connection = con is None
+    if owns_connection:
+        con = duckdb.connect(str(config.DB), read_only=True)
+    try:
+        confirmation = load_confirmation(article)
+        _validate_confirmation_corpus(con, article, confirmation)
+        existing_profile = confirmation.get("interval_profile")
+        if existing_profile is not None and not force:
+            return {
+                "article": article,
+                "interval_count": len(existing_profile),
+                "skipped": True,
+            }
+
+        snaps, members, present, _idx_of_rev = load_membership(con, article)
+        confirmation["interval_profile"] = _coarse_profile(snaps, members, present)
+        confirmation["interval_profile_backfill_ts"] = dt.datetime.now(dt.timezone.utc).isoformat()
+        if persist:
+            config.write_findings(confirmation_name(article), confirmation)
+        return {
+            "article": article,
+            "interval_count": len(confirmation["interval_profile"]),
+            "skipped": False,
+        }
+    finally:
+        if owns_connection:
+            con.close()
 
 
 def backfill_attribution(article, con=None, persist=True, force=False):

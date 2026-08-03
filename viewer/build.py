@@ -1218,16 +1218,28 @@ def _revision_link(revid, timestamp, label):
     )
 
 
-def _confirmation_episode_row(episode):
+def _confirmation_episode_row(episode, pivots=None, slug=None):
     before_revid = episode.get("before_revid")
     after_revid = episode.get("after_revid")
     before = _revision_link(before_revid, episode.get("before_timestamp"), "Before")
     after = _revision_link(after_revid, episode.get("after_timestamp"), "After")
     drop = 100 * (episode.get("durable_spine_drop") or 0)
     duration = _format_duration(episode.get("duration_seconds"))
+    pivot_index = next((
+        index for index, pivot in enumerate((pivots or {}).get("pivots") or [])
+        if (pivot.get("before_rev"), pivot.get("after_rev")) == (before_revid, after_revid)
+    ), None)
+    evidence = (
+        f'<a href="{slug}.p{pivot_index}.html" '
+        f'aria-label="View redline for exact revisions {esc(before_revid)} to {esc(after_revid)}">'
+        'View redline</a>'
+        if slug and pivot_index is not None
+        else '<span class="muted">Redline unavailable</span>'
+    )
     return (
         f'<tr><td>{before}</td><td>{after}</td><td>{drop:.1f}% durable-spine drop</td>'
-        f'<td>{int(episode.get("pwr_mass") or 0):,}</td><td>{esc(duration)}</td></tr>'
+        f'<td>{int(episode.get("pwr_mass") or 0):,}</td><td>{esc(duration)}</td>'
+        f'<td>{evidence}</td></tr>'
     )
 
 
@@ -1407,6 +1419,7 @@ def _rewrite_analysis_path(confirmation, interval_count):
 def _interval_profile_chart(confirmation):
     intervals = confirmation.get("interval_profile") or []
     candidates = confirmation.get("evaluated_candidates") or []
+    episodes = confirmation.get("confirmed_episodes") or []
     axis = (
         '<div class="drift-axis" aria-hidden="true"><span>0%</span>'
         '<span>25% candidate floor</span><span>50%</span><span>75%</span><span>100%</span></div>'
@@ -1424,13 +1437,23 @@ def _interval_profile_chart(confirmation):
             and item["candidate_start"] <= interval_start
             and interval_end <= item["candidate_end"]
         ), None)
-        candidate_decision = candidate.get("decision") if candidate else None
-        is_candidate = candidate is not None
+        episode = next((
+            item for item in episodes
+            if item.get("candidate_start") and item.get("candidate_end")
+            and interval_start and interval_end
+            and item["candidate_start"] <= interval_start
+            and interval_end <= item["candidate_end"]
+        ), None)
+        candidate_decision = candidate.get("decision") if candidate else (
+            "confirmed" if episode else None
+        )
+        is_candidate = candidate is not None or episode is not None
         state = {
             "confirmed": "Confirmed candidate window",
             "rejected": "Rejected candidate window",
-        }.get(candidate_decision, "Candidate") if is_candidate else (
-            "Measured" if mature else "Excluded: article below mature size"
+        }.get(candidate_decision, "Candidate: exact check pending") if is_candidate else (
+            "Measured: not investigated"
+            if mature else "Excluded: below mature size; not investigated"
         )
         classes = ["drift-row"]
         if is_candidate:
@@ -1468,7 +1491,7 @@ def _interval_profile_chart(confirmation):
             '<span class="drift-date">No interval</span>'
             '<span class="drift-track" aria-hidden="true"></span>'
             '<span class="drift-value">—</span><span class="drift-mass">—</span>'
-            '<strong class="drift-state">Data missing</strong></li></ul>'
+            '<strong class="drift-state">Data missing: verdict unavailable</strong></li></ul>'
             f'<p class="drift-missing-reason">{esc(empty_detail)}</p>'
         )
     return (
@@ -1615,11 +1638,15 @@ def confirmation_section(confirmation, pivots=None, slug=None):
     horizon_note = _confirmation_horizon_note(confirmation)
     legacy_episode_table = ""
     if not candidate_receipt:
-        rows = "".join(_confirmation_episode_row(episode) for episode in episodes)
+        rows = "".join(
+            _confirmation_episode_row(episode, pivots, slug)
+            for episode in episodes
+        )
         legacy_episode_table = (
             '<div class="tablewrap"><table><thead><tr><th scope="col">Before</th>'
             '<th scope="col">After</th><th scope="col">Durable change</th>'
-            '<th scope="col">PWR mass</th><th scope="col">Duration</th></tr></thead>'
+            '<th scope="col">PWR mass</th><th scope="col">Duration</th>'
+            '<th scope="col">Evidence</th></tr></thead>'
             f'<tbody>{rows}</tbody></table></div>'
         )
     receipts = "".join(

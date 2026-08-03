@@ -1,122 +1,166 @@
 {
   "Abortion": {
     "state": "finding",
-    "reason": "PIVOT?"
+    "reason": "candidate redlines available"
   },
   "Ainu people": {
-    "state": "none",
-    "reason": "HEALTHY"
+    "state": "finding",
+    "reason": "candidate redlines available"
   },
   "Anti-Zionism": {
     "state": "finding",
-    "reason": "PIVOT?"
+    "reason": "candidate redlines available"
   },
   "Bar Kokhba Revolt": {
     "state": "finding",
-    "reason": "PIVOT?"
+    "reason": "candidate redlines available"
   },
   "Brontosaurus": {
     "state": "none",
-    "reason": "HEALTHY"
+    "reason": "loaded 28 of 35 expected snapshots"
+  },
+  "Capitalism": {
+    "state": "finding",
+    "reason": "candidate redlines available"
   },
   "Chess": {
     "state": "none",
-    "reason": "HEALTHY"
+    "reason": "not_confirmed"
   },
   "Climate change": {
     "state": "finding",
-    "reason": "PIVOT?"
+    "reason": "candidate redlines available"
   },
   "Collaboration in German-occupied Poland": {
     "state": "finding",
-    "reason": "PIVOT?"
+    "reason": "candidate redlines available"
+  },
+  "Democratic Party (United States)": {
+    "state": "finding",
+    "reason": "candidate redlines available"
+  },
+  "Democratic Party of the United States": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Democratic Socialists of America": {
+    "state": "finding",
+    "reason": "candidate redlines available"
+  },
+  "Elizabeth Warren": {
+    "state": "finding",
+    "reason": "candidate redlines available"
   },
   "Fascism and ideology": {
     "state": "finding",
-    "reason": "PIVOT?"
+    "reason": "candidate redlines available"
   },
   "Gaza genocide": {
-    "state": "finding",
-    "reason": "PIVOT?"
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
   },
   "Gaza war": {
     "state": "finding",
-    "reason": "PIVOT?"
+    "reason": "candidate redlines available"
   },
   "Genetic studies of Jews": {
     "state": "none",
-    "reason": "HEALTHY"
+    "reason": "not_confirmed"
   },
   "Genocide of indigenous peoples": {
     "state": "none",
-    "reason": "HEALTHY"
+    "reason": "not_confirmed"
   },
   "Hamas": {
     "state": "finding",
-    "reason": "PIVOT?"
+    "reason": "candidate redlines available"
   },
   "History of Zionism": {
-    "state": "none",
-    "reason": "HEALTHY"
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Ilhan Omar": {
+    "state": "finding",
+    "reason": "candidate redlines available"
   },
   "Israeli–Palestinian conflict": {
     "state": "finding",
-    "reason": "PIVOT?"
+    "reason": "candidate redlines available"
   },
   "Jedwabne pogrom": {
     "state": "finding",
-    "reason": "PIVOT?"
+    "reason": "candidate redlines available"
   },
   "Nakba": {
     "state": "none",
-    "reason": "HEALTHY"
+    "reason": "not_confirmed"
   },
   "Naliboki massacre": {
     "state": "none",
-    "reason": "HEALTHY"
+    "reason": "not_confirmed"
   },
   "Palestine": {
     "state": "finding",
-    "reason": "PIVOT?"
+    "reason": "candidate redlines available"
   },
   "Palestinian political violence": {
     "state": "none",
-    "reason": "HEALTHY"
+    "reason": "loaded 47 of 49 expected snapshots"
   },
   "Photosynthesis": {
     "state": "none",
-    "reason": "HEALTHY"
+    "reason": "not_confirmed"
   },
   "Racial conceptions of Jewish identity in Zionism": {
     "state": "none",
-    "reason": "HEALTHY"
+    "reason": "not_confirmed"
   },
   "Rafah offensive": {
     "state": "none",
-    "reason": "HEALTHY"
+    "reason": "not_confirmed"
+  },
+  "Republican Party (United States)": {
+    "state": "finding",
+    "reason": "candidate redlines available"
+  },
+  "Republican Party of the United States": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
   },
   "Rescue of Jews by Poles during the Holocaust": {
     "state": "none",
-    "reason": "HEALTHY"
+    "reason": "not_confirmed"
+  },
+  "Socialism": {
+    "state": "finding",
+    "reason": "candidate redlines available"
   },
   "UNRWA": {
     "state": "finding",
-    "reason": "PIVOT?"
+    "reason": "candidate redlines available"
   },
   "United Nations General Assembly observers": {
     "state": "none",
-    "reason": "HEALTHY"
+    "reason": "not_confirmed"
+  },
+  "Unmoved mover": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
   },
   "Warsaw concentration camp": {
-    "state": "none",
-    "reason": "HEALTHY"
+    "state": "finding",
+    "reason": "candidate redlines available"
   },
   "Water": {
     "state": "finding",
-    "reason": "PIVOT?"
+    "reason": "candidate redlines available"
+  },
+  "Xi Jinping": {
+    "state": "finding",
+    "reason": "candidate redlines available"
   },
   "Zionism": {
     "state": "finding",
-    "reason": "PIVOT?"
+    "reason": "candidate redlines available"
   }
 }

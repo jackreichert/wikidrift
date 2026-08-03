@@ -429,6 +429,57 @@ class AttributionBackfill(unittest.TestCase):
         self.assertEqual(report["skipped_episodes"], 0)
         write_findings.assert_called_once_with("A.l1-confirmation.json", self.confirmation)
 
+    def test_backfills_missing_interval_profile_without_recomputing_confirmation(self):
+        self.con.executemany("INSERT INTO rsnap VALUES (?,?,?,?,?)", [
+            ("A", "2024-01-01", 700, 1, 100),
+            ("A", "2024-01-01", 700, 2, 100),
+            ("A", "2024-07-01", 800, 1, 100),
+        ])
+        original_episodes = list(self.confirmation["confirmed_episodes"])
+        with mock.patch.object(drift, "load_confirmation", return_value=self.confirmation), \
+             mock.patch.object(drift.config, "write_findings") as write_findings:
+            report = drift.backfill_interval_profile("A", con=self.con)
+
+        self.assertEqual(len(self.confirmation["interval_profile"]), 2)
+        self.assertEqual(self.confirmation["confirmed_episodes"], original_episodes)
+        self.assertEqual(report["interval_count"], 2)
+        self.assertFalse(report["skipped"])
+        write_findings.assert_called_once_with("A.l1-confirmation.json", self.confirmation)
+
+    def test_interval_profile_backfill_is_idempotent(self):
+        self.confirmation["interval_profile"] = [{"pwr_loss": 10.0}]
+        with mock.patch.object(drift, "load_confirmation", return_value=self.confirmation), \
+             mock.patch.object(drift, "load_membership") as load_membership, \
+             mock.patch.object(drift.config, "write_findings") as write_findings:
+            report = drift.backfill_interval_profile("A", con=self.con)
+
+        self.assertEqual(report["interval_count"], 1)
+        self.assertTrue(report["skipped"])
+        load_membership.assert_not_called()
+        write_findings.assert_not_called()
+
+    def test_force_recomputes_existing_interval_profile(self):
+        self.confirmation["interval_profile"] = [{"pwr_loss": 10.0}]
+        membership = ([('2025-01-01', 900)], [{1, 2}], {1: [0], 2: [0]}, {900: 0})
+        with mock.patch.object(drift, "load_confirmation", return_value=self.confirmation), \
+             mock.patch.object(drift, "load_membership", return_value=membership) as load_membership, \
+             mock.patch.object(drift.config, "write_findings") as write_findings:
+            report = drift.backfill_interval_profile("A", con=self.con, force=True)
+
+        self.assertEqual(self.confirmation["interval_profile"], [])
+        self.assertFalse(report["skipped"])
+        load_membership.assert_called_once_with(self.con, "A")
+        write_findings.assert_called_once_with("A.l1-confirmation.json", self.confirmation)
+
+    def test_interval_profile_backfill_rejects_stale_corpus_horizon(self):
+        self.confirmation["corpus_horizon"]["snapshot_revid"] = 899
+        with mock.patch.object(drift, "load_confirmation", return_value=self.confirmation), \
+             mock.patch.object(drift, "load_membership") as load_membership:
+            with self.assertRaisesRegex(ValueError, "corpus horizon"):
+                drift.backfill_interval_profile("A", con=self.con)
+
+        load_membership.assert_not_called()
+
     def test_backfills_process_context_and_persists_confirmation(self):
         receipt = {"schema_version": 1, "semantic_role": "descriptive_process_context"}
         with mock.patch.object(drift, "load_confirmation", return_value=self.confirmation), \
