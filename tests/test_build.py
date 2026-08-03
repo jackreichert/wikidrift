@@ -345,7 +345,7 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("around L1 candidate date 2024-01-01", out)
         self.assertIn("exact checking did not confirm a durable rewrite", out)
         self.assertNotIn("around L1 pivot", out)
-        self.assertIn("Candidates checked exactly", out)
+        self.assertIn("Candidates and exact outcomes", out)
         self.assertIn("Persistence-weighted loss by interval", out)
         self.assertIn("69.5%", out)
         self.assertIn("240,130 PWR", out)
@@ -357,6 +357,10 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("Rejected", out)
         self.assertIn('href="Testland.p0.html"', out)
         self.assertIn("View redline", out)
+        rewrite = build.confirmation_section(
+            findings.confirmations["Testland"], findings.pivots["Testland"], "Testland"
+        )
+        self.assertEqual(rewrite.count("<table"), 1)
 
     def test_confirmed_analysis_renders_exact_episode_summary(self):
         findings = build.Findings(
@@ -382,11 +386,18 @@ class ArticlePageRendering(unittest.TestCase):
                 "evaluated_candidates": [{
                     "candidate_start": "2023-07-01",
                     "candidate_end": "2024-07-01",
+                    "exact_before_revid": 11,
+                    "exact_before_timestamp": "2024-01-01T00:00:00Z",
+                    "exact_after_revid": 12,
+                    "exact_after_timestamp": "2024-01-01T00:20:00Z",
+                    "durable_spine_drop": 0.75,
                     "decision": "confirmed",
                     "peak_pct": 42.0,
                     "pwr_mass": 500,
                 }],
                 "confirmed_episodes": [{
+                    "candidate_start": "2023-07-01",
+                    "candidate_end": "2024-07-01",
                     "before_revid": 11,
                     "before_timestamp": "2024-01-01T00:00:00Z",
                     "after_revid": 12,
@@ -414,6 +425,16 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn('href="Testland.p0.html"', out)
         self.assertIn("View redline", out)
         self.assertEqual(out.count("Confirmed candidate window"), 2)
+        rewrite = build.confirmation_section(
+            findings.confirmations["Testland"], findings.pivots["Testland"], "Testland"
+        )
+        self.assertEqual(rewrite.count("<table"), 1)
+        self.assertIn("Candidates and exact outcomes", rewrite)
+        self.assertNotIn("Candidates checked exactly", rewrite)
+        self.assertIn('aria-labelledby="candidate-outcomes-heading"', rewrite)
+        self.assertIn('aria-label="View redline for candidate 2023-07-01 to 2024-07-01"', rewrite)
+        self.assertIn('aria-label="Before exact revision: 2024-01-01T00:00:00Z"', rewrite)
+        self.assertLess(rewrite.index("Exact outcome"), rewrite.index("Coarse signal"))
 
     def test_confirmed_analysis_discloses_horizon_duration_and_neutral_attribution(self):
         findings = build.Findings(confirmations={"Testland": {
@@ -491,7 +512,17 @@ class ArticlePageRendering(unittest.TestCase):
         out = build.article_page("Testland", findings)
 
         self.assertIn("Too few snapshots for rewrite analysis", out)
+        self.assertIn("Persistence-weighted loss by interval", out)
+        self.assertIn("How the detector reached this state", out)
+        self.assertIn("Data missing", out)
+        self.assertIn("Not enough snapshots", out)
+        self.assertIn("Not scored", out)
+        self.assertIn("Too few snapshots were available", out)
+        self.assertNotIn("Legacy receipt", out)
         self.assertNotIn("No candidate rewrite window was confirmed", out)
+        self.assertIn('class="drift-axis"', out)
+        self.assertIn('class="drift-row drift-row-missing"', out)
+        self.assertIn("25% candidate floor", out)
 
     def test_profile_discloses_snapshot_horizon(self):
         profile = {
@@ -783,6 +814,9 @@ class ArticlePageRendering(unittest.TestCase):
     def test_missing_rewrite_export_is_unavailable_not_a_negative_finding(self):
         out = build.article_page("Unexported", build.Findings())
         self.assertIn("Rewrite analysis is not available", out)
+        self.assertIn("Persistence-weighted loss by interval", out)
+        self.assertIn("How the detector reached this state", out)
+        self.assertIn("Data missing", out)
         self.assertNotIn("None stood out", out)
 
     def test_completed_l1_scan_without_pivot_is_not_missing_coverage(self):
@@ -794,6 +828,10 @@ class ArticlePageRendering(unittest.TestCase):
         out = build.article_page("Testland", findings)
         self.assertIn("No candidate rewrite window was found", out)
         self.assertIn("L1 rewrite scan ran", out)
+        self.assertIn("Persistence-weighted loss by interval", out)
+        self.assertIn("No candidate signal", out)
+        self.assertIn("Not needed", out)
+        self.assertIn("Data missing", out)
         self.assertNotIn("Rewrite analysis is not available", out)
 
     def test_current_rewrite_status_overrides_stale_lexical_marker(self):

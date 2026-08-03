@@ -1171,9 +1171,24 @@ def missing_diff_section(state="unavailable", reason=None):
             '<p class="missing-note">The L1 rewrite scan ran, but no interval crossed its candidate '
             'threshold. This is a completed negative result for that detector, not a claim that the '
             'article never changed.</p>'
+            + _interval_profile_chart({
+                "coarse_verdict": "HEALTHY",
+                "status": "not_confirmed",
+                "interval_profile": [],
+                "evaluated_candidates": [],
+            })
         )
     title, note = _unavailable_rewrite_copy(reason)
-    return f'<h2>{esc(title)}</h2><p class="missing-note">{esc(note)}</p>'
+    return (
+        f'<h2>{esc(title)}</h2><p class="missing-note">{esc(note)}</p>'
+        + _interval_profile_chart({
+            "coarse_verdict": "SKIP" if reason == "too few snapshots" else "UNAVAILABLE",
+            "status": "unavailable",
+            "reason": reason,
+            "interval_profile": [],
+            "evaluated_candidates": [],
+        })
+    )
 
 
 def _confirmation_horizon_note(confirmation):
@@ -1195,13 +1210,19 @@ def _format_duration(duration_seconds):
     return f"{duration_seconds / 3600:.1f} hours"
 
 
+def _revision_link(revid, timestamp, label):
+    text = timestamp or revid
+    return (
+        f'<a href="{oldid("en", revid)}" target="_blank" rel="noopener" '
+        f'aria-label="{esc(label)} exact revision: {esc(text)}">{esc(text)}</a>'
+    )
+
+
 def _confirmation_episode_row(episode):
     before_revid = episode.get("before_revid")
     after_revid = episode.get("after_revid")
-    before = (f'<a href="{oldid("en", before_revid)}" target="_blank" rel="noopener">'
-              f'{esc(episode.get("before_timestamp") or before_revid)}</a>')
-    after = (f'<a href="{oldid("en", after_revid)}" target="_blank" rel="noopener">'
-             f'{esc(episode.get("after_timestamp") or after_revid)}</a>')
+    before = _revision_link(before_revid, episode.get("before_timestamp"), "Before")
+    after = _revision_link(after_revid, episode.get("after_timestamp"), "After")
     drop = 100 * (episode.get("durable_spine_drop") or 0)
     duration = _format_duration(episode.get("duration_seconds"))
     return (
@@ -1215,6 +1236,8 @@ def _candidate_decision(candidate, required_drop):
     reason = candidate.get("rejection_reason")
     drop = candidate.get("durable_spine_drop")
     if decision == "confirmed":
+        if isinstance(drop, (int, float)):
+            return f"Confirmed: {100 * drop:.1f}% durable-spine drop"
         return "Confirmed"
     if reason == "durable_spine_drop_below_threshold" and isinstance(drop, (int, float)):
         return (
@@ -1226,10 +1249,37 @@ def _candidate_decision(candidate, required_drop):
     return f'Rejected: {str(reason or "exact threshold not met").replace("_", " ")}'
 
 
-def _candidate_evaluations_receipt(confirmation, pivots=None, slug=None):
+def _candidate_exact_pair(candidate, episodes):
+    """Render a candidate's exact pair, enriching it from the matching confirmed episode."""
+    candidate_window = (candidate.get("candidate_start"), candidate.get("candidate_end"))
+    candidate_pair = (candidate.get("exact_before_revid"), candidate.get("exact_after_revid"))
+    episode = next((
+        item for item in episodes
+        if (
+            (candidate_window[0]
+             and candidate_window == (item.get("candidate_start"), item.get("candidate_end")))
+            or (candidate_pair[0]
+                and candidate_pair == (item.get("before_revid"), item.get("after_revid")))
+        )
+    ), {})
+    before_revid = candidate.get("exact_before_revid") or episode.get("before_revid")
+    after_revid = candidate.get("exact_after_revid") or episode.get("after_revid")
+    if not before_revid or not after_revid:
+        return ""
+    before_timestamp = candidate.get("exact_before_timestamp") or episode.get("before_timestamp")
+    after_timestamp = candidate.get("exact_after_timestamp") or episode.get("after_timestamp")
+    before = _revision_link(before_revid, before_timestamp, "Before")
+    after = _revision_link(after_revid, after_timestamp, "After")
+    duration = _format_duration(episode.get("duration_seconds"))
+    duration_text = f" · {esc(duration)}" if duration != "unknown" else ""
+    return f'<span class="candidate-pair">Exact pair: {before} → {after}{duration_text}</span>'
+
+
+def _candidate_evaluations_receipt(confirmation, pivots=None, slug=None, episodes=None):
     candidates = confirmation.get("evaluated_candidates") or []
     if not candidates:
         return ""
+    episodes = episodes or []
     required_drop = (confirmation.get("thresholds") or {}).get("confirm_drop", 0.2)
     pivot_indexes = {
         (pivot.get("start"), pivot.get("end")): index
@@ -1240,35 +1290,127 @@ def _candidate_evaluations_receipt(confirmation, pivots=None, slug=None):
         source = "rolling second pass" if candidate.get("source") == "rolling" else "coarse interval"
         window = (candidate.get("candidate_start"), candidate.get("candidate_end"))
         pivot_index = pivot_indexes.get(window)
+        window_label = f'{candidate.get("candidate_start")} to {candidate.get("candidate_end")}'
         evidence = (
-            f'<a href="{slug}.p{pivot_index}.html">View redline</a>'
+            f'<a href="{slug}.p{pivot_index}.html" '
+            f'aria-label="View redline for candidate {esc(window_label)}">View redline</a>'
             if slug and pivot_index is not None
             else '<span class="muted">Redline unavailable</span>'
         )
+        decision = esc(_candidate_decision(candidate, required_drop))
+        exact_pair = _candidate_exact_pair(candidate, episodes)
+        outcome = f'<span class="candidate-decision">{decision}</span>'
+        if exact_pair:
+            outcome += exact_pair
         rows.append(
             f'<tr><td>{esc(candidate.get("candidate_start"))} → '
-            f'{esc(candidate.get("candidate_end"))}</td>'
+            f'{esc(candidate.get("candidate_end"))}'
+            f'<span class="candidate-evidence">{evidence}</span></td>'
+            f'<td>{outcome}</td>'
             f'<td>{esc(source)} · {esc(_pwr_read(candidate.get("peak_pct")))} · '
-            f'{int(candidate.get("pwr_mass") or 0):,} PWR mass</td>'
-            f'<td>{esc(_candidate_decision(candidate, required_drop))}</td>'
-            f'<td>{evidence}</td></tr>'
+            f'{int(candidate.get("pwr_mass") or 0):,} PWR mass</td></tr>'
         )
     return (
-        '<h3>Candidates checked exactly</h3>'
-        '<p class="muted">These coarse windows were leads sent to the revision-level check. '
-        'A rejected candidate remains useful context, but it is not a confirmed rewrite.</p>'
-        '<div class="tablewrap"><table><thead><tr><th scope="col">Candidate window</th>'
-        '<th scope="col">Coarse signal</th><th scope="col">Exact decision</th>'
-        '<th scope="col">Evidence</th></tr></thead>'
+        '<h3 id="candidate-outcomes-heading">Candidates and exact outcomes</h3>'
+        '<p class="muted">Every coarse lead and its revision-level decision, including rejected '
+        'candidates. Redlines compare the full candidate window.</p>'
+        '<div class="tablewrap"><table class="candidate-outcomes" '
+        'aria-labelledby="candidate-outcomes-heading">'
+        '<thead><tr><th scope="col">Candidate window</th>'
+        '<th scope="col">Exact outcome</th><th scope="col">Coarse signal</th>'
+        '</tr></thead>'
         f'<tbody>{"".join(rows)}</tbody></table></div>'
+    )
+
+
+def _analysis_stage(label, state, detail):
+    return (
+        '<li><span class="analysis-stage">'
+        f'{esc(label)}</span><strong>{esc(state)}</strong><span>{esc(detail)}</span></li>'
+    )
+
+
+def _rewrite_analysis_path(confirmation, interval_count):
+    coarse_verdict = confirmation.get("coarse_verdict")
+    coarse_state, coarse_detail = {
+        "PIVOT?": (
+            "Candidate signal found",
+            "The coarse scan found a deletion-heavy window worth exact checking.",
+        ),
+        "CREEP?": (
+            "Gradual-change signal found",
+            "The coarse scan found accumulated replacement worth closer inspection.",
+        ),
+        "HEALTHY": (
+            "No candidate signal",
+            "No measured interval crossed the detector's candidate threshold.",
+        ),
+        "SKIP": (
+            "Not enough snapshots",
+            "The saved corpus could not support the coarse interval scan.",
+        ),
+        "UNAVAILABLE": (
+            "Unavailable",
+            "No current coarse result is available in this export.",
+        ),
+    }.get(coarse_verdict, (
+        "Not published",
+        "This artifact does not include the coarse detector decision.",
+    ))
+
+    if interval_count:
+        interval_state = f"{interval_count} interval{'s' if interval_count != 1 else ''} scored"
+        interval_detail = "The bars below show persistence-weighted wording loss for each interval."
+    elif coarse_verdict == "SKIP":
+        interval_state = "Not scored"
+        interval_detail = "There were too few snapshots to calculate interval-level loss."
+    elif "interval_profile" not in confirmation:
+        interval_state = "Legacy receipt"
+        interval_detail = "This result predates interval-level receipts and needs a detector refresh."
+    else:
+        interval_state = "No bars available"
+        interval_detail = "No interval-level measurements are available in this export."
+
+    status = confirmation.get("status")
+    candidates = confirmation.get("evaluated_candidates") or []
+    episodes = confirmation.get("confirmed_episodes") or []
+    if status == "confirmed":
+        exact_state = f"{len(episodes)} rewrite episode{'s' if len(episodes) != 1 else ''} confirmed"
+        exact_detail = "Revision-level checking found the required durable wording replacement."
+    elif status == "not_confirmed" and candidates:
+        exact_state = "Candidates rejected"
+        exact_detail = "Revision-level checking did not find the required durable replacement."
+    elif status == "not_confirmed" and coarse_verdict == "HEALTHY":
+        exact_state = "Not needed"
+        exact_detail = "No coarse candidate was sent to revision-level checking."
+    elif status == "not_confirmed":
+        exact_state = "Completed, details unavailable"
+        exact_detail = "The saved result is negative, but its candidate receipts were not published."
+    elif status == "unavailable":
+        exact_state = "Unavailable"
+        exact_detail = "No current revision-level decision can be published."
+    else:
+        exact_state = "Not run"
+        exact_detail = "No revision-level decision is available for this article."
+
+    return (
+        '<section class="analysis-path-wrap" aria-labelledby="analysis-path-title">'
+        '<h4 id="analysis-path-title">How the detector reached this state</h4>'
+        '<ol class="analysis-path">'
+        f'{_analysis_stage("1 · Coarse scan", coarse_state, coarse_detail)}'
+        f'{_analysis_stage("2 · Interval scoring", interval_state, interval_detail)}'
+        f'{_analysis_stage("3 · Exact check", exact_state, exact_detail)}'
+        '</ol></section>'
     )
 
 
 def _interval_profile_chart(confirmation):
     intervals = confirmation.get("interval_profile") or []
-    if not intervals:
-        return ""
     candidates = confirmation.get("evaluated_candidates") or []
+    axis = (
+        '<div class="drift-axis" aria-hidden="true"><span>0%</span>'
+        '<span>25% candidate floor</span><span>50%</span><span>75%</span><span>100%</span></div>'
+    )
     rows = []
     for interval in intervals:
         loss = float(interval.get("pwr_loss") or 0)
@@ -1306,6 +1448,29 @@ def _interval_profile_chart(confirmation):
             f'<span class="drift-mass">{int(interval.get("pwr_removed") or 0):,} PWR</span>'
             f'<span class="drift-state">{esc(state)}</span></li>'
         )
+    if rows:
+        plot = (
+            f'{axis}'
+            f'<ul class="drift-plot">{"".join(rows)}</ul>'
+        )
+    else:
+        if confirmation.get("coarse_verdict") == "SKIP":
+            empty_detail = "Too few snapshots were available to calculate interval-level loss."
+        elif "interval_profile" not in confirmation:
+            empty_detail = (
+                "This saved result predates interval-level receipts. Refresh the detector to publish "
+                "measured bars."
+            )
+        else:
+            empty_detail = "No interval-level measurements are available in this export."
+        plot = (
+            f'{axis}<ul class="drift-plot"><li class="drift-row drift-row-missing">'
+            '<span class="drift-date">No interval</span>'
+            '<span class="drift-track" aria-hidden="true"></span>'
+            '<span class="drift-value">—</span><span class="drift-mass">—</span>'
+            '<strong class="drift-state">Data missing</strong></li></ul>'
+            f'<p class="drift-missing-reason">{esc(empty_detail)}</p>'
+        )
     return (
         '<figure class="drift-profile" aria-labelledby="drift-profile-title">'
         '<figcaption><h3 id="drift-profile-title">Persistence-weighted loss by interval</h3>'
@@ -1313,9 +1478,7 @@ def _interval_profile_chart(confirmation):
         'Measured means the interval was scored but not sent to exact checking. '
         'Candidate-window labels report the exact revision-level decision for the broader window '
         'containing that interval.</p></figcaption>'
-        '<div class="drift-axis" aria-hidden="true"><span>0%</span><span>25% candidate floor</span>'
-        '<span>50%</span><span>75%</span><span>100%</span></div>'
-        f'<ul class="drift-plot">{"".join(rows)}</ul>'
+        f'{_rewrite_analysis_path(confirmation, len(intervals))}{plot}'
         '</figure>'
     )
 
@@ -1434,10 +1597,14 @@ def confirmation_section(confirmation, pivots=None, slug=None):
         reason = confirmation.get("reason")
         if not reason and confirmation.get("coarse_verdict") == "SKIP":
             reason = "too few snapshots"
-        return missing_diff_section("unavailable", reason)
+        title, note = _unavailable_rewrite_copy(reason)
+        return (
+            f'<h2>{esc(title)}</h2><p class="missing-note">{esc(note)}</p>'
+            f'{_interval_profile_chart(confirmation)}'
+        )
     episodes = confirmation.get("confirmed_episodes") or []
     interval_chart = _interval_profile_chart(confirmation)
-    candidate_receipt = _candidate_evaluations_receipt(confirmation, pivots, slug)
+    candidate_receipt = _candidate_evaluations_receipt(confirmation, pivots, slug, episodes)
     if not episodes:
         return (
             '<h2>No candidate rewrite window was confirmed</h2>'
@@ -1446,7 +1613,15 @@ def confirmation_section(confirmation, pivots=None, slug=None):
             f'that the article never changed.</p>{interval_chart}{candidate_receipt}'
         )
     horizon_note = _confirmation_horizon_note(confirmation)
-    rows = "".join(_confirmation_episode_row(episode) for episode in episodes)
+    legacy_episode_table = ""
+    if not candidate_receipt:
+        rows = "".join(_confirmation_episode_row(episode) for episode in episodes)
+        legacy_episode_table = (
+            '<div class="tablewrap"><table><thead><tr><th scope="col">Before</th>'
+            '<th scope="col">After</th><th scope="col">Durable change</th>'
+            '<th scope="col">PWR mass</th><th scope="col">Duration</th></tr></thead>'
+            f'<tbody>{rows}</tbody></table></div>'
+        )
     receipts = "".join(
         _process_context_receipt(episode) + _attribution_receipt(episode)
         for episode in episodes
@@ -1455,11 +1630,7 @@ def confirmation_section(confirmation, pivots=None, slug=None):
     return (
         f'<h2>{count} confirmed rewrite episode{"s" if count != 1 else ""}</h2>'
         '<p>Events bounded by stable revisions where long-lived wording was substantially replaced.</p>'
-        f'{horizon_note}'
-        '<div class="tablewrap"><table><thead><tr><th scope="col">Before</th>'
-        '<th scope="col">After</th><th scope="col">Durable change</th>'
-        '<th scope="col">PWR mass</th><th scope="col">Duration</th></tr></thead>'
-        f'<tbody>{rows}</tbody></table></div>{interval_chart}{candidate_receipt}{receipts}'
+        f'{horizon_note}{interval_chart}{candidate_receipt}{legacy_episode_table}{receipts}'
         '<p class="muted">Attribution describes public revision-history associations and origin authorship. '
         'It does not establish bias, motive, or misconduct.</p>'
     )
@@ -1792,9 +1963,11 @@ def article_page(article, f, categories=None):
     if confirmation:
         panels.append(("Rewrite", confirmation_section(confirmation, pv, slugify(article)), "diff"))
     elif pv:
-        panels.append(("Rewrite", render_pivots(pv, slugify(article)), "diff"))
+        chart = _interval_profile_chart({"coarse_verdict": "PIVOT?", "status": "candidate"})
+        panels.append(("Rewrite", chart + render_pivots(pv, slugify(article)), "diff"))
     elif diff:
-        panels.append(("Rewrite", diff_section(diff), "diff"))
+        chart = _interval_profile_chart({"coarse_verdict": "PIVOT?", "status": "candidate"})
+        panels.append(("Rewrite", chart + diff_section(diff), "diff"))
     else:
         rewrite_state, rewrite_reason = _rewrite_info(article, f)
         panels.append(("Rewrite", missing_diff_section(rewrite_state, rewrite_reason), "diff"))
