@@ -137,5 +137,288 @@
     }
   ],
   "attribution_backfill_ts": "2026-07-31T17:45:32.144208+00:00",
-  "schema_version": 2
+  "schema_version": 2,
+  "interval_profile": [
+    {
+      "start": "2003-07-01",
+      "end": "2004-01-01",
+      "size": 328,
+      "pwr_loss": 12.2,
+      "pwr_removed": 40,
+      "mature": false
+    },
+    {
+      "start": "2004-01-01",
+      "end": "2004-07-01",
+      "size": 353,
+      "pwr_loss": 0.47,
+      "pwr_removed": 3,
+      "mature": false
+    },
+    {
+      "start": "2004-07-01",
+      "end": "2005-01-01",
+      "size": 371,
+      "pwr_loss": 46.68,
+      "pwr_removed": 471,
+      "mature": false
+    },
+    {
+      "start": "2005-01-01",
+      "end": "2005-07-01",
+      "size": 532,
+      "pwr_loss": 0.0,
+      "pwr_removed": 0,
+      "mature": false
+    },
+    {
+      "start": "2005-07-01",
+      "end": "2006-01-01",
+      "size": 667,
+      "pwr_loss": 43.41,
+      "pwr_removed": 754,
+      "mature": false
+    },
+    {
+      "start": "2006-01-01",
+      "end": "2006-07-01",
+      "size": 502,
+      "pwr_loss": 24.44,
+      "pwr_removed": 363,
+      "mature": false
+    },
+    {
+      "start": "2006-07-01",
+      "end": "2007-01-01",
+      "size": 859,
+      "pwr_loss": 4.04,
+      "pwr_removed": 80,
+      "mature": false
+    },
+    {
+      "start": "2007-01-01",
+      "end": "2007-07-01",
+      "size": 1693,
+      "pwr_loss": 1.5,
+      "pwr_removed": 54,
+      "mature": false
+    },
+    {
+      "start": "2007-07-01",
+      "end": "2008-01-01",
+      "size": 1820,
+      "pwr_loss": 1.7,
+      "pwr_removed": 91,
+      "mature": false
+    },
+    {
+      "start": "2008-01-01",
+      "end": "2008-07-01",
+      "size": 2164,
+      "pwr_loss": 1.26,
+      "pwr_removed": 94,
+      "mature": false
+    },
+    {
+      "start": "2008-07-01",
+      "end": "2009-01-01",
+      "size": 2310,
+      "pwr_loss": 13.08,
+      "pwr_removed": 1262,
+      "mature": false
+    },
+    {
+      "start": "2009-01-01",
+      "end": "2009-07-01",
+      "size": 2283,
+      "pwr_loss": 0.44,
+      "pwr_removed": 47,
+      "mature": false
+    },
+    {
+      "start": "2009-07-01",
+      "end": "2013-01-01",
+      "size": 2332,
+      "pwr_loss": 47.3,
+      "pwr_removed": 6128,
+      "mature": false
+    },
+    {
+      "start": "2013-01-01",
+      "end": "2013-07-01",
+      "size": 6687,
+      "pwr_loss": 2.47,
+      "pwr_removed": 335,
+      "mature": false
+    },
+    {
+      "start": "2013-07-01",
+      "end": "2014-01-01",
+      "size": 6568,
+      "pwr_loss": 0.53,
+      "pwr_removed": 105,
+      "mature": false
+    },
+    {
+      "start": "2014-01-01",
+      "end": "2014-07-01",
+      "size": 6571,
+      "pwr_loss": 1.01,
+      "pwr_removed": 265,
+      "mature": false
+    },
+    {
+      "start": "2014-07-01",
+      "end": "2015-01-01",
+      "size": 6716,
+      "pwr_loss": 0.65,
+      "pwr_removed": 213,
+      "mature": false
+    },
+    {
+      "start": "2015-01-01",
+      "end": "2015-07-01",
+      "size": 7063,
+      "pwr_loss": 0.12,
+      "pwr_removed": 47,
+      "mature": false
+    },
+    {
+      "start": "2015-07-01",
+      "end": "2016-01-01",
+      "size": 8640,
+      "pwr_loss": 5.26,
+      "pwr_removed": 2535,
+      "mature": false
+    },
+    {
+      "start": "2016-01-01",
+      "end": "2016-07-01",
+      "size": 7623,
+      "pwr_loss": 2.26,
+      "pwr_removed": 1205,
+      "mature": false
+    },
+    {
+      "start": "2016-07-01",
+      "end": "2017-01-01",
+      "size": 8163,
+      "pwr_loss": 1.09,
+      "pwr_removed": 658,
+      "mature": false
+    },
+    {
+      "start": "2017-01-01",
+      "end": "2017-07-01",
+      "size": 8285,
+      "pwr_loss": 0.43,
+      "pwr_removed": 294,
+      "mature": false
+    },
+    {
+      "start": "2017-07-01",
+      "end": "2018-01-01",
+      "size": 9163,
+      "pwr_loss": 3.52,
+      "pwr_removed": 2705,
+      "mature": false
+    },
+    {
+      "start": "2018-01-01",
+      "end": "2018-07-01",
+      "size": 11847,
+      "pwr_loss": 6.36,
+      "pwr_removed": 5470,
+      "mature": false
+    },
+    {
+      "start": "2018-07-01",
+      "end": "2019-01-01",
+      "size": 19318,
+      "pwr_loss": 5.52,
+      "pwr_removed": 5511,
+      "mature": true
+    },
+    {
+      "start": "2019-01-01",
+      "end": "2019-07-01",
+      "size": 21891,
+      "pwr_loss": 3.53,
+      "pwr_removed": 4116,
+      "mature": true
+    },
+    {
+      "start": "2019-07-01",
+      "end": "2020-01-01",
+      "size": 22151,
+      "pwr_loss": 0.64,
+      "pwr_removed": 866,
+      "mature": true
+    },
+    {
+      "start": "2020-01-01",
+      "end": "2020-07-01",
+      "size": 23884,
+      "pwr_loss": 33.65,
+      "pwr_removed": 53292,
+      "mature": true
+    },
+    {
+      "start": "2020-07-01",
+      "end": "2021-01-01",
+      "size": 22354,
+      "pwr_loss": 7.18,
+      "pwr_removed": 9154,
+      "mature": true
+    },
+    {
+      "start": "2021-01-01",
+      "end": "2024-01-01",
+      "size": 26757,
+      "pwr_loss": 28.52,
+      "pwr_removed": 41478,
+      "mature": true
+    },
+    {
+      "start": "2024-01-01",
+      "end": "2024-07-01",
+      "size": 42922,
+      "pwr_loss": 22.86,
+      "pwr_removed": 33844,
+      "mature": true
+    },
+    {
+      "start": "2024-07-01",
+      "end": "2025-01-01",
+      "size": 40124,
+      "pwr_loss": 2.32,
+      "pwr_removed": 3582,
+      "mature": true
+    },
+    {
+      "start": "2025-01-01",
+      "end": "2025-07-01",
+      "size": 41127,
+      "pwr_loss": 17.23,
+      "pwr_removed": 33171,
+      "mature": true
+    },
+    {
+      "start": "2025-07-01",
+      "end": "2026-01-01",
+      "size": 40832,
+      "pwr_loss": 85.19,
+      "pwr_removed": 170886,
+      "mature": true
+    },
+    {
+      "start": "2026-01-01",
+      "end": "2026-07-01",
+      "size": 19523,
+      "pwr_loss": 13.41,
+      "pwr_removed": 6840,
+      "mature": true
+    }
+  ],
+  "interval_profile_backfill_ts": "2026-08-03T18:11:33.353895+00:00"
 }

@@ -21,6 +21,8 @@ target/
 .planning/spikes/data/mscore/
 .planning/spikes/data/articles/**/mscore/
 
+graphify-out/
+
 # Large fetched artifacts (regenerable from the APIs/dumps) — spike 011 xml/ alone is ~11 GB
 .planning/spikes/**/xml/
 .planning/spikes/**/*.jsonl
@@ -39,6 +41,7 @@ target/
 # the placeholder template is safe to commit (no values)
 !.env.example
 ssm-*.json
+
 
 # OS
 .DS_Store

@@ -2,6 +2,7 @@
 
   wikidrift analyze "Zionism"          # full L1 pipeline (fetches as needed) + attribution
     wikidrift backfill-attribution "Zionism"  # add attribution to current exact confirmations
+    wikidrift backfill-interval-profile "Zionism"  # add interval receipts from the local corpus
   wikidrift validate ["Zionism" ...]   # offline PWR candidate verdicts (no WikiWho); default = whole cache
   wikidrift prerank ["Zionism" ...]    # metadata pre-ranker (offline)
   wikidrift benchmark [--json]         # score the adjudicated roster
@@ -94,6 +95,13 @@ def main(argv=None):
     )
     sp.add_argument("article")
     sp.add_argument("--force", action="store_true", help="recompute episodes that already have attribution")
+
+    sp = sub.add_parser(
+        "backfill-interval-profile",
+        help="add interval-level PWR receipts to a current confirmation without rerunning L1",
+    )
+    sp.add_argument("article")
+    sp.add_argument("--force", action="store_true", help="recompute an interval profile that already exists")
 
     sp = sub.add_parser(
         "backfill-process-context",
@@ -238,6 +246,11 @@ def main(argv=None):
         )
         if report["failed_episodes"]:
             raise RuntimeError(f"attribution failed for {report['failed_episodes']} episode(s)")
+    elif args.cmd == "backfill-interval-profile":
+        article = _normalize_article_arg(args.article)
+        report = drift.backfill_interval_profile(article, force=args.force)
+        action = "unchanged" if report["skipped"] else "updated"
+        print(f"{article}: {action}, {report['interval_count']} interval(s)")
     elif args.cmd == "backfill-process-context":
         article = _normalize_article_arg(args.article)
         report = drift.backfill_process_context(article, force=args.force)

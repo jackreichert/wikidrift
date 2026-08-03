@@ -62,5 +62,56 @@
         "top_two_removal_share": 1.0
       }
     }
-  ]
+  ],
+  "interval_profile": [
+    {
+      "start": "2024-01-01",
+      "end": "2024-07-01",
+      "size": 9119,
+      "pwr_loss": 20.95,
+      "pwr_removed": 1910,
+      "mature": false
+    },
+    {
+      "start": "2024-07-01",
+      "end": "2025-01-01",
+      "size": 86687,
+      "pwr_loss": 18.52,
+      "pwr_removed": 17389,
+      "mature": true
+    },
+    {
+      "start": "2025-01-01",
+      "end": "2025-07-01",
+      "size": 137059,
+      "pwr_loss": 34.15,
+      "pwr_removed": 72939,
+      "mature": true
+    },
+    {
+      "start": "2025-07-01",
+      "end": "2026-01-01",
+      "size": 165883,
+      "pwr_loss": 59.04,
+      "pwr_removed": 181116,
+      "mature": true
+    },
+    {
+      "start": "2026-01-01",
+      "end": "2026-07-01",
+      "size": 120535,
+      "pwr_loss": 2.64,
+      "pwr_removed": 6640,
+      "mature": true
+    },
+    {
+      "start": "2026-07-01",
+      "end": "2026-07-01",
+      "size": 139184,
+      "pwr_loss": 0.0,
+      "pwr_removed": 9,
+      "mature": true
+    }
+  ],
+  "interval_profile_backfill_ts": "2026-08-03T18:11:35.334131+00:00"
 }

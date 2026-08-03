@@ -79,6 +79,18 @@ def _index_html():
 
 
 class FindingsDiscovery(unittest.TestCase):
+    def test_every_published_article_renders_one_interval_chart(self):
+        findings = build.gather()
+        missing_or_duplicated = {}
+        for article in findings.articles():
+            chart_count = build.article_page(article, findings).count(
+                "Persistence-weighted loss by interval"
+            )
+            if chart_count != 1:
+                missing_or_duplicated[article] = chart_count
+
+        self.assertEqual(missing_or_duplicated, {})
+
     def test_expanded_political_topics_have_a_descriptive_category(self):
         political_topics = [
             "Xi Jinping",
@@ -350,7 +362,7 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("69.5%", out)
         self.assertIn("240,130 PWR", out)
         self.assertIn("Rejected candidate window", out)
-        self.assertIn("Excluded: article below mature size", out)
+        self.assertIn("Excluded: below mature size; not investigated", out)
         self.assertIn("2024-01-01 → 2024-07-01", out)
         self.assertIn("10.0% durable-spine drop", out)
         self.assertIn("below the required 20.0%", out)
@@ -436,6 +448,26 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn('aria-label="Before exact revision: 2024-01-01T00:00:00Z"', rewrite)
         self.assertLess(rewrite.index("Exact outcome"), rewrite.index("Coarse signal"))
 
+    def test_legacy_confirmed_episode_adds_verdict_to_containing_interval(self):
+        out = build._interval_profile_chart({
+            "status": "confirmed",
+            "interval_profile": [{
+                "start": "2025-01-01",
+                "end": "2026-01-01",
+                "pwr_loss": 42.0,
+                "pwr_removed": 500,
+                "mature": True,
+            }],
+            "confirmed_episodes": [{
+                "candidate_start": "2025-01-01",
+                "candidate_end": "2026-01-01",
+                "before_revid": 11,
+                "after_revid": 12,
+            }],
+        })
+
+        self.assertIn("Confirmed candidate window", out)
+
     def test_confirmed_analysis_discloses_horizon_duration_and_neutral_attribution(self):
         findings = build.Findings(confirmations={"Testland": {
             "article": "Testland",
@@ -482,12 +514,22 @@ class ArticlePageRendering(unittest.TestCase):
                     },
                 },
             }],
-        }})
+        }}, pivots={"Testland": {"pivots": [{
+            "before_rev": 11,
+            "after_rev": 12,
+            "before_text": "old",
+            "after_text": "new",
+        }]}})
 
         out = build.article_page("Testland", findings)
 
         self.assertIn("Snapshot corpus through <b>2026-01-01</b>", out)
         self.assertIn("20 minutes", out)
+        self.assertIn('href="Testland.p0.html"', out)
+        self.assertIn(
+            'aria-label="View redline for exact revisions 11 to 12"',
+            out,
+        )
         self.assertIn("<b>80</b> tokens removed", out)
         self.assertIn("<b>40</b> surviving replacement tokens", out)
         self.assertIn("associated with <b>100.0%</b> of removals", out)
@@ -500,6 +542,56 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("Talk-page activity unavailable", out)
         self.assertIn("retrieval timed out", out)
         self.assertLess(out.index("Editorial process context"), out.index("Exact-event attribution"))
+
+    def test_confirmation_only_episodes_link_each_matching_redline(self):
+        episodes = [
+            {
+                "before_revid": before,
+                "before_timestamp": f"202{index}-01-01T00:00:00Z",
+                "after_revid": after,
+                "after_timestamp": f"202{index}-01-01T00:10:00Z",
+                "durable_spine_drop": 0.5,
+                "pwr_mass": 100,
+            }
+            for index, (before, after) in enumerate(((11, 12), (21, 22), (31, 32)), start=3)
+        ]
+        pivots = {
+            "pivots": [
+                {"before_rev": episode["before_revid"], "after_rev": episode["after_revid"]}
+                for episode in episodes
+            ]
+        }
+
+        out = build.confirmation_section(
+            {"status": "confirmed", "confirmed_episodes": episodes},
+            pivots,
+            "Testland",
+        )
+
+        self.assertEqual(out.count(">View redline</a>"), 3)
+        for index, (before, after) in enumerate(((11, 12), (21, 22), (31, 32))):
+            self.assertIn(f'href="Testland.p{index}.html"', out)
+            self.assertIn(
+                f'aria-label="View redline for exact revisions {before} to {after}"',
+                out,
+            )
+
+    def test_confirmation_episode_without_matching_pivot_marks_redline_unavailable(self):
+        out = build.confirmation_section(
+            {
+                "status": "confirmed",
+                "confirmed_episodes": [{
+                    "before_revid": 11,
+                    "after_revid": 12,
+                    "durable_spine_drop": 0.5,
+                }],
+            },
+            {"pivots": [{"before_rev": 21, "after_rev": 22}]},
+            "Testland",
+        )
+
+        self.assertIn("Redline unavailable", out)
+        self.assertNotIn('href="Testland.p0.html"', out)
 
     def test_unavailable_confirmation_remains_unavailable_when_article_is_published(self):
         findings = build.Findings(

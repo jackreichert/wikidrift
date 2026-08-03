@@ -30,18 +30,44 @@ DIFF = {"Warsaw concentration camp": "2018-06-01"}
 BLAME = ["Zionism"]
 
 
-def published_articles(findings_dir=None):
-    """Use profile exports as the public-site roster; every rendered article has one."""
+def published_article_sources(findings_dir=None, articles_dir=None):
+    """Return each exportable article's owning paths; article shards override legacy findings."""
+    use_default_shards = findings_dir is None and articles_dir is None
     findings_dir = pathlib.Path(findings_dir or config.FINDINGS)
-    articles = set()
-    for path in findings_dir.glob("*.profile.json"):
-        try:
-            article = json.loads(path.read_text(encoding="utf-8")).get("article")
-        except (OSError, json.JSONDecodeError):
+    directories = [findings_dir]
+    if use_default_shards:
+        articles_dir = config.ARTICLES_DIR
+    if articles_dir:
+        articles_dir = pathlib.Path(articles_dir)
+        if articles_dir.exists():
+            directories.extend(
+                article_dir / "findings"
+                for article_dir in sorted(articles_dir.iterdir())
+                if article_dir.is_dir() and article_dir.name != "_shared"
+            )
+
+    sources = {}
+    for directory in directories:
+        if not directory.exists():
             continue
-        if article:
-            articles.add(article)
-    return sorted(articles)
+        paths = list(directory.glob("*.profile.json"))
+        paths.extend(directory.glob("*.l1-confirmation.json"))
+        for path in paths:
+            try:
+                article = json.loads(path.read_text(encoding="utf-8")).get("article")
+            except (OSError, json.JSONDecodeError):
+                continue
+            if article:
+                sources[article] = {
+                    "findings_dir": directory,
+                    "database": directory.parent / "provenance.duckdb",
+                }
+    return dict(sorted(sources.items()))
+
+
+def published_articles(findings_dir=None, articles_dir=None):
+    """Return the article names eligible for L3 export."""
+    return list(published_article_sources(findings_dir, articles_dir))
 
 
 def _before_date(article):
@@ -114,42 +140,51 @@ def _word_authors(toks, authors):
     return {w: c.most_common(1)[0][0] for w, c in counts.items()}
 
 
-def _current_horizon(article):
-    con = duckdb.connect(str(config.DB), read_only=True)
+def _report_missing_authorship(article, revision, tokens):
+    if not tokens:
+        print(f"  authorship {article} revision {revision}: unavailable; redline retained")
+
+
+def _current_horizon(article, database=None):
+    con = duckdb.connect(str(database or config.DB), read_only=True)
     try:
         return Corpus(con).latest_snapshot(article)
     finally:
         con.close()
 
 
-def _confirmation_trust(article, confirmation):
-    con = duckdb.connect(str(config.DB), read_only=True)
+def _confirmation_trust(article, confirmation, database=None):
+    con = duckdb.connect(str(database or config.DB), read_only=True)
     try:
         return trust.resolve_artifact_trust(con, article, confirmation, "l1-confirmation")
     finally:
         con.close()
 
 
-def _revision_authors(article):
-    con = duckdb.connect(str(config.DB), read_only=True)
+def _revision_authors(article, database=None):
+    con = duckdb.connect(str(database or config.DB), read_only=True)
     try:
         return Corpus(con).revision_editor(article)
     finally:
         con.close()
 
 
-def _exact_pivots(article, confirmation):
-    authors = _revision_authors(article)
+def _exact_pivots(article, confirmation, database=None):
+    authors = _revision_authors(article, database)
     pivots = []
     unavailable_pairs = []
     for episode in confirmation.get("confirmed_episodes") or []:
         before_revid = episode.get("before_revid")
         after_revid = episode.get("after_revid")
-        before_tokens = provenance.tokens_at(article, before_revid)
-        after_tokens = provenance.tokens_at(article, after_revid)
-        if not before_tokens or not after_tokens:
+        before_text = prose_at(before_revid)
+        after_text = prose_at(after_revid)
+        if not before_text or not after_text:
             unavailable_pairs.append(f"{before_revid}→{after_revid}")
             continue
+        before_tokens = provenance.tokens_at(article, before_revid)
+        after_tokens = provenance.tokens_at(article, after_revid)
+        _report_missing_authorship(article, before_revid, before_tokens)
+        _report_missing_authorship(article, after_revid, after_tokens)
         pivots.append({
             "start": episode.get("before_timestamp", "")[:10],
             "end": episode.get("after_timestamp", "")[:10],
@@ -162,27 +197,31 @@ def _exact_pivots(article, confirmation):
             "duration_seconds": episode.get("duration_seconds"),
             "attribution": episode.get("attribution"),
             "attribution_unavailable": episode.get("attribution_unavailable"),
-            "before_text": prose_at(before_revid),
-            "after_text": prose_at(after_revid),
+            "before_text": before_text,
+            "after_text": after_text,
             "authors_before": _word_authors(before_tokens, authors),
             "authors_after": _word_authors(after_tokens, authors),
         })
     return pivots, unavailable_pairs
 
 
-def _candidate_pivots(article, confirmation):
+def _candidate_pivots(article, confirmation, database=None):
     """Materialize each evaluated coarse candidate as an inspectable redline."""
-    authors = _revision_authors(article)
+    authors = _revision_authors(article, database)
     pivots = []
     unavailable_pairs = []
     for candidate in confirmation.get("evaluated_candidates") or []:
         before_revid = candidate.get("candidate_before_revid")
         after_revid = candidate.get("candidate_after_revid")
-        before_tokens = provenance.tokens_at(article, before_revid)
-        after_tokens = provenance.tokens_at(article, after_revid)
-        if not before_tokens or not after_tokens:
+        before_text = prose_at(before_revid)
+        after_text = prose_at(after_revid)
+        if not before_text or not after_text:
             unavailable_pairs.append(f"{before_revid}→{after_revid}")
             continue
+        before_tokens = provenance.tokens_at(article, before_revid)
+        after_tokens = provenance.tokens_at(article, after_revid)
+        _report_missing_authorship(article, before_revid, before_tokens)
+        _report_missing_authorship(article, after_revid, after_tokens)
         decision = candidate.get("decision") or "rejected"
         pivots.append({
             "start": candidate.get("candidate_start"),
@@ -196,8 +235,8 @@ def _candidate_pivots(article, confirmation):
             "rejection_reason": candidate.get("rejection_reason"),
             "durable_spine_drop": candidate.get("durable_spine_drop"),
             "metric": "persistence_weighted_loss",
-            "before_text": prose_at(before_revid),
-            "after_text": prose_at(after_revid),
+            "before_text": before_text,
+            "after_text": after_text,
             "authors_before": _word_authors(before_tokens, authors),
             "authors_after": _word_authors(after_tokens, authors),
         })
@@ -210,8 +249,8 @@ def _unavailable_export(output, article, state, reason):
     return {"state": state, "reason": reason}
 
 
-def _export_candidate_pivots(article, confirmation, output):
-    trust_decision = _confirmation_trust(article, confirmation)
+def _export_candidate_pivots(article, confirmation, output, database=None):
+    trust_decision = _confirmation_trust(article, confirmation, database)
     if trust_decision["status"] != "published":
         return _unavailable_export(
             output,
@@ -219,14 +258,14 @@ def _export_candidate_pivots(article, confirmation, output):
             "unavailable",
             f"artifact withheld: {trust_decision['reason']}",
         )
-    horizon = _current_horizon(article)
+    horizon = _current_horizon(article, database)
     if not confirmation_is_fresh(confirmation, horizon):
         return _unavailable_export(output, article, "unavailable", "stale exact confirmation")
     candidates = confirmation.get("evaluated_candidates") or []
     if candidates:
-        pivots, unavailable_pairs = _candidate_pivots(article, confirmation)
+        pivots, unavailable_pairs = _candidate_pivots(article, confirmation, database)
     elif confirmation.get("status") == "confirmed":
-        pivots, unavailable_pairs = _exact_pivots(article, confirmation)
+        pivots, unavailable_pairs = _exact_pivots(article, confirmation, database)
     else:
         return _unavailable_export(
             output,
@@ -259,11 +298,21 @@ def _export_legacy_coarse_pivots(article, output):
     )
 
 
-def export_pivots(article):
+def _load_confirmation(article, findings_dir=None):
+    if findings_dir is None:
+        return drift.load_confirmation(article)
+    path = pathlib.Path(findings_dir) / drift.confirmation_name(article)
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+
+def export_pivots(article, findings_dir=None, database=None):
     output = DATA / f"{config.slugify(article)}.pivots.json"
-    confirmation = drift.load_confirmation(article)
+    confirmation = _load_confirmation(article, findings_dir)
     if confirmation:
-        return _export_candidate_pivots(article, confirmation, output)
+        return _export_candidate_pivots(article, confirmation, output, database)
     return _export_legacy_coarse_pivots(article, output)
 
 
@@ -271,10 +320,11 @@ if __name__ == "__main__":
     print("exporting L3 pivot timelines + authored diffs (WikiWho)...")
     have_pivots = set()
     rewrite_status = {}
-    articles = published_articles()
-    print(f"  public roster: {len(articles)} article(s) from profile findings")
+    article_sources = published_article_sources()
+    articles = list(article_sources)
+    print(f"  export roster: {len(articles)} article(s) from profiles and confirmations")
     for a in articles:
-        status = export_pivots(a)
+        status = export_pivots(a, **article_sources[a])
         rewrite_status[a] = status
         if status["state"] == "finding":
             have_pivots.add(a)

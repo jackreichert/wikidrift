@@ -91,5 +91,104 @@
     }
   ],
   "attribution_backfill_ts": "2026-07-31T17:45:32.003715+00:00",
-  "schema_version": 2
+  "schema_version": 2,
+  "interval_profile": [
+    {
+      "start": "2002-01-01",
+      "end": "2003-01-01",
+      "size": 354,
+      "pwr_loss": 23.73,
+      "pwr_removed": 84,
+      "mature": false
+    },
+    {
+      "start": "2003-01-01",
+      "end": "2004-01-01",
+      "size": 4521,
+      "pwr_loss": 15.17,
+      "pwr_removed": 727,
+      "mature": false
+    },
+    {
+      "start": "2004-01-01",
+      "end": "2005-01-01",
+      "size": 6340,
+      "pwr_loss": 12.35,
+      "pwr_removed": 1285,
+      "mature": false
+    },
+    {
+      "start": "2005-01-01",
+      "end": "2006-01-01",
+      "size": 10843,
+      "pwr_loss": 71.67,
+      "pwr_removed": 14310,
+      "mature": false
+    },
+    {
+      "start": "2006-01-01",
+      "end": "2007-01-01",
+      "size": 17833,
+      "pwr_loss": 96.2,
+      "pwr_removed": 22597,
+      "mature": true
+    },
+    {
+      "start": "2007-01-01",
+      "end": "2008-01-01",
+      "size": 11643,
+      "pwr_loss": 6.23,
+      "pwr_removed": 781,
+      "mature": false
+    },
+    {
+      "start": "2008-01-01",
+      "end": "2016-01-01",
+      "size": 15492,
+      "pwr_loss": 80.72,
+      "pwr_removed": 22009,
+      "mature": true
+    },
+    {
+      "start": "2016-01-01",
+      "end": "2017-01-01",
+      "size": 44143,
+      "pwr_loss": 8.4,
+      "pwr_removed": 4158,
+      "mature": true
+    },
+    {
+      "start": "2017-01-01",
+      "end": "2018-01-01",
+      "size": 44048,
+      "pwr_loss": 6.08,
+      "pwr_removed": 5437,
+      "mature": true
+    },
+    {
+      "start": "2018-01-01",
+      "end": "2019-01-01",
+      "size": 44725,
+      "pwr_loss": 6.08,
+      "pwr_removed": 7830,
+      "mature": true
+    },
+    {
+      "start": "2019-01-01",
+      "end": "2020-01-01",
+      "size": 49833,
+      "pwr_loss": 8.29,
+      "pwr_removed": 14169,
+      "mature": true
+    },
+    {
+      "start": "2020-01-01",
+      "end": "2021-01-01",
+      "size": 47984,
+      "pwr_loss": 2.52,
+      "pwr_removed": 5170,
+      "mature": true
+    }
+  ],
+  "interval_profile_backfill_ts": "2026-08-03T18:11:31.528917+00:00"
 }

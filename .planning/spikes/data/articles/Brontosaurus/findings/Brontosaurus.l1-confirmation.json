@@ -29,5 +29,223 @@
   },
   "confirmed_episodes": [],
   "evaluated_candidates": [],
-  "interval_profile": []
+  "interval_profile": [
+    {
+      "start": "2006-01-01",
+      "end": "2006-07-01",
+      "size": 2039,
+      "pwr_loss": 8.19,
+      "pwr_removed": 167,
+      "mature": false
+    },
+    {
+      "start": "2006-07-01",
+      "end": "2007-01-01",
+      "size": 2177,
+      "pwr_loss": 25.17,
+      "pwr_removed": 1019,
+      "mature": false
+    },
+    {
+      "start": "2007-01-01",
+      "end": "2007-07-01",
+      "size": 1886,
+      "pwr_loss": 37.42,
+      "pwr_removed": 1841,
+      "mature": false
+    },
+    {
+      "start": "2007-07-01",
+      "end": "2008-01-01",
+      "size": 1696,
+      "pwr_loss": 5.53,
+      "pwr_removed": 264,
+      "mature": false
+    },
+    {
+      "start": "2008-01-01",
+      "end": "2015-07-01",
+      "size": 2309,
+      "pwr_loss": 78.95,
+      "pwr_removed": 5616,
+      "mature": false
+    },
+    {
+      "start": "2015-07-01",
+      "end": "2016-01-01",
+      "size": 14722,
+      "pwr_loss": 1.37,
+      "pwr_removed": 226,
+      "mature": false
+    },
+    {
+      "start": "2016-01-01",
+      "end": "2016-07-01",
+      "size": 14926,
+      "pwr_loss": 9.33,
+      "pwr_removed": 2914,
+      "mature": false
+    },
+    {
+      "start": "2016-07-01",
+      "end": "2017-01-01",
+      "size": 14049,
+      "pwr_loss": 0.96,
+      "pwr_removed": 408,
+      "mature": false
+    },
+    {
+      "start": "2017-01-01",
+      "end": "2017-07-01",
+      "size": 14282,
+      "pwr_loss": 1.17,
+      "pwr_removed": 657,
+      "mature": false
+    },
+    {
+      "start": "2017-07-01",
+      "end": "2018-01-01",
+      "size": 14163,
+      "pwr_loss": 0.15,
+      "pwr_removed": 103,
+      "mature": false
+    },
+    {
+      "start": "2018-01-01",
+      "end": "2018-07-01",
+      "size": 14195,
+      "pwr_loss": 1.1,
+      "pwr_removed": 922,
+      "mature": false
+    },
+    {
+      "start": "2018-07-01",
+      "end": "2019-01-01",
+      "size": 14136,
+      "pwr_loss": 1.74,
+      "pwr_removed": 1686,
+      "mature": false
+    },
+    {
+      "start": "2019-01-01",
+      "end": "2019-07-01",
+      "size": 14133,
+      "pwr_loss": 0.05,
+      "pwr_removed": 53,
+      "mature": false
+    },
+    {
+      "start": "2019-07-01",
+      "end": "2020-01-01",
+      "size": 14161,
+      "pwr_loss": 0.66,
+      "pwr_removed": 813,
+      "mature": false
+    },
+    {
+      "start": "2020-01-01",
+      "end": "2020-07-01",
+      "size": 14276,
+      "pwr_loss": 0.31,
+      "pwr_removed": 430,
+      "mature": false
+    },
+    {
+      "start": "2020-07-01",
+      "end": "2021-01-01",
+      "size": 14272,
+      "pwr_loss": 0.99,
+      "pwr_removed": 1496,
+      "mature": false
+    },
+    {
+      "start": "2021-01-01",
+      "end": "2021-07-01",
+      "size": 14316,
+      "pwr_loss": 0.46,
+      "pwr_removed": 761,
+      "mature": false
+    },
+    {
+      "start": "2021-07-01",
+      "end": "2022-01-01",
+      "size": 14380,
+      "pwr_loss": 0.24,
+      "pwr_removed": 434,
+      "mature": false
+    },
+    {
+      "start": "2022-01-01",
+      "end": "2022-07-01",
+      "size": 14378,
+      "pwr_loss": 2.48,
+      "pwr_removed": 4753,
+      "mature": false
+    },
+    {
+      "start": "2022-07-01",
+      "end": "2023-01-01",
+      "size": 17048,
+      "pwr_loss": 0.33,
+      "pwr_removed": 664,
+      "mature": true
+    },
+    {
+      "start": "2023-01-01",
+      "end": "2023-07-01",
+      "size": 17321,
+      "pwr_loss": 5.6,
+      "pwr_removed": 12362,
+      "mature": true
+    },
+    {
+      "start": "2023-07-01",
+      "end": "2024-01-01",
+      "size": 24074,
+      "pwr_loss": 3.44,
+      "pwr_removed": 7990,
+      "mature": true
+    },
+    {
+      "start": "2024-01-01",
+      "end": "2024-07-01",
+      "size": 24879,
+      "pwr_loss": 0.0,
+      "pwr_removed": 4,
+      "mature": true
+    },
+    {
+      "start": "2024-07-01",
+      "end": "2025-01-01",
+      "size": 24896,
+      "pwr_loss": 0.39,
+      "pwr_removed": 1072,
+      "mature": true
+    },
+    {
+      "start": "2025-01-01",
+      "end": "2025-07-01",
+      "size": 25009,
+      "pwr_loss": 0.63,
+      "pwr_removed": 1893,
+      "mature": true
+    },
+    {
+      "start": "2025-07-01",
+      "end": "2026-01-01",
+      "size": 27127,
+      "pwr_loss": 0.99,
+      "pwr_removed": 3199,
+      "mature": true
+    },
+    {
+      "start": "2026-01-01",
+      "end": "2026-07-01",
+      "size": 27098,
+      "pwr_loss": 0.51,
+      "pwr_removed": 1785,
+      "mature": true
+    }
+  ],
+  "interval_profile_backfill_ts": "2026-08-03T18:12:03.790342+00:00"
 }
