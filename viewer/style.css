@@ -157,6 +157,14 @@ h3{font-weight:600;font-size:1rem;margin:0}
 h2.subhead{font-size:1rem;margin:1.4em 0 .45em}
 .sections-note{margin:.85rem 0 .35rem}
 .coverage-note{max-width:52rem;margin:.85rem 0 .35rem;font-size:.9rem}
+.candidate-decision,.candidate-pair{display:block}
+.candidate-decision{font-weight:600}
+.candidate-pair{margin-top:.25rem;color:var(--faint);font-size:.82rem;line-height:1.4}
+.candidate-evidence{display:block;margin-top:.35rem;font-size:.82rem}
+.candidate-outcomes{min-width:42rem}
+.candidate-outcomes th:first-child{width:22%}
+.candidate-outcomes th:nth-child(2){width:48%}
+.candidate-outcomes th:last-child{width:30%}
 .evidence-receipt{
   max-width:52rem;margin:1rem 0;padding:.8rem 1rem;border-left:3px solid var(--accent);
   background:var(--surface);
@@ -174,6 +182,17 @@ h2.subhead{font-size:1rem;margin:1.4em 0 .45em}
 .drift-profile figcaption{display:flex;align-items:baseline;justify-content:space-between;gap:1.5rem}
 .drift-profile figcaption h3{font-weight:700}
 .drift-profile figcaption p{margin:0;max-width:42rem;color:var(--faint);font-size:.88rem}
+.analysis-path-wrap{margin:1rem 0 1.25rem}
+.analysis-path-wrap h4{margin:0 0 .45rem;font-size:.82rem;color:var(--faint)}
+.analysis-path{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));list-style:none;
+  padding:0;margin:0;border-block:1px solid var(--line);
+}
+.analysis-path li{display:grid;align-content:start;gap:.2rem;padding:.7rem 1rem .8rem 0}
+.analysis-path li+li{padding-left:1rem;border-left:1px solid var(--line)}
+.analysis-path strong{font-size:.86rem}
+.analysis-path li>span:last-child{color:var(--faint);font-size:.78rem;line-height:1.4}
+.analysis-stage{color:var(--dim);font-size:.68rem;font-weight:700;text-transform:uppercase}
 .drift-axis{
   display:grid;grid-template-columns:repeat(5,1fr);margin:.9rem 15.5rem .35rem 7.5rem;
   color:var(--dim);font-size:.7rem;font-variant-numeric:tabular-nums;
@@ -203,10 +222,18 @@ h2.subhead{font-size:1rem;margin:1.4em 0 .45em}
 .drift-state{color:var(--faint)}
 .drift-row.candidate .drift-state{color:var(--warn-fg);font-weight:700}
 .drift-row.candidate-confirmed .drift-state{color:var(--ok-fg)}
+.drift-row-missing .drift-track{background-color:var(--surface)}
+.drift-row-missing .drift-date,.drift-row-missing .drift-value,
+.drift-row-missing .drift-mass{color:var(--dim)}
+.drift-row-missing .drift-state{color:var(--faint);font-weight:700}
+.drift-missing-reason{margin:.55rem 0 0 7.5rem;color:var(--faint);font-size:.82rem}
 
 @media(max-width:760px){
   .drift-profile figcaption{display:block}
   .drift-profile figcaption p{margin-top:.35rem}
+  .analysis-path{grid-template-columns:1fr}
+  .analysis-path li{padding:.65rem 0}
+  .analysis-path li+li{padding-left:0;border-left:0;border-top:1px solid var(--line)}
   .drift-axis{display:none}
   .drift-row{
     grid-template-columns:5.75rem minmax(7rem,1fr) 3.5rem;
@@ -214,6 +241,7 @@ h2.subhead{font-size:1rem;margin:1.4em 0 .45em}
   }
   .drift-mass{grid-column:2;text-align:left}
   .drift-state{grid-column:3;grid-row:2;text-align:right;font-size:.75rem}
+  .drift-missing-reason{margin-left:0}
 }
 
 /* vocabulary term chips */

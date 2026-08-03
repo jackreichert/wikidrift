@@ -1,9 +1,10 @@
 {
+  "schema_version": 2,
   "article": "Elizabeth Warren",
-  "run_ts": "2026-07-30T21:05:04.136783+00:00",
+  "run_ts": "2026-08-03T16:35:59.780559+00:00",
   "corpus_horizon": {
-    "snapshot_date": "2023-01-01",
-    "snapshot_revid": 1131389907
+    "snapshot_date": "2026-07-01",
+    "snapshot_revid": 1361355988
   },
   "thresholds": {
     "confirm_drop": 0.2,
@@ -14,7 +15,396 @@
     "rolling_tolerance_days": 35,
     "rolling_drop": 20.0
   },
+  "source_state": {
+    "article": "Elizabeth Warren",
+    "source_status": "current_complete",
+    "source_checked_at": "2026-08-03T16:32:32.264534+00:00",
+    "source_latest_revid": 1364600056,
+    "expected_snapshots": 45,
+    "loaded_snapshots": 45,
+    "reason": null
+  },
   "coarse_verdict": "PIVOT?",
   "status": "not_confirmed",
-  "confirmed_episodes": []
+  "confirmed_episodes": [],
+  "evaluated_candidates": [
+    {
+      "candidate_start": "2020-07-01",
+      "candidate_end": "2021-01-01",
+      "candidate_before_revid": 965616537,
+      "candidate_after_revid": 997638575,
+      "source": "interval",
+      "pwr_mass": 114022,
+      "peak_pct": 41.12,
+      "exact_before_revid": 990030839,
+      "exact_before_timestamp": "2020-11-22T11:29:17Z",
+      "exact_after_revid": 990716087,
+      "exact_after_timestamp": "2020-11-26T02:58:15Z",
+      "durable_spine_drop": 0.0129,
+      "decision": "rejected",
+      "rejection_reason": "durable_spine_drop_below_threshold"
+    }
+  ],
+  "interval_profile": [
+    {
+      "start": "2004-01-01",
+      "end": "2004-07-01",
+      "size": 6,
+      "pwr_loss": 100.0,
+      "pwr_removed": 6,
+      "mature": false
+    },
+    {
+      "start": "2004-07-01",
+      "end": "2005-07-01",
+      "size": 231,
+      "pwr_loss": 10.82,
+      "pwr_removed": 25,
+      "mature": false
+    },
+    {
+      "start": "2005-07-01",
+      "end": "2006-01-01",
+      "size": 450,
+      "pwr_loss": 0.0,
+      "pwr_removed": 0,
+      "mature": false
+    },
+    {
+      "start": "2006-01-01",
+      "end": "2006-07-01",
+      "size": 491,
+      "pwr_loss": 0.0,
+      "pwr_removed": 0,
+      "mature": false
+    },
+    {
+      "start": "2006-07-01",
+      "end": "2007-01-01",
+      "size": 529,
+      "pwr_loss": 1.43,
+      "pwr_removed": 24,
+      "mature": false
+    },
+    {
+      "start": "2007-01-01",
+      "end": "2007-07-01",
+      "size": 528,
+      "pwr_loss": 7.2,
+      "pwr_removed": 157,
+      "mature": false
+    },
+    {
+      "start": "2007-07-01",
+      "end": "2008-01-01",
+      "size": 550,
+      "pwr_loss": 0.0,
+      "pwr_removed": 0,
+      "mature": false
+    },
+    {
+      "start": "2008-01-01",
+      "end": "2008-07-01",
+      "size": 785,
+      "pwr_loss": 0.6,
+      "pwr_removed": 20,
+      "mature": false
+    },
+    {
+      "start": "2008-07-01",
+      "end": "2009-01-01",
+      "size": 845,
+      "pwr_loss": 1.96,
+      "pwr_removed": 82,
+      "mature": false
+    },
+    {
+      "start": "2009-01-01",
+      "end": "2009-07-01",
+      "size": 1823,
+      "pwr_loss": 6.5,
+      "pwr_removed": 385,
+      "mature": false
+    },
+    {
+      "start": "2009-07-01",
+      "end": "2010-01-01",
+      "size": 3446,
+      "pwr_loss": 13.75,
+      "pwr_removed": 1235,
+      "mature": false
+    },
+    {
+      "start": "2010-01-01",
+      "end": "2010-07-01",
+      "size": 4160,
+      "pwr_loss": 11.98,
+      "pwr_removed": 1427,
+      "mature": false
+    },
+    {
+      "start": "2010-07-01",
+      "end": "2011-01-01",
+      "size": 6151,
+      "pwr_loss": 9.4,
+      "pwr_removed": 1563,
+      "mature": false
+    },
+    {
+      "start": "2011-01-01",
+      "end": "2011-07-01",
+      "size": 7195,
+      "pwr_loss": 6.64,
+      "pwr_removed": 1479,
+      "mature": false
+    },
+    {
+      "start": "2011-07-01",
+      "end": "2012-01-01",
+      "size": 7148,
+      "pwr_loss": 24.13,
+      "pwr_removed": 6757,
+      "mature": false
+    },
+    {
+      "start": "2012-01-01",
+      "end": "2012-07-01",
+      "size": 10814,
+      "pwr_loss": 13.75,
+      "pwr_removed": 4425,
+      "mature": false
+    },
+    {
+      "start": "2012-07-01",
+      "end": "2013-01-01",
+      "size": 14046,
+      "pwr_loss": 44.23,
+      "pwr_removed": 18560,
+      "mature": false
+    },
+    {
+      "start": "2013-01-01",
+      "end": "2013-07-01",
+      "size": 11480,
+      "pwr_loss": 6.41,
+      "pwr_removed": 2242,
+      "mature": false
+    },
+    {
+      "start": "2013-07-01",
+      "end": "2014-01-01",
+      "size": 12641,
+      "pwr_loss": 0.17,
+      "pwr_removed": 79,
+      "mature": false
+    },
+    {
+      "start": "2014-01-01",
+      "end": "2014-07-01",
+      "size": 12854,
+      "pwr_loss": 8.16,
+      "pwr_removed": 4761,
+      "mature": false
+    },
+    {
+      "start": "2014-07-01",
+      "end": "2015-01-01",
+      "size": 15285,
+      "pwr_loss": 2.09,
+      "pwr_removed": 1455,
+      "mature": true
+    },
+    {
+      "start": "2015-01-01",
+      "end": "2015-07-01",
+      "size": 16300,
+      "pwr_loss": 3.27,
+      "pwr_removed": 2766,
+      "mature": true
+    },
+    {
+      "start": "2015-07-01",
+      "end": "2016-01-01",
+      "size": 17691,
+      "pwr_loss": 2.08,
+      "pwr_removed": 2073,
+      "mature": true
+    },
+    {
+      "start": "2016-01-01",
+      "end": "2016-07-01",
+      "size": 17921,
+      "pwr_loss": 3.45,
+      "pwr_removed": 3995,
+      "mature": true
+    },
+    {
+      "start": "2016-07-01",
+      "end": "2017-01-01",
+      "size": 19270,
+      "pwr_loss": 0.91,
+      "pwr_removed": 1198,
+      "mature": true
+    },
+    {
+      "start": "2017-01-01",
+      "end": "2017-07-01",
+      "size": 20264,
+      "pwr_loss": 4.05,
+      "pwr_removed": 6100,
+      "mature": true
+    },
+    {
+      "start": "2017-07-01",
+      "end": "2018-01-01",
+      "size": 22007,
+      "pwr_loss": 4.26,
+      "pwr_removed": 7105,
+      "mature": true
+    },
+    {
+      "start": "2018-01-01",
+      "end": "2018-07-01",
+      "size": 23723,
+      "pwr_loss": 0.47,
+      "pwr_removed": 859,
+      "mature": true
+    },
+    {
+      "start": "2018-07-01",
+      "end": "2019-01-01",
+      "size": 23929,
+      "pwr_loss": 14.1,
+      "pwr_removed": 29129,
+      "mature": true
+    },
+    {
+      "start": "2019-01-01",
+      "end": "2019-01-01",
+      "size": 22744,
+      "pwr_loss": 0.8,
+      "pwr_removed": 1612,
+      "mature": true
+    },
+    {
+      "start": "2019-01-01",
+      "end": "2019-07-01",
+      "size": 23288,
+      "pwr_loss": 7.8,
+      "pwr_removed": 17340,
+      "mature": true
+    },
+    {
+      "start": "2019-07-01",
+      "end": "2020-01-01",
+      "size": 28042,
+      "pwr_loss": 10.36,
+      "pwr_removed": 24195,
+      "mature": true
+    },
+    {
+      "start": "2020-01-01",
+      "end": "2020-07-01",
+      "size": 31441,
+      "pwr_loss": 0.59,
+      "pwr_removed": 1451,
+      "mature": true
+    },
+    {
+      "start": "2020-07-01",
+      "end": "2021-01-01",
+      "size": 33733,
+      "pwr_loss": 41.12,
+      "pwr_removed": 114022,
+      "mature": true
+    },
+    {
+      "start": "2021-01-01",
+      "end": "2021-07-01",
+      "size": 24930,
+      "pwr_loss": 1.71,
+      "pwr_removed": 3219,
+      "mature": true
+    },
+    {
+      "start": "2021-07-01",
+      "end": "2022-01-01",
+      "size": 48630,
+      "pwr_loss": 0.42,
+      "pwr_removed": 1426,
+      "mature": true
+    },
+    {
+      "start": "2022-01-01",
+      "end": "2022-07-01",
+      "size": 50556,
+      "pwr_loss": 1.65,
+      "pwr_removed": 6494,
+      "mature": true
+    },
+    {
+      "start": "2022-07-01",
+      "end": "2023-01-01",
+      "size": 50522,
+      "pwr_loss": 0.51,
+      "pwr_removed": 2249,
+      "mature": true
+    },
+    {
+      "start": "2023-01-01",
+      "end": "2023-07-01",
+      "size": 50775,
+      "pwr_loss": 0.15,
+      "pwr_removed": 745,
+      "mature": true
+    },
+    {
+      "start": "2023-07-01",
+      "end": "2024-01-01",
+      "size": 51442,
+      "pwr_loss": 0.28,
+      "pwr_removed": 1517,
+      "mature": true
+    },
+    {
+      "start": "2024-01-01",
+      "end": "2024-07-01",
+      "size": 51374,
+      "pwr_loss": 0.3,
+      "pwr_removed": 1776,
+      "mature": true
+    },
+    {
+      "start": "2024-07-01",
+      "end": "2025-01-01",
+      "size": 54394,
+      "pwr_loss": 0.42,
+      "pwr_removed": 2664,
+      "mature": true
+    },
+    {
+      "start": "2025-01-01",
+      "end": "2025-07-01",
+      "size": 55834,
+      "pwr_loss": 0.74,
+      "pwr_removed": 5148,
+      "mature": true
+    },
+    {
+      "start": "2025-07-01",
+      "end": "2026-01-01",
+      "size": 56373,
+      "pwr_loss": 0.19,
+      "pwr_removed": 1423,
+      "mature": true
+    },
+    {
+      "start": "2026-01-01",
+      "end": "2026-07-01",
+      "size": 56542,
+      "pwr_loss": 0.1,
+      "pwr_removed": 803,
+      "mature": true
+    }
+  ]
 }

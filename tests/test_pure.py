@@ -1741,6 +1741,7 @@ class PipelinePivotWindow(unittest.TestCase):
 
     def test_fresh_not_confirmed_result_is_authoritative(self):
         confirmation = {
+            "schema_version": drift.CONFIRMATION_SCHEMA_VERSION,
             "status": "not_confirmed",
             "corpus_horizon": {"snapshot_date": "2024-01-01", "snapshot_revid": 900},
             "thresholds": config.confirmation_thresholds(),
@@ -1758,6 +1759,18 @@ class PipelinePivotWindow(unittest.TestCase):
         self.assertEqual(state["candidate_status"], "pivot_candidate")
         self.assertEqual(state["confirmation_status"], "not_confirmed")
         self.assertEqual(state["resolved_status"], "not_confirmed")
+
+    def test_legacy_confirmation_schema_is_stale(self):
+        confirmation = {
+            "schema_version": drift.CONFIRMATION_SCHEMA_VERSION - 1,
+            "run_ts": "2024-01-02T00:00:00+00:00",
+            "status": "not_confirmed",
+            "corpus_horizon": {"snapshot_date": "2024-01-01", "snapshot_revid": 900},
+            "thresholds": config.confirmation_thresholds(),
+            "confirmed_episodes": [],
+        }
+
+        self.assertFalse(pipeline.confirmation_is_fresh(confirmation, ("2024-01-01", 900)))
 
     def test_not_confirmed_artifact_does_not_override_healthy_coarse_verdict(self):
         confirmation = {

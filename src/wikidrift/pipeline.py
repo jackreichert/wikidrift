@@ -61,6 +61,11 @@ def confirmation_is_fresh(confirmation, current_horizon):
     """Whether an L1 confirmation result matches the current corpus and threshold contract."""
     if not confirmation or not current_horizon:
         return False
+    schema_version = confirmation.get("schema_version")
+    if schema_version is not None and schema_version != drift.CONFIRMATION_SCHEMA_VERSION:
+        return False
+    if schema_version is None and confirmation.get("run_ts"):
+        return False
     if (confirmation.get("thresholds") or {}) != config.confirmation_thresholds():
         return False
     saved = confirmation.get("corpus_horizon") or {}
