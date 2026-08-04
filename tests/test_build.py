@@ -1015,6 +1015,42 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("withholds the result", out)
         self.assertNotIn("Rewrite analysis is not available", out)
 
+    def test_partial_skip_retains_source_gap_copy_and_descriptive_stage(self):
+        findings = build.Findings(confirmations={"Testland": {
+            "status": "unavailable",
+            "coarse_verdict": "SKIP",
+            "source_state": {
+                "source_status": "partial",
+                "reason": "loaded 32 of 42 expected snapshots",
+            },
+            "interval_profile": [{
+                "start": "2012-07-01", "end": "2018-01-01", "pwr_loss": 9.42,
+                "pwr_removed": 1412, "mature": False, "eligible": False,
+            }],
+        }})
+
+        out = build.article_page("Testland", findings)
+
+        self.assertIn("Rewrite analysis has incomplete source coverage", out)
+        self.assertIn("loaded 32 of 42 expected snapshots", out)
+        self.assertIn("No mature covered intervals", out)
+        self.assertIn("Readable snapshots were scored descriptively", out)
+        self.assertNotIn("Too few snapshots for rewrite analysis", out)
+
+    def test_interval_profile_marks_gap_spanning_interval_as_coverage_excluded(self):
+        chart = build._interval_profile_chart({
+            "coarse_verdict": "SKIP",
+            "status": "unavailable",
+            "interval_profile": [{
+                "start": "2012-07-01", "end": "2018-01-01", "pwr_loss": 9.42,
+                "pwr_removed": 1412, "mature": True, "eligible": False,
+            }],
+        })
+
+        self.assertIn("Excluded: missing source coverage", chart)
+        self.assertIn("coverage gap", chart)
+        self.assertNotIn("Measured: not investigated", chart)
+
     def test_coarse_pivot_is_a_candidate_with_pwr_metric(self):
         findings = build.Findings(pivots={"Testland": {"pivots": [{
             "start": "2024-01-01", "end": "2025-01-01", "peak_pct": 42.0,

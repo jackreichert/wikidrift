@@ -872,11 +872,13 @@ def _rewrite_info(article, f):
     if status == "not_confirmed":
         return "none", None
     if status == "unavailable":
-        reason = (
-            "too few snapshots"
-            if confirmation.get("coarse_verdict") == "SKIP"
-            else confirmation.get("reason")
-        )
+        source_state = confirmation.get("source_state") or {}
+        if source_state.get("source_status") == "partial":
+            reason = source_state.get("reason") or confirmation.get("reason")
+        elif confirmation.get("coarse_verdict") == "SKIP":
+            reason = "too few snapshots"
+        else:
+            reason = confirmation.get("reason")
         return "unavailable", reason
     if article in f.pivots or article in f.diffs:
         return "finding", None
@@ -1430,6 +1432,7 @@ def _analysis_stage(label, state, detail, glossary_term=None):
 
 def _rewrite_analysis_path(confirmation, interval_count):
     coarse_verdict = confirmation.get("coarse_verdict")
+    source_state = confirmation.get("source_state") or {}
     coarse_state, coarse_detail = {
         "PIVOT?": (
             "Candidate signal found",
@@ -1455,6 +1458,12 @@ def _rewrite_analysis_path(confirmation, interval_count):
         "Not published",
         "This artifact does not include the coarse detector decision.",
     ))
+    if coarse_verdict == "SKIP" and source_state.get("source_status") == "partial":
+        coarse_state = "No mature covered intervals"
+        coarse_detail = (
+            "Readable snapshots were scored descriptively, but no mature interval remained "
+            "eligible for a detector decision."
+        )
 
     if interval_count:
         interval_state = f"{interval_count} interval{'s' if interval_count != 1 else ''} scored"
@@ -1514,6 +1523,7 @@ def _interval_profile_chart(confirmation):
     for interval in intervals:
         loss = float(interval.get("pwr_loss") or 0)
         mature = bool(interval.get("mature"))
+        eligible = interval.get("eligible", True) is not False
         interval_start = interval.get("start")
         interval_end = interval.get("end")
         candidate = next((
@@ -1534,11 +1544,13 @@ def _interval_profile_chart(confirmation):
             "confirmed" if episode else None
         )
         is_candidate = candidate is not None or episode is not None
-        state = {
-            "confirmed": "Confirmed candidate window",
-            "rejected": "Rejected candidate window",
-        }.get(candidate_decision, "Candidate: exact check pending") if is_candidate else (
-            "Measured: not investigated"
+        state = (
+            "Excluded: missing source coverage" if not eligible
+            else {
+                "confirmed": "Confirmed candidate window",
+                "rejected": "Rejected candidate window",
+            }.get(candidate_decision, "Candidate: exact check pending") if is_candidate
+            else "Measured: not investigated"
             if mature else "Excluded: below mature size; not investigated"
         )
         classes = ["drift-row"]
@@ -1546,7 +1558,7 @@ def _interval_profile_chart(confirmation):
             classes.append("candidate")
             if candidate_decision in {"confirmed", "rejected"}:
                 classes.append(f"candidate-{candidate_decision}")
-        if not mature:
+        if not mature or not eligible:
             classes.append("excluded")
         rows.append(
             f'<li class="{" ".join(classes)}">'
@@ -1586,6 +1598,7 @@ def _interval_profile_chart(confirmation):
         f'{_glossary_term("persistence-weighted-loss", "Persistence-weighted loss")} by interval</h3>'
         '<p>Each bar is the share of established wording lost by the interval end date. '
         'Measured means the interval was scored but not sent to exact checking. '
+        'A coverage gap is shown descriptively but excluded from detector decisions. '
         'Candidate-window labels report the exact revision-level decision for the broader window '
         'containing that interval.</p></figcaption>'
         f'{_rewrite_analysis_path(confirmation, len(intervals))}{plot}'
@@ -1720,7 +1733,9 @@ def _durable_spine_explanation():
 def confirmation_section(confirmation, pivots=None, slug=None):
     """Render authoritative exact-confirmation episodes and revision receipts."""
     if confirmation.get("status") == "unavailable":
-        reason = confirmation.get("reason")
+        source_state = confirmation.get("source_state") or {}
+        reason = source_state.get("reason") if source_state.get("source_status") == "partial" else None
+        reason = reason or confirmation.get("reason")
         if not reason and confirmation.get("coarse_verdict") == "SKIP":
             reason = "too few snapshots"
         title, note = _unavailable_rewrite_copy(reason)

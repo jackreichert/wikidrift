@@ -108,9 +108,21 @@ def resolve_l1_state(verdict, confirmation, current_horizon, source_state=None, 
     fresh = confirmation_is_fresh(confirmation, current_horizon)
     exact_status = confirmation.get("status") if fresh else None
     source_status, source_reason = _source_adequacy(source_state, current_horizon, now)
-    is_source_inadequate = source_status in {"partial", "stale", "unavailable"}
+    qualified_partial = (
+        source_status == "partial"
+        and fresh
+        and (confirmation or {}).get("coverage_status") == "partial"
+        and exact_status in {"confirmed", "not_confirmed"}
+    )
+    is_source_inadequate = (
+        source_status in {"partial", "stale", "unavailable"} and not qualified_partial
+    )
 
-    analysis_status = "unavailable" if candidate_status == "unavailable" else "available"
+    analysis_status = (
+        "unavailable" if candidate_status == "unavailable"
+        else "qualified" if qualified_partial
+        else "available"
+    )
     if exact_status == "unavailable" or is_source_inadequate:
         analysis_status = "unavailable"
 
@@ -134,6 +146,8 @@ def resolve_l1_state(verdict, confirmation, current_horizon, source_state=None, 
 
     reason = None
     if is_source_inadequate:
+        reason = source_reason
+    elif qualified_partial:
         reason = source_reason
     elif exact_status == "unavailable":
         reason = (confirmation or {}).get("reason")

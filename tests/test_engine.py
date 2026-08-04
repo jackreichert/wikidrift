@@ -714,10 +714,15 @@ class RefineBinarySearch(unittest.TestCase):
 
 
 class AnalyzeConfirmationContract(unittest.TestCase):
-    def test_partial_snapshot_coverage_returns_unavailable_before_analysis(self):
+    def test_partial_snapshot_coverage_runs_descriptive_analysis_without_mature_intervals(self):
         con = duckdb.connect(":memory:")
         provenance.ensure_schema(con)
         self.addCleanup(con.close)
+        con.executemany("INSERT INTO rsnap VALUES (?,?,?,?,?)", [
+            ("A", "2020-01-01", 10, 1, 1),
+            ("A", "2021-01-01", 30, 1, 1),
+            ("A", "2021-07-01", 40, 1, 1),
+        ])
         source_state = {
             "article": "A",
             "source_status": "partial",
@@ -730,15 +735,43 @@ class AnalyzeConfirmationContract(unittest.TestCase):
              mock.patch.object(provenance, "ensure_indexes"), \
              mock.patch.object(provenance, "build_snapshots"), \
              mock.patch.object(provenance, "load_source_state", return_value=source_state), \
-             mock.patch.object(drift, "ranked_episodes") as ranked, \
+             mock.patch.object(provenance, "snapshot_picks", return_value=[
+                 ("2020-01-01", 10), ("2020-07-01", 20), ("2021-01-01", 30),
+                 ("2021-07-01", 40),
+             ]), \
+             mock.patch.object(drift, "ranked_episodes", return_value=(
+                 [("2020-01-01", 10), ("2021-01-01", 30), ("2021-07-01", 40)],
+                 [{1}, {1}, {1}], {1: [0, 1, 2]}, {10: 0, 30: 1, 40: 2},
+                 [], (0, 0, 0), [],
+             )) as ranked, \
              mock.patch.object(drift.config, "write_findings") as write_findings:
             result = drift.analyze("A", con=con)
 
         self.assertEqual(result["status"], "unavailable")
-        self.assertEqual(result["reason"], source_state["reason"])
+        self.assertEqual(result["reason"], "no mature covered intervals")
         self.assertEqual(result["source_state"], source_state)
-        ranked.assert_not_called()
+        self.assertEqual(result["coverage_status"], "partial")
+        self.assertEqual(result["missing_snapshots"], [{"date": "2020-07-01", "revid": 20}])
+        self.assertEqual(ranked.call_args_list, [
+            mock.call(con, "A"),
+            mock.call(con, "A", excluded_intervals={(10, 30)}),
+        ])
         write_findings.assert_called_once_with("A.l1-confirmation.json", result)
+
+    def test_coverage_plan_excludes_only_intervals_spanning_missing_snapshots(self):
+        expected = [
+            ("2020-01-01", 10), ("2020-07-01", 20), ("2021-01-01", 30),
+            ("2021-07-01", 40),
+        ]
+        loaded = [("2020-01-01", 10), ("2021-01-01", 30), ("2021-07-01", 40)]
+
+        coverage = drift._coverage_plan(expected, loaded)
+
+        self.assertEqual(coverage["missing_snapshots"], [
+            {"date": "2020-07-01", "revid": 20},
+        ])
+        self.assertEqual(coverage["excluded_intervals"], {(10, 30)})
+        self.assertTrue(coverage["endpoints_complete"])
 
     def test_returns_and_persists_exact_confirmed_pair(self):
         con = duckdb.connect(":memory:")
@@ -749,7 +782,9 @@ class AnalyzeConfirmationContract(unittest.TestCase):
         }
         ranked = (
             [("2020-01-01", 10), ("2021-01-01", 20), ("2024-01-01", 900)],
-            [set(), set(), set()], {}, {}, [], (4.0, 2.0, 1.0), [episode],
+            [set(), set(), set()], {}, {},
+            [("2020-01-01", 10, "2021-01-01", 20, 40.0, 15000, 42000)],
+            (4.0, 2.0, 1.0), [episode],
         )
         confirmation = ((111, "2020-06-01T00:00:00Z", "Before"),
                         (112, "2020-06-02T00:00:00Z", "After"), 0.4)
@@ -811,7 +846,9 @@ class AnalyzeConfirmationContract(unittest.TestCase):
         ranked = (
             [("2021-01-01", 10), ("2022-01-01", 20), ("2023-01-01", 30),
              ("2024-01-01", 40), ("2026-01-01", 900)],
-            [set(), set(), set(), set(), set()], {}, {}, [], (9.0, 2.0, 1.0), [primary],
+            [set(), set(), set(), set(), set()], {}, {},
+            [("2021-01-01", 10, "2022-01-01", 20, 40.0, 15000, 100000)],
+            (9.0, 2.0, 1.0), [primary],
         )
         primary_result = ((111, "2021-06-01T00:00:00Z", "Before"),
                           (112, "2021-06-02T00:00:00Z", "After"), 0.1)
