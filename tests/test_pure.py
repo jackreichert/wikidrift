@@ -2188,6 +2188,14 @@ class PipelinePivotWindow(unittest.TestCase):
             [(111, 112), (211, 212)],
         )
 
+    @patch("wikidrift.pipeline.duckdb.connect")
+    @patch("wikidrift.pipeline.config.DB")
+    def test_framing_windows_without_database_returns_empty(self, mock_db, mock_connect):
+        mock_db.exists.return_value = False
+
+        self.assertEqual(pipeline.framing_windows("Testland"), [])
+        mock_connect.assert_not_called()
+
     def test_stale_confirmation_is_rejected(self):
         confirmation = {
             "status": "confirmed",
