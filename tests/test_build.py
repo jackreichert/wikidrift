@@ -79,17 +79,36 @@ def _index_html():
 
 
 class FindingsDiscovery(unittest.TestCase):
-    def test_every_published_article_renders_one_interval_chart(self):
-        findings = build.gather()
-        missing_or_duplicated = {}
-        for article in findings.articles():
-            chart_count = build.article_page(article, findings).count(
-                "Persistence-weighted loss by interval"
-            )
-            if chart_count != 1:
-                missing_or_duplicated[article] = chart_count
+    def test_glossary_defines_rewrite_measurements_and_evidence(self):
+        rendered = build._md_asset("glossary")
 
-        self.assertEqual(missing_or_duplicated, {})
+        self.assertIn('id="persistence-weighted-loss"', rendered)
+        self.assertIn('id="durable-spine"', rendered)
+        self.assertIn('id="coarse-exact"', rendered)
+        self.assertIn('id="redline-receipt"', rendered)
+        self.assertIn("Persistence-weighted loss", rendered)
+        self.assertIn("absolute weighted amount lost", rendered)
+        self.assertIn("percentage-point decline", rendered)
+        self.assertIn("single snapshot-to-snapshot interval", rendered)
+        self.assertIn("The <strong>coarse scan</strong>", rendered)
+        self.assertIn("The <strong>exact check</strong>", rendered)
+        self.assertIn("earlier intervals\nare excluded, not treated as negative findings", rendered)
+        self.assertIn("The redline supports reading the change", rendered)
+        self.assertIn("the receipt supports auditing", rendered)
+
+    def test_every_published_article_explains_and_renders_the_interval_metric(self):
+        findings = build.gather()
+        invalid_counts = {}
+        for article in findings.articles():
+            rendered = build.article_page(article, findings)
+            counts = {
+                "chart": rendered.count('id="drift-profile-title"'),
+                "definition": rendered.count('id="durable-spine-title"'),
+            }
+            if counts != {"chart": 1, "definition": 1}:
+                invalid_counts[article] = counts
+
+        self.assertEqual(invalid_counts, {})
 
     def test_expanded_political_topics_have_a_descriptive_category(self):
         political_topics = [
@@ -358,9 +377,10 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("exact checking did not confirm a durable rewrite", out)
         self.assertNotIn("around L1 pivot", out)
         self.assertIn("Candidates and exact outcomes", out)
-        self.assertIn("Persistence-weighted loss by interval", out)
+        self.assertIn('id="drift-profile-title"', out)
         self.assertIn("69.5%", out)
-        self.assertIn("240,130 PWR", out)
+        self.assertIn("240,130", out)
+        self.assertIn('href="../glossary.html#persistence-weighted-loss"', out)
         self.assertIn("Rejected candidate window", out)
         self.assertIn("Excluded: below mature size; not investigated", out)
         self.assertIn("2024-01-01 → 2024-07-01", out)
@@ -430,8 +450,14 @@ class ArticlePageRendering(unittest.TestCase):
 
         out = build.article_page("Testland", findings)
 
-        self.assertIn("1 confirmed rewrite episode", out)
+        self.assertIn("1 confirmed ", out)
+        self.assertIn('href="../glossary.html#rewrite-episode"', out)
         self.assertIn("75.0% durable-spine drop", out)
+        self.assertIn('id="durable-spine-title"', out)
+        self.assertIn('href="../glossary.html#durable-spine"', out)
+        self.assertIn("more persistent half of the wording", out)
+        self.assertIn("whole candidate window", out)
+        self.assertIn("dominant step within that window", out)
         self.assertIn("oldid=11", out)
         self.assertIn("oldid=12", out)
         self.assertIn('href="Testland.p0.html"', out)
@@ -530,8 +556,9 @@ class ArticlePageRendering(unittest.TestCase):
             'aria-label="View redline for exact revisions 11 to 12"',
             out,
         )
-        self.assertIn("<b>80</b> tokens removed", out)
-        self.assertIn("<b>40</b> surviving replacement tokens", out)
+        self.assertIn("<b>80</b>", out)
+        self.assertIn("<b>40</b> surviving replacement", out)
+        self.assertIn('href="../glossary.html#snapshot-mature-token"', out)
         self.assertIn("associated with <b>100.0%</b> of removals", out)
         self.assertIn("origin author of <b>100.0%</b> of surviving replacement text", out)
         self.assertIn("does not establish bias, motive, or misconduct", out)
@@ -604,7 +631,7 @@ class ArticlePageRendering(unittest.TestCase):
         out = build.article_page("Testland", findings)
 
         self.assertIn("Too few snapshots for rewrite analysis", out)
-        self.assertIn("Persistence-weighted loss by interval", out)
+        self.assertIn('id="drift-profile-title"', out)
         self.assertIn("How the detector reached this state", out)
         self.assertIn("Data missing", out)
         self.assertIn("Not enough snapshots", out)
@@ -897,16 +924,42 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn('href="article/Testland.html"', idx)
         self.assertIn("Largest rewrite first", idx)
 
-    def test_article_body_does_not_deep_link_glossary(self):
-        """Article content should explain itself; nav may still link Reading tips."""
-        out = _article_html()
-        main = out.split("<main", 1)[1].split("</main>", 1)[0]
-        self.assertNotIn("glossary.html#", main)
+    def test_rewrite_terms_link_to_accessible_glossary_tooltips(self):
+        rendered = build.article_page("Unexported", build.Findings())
+
+        self.assertIn('class="glossary-term"', rendered)
+        self.assertIn('href="../glossary.html#durable-spine"', rendered)
+        self.assertIn('href="../glossary.html#persistence-weighted-loss"', rendered)
+        self.assertIn('data-tooltip="', rendered)
+        self.assertRegex(rendered, r'aria-describedby="glossary-description-\d+"')
+        self.assertRegex(rendered, r'<span class="sr-only" id="glossary-description-\d+">')
+
+    def test_rewrite_fallbacks_start_with_section_heading_before_metric_definition(self):
+        pivots = build.Findings(pivots={"Testland": {"pivots": []}})
+        pivots.pivots["Testland"]["pivots"].append({
+            "start": "2020-01-01",
+            "end": "2021-01-01",
+            "peak_pct": 30.0,
+            "before_text": "old",
+            "after_text": "new",
+        })
+        diff = build.Findings(diffs={"Testland": {
+            "before": {"date": "2020-01-01", "text": "old"},
+            "after": {"date": "2021-01-01", "text": "new"},
+        }})
+
+        for rendered in (
+            build.article_page("Testland", pivots),
+            build.article_page("Testland", diff),
+        ):
+            rewrite = rendered.split('id="panel-diff"', 1)[1]
+            self.assertLess(rewrite.index("<h2>"), rewrite.index("<h3"))
 
     def test_missing_rewrite_export_is_unavailable_not_a_negative_finding(self):
         out = build.article_page("Unexported", build.Findings())
         self.assertIn("Rewrite analysis is not available", out)
-        self.assertIn("Persistence-weighted loss by interval", out)
+        self.assertIn('id="durable-spine-title"', out)
+        self.assertIn('id="drift-profile-title"', out)
         self.assertIn("How the detector reached this state", out)
         self.assertIn("Data missing", out)
         self.assertNotIn("None stood out", out)
@@ -920,7 +973,7 @@ class ArticlePageRendering(unittest.TestCase):
         out = build.article_page("Testland", findings)
         self.assertIn("No candidate rewrite window was found", out)
         self.assertIn("L1 rewrite scan ran", out)
-        self.assertIn("Persistence-weighted loss by interval", out)
+        self.assertIn('id="drift-profile-title"', out)
         self.assertIn("No candidate signal", out)
         self.assertIn("Not needed", out)
         self.assertIn("Data missing", out)
@@ -1077,6 +1130,15 @@ class SiteRouting(unittest.TestCase):
         self.assertIn('class="language-mermaid"', methodology)
         self.assertIn("mermaid@11.4.1/dist/mermaid.min.js", methodology)
         self.assertNotIn("mermaid.min.js", plain)
+
+    def test_methodology_defines_durable_spine_drop(self):
+        methodology = build.simple_page(
+            "How it works", build.METHODOLOGY_BODY, "methodology"
+        )
+
+        self.assertIn("more persistent starting half", methodology)
+        self.assertIn("whole candidate window", methodology)
+        self.assertIn("dominant step", methodology)
 
     def test_mermaid_runtime_has_accessible_enlarge_dialog(self):
         runtime = (build.VIEWER / "site.js").read_text(encoding="utf-8")

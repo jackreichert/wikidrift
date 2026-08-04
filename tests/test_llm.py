@@ -290,6 +290,30 @@ class Backends(unittest.TestCase):
         self.assertEqual(rec.kwargs["max_tokens"], 64)
         self.assertEqual(c.usage_records[0]["input_tokens"], 10)
 
+    def test_anthropic_removes_unsupported_numeric_bounds_without_mutating_schema(self):
+        schema = {
+            "type": "object",
+            "properties": {
+                "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+                "label": {"type": "string", "maxLength": 20},
+                "scores": {
+                    "type": "array",
+                    "items": {"type": "integer", "exclusiveMinimum": 0, "exclusiveMaximum": 10},
+                },
+            },
+        }
+        c, rec = self._client("anthropic", _anthropic_impl)
+
+        c.complete_json(schema, "hi")
+
+        sent_schema = rec.kwargs["output_config"]["format"]["schema"]
+        self.assertEqual(sent_schema["properties"]["confidence"], {"type": "number"})
+        self.assertEqual(sent_schema["properties"]["label"]["maxLength"], 20)
+        self.assertEqual(sent_schema["properties"]["scores"]["items"], {"type": "integer"})
+        self.assertEqual(schema["properties"]["confidence"]["minimum"], 0)
+        self.assertEqual(schema["properties"]["confidence"]["maximum"], 1)
+        self.assertEqual(schema["properties"]["scores"]["items"]["exclusiveMinimum"], 0)
+
     def test_openai_shape_and_parse(self):
         c, rec = self._client("openai", _openai_impl)
         self.assertEqual(c.complete_json(SCHEMA, "hi"), {"ok": 2})

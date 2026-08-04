@@ -52,6 +52,32 @@ the replacement stayed. Open the before-and-after view and read it yourself.</p>
 <p>A <strong>candidate</strong> is a time window selected for closer inspection. It may come from one sharp interval or
 from sustained loss across roughly twelve months. <strong>Confirmed</strong> means the underlying revision history
 also shows the required collapse of long-lived wording. Neither term means the rewrite was biased.</p>
+<h2 id="persistence-weighted-loss">“Persistence-weighted loss” and “PWR mass”</h2>
+<p><strong>Persistence-weighted loss</strong> is the share of wording lost across an interval, with more weight given
+to text that had survived in more earlier snapshots. <strong>PWR mass</strong> is the absolute weighted amount lost.
+The percentage describes how much of that article changed; the mass helps compare the scale of
+candidate rewrites without letting a tiny article outrank a large one on percentage alone.</p>
+<h2 id="durable-spine">“Durable spine” and “durable-spine drop”</h2>
+<p>The <strong>durable spine</strong> is the more persistent half of the wording present at the start of a candidate
+window. Its drop is the percentage-point decline in how much of that wording survives across the whole
+window. It measures established wording loss, not whether the resulting text is better or worse.</p>
+<h2 id="rewrite-episode">“Rewrite episode” and “peak interval”</h2>
+<p>A <strong>rewrite episode</strong> is a bounded window in which established wording was substantially replaced. Its
+<strong>peak interval</strong> is the single snapshot-to-snapshot interval with the largest persistence-weighted
+loss; it may be only one part of the wider episode.</p>
+<h2 id="coarse-exact">“Coarse scan” vs “exact check”</h2>
+<p>The <strong>coarse scan</strong> compares sampled article snapshots to find candidate windows. The <strong>exact check</strong>
+then searches the revisions inside each investigated window to test whether its durable spine really
+collapsed. A candidate can therefore be rejected without implying that the article never changed.</p>
+<h2 id="redline-receipt">“Redline” and “receipt”</h2>
+<p>A <strong>redline</strong> shows wording removed and added between two versions. A <strong>receipt</strong> is the structured
+record behind a result: the window or revisions inspected, measurements made, and decision reached.
+The redline supports reading the change; the receipt supports auditing how WikiDrift classified it.</p>
+<h2 id="snapshot-mature-token">“Snapshot,” “mature interval,” and “token”</h2>
+<p>A <strong>snapshot</strong> is a version selected near a sampling date for interval comparison. A <strong>mature interval</strong>
+starts only after the article has enough tracked text for the persistence measurement; earlier intervals
+are excluded, not treated as negative findings. A <strong>token</strong> is one tracked unit of text, usually a word
+or punctuation mark.</p>
 <h2>“Overview”</h2>
 <p>The short briefing at the top of an article page. Begin there; use the other tabs only if you want
 detail.</p>

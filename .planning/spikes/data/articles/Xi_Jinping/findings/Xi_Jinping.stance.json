@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "prompt_version": "stance-v3",
+  "model_contract": {
+    "provider": "anthropic",
+    "model": "claude-sonnet-5",
+    "prompt_version": "stance-v3"
+  },
+  "article": "Xi Jinping",
+  "langs": [
+    "pt",
+    "en",
+    "nl"
+  ],
+  "entities": [
+    "Xi Jinping"
+  ],
+  "editions": {
+    "pt": {
+      "focal": {
+        "Xi Jinping": {
+          "entity": "Xi Jinping",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.65,
+          "evidence": "Largely factual biographical and political chronology with some critical details (Jesus photo replacement campaign, wolf warrior diplomacy) balanced by neutral/institutional framing",
+          "evidence_spans": [
+            "Xi adotou uma postura de política externa agressiva chamada \"diplomacia do guerreiro lobo\"",
+            "o governo local da província de Jiangxi disse aos cristãos para substituir suas fotos de Jesus por Xi Jinping como parte de uma campanha geral contra igrejas não oficiais no país",
+            "Xi adotou uma linha mais dura em questões de segurança, bem como em assuntos externos, projetando uma China mais nacionalista e assertiva no cenário mundial",
+            "resultado geral do Congresso sendo o fortalecimento do poder de Xi"
+          ]
+        }
+      },
+      "lead": {
+        "Xi Jinping": {
+          "entity": "Xi Jinping",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.55,
+          "evidence": "Tem sido descrito por alguns académicos como um líder autoritário e por outros como um ditador, citando um aumento da censura e da vigilância em massa, uma deterioração dos direitos humanos, um culto à personalidade que se desenvolve à sua volta, e a remoção de limites de mandato sob a sua liderança.",
+          "evidence_spans": [
+            "Tem sido descrito por alguns académicos como um líder autoritário e por outros como um ditador, citando um aumento da censura e da vigilância em massa, uma deterioração dos direitos humanos, um culto à personalidade que se desenvolve à sua volta, e a remoção de limites de mandato sob a sua liderança.",
+            "Os infortúnios e o sofrimento de sua família em seus primeiros anos endureceram a visão de Xi sobre a política.",
+            "Segundo pessoas que o conheceram, essa experiência o levou a sentir afinidade com os pobres do campo."
+          ]
+        }
+      }
+    },
+    "en": {
+      "focal": {
+        "Xi Jinping": {
+          "entity": "Xi Jinping",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.75,
+          "evidence": "The passage largely presents biographical and ideological facts about Xi Jinping in an encyclopedic manner without evaluative language.",
+          "evidence_spans": [
+            "is a Chinese politician who is the paramount leader of China",
+            "Xi's ideology, known as Xi Jinping Thought, has been incorporated into the party and national constitutions",
+            "Xi has said that \"only socialism can save China.\"",
+            "Xi is believed by some observers to be more believing in the \"idea of a communist project\""
+          ]
+        }
+      },
+      "lead": {
+        "Xi Jinping": {
+          "entity": "Xi Jinping",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.62,
+          "evidence": "His tenure as paramount leader has been marked by a sweeping anti-corruption campaign and a restructuring of the People's Liberation Army, both claiming prominent officials.",
+          "evidence_spans": [
+            "His tenure as paramount leader has been marked by a sweeping anti-corruption campaign and a restructuring of the People's Liberation Army, both claiming prominent officials.",
+            "His rule has seen a growing presence of the CCP over society, significant expansion of censorship and mass surveillance and a deterioration in human rights.",
+            "He oversaw the enactment of the 2020 Hong Kong national security law, which effectively suppressed the city's pro-democracy camp.",
+            "In 2018, Xi amended the constitution to remove presidential term limits and, upon his re-election in 2023, became the first Chinese president to serve more than two terms.",
+            "As a teenager, his father was purged, and he was sent down to the rural village of Liangjiahe, Shaanxi, during the Cultural Revolution."
+          ]
+        }
+      }
+    },
+    "nl": {
+      "focal": {
+        "Xi Jinping": {
+          "entity": "Xi Jinping",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.75,
+          "evidence": "Largely descriptive biographical and policy account without evaluative language",
+          "evidence_spans": [
+            "is een Chinees politicus",
+            "werd Xi Jinping verkozen tot secretaris-generaal van de Communistische Partij van China",
+            "heeft de regering onder Xi Jinping tientallen miljarden dollars uitgetrokken ter ondersteuning van binnenlandse inspanningen op het gebied van de onafhankelijkheid van halfgeleiders",
+            "Xi Jinping wordt al jaren vergeleken met het beertje en dit zou het gezag van de president kunnen ondermijnen"
+          ]
+        }
+      },
+      "lead": {
+        "Xi Jinping": {
+          "entity": "Xi Jinping",
+          "stance": "critical",
+          "npov_departure": true,
+          "confidence": 0.72,
+          "evidence": "Hij is vaak door politieke en academische waarnemers omschreven als een dictator of een autoritaire leider, daarbij verwijzend naar een toename van censuur en massasurveillance, een verslechtering van de mensenrechten, de ontwikkeling van de persoonlijkheidscultus om hem heen, en het opheffen van termijnen voor het leiderschap onder zijn ambtstermijn.",
+          "evidence_spans": [
+            "Hij is vaak door politieke en academische waarnemers omschreven als een dictator of een autoritaire leider",
+            "een sterk autoritaire signatuur, met name door veelvuldige censuur",
+            "Xi liet de maximumtermijn voor het presidentschap in 2018 afschaffen, waardoor hij president voor het leven kan zijn",
+            "zonder enige wettelijke bescherming of bijstand lange tijd verhoord",
+            "Er is publiekelijk weinig bekend over hoe Xi politieke beslissingen neemt of hoe hij aan de macht kwam"
+          ]
+        }
+      }
+    }
+  }
+}

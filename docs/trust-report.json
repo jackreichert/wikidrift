@@ -1,13 +1,670 @@
 {
   "counts": {
-    "legacy_incompatible": 202,
-    "published": 0,
+    "legacy_incompatible": 123,
+    "published": 82,
     "quarantined": 0,
     "stale": 0,
     "unstable": 0,
-    "withheld": 202
+    "withheld": 123
   },
-  "published": [],
+  "published": [
+    {
+      "article": "Abortion",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Abortion.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Ainu people",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Ainu_people.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Anti-Zionism",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Anti-Zionism.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Bar Kokhba Revolt",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Bar_Kokhba_Revolt.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Brontosaurus",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Brontosaurus.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Capitalism",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Capitalism.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Chess",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Chess.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Climate change",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Climate_change.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Collaboration in German-occupied Poland",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Collaboration_in_German-occupied_Poland.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Democratic Party (United States)",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Democratic_Party_(United_States).lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Democratic Socialists of America",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Democratic_Socialists_of_America.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Elizabeth Warren",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Elizabeth_Warren.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Fascism and ideology",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Fascism_and_ideology.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Gaza genocide",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Gaza_genocide.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Gaza war",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Gaza_war.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Genetic studies of Jews",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Genetic_studies_of_Jews.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Genocide of indigenous peoples",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Genocide_of_indigenous_peoples.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Hamas",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Hamas.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "History of Zionism",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "History_of_Zionism.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Ilhan Omar",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Ilhan_Omar.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Israeli\u2013Palestinian conflict",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Israeli\u2013Palestinian_conflict.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Jedwabne pogrom",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Jedwabne_pogrom.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Nakba",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Nakba.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Naliboki massacre",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Naliboki_massacre.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Palestine",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Palestine.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Palestinian political violence",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Palestinian_political_violence.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Photosynthesis",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Photosynthesis.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Racial conceptions of Jewish identity in Zionism",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Racial_conceptions_of_Jewish_identity_in_Zionism.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Rafah offensive",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Rafah_offensive.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Republican Party (United States)",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Republican_Party_(United_States).lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Rescue of Jews by Poles during the Holocaust",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Rescue_of_Jews_by_Poles_during_the_Holocaust.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Socialism",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Socialism.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "UNRWA",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "UNRWA.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "United Nations General Assembly observers",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "United_Nations_General_Assembly_observers.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Unmoved mover",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Unmoved_mover.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Warsaw concentration camp",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Warsaw_concentration_camp.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Water",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Water.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Xi Jinping",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Xi_Jinping.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Zionism",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Zionism.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Photosynthesis",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Photosynthesis.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Nakba",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Nakba.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Abortion",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Abortion.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Ainu people",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Ainu_people.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Anti-Zionism",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Anti-Zionism.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Bar Kokhba Revolt",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Bar_Kokhba_Revolt.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Brontosaurus",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Brontosaurus.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Capitalism",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Capitalism.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Chess",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Chess.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Climate change",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Climate_change.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Collaboration in German-occupied Poland",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Collaboration_in_German-occupied_Poland.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Democratic Party (United States)",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Democratic_Party_(United_States).l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Democratic Party of the United States",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Democratic_Party_of_the_United_States.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Democratic Socialists of America",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Democratic_Socialists_of_America.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Elizabeth Warren",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Elizabeth_Warren.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Fascism and ideology",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Fascism_and_ideology.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Gaza genocide",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Gaza_genocide.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Gaza war",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Gaza_war.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Genetic studies of Jews",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Genetic_studies_of_Jews.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Genocide of indigenous peoples",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Genocide_of_indigenous_peoples.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Hamas",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Hamas.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "History of Zionism",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "History_of_Zionism.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Ilhan Omar",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Ilhan_Omar.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Israeli\u2013Palestinian conflict",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Israeli\u2013Palestinian_conflict.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Jedwabne pogrom",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Jedwabne_pogrom.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Nakba",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Nakba.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Naliboki massacre",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Naliboki_massacre.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Palestine",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Palestine.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Palestinian political violence",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Palestinian_political_violence.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Photosynthesis",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Photosynthesis.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Racial conceptions of Jewish identity in Zionism",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Racial_conceptions_of_Jewish_identity_in_Zionism.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Rafah offensive",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Rafah_offensive.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Republican Party (United States)",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Republican_Party_(United_States).l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Republican Party of the United States",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Republican_Party_of_the_United_States.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Rescue of Jews by Poles during the Holocaust",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Rescue_of_Jews_by_Poles_during_the_Holocaust.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Socialism",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Socialism.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "UNRWA",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "UNRWA.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "United Nations General Assembly observers",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "United_Nations_General_Assembly_observers.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Unmoved mover",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Unmoved_mover.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Warsaw concentration camp",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Warsaw_concentration_camp.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Water",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Water.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Xi Jinping",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Xi_Jinping.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Zionism",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Zionism.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    }
+  ],
   "withheld": [
     {
       "article": "Racial conceptions of Jewish identity in Zionism",
@@ -58,6 +715,14 @@
       "status": "legacy_incompatible"
     },
     {
+      "article": "United Nations General Assembly observers",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "United_Nations_General_Assembly_observers.stance.json",
+      "reason": "stable endpoint receipt is missing",
+      "status": "legacy_incompatible"
+    },
+    {
       "article": "Bar Kokhba Revolt",
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
@@ -134,7 +799,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Photosynthesis.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -158,7 +823,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Nakba.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -246,7 +911,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Abortion.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -254,7 +919,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Ainu_people.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -262,7 +927,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Anti-Zionism.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -270,7 +935,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Bar_Kokhba_Revolt.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -278,7 +943,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Brontosaurus.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -286,7 +951,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Chess.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -294,7 +959,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Climate_change.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -302,7 +967,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Collaboration_in_German-occupied_Poland.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -310,7 +975,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Fascism_and_ideology.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -318,7 +983,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Gaza_genocide.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -326,7 +991,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Gaza_war.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -334,7 +999,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Genetic_studies_of_Jews.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -342,7 +1007,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Genocide_of_indigenous_peoples.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -350,7 +1015,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Hamas.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -358,7 +1023,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "History_of_Zionism.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -366,7 +1031,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Ilhan_Omar.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -374,7 +1039,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Israeli\u2013Palestinian_conflict.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -382,7 +1047,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Jedwabne_pogrom.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -390,7 +1055,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Nakba.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -398,7 +1063,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Naliboki_massacre.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -406,7 +1071,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Palestine.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -414,7 +1079,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Palestinian_political_violence.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -422,7 +1087,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Photosynthesis.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -430,7 +1095,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Racial_conceptions_of_Jewish_identity_in_Zionism.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -438,7 +1103,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Rafah_offensive.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -446,7 +1111,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Rescue_of_Jews_by_Poles_during_the_Holocaust.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -454,7 +1119,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "UNRWA.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -462,7 +1127,23 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Warsaw_concentration_camp.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "Water",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Water.stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "Xi Jinping",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Xi_Jinping.stance.json",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -470,7 +1151,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Zionism.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -606,7 +1287,7 @@
       "artifact_kind": "lexical",
       "endpoint_policy_version": null,
       "path": "Nakba.lexical.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "lexical artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -622,7 +1303,7 @@
       "artifact_kind": "lexical",
       "endpoint_policy_version": null,
       "path": "Photosynthesis.lexical.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "lexical artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -726,318 +1407,6 @@
       "artifact_kind": "lexical",
       "endpoint_policy_version": null,
       "path": "Water.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Abortion",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Abortion.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Ainu people",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Ainu_people.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Anti-Zionism",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Anti-Zionism.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Bar Kokhba Revolt",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Bar_Kokhba_Revolt.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Brontosaurus",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Brontosaurus.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Capitalism",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Capitalism.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Chess",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Chess.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Climate change",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Climate_change.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Collaboration in German-occupied Poland",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Collaboration_in_German-occupied_Poland.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Democratic Party (United States)",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Democratic_Party_(United_States).lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Democratic Socialists of America",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Democratic_Socialists_of_America.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Elizabeth Warren",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Elizabeth_Warren.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Fascism and ideology",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Fascism_and_ideology.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Gaza genocide",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Gaza_genocide.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Gaza war",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Gaza_war.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Genetic studies of Jews",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Genetic_studies_of_Jews.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Genocide of indigenous peoples",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Genocide_of_indigenous_peoples.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Hamas",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Hamas.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "History of Zionism",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "History_of_Zionism.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Ilhan Omar",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Ilhan_Omar.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Israeli\u2013Palestinian conflict",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Israeli\u2013Palestinian_conflict.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Jedwabne pogrom",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Jedwabne_pogrom.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Nakba",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Nakba.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Naliboki massacre",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Naliboki_massacre.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Palestine",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Palestine.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Palestinian political violence",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Palestinian_political_violence.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Photosynthesis",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Photosynthesis.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Racial conceptions of Jewish identity in Zionism",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Racial_conceptions_of_Jewish_identity_in_Zionism.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Rafah offensive",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Rafah_offensive.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Republican Party (United States)",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Republican_Party_(United_States).lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Rescue of Jews by Poles during the Holocaust",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Rescue_of_Jews_by_Poles_during_the_Holocaust.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Socialism",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Socialism.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "UNRWA",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "UNRWA.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "United Nations General Assembly observers",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "United_Nations_General_Assembly_observers.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Unmoved mover",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Unmoved_mover.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Warsaw concentration camp",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Warsaw_concentration_camp.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Water",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Water.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Xi Jinping",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Xi_Jinping.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Zionism",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Zionism.lexical.json",
       "reason": "stable endpoint receipt is missing",
       "status": "legacy_incompatible"
     },
@@ -1110,14 +1479,6 @@
       "artifact_kind": "l1-confirmation",
       "endpoint_policy_version": null,
       "path": "Abortion.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Photosynthesis",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Photosynthesis.l1-confirmation.json",
       "reason": "stable endpoint receipt is missing",
       "status": "legacy_incompatible"
     },
@@ -1282,346 +1643,10 @@
       "status": "legacy_incompatible"
     },
     {
-      "article": "Nakba",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Nakba.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
       "article": "Jedwabne pogrom",
       "artifact_kind": "l1-confirmation",
       "endpoint_policy_version": null,
       "path": "Jedwabne_pogrom.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Abortion",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Abortion.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Ainu people",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Ainu_people.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Anti-Zionism",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Anti-Zionism.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Bar Kokhba Revolt",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Bar_Kokhba_Revolt.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Brontosaurus",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Brontosaurus.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Capitalism",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Capitalism.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Chess",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Chess.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Climate change",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Climate_change.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Collaboration in German-occupied Poland",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Collaboration_in_German-occupied_Poland.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Democratic Party (United States)",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Democratic_Party_(United_States).l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Democratic Party of the United States",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Democratic_Party_of_the_United_States.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Democratic Socialists of America",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Democratic_Socialists_of_America.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Elizabeth Warren",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Elizabeth_Warren.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Fascism and ideology",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Fascism_and_ideology.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Gaza genocide",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Gaza_genocide.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Gaza war",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Gaza_war.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Genetic studies of Jews",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Genetic_studies_of_Jews.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Genocide of indigenous peoples",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Genocide_of_indigenous_peoples.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Hamas",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Hamas.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "History of Zionism",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "History_of_Zionism.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Ilhan Omar",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Ilhan_Omar.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Israeli\u2013Palestinian conflict",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Israeli\u2013Palestinian_conflict.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Jedwabne pogrom",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Jedwabne_pogrom.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Nakba",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Nakba.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Naliboki massacre",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Naliboki_massacre.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Palestine",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Palestine.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Palestinian political violence",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Palestinian_political_violence.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Photosynthesis",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Photosynthesis.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Racial conceptions of Jewish identity in Zionism",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Racial_conceptions_of_Jewish_identity_in_Zionism.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Rafah offensive",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Rafah_offensive.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Republican Party (United States)",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Republican_Party_(United_States).l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Republican Party of the United States",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Republican_Party_of_the_United_States.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Rescue of Jews by Poles during the Holocaust",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Rescue_of_Jews_by_Poles_during_the_Holocaust.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Socialism",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Socialism.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "UNRWA",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "UNRWA.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "United Nations General Assembly observers",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "United_Nations_General_Assembly_observers.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Unmoved mover",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Unmoved_mover.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Warsaw concentration camp",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Warsaw_concentration_camp.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Water",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Water.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Xi Jinping",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Xi_Jinping.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Zionism",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Zionism.l1-confirmation.json",
       "reason": "stable endpoint receipt is missing",
       "status": "legacy_incompatible"
     }

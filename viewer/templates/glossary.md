@@ -18,6 +18,44 @@ A **candidate** is a time window selected for closer inspection. It may come fro
 from sustained loss across roughly twelve months. **Confirmed** means the underlying revision history
 also shows the required collapse of long-lived wording. Neither term means the rewrite was biased.
 
+## “Persistence-weighted loss” and “PWR mass” {#persistence-weighted-loss}
+
+**Persistence-weighted loss** is the share of wording lost across an interval, with more weight given
+to text that had survived in more earlier snapshots. **PWR mass** is the absolute weighted amount lost.
+The percentage describes how much of that article changed; the mass helps compare the scale of
+candidate rewrites without letting a tiny article outrank a large one on percentage alone.
+
+## “Durable spine” and “durable-spine drop” {#durable-spine}
+
+The **durable spine** is the more persistent half of the wording present at the start of a candidate
+window. Its drop is the percentage-point decline in how much of that wording survives across the whole
+window. It measures established wording loss, not whether the resulting text is better or worse.
+
+## “Rewrite episode” and “peak interval” {#rewrite-episode}
+
+A **rewrite episode** is a bounded window in which established wording was substantially replaced. Its
+**peak interval** is the single snapshot-to-snapshot interval with the largest persistence-weighted
+loss; it may be only one part of the wider episode.
+
+## “Coarse scan” vs “exact check” {#coarse-exact}
+
+The **coarse scan** compares sampled article snapshots to find candidate windows. The **exact check**
+then searches the revisions inside each investigated window to test whether its durable spine really
+collapsed. A candidate can therefore be rejected without implying that the article never changed.
+
+## “Redline” and “receipt” {#redline-receipt}
+
+A **redline** shows wording removed and added between two versions. A **receipt** is the structured
+record behind a result: the window or revisions inspected, measurements made, and decision reached.
+The redline supports reading the change; the receipt supports auditing how WikiDrift classified it.
+
+## “Snapshot,” “mature interval,” and “token” {#snapshot-mature-token}
+
+A **snapshot** is a version selected near a sampling date for interval comparison. A **mature interval**
+starts only after the article has enough tracked text for the persistence measurement; earlier intervals
+are excluded, not treated as negative findings. A **token** is one tracked unit of text, usually a word
+or punctuation mark.
+
 ## “Overview”
 
 The short briefing at the top of an article page. Begin there; use the other tabs only if you want
