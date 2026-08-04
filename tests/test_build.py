@@ -138,6 +138,39 @@ class MultiEpisodePanels(unittest.TestCase):
         self.assertIn("beta", rendered)
         self.assertIn('data-episode-view="211-212" hidden', rendered)
 
+    def test_event_navigator_orders_confirmed_windows_chronologically(self):
+        records = [
+            {
+                "episode_id": "401-402",
+                "analysis_status": "unavailable",
+                "reason": "latest",
+                "episode_window": {
+                    **self._window(401, 402, "2024-08-12T00:00:00Z"),
+                    "start": "2024-01-01",
+                    "end": "2025-01-01",
+                },
+            },
+            {
+                "episode_id": "101-102",
+                "analysis_status": "unavailable",
+                "reason": "earliest",
+                "episode_window": {
+                    **self._window(101, 102, "2002-07-24T00:00:00Z"),
+                    "start": "2002-07-01",
+                    "end": "2005-01-01",
+                },
+            },
+        ]
+
+        rendered = build._episode_analysis_section(records, "lexical", lambda record: "")
+
+        self.assertLess(
+            rendered.index("2002-07-01 → 2005-01-01"),
+            rendered.index("2024-01-01 → 2025-01-01"),
+        )
+        self.assertIn('value="101-102" data-episode-control aria-controls="episode-view-lexical-1" checked', rendered)
+        self.assertEqual(records[0]["episode_id"], "401-402")
+
     def test_citation_navigator_exposes_unavailable_event(self):
         available = {
             "analysis_status": "available",
@@ -661,6 +694,25 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn('aria-label="View redline for candidate 2023-07-01 to 2024-07-01"', rewrite)
         self.assertIn('aria-label="Before exact revision: 2024-01-01T00:00:00Z"', rewrite)
         self.assertLess(rewrite.index("Exact outcome"), rewrite.index("Coarse signal"))
+
+    def test_exact_candidate_decisions_are_chronological(self):
+        candidates = [
+            {
+                "candidate_start": "2024-01-01", "candidate_end": "2025-01-01",
+                "decision": "confirmed", "peak_pct": 42.0, "pwr_mass": 500,
+            },
+            {
+                "candidate_start": "2002-07-01", "candidate_end": "2005-01-01",
+                "decision": "confirmed", "peak_pct": 31.0, "pwr_mass": 300,
+            },
+        ]
+
+        rendered = build._candidate_evaluations_receipt({
+            "evaluated_candidates": candidates,
+        })
+
+        self.assertLess(rendered.index("2002-07-01"), rendered.index("2024-01-01"))
+        self.assertEqual(candidates[0]["candidate_start"], "2024-01-01")
 
     def test_legacy_confirmed_episode_adds_verdict_to_containing_interval(self):
         out = build._interval_profile_chart({
