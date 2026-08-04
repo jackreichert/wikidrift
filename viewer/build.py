@@ -642,9 +642,22 @@ _EPISODE_TITLES = {
 
 
 def _episode_analysis_section(records, layer, render):
-    """Render every event result and visible event controls when an artifact is plural."""
+    """Render plural event results chronologically with synchronized visible controls."""
     if not records:
         return ""
+
+    def chronological_key(record):
+        window = record.get("episode_window")
+        window = window if isinstance(window, dict) else {}
+        timestamp = (
+            window.get("start")
+            or window.get("before_timestamp")
+            or window.get("after_timestamp")
+            or window.get("end")
+        )
+        return (timestamp is None, timestamp or "")
+
+    records = sorted(records, key=chronological_key)
 
     def render_record(record):
         if record.get("analysis_status") != "unavailable":
@@ -677,8 +690,14 @@ def _episode_analysis_section(records, layer, render):
         if episode_id in seen_episode_ids:
             episode_id = f"{layer}-event-{index + 1}"
         seen_episode_ids.add(episode_id)
+        start = window.get("start")
+        end = window.get("end")
         timestamp = window.get("after_timestamp") or ""
-        date = timestamp[:10] or window.get("end") or f"Event {index + 1}"
+        date = (
+            f"{start} → {end}"
+            if start and end
+            else timestamp[:10] or end or f"Event {index + 1}"
+        )
         revisions = (
             f" · rev {before_revid} → {after_revid}"
             if before_revid is not None and after_revid is not None else ""
@@ -1473,6 +1492,14 @@ def _candidate_evaluations_receipt(confirmation, pivots=None, slug=None, episode
     candidates = confirmation.get("evaluated_candidates") or []
     if not candidates:
         return ""
+    candidates = sorted(
+        candidates,
+        key=lambda candidate: (
+            candidate.get("candidate_start") is None,
+            candidate.get("candidate_start") or "",
+            candidate.get("candidate_end") or "",
+        ),
+    )
     episodes = episodes or []
     required_drop = (confirmation.get("thresholds") or {}).get("confirm_drop", 0.2)
     pivot_indexes = {
