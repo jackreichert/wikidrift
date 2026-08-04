@@ -403,6 +403,7 @@ def framing_lite(
     pivot_window: dict | None = None,
     client=None,
     recategorize: bool = False,
+    persist: bool = True,
     provider: str | None = None,
     model: str | None = None,
     base_url: str | None = None,
@@ -435,9 +436,11 @@ def framing_lite(
             "llm_usage": usage,
             "elapsed_seconds": round(time.monotonic() - started, 3),
         })
-        config.write_findings(f"{slug}.framing.json", result)
+        if persist:
+            config.write_findings(f"{slug}.framing.json", result)
         print(f"  LLM usage: {llm_backend.format_usage(usage)}")
-        print(f"  wrote findings/{slug}.framing.json")
+        if persist:
+            print(f"  wrote findings/{slug}.framing.json")
         return result
 
     # 1. Categorize

@@ -1,0 +1,58 @@
+{
+  "static": {
+    "Socialism": {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "model_contract": {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "prompt_version": "stance-v3"
+      },
+      "variants": {
+        "lead": {
+          "divergence": 1.0,
+          "spreads": {
+            "Socialism": 1
+          }
+        },
+        "focal": {
+          "divergence": 0.0,
+          "spreads": {
+            "Socialism": 0
+          }
+        }
+      }
+    }
+  },
+  "pivot_relative": {
+    "Socialism": {
+      "pivot": "2020-01-01",
+      "pivot_source": "confirmed L1",
+      "en_gap_before": 1.0,
+      "en_gap_after": 0.5,
+      "read": "converged",
+      "before": {
+        "fr": {
+          "Socialism": 1
+        },
+        "pt": {
+          "Socialism": 1
+        },
+        "en": {
+          "Socialism": 0
+        }
+      },
+      "after": {
+        "fr": {
+          "Socialism": 1
+        },
+        "pt": {
+          "Socialism": 0
+        },
+        "en": {
+          "Socialism": 0
+        }
+      }
+    }
+  }
+}

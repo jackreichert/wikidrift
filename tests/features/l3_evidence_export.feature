@@ -1,52 +1,112 @@
-@layers @l3 @living-documentation
-Feature: Export inspectable rewrite and authorship evidence
-  As a website reader
-  I want analysis summaries connected to readable article evidence
-  So that I can inspect what changed and where the current wording came from
+@tool @l3
+Feature: L3 inspectable redline and authorship export
+  Researchers need static evidence pages that expose exact or evaluated candidate text changes
+  and token provenance without changing the analytical verdict.
 
-  Rule: L3 exports a readable before-and-after redline
+  Background:
+    Given a canonical article corpus and a current L1 confirmation receipt exist
 
-    Scenario: Export a confirmed rewrite
-      Given an article has a fresh confirmed L1 event
-      And the exact stable before and after revisions are available
-      When L3 prepares the rewrite evidence
-      Then the export identifies both public revisions and their dates
-      And removed wording is marked as deleted text
-      And replacement wording is marked as inserted text
-      And the redline remains evidence of change rather than proof of motive or correctness
+  @implemented @offline
+  Rule: Export state follows exact confirmation authority
 
-    Scenario: Export a rejected rewrite investigation
-      Given L1 investigated a candidate and did not confirm the required durable-spine drop
-      And the investigated public before and after revisions are available
-      When L3 prepares the rewrite evidence
-      Then L3 still exports a readable redline for the investigated revision pair
-      And the export labels the exact outcome as rejected
-      And it does not describe the candidate as a confirmed rewrite
+    Scenario: Confirmed events export exact redlines
+      Given one or more exact events are confirmed
+      When L3 diff export runs
+      Then one redline is exported for each supported exact event
+      And each page identifies exact before and after revisions
+      And candidate-level boundaries cannot replace exact boundaries
 
-    Scenario: Label a fallback comparison honestly
-      Given no fresh confirmed L1 event is available
-      But suitable article versions can be compared
-      When L3 prepares rewrite evidence
-      Then the export identifies how the fallback versions were chosen
-      And it does not label the comparison as an exact confirmed event
+    Scenario: Rejected candidates remain exportable for audit
+      Given exact checking rejected an evaluated coarse candidate
+      When candidate export runs
+      Then a candidate-relative redline may be exported
+      And the page is labeled candidate and rejected
+      And it is not included in confirmed-event counts
 
-    Scenario: Withhold untrusted rewrite evidence
-      Given a rewrite export references stale, quarantined, or unverifiable revisions
-      When L3 prepares evidence for publication
-      Then the rewrite artifact is withheld with a reason
-      And the website does not publish it as current evidence
+    Scenario: Healthy articles do not fabricate event diffs
+      Given current L1 state is healthy
+      When L3 export runs
+      Then no confirmed or candidate event redline is fabricated
+      And the export reports that no eligible event boundary exists
 
-  Rule: L3 exports public authorship for the current lead
+    Scenario: Legacy coarse pivots are withheld
+      Given only a legacy coarse pivot exists
+      And current exact candidate receipts are absent or incompatible
+      When L3 resolves exportable pivots
+      Then the legacy pivot is withheld
+      And unavailable is reported rather than exporting misleading evidence
 
-    Scenario: Trace current wording to public revision origins
-      Given token provenance is available for the current article lead
-      When L3 prepares the authorship overlay
-      Then adjacent wording with the same origin may be grouped into readable spans
-      And each published span shows its public account, origin revision, and origin date when available
-      And unknown provenance remains visibly unknown
+  @implemented @offline
+  Rule: Redlines preserve readable source text
 
-    Scenario: Interpret authorship as action rather than intent
-      Given a public account introduced wording that remains in the current lead
-      When the authorship overlay is published
-      Then the overlay describes the observable origin of that wording
-      And it does not infer the account's identity, motive, coordination, or factual correctness
+    Scenario: Added, removed, and unchanged text are distinguishable
+      Given an eligible revision pair
+      When its redline is rendered
+      Then additions, removals, and unchanged context are visually and textually distinguishable
+      And additions and removals do not rely on color alone
+
+    Scenario: Source revisions remain directly inspectable
+      Given a redline page is exported
+      When a researcher inspects its provenance
+      Then it links to both public Wikipedia oldids
+      And it identifies the comparison mode, event or candidate identity, and analytical outcome
+
+    Scenario: Empty or unavailable content fails visibly
+      Given either revision lacks usable source text
+      When redline export runs
+      Then no empty successful diff is written
+      And the export records unavailable with a reason
+
+  @implemented @offline
+  Rule: Authorship coloring is provenance evidence
+
+    Scenario: Supported spans retain origin actors
+      Given source history supports token-origin attribution
+      When blame export runs
+      Then contiguous spans with the same supported origin are grouped for display
+      And each span retains origin revision and public actor state
+
+    Scenario: Unknown authorship remains unknown
+      Given a token's origin cannot be supported from available history
+      When blame is rendered
+      Then the span is marked unknown or unavailable
+      And it is not assigned to a nearby actor by inference
+
+    Scenario: Authorship has a textual legend
+      Given multiple actor colors are displayed
+      When the authorship visualization is inspected
+      Then a text legend maps each color to its literal public actor token or state
+      And the evidence remains interpretable without color
+
+  @implemented
+  Rule: Static export is deterministic and bounded
+
+    Scenario: Repeated export yields stable filenames and ordering
+      Given inputs and contracts are unchanged
+      When L3 export runs twice
+      Then equivalent event and candidate pages use the same safe paths
+      And displayed rows and legends have deterministic order
+
+    Scenario: Article and event identifiers cannot escape output roots
+      Given an input title or identifier contains unsafe path characters
+      When an output filename is constructed
+      Then the resulting path remains beneath the configured article output directory
+
+  @policy
+  Rule: L3 adds inspectability rather than authority
+
+    Scenario: A compelling visual does not alter state
+      Given a redline appears large or an actor share appears concentrated
+      When L3 output is consumed
+      Then the upstream exact decision remains unchanged
+      And the visualization does not infer bias, intent, ownership, coordination, or misconduct
+
+  @gap
+  Rule: L3 should become a discoverable first-class tool surface
+
+    Scenario: Users can invoke and inspect L3 from the supported command interface
+      Given an eligible article finding exists
+      When a user requests L3 export through the documented tool interface
+      Then exact and candidate export modes are discoverable
+      And machine-readable status and output paths are returned
+      And the implementation does not require importing a viewer script directly

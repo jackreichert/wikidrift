@@ -1,301 +1,633 @@
 {
   "article": "Xi Jinping",
-  "span": "2021-07-01 -> 2022-01-01 (around L1 pivot ~2021-07-01)",
-  "pivot": "2021-07-01",
+  "mode": "insufficient_baseline",
+  "requested_mode": "pivot_relative",
+  "adequate": false,
+  "adequacy_reason": "before/after size ratio 6.139 exceeds 4.0",
+  "size_ratio": 6.139,
+  "interval_source": "exact_confirmation",
+  "span": "rev 115514713 -> rev 115516297 (exact confirmation)",
+  "pivot": "2006-07-01",
   "before": {
-    "date": "2021-07-01",
-    "rev": 1031548599,
-    "tokens": 6435
+    "date": "2007-03-16",
+    "rev": 115514713,
+    "tokens": 1811
   },
   "after": {
-    "date": "2022-01-01",
-    "rev": 1063137962,
-    "tokens": 6624
+    "date": "2007-03-16",
+    "rev": 115516297,
+    "tokens": 295
   },
-  "js_divergence": 0.0063,
+  "js_divergence": 0.322,
   "overrepresented_after_terms": [
     {
-      "term": "companies",
+      "term": "career",
       "before": 1,
       "after": 3,
       "delta": 2,
-      "log_odds": 0.8187
+      "log_odds": 2.6702
     },
     {
-      "term": "freedom",
+      "term": "current",
       "before": 1,
-      "after": 3,
-      "delta": 2,
-      "log_odds": 0.8187
+      "after": 2,
+      "delta": 1,
+      "log_odds": 2.3303
     },
     {
-      "term": "include",
+      "term": "popular",
       "before": 1,
-      "after": 3,
-      "delta": 2,
-      "log_odds": 0.8187
+      "after": 2,
+      "delta": 1,
+      "log_odds": 2.3303
     },
     {
-      "term": "non",
-      "before": 1,
-      "after": 3,
-      "delta": 2,
-      "log_odds": 0.8187
+      "term": "political",
+      "before": 8,
+      "after": 6,
+      "delta": -2,
+      "log_odds": 1.5611
     },
     {
-      "term": "among",
+      "term": "positions",
+      "before": 3,
+      "after": 2,
+      "delta": -1,
+      "log_odds": 1.4819
+    },
+    {
+      "term": "rose",
+      "before": 3,
+      "after": 2,
+      "delta": -1,
+      "log_odds": 1.4819
+    },
+    {
+      "term": "shaanxi",
+      "before": 3,
+      "after": 2,
+      "delta": -1,
+      "log_odds": 1.4819
+    },
+    {
+      "term": "figure",
+      "before": 5,
+      "after": 3,
+      "delta": -2,
+      "log_odds": 1.3687
+    },
+    {
+      "term": "alternate",
       "before": 2,
-      "after": 4,
-      "delta": 2,
-      "log_odds": 0.5591
+      "after": 1,
+      "delta": -1,
+      "log_odds": 1.3047
     },
     {
-      "term": "attend",
+      "term": "attack",
       "before": 2,
-      "after": 4,
-      "delta": 2,
-      "log_odds": 0.5591
+      "after": 1,
+      "delta": -1,
+      "log_odds": 1.3047
     },
     {
-      "term": "projects",
+      "term": "attractive",
       "before": 2,
-      "after": 4,
-      "delta": 2,
-      "log_odds": 0.5591
+      "after": 1,
+      "delta": -1,
+      "log_odds": 1.3047
     },
     {
-      "term": "abroad",
-      "before": 1,
-      "after": 2,
-      "delta": 1,
-      "log_odds": 0.482
+      "term": "base",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": 1.3047
     },
     {
-      "term": "adopted",
-      "before": 1,
-      "after": 2,
-      "delta": 1,
-      "log_odds": 0.482
+      "term": "category",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": 1.3047
     },
     {
-      "term": "began",
-      "before": 1,
-      "after": 2,
-      "delta": 1,
-      "log_odds": 0.482
+      "term": "cnn",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": 1.3047
     },
     {
-      "term": "build",
-      "before": 1,
-      "after": 2,
-      "delta": 1,
-      "log_odds": 0.482
+      "term": "cultural",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": 1.3047
     },
     {
-      "term": "common",
-      "before": 1,
-      "after": 2,
-      "delta": 1,
-      "log_odds": 0.482
+      "term": "deng",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": 1.3047
     },
     {
-      "term": "declared",
-      "before": 1,
-      "after": 2,
-      "delta": 1,
-      "log_odds": 0.482
+      "term": "dialogue",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": 1.3047
     },
     {
-      "term": "delegation",
-      "before": 1,
-      "after": 2,
-      "delta": 1,
-      "log_odds": 0.482
+      "term": "early",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": 1.3047
     },
     {
-      "term": "different",
-      "before": 1,
-      "after": 2,
-      "delta": 1,
-      "log_odds": 0.482
+      "term": "end",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": 1.3047
     },
     {
-      "term": "emissions",
-      "before": 1,
-      "after": 2,
-      "delta": 1,
-      "log_odds": 0.482
-    },
-    {
-      "term": "existing",
-      "before": 1,
-      "after": 2,
-      "delta": 1,
-      "log_odds": 0.482
-    },
-    {
-      "term": "fines",
-      "before": 1,
-      "after": 2,
-      "delta": 1,
-      "log_odds": 0.482
-    },
-    {
-      "term": "framework",
-      "before": 1,
-      "after": 2,
-      "delta": 1,
-      "log_odds": 0.482
-    },
-    {
-      "term": "goals",
-      "before": 1,
-      "after": 2,
-      "delta": 1,
-      "log_odds": 0.482
+      "term": "father",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": 1.3047
     }
   ],
   "underrepresented_after_terms": [
     {
-      "term": "action",
-      "before": 3,
+      "term": "http",
+      "before": 31,
+      "after": 0,
+      "delta": -31,
+      "log_odds": -2.3472
+    },
+    {
+      "term": "htm",
+      "before": 16,
+      "after": 0,
+      "delta": -16,
+      "log_odds": -1.6921
+    },
+    {
+      "term": "english",
+      "before": 13,
+      "after": 0,
+      "delta": -13,
+      "log_odds": -1.4898
+    },
+    {
+      "term": "hangzhou",
+      "before": 12,
+      "after": 0,
+      "delta": -12,
+      "log_odds": -1.4123
+    },
+    {
+      "term": "congress",
+      "before": 11,
+      "after": 0,
+      "delta": -11,
+      "log_odds": -1.3283
+    },
+    {
+      "term": "html",
+      "before": 11,
+      "after": 0,
+      "delta": -11,
+      "log_odds": -1.3283
+    },
+    {
+      "term": "news",
+      "before": 11,
+      "after": 0,
+      "delta": -11,
+      "log_odds": -1.3283
+    },
+    {
+      "term": "chairman",
+      "before": 10,
+      "after": 0,
+      "delta": -10,
+      "log_odds": -1.2368
+    },
+    {
+      "term": "former",
+      "before": 10,
+      "after": 0,
+      "delta": -10,
+      "log_odds": -1.2368
+    },
+    {
+      "term": "standing",
+      "before": 10,
+      "after": 0,
+      "delta": -10,
+      "log_odds": -1.2368
+    },
+    {
+      "term": "com",
+      "before": 27,
       "after": 1,
-      "delta": -2,
-      "log_odds": -0.8766
+      "delta": -26,
+      "log_odds": -1.1071
     },
     {
-      "term": "brother",
-      "before": 2,
+      "term": "www",
+      "before": 25,
       "after": 1,
-      "delta": -1,
-      "log_odds": -0.5399
+      "delta": -24,
+      "log_odds": -1.0305
     },
     {
-      "term": "cave",
-      "before": 2,
-      "after": 1,
-      "delta": -1,
-      "log_odds": -0.5399
-    },
-    {
-      "term": "despite",
-      "before": 2,
-      "after": 1,
-      "delta": -1,
-      "log_odds": -0.5399
-    },
-    {
-      "term": "environmental",
-      "before": 2,
-      "after": 1,
-      "delta": -1,
-      "log_odds": -0.5399
-    },
-    {
-      "term": "little",
-      "before": 2,
-      "after": 1,
-      "delta": -1,
-      "log_odds": -0.5399
-    },
-    {
-      "term": "remains",
-      "before": 2,
-      "after": 1,
-      "delta": -1,
-      "log_odds": -0.5399
-    },
-    {
-      "term": "town",
-      "before": 2,
-      "after": 1,
-      "delta": -1,
-      "log_odds": -0.5399
-    },
-    {
-      "term": "tracker",
-      "before": 2,
-      "after": 1,
-      "delta": -1,
-      "log_odds": -0.5399
-    },
-    {
-      "term": "achieve",
-      "before": 3,
-      "after": 2,
-      "delta": -1,
-      "log_odds": -0.3656
-    },
-    {
-      "term": "announcement",
-      "before": 3,
-      "after": 2,
-      "delta": -1,
-      "log_odds": -0.3656
-    },
-    {
-      "term": "criticism",
-      "before": 3,
-      "after": 2,
-      "delta": -1,
-      "log_odds": -0.3656
-    },
-    {
-      "term": "five",
-      "before": 3,
-      "after": 2,
-      "delta": -1,
-      "log_odds": -0.3656
-    },
-    {
-      "term": "major",
-      "before": 3,
-      "after": 2,
-      "delta": -1,
-      "log_odds": -0.3656
-    },
-    {
-      "term": "nations",
-      "before": 3,
-      "after": 2,
-      "delta": -1,
-      "log_odds": -0.3656
-    },
-    {
-      "term": "zhongxun",
-      "before": 3,
-      "after": 2,
-      "delta": -1,
-      "log_odds": -0.3656
-    },
-    {
-      "term": "left",
+      "term": "excerpt",
       "before": 8,
-      "after": 6,
-      "delta": -2,
-      "log_odds": -0.2975
+      "after": 0,
+      "delta": -8,
+      "log_odds": -1.0244
     },
     {
-      "term": "served",
-      "before": 4,
-      "after": 3,
-      "delta": -1,
-      "log_odds": -0.2804
+      "term": "meeting",
+      "before": 8,
+      "after": 0,
+      "delta": -8,
+      "log_odds": -1.0244
     },
     {
-      "term": "very",
-      "before": 4,
-      "after": 3,
-      "delta": -1,
-      "log_odds": -0.2804
+      "term": "org",
+      "before": 8,
+      "after": 0,
+      "delta": -8,
+      "log_odds": -1.0244
     },
     {
-      "term": "climate",
-      "before": 5,
-      "after": 4,
-      "delta": -1,
-      "log_odds": -0.2298
+      "term": "acting",
+      "before": 7,
+      "after": 0,
+      "delta": -7,
+      "log_odds": -0.8987
+    },
+    {
+      "term": "beijing",
+      "before": 7,
+      "after": 0,
+      "delta": -7,
+      "log_odds": -0.8987
+    },
+    {
+      "term": "private",
+      "before": 7,
+      "after": 0,
+      "delta": -7,
+      "log_odds": -0.8987
+    },
+    {
+      "term": "gao",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -0.755
+    },
+    {
+      "term": "get",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -0.755
     }
   ],
-  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict.",
+  "schema_version": 1,
+  "analysis_scope": "confirmed_episodes",
+  "episode_count": 1,
+  "episodes": [
+    {
+      "article": "Xi Jinping",
+      "mode": "insufficient_baseline",
+      "requested_mode": "pivot_relative",
+      "adequate": false,
+      "adequacy_reason": "before/after size ratio 6.139 exceeds 4.0",
+      "size_ratio": 6.139,
+      "interval_source": "exact_confirmation",
+      "span": "rev 115514713 -> rev 115516297 (exact confirmation)",
+      "pivot": "2006-07-01",
+      "before": {
+        "date": "2007-03-16",
+        "rev": 115514713,
+        "tokens": 1811
+      },
+      "after": {
+        "date": "2007-03-16",
+        "rev": 115516297,
+        "tokens": 295
+      },
+      "js_divergence": 0.322,
+      "overrepresented_after_terms": [
+        {
+          "term": "career",
+          "before": 1,
+          "after": 3,
+          "delta": 2,
+          "log_odds": 2.6702
+        },
+        {
+          "term": "current",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 2.3303
+        },
+        {
+          "term": "popular",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 2.3303
+        },
+        {
+          "term": "political",
+          "before": 8,
+          "after": 6,
+          "delta": -2,
+          "log_odds": 1.5611
+        },
+        {
+          "term": "positions",
+          "before": 3,
+          "after": 2,
+          "delta": -1,
+          "log_odds": 1.4819
+        },
+        {
+          "term": "rose",
+          "before": 3,
+          "after": 2,
+          "delta": -1,
+          "log_odds": 1.4819
+        },
+        {
+          "term": "shaanxi",
+          "before": 3,
+          "after": 2,
+          "delta": -1,
+          "log_odds": 1.4819
+        },
+        {
+          "term": "figure",
+          "before": 5,
+          "after": 3,
+          "delta": -2,
+          "log_odds": 1.3687
+        },
+        {
+          "term": "alternate",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": 1.3047
+        },
+        {
+          "term": "attack",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": 1.3047
+        },
+        {
+          "term": "attractive",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": 1.3047
+        },
+        {
+          "term": "base",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": 1.3047
+        },
+        {
+          "term": "category",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": 1.3047
+        },
+        {
+          "term": "cnn",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": 1.3047
+        },
+        {
+          "term": "cultural",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": 1.3047
+        },
+        {
+          "term": "deng",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": 1.3047
+        },
+        {
+          "term": "dialogue",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": 1.3047
+        },
+        {
+          "term": "early",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": 1.3047
+        },
+        {
+          "term": "end",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": 1.3047
+        },
+        {
+          "term": "father",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": 1.3047
+        }
+      ],
+      "underrepresented_after_terms": [
+        {
+          "term": "http",
+          "before": 31,
+          "after": 0,
+          "delta": -31,
+          "log_odds": -2.3472
+        },
+        {
+          "term": "htm",
+          "before": 16,
+          "after": 0,
+          "delta": -16,
+          "log_odds": -1.6921
+        },
+        {
+          "term": "english",
+          "before": 13,
+          "after": 0,
+          "delta": -13,
+          "log_odds": -1.4898
+        },
+        {
+          "term": "hangzhou",
+          "before": 12,
+          "after": 0,
+          "delta": -12,
+          "log_odds": -1.4123
+        },
+        {
+          "term": "congress",
+          "before": 11,
+          "after": 0,
+          "delta": -11,
+          "log_odds": -1.3283
+        },
+        {
+          "term": "html",
+          "before": 11,
+          "after": 0,
+          "delta": -11,
+          "log_odds": -1.3283
+        },
+        {
+          "term": "news",
+          "before": 11,
+          "after": 0,
+          "delta": -11,
+          "log_odds": -1.3283
+        },
+        {
+          "term": "chairman",
+          "before": 10,
+          "after": 0,
+          "delta": -10,
+          "log_odds": -1.2368
+        },
+        {
+          "term": "former",
+          "before": 10,
+          "after": 0,
+          "delta": -10,
+          "log_odds": -1.2368
+        },
+        {
+          "term": "standing",
+          "before": 10,
+          "after": 0,
+          "delta": -10,
+          "log_odds": -1.2368
+        },
+        {
+          "term": "com",
+          "before": 27,
+          "after": 1,
+          "delta": -26,
+          "log_odds": -1.1071
+        },
+        {
+          "term": "www",
+          "before": 25,
+          "after": 1,
+          "delta": -24,
+          "log_odds": -1.0305
+        },
+        {
+          "term": "excerpt",
+          "before": 8,
+          "after": 0,
+          "delta": -8,
+          "log_odds": -1.0244
+        },
+        {
+          "term": "meeting",
+          "before": 8,
+          "after": 0,
+          "delta": -8,
+          "log_odds": -1.0244
+        },
+        {
+          "term": "org",
+          "before": 8,
+          "after": 0,
+          "delta": -8,
+          "log_odds": -1.0244
+        },
+        {
+          "term": "acting",
+          "before": 7,
+          "after": 0,
+          "delta": -7,
+          "log_odds": -0.8987
+        },
+        {
+          "term": "beijing",
+          "before": 7,
+          "after": 0,
+          "delta": -7,
+          "log_odds": -0.8987
+        },
+        {
+          "term": "private",
+          "before": 7,
+          "after": 0,
+          "delta": -7,
+          "log_odds": -0.8987
+        },
+        {
+          "term": "gao",
+          "before": 6,
+          "after": 0,
+          "delta": -6,
+          "log_odds": -0.755
+        },
+        {
+          "term": "get",
+          "before": 6,
+          "after": 0,
+          "delta": -6,
+          "log_odds": -0.755
+        }
+      ],
+      "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict.",
+      "episode_id": "115514713-115516297",
+      "episode_index": 1,
+      "episode_window": {
+        "start": "2006-07-01",
+        "end": "2008-07-01",
+        "pwr_mass": 8795,
+        "status": "confirmed",
+        "before_revid": 115514713,
+        "before_timestamp": "2007-03-16T08:32:46Z",
+        "after_revid": 115516297,
+        "after_timestamp": "2007-03-16T08:50:39Z",
+        "durable_spine_drop": 0.885563
+      },
+      "analysis_status": "available"
+    }
+  ]
 }

@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "prompt_version": "stance-v3",
+  "model_contract": {
+    "provider": "anthropic",
+    "model": "claude-sonnet-5",
+    "prompt_version": "stance-v3"
+  },
+  "article": "Democratic Party (United States)",
+  "langs": [
+    "en",
+    "es",
+    "uk"
+  ],
+  "entities": [
+    "Democratic Party (United States)"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Democratic Party (United States)": {
+          "entity": "Democratic Party (United States)",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.95,
+          "evidence": "a list of election year data and vote totals with no evaluative language",
+          "evidence_spans": [
+            "1828642,55356.0178",
+            "2020202081,283,50151.379",
+            "See also  Democratic Party (United States) organizations"
+          ]
+        }
+      },
+      "lead": {
+        "Democratic Party (United States)": {
+          "entity": "Democratic Party (United States)",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.85,
+          "evidence": "The Democratic Party is a liberal political party in the United States, sitting on the center to center-left of the political spectrum.",
+          "evidence_spans": [
+            "The Democratic Party is a liberal political party in the United States, sitting on the center to center-left of the political spectrum.",
+            "Founded in 1828, it is the world's oldest active political party.",
+            "On economic issues, the party favors healthcare reform, paid sick leave, paid family leave and supporting unions.",
+            "Democrats have been more liberal on civil rights since 1948, although conservative factions within the Democratic Party that opposed them persisted in the South until the 1960s."
+          ]
+        }
+      }
+    },
+    "es": {
+      "focal": {
+        "Democratic Party (United States)": {
+          "entity": "Democratic Party (United States)",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.85,
+          "evidence": "El Partido Demócrata () es un partido político estadounidense socioliberal, con importantes facciones progresistas y socialdemócratas...",
+          "evidence_spans": [
+            "El Partido Demócrata () es un partido político estadounidense socioliberal, con importantes facciones progresistas y socialdemócratas",
+            "La filosofía del Partido Demócrata, el socioliberalismo, aboga por la igualdad social junto con un moderado estado del bienestar",
+            "Políticas como la introducción de algunos programas sociales, el apoyo a los sindicatos, una matrícula universitaria asequible...constituyen el núcleo de la política económica del partido",
+            "Jackson y sus partidarios comenzaron a fundar por todo el país las filiales de un nuevo partido"
+          ]
+        }
+      },
+      "lead": {
+        "Democratic Party (United States)": {
+          "entity": "Democratic Party (United States)",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.82,
+          "evidence": "El Partido Demócrata () es un partido político estadounidense socioliberal, con importantes facciones progresistas y socialdemócratas",
+          "evidence_spans": [
+            "El Partido Demócrata () es un partido político estadounidense socioliberal, con importantes facciones progresistas y socialdemócratas",
+            "La filosofía del Partido Demócrata, el socioliberalismo, aboga por la igualdad social junto con un moderado estado del bienestar",
+            "Políticas como la introducción de algunos programas sociales, el apoyo a los sindicatos, una matrícula universitaria asequible, programas de atención médica universal, igualdad de oportunidades, protección del consumidor y del medio ambiente constituyen el núcleo de la política económica del partido",
+            "Jackson y sus partidarios comenzaron a fundar por todo el país las filiales de un nuevo partido... hacerle oposición al Gobierno del «usurpador» Quincy Adams"
+          ]
+        }
+      }
+    },
+    "uk": {
+      "focal": {
+        "Democratic Party (United States)": {
+          "entity": "Democratic Party (United States)",
+          "stance": "critical",
+          "npov_departure": true,
+          "confidence": 0.4,
+          "evidence": "passage notes the party's historical opposition to abolition and Jackson's lack of sympathy for Native Americans, framed critically within a discussion of the party's early identity",
+          "evidence_spans": [
+            "Вона виступала проти скасування рабства.",
+            "Він не співчував американським індіанцям, ініціювавши вилучення черокі по сліді сліз"
+          ]
+        }
+      },
+      "lead": {
+        "Democratic Party (United States)": {
+          "entity": "Democratic Party (United States)",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.62,
+          "evidence": "Демократи́чна па́ртія США — американська лівоцентристська ліберальна політична партія, одна з двох головних політичних сил США",
+          "evidence_spans": [
+            "Демократи́чна па́ртія США () — американська лівоцентристська  ліберальна політична партія, одна з двох головних політичних сил США",
+            "На момент свого створення Демократична партія була партією «простої людини». Вона виступала проти скасування рабства.",
+            "Джексон та його прихильники також виступали проти реформи як руху.",
+            "Він не співчував американським індіанцям, ініціювавши вилучення черокі по сліді сліз"
+          ]
+        }
+      }
+    }
+  }
+}

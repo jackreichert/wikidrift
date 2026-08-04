@@ -1,27 +1,41 @@
 {
   "article": "Fascism and ideology",
   "pivot": "2026-01-01",
-  "span": "2025-01-01 → 2026-07-01  (across the L1 pivot ~2026-01-01)",
+  "span": "rev 1356597241 → rev 1356606621  (exact confirmation, 2026-05-28 → 2026-05-28)",
+  "mode": "pivot_relative",
+  "pivot_window": {
+    "start": "2026-01-01",
+    "end": "2026-07-01",
+    "pwr_mass": 450944,
+    "status": "confirmed",
+    "before_revid": 1356597241,
+    "before_timestamp": "2026-05-28T19:03:21Z",
+    "after_revid": 1356606621,
+    "after_timestamp": "2026-05-28T20:03:02Z",
+    "durable_spine_drop": 0.606833
+  },
   "before": {
-    "date": "2025-01-01",
-    "refs": 192,
-    "n_domains": 35,
+    "date": "2026-05-28",
+    "rev": 1356597241,
+    "refs": 193,
+    "n_domains": 36,
     "cite_mix": {
       "book": 74,
-      "news": 14,
-      "journal": 8,
-      "web": 4
+      "news": 13,
+      "journal": 7,
+      "web": 6
     },
     "domains": {
-      "books.google.com": 15,
-      "academia.edu": 1,
-      "brill.com": 1,
+      "books.google.com": 18,
+      "durham-repository.worktribe.com": 1,
+      "newrepublic.com": 2,
       "plato.stanford.edu": 1,
       "jstor.org": 3,
+      "britannica.com": 2,
       "iht.com": 2,
-      "derechos.org": 1,
+      "derechos.org": 2,
       "newyorker.com": 2,
-      "bbc.com": 8,
+      "bbc.com": 4,
       "en.qantara.de": 2,
       "washingtoninstitute.org": 2,
       "aljazeera.com": 2,
@@ -32,41 +46,12 @@
       "nytimes.com": 1,
       "newsweek.com": 1,
       "newstatesman.com": 1,
-      "vox.com": 1,
+      "vox.com": 2,
       "historyguide.org": 1,
       "archive.org": 3,
-      "britannica.com": 1,
+      "theatlantic.com": 1,
       "philpapers.org": 1,
       "ibmandtheholocaust.com": 1,
-      "worldfuturefund.org": 1,
-      "media.wix.com": 1,
-      "dkrenton.co.uk": 1,
-      "wzo.org.il": 1,
-      "rationalrevolution.net": 1,
-      "themodernword.com": 1,
-      "fascismoeliberta.net": 1,
-      "metaxas-project.com": 1,
-      "papalencyclicals.net": 1,
-      "historycooperative.org": 1
-    }
-  },
-  "after": {
-    "date": "2026-07-01",
-    "refs": 58,
-    "n_domains": 17,
-    "cite_mix": {
-      "book": 90,
-      "journal": 7,
-      "web": 3
-    },
-    "domains": {
-      "books.google.com": 13,
-      "historyguide.org": 1,
-      "archive.org": 3,
-      "jstor.org": 1,
-      "britannica.com": 1,
-      "ibmandtheholocaust.com": 1,
-      "philpapers.org": 1,
       "worldfuturefund.org": 1,
       "media.wix.com": 1,
       "dkrenton.co.uk": 1,
@@ -79,114 +64,608 @@
       "historycooperative.org": 1
     }
   },
-  "added": [
-    {
-      "domain": "papalencyclicals.net",
-      "from": 1,
-      "to": 2
+  "after": {
+    "date": "2026-05-28",
+    "rev": 1356606621,
+    "refs": 193,
+    "n_domains": 36,
+    "cite_mix": {
+      "book": 74,
+      "news": 13,
+      "journal": 7,
+      "web": 6
+    },
+    "domains": {
+      "books.google.com": 18,
+      "durham-repository.worktribe.com": 1,
+      "newrepublic.com": 2,
+      "plato.stanford.edu": 1,
+      "jstor.org": 3,
+      "britannica.com": 2,
+      "iht.com": 2,
+      "derechos.org": 2,
+      "newyorker.com": 2,
+      "bbc.com": 4,
+      "en.qantara.de": 2,
+      "washingtoninstitute.org": 2,
+      "aljazeera.com": 2,
+      "theguardian.com": 5,
+      "theprint.in": 2,
+      "journals.openedition.org": 1,
+      "politico.com": 1,
+      "nytimes.com": 1,
+      "newsweek.com": 1,
+      "newstatesman.com": 1,
+      "vox.com": 2,
+      "historyguide.org": 1,
+      "archive.org": 3,
+      "theatlantic.com": 1,
+      "philpapers.org": 1,
+      "ibmandtheholocaust.com": 1,
+      "worldfuturefund.org": 1,
+      "media.wix.com": 1,
+      "dkrenton.co.uk": 1,
+      "wzo.org.il": 1,
+      "rationalrevolution.net": 1,
+      "themodernword.com": 1,
+      "fascismoeliberta.net": 1,
+      "metaxas-project.com": 1,
+      "papalencyclicals.net": 2,
+      "historycooperative.org": 1
     }
-  ],
-  "dropped": [
+  },
+  "added": [],
+  "dropped": [],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+  "schema_version": 1,
+  "analysis_scope": "confirmed_episodes",
+  "episode_count": 5,
+  "episodes": [
     {
-      "domain": "bbc.com",
-      "from": 8,
-      "to": 0
+      "article": "Fascism and ideology",
+      "pivot": "2026-01-01",
+      "span": "rev 1356597241 → rev 1356606621  (exact confirmation, 2026-05-28 → 2026-05-28)",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2026-01-01",
+        "end": "2026-07-01",
+        "pwr_mass": 450944,
+        "status": "confirmed",
+        "before_revid": 1356597241,
+        "before_timestamp": "2026-05-28T19:03:21Z",
+        "after_revid": 1356606621,
+        "after_timestamp": "2026-05-28T20:03:02Z",
+        "durable_spine_drop": 0.606833
+      },
+      "before": {
+        "date": "2026-05-28",
+        "rev": 1356597241,
+        "refs": 193,
+        "n_domains": 36,
+        "cite_mix": {
+          "book": 74,
+          "news": 13,
+          "journal": 7,
+          "web": 6
+        },
+        "domains": {
+          "books.google.com": 18,
+          "durham-repository.worktribe.com": 1,
+          "newrepublic.com": 2,
+          "plato.stanford.edu": 1,
+          "jstor.org": 3,
+          "britannica.com": 2,
+          "iht.com": 2,
+          "derechos.org": 2,
+          "newyorker.com": 2,
+          "bbc.com": 4,
+          "en.qantara.de": 2,
+          "washingtoninstitute.org": 2,
+          "aljazeera.com": 2,
+          "theguardian.com": 5,
+          "theprint.in": 2,
+          "journals.openedition.org": 1,
+          "politico.com": 1,
+          "nytimes.com": 1,
+          "newsweek.com": 1,
+          "newstatesman.com": 1,
+          "vox.com": 2,
+          "historyguide.org": 1,
+          "archive.org": 3,
+          "theatlantic.com": 1,
+          "philpapers.org": 1,
+          "ibmandtheholocaust.com": 1,
+          "worldfuturefund.org": 1,
+          "media.wix.com": 1,
+          "dkrenton.co.uk": 1,
+          "wzo.org.il": 1,
+          "rationalrevolution.net": 1,
+          "themodernword.com": 1,
+          "fascismoeliberta.net": 1,
+          "metaxas-project.com": 1,
+          "papalencyclicals.net": 2,
+          "historycooperative.org": 1
+        }
+      },
+      "after": {
+        "date": "2026-05-28",
+        "rev": 1356606621,
+        "refs": 193,
+        "n_domains": 36,
+        "cite_mix": {
+          "book": 74,
+          "news": 13,
+          "journal": 7,
+          "web": 6
+        },
+        "domains": {
+          "books.google.com": 18,
+          "durham-repository.worktribe.com": 1,
+          "newrepublic.com": 2,
+          "plato.stanford.edu": 1,
+          "jstor.org": 3,
+          "britannica.com": 2,
+          "iht.com": 2,
+          "derechos.org": 2,
+          "newyorker.com": 2,
+          "bbc.com": 4,
+          "en.qantara.de": 2,
+          "washingtoninstitute.org": 2,
+          "aljazeera.com": 2,
+          "theguardian.com": 5,
+          "theprint.in": 2,
+          "journals.openedition.org": 1,
+          "politico.com": 1,
+          "nytimes.com": 1,
+          "newsweek.com": 1,
+          "newstatesman.com": 1,
+          "vox.com": 2,
+          "historyguide.org": 1,
+          "archive.org": 3,
+          "theatlantic.com": 1,
+          "philpapers.org": 1,
+          "ibmandtheholocaust.com": 1,
+          "worldfuturefund.org": 1,
+          "media.wix.com": 1,
+          "dkrenton.co.uk": 1,
+          "wzo.org.il": 1,
+          "rationalrevolution.net": 1,
+          "themodernword.com": 1,
+          "fascismoeliberta.net": 1,
+          "metaxas-project.com": 1,
+          "papalencyclicals.net": 2,
+          "historycooperative.org": 1
+        }
+      },
+      "added": [],
+      "dropped": [],
+      "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+      "episode_id": "1356597241-1356606621",
+      "episode_index": 1,
+      "episode_window": {
+        "start": "2026-01-01",
+        "end": "2026-07-01",
+        "pwr_mass": 450944,
+        "status": "confirmed",
+        "before_revid": 1356597241,
+        "before_timestamp": "2026-05-28T19:03:21Z",
+        "after_revid": 1356606621,
+        "after_timestamp": "2026-05-28T20:03:02Z",
+        "durable_spine_drop": 0.606833
+      },
+      "analysis_status": "available"
     },
     {
-      "domain": "theguardian.com",
-      "from": 5,
-      "to": 0
+      "article": "Fascism and ideology",
+      "pivot": "2011-01-01",
+      "span": "rev 426479421 → rev 426748277  (exact confirmation, 2011-04-29 → 2011-04-30)",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2011-01-01",
+        "end": "2011-07-01",
+        "pwr_mass": 46358,
+        "status": "confirmed",
+        "before_revid": 426479421,
+        "before_timestamp": "2011-04-29T00:39:31Z",
+        "after_revid": 426748277,
+        "after_timestamp": "2011-04-30T16:54:16Z",
+        "durable_spine_drop": 0.994144
+      },
+      "before": {
+        "date": "2011-04-29",
+        "rev": 426479421,
+        "refs": 56,
+        "n_domains": 13,
+        "cite_mix": {
+          "book": 100
+        },
+        "domains": {
+          "edwardvictor.com": 1,
+          "coloradocollege.edu": 1,
+          "mises.org": 1,
+          "ibmandtheholocaust.com": 1,
+          "worldfuturefund.org": 1,
+          "dkrenton.co.uk": 1,
+          "wzo.org.il": 1,
+          "rationalrevolution.net": 1,
+          "themodernword.com": 1,
+          "fascismoeliberta.net": 1,
+          "metaxas-project.com": 1,
+          "papalencyclicals.net": 1,
+          "historycooperative.org": 1
+        }
+      },
+      "after": {
+        "date": "2011-04-30",
+        "rev": 426748277,
+        "refs": 58,
+        "n_domains": 13,
+        "cite_mix": {
+          "book": 100
+        },
+        "domains": {
+          "edwardvictor.com": 1,
+          "coloradocollege.edu": 1,
+          "mises.org": 1,
+          "ibmandtheholocaust.com": 1,
+          "worldfuturefund.org": 1,
+          "dkrenton.co.uk": 1,
+          "wzo.org.il": 1,
+          "rationalrevolution.net": 1,
+          "themodernword.com": 1,
+          "fascismoeliberta.net": 1,
+          "metaxas-project.com": 1,
+          "papalencyclicals.net": 1,
+          "historycooperative.org": 1
+        }
+      },
+      "added": [],
+      "dropped": [],
+      "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+      "episode_id": "426479421-426748277",
+      "episode_index": 2,
+      "episode_window": {
+        "start": "2011-01-01",
+        "end": "2011-07-01",
+        "pwr_mass": 46358,
+        "status": "confirmed",
+        "before_revid": 426479421,
+        "before_timestamp": "2011-04-29T00:39:31Z",
+        "after_revid": 426748277,
+        "after_timestamp": "2011-04-30T16:54:16Z",
+        "durable_spine_drop": 0.994144
+      },
+      "analysis_status": "available"
     },
     {
-      "domain": "iht.com",
-      "from": 2,
-      "to": 0
+      "article": "Fascism and ideology",
+      "pivot": "2012-01-01",
+      "span": "rev 491069344 → rev 492797521  (exact confirmation, 2012-05-06 → 2012-05-16)",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2012-01-01",
+        "end": "2012-07-01",
+        "pwr_mass": 28481,
+        "status": "confirmed",
+        "before_revid": 491069344,
+        "before_timestamp": "2012-05-06T21:36:11Z",
+        "after_revid": 492797521,
+        "after_timestamp": "2012-05-16T01:49:08Z",
+        "durable_spine_drop": 0.567207
+      },
+      "before": {
+        "date": "2012-05-06",
+        "rev": 491069344,
+        "refs": 215,
+        "n_domains": 14,
+        "cite_mix": {
+          "book": 100
+        },
+        "domains": {
+          "books.google.com.au": 1,
+          "historyguide.org": 2,
+          "books.google.com": 1,
+          "jstor.org": 1,
+          "ibmandtheholocaust.com": 1,
+          "worldfuturefund.org": 1,
+          "dkrenton.co.uk": 1,
+          "wzo.org.il": 1,
+          "rationalrevolution.net": 1,
+          "themodernword.com": 1,
+          "fascismoeliberta.net": 1,
+          "metaxas-project.com": 1,
+          "papalencyclicals.net": 1,
+          "historycooperative.org": 1
+        }
+      },
+      "after": {
+        "date": "2012-05-16",
+        "rev": 492797521,
+        "refs": 396,
+        "n_domains": 15,
+        "cite_mix": {},
+        "domains": {
+          "jstor.org": 3,
+          "iht.com": 1,
+          "webcitation.org": 1,
+          "historyguide.org": 2,
+          "books.google.com": 1,
+          "ibmandtheholocaust.com": 1,
+          "worldfuturefund.org": 1,
+          "dkrenton.co.uk": 1,
+          "wzo.org.il": 1,
+          "rationalrevolution.net": 1,
+          "themodernword.com": 1,
+          "fascismoeliberta.net": 1,
+          "metaxas-project.com": 1,
+          "papalencyclicals.net": 1,
+          "historycooperative.org": 1
+        }
+      },
+      "added": [
+        {
+          "domain": "jstor.org",
+          "from": 1,
+          "to": 3
+        },
+        {
+          "domain": "iht.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "webcitation.org",
+          "from": 0,
+          "to": 1
+        }
+      ],
+      "dropped": [
+        {
+          "domain": "books.google.com.au",
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+      "episode_id": "491069344-492797521",
+      "episode_index": 3,
+      "episode_window": {
+        "start": "2012-01-01",
+        "end": "2012-07-01",
+        "pwr_mass": 28481,
+        "status": "confirmed",
+        "before_revid": 491069344,
+        "before_timestamp": "2012-05-06T21:36:11Z",
+        "after_revid": 492797521,
+        "after_timestamp": "2012-05-16T01:49:08Z",
+        "durable_spine_drop": 0.567207
+      },
+      "analysis_status": "available"
     },
     {
-      "domain": "en.qantara.de",
-      "from": 2,
-      "to": 0
+      "article": "Fascism and ideology",
+      "pivot": "2008-07-01",
+      "span": "rev 253124444 → rev 253133592  (exact confirmation, 2008-11-21 → 2008-11-21)",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2008-07-01",
+        "end": "2009-01-01",
+        "pwr_mass": 11503,
+        "status": "confirmed",
+        "before_revid": 253124444,
+        "before_timestamp": "2008-11-21T03:51:51Z",
+        "after_revid": 253133592,
+        "after_timestamp": "2008-11-21T05:06:49Z",
+        "durable_spine_drop": 0.280768
+      },
+      "before": {
+        "date": "2008-11-21",
+        "rev": 253124444,
+        "refs": 46,
+        "n_domains": 14,
+        "cite_mix": {
+          "book": 100
+        },
+        "domains": {
+          "orwell.ru": 1,
+          "worldfuturefund.org": 2,
+          "edwardvictor.com": 1,
+          "coloradocollege.edu": 1,
+          "mises.org": 1,
+          "ibmandtheholocaust.com": 1,
+          "dkrenton.co.uk": 1,
+          "wzo.org.il": 1,
+          "rationalrevolution.net": 1,
+          "themodernword.com": 1,
+          "fascismoeliberta.net": 1,
+          "metaxas-project.com": 1,
+          "papalencyclicals.net": 1,
+          "historycooperative.org": 1
+        }
+      },
+      "after": {
+        "date": "2008-11-21",
+        "rev": 253133592,
+        "refs": 45,
+        "n_domains": 14,
+        "cite_mix": {
+          "book": 100
+        },
+        "domains": {
+          "orwell.ru": 1,
+          "worldfuturefund.org": 2,
+          "edwardvictor.com": 1,
+          "coloradocollege.edu": 1,
+          "mises.org": 1,
+          "ibmandtheholocaust.com": 1,
+          "dkrenton.co.uk": 1,
+          "wzo.org.il": 1,
+          "rationalrevolution.net": 1,
+          "themodernword.com": 1,
+          "fascismoeliberta.net": 1,
+          "metaxas-project.com": 1,
+          "papalencyclicals.net": 1,
+          "historycooperative.org": 1
+        }
+      },
+      "added": [],
+      "dropped": [],
+      "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+      "episode_id": "253124444-253133592",
+      "episode_index": 4,
+      "episode_window": {
+        "start": "2008-07-01",
+        "end": "2009-01-01",
+        "pwr_mass": 11503,
+        "status": "confirmed",
+        "before_revid": 253124444,
+        "before_timestamp": "2008-11-21T03:51:51Z",
+        "after_revid": 253133592,
+        "after_timestamp": "2008-11-21T05:06:49Z",
+        "durable_spine_drop": 0.280768
+      },
+      "analysis_status": "available"
     },
     {
-      "domain": "books.google.com",
-      "from": 15,
-      "to": 13
-    },
-    {
-      "domain": "aljazeera.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "washingtoninstitute.org",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "newyorker.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "theprint.in",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "jstor.org",
-      "from": 3,
-      "to": 1
-    },
-    {
-      "domain": "brill.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "plato.stanford.edu",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "derechos.org",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "journals.openedition.org",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "vox.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "politico.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "nytimes.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "newstatesman.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "newsweek.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "academia.edu",
-      "from": 1,
-      "to": 0
+      "article": "Fascism and ideology",
+      "pivot": "2006-07-01",
+      "span": "rev 79902939 → rev 81311146  (exact confirmation, 2006-10-06 → 2006-10-14)",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2006-07-01",
+        "end": "2007-01-01",
+        "pwr_mass": 11103,
+        "status": "confirmed",
+        "before_revid": 79902939,
+        "before_timestamp": "2006-10-06T19:52:39Z",
+        "after_revid": 81311146,
+        "after_timestamp": "2006-10-14T00:10:29Z",
+        "durable_spine_drop": 0.634367
+      },
+      "before": {
+        "date": "2006-10-06",
+        "rev": 79902939,
+        "refs": 1,
+        "n_domains": 25,
+        "cite_mix": {
+          "news": 100
+        },
+        "domains": {
+          "worldfuturefund.org": 2,
+          "lamar.colostate.edu": 1,
+          "thecorner.org": 1,
+          "lewrockwell.com": 2,
+          "antiwar.com": 1,
+          "publicpolicy.pepperdine.edu": 1,
+          "econlib.org": 2,
+          "chroniclesmagazine.org": 1,
+          "aida.econ.yale.edu": 1,
+          "64.233.161.104": 2,
+          "fff.org": 2,
+          "mackinac.org": 1,
+          "geocities.com": 1,
+          "hpol.org": 1,
+          "newdeal.feri.org": 1,
+          "ibmandtheholocaust.com": 1,
+          "mises.org": 7,
+          "dkrenton.co.uk": 1,
+          "wzo.org.il": 1,
+          "rationalrevolution.net": 1,
+          "themodernword.com": 1,
+          "fascismoeliberta.net": 1,
+          "metaxas-project.com": 1,
+          "papalencyclicals.net": 1,
+          "historycooperative.org": 1
+        }
+      },
+      "after": {
+        "date": "2006-10-14",
+        "rev": 81311146,
+        "refs": 6,
+        "n_domains": 22,
+        "cite_mix": {
+          "book": 50,
+          "news": 50
+        },
+        "domains": {
+          "orwell.ru": 1,
+          "worldfuturefund.org": 2,
+          "antiwar.com": 1,
+          "publicpolicy.pepperdine.edu": 1,
+          "econlib.org": 1,
+          "chroniclesmagazine.org": 1,
+          "aida.econ.yale.edu": 1,
+          "64.233.161.104": 1,
+          "fff.org": 2,
+          "mackinac.org": 1,
+          "geocities.com": 1,
+          "hpol.org": 1,
+          "newdeal.feri.org": 1,
+          "ibmandtheholocaust.com": 1,
+          "dkrenton.co.uk": 1,
+          "wzo.org.il": 1,
+          "rationalrevolution.net": 1,
+          "themodernword.com": 1,
+          "fascismoeliberta.net": 1,
+          "metaxas-project.com": 1,
+          "papalencyclicals.net": 1,
+          "historycooperative.org": 1
+        }
+      },
+      "added": [
+        {
+          "domain": "orwell.ru",
+          "from": 0,
+          "to": 1
+        }
+      ],
+      "dropped": [
+        {
+          "domain": "mises.org",
+          "from": 7,
+          "to": 0
+        },
+        {
+          "domain": "lewrockwell.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "thecorner.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "econlib.org",
+          "from": 2,
+          "to": 1
+        },
+        {
+          "domain": "64.233.161.104",
+          "from": 2,
+          "to": 1
+        },
+        {
+          "domain": "lamar.colostate.edu",
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+      "episode_id": "79902939-81311146",
+      "episode_index": 5,
+      "episode_window": {
+        "start": "2006-07-01",
+        "end": "2007-01-01",
+        "pwr_mass": 11103,
+        "status": "confirmed",
+        "before_revid": 79902939,
+        "before_timestamp": "2006-10-06T19:52:39Z",
+        "after_revid": 81311146,
+        "after_timestamp": "2006-10-14T00:10:29Z",
+        "durable_spine_drop": 0.634367
+      },
+      "analysis_status": "available"
     }
-  ],
-  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD."
+  ]
 }

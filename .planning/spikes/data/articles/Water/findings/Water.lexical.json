@@ -1,301 +1,633 @@
 {
   "article": "Water",
-  "span": "2007-07-01 -> 2008-01-01 (around L1 pivot ~2007-07-01)",
+  "mode": "pivot_relative",
+  "requested_mode": "pivot_relative",
+  "adequate": true,
+  "adequacy_reason": null,
+  "size_ratio": 1.188,
+  "interval_source": "exact_confirmation",
+  "span": "rev 175167658 -> rev 175175239 (exact confirmation)",
   "pivot": "2007-07-01",
   "before": {
-    "date": "2007-07-01",
-    "rev": 141767077,
-    "tokens": 4899
+    "date": "2007-12-02",
+    "rev": 175167658,
+    "tokens": 5964
   },
   "after": {
-    "date": "2008-01-01",
-    "rev": 181417682,
-    "tokens": 4627
+    "date": "2007-12-02",
+    "rev": 175175239,
+    "tokens": 5020
   },
-  "js_divergence": 0.1186,
+  "js_divergence": 0.0333,
   "overrepresented_after_terms": [
     {
-      "term": "treatment",
-      "before": 0,
-      "after": 7,
-      "delta": 7,
-      "log_odds": 2.7667
-    },
-    {
-      "term": "heating",
-      "before": 0,
-      "after": 5,
-      "delta": 5,
-      "log_odds": 2.4561
-    },
-    {
-      "term": "bathing",
-      "before": 0,
-      "after": 4,
-      "delta": 4,
-      "log_odds": 2.2552
-    },
-    {
-      "term": "drizzle",
-      "before": 0,
-      "after": 4,
-      "delta": 4,
-      "log_odds": 2.2552
-    },
-    {
-      "term": "frozen",
-      "before": 0,
-      "after": 4,
-      "delta": 4,
-      "log_odds": 2.2552
-    },
-    {
-      "term": "pellets",
-      "before": 0,
-      "after": 4,
-      "delta": 4,
-      "log_odds": 2.2552
-    },
-    {
-      "term": "various",
-      "before": 0,
-      "after": 4,
-      "delta": 4,
-      "log_odds": 2.2552
-    },
-    {
-      "term": "below",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 2.0037
-    },
-    {
-      "term": "defined",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 2.0037
-    },
-    {
-      "term": "good",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 2.0037
-    },
-    {
-      "term": "highly",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 2.0037
-    },
-    {
-      "term": "particles",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 2.0037
-    },
-    {
-      "term": "reactor",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 2.0037
-    },
-    {
-      "term": "saturn",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 2.0037
-    },
-    {
-      "term": "scale",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 2.0037
-    },
-    {
-      "term": "study",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 2.0037
-    },
-    {
-      "term": "typically",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 2.0037
-    },
-    {
-      "term": "distribution",
+      "term": "affected",
       "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.6834
+    },
+    {
+      "term": "politics",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": 0.509
+    },
+    {
+      "term": "human",
+      "before": 17,
+      "after": 16,
+      "delta": -1,
+      "log_odds": 0.1138
+    },
+    {
+      "term": "land",
+      "before": 15,
+      "after": 14,
+      "delta": -1,
+      "log_odds": 0.1059
+    },
+    {
+      "term": "very",
+      "before": 15,
+      "after": 14,
+      "delta": -1,
+      "log_odds": 0.1059
+    },
+    {
+      "term": "right",
+      "before": 13,
+      "after": 12,
+      "delta": -1,
+      "log_odds": 0.0955
+    },
+    {
+      "term": "well",
+      "before": 11,
+      "after": 10,
+      "delta": -1,
+      "log_odds": 0.0815
+    },
+    {
+      "term": "only",
+      "before": 10,
+      "after": 9,
+      "delta": -1,
+      "log_odds": 0.0723
+    },
+    {
+      "term": "potable",
+      "before": 9,
       "after": 8,
-      "delta": 7,
-      "log_odds": 1.7932
+      "delta": -1,
+      "log_odds": 0.0612
     },
     {
-      "term": "minerals",
-      "before": 1,
+      "term": "system",
+      "before": 9,
+      "after": 8,
+      "delta": -1,
+      "log_odds": 0.0612
+    },
+    {
+      "term": "water",
+      "before": 510,
+      "after": 449,
+      "delta": -61,
+      "log_odds": 0.0493
+    },
+    {
+      "term": "enough",
+      "before": 8,
       "after": 7,
-      "delta": 6,
-      "log_odds": 1.6679
+      "delta": -1,
+      "log_odds": 0.0472
     },
     {
-      "term": "top",
-      "before": 1,
-      "after": 5,
-      "delta": 4,
-      "log_odds": 1.3573
+      "term": "irrigation",
+      "before": 8,
+      "after": 7,
+      "delta": -1,
+      "log_odds": 0.0472
+    },
+    {
+      "term": "natural",
+      "before": 8,
+      "after": 7,
+      "delta": -1,
+      "log_odds": 0.0472
+    },
+    {
+      "term": "high",
+      "before": 15,
+      "after": 13,
+      "delta": -2,
+      "log_odds": 0.0342
+    },
+    {
+      "term": "lakes",
+      "before": 7,
+      "after": 6,
+      "delta": -1,
+      "log_odds": 0.0292
+    },
+    {
+      "term": "through",
+      "before": 14,
+      "after": 12,
+      "delta": -2,
+      "log_odds": 0.0239
+    },
+    {
+      "term": "people",
+      "before": 13,
+      "after": 11,
+      "delta": -2,
+      "log_odds": 0.012
+    },
+    {
+      "term": "while",
+      "before": 13,
+      "after": 11,
+      "delta": -2,
+      "log_odds": 0.012
+    },
+    {
+      "term": "used",
+      "before": 26,
+      "after": 22,
+      "delta": -4,
+      "log_odds": 0.0087
     }
   ],
   "underrepresented_after_terms": [
     {
-      "term": "israel",
-      "before": 15,
+      "term": "jordan",
+      "before": 16,
       "after": 0,
-      "delta": -15,
-      "log_odds": -3.3799
+      "delta": -16,
+      "log_odds": -3.3269
+    },
+    {
+      "term": "israel",
+      "before": 13,
+      "after": 0,
+      "delta": -13,
+      "log_odds": -3.1257
     },
     {
       "term": "cubic",
       "before": 6,
       "after": 0,
       "delta": -6,
-      "log_odds": -2.5091
+      "log_odds": -2.3937
     },
     {
-      "term": "partial",
+      "term": "region",
       "before": 6,
       "after": 0,
       "delta": -6,
-      "log_odds": -2.5091
-    },
-    {
-      "term": "jordan",
-      "before": 16,
-      "after": 1,
-      "delta": -15,
-      "log_odds": -2.3438
+      "log_odds": -2.3937
     },
     {
       "term": "bank",
       "before": 5,
       "after": 0,
       "delta": -5,
-      "log_odds": -2.3418
-    },
-    {
-      "term": "become",
-      "before": 5,
-      "after": 0,
-      "delta": -5,
-      "log_odds": -2.3418
+      "log_odds": -2.2264
     },
     {
       "term": "meters",
       "before": 5,
       "after": 0,
       "delta": -5,
-      "log_odds": -2.3418
+      "log_odds": -2.2264
     },
     {
       "term": "oecd",
       "before": 5,
       "after": 0,
       "delta": -5,
-      "log_odds": -2.3418
+      "log_odds": -2.2264
     },
     {
       "term": "privatization",
       "before": 5,
       "after": 0,
       "delta": -5,
-      "log_odds": -2.3418
-    },
-    {
-      "term": "project",
-      "before": 5,
-      "after": 0,
-      "delta": -5,
-      "log_odds": -2.3418
-    },
-    {
-      "term": "surfaces",
-      "before": 5,
-      "after": 0,
-      "delta": -5,
-      "log_odds": -2.3418
+      "log_odds": -2.2264
     },
     {
       "term": "arab",
       "before": 4,
       "after": 0,
       "delta": -4,
-      "log_odds": -2.1409
+      "log_odds": -2.0256
     },
     {
-      "term": "dry",
+      "term": "dam",
       "before": 4,
       "after": 0,
       "delta": -4,
-      "log_odds": -2.1409
-    },
-    {
-      "term": "making",
-      "before": 4,
-      "after": 0,
-      "delta": -4,
-      "log_odds": -2.1409
+      "log_odds": -2.0256
     },
     {
       "term": "palestinians",
       "before": 4,
       "after": 0,
       "delta": -4,
-      "log_odds": -2.1409
+      "log_odds": -2.0256
     },
     {
       "term": "suez",
       "before": 4,
       "after": 0,
       "delta": -4,
-      "log_odds": -2.1409
+      "log_odds": -2.0256
     },
     {
       "term": "west",
       "before": 4,
       "after": 0,
       "delta": -4,
-      "log_odds": -2.1409
-    },
-    {
-      "term": "forces",
-      "before": 10,
-      "after": 1,
-      "delta": -9,
-      "log_odds": -1.8906
+      "log_odds": -2.0256
     },
     {
       "term": "america",
       "before": 3,
       "after": 0,
       "delta": -3,
-      "log_odds": -1.8894
+      "log_odds": -1.7741
     },
     {
       "term": "argentina",
       "before": 3,
       "after": 0,
       "delta": -3,
-      "log_odds": -1.8894
+      "log_odds": -1.7741
+    },
+    {
+      "term": "bangladesh",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.7741
+    },
+    {
+      "term": "bolivia",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.7741
+    },
+    {
+      "term": "canada",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.7741
+    },
+    {
+      "term": "french",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.7741
+    },
+    {
+      "term": "mexico",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.7741
     }
   ],
-  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict.",
+  "schema_version": 1,
+  "analysis_scope": "confirmed_episodes",
+  "episode_count": 1,
+  "episodes": [
+    {
+      "article": "Water",
+      "mode": "pivot_relative",
+      "requested_mode": "pivot_relative",
+      "adequate": true,
+      "adequacy_reason": null,
+      "size_ratio": 1.188,
+      "interval_source": "exact_confirmation",
+      "span": "rev 175167658 -> rev 175175239 (exact confirmation)",
+      "pivot": "2007-07-01",
+      "before": {
+        "date": "2007-12-02",
+        "rev": 175167658,
+        "tokens": 5964
+      },
+      "after": {
+        "date": "2007-12-02",
+        "rev": 175175239,
+        "tokens": 5020
+      },
+      "js_divergence": 0.0333,
+      "overrepresented_after_terms": [
+        {
+          "term": "affected",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 0.6834
+        },
+        {
+          "term": "politics",
+          "before": 2,
+          "after": 3,
+          "delta": 1,
+          "log_odds": 0.509
+        },
+        {
+          "term": "human",
+          "before": 17,
+          "after": 16,
+          "delta": -1,
+          "log_odds": 0.1138
+        },
+        {
+          "term": "land",
+          "before": 15,
+          "after": 14,
+          "delta": -1,
+          "log_odds": 0.1059
+        },
+        {
+          "term": "very",
+          "before": 15,
+          "after": 14,
+          "delta": -1,
+          "log_odds": 0.1059
+        },
+        {
+          "term": "right",
+          "before": 13,
+          "after": 12,
+          "delta": -1,
+          "log_odds": 0.0955
+        },
+        {
+          "term": "well",
+          "before": 11,
+          "after": 10,
+          "delta": -1,
+          "log_odds": 0.0815
+        },
+        {
+          "term": "only",
+          "before": 10,
+          "after": 9,
+          "delta": -1,
+          "log_odds": 0.0723
+        },
+        {
+          "term": "potable",
+          "before": 9,
+          "after": 8,
+          "delta": -1,
+          "log_odds": 0.0612
+        },
+        {
+          "term": "system",
+          "before": 9,
+          "after": 8,
+          "delta": -1,
+          "log_odds": 0.0612
+        },
+        {
+          "term": "water",
+          "before": 510,
+          "after": 449,
+          "delta": -61,
+          "log_odds": 0.0493
+        },
+        {
+          "term": "enough",
+          "before": 8,
+          "after": 7,
+          "delta": -1,
+          "log_odds": 0.0472
+        },
+        {
+          "term": "irrigation",
+          "before": 8,
+          "after": 7,
+          "delta": -1,
+          "log_odds": 0.0472
+        },
+        {
+          "term": "natural",
+          "before": 8,
+          "after": 7,
+          "delta": -1,
+          "log_odds": 0.0472
+        },
+        {
+          "term": "high",
+          "before": 15,
+          "after": 13,
+          "delta": -2,
+          "log_odds": 0.0342
+        },
+        {
+          "term": "lakes",
+          "before": 7,
+          "after": 6,
+          "delta": -1,
+          "log_odds": 0.0292
+        },
+        {
+          "term": "through",
+          "before": 14,
+          "after": 12,
+          "delta": -2,
+          "log_odds": 0.0239
+        },
+        {
+          "term": "people",
+          "before": 13,
+          "after": 11,
+          "delta": -2,
+          "log_odds": 0.012
+        },
+        {
+          "term": "while",
+          "before": 13,
+          "after": 11,
+          "delta": -2,
+          "log_odds": 0.012
+        },
+        {
+          "term": "used",
+          "before": 26,
+          "after": 22,
+          "delta": -4,
+          "log_odds": 0.0087
+        }
+      ],
+      "underrepresented_after_terms": [
+        {
+          "term": "jordan",
+          "before": 16,
+          "after": 0,
+          "delta": -16,
+          "log_odds": -3.3269
+        },
+        {
+          "term": "israel",
+          "before": 13,
+          "after": 0,
+          "delta": -13,
+          "log_odds": -3.1257
+        },
+        {
+          "term": "cubic",
+          "before": 6,
+          "after": 0,
+          "delta": -6,
+          "log_odds": -2.3937
+        },
+        {
+          "term": "region",
+          "before": 6,
+          "after": 0,
+          "delta": -6,
+          "log_odds": -2.3937
+        },
+        {
+          "term": "bank",
+          "before": 5,
+          "after": 0,
+          "delta": -5,
+          "log_odds": -2.2264
+        },
+        {
+          "term": "meters",
+          "before": 5,
+          "after": 0,
+          "delta": -5,
+          "log_odds": -2.2264
+        },
+        {
+          "term": "oecd",
+          "before": 5,
+          "after": 0,
+          "delta": -5,
+          "log_odds": -2.2264
+        },
+        {
+          "term": "privatization",
+          "before": 5,
+          "after": 0,
+          "delta": -5,
+          "log_odds": -2.2264
+        },
+        {
+          "term": "arab",
+          "before": 4,
+          "after": 0,
+          "delta": -4,
+          "log_odds": -2.0256
+        },
+        {
+          "term": "dam",
+          "before": 4,
+          "after": 0,
+          "delta": -4,
+          "log_odds": -2.0256
+        },
+        {
+          "term": "palestinians",
+          "before": 4,
+          "after": 0,
+          "delta": -4,
+          "log_odds": -2.0256
+        },
+        {
+          "term": "suez",
+          "before": 4,
+          "after": 0,
+          "delta": -4,
+          "log_odds": -2.0256
+        },
+        {
+          "term": "west",
+          "before": 4,
+          "after": 0,
+          "delta": -4,
+          "log_odds": -2.0256
+        },
+        {
+          "term": "america",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7741
+        },
+        {
+          "term": "argentina",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7741
+        },
+        {
+          "term": "bangladesh",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7741
+        },
+        {
+          "term": "bolivia",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7741
+        },
+        {
+          "term": "canada",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7741
+        },
+        {
+          "term": "french",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7741
+        },
+        {
+          "term": "mexico",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7741
+        }
+      ],
+      "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict.",
+      "episode_id": "175167658-175175239",
+      "episode_index": 1,
+      "episode_window": {
+        "start": "2007-07-01",
+        "end": "2008-01-01",
+        "pwr_mass": 17570,
+        "status": "confirmed",
+        "before_revid": 175167658,
+        "before_timestamp": "2007-12-02T01:00:19Z",
+        "after_revid": 175175239,
+        "after_timestamp": "2007-12-02T01:43:14Z",
+        "durable_spine_drop": 0.434967
+      },
+      "analysis_status": "available"
+    }
+  ]
 }

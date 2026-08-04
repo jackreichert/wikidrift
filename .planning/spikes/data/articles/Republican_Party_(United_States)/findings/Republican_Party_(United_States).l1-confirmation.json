@@ -1,6 +1,7 @@
 {
+  "schema_version": 2,
   "article": "Republican Party (United States)",
-  "run_ts": "2026-07-30T22:22:31.407122+00:00",
+  "run_ts": "2026-08-04T22:02:55.691188+00:00",
   "corpus_horizon": {
     "snapshot_date": "2026-01-01",
     "snapshot_revid": 1330402946
@@ -14,6 +15,28 @@
     "rolling_tolerance_days": 35,
     "rolling_drop": 20.0
   },
+  "sweep_thresholds": {
+    "min_confirmable_tokens": 1000,
+    "loss_floor": 15.0,
+    "gain_floor": 15.0,
+    "replacement_floor": 10.0,
+    "extreme_change": 50.0,
+    "review_mass_floor": 10000,
+    "high_mass_floor": 50000
+  },
+  "source_state": {
+    "article": "Republican Party (United States)",
+    "source_status": "current_complete",
+    "source_checked_at": "2026-08-04T22:02:54.507499+00:00",
+    "source_latest_revid": 1367719471,
+    "expected_snapshots": 25,
+    "loaded_snapshots": 25,
+    "reason": null
+  },
+  "coverage_status": "complete",
+  "coverage_endpoints_complete": true,
+  "missing_snapshots": [],
+  "excluded_intervals": [],
   "coarse_verdict": "PIVOT?",
   "status": "confirmed",
   "confirmed_episodes": [
@@ -33,24 +56,90 @@
       "status": "confirmed",
       "duration_seconds": 945,
       "attribution": {
+        "schema_version": 3,
+        "policy_version": "multi-revision-attribution-v1",
+        "article": "Republican Party (United States)",
         "before_revid": 1284886106,
         "before_timestamp": "2025-04-10T09:52:46Z",
         "after_revid": 1284887246,
         "after_timestamp": "2025-04-10T10:08:31Z",
-        "duration_seconds": 945,
-        "removed_tokens": 21007,
-        "replacement_tokens": 0,
+        "event_status": "standing",
+        "semantic_role": "event_participation_receipt",
+        "revisions": [
+          {
+            "revision_id": 1284886106,
+            "timestamp": "2025-04-10T09:52:46Z",
+            "account": "Tpbradbury",
+            "account_type": "registered",
+            "role": "stable_before",
+            "restores_revision_id": null,
+            "parent_id": null,
+            "sha1": null,
+            "edit_summary": null,
+            "tags": [],
+            "size": 550259,
+            "size_delta": null,
+            "gross_removed_tokens": 0,
+            "gross_added_tokens": 0,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 0,
+            "standing_added_tokens": 0
+          },
+          {
+            "revision_id": 1284887246,
+            "timestamp": "2025-04-10T10:08:31Z",
+            "account": "Tpbradbury",
+            "account_type": "registered",
+            "role": "consolidation",
+            "restores_revision_id": null,
+            "parent_id": null,
+            "sha1": null,
+            "edit_summary": null,
+            "tags": [],
+            "size": 476201,
+            "size_delta": -74058,
+            "gross_removed_tokens": 21007,
+            "gross_added_tokens": 942,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 21007,
+            "standing_added_tokens": 942
+          }
+        ],
+        "gross": {
+          "removed_tokens": 21007,
+          "added_tokens": 942,
+          "restored_tokens": 0
+        },
+        "net_standing": {
+          "removed_tokens": 21007,
+          "replacement_tokens": 942
+        },
         "removals_by_editor": [
           {
             "editor": "Tpbradbury",
             "tokens": 21007
           }
         ],
-        "replacement_by_editor": [],
+        "replacement_by_editor": [
+          {
+            "editor": "Tpbradbury",
+            "tokens": 942
+          }
+        ],
+        "participation": {
+          "top_removal_share": 1.0,
+          "top_replacement_share": 1.0,
+          "top_two_removal_share": 1.0,
+          "same_top_editor": true
+        },
+        "removed_tokens": 21007,
+        "replacement_tokens": 942,
         "top_removal_share": 1.0,
-        "top_replacement_share": null,
-        "same_top_editor": false,
-        "top_two_removal_share": 1.0
+        "top_replacement_share": 1.0,
+        "top_two_removal_share": 1.0,
+        "same_top_editor": true,
+        "note": "Counts describe observable public revision operations and surviving token states; they do not establish identity, coordination, motive, ownership, or misconduct.",
+        "duration_seconds": 945
       }
     },
     {
@@ -69,13 +158,64 @@
       "status": "confirmed",
       "duration_seconds": 754,
       "attribution": {
+        "schema_version": 3,
+        "policy_version": "multi-revision-attribution-v1",
+        "article": "Republican Party (United States)",
         "before_revid": 700687073,
         "before_timestamp": "2016-01-20T00:44:51Z",
         "after_revid": 700688825,
         "after_timestamp": "2016-01-20T00:57:25Z",
-        "duration_seconds": 754,
-        "removed_tokens": 4147,
-        "replacement_tokens": 11,
+        "event_status": "standing",
+        "semantic_role": "event_participation_receipt",
+        "revisions": [
+          {
+            "revision_id": 700687073,
+            "timestamp": "2016-01-20T00:44:51Z",
+            "account": "CaseyPenk",
+            "account_type": "registered",
+            "role": "stable_before",
+            "restores_revision_id": null,
+            "parent_id": null,
+            "sha1": null,
+            "edit_summary": null,
+            "tags": [],
+            "size": 166102,
+            "size_delta": null,
+            "gross_removed_tokens": 0,
+            "gross_added_tokens": 0,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 0,
+            "standing_added_tokens": 0
+          },
+          {
+            "revision_id": 700688825,
+            "timestamp": "2016-01-20T00:57:25Z",
+            "account": "CaseyPenk",
+            "account_type": "registered",
+            "role": "consolidation",
+            "restores_revision_id": null,
+            "parent_id": null,
+            "sha1": null,
+            "edit_summary": null,
+            "tags": [],
+            "size": 149545,
+            "size_delta": -16557,
+            "gross_removed_tokens": 4147,
+            "gross_added_tokens": 11,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 4147,
+            "standing_added_tokens": 11
+          }
+        ],
+        "gross": {
+          "removed_tokens": 4147,
+          "added_tokens": 11,
+          "restored_tokens": 0
+        },
+        "net_standing": {
+          "removed_tokens": 4147,
+          "replacement_tokens": 11
+        },
         "removals_by_editor": [
           {
             "editor": "CaseyPenk",
@@ -88,56 +228,175 @@
             "tokens": 11
           }
         ],
+        "participation": {
+          "top_removal_share": 1.0,
+          "top_replacement_share": 1.0,
+          "top_two_removal_share": 1.0,
+          "same_top_editor": true
+        },
+        "removed_tokens": 4147,
+        "replacement_tokens": 11,
         "top_removal_share": 1.0,
         "top_replacement_share": 1.0,
+        "top_two_removal_share": 1.0,
         "same_top_editor": true,
-        "top_two_removal_share": 1.0
+        "note": "Counts describe observable public revision operations and surviving token states; they do not establish identity, coordination, motive, ownership, or misconduct.",
+        "duration_seconds": 754
       }
     },
     {
-      "candidate_start": "2007-01-01",
+      "candidate_start": "2005-01-01",
       "candidate_end": "2009-01-01",
-      "candidate_before_revid": 97632398,
+      "candidate_before_revid": 9078976,
       "candidate_after_revid": 261285257,
-      "before_revid": 193983043,
-      "before_timestamp": "2008-02-25T18:51:35Z",
-      "after_revid": 194478643,
-      "after_timestamp": "2008-02-27T19:41:44Z",
-      "durable_spine_drop": 0.651762,
-      "pwr_mass": 27900,
-      "peak_pct": 53.68,
+      "before_revid": 9321996,
+      "before_timestamp": "2005-01-12T20:55:02Z",
+      "after_revid": 9322502,
+      "after_timestamp": "2005-01-12T22:49:39Z",
+      "durable_spine_drop": 0.92655,
+      "pwr_mass": 41099,
+      "peak_pct": 56.47,
       "source": "interval",
       "status": "confirmed",
-      "duration_seconds": 175809,
+      "duration_seconds": 6877,
       "attribution": {
-        "before_revid": 193983043,
-        "before_timestamp": "2008-02-25T18:51:35Z",
-        "after_revid": 194478643,
-        "after_timestamp": "2008-02-27T19:41:44Z",
-        "duration_seconds": 175809,
-        "removed_tokens": 5562,
-        "replacement_tokens": 399,
+        "schema_version": 3,
+        "policy_version": "multi-revision-attribution-v1",
+        "article": "Republican Party (United States)",
+        "before_revid": 9321996,
+        "before_timestamp": "2005-01-12T20:55:02Z",
+        "after_revid": 9322502,
+        "after_timestamp": "2005-01-12T22:49:39Z",
+        "event_status": "standing",
+        "semantic_role": "event_participation_receipt",
+        "revisions": [
+          {
+            "revision_id": 9321996,
+            "timestamp": "2005-01-12T20:55:02Z",
+            "account": "Meelar",
+            "account_type": "registered",
+            "role": "stable_before",
+            "restores_revision_id": null,
+            "parent_id": null,
+            "sha1": null,
+            "edit_summary": null,
+            "tags": [],
+            "size": 34855,
+            "size_delta": null,
+            "gross_removed_tokens": 0,
+            "gross_added_tokens": 0,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 0,
+            "standing_added_tokens": 0
+          },
+          {
+            "revision_id": 9322502,
+            "timestamp": "2005-01-12T22:49:39Z",
+            "account": "BaronLarf",
+            "account_type": "registered",
+            "role": "consolidation",
+            "restores_revision_id": null,
+            "parent_id": null,
+            "sha1": null,
+            "edit_summary": null,
+            "tags": [],
+            "size": 28610,
+            "size_delta": -6245,
+            "gross_removed_tokens": 1168,
+            "gross_added_tokens": 12,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 1168,
+            "standing_added_tokens": 12
+          }
+        ],
+        "gross": {
+          "removed_tokens": 1168,
+          "added_tokens": 12,
+          "restored_tokens": 0
+        },
+        "net_standing": {
+          "removed_tokens": 1168,
+          "replacement_tokens": 12
+        },
         "removals_by_editor": [
           {
-            "editor": "Settler",
-            "tokens": 5562
+            "editor": "BaronLarf",
+            "tokens": 1168
           }
         ],
         "replacement_by_editor": [
           {
-            "editor": "Settler",
-            "tokens": 399
+            "editor": "BaronLarf",
+            "tokens": 12
           }
         ],
+        "participation": {
+          "top_removal_share": 1.0,
+          "top_replacement_share": 1.0,
+          "top_two_removal_share": 1.0,
+          "same_top_editor": true
+        },
+        "removed_tokens": 1168,
+        "replacement_tokens": 12,
         "top_removal_share": 1.0,
         "top_replacement_share": 1.0,
+        "top_two_removal_share": 1.0,
         "same_top_editor": true,
-        "top_two_removal_share": 1.0
+        "note": "Counts describe observable public revision operations and surviving token states; they do not establish identity, coordination, motive, ownership, or misconduct.",
+        "duration_seconds": 6877
       }
     }
   ],
-  "attribution_backfill_ts": "2026-07-31T17:45:32.284392+00:00",
-  "schema_version": 2,
+  "evaluated_candidates": [
+    {
+      "candidate_start": "2025-01-01",
+      "candidate_end": "2026-01-01",
+      "candidate_before_revid": 1266540753,
+      "candidate_after_revid": 1330402946,
+      "source": "interval",
+      "pwr_mass": 143511,
+      "peak_pct": 26.31,
+      "exact_before_revid": 1284886106,
+      "exact_before_timestamp": "2025-04-10T09:52:46Z",
+      "exact_after_revid": 1284887246,
+      "exact_after_timestamp": "2025-04-10T10:08:31Z",
+      "durable_spine_drop": 0.289771,
+      "decision": "confirmed",
+      "rejection_reason": null
+    },
+    {
+      "candidate_start": "2016-01-01",
+      "candidate_end": "2017-01-01",
+      "candidate_before_revid": 697820155,
+      "candidate_after_revid": 757479657,
+      "source": "interval",
+      "pwr_mass": 56963,
+      "peak_pct": 32.57,
+      "exact_before_revid": 700687073,
+      "exact_before_timestamp": "2016-01-20T00:44:51Z",
+      "exact_after_revid": 700688825,
+      "exact_after_timestamp": "2016-01-20T00:57:25Z",
+      "durable_spine_drop": 0.282159,
+      "decision": "confirmed",
+      "rejection_reason": null
+    },
+    {
+      "candidate_start": "2005-01-01",
+      "candidate_end": "2009-01-01",
+      "candidate_before_revid": 9078976,
+      "candidate_after_revid": 261285257,
+      "source": "interval",
+      "pwr_mass": 41099,
+      "peak_pct": 56.47,
+      "exact_before_revid": 9321996,
+      "exact_before_timestamp": "2005-01-12T20:55:02Z",
+      "exact_after_revid": 9322502,
+      "exact_after_timestamp": "2005-01-12T22:49:39Z",
+      "durable_spine_drop": 0.92655,
+      "decision": "confirmed",
+      "rejection_reason": null
+    }
+  ],
   "interval_profile": [
     {
       "start": "2002-01-01",
@@ -145,7 +404,18 @@
       "size": 404,
       "pwr_loss": 3.96,
       "pwr_removed": 16,
-      "mature": false
+      "pwr_gain": 189.11,
+      "pwr_added": 764,
+      "pwr_retained": 96.04,
+      "replacement_candidate": 3.96,
+      "replacement_pwr": 16,
+      "confirmable": false,
+      "mature": false,
+      "eligible": true,
+      "anomaly_types": [
+        "gain"
+      ],
+      "priority": "high"
     },
     {
       "start": "2003-01-01",
@@ -153,7 +423,18 @@
       "size": 1152,
       "pwr_loss": 4.87,
       "pwr_removed": 75,
-      "mature": false
+      "pwr_gain": 68.18,
+      "pwr_added": 1050,
+      "pwr_retained": 95.13,
+      "replacement_candidate": 4.87,
+      "replacement_pwr": 75,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "gain"
+      ],
+      "priority": "high"
     },
     {
       "start": "2004-01-01",
@@ -161,7 +442,19 @@
       "size": 2147,
       "pwr_loss": 14.78,
       "pwr_removed": 534,
-      "mature": false
+      "pwr_gain": 142.36,
+      "pwr_added": 5142,
+      "pwr_retained": 85.22,
+      "replacement_candidate": 14.78,
+      "replacement_pwr": 534,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "gain",
+        "replacement"
+      ],
+      "priority": "high"
     },
     {
       "start": "2005-01-01",
@@ -169,7 +462,20 @@
       "size": 6821,
       "pwr_loss": 56.47,
       "pwr_removed": 5590,
-      "mature": false
+      "pwr_gain": 90.9,
+      "pwr_added": 8998,
+      "pwr_retained": 43.53,
+      "replacement_candidate": 56.47,
+      "replacement_pwr": 5590,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "high"
     },
     {
       "start": "2006-01-01",
@@ -177,7 +483,20 @@
       "size": 12066,
       "pwr_loss": 46.47,
       "pwr_removed": 7609,
-      "mature": false
+      "pwr_gain": 69.23,
+      "pwr_added": 11337,
+      "pwr_retained": 53.53,
+      "replacement_candidate": 46.47,
+      "replacement_pwr": 7609,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "high"
     },
     {
       "start": "2007-01-01",
@@ -185,7 +504,20 @@
       "size": 17623,
       "pwr_loss": 20.33,
       "pwr_removed": 5368,
-      "mature": true
+      "pwr_gain": 28.06,
+      "pwr_added": 7410,
+      "pwr_retained": 79.67,
+      "replacement_candidate": 20.33,
+      "replacement_pwr": 5368,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "low"
     },
     {
       "start": "2008-01-01",
@@ -193,7 +525,19 @@
       "size": 20856,
       "pwr_loss": 53.68,
       "pwr_removed": 22532,
-      "mature": true
+      "pwr_gain": 12.75,
+      "pwr_added": 5351,
+      "pwr_retained": 46.32,
+      "replacement_candidate": 12.75,
+      "replacement_pwr": 5351,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss",
+        "replacement"
+      ],
+      "priority": "high"
     },
     {
       "start": "2009-01-01",
@@ -201,7 +545,16 @@
       "size": 16330,
       "pwr_loss": 10.44,
       "pwr_removed": 3771,
-      "mature": true
+      "pwr_gain": 7.89,
+      "pwr_added": 2852,
+      "pwr_retained": 89.56,
+      "replacement_candidate": 7.89,
+      "replacement_pwr": 2852,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2010-01-01",
@@ -209,7 +562,16 @@
       "size": 16730,
       "pwr_loss": 9.92,
       "pwr_removed": 4874,
-      "mature": true
+      "pwr_gain": 8.23,
+      "pwr_added": 4044,
+      "pwr_retained": 90.08,
+      "replacement_candidate": 8.23,
+      "replacement_pwr": 4044,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2011-01-01",
@@ -217,7 +579,16 @@
       "size": 18320,
       "pwr_loss": 9.34,
       "pwr_removed": 5850,
-      "mature": true
+      "pwr_gain": 7.84,
+      "pwr_added": 4906,
+      "pwr_retained": 90.66,
+      "replacement_candidate": 7.84,
+      "replacement_pwr": 4906,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2012-01-01",
@@ -225,7 +596,16 @@
       "size": 20832,
       "pwr_loss": 7.08,
       "pwr_removed": 5496,
-      "mature": true
+      "pwr_gain": 3.49,
+      "pwr_added": 2712,
+      "pwr_retained": 92.92,
+      "replacement_candidate": 3.49,
+      "replacement_pwr": 2712,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2013-01-01",
@@ -233,7 +613,16 @@
       "size": 21432,
       "pwr_loss": 7.77,
       "pwr_removed": 7277,
-      "mature": true
+      "pwr_gain": 12.96,
+      "pwr_added": 12137,
+      "pwr_retained": 92.23,
+      "replacement_candidate": 7.77,
+      "replacement_pwr": 7277,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "review"
     },
     {
       "start": "2014-01-01",
@@ -241,7 +630,16 @@
       "size": 31435,
       "pwr_loss": 12.2,
       "pwr_removed": 14400,
-      "mature": true
+      "pwr_gain": 9.78,
+      "pwr_added": 11553,
+      "pwr_retained": 87.8,
+      "replacement_candidate": 9.78,
+      "replacement_pwr": 11553,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "review"
     },
     {
       "start": "2015-01-01",
@@ -249,7 +647,16 @@
       "size": 37551,
       "pwr_loss": 4.54,
       "pwr_removed": 6427,
-      "mature": true
+      "pwr_gain": 3.59,
+      "pwr_added": 5071,
+      "pwr_retained": 95.46,
+      "replacement_candidate": 3.59,
+      "replacement_pwr": 5071,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2016-01-01",
@@ -257,7 +664,18 @@
       "size": 39680,
       "pwr_loss": 32.57,
       "pwr_removed": 56963,
-      "mature": true
+      "pwr_gain": 6.53,
+      "pwr_added": 11417,
+      "pwr_retained": 67.43,
+      "replacement_candidate": 6.53,
+      "replacement_pwr": 11417,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss"
+      ],
+      "priority": "high"
     },
     {
       "start": "2017-01-01",
@@ -265,7 +683,16 @@
       "size": 36462,
       "pwr_loss": 6.4,
       "pwr_removed": 9901,
-      "mature": true
+      "pwr_gain": 4.8,
+      "pwr_added": 7433,
+      "pwr_retained": 93.6,
+      "replacement_candidate": 4.8,
+      "replacement_pwr": 7433,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2018-01-01",
@@ -273,7 +700,16 @@
       "size": 40562,
       "pwr_loss": 7.19,
       "pwr_removed": 13372,
-      "mature": true
+      "pwr_gain": 7.09,
+      "pwr_added": 13184,
+      "pwr_retained": 92.81,
+      "replacement_candidate": 7.09,
+      "replacement_pwr": 13184,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "review"
     },
     {
       "start": "2019-01-01",
@@ -281,7 +717,19 @@
       "size": 49043,
       "pwr_loss": 21.73,
       "pwr_removed": 48280,
-      "mature": true
+      "pwr_gain": 11.84,
+      "pwr_added": 26318,
+      "pwr_retained": 78.27,
+      "replacement_candidate": 11.84,
+      "replacement_pwr": 26318,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss",
+        "replacement"
+      ],
+      "priority": "review"
     },
     {
       "start": "2020-01-01",
@@ -289,7 +737,16 @@
       "size": 61386,
       "pwr_loss": 8.33,
       "pwr_removed": 19735,
-      "mature": true
+      "pwr_gain": 4.41,
+      "pwr_added": 10455,
+      "pwr_retained": 91.67,
+      "replacement_candidate": 4.41,
+      "replacement_pwr": 10455,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "review"
     },
     {
       "start": "2021-01-01",
@@ -297,7 +754,16 @@
       "size": 65612,
       "pwr_loss": 9.52,
       "pwr_removed": 26923,
-      "mature": true
+      "pwr_gain": 7.21,
+      "pwr_added": 20384,
+      "pwr_retained": 90.48,
+      "replacement_candidate": 7.21,
+      "replacement_pwr": 20384,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "review"
     },
     {
       "start": "2022-01-01",
@@ -305,7 +771,16 @@
       "size": 78766,
       "pwr_loss": 5.1,
       "pwr_removed": 17085,
-      "mature": true
+      "pwr_gain": 4.71,
+      "pwr_added": 15776,
+      "pwr_retained": 94.9,
+      "replacement_candidate": 4.71,
+      "replacement_pwr": 15776,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "review"
     },
     {
       "start": "2023-01-01",
@@ -313,7 +788,18 @@
       "size": 88388,
       "pwr_loss": 17.66,
       "pwr_removed": 71905,
-      "mature": true
+      "pwr_gain": 9.22,
+      "pwr_added": 37548,
+      "pwr_retained": 82.34,
+      "replacement_candidate": 9.22,
+      "replacement_pwr": 37548,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss"
+      ],
+      "priority": "high"
     },
     {
       "start": "2024-01-01",
@@ -321,7 +807,16 @@
       "size": 104786,
       "pwr_loss": 8.74,
       "pwr_removed": 38593,
-      "mature": true
+      "pwr_gain": 11.56,
+      "pwr_added": 51016,
+      "pwr_retained": 91.26,
+      "replacement_candidate": 8.74,
+      "replacement_pwr": 38593,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "high"
     },
     {
       "start": "2025-01-01",
@@ -329,8 +824,194 @@
       "size": 139299,
       "pwr_loss": 26.31,
       "pwr_removed": 143511,
-      "mature": true
+      "pwr_gain": 5.9,
+      "pwr_added": 32165,
+      "pwr_retained": 73.69,
+      "replacement_candidate": 5.9,
+      "replacement_pwr": 32165,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss"
+      ],
+      "priority": "high"
     }
   ],
-  "interval_profile_backfill_ts": "2026-08-03T18:11:39.760726+00:00"
+  "sweep_candidates": [
+    {
+      "start": "2002-01-01",
+      "end": "2003-01-01",
+      "anomaly_types": [
+        "gain"
+      ],
+      "priority": "high",
+      "decision": "descriptive_only",
+      "pwr_loss": 3.96,
+      "pwr_removed": 16,
+      "pwr_gain": 189.11,
+      "pwr_added": 764,
+      "replacement_candidate": 3.96,
+      "replacement_pwr": 16
+    },
+    {
+      "start": "2003-01-01",
+      "end": "2004-01-01",
+      "anomaly_types": [
+        "gain"
+      ],
+      "priority": "high",
+      "decision": "pending_confirmation",
+      "pwr_loss": 4.87,
+      "pwr_removed": 75,
+      "pwr_gain": 68.18,
+      "pwr_added": 1050,
+      "replacement_candidate": 4.87,
+      "replacement_pwr": 75
+    },
+    {
+      "start": "2004-01-01",
+      "end": "2005-01-01",
+      "anomaly_types": [
+        "gain",
+        "replacement"
+      ],
+      "priority": "high",
+      "decision": "pending_confirmation",
+      "pwr_loss": 14.78,
+      "pwr_removed": 534,
+      "pwr_gain": 142.36,
+      "pwr_added": 5142,
+      "replacement_candidate": 14.78,
+      "replacement_pwr": 534
+    },
+    {
+      "start": "2005-01-01",
+      "end": "2006-01-01",
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "high",
+      "decision": "pending_confirmation",
+      "pwr_loss": 56.47,
+      "pwr_removed": 5590,
+      "pwr_gain": 90.9,
+      "pwr_added": 8998,
+      "replacement_candidate": 56.47,
+      "replacement_pwr": 5590
+    },
+    {
+      "start": "2006-01-01",
+      "end": "2007-01-01",
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "high",
+      "decision": "pending_confirmation",
+      "pwr_loss": 46.47,
+      "pwr_removed": 7609,
+      "pwr_gain": 69.23,
+      "pwr_added": 11337,
+      "replacement_candidate": 46.47,
+      "replacement_pwr": 7609
+    },
+    {
+      "start": "2007-01-01",
+      "end": "2008-01-01",
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "low",
+      "decision": "pending_confirmation",
+      "pwr_loss": 20.33,
+      "pwr_removed": 5368,
+      "pwr_gain": 28.06,
+      "pwr_added": 7410,
+      "replacement_candidate": 20.33,
+      "replacement_pwr": 5368
+    },
+    {
+      "start": "2008-01-01",
+      "end": "2009-01-01",
+      "anomaly_types": [
+        "loss",
+        "replacement"
+      ],
+      "priority": "high",
+      "decision": "pending_confirmation",
+      "pwr_loss": 53.68,
+      "pwr_removed": 22532,
+      "pwr_gain": 12.75,
+      "pwr_added": 5351,
+      "replacement_candidate": 12.75,
+      "replacement_pwr": 5351
+    },
+    {
+      "start": "2016-01-01",
+      "end": "2017-01-01",
+      "anomaly_types": [
+        "loss"
+      ],
+      "priority": "high",
+      "decision": "pending_confirmation",
+      "pwr_loss": 32.57,
+      "pwr_removed": 56963,
+      "pwr_gain": 6.53,
+      "pwr_added": 11417,
+      "replacement_candidate": 6.53,
+      "replacement_pwr": 11417
+    },
+    {
+      "start": "2019-01-01",
+      "end": "2020-01-01",
+      "anomaly_types": [
+        "loss",
+        "replacement"
+      ],
+      "priority": "review",
+      "decision": "pending_confirmation",
+      "pwr_loss": 21.73,
+      "pwr_removed": 48280,
+      "pwr_gain": 11.84,
+      "pwr_added": 26318,
+      "replacement_candidate": 11.84,
+      "replacement_pwr": 26318
+    },
+    {
+      "start": "2023-01-01",
+      "end": "2024-01-01",
+      "anomaly_types": [
+        "loss"
+      ],
+      "priority": "high",
+      "decision": "pending_confirmation",
+      "pwr_loss": 17.66,
+      "pwr_removed": 71905,
+      "pwr_gain": 9.22,
+      "pwr_added": 37548,
+      "replacement_candidate": 9.22,
+      "replacement_pwr": 37548
+    },
+    {
+      "start": "2025-01-01",
+      "end": "2026-01-01",
+      "anomaly_types": [
+        "loss"
+      ],
+      "priority": "high",
+      "decision": "pending_confirmation",
+      "pwr_loss": 26.31,
+      "pwr_removed": 143511,
+      "pwr_gain": 5.9,
+      "pwr_added": 32165,
+      "replacement_candidate": 5.9,
+      "replacement_pwr": 32165
+    }
+  ]
 }

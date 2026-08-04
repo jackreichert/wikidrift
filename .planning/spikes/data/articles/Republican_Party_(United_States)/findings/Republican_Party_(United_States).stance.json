@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "prompt_version": "stance-v3",
+  "model_contract": {
+    "provider": "anthropic",
+    "model": "claude-sonnet-5",
+    "prompt_version": "stance-v3"
+  },
+  "article": "Republican Party (United States)",
+  "langs": [
+    "de",
+    "en",
+    "es"
+  ],
+  "entities": [
+    "Republican Party (United States)"
+  ],
+  "editions": {
+    "de": {
+      "focal": {
+        "Republican Party (United States)": {
+          "entity": "Republican Party (United States)",
+          "stance": "critical",
+          "npov_departure": true,
+          "confidence": 0.93,
+          "evidence": "Der US-amerikanische Politologe Lee Drutman beschrieb die Republikanische Partei ... als „[...] illiberaler, antidemokratischer, nativistischer globaler Ausnahmefall [...]“",
+          "evidence_spans": [
+            "In der Ära Trump vertritt die gesamte Republikanische Partei diverse Verschwörungstheorien, von der angeblich gestohlenen Wahl 2020 über den „Großen Austausch“ und den „Cultural Marxism“",
+            "Zudem war bereits zu diesem Zeitpunkt erkennbar, dass die Republikaner immer stärker die US-Demokratie untergruben und immer illiberaler wurden.",
+            "Der US-amerikanische Politologe Lee Drutman beschrieb die Republikanische Partei in einem Artikel der Time aus 2021 als „[...] illiberaler, antidemokratischer, nativistischer globaler Ausnahmefall [...]“",
+            "Wie Extremisten die republikanische Partei übernahmen.",
+            "So wird der Sozialstaat von republikanischen Politikern und Strategen seit langem als Institution dargestellt, die vor allem Minderheiten einen nicht erarbeiteten Vorteil verschaffe",
+            "Von US-Präsident Joe Biden angestrengte Abstimmungen über Wahlrechtsreformen, die faire Wahlverfahren garantieren sollen, hat die republikanische Partei im Kongress mehrmals verhindert.",
+            "die republikanische Partei aus den Fugen geraten sei und die Demokratie nicht mehr unterstützt"
+          ]
+        }
+      },
+      "lead": {
+        "Republican Party (United States)": {
+          "entity": "Republican Party (United States)",
+          "stance": "critical",
+          "npov_departure": true,
+          "confidence": 0.83,
+          "evidence": "positioniert sich aber spätestens seit der ersten Präsidentschaft von Donald Trump vielfach rechtspopulistisch bis rechtsextrem und vertritt gegenwärtig weitgehend illiberale und mitunter autoritäre Standpunkte",
+          "evidence_spans": [
+            "positioniert sich aber spätestens seit der ersten Präsidentschaft von Donald Trump vielfach rechtspopulistisch bis rechtsextrem und vertritt gegenwärtig weitgehend illiberale und mitunter autoritäre Standpunkte",
+            "bei den weißen Südstaatlern als Sklavenbefreier und „Negerfreunde“ so verhasst waren"
+          ]
+        }
+      }
+    },
+    "en": {
+      "focal": {
+        "Republican Party (United States)": {
+          "entity": "Republican Party (United States)",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.95,
+          "evidence": "This passage is a table of election results and a list of related articles, with no evaluative language.",
+          "evidence_spans": [
+            "Dawes15,723,78954.02219",
+            "List of African-American Republicans",
+            "List of Republican Party (United States) organizations"
+          ]
+        }
+      },
+      "lead": {
+        "Republican Party (United States)": {
+          "entity": "Republican Party (United States)",
+          "stance": "critical",
+          "npov_departure": true,
+          "confidence": 0.78,
+          "evidence": "Its ideology has since largely shifted towards illiberalism, favoring strong presidential power and a statist government to enforce conservative cultural values.",
+          "evidence_spans": [
+            "Its ideology has since largely shifted towards illiberalism, favoring strong presidential power and a statist government to enforce conservative cultural values.",
+            "white nationalist beliefs have become influential within the party, including support for remigration",
+            "Since the 2020s it has aligned with global far-right parties",
+            "the party's use of the Southern strategy appealed to many white voters disaffected by Democratic support for civil rights"
+          ]
+        }
+      }
+    },
+    "es": {
+      "focal": {
+        "Republican Party (United States)": {
+          "entity": "Republican Party (United States)",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.75,
+          "evidence": "El partido se asocia comúnmente con el conservadurismo... Apoya la reducción de los impuestos y la desregulación",
+          "evidence_spans": [
+            "El partido se asocia comúnmente con el conservadurismo.",
+            "el partido dominó en gran medida la política nacional hasta el estallido de la Gran Depresión",
+            "Desde 2009, el partido se ha enfrentado a un faccionalismo significativo dentro de sus propias filas y se ha inclinado hacia el populismo de derecha",
+            "el partido ha girado fuertemente hacia el trumpismo",
+            "En temas sociales, aboga por restringir el aborto,apoyar las políticas duras contra el crimen organizado"
+          ]
+        }
+      },
+      "lead": {
+        "Republican Party (United States)": {
+          "entity": "Republican Party (United States)",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.62,
+          "evidence": "El partido se asocia comúnmente con el conservadurismo... En temas económicos, el partido ha mantenido una posición pro empresarial desde su creación.",
+          "evidence_spans": [
+            "El partido se asocia comúnmente con el conservadurismo",
+            "el Partido Republicano lideró la lucha para derrotar a los Estados Confederados en la guerra de Secesión, preservando así la Unión y aboliendo la esclavitud",
+            "Desde 2009, el partido se ha enfrentado a un faccionalismo significativo dentro de sus propias filas y se ha inclinado hacia el populismo de derecha",
+            "Tras la elección de Donald Trump en 2016, el partido ha girado fuertemente hacia el trumpismo",
+            "favorece la deportación de quienes no tienen un estatus legal permanente"
+          ]
+        }
+      }
+    }
+  }
+}

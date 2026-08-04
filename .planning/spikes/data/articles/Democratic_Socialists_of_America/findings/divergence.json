@@ -1,0 +1,58 @@
+{
+  "static": {
+    "Democratic Socialists of America": {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "model_contract": {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "prompt_version": "stance-v3"
+      },
+      "variants": {
+        "lead": {
+          "divergence": 1.0,
+          "spreads": {
+            "Democratic Socialists of America": 1
+          }
+        },
+        "focal": {
+          "divergence": 1.0,
+          "spreads": {
+            "Democratic Socialists of America": 1
+          }
+        }
+      }
+    }
+  },
+  "pivot_relative": {
+    "Democratic Socialists of America": {
+      "pivot": "2025-01-01",
+      "pivot_source": "confirmed L1",
+      "en_gap_before": 1.0,
+      "en_gap_after": 0.5,
+      "read": "converged",
+      "before": {
+        "en": {
+          "Democratic Socialists of America": 0
+        },
+        "ja": {
+          "Democratic Socialists of America": 1
+        },
+        "es": {
+          "Democratic Socialists of America": 1
+        }
+      },
+      "after": {
+        "en": {
+          "Democratic Socialists of America": 0
+        },
+        "ja": {
+          "Democratic Socialists of America": 1
+        },
+        "es": {
+          "Democratic Socialists of America": 0
+        }
+      }
+    }
+  }
+}

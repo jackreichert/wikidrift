@@ -1,0 +1,27 @@
+{
+  "article": "Socialism",
+  "qid": "Q7272",
+  "editions": {
+    "fr": {
+      "present": true,
+      "revid": 238152960,
+      "title": "Socialisme",
+      "timestamp": "2026-07-27T16:32:56Z",
+      "prose_chars": 242401
+    },
+    "pt": {
+      "present": true,
+      "revid": 72626468,
+      "title": "Socialismo",
+      "timestamp": "2026-07-15T00:39:27Z",
+      "prose_chars": 180200
+    },
+    "en": {
+      "present": true,
+      "revid": 1367506882,
+      "title": "Socialism",
+      "timestamp": "2026-08-03T14:00:06Z",
+      "prose_chars": 124533
+    }
+  }
+}

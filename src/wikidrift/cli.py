@@ -176,6 +176,10 @@ def main(argv=None):
     sp.add_argument("--mscore", action="store_true", help="also run the M-score controversy corroborator")
     sp.add_argument("--framing", action="store_true",
                     help="run L5 cross-language lead comparison (prefers fresh confirmed L1 pair; needs an LLM key)")
+    sp.add_argument("--facts", action="store_true",
+                    help="run L5 cross-edition fact checks after every confirmed episode (needs an LLM key)")
+    sp.add_argument("--max-langs", type=int, default=0,
+                    help="cap editions used by each fact check (0 = no cap)")
     sp.add_argument("--additive", action="store_true",
                     help="trace persistent additions across exact stable revisions")
     sp.add_argument("--process-context", action="store_true",
@@ -289,9 +293,21 @@ def main(argv=None):
     elif args.cmd == "factcheck":
         langs = [l.strip() for l in args.langs.split(",")] if args.langs else None
         ts = f"{args.asof}T00:00:00Z" if args.asof else None
-        l5_factcheck.factcheck(_normalize_article_arg(args.article), langs=langs, ts=ts,
-                               provider=args.provider, model=args.model, base_url=args.base_url,
-                               max_langs=(args.max_langs or None))
+        article = _normalize_article_arg(args.article)
+        windows = pipeline.framing_windows(article) if not ts else []
+        confirmed_windows = [window for window in windows if window.get("status") == "confirmed"]
+        if confirmed_windows:
+            from . import llm as llm_backend
+            client = llm_backend.make_client(args.provider, args.model, args.base_url)
+            pipeline.analyze_confirmed_episodes(
+                article, confirmed_windows, client=client,
+                lexical_layer=False, sources=False, facts=True,
+                factcheck_options={"langs": langs, "max_langs": (args.max_langs or None)},
+            )
+        else:
+            l5_factcheck.factcheck(article, langs=langs, ts=ts,
+                                   provider=args.provider, model=args.model, base_url=args.base_url,
+                                   max_langs=(args.max_langs or None))
     elif args.cmd == "mscore":
         mscore.run(args.articles or ["Zionism", "Nakba", "Warsaw concentration camp",
                                      "Photosynthesis", "Climate change"], force=args.force)
@@ -338,9 +354,10 @@ def main(argv=None):
                     print(f"  UNSTABLE    {article['article']}")
     elif args.cmd == "pipeline":
         pipeline.run(_normalize_article_arg(args.article), llm=args.llm, corroborate=args.mscore,
-                     framing=args.framing, additive=args.additive,
+                     framing=args.framing, facts=args.facts, additive=args.additive,
                      process=args.process_context,
-                     provider=args.provider, model=args.model, base_url=args.base_url)
+                     provider=args.provider, model=args.model, base_url=args.base_url,
+                     factcheck_max_langs=(args.max_langs or None))
     elif args.cmd == "framing-trajectory":
         revision_ids = [
             int(revision_id.strip())
@@ -358,18 +375,47 @@ def main(argv=None):
     elif args.cmd == "framing":
         from . import l5_framing_lite
         article = _normalize_article_arg(args.article)
-        pivot_window = None if args.static else pipeline.framing_window(article)
-        l5_framing_lite.framing_lite(article, pivot_window=pivot_window,
-                                     recategorize=args.recategorize,
-                                     provider=args.provider, model=args.model, base_url=args.base_url)
+        windows = [] if args.static else pipeline.framing_windows(article)
+        confirmed_windows = [window for window in windows if window.get("status") == "confirmed"]
+        if confirmed_windows:
+            from . import llm as llm_backend
+            client = llm_backend.make_client(args.provider, args.model, args.base_url)
+            pipeline.analyze_confirmed_episodes(
+                article, confirmed_windows, client=client, framing=True,
+                lexical_layer=False, sources=False,
+                framing_options={"recategorize": args.recategorize},
+            )
+        else:
+            pivot_window = windows[0] if windows else None
+            l5_framing_lite.framing_lite(article, pivot_window=pivot_window,
+                                         recategorize=args.recategorize,
+                                         provider=args.provider, model=args.model, base_url=args.base_url)
     elif args.cmd == "confirmed-graph":
         l4.run_confirmed_graph(args.articles_dir, as_json=args.json)
     elif args.cmd == "discover":
         l4.discover(_normalize_article_arg(args.article), top_n=args.top_n, limit=args.limit)
     elif args.cmd == "sources":
-        l5_sources.sources_over_time(_normalize_article_arg(args.article), max_snaps=args.max_snaps)
+        article = _normalize_article_arg(args.article)
+        windows = pipeline.framing_windows(article)
+        confirmed_windows = [window for window in windows if window.get("status") == "confirmed"]
+        if confirmed_windows:
+            pipeline.analyze_confirmed_episodes(
+                article, confirmed_windows, lexical_layer=False,
+                source_options={"max_snaps": args.max_snaps},
+            )
+        else:
+            l5_sources.sources_over_time(article, max_snaps=args.max_snaps)
     elif args.cmd == "lexical":
-        lexical.lexical_drift(_normalize_article_arg(args.article), top_n=args.top_n, min_total=args.min_total)
+        article = _normalize_article_arg(args.article)
+        windows = pipeline.framing_windows(article)
+        confirmed_windows = [window for window in windows if window.get("status") == "confirmed"]
+        if confirmed_windows:
+            pipeline.analyze_confirmed_episodes(
+                article, confirmed_windows, sources=False,
+                lexical_options={"top_n": args.top_n, "min_total": args.min_total},
+            )
+        else:
+            lexical.lexical_drift(article, top_n=args.top_n, min_total=args.min_total)
     elif args.cmd == "profile":
         drift.profile_report(_normalize_article_arg(args.article))
     elif args.cmd == "bootstrap":

@@ -1,13 +1,21 @@
 {
   "counts": {
-    "legacy_incompatible": 123,
-    "published": 82,
+    "legacy_incompatible": 124,
+    "published": 80,
     "quarantined": 0,
     "stale": 0,
     "unstable": 0,
-    "withheld": 123
+    "withheld": 136
   },
   "published": [
+    {
+      "article": "Israeli\u2013Palestinian conflict",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Israeli\u2013Palestinian_conflict.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
     {
       "article": "Abortion",
       "artifact_kind": "lexical",
@@ -49,14 +57,6 @@
       "status": "published"
     },
     {
-      "article": "Capitalism",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": "stable-endpoint-v1",
-      "path": "Capitalism.lexical.json",
-      "reason": null,
-      "status": "published"
-    },
-    {
       "article": "Chess",
       "artifact_kind": "lexical",
       "endpoint_policy_version": "stable-endpoint-v1",
@@ -77,14 +77,6 @@
       "artifact_kind": "lexical",
       "endpoint_policy_version": "stable-endpoint-v1",
       "path": "Collaboration_in_German-occupied_Poland.lexical.json",
-      "reason": null,
-      "status": "published"
-    },
-    {
-      "article": "Democratic Party (United States)",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": "stable-endpoint-v1",
-      "path": "Democratic_Party_(United_States).lexical.json",
       "reason": null,
       "status": "published"
     },
@@ -329,6 +321,14 @@
       "status": "published"
     },
     {
+      "article": "Israeli\u2013Palestinian conflict",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Israeli\u2013Palestinian_conflict.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
       "article": "Nakba",
       "artifact_kind": "l1-confirmation",
       "endpoint_policy_version": "stable-endpoint-v1",
@@ -377,14 +377,6 @@
       "status": "published"
     },
     {
-      "article": "Capitalism",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": "stable-endpoint-v1",
-      "path": "Capitalism.l1-confirmation.json",
-      "reason": null,
-      "status": "published"
-    },
-    {
       "article": "Chess",
       "artifact_kind": "l1-confirmation",
       "endpoint_policy_version": "stable-endpoint-v1",
@@ -405,14 +397,6 @@
       "artifact_kind": "l1-confirmation",
       "endpoint_policy_version": "stable-endpoint-v1",
       "path": "Collaboration_in_German-occupied_Poland.l1-confirmation.json",
-      "reason": null,
-      "status": "published"
-    },
-    {
-      "article": "Democratic Party (United States)",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": "stable-endpoint-v1",
-      "path": "Democratic_Party_(United_States).l1-confirmation.json",
       "reason": null,
       "status": "published"
     },
@@ -887,7 +871,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Israeli\u2013Palestinian_conflict.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -947,6 +931,14 @@
       "status": "legacy_incompatible"
     },
     {
+      "article": "Capitalism",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Capitalism.stance.json",
+      "reason": "trust evidence is unavailable: IOException",
+      "status": "withheld"
+    },
+    {
       "article": "Chess",
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
@@ -967,6 +959,22 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Collaboration_in_German-occupied_Poland.stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "Democratic Party (United States)",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Democratic_Party_(United_States).stance.json",
+      "reason": "trust evidence is unavailable: IOException",
+      "status": "withheld"
+    },
+    {
+      "article": "Democratic Socialists of America",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Democratic_Socialists_of_America.stance.json",
       "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
@@ -1107,10 +1115,26 @@
       "status": "legacy_incompatible"
     },
     {
+      "article": "Republican Party (United States)",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Republican_Party_(United_States).stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
       "article": "Rescue of Jews by Poles during the Holocaust",
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Rescue_of_Jews_by_Poles_during_the_Holocaust.stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "Socialism",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Socialism.stance.json",
       "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
@@ -1323,14 +1347,6 @@
       "status": "legacy_incompatible"
     },
     {
-      "article": "Israeli\u2013Palestinian conflict",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Israeli\u2013Palestinian_conflict.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
       "article": "Brontosaurus",
       "artifact_kind": "lexical",
       "endpoint_policy_version": null,
@@ -1409,6 +1425,22 @@
       "path": "Water.lexical.json",
       "reason": "stable endpoint receipt is missing",
       "status": "legacy_incompatible"
+    },
+    {
+      "article": "Capitalism",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": null,
+      "path": "Capitalism.lexical.json",
+      "reason": "trust evidence is unavailable: IOException",
+      "status": "withheld"
+    },
+    {
+      "article": "Democratic Party (United States)",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": null,
+      "path": "Democratic_Party_(United_States).lexical.json",
+      "reason": "trust evidence is unavailable: IOException",
+      "status": "withheld"
     },
     {
       "article": "United Nations General Assembly observers",
@@ -1579,14 +1611,6 @@
       "status": "legacy_incompatible"
     },
     {
-      "article": "Israeli\u2013Palestinian conflict",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Israeli\u2013Palestinian_conflict.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
       "article": "Chess",
       "artifact_kind": "l1-confirmation",
       "endpoint_policy_version": null,
@@ -1649,6 +1673,22 @@
       "path": "Jedwabne_pogrom.l1-confirmation.json",
       "reason": "stable endpoint receipt is missing",
       "status": "legacy_incompatible"
+    },
+    {
+      "article": "Capitalism",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": null,
+      "path": "Capitalism.l1-confirmation.json",
+      "reason": "trust evidence is unavailable: IOException",
+      "status": "withheld"
+    },
+    {
+      "article": "Democratic Party (United States)",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": null,
+      "path": "Democratic_Party_(United_States).l1-confirmation.json",
+      "reason": "trust evidence is unavailable: IOException",
+      "status": "withheld"
     }
   ]
 }

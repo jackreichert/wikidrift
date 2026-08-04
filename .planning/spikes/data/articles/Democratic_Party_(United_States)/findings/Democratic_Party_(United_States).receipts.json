@@ -1,0 +1,27 @@
+{
+  "article": "Democratic Party (United States)",
+  "qid": "Q29552",
+  "editions": {
+    "en": {
+      "present": true,
+      "revid": 1367714418,
+      "title": "Democratic Party (United States)",
+      "timestamp": "2026-08-04T19:07:10Z",
+      "prose_chars": 88518
+    },
+    "es": {
+      "present": true,
+      "revid": 173923371,
+      "title": "Partido Demócrata (Estados Unidos)",
+      "timestamp": "2026-06-13T10:32:21Z",
+      "prose_chars": 69026
+    },
+    "uk": {
+      "present": true,
+      "revid": 48497972,
+      "title": "Демократична партія США",
+      "timestamp": "2026-08-04T13:30:17Z",
+      "prose_chars": 58180
+    }
+  }
+}

@@ -1,0 +1,1848 @@
+{
+  "article": "Socialism",
+  "pivot": "2024-01-01",
+  "span": "rev 1231127385 → rev 1231548542  (exact confirmation, 2024-06-26 → 2024-06-28)",
+  "mode": "pivot_relative",
+  "pivot_window": {
+    "start": "2024-01-01",
+    "end": "2025-01-01",
+    "pwr_mass": 213137,
+    "status": "confirmed",
+    "before_revid": 1231127385,
+    "before_timestamp": "2024-06-26T16:32:06Z",
+    "after_revid": 1231548542,
+    "after_timestamp": "2024-06-28T22:23:33Z",
+    "durable_spine_drop": 0.372196
+  },
+  "before": {
+    "date": "2024-06-26",
+    "rev": 1231127385,
+    "refs": 580,
+    "n_domains": 165,
+    "cite_mix": {
+      "book": 61,
+      "web": 22,
+      "journal": 11,
+      "news": 6,
+      "report": 0
+    },
+    "domains": {
+      "archive.org": 43,
+      "thefreedictionary.com": 1,
+      "books.google.com": 52,
+      "britannica.com": 15,
+      "dictionaryofeconomics.com": 1,
+      "chomsky.info": 2,
+      "hetsa.org.au": 2,
+      "umass.edu": 1,
+      "truthout.org": 2,
+      "truth-out.org": 1,
+      "americanaffairsjournal.org": 1,
+      "newyorker.com": 1,
+      "etymonline.com": 1,
+      "oxfordhandbooks.com": 2,
+      "plato.stanford.edu": 1,
+      "iranchamber.com": 1,
+      "wsj.com": 3,
+      "currentaffairs.org": 1,
+      "independent.co.uk": 3,
+      "fsmitha.com": 1,
+      "anu.edu.au": 6,
+      "theanarchistlibrary.org": 10,
+      "dwardmac.pitzer.edu": 5,
+      "marxists.org": 16,
+      "merriam-webster.com": 2,
+      "marxisthistory.org": 1,
+      "moadoph.gov.au": 1,
+      "jpost.com": 1,
+      "pbs.org": 5,
+      "gmu.edu": 1,
+      "warwick.ac.uk": 1,
+      "press.princeton.edu": 3,
+      "iccrimea.org": 1,
+      "libcom.org": 5,
+      "spunk.org": 2,
+      "members.aol.com": 1,
+      "sund.ac.uk": 2,
+      "yourarchives.nationalarchives.gov.uk": 2,
+      "uksteel.org.uk": 2,
+      "snl.no": 7,
+      "aftonbladet.se": 2,
+      "paecon.net": 1,
+      "louischauvel.org": 1,
+      "fafo.no": 2,
+      "thelocal.dk": 1,
+      "idunn.no": 1,
+      "emerald.com": 1,
+      "nrs.harvard.edu": 1,
+      "news.bbc.co.uk": 5,
+      "time.com": 3,
+      "humanite.presse.fr": 1,
+      "npr.org": 1,
+      "pdba.georgetown.edu": 1,
+      "theatlantic.com": 2,
+      "catalog.osaarchivum.org": 2,
+      "global.oup.com": 3,
+      "jamaica-gleaner.com": 3,
+      "unesdoc.unesco.org": 1,
+      "indiacode.nic.in": 2,
+      "monthlyreview.org": 4,
+      "english.people.com.cn": 2,
+      "tapchicongsan.org.vn": 2,
+      "rand.org": 1,
+      "umsl.edu": 2,
+      "press.uchicago.edu": 1,
+      "doc-research.org": 2,
+      "cordis.europa.eu": 2,
+      "piie.com": 1,
+      "researchgate.net": 2,
+      "jech.bmj.com": 1,
+      "cato.org": 1,
+      "pewglobal.org": 1,
+      "amp.theguardian.com": 1,
+      "pewresearch.org": 1,
+      "utppublishing.com": 2,
+      "socialistinternational.org": 2,
+      "labour.org.uk": 2,
+      "theguardian.com": 4,
+      "progressive-alliance.info": 1,
+      "spd.de": 2,
+      "economist.com": 2,
+      "bbc.com": 1,
+      "aei.org": 1,
+      "zpub.com": 2,
+      "worldsocialism.org": 5,
+      "rdwolff.com": 2,
+      "search.informit.org": 1,
+      "socialistreview.org.uk": 2,
+      "link.springer.com": 3,
+      "read.dukeupress.edu": 1,
+      "isj.org.uk": 1,
+      "newstatesman.com": 1,
+      "hup.harvard.edu": 2,
+      "amazon.com": 1,
+      "sangam.org": 2,
+      "econ.la.psu.edu": 2,
+      "cybersyn.cl": 1,
+      "tandfonline.com": 1,
+      "gesd.free.fr": 1,
+      "ctheory.net": 2,
+      "democracyatwork.info": 1,
+      "mutualist.org": 3,
+      "chinadaily.com.cn": 1,
+      "oecd.org": 2,
+      "heritage.org": 2,
+      "forbes.com": 1,
+      "us.ft.com": 2,
+      "ufirc.ou.edu": 2,
+      "vietnamembassy-usa.org": 1,
+      "theglobeandmail.com": 2,
+      "iaf-ifa.org": 2,
+      "fair-use.org": 2,
+      "america.aljazeera.com": 1,
+      "nytimes.com": 1,
+      "ourfuture.org": 1,
+      "cnn.com": 1,
+      "commondreams.org": 2,
+      "orion.it.luc.edu": 2,
+      "wisdomsupreme.com": 2,
+      "newyouth.com": 2,
+      "marx.org": 4,
+      "jstor.org": 2,
+      "joseph.dejacque.free.fr": 1,
+      "infoshop.org": 6,
+      "spaz.org": 1,
+      "dawn.com": 1,
+      "feministezine.com": 1,
+      "uic.edu": 2,
+      "williamapercy.com": 2,
+      "washblade.com": 2,
+      "fordham.edu": 2,
+      "environment-ecology.com": 1,
+      "greenleft.org.uk": 2,
+      "acracia.org": 4,
+      "natustar.com": 2,
+      "anarchism.pageabode.com": 2,
+      "raforum.info": 2,
+      "ipsos.com": 2,
+      "iea.org.uk": 1,
+      "inews.co.uk": 1,
+      "axios.com": 1,
+      "uk.surveymonkey.com": 1,
+      "fraserinstitute.org": 1,
+      "thepointmag.com": 2,
+      "newcriterion.com": 2,
+      "brill.com": 2,
+      "commentarymagazine.com": 2,
+      "politico.eu": 1,
+      "dukeupress.edu": 1,
+      "aeon.co": 1,
+      "financeinislam.com": 2,
+      "dissentmagazine.org": 1,
+      "people.umass.edu": 1,
+      "oxfordislamicstudies.com": 2,
+      "foreignpolicy.com": 1,
+      "aljazeera.com": 2,
+      "cambridge.org": 1,
+      "vup.victoria.ac.nz": 1,
+      "econlib.org": 1,
+      "polis.cam.ac.uk": 1,
+      "yalebooks.yale.edu": 1,
+      "sk.sagepub.com": 1,
+      "sourcebooks.fordham.edu": 1,
+      "newgnosis.co.uk": 1,
+      "repository.library.georgetown.edu": 2
+    }
+  },
+  "after": {
+    "date": "2024-06-28",
+    "rev": 1231548542,
+    "refs": 344,
+    "n_domains": 116,
+    "cite_mix": {
+      "book": 63,
+      "web": 21,
+      "journal": 10,
+      "news": 6
+    },
+    "domains": {
+      "archive.org": 35,
+      "thefreedictionary.com": 1,
+      "books.google.com": 27,
+      "britannica.com": 7,
+      "dictionaryofeconomics.com": 1,
+      "chomsky.info": 2,
+      "hetsa.org.au": 2,
+      "umass.edu": 1,
+      "truthout.org": 2,
+      "truth-out.org": 1,
+      "americanaffairsjournal.org": 1,
+      "newyorker.com": 1,
+      "etymonline.com": 1,
+      "oxfordhandbooks.com": 2,
+      "plato.stanford.edu": 1,
+      "progressive-alliance.info": 1,
+      "spd.de": 2,
+      "economist.com": 2,
+      "theguardian.com": 3,
+      "bbc.com": 1,
+      "aei.org": 1,
+      "zpub.com": 2,
+      "marxists.org": 14,
+      "worldsocialism.org": 5,
+      "monthlyreview.org": 3,
+      "rdwolff.com": 2,
+      "search.informit.org": 1,
+      "pbs.org": 4,
+      "socialistreview.org.uk": 2,
+      "link.springer.com": 3,
+      "read.dukeupress.edu": 1,
+      "isj.org.uk": 1,
+      "newstatesman.com": 1,
+      "hup.harvard.edu": 2,
+      "global.oup.com": 1,
+      "amazon.com": 1,
+      "sangam.org": 2,
+      "econ.la.psu.edu": 2,
+      "cybersyn.cl": 1,
+      "tandfonline.com": 1,
+      "gesd.free.fr": 1,
+      "ctheory.net": 2,
+      "democracyatwork.info": 1,
+      "mutualist.org": 3,
+      "chinadaily.com.cn": 1,
+      "english.people.com.cn": 1,
+      "oecd.org": 2,
+      "heritage.org": 2,
+      "forbes.com": 1,
+      "us.ft.com": 2,
+      "ufirc.ou.edu": 2,
+      "news.bbc.co.uk": 1,
+      "vietnamembassy-usa.org": 1,
+      "dwardmac.pitzer.edu": 3,
+      "theanarchistlibrary.org": 7,
+      "theglobeandmail.com": 2,
+      "iaf-ifa.org": 2,
+      "fair-use.org": 2,
+      "america.aljazeera.com": 1,
+      "nytimes.com": 1,
+      "ourfuture.org": 1,
+      "cnn.com": 1,
+      "commondreams.org": 2,
+      "orion.it.luc.edu": 2,
+      "wisdomsupreme.com": 2,
+      "newyouth.com": 2,
+      "marx.org": 4,
+      "anu.edu.au": 4,
+      "jstor.org": 2,
+      "joseph.dejacque.free.fr": 1,
+      "infoshop.org": 6,
+      "libcom.org": 1,
+      "spaz.org": 1,
+      "dawn.com": 1,
+      "feministezine.com": 1,
+      "uic.edu": 2,
+      "williamapercy.com": 2,
+      "washblade.com": 2,
+      "fordham.edu": 2,
+      "environment-ecology.com": 1,
+      "greenleft.org.uk": 2,
+      "acracia.org": 4,
+      "natustar.com": 2,
+      "anarchism.pageabode.com": 2,
+      "raforum.info": 2,
+      "ipsos.com": 2,
+      "iea.org.uk": 1,
+      "inews.co.uk": 1,
+      "axios.com": 1,
+      "uk.surveymonkey.com": 1,
+      "fraserinstitute.org": 1,
+      "thepointmag.com": 2,
+      "newcriterion.com": 2,
+      "wsj.com": 2,
+      "brill.com": 2,
+      "commentarymagazine.com": 2,
+      "politico.eu": 1,
+      "dukeupress.edu": 1,
+      "aeon.co": 1,
+      "financeinislam.com": 2,
+      "dissentmagazine.org": 1,
+      "people.umass.edu": 1,
+      "independent.co.uk": 1,
+      "oxfordislamicstudies.com": 2,
+      "press.princeton.edu": 2,
+      "foreignpolicy.com": 1,
+      "aljazeera.com": 2,
+      "cambridge.org": 1,
+      "vup.victoria.ac.nz": 1,
+      "econlib.org": 1,
+      "polis.cam.ac.uk": 1,
+      "yalebooks.yale.edu": 1,
+      "sk.sagepub.com": 1,
+      "sourcebooks.fordham.edu": 1,
+      "newgnosis.co.uk": 1,
+      "repository.library.georgetown.edu": 2
+    }
+  },
+  "added": [],
+  "dropped": [
+    {
+      "domain": "books.google.com",
+      "from": 52,
+      "to": 27
+    },
+    {
+      "domain": "britannica.com",
+      "from": 15,
+      "to": 7
+    },
+    {
+      "domain": "archive.org",
+      "from": 43,
+      "to": 35
+    },
+    {
+      "domain": "snl.no",
+      "from": 7,
+      "to": 0
+    },
+    {
+      "domain": "news.bbc.co.uk",
+      "from": 5,
+      "to": 1
+    },
+    {
+      "domain": "libcom.org",
+      "from": 5,
+      "to": 1
+    },
+    {
+      "domain": "theanarchistlibrary.org",
+      "from": 10,
+      "to": 7
+    },
+    {
+      "domain": "time.com",
+      "from": 3,
+      "to": 0
+    },
+    {
+      "domain": "jamaica-gleaner.com",
+      "from": 3,
+      "to": 0
+    },
+    {
+      "domain": "tapchicongsan.org.vn",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "spunk.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "independent.co.uk",
+      "from": 3,
+      "to": 1
+    },
+    {
+      "domain": "umsl.edu",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "aftonbladet.se",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "doc-research.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "yourarchives.nationalarchives.gov.uk",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "utppublishing.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "anu.edu.au",
+      "from": 6,
+      "to": 4
+    },
+    {
+      "domain": "researchgate.net",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "fafo.no",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "socialistinternational.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "dwardmac.pitzer.edu",
+      "from": 5,
+      "to": 3
+    },
+    {
+      "domain": "global.oup.com",
+      "from": 3,
+      "to": 1
+    },
+    {
+      "domain": "indiacode.nic.in",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "merriam-webster.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "sund.ac.uk",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "catalog.osaarchivum.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "cordis.europa.eu",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "labour.org.uk",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "marxists.org",
+      "from": 16,
+      "to": 14
+    },
+    {
+      "domain": "uksteel.org.uk",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "theatlantic.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "press.princeton.edu",
+      "from": 3,
+      "to": 2
+    },
+    {
+      "domain": "english.people.com.cn",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "jech.bmj.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "pdba.georgetown.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "pewresearch.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "unesdoc.unesco.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "paecon.net",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "emerald.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "gmu.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "nrs.harvard.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "monthlyreview.org",
+      "from": 4,
+      "to": 3
+    },
+    {
+      "domain": "louischauvel.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "iranchamber.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "rand.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "amp.theguardian.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "npr.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "humanite.presse.fr",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "marxisthistory.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "fsmitha.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "currentaffairs.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "theguardian.com",
+      "from": 4,
+      "to": 3
+    },
+    {
+      "domain": "pewglobal.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "members.aol.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "moadoph.gov.au",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "thelocal.dk",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "warwick.ac.uk",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "wsj.com",
+      "from": 3,
+      "to": 2
+    },
+    {
+      "domain": "jpost.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "pbs.org",
+      "from": 5,
+      "to": 4
+    },
+    {
+      "domain": "press.uchicago.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "cato.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "idunn.no",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "piie.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "iccrimea.org",
+      "from": 1,
+      "to": 0
+    }
+  ],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+  "schema_version": 1,
+  "analysis_scope": "confirmed_episodes",
+  "episode_count": 4,
+  "episodes": [
+    {
+      "article": "Socialism",
+      "pivot": "2024-01-01",
+      "span": "rev 1231127385 → rev 1231548542  (exact confirmation, 2024-06-26 → 2024-06-28)",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2024-01-01",
+        "end": "2025-01-01",
+        "pwr_mass": 213137,
+        "status": "confirmed",
+        "before_revid": 1231127385,
+        "before_timestamp": "2024-06-26T16:32:06Z",
+        "after_revid": 1231548542,
+        "after_timestamp": "2024-06-28T22:23:33Z",
+        "durable_spine_drop": 0.372196
+      },
+      "before": {
+        "date": "2024-06-26",
+        "rev": 1231127385,
+        "refs": 580,
+        "n_domains": 165,
+        "cite_mix": {
+          "book": 61,
+          "web": 22,
+          "journal": 11,
+          "news": 6,
+          "report": 0
+        },
+        "domains": {
+          "archive.org": 43,
+          "thefreedictionary.com": 1,
+          "books.google.com": 52,
+          "britannica.com": 15,
+          "dictionaryofeconomics.com": 1,
+          "chomsky.info": 2,
+          "hetsa.org.au": 2,
+          "umass.edu": 1,
+          "truthout.org": 2,
+          "truth-out.org": 1,
+          "americanaffairsjournal.org": 1,
+          "newyorker.com": 1,
+          "etymonline.com": 1,
+          "oxfordhandbooks.com": 2,
+          "plato.stanford.edu": 1,
+          "iranchamber.com": 1,
+          "wsj.com": 3,
+          "currentaffairs.org": 1,
+          "independent.co.uk": 3,
+          "fsmitha.com": 1,
+          "anu.edu.au": 6,
+          "theanarchistlibrary.org": 10,
+          "dwardmac.pitzer.edu": 5,
+          "marxists.org": 16,
+          "merriam-webster.com": 2,
+          "marxisthistory.org": 1,
+          "moadoph.gov.au": 1,
+          "jpost.com": 1,
+          "pbs.org": 5,
+          "gmu.edu": 1,
+          "warwick.ac.uk": 1,
+          "press.princeton.edu": 3,
+          "iccrimea.org": 1,
+          "libcom.org": 5,
+          "spunk.org": 2,
+          "members.aol.com": 1,
+          "sund.ac.uk": 2,
+          "yourarchives.nationalarchives.gov.uk": 2,
+          "uksteel.org.uk": 2,
+          "snl.no": 7,
+          "aftonbladet.se": 2,
+          "paecon.net": 1,
+          "louischauvel.org": 1,
+          "fafo.no": 2,
+          "thelocal.dk": 1,
+          "idunn.no": 1,
+          "emerald.com": 1,
+          "nrs.harvard.edu": 1,
+          "news.bbc.co.uk": 5,
+          "time.com": 3,
+          "humanite.presse.fr": 1,
+          "npr.org": 1,
+          "pdba.georgetown.edu": 1,
+          "theatlantic.com": 2,
+          "catalog.osaarchivum.org": 2,
+          "global.oup.com": 3,
+          "jamaica-gleaner.com": 3,
+          "unesdoc.unesco.org": 1,
+          "indiacode.nic.in": 2,
+          "monthlyreview.org": 4,
+          "english.people.com.cn": 2,
+          "tapchicongsan.org.vn": 2,
+          "rand.org": 1,
+          "umsl.edu": 2,
+          "press.uchicago.edu": 1,
+          "doc-research.org": 2,
+          "cordis.europa.eu": 2,
+          "piie.com": 1,
+          "researchgate.net": 2,
+          "jech.bmj.com": 1,
+          "cato.org": 1,
+          "pewglobal.org": 1,
+          "amp.theguardian.com": 1,
+          "pewresearch.org": 1,
+          "utppublishing.com": 2,
+          "socialistinternational.org": 2,
+          "labour.org.uk": 2,
+          "theguardian.com": 4,
+          "progressive-alliance.info": 1,
+          "spd.de": 2,
+          "economist.com": 2,
+          "bbc.com": 1,
+          "aei.org": 1,
+          "zpub.com": 2,
+          "worldsocialism.org": 5,
+          "rdwolff.com": 2,
+          "search.informit.org": 1,
+          "socialistreview.org.uk": 2,
+          "link.springer.com": 3,
+          "read.dukeupress.edu": 1,
+          "isj.org.uk": 1,
+          "newstatesman.com": 1,
+          "hup.harvard.edu": 2,
+          "amazon.com": 1,
+          "sangam.org": 2,
+          "econ.la.psu.edu": 2,
+          "cybersyn.cl": 1,
+          "tandfonline.com": 1,
+          "gesd.free.fr": 1,
+          "ctheory.net": 2,
+          "democracyatwork.info": 1,
+          "mutualist.org": 3,
+          "chinadaily.com.cn": 1,
+          "oecd.org": 2,
+          "heritage.org": 2,
+          "forbes.com": 1,
+          "us.ft.com": 2,
+          "ufirc.ou.edu": 2,
+          "vietnamembassy-usa.org": 1,
+          "theglobeandmail.com": 2,
+          "iaf-ifa.org": 2,
+          "fair-use.org": 2,
+          "america.aljazeera.com": 1,
+          "nytimes.com": 1,
+          "ourfuture.org": 1,
+          "cnn.com": 1,
+          "commondreams.org": 2,
+          "orion.it.luc.edu": 2,
+          "wisdomsupreme.com": 2,
+          "newyouth.com": 2,
+          "marx.org": 4,
+          "jstor.org": 2,
+          "joseph.dejacque.free.fr": 1,
+          "infoshop.org": 6,
+          "spaz.org": 1,
+          "dawn.com": 1,
+          "feministezine.com": 1,
+          "uic.edu": 2,
+          "williamapercy.com": 2,
+          "washblade.com": 2,
+          "fordham.edu": 2,
+          "environment-ecology.com": 1,
+          "greenleft.org.uk": 2,
+          "acracia.org": 4,
+          "natustar.com": 2,
+          "anarchism.pageabode.com": 2,
+          "raforum.info": 2,
+          "ipsos.com": 2,
+          "iea.org.uk": 1,
+          "inews.co.uk": 1,
+          "axios.com": 1,
+          "uk.surveymonkey.com": 1,
+          "fraserinstitute.org": 1,
+          "thepointmag.com": 2,
+          "newcriterion.com": 2,
+          "brill.com": 2,
+          "commentarymagazine.com": 2,
+          "politico.eu": 1,
+          "dukeupress.edu": 1,
+          "aeon.co": 1,
+          "financeinislam.com": 2,
+          "dissentmagazine.org": 1,
+          "people.umass.edu": 1,
+          "oxfordislamicstudies.com": 2,
+          "foreignpolicy.com": 1,
+          "aljazeera.com": 2,
+          "cambridge.org": 1,
+          "vup.victoria.ac.nz": 1,
+          "econlib.org": 1,
+          "polis.cam.ac.uk": 1,
+          "yalebooks.yale.edu": 1,
+          "sk.sagepub.com": 1,
+          "sourcebooks.fordham.edu": 1,
+          "newgnosis.co.uk": 1,
+          "repository.library.georgetown.edu": 2
+        }
+      },
+      "after": {
+        "date": "2024-06-28",
+        "rev": 1231548542,
+        "refs": 344,
+        "n_domains": 116,
+        "cite_mix": {
+          "book": 63,
+          "web": 21,
+          "journal": 10,
+          "news": 6
+        },
+        "domains": {
+          "archive.org": 35,
+          "thefreedictionary.com": 1,
+          "books.google.com": 27,
+          "britannica.com": 7,
+          "dictionaryofeconomics.com": 1,
+          "chomsky.info": 2,
+          "hetsa.org.au": 2,
+          "umass.edu": 1,
+          "truthout.org": 2,
+          "truth-out.org": 1,
+          "americanaffairsjournal.org": 1,
+          "newyorker.com": 1,
+          "etymonline.com": 1,
+          "oxfordhandbooks.com": 2,
+          "plato.stanford.edu": 1,
+          "progressive-alliance.info": 1,
+          "spd.de": 2,
+          "economist.com": 2,
+          "theguardian.com": 3,
+          "bbc.com": 1,
+          "aei.org": 1,
+          "zpub.com": 2,
+          "marxists.org": 14,
+          "worldsocialism.org": 5,
+          "monthlyreview.org": 3,
+          "rdwolff.com": 2,
+          "search.informit.org": 1,
+          "pbs.org": 4,
+          "socialistreview.org.uk": 2,
+          "link.springer.com": 3,
+          "read.dukeupress.edu": 1,
+          "isj.org.uk": 1,
+          "newstatesman.com": 1,
+          "hup.harvard.edu": 2,
+          "global.oup.com": 1,
+          "amazon.com": 1,
+          "sangam.org": 2,
+          "econ.la.psu.edu": 2,
+          "cybersyn.cl": 1,
+          "tandfonline.com": 1,
+          "gesd.free.fr": 1,
+          "ctheory.net": 2,
+          "democracyatwork.info": 1,
+          "mutualist.org": 3,
+          "chinadaily.com.cn": 1,
+          "english.people.com.cn": 1,
+          "oecd.org": 2,
+          "heritage.org": 2,
+          "forbes.com": 1,
+          "us.ft.com": 2,
+          "ufirc.ou.edu": 2,
+          "news.bbc.co.uk": 1,
+          "vietnamembassy-usa.org": 1,
+          "dwardmac.pitzer.edu": 3,
+          "theanarchistlibrary.org": 7,
+          "theglobeandmail.com": 2,
+          "iaf-ifa.org": 2,
+          "fair-use.org": 2,
+          "america.aljazeera.com": 1,
+          "nytimes.com": 1,
+          "ourfuture.org": 1,
+          "cnn.com": 1,
+          "commondreams.org": 2,
+          "orion.it.luc.edu": 2,
+          "wisdomsupreme.com": 2,
+          "newyouth.com": 2,
+          "marx.org": 4,
+          "anu.edu.au": 4,
+          "jstor.org": 2,
+          "joseph.dejacque.free.fr": 1,
+          "infoshop.org": 6,
+          "libcom.org": 1,
+          "spaz.org": 1,
+          "dawn.com": 1,
+          "feministezine.com": 1,
+          "uic.edu": 2,
+          "williamapercy.com": 2,
+          "washblade.com": 2,
+          "fordham.edu": 2,
+          "environment-ecology.com": 1,
+          "greenleft.org.uk": 2,
+          "acracia.org": 4,
+          "natustar.com": 2,
+          "anarchism.pageabode.com": 2,
+          "raforum.info": 2,
+          "ipsos.com": 2,
+          "iea.org.uk": 1,
+          "inews.co.uk": 1,
+          "axios.com": 1,
+          "uk.surveymonkey.com": 1,
+          "fraserinstitute.org": 1,
+          "thepointmag.com": 2,
+          "newcriterion.com": 2,
+          "wsj.com": 2,
+          "brill.com": 2,
+          "commentarymagazine.com": 2,
+          "politico.eu": 1,
+          "dukeupress.edu": 1,
+          "aeon.co": 1,
+          "financeinislam.com": 2,
+          "dissentmagazine.org": 1,
+          "people.umass.edu": 1,
+          "independent.co.uk": 1,
+          "oxfordislamicstudies.com": 2,
+          "press.princeton.edu": 2,
+          "foreignpolicy.com": 1,
+          "aljazeera.com": 2,
+          "cambridge.org": 1,
+          "vup.victoria.ac.nz": 1,
+          "econlib.org": 1,
+          "polis.cam.ac.uk": 1,
+          "yalebooks.yale.edu": 1,
+          "sk.sagepub.com": 1,
+          "sourcebooks.fordham.edu": 1,
+          "newgnosis.co.uk": 1,
+          "repository.library.georgetown.edu": 2
+        }
+      },
+      "added": [],
+      "dropped": [
+        {
+          "domain": "books.google.com",
+          "from": 52,
+          "to": 27
+        },
+        {
+          "domain": "britannica.com",
+          "from": 15,
+          "to": 7
+        },
+        {
+          "domain": "archive.org",
+          "from": 43,
+          "to": 35
+        },
+        {
+          "domain": "snl.no",
+          "from": 7,
+          "to": 0
+        },
+        {
+          "domain": "news.bbc.co.uk",
+          "from": 5,
+          "to": 1
+        },
+        {
+          "domain": "libcom.org",
+          "from": 5,
+          "to": 1
+        },
+        {
+          "domain": "theanarchistlibrary.org",
+          "from": 10,
+          "to": 7
+        },
+        {
+          "domain": "time.com",
+          "from": 3,
+          "to": 0
+        },
+        {
+          "domain": "jamaica-gleaner.com",
+          "from": 3,
+          "to": 0
+        },
+        {
+          "domain": "tapchicongsan.org.vn",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "spunk.org",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "independent.co.uk",
+          "from": 3,
+          "to": 1
+        },
+        {
+          "domain": "umsl.edu",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "aftonbladet.se",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "doc-research.org",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "yourarchives.nationalarchives.gov.uk",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "utppublishing.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "anu.edu.au",
+          "from": 6,
+          "to": 4
+        },
+        {
+          "domain": "researchgate.net",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "fafo.no",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "socialistinternational.org",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "dwardmac.pitzer.edu",
+          "from": 5,
+          "to": 3
+        },
+        {
+          "domain": "global.oup.com",
+          "from": 3,
+          "to": 1
+        },
+        {
+          "domain": "indiacode.nic.in",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "merriam-webster.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "sund.ac.uk",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "catalog.osaarchivum.org",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "cordis.europa.eu",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "labour.org.uk",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "marxists.org",
+          "from": 16,
+          "to": 14
+        },
+        {
+          "domain": "uksteel.org.uk",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "theatlantic.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "press.princeton.edu",
+          "from": 3,
+          "to": 2
+        },
+        {
+          "domain": "english.people.com.cn",
+          "from": 2,
+          "to": 1
+        },
+        {
+          "domain": "jech.bmj.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "pdba.georgetown.edu",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "pewresearch.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "unesdoc.unesco.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "paecon.net",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "emerald.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "gmu.edu",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "nrs.harvard.edu",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "monthlyreview.org",
+          "from": 4,
+          "to": 3
+        },
+        {
+          "domain": "louischauvel.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "iranchamber.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "rand.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "amp.theguardian.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "npr.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "humanite.presse.fr",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "marxisthistory.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "fsmitha.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "currentaffairs.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "theguardian.com",
+          "from": 4,
+          "to": 3
+        },
+        {
+          "domain": "pewglobal.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "members.aol.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "moadoph.gov.au",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "thelocal.dk",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "warwick.ac.uk",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "wsj.com",
+          "from": 3,
+          "to": 2
+        },
+        {
+          "domain": "jpost.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "pbs.org",
+          "from": 5,
+          "to": 4
+        },
+        {
+          "domain": "press.uchicago.edu",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "cato.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "idunn.no",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "piie.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "iccrimea.org",
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+      "episode_id": "1231127385-1231548542",
+      "episode_index": 1,
+      "episode_window": {
+        "start": "2024-01-01",
+        "end": "2025-01-01",
+        "pwr_mass": 213137,
+        "status": "confirmed",
+        "before_revid": 1231127385,
+        "before_timestamp": "2024-06-26T16:32:06Z",
+        "after_revid": 1231548542,
+        "after_timestamp": "2024-06-28T22:23:33Z",
+        "durable_spine_drop": 0.372196
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Socialism",
+      "pivot": "2005-01-01",
+      "span": "rev 54672691 → rev 54876527  (exact confirmation, 2006-05-23 → 2006-05-24)",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2005-01-01",
+        "end": "2008-01-01",
+        "pwr_mass": 20844,
+        "status": "confirmed",
+        "before_revid": 54672691,
+        "before_timestamp": "2006-05-23T08:10:15Z",
+        "after_revid": 54876527,
+        "after_timestamp": "2006-05-24T12:03:55Z",
+        "durable_spine_drop": 0.955891
+      },
+      "before": {
+        "date": "2006-05-23",
+        "rev": 54672691,
+        "refs": 17,
+        "n_domains": 34,
+        "cite_mix": {
+          "book": 100
+        },
+        "domains": {
+          "dictionary.oed.com": 1,
+          "encarta.msn.com": 1,
+          "marxists.org": 5,
+          "hooverdigest.org": 2,
+          "lucidcafe.com": 1,
+          "socialistinternational.org": 2,
+          "ocde.p4.siteinternet.com": 1,
+          "christiansocialist.org.uk": 1,
+          "socialistworld.net": 2,
+          "self-gov.org": 1,
+          "spartacus.schoolnet.co.uk": 2,
+          "mises.org": 5,
+          "selvesandothers.org": 1,
+          "haymarketbooks.org": 1,
+          "westviewpress.com": 1,
+          "easyweb.easynet.co.uk": 1,
+          "marxist.com": 1,
+          "iww.org": 1,
+          "marxist.net": 1,
+          "pathfinderpress.com": 1,
+          "revolutionaryleft.com": 1,
+          "polyarchy.org": 1,
+          "zmag.org": 1,
+          "thinksocialist.blogspot.com": 1,
+          "wsws.org": 1,
+          "ypsl.org": 1,
+          "directory.google.com": 1,
+          "cei.org": 1,
+          "bastiat.org": 1,
+          "econlib.org": 2,
+          "pbs.org": 1,
+          "cato.org": 1,
+          "lewrockwell.com": 1,
+          "brusselsjournal.com": 1
+        }
+      },
+      "after": {
+        "date": "2006-05-24",
+        "rev": 54876527,
+        "refs": 0,
+        "n_domains": 10,
+        "cite_mix": {
+          "book": 100
+        },
+        "domains": {
+          "selvesandothers.org": 1,
+          "haymarketbooks.org": 1,
+          "westviewpress.com": 1,
+          "mises.org": 3,
+          "marxist.com": 1,
+          "iww.org": 1,
+          "marxist.net": 1,
+          "socialistinternational.org": 1,
+          "econlib.org": 2,
+          "pbs.org": 1
+        }
+      },
+      "added": [],
+      "dropped": [
+        {
+          "domain": "marxists.org",
+          "from": 5,
+          "to": 0
+        },
+        {
+          "domain": "hooverdigest.org",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "spartacus.schoolnet.co.uk",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "mises.org",
+          "from": 5,
+          "to": 3
+        },
+        {
+          "domain": "socialistworld.net",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "cei.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "socialistinternational.org",
+          "from": 2,
+          "to": 1
+        },
+        {
+          "domain": "lewrockwell.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "ypsl.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "cato.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "lucidcafe.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "zmag.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "self-gov.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "dictionary.oed.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "wsws.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "pathfinderpress.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "christiansocialist.org.uk",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "bastiat.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "revolutionaryleft.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "brusselsjournal.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "thinksocialist.blogspot.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "encarta.msn.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "easyweb.easynet.co.uk",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "directory.google.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "polyarchy.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "ocde.p4.siteinternet.com",
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+      "episode_id": "54672691-54876527",
+      "episode_index": 2,
+      "episode_window": {
+        "start": "2005-01-01",
+        "end": "2008-01-01",
+        "pwr_mass": 20844,
+        "status": "confirmed",
+        "before_revid": 54672691,
+        "before_timestamp": "2006-05-23T08:10:15Z",
+        "after_revid": 54876527,
+        "after_timestamp": "2006-05-24T12:03:55Z",
+        "durable_spine_drop": 0.955891
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Socialism",
+      "pivot": "2010-01-01",
+      "span": "rev 388146182 → rev 388354075  (exact confirmation, 2010-10-01 → 2010-10-02)",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2010-01-01",
+        "end": "2011-01-01",
+        "pwr_mass": 8329,
+        "status": "confirmed",
+        "before_revid": 388146182,
+        "before_timestamp": "2010-10-01T18:59:27Z",
+        "after_revid": 388354075,
+        "after_timestamp": "2010-10-02T21:49:02Z",
+        "durable_spine_drop": 0.313225
+      },
+      "before": {
+        "date": "2010-10-01",
+        "rev": 388146182,
+        "refs": 169,
+        "n_domains": 79,
+        "cite_mix": {
+          "web": 67,
+          "book": 26,
+          "news": 5,
+          "journal": 2
+        },
+        "domains": {
+          "worldsocialism.org": 2,
+          "britannica.com": 1,
+          "fsmitha.com": 1,
+          "marxists.org": 10,
+          "books.google.com": 4,
+          "dlc.org": 1,
+          "amazon.com": 1,
+          "monthlyreview.org": 5,
+          "chinadaily.com.cn": 1,
+          "english.people.com.cn": 1,
+          "oecd.org": 1,
+          "heritage.org": 1,
+          "adb.org": 1,
+          "forbes.com": 1,
+          "us.ft.com": 1,
+          "ufirc.ou.edu": 1,
+          "news.bbc.co.uk": 5,
+          "vietnamembassy-usa.org": 1,
+          "docs.google.com": 1,
+          "economictheories.org": 2,
+          "uregina.ca": 1,
+          "mutualist.org": 1,
+          "dwardmac.pitzer.edu": 1,
+          "nestormakhno.info": 1,
+          "anu.edu.au": 1,
+          "cepa.newschool.edu": 1,
+          "marxisthistory.org": 1,
+          "pbs.org": 2,
+          "gmu.edu": 1,
+          "soviethistory.org": 1,
+          "spunk.org": 2,
+          "socialistinternational.org": 2,
+          "yourarchives.nationalarchives.gov.uk": 1,
+          "uksteel.org.uk": 1,
+          "sund.ac.uk": 1,
+          "labour.org.uk": 1,
+          "timesonline.co.uk": 1,
+          "heraldscotland.com": 1,
+          "time.com": 1,
+          "cogsciandtheworld.blogspot.com": 1,
+          "guardian.co.uk": 1,
+          "books.google.co.uk": 1,
+          "naomiklein.org": 1,
+          "cpnm.org": 1,
+          "countryrisk.com": 1,
+          "telegraph.co.uk": 1,
+          "wsws.org": 2,
+          "greenleft.org.au": 1,
+          "elpasotimes.com": 1,
+          "ekloges.ypes.gr": 2,
+          "dailyrecord.co.uk": 1,
+          "rmt.org.uk": 1,
+          "socialismtoday.org": 1,
+          "lepoint.fr": 1,
+          "venezuelanalysis.com": 1,
+          "voanews.com": 1,
+          "commondreams.org": 1,
+          "rasmussenreports.com": 2,
+          "mises.org": 5,
+          "sangam.org": 1,
+          "importanceofphilosophy.com": 1,
+          "selvesandothers.org": 1,
+          "haymarketbooks.org": 1,
+          "jesushuertadesoto.com": 1,
+          "gavinkitching.com": 1,
+          "polis.cam.ac.uk": 1,
+          "westviewpress.com": 1,
+          "newgnosis.co.uk": 1,
+          "libcom.org": 1,
+          "socialism.com": 1,
+          "socialism.org.uk": 1,
+          "spartacus.schoolnet.co.uk": 1,
+          "fordham.edu": 1,
+          "21stcenturysocialism.com": 1,
+          "sussex.ac.uk": 1,
+          "marxist.net": 1,
+          "fff.org": 1,
+          "marxist.com": 1,
+          "wsu.edu": 1
+        }
+      },
+      "after": {
+        "date": "2010-10-02",
+        "rev": 388354075,
+        "refs": 158,
+        "n_domains": 79,
+        "cite_mix": {
+          "web": 67,
+          "book": 26,
+          "news": 5,
+          "journal": 2
+        },
+        "domains": {
+          "worldsocialism.org": 2,
+          "britannica.com": 1,
+          "fsmitha.com": 1,
+          "marxists.org": 7,
+          "books.google.com": 4,
+          "dlc.org": 1,
+          "amazon.com": 1,
+          "monthlyreview.org": 5,
+          "chinadaily.com.cn": 1,
+          "english.people.com.cn": 1,
+          "oecd.org": 1,
+          "heritage.org": 1,
+          "adb.org": 1,
+          "forbes.com": 1,
+          "us.ft.com": 1,
+          "ufirc.ou.edu": 1,
+          "news.bbc.co.uk": 5,
+          "vietnamembassy-usa.org": 1,
+          "docs.google.com": 1,
+          "economictheories.org": 2,
+          "uregina.ca": 1,
+          "mutualist.org": 1,
+          "dwardmac.pitzer.edu": 1,
+          "nestormakhno.info": 1,
+          "anu.edu.au": 1,
+          "cepa.newschool.edu": 1,
+          "marxisthistory.org": 1,
+          "pbs.org": 2,
+          "gmu.edu": 1,
+          "soviethistory.org": 1,
+          "spunk.org": 2,
+          "socialistinternational.org": 2,
+          "yourarchives.nationalarchives.gov.uk": 1,
+          "uksteel.org.uk": 1,
+          "sund.ac.uk": 1,
+          "labour.org.uk": 1,
+          "timesonline.co.uk": 1,
+          "heraldscotland.com": 1,
+          "time.com": 1,
+          "cogsciandtheworld.blogspot.com": 1,
+          "guardian.co.uk": 1,
+          "books.google.co.uk": 1,
+          "naomiklein.org": 1,
+          "cpnm.org": 1,
+          "countryrisk.com": 1,
+          "telegraph.co.uk": 1,
+          "wsws.org": 2,
+          "greenleft.org.au": 1,
+          "elpasotimes.com": 1,
+          "ekloges.ypes.gr": 2,
+          "dailyrecord.co.uk": 1,
+          "rmt.org.uk": 1,
+          "socialismtoday.org": 1,
+          "lepoint.fr": 1,
+          "venezuelanalysis.com": 1,
+          "voanews.com": 1,
+          "commondreams.org": 1,
+          "rasmussenreports.com": 2,
+          "mises.org": 5,
+          "sangam.org": 1,
+          "importanceofphilosophy.com": 1,
+          "selvesandothers.org": 1,
+          "haymarketbooks.org": 1,
+          "jesushuertadesoto.com": 1,
+          "gavinkitching.com": 1,
+          "polis.cam.ac.uk": 1,
+          "westviewpress.com": 1,
+          "newgnosis.co.uk": 1,
+          "libcom.org": 1,
+          "socialism.com": 1,
+          "socialism.org.uk": 1,
+          "spartacus.schoolnet.co.uk": 1,
+          "fordham.edu": 1,
+          "21stcenturysocialism.com": 1,
+          "sussex.ac.uk": 1,
+          "marxist.net": 1,
+          "fff.org": 1,
+          "marxist.com": 1,
+          "wsu.edu": 1
+        }
+      },
+      "added": [],
+      "dropped": [
+        {
+          "domain": "marxists.org",
+          "from": 10,
+          "to": 7
+        }
+      ],
+      "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+      "episode_id": "388146182-388354075",
+      "episode_index": 3,
+      "episode_window": {
+        "start": "2010-01-01",
+        "end": "2011-01-01",
+        "pwr_mass": 8329,
+        "status": "confirmed",
+        "before_revid": 388146182,
+        "before_timestamp": "2010-10-01T18:59:27Z",
+        "after_revid": 388354075,
+        "after_timestamp": "2010-10-02T21:49:02Z",
+        "durable_spine_drop": 0.313225
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Socialism",
+      "pivot": "2003-01-01",
+      "span": "rev 1113767 → rev 1114986  (exact confirmation, 2003-07-03 → 2003-07-05)",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2003-01-01",
+        "end": "2004-01-01",
+        "pwr_mass": 2388,
+        "status": "confirmed",
+        "before_revid": 1113767,
+        "before_timestamp": "2003-07-03T13:20:49Z",
+        "after_revid": 1114986,
+        "after_timestamp": "2003-07-05T01:55:59Z",
+        "durable_spine_drop": 0.985194
+      },
+      "before": {
+        "date": "2003-07-03",
+        "rev": 1113767,
+        "refs": 0,
+        "n_domains": 0,
+        "cite_mix": {},
+        "domains": {}
+      },
+      "after": {
+        "date": "2003-07-05",
+        "rev": 1114986,
+        "refs": 0,
+        "n_domains": 0,
+        "cite_mix": {},
+        "domains": {}
+      },
+      "added": [],
+      "dropped": [],
+      "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+      "episode_id": "1113767-1114986",
+      "episode_index": 4,
+      "episode_window": {
+        "start": "2003-01-01",
+        "end": "2004-01-01",
+        "pwr_mass": 2388,
+        "status": "confirmed",
+        "before_revid": 1113767,
+        "before_timestamp": "2003-07-03T13:20:49Z",
+        "after_revid": 1114986,
+        "after_timestamp": "2003-07-05T01:55:59Z",
+        "durable_spine_drop": 0.985194
+      },
+      "analysis_status": "available"
+    }
+  ]
+}

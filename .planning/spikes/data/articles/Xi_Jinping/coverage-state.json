@@ -1,11 +1,26 @@
 {
   "article": "Xi Jinping",
-  "updated_ts": "2026-08-04T16:01:20.850614+00:00",
+  "updated_ts": "2026-08-04T22:31:13.148363+00:00",
   "completed_stages": [
     "analyze",
     "pipeline",
     "backfill-attribution",
     "crosslingual",
     "sources"
-  ]
+  ],
+  "completed_stage_commands": {
+    "analyze": [
+      "analyze",
+      "Xi Jinping"
+    ],
+    "pipeline": [
+      "pipeline",
+      "Xi Jinping",
+      "--llm",
+      "--mscore",
+      "--facts",
+      "--max-langs",
+      "6"
+    ]
+  }
 }

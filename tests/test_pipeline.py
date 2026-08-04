@@ -26,7 +26,7 @@ class Orchestration(unittest.TestCase):
         r = self._run("Photosynthesis")
         self.assertEqual(set(r), {
             "article", "l1", "l1_state", "leads", "l2_adjudicated", "l2", "trajectory",
-            "mscore", "lexical", "l5", "process_context",
+            "mscore", "lexical", "sources", "l5", "facts", "process_context",
         })
 
 

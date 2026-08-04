@@ -1,0 +1,609 @@
+{
+  "article": "Socialism",
+  "category": "general",
+  "mode": "pivot_relative",
+  "pivot_window": {
+    "start": "2024-01-01",
+    "end": "2025-01-01",
+    "pwr_mass": 213137,
+    "status": "confirmed",
+    "before_revid": 1231127385,
+    "before_timestamp": "2024-06-26T16:32:06Z",
+    "after_revid": 1231548542,
+    "after_timestamp": "2024-06-28T22:23:33Z",
+    "durable_spine_drop": 0.372196
+  },
+  "editions_compared": [
+    "en",
+    "fr",
+    "pt"
+  ],
+  "lead_chars": {
+    "en": 3000,
+    "fr": 3000,
+    "pt": 3000
+  },
+  "snapshots": {
+    "before": {
+      "en": {
+        "revid": 1231127385,
+        "timestamp": "2024-06-26T16:32:06Z",
+        "title": "Socialism",
+        "lead": "Socialism is an economic and political philosophy encompassing diverse economic and social systems: \"Socialism may be defined as movements for social ownership and control of the economy. It is this idea that is the common element found in the many forms of socialism.\" characterised by social ownership of the means of production, : \"Socialism may be defined as movements for social ownership and control of the economy. It is this idea that is the common element found in the many forms of socialism.\"\n : \"What else does a socialist economic system involve? Those who favor socialism generally speak of social ownership, social control, or socialization of the means of production as the distinctive positive feature of a socialist economic system.\"\n : \"Just as private ownership defines capitalism, social ownership defines socialism. The essential characteristic of socialism in theory is that it destroys social hierarchies, and therefore leads to a politically and economically egalitarian society. Two closely related consequences follow. First, every individual is entitled to an equal ownership share that earns an aliquot part of the total social dividend... Second, in order to eliminate social hierarchy in the workplace, enterprises are run by those employed, and not by the representatives of private or state capital. Thus, the well-known historical tendency of the divorce between ownership and management is brought to an end. The society—i.e. every individual equally—owns capital and those who work are entitled to manage their own economic affairs.\"\n : \"Socialism is an economic system characterised by state or collective ownership of the means of production, land, and capital.\";\n : \"Socialist systems are those regimes based on the economic and political theory of socialism, which advocates public ownership and cooperative management of the means of production and allocation of resources.\"\n : \"Pure socialism is defined as a system wherein all of the means of production are owned and run by the government and/or cooperative, nonprofit groups.\"\n : \"This alteration in the relationship between economy and politics is evident in the very definition of a socialist economic system. The basic characteristic of such a system is generally reckoned to be the predominance of the social ownership of the means of production.\"\n  as opposed to private ownership. It describes the economic, political, and social theories and movements associated with the implementation of such systems. Social ownership can take various forms, including public, community, collective, cooperative,: \"Socialist systems are those regimes based on the economic and political theory of socialism, which advocates public ownership and cooperative management of the means of production and allocation of resources.\" or employee.: \"Just as private ownership defines capitalism, social ownership defines socialism. The essential characteristic of socialism in theory is that it destroys social hierarchies"
+      },
+      "fr": {
+        "revid": 216079458,
+        "timestamp": "2024-06-19T16:08:32Z",
+        "title": "Socialisme",
+        "lead": "alt=Drapeau rouge du socialisme|vignette|redresse|Le drapeau rouge est le principal symbole du socialisme et du communisme à leur commencement.\n\nLe concept de socialisme recouvre un ensemble très divers de courants de pensée et de mouvements politiquesGuy Hermet, Bertrand Badie, Pierre Birnbaum, Philippe Braud, Dictionnaire de la science politique et des institutions politiques, Armand Colin, 2010, page 283., dont le point commun est de rechercher une organisation sociale et économique plus juste. Le but originel du socialisme est d'obtenir l'égalité sociale, ou du moins une réduction des inégalités. et, notamment pour les courants d'inspirations marxiste et anarchiste, d'établir une société sans classes sociales. Plus largement, le socialisme peut être défini comme une tendance politique, historiquement marquée à gauche, dont le principe de base est l'aspiration à un monde meilleur, fondé sur une organisation sociale harmonieuse et sur la lutte contre les injustices. Selon les contextes, le mot socialisme ou l'adjectif socialiste peuvent qualifier une idéologie, un parti politique, un régime politique ou une organisation sociale. La notion de socialisme s'exprime également par une forme spécifique de morale sociale laïque et non-religieuse véhiculant des valeurs morales individuelles et collectives.\n\nLe terme socialisme entre dans le langage courant à partir des années 1820, dans le contexte de la révolution industrielle et de l'urbanisation qui l'accompagne : il désigne alors un ensemble de revendications et d'idées visant à améliorer le sort des ouvriers, et plus largement de la population, via le remplacement du capitalisme par une société plus juste. L'idée socialiste, sous de multiples formes, se développe au long du  et donne naissance dans le monde entier à des partis politiques s'en réclamant sous diverses dénominations (socialiste, mais également social-démocrate, )..\n\nAu tournant du , le marxisme supplante progressivement l'anarchisme puis l'approche dite du  : le courant de pensée marxiste se veut porteur d'une forme  de socialisme, fondé sur une analyse du capitalisme, du dépassement de celui-ci par le biais de la lutte des classes et du passage à la propriété sociale des moyens de production.. Dans les dernières années du siècle, une partie du socialisme européen s'oriente cependant dans les faits vers le réformisme. À la fin de la Première Guerre mondiale, la famille politique socialiste connaît un schisme avec la naissance du courant communiste, qui continue de se réclamer du socialisme en affirmant le ramener à la tradition révolutionnaire. Les partis socialistes connaissent dans le monde entier des scissions au cours des années 1920 ; ils se trouvent dès lors en compétition avec des partis communistes qui se réclament du  (ou Enzo Traverso (dir), Le totalitarisme : le  en débat, Seuil, 2001, page 661.) appliqué par l'Union des républiques socialistes soviétiques (URSS), cette dernière s’étant auto-proclamée .Stéphane Courtois, D"
+      },
+      "pt": {
+        "revid": 67687758,
+        "timestamp": "2024-03-26T17:56:06Z",
+        "title": "Socialismo",
+        "lead": "Socialismo é uma filosofia política, social e econômica que abrange uma gama de sistemas econômicos e sociais caracterizados pela propriedade social dos meios de produção.Arnold, N. Scott (1998). The Philosophy and Economics of Market Socialism: A Critical Study. Oxford University Press. p. 8. \"What else does a socialist economic system involve? Those who favor socialism generally speak of social ownership, social control, or socialization of the means of production as the distinctive positive feature of a socialist economic system.\" Inclui as teorias políticas e movimentos associados a tais sistemas.\"Socialism\". The Free Dictionary. \"2. (Government, Politics & Diplomacy) any of various social or political theories or movements in which the common welfare is to be achieved through the establishment of a socialist economic system\". Acessado em 27 de janeiro de 2020. A propriedade social pode ser pública, coletiva, cooperativa ou patrimonial. Embora nenhuma definição única englobe os muitos tipos de socialismo, a propriedade social é o elemento comum. Os tipos de socialismo variam com base no papel dos mercados e do planejamento na alocação de recursos e na estrutura de gestão das organizações. Os socialistas discordam sobre se o governo, particularmente o governo existente, é o veículo correto para a mudança.Docherty, James C.; Lamb, Peter, eds. (2006). Historical Dictionary of Socialism (2nd ed.). Historical Dictionaries of Religions, Philosophies, and Movements. 73. Lanham, Maryland: Scarecrow Press. pp. 1–3. .\n\nOs sistemas socialistas são divididos em formas não mercantis e de mercado. O socialismo não mercantil substitui os mercados de fatores e o dinheiro por planejamento econômico integrado e critérios técnicos ou de engenharia baseados em cálculos realizados em espécie, produzindo assim um mecanismo econômico diferente que funciona de acordo com leis e dinâmicas econômicas diferentes daquelas do capitalismo.Is Socialism Dead? A Comment on Market Socialism and Basic Income Capitalism, by Arneson, Richard J. 1992. Ethics, vol. 102, no. 3, pp. 485–511. abril de 1992: \"Marxian socialism is often identified with the call to organize economic activity on a nonmarket basis.\"Schweickart, David; Lawler, James; Ticktin, Hillel; Ollman, Bertell (1998). Market Socialism: The Debate Among Socialists. \"The Difference Between Marxism and Market Socialism\". pp. 61–63. Um sistema socialista não mercantil elimina as ineficiências e crises tradicionalmente associadas à acumulação de capital e ao sistema de lucro no capitalismo.The Economics of Feasible Socialism Revisited, by Nove, Alexander. 1991. p. 13: \"Under socialism, by definition, it (private property and factor markets) would be eliminated. There would then be something like 'scientific management', 'the science of socially organized production', but it would not be economics.\"Weisskopf, Thomas E. (1992). \"Toward a Socialism for the Future, in the Wake of the Demise of the Socialism of the Past\". Revi"
+      }
+    },
+    "after": {
+      "en": {
+        "revid": 1231548542,
+        "timestamp": "2024-06-28T22:23:33Z",
+        "title": "Socialism",
+        "lead": "Socialism is an economic and political philosophy encompassing diverse economic and social systems: \"Socialism may be defined as movements for social ownership and control of the economy. It is this idea that is the common element found in the many forms of socialism.\" characterised by social ownership of the means of production, : \"Socialism may be defined as movements for social ownership and control of the economy. It is this idea that is the common element found in the many forms of socialism.\"\n : \"What else does a socialist economic system involve? Those who favor socialism generally speak of social ownership, social control, or socialization of the means of production as the distinctive positive feature of a socialist economic system.\"\n : \"Just as private ownership defines capitalism, social ownership defines socialism. The essential characteristic of socialism in theory is that it destroys social hierarchies, and therefore leads to a politically and economically egalitarian society. Two closely related consequences follow. First, every individual is entitled to an equal ownership share that earns an aliquot part of the total social dividend... Second, in order to eliminate social hierarchy in the workplace, enterprises are run by those employed, and not by the representatives of private or state capital. Thus, the well-known historical tendency of the divorce between ownership and management is brought to an end. The society—i.e. every individual equally—owns capital and those who work are entitled to manage their own economic affairs.\"\n : \"Socialism is an economic system characterised by state or collective ownership of the means of production, land, and capital.\";\n : \"Socialist systems are those regimes based on the economic and political theory of socialism, which advocates public ownership and cooperative management of the means of production and allocation of resources.\"\n : \"Pure socialism is defined as a system wherein all of the means of production are owned and run by the government and/or cooperative, nonprofit groups.\"\n : \"This alteration in the relationship between economy and politics is evident in the very definition of a socialist economic system. The basic characteristic of such a system is generally reckoned to be the predominance of the social ownership of the means of production.\"\n  as opposed to private ownership. It describes the economic, political, and social theories and movements associated with the implementation of such systems. Social ownership can take various forms, including public, community, collective, cooperative,: \"Socialist systems are those regimes based on the economic and political theory of socialism, which advocates public ownership and cooperative management of the means of production and allocation of resources.\" or employee.: \"Just as private ownership defines capitalism, social ownership defines socialism. The essential characteristic of socialism in theory is that it destroys social hierarchies"
+      },
+      "fr": {
+        "revid": 217470424,
+        "timestamp": "2024-08-07T17:51:45Z",
+        "title": "Socialisme",
+        "lead": "alt=Drapeau rouge du socialisme|vignette|redresse|Le drapeau rouge est le principal symbole du socialisme et du communisme à leur commencement.\n\nLe concept de socialisme recouvre un ensemble très divers de courants de pensée et de mouvements politiquesGuy Hermet, Bertrand Badie, Pierre Birnbaum, Philippe Braud, Dictionnaire de la science politique et des institutions politiques, Armand Colin, 2010, page 283., dont le point commun est de rechercher une organisation sociale et économique plus juste. Le but originel du socialisme est d'obtenir l'égalité sociale, ou du moins une réduction des inégalités. et, notamment pour les courants d'inspirations marxiste et anarchiste, d'établir une société sans classes sociales. Plus largement, le socialisme peut être défini comme une tendance politique, historiquement marquée à gauche, dont le principe de base est l'aspiration à un monde meilleur, fondé sur une organisation sociale harmonieuse et sur la lutte contre les injustices. Selon les contextes, le mot socialisme ou l'adjectif socialiste peuvent qualifier une idéologie, un parti politique, un régime politique ou une organisation sociale. La notion de socialisme s'exprime également par une forme spécifique de morale sociale laïque et non-religieuse véhiculant des valeurs morales individuelles et collectives.\n\nLe terme socialisme entre dans le langage courant à partir des années 1820, dans le contexte de la révolution industrielle et de l'urbanisation qui l'accompagne : il désigne alors un ensemble de revendications et d'idées visant à améliorer le sort des ouvriers, et plus largement de la population, via le remplacement du capitalisme par une société plus juste. L'idée socialiste, sous de multiples formes, se développe au long du  et donne naissance dans le monde entier à des partis politiques s'en réclamant sous diverses dénominations (socialiste, mais également social-démocrate, )..\n\nAu tournant du , le marxisme supplante progressivement l'anarchisme puis l'approche dite du  : le courant de pensée marxiste se veut porteur d'une forme  de socialisme, fondé sur une analyse du capitalisme, du dépassement de celui-ci par le biais de la lutte des classes et du passage à la propriété sociale des moyens de production.. Dans les dernières années du siècle, une partie du socialisme européen s'oriente cependant dans les faits vers le réformisme. À la fin de la Première Guerre mondiale, la famille politique socialiste connaît un schisme avec la naissance du courant communiste, qui continue de se réclamer du socialisme en affirmant le ramener à la tradition révolutionnaire. Les partis socialistes connaissent dans le monde entier des scissions au cours des années 1920 ; ils se trouvent dès lors en compétition avec des partis communistes qui se réclament du  (ou Enzo Traverso (dir), Le totalitarisme : le  en débat, Seuil, 2001, page 661.) appliqué par l'Union des républiques socialistes soviétiques (URSS), cette dernière s’étant auto-proclamée .Stéphane Courtois, D"
+      },
+      "pt": {
+        "revid": 68211042,
+        "timestamp": "2024-07-01T13:05:26Z",
+        "title": "Socialismo",
+        "lead": "Socialismo é uma filosofia política, social e econômica que abrange uma gama de sistemas econômicos e sociais caracterizados pela propriedade social dos meios de produção.Arnold, N. Scott (1998). The Philosophy and Economics of Market Socialism: A Critical Study. Oxford University Press. p. 8. \"What else does a socialist economic system involve? Those who favor socialism generally speak of social ownership, social control, or socialization of the means of production as the distinctive positive feature of a socialist economic system.\" Inclui as teorias políticas e movimentos associados a tais sistemas.\"Socialism\". The Free Dictionary. \"2. (Government, Politics & Diplomacy) any of various social or political theories or movements in which the common welfare is to be achieved through the establishment of a socialist economic system\". Acessado em 27 de janeiro de 2020. A propriedade social pode ser pública, coletiva, cooperativa ou patrimonial. Embora nenhuma definição única englobe os muitos tipos de socialismo, a propriedade social é o elemento comum. Os tipos de socialismo variam com base no papel dos mercados e do planejamento na alocação de recursos e na estrutura de gestão das organizações. Os socialistas discordam sobre se o governo, particularmente o governo existente, é o veículo correto para a mudança.Docherty, James C.; Lamb, Peter, eds. (2006). Historical Dictionary of Socialism (2nd ed.). Historical Dictionaries of Religions, Philosophies, and Movements. 73. Lanham, Maryland: Scarecrow Press. pp. 1–3. .\n\nOs sistemas socialistas são divididos em formas não mercantis e de mercado. O socialismo não mercantil substitui os mercados de fatores e o dinheiro por planejamento econômico integrado e critérios técnicos ou de engenharia baseados em cálculos realizados em espécie, produzindo assim um mecanismo econômico diferente que funciona de acordo com leis e dinâmicas econômicas diferentes daquelas do capitalismo.Is Socialism Dead? A Comment on Market Socialism and Basic Income Capitalism, by Arneson, Richard J. 1992. Ethics, vol. 102, no. 3, pp. 485–511. abril de 1992: \"Marxian socialism is often identified with the call to organize economic activity on a nonmarket basis.\"Schweickart, David; Lawler, James; Ticktin, Hillel; Ollman, Bertell (1998). Market Socialism: The Debate Among Socialists. \"The Difference Between Marxism and Market Socialism\". pp. 61–63. Um sistema socialista não mercantil elimina as ineficiências e crises tradicionalmente associadas à acumulação de capital e ao sistema de lucro no capitalismo.The Economics of Feasible Socialism Revisited, by Nove, Alexander. 1991. p. 13: \"Under socialism, by definition, it (private property and factor markets) would be eliminated. There would then be something like 'scientific management', 'the science of socially organized production', but it would not be economics.\"Weisskopf, Thomas E. (1992). \"Toward a Socialism for the Future, in the Wake of the Demise of the Socialism of the Past\". Revi"
+      }
+    }
+  },
+  "divergences": [],
+  "summary": "The English, French, and Portuguese lead sections show no substantive textual changes between the BEFORE and AFTER revisions within the given window; all four snippets are essentially identical to their prior versions. No genuine temporal or cross-edition divergence is supported by direct quotations.",
+  "run_ts": "2026-08-04T22:42:19.961986+00:00",
+  "model": "claude-sonnet-5",
+  "llm_usage": {
+    "calls": 2,
+    "input_tokens": 8303,
+    "output_tokens": 169,
+    "estimated_usd": null,
+    "all_calls_priced": false,
+    "records": [
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 434,
+        "output_tokens": 66,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      },
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "input_tokens": 7869,
+        "output_tokens": 103,
+        "estimated_usd": null,
+        "pricing_key": null,
+        "pricing_usd_per_million": null
+      }
+    ]
+  },
+  "elapsed_seconds": 66.684,
+  "schema_version": 1,
+  "analysis_scope": "confirmed_episodes",
+  "episode_count": 4,
+  "episodes": [
+    {
+      "article": "Socialism",
+      "category": "general",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2024-01-01",
+        "end": "2025-01-01",
+        "pwr_mass": 213137,
+        "status": "confirmed",
+        "before_revid": 1231127385,
+        "before_timestamp": "2024-06-26T16:32:06Z",
+        "after_revid": 1231548542,
+        "after_timestamp": "2024-06-28T22:23:33Z",
+        "durable_spine_drop": 0.372196
+      },
+      "editions_compared": [
+        "en",
+        "fr",
+        "pt"
+      ],
+      "lead_chars": {
+        "en": 3000,
+        "fr": 3000,
+        "pt": 3000
+      },
+      "snapshots": {
+        "before": {
+          "en": {
+            "revid": 1231127385,
+            "timestamp": "2024-06-26T16:32:06Z",
+            "title": "Socialism",
+            "lead": "Socialism is an economic and political philosophy encompassing diverse economic and social systems: \"Socialism may be defined as movements for social ownership and control of the economy. It is this idea that is the common element found in the many forms of socialism.\" characterised by social ownership of the means of production, : \"Socialism may be defined as movements for social ownership and control of the economy. It is this idea that is the common element found in the many forms of socialism.\"\n : \"What else does a socialist economic system involve? Those who favor socialism generally speak of social ownership, social control, or socialization of the means of production as the distinctive positive feature of a socialist economic system.\"\n : \"Just as private ownership defines capitalism, social ownership defines socialism. The essential characteristic of socialism in theory is that it destroys social hierarchies, and therefore leads to a politically and economically egalitarian society. Two closely related consequences follow. First, every individual is entitled to an equal ownership share that earns an aliquot part of the total social dividend... Second, in order to eliminate social hierarchy in the workplace, enterprises are run by those employed, and not by the representatives of private or state capital. Thus, the well-known historical tendency of the divorce between ownership and management is brought to an end. The society—i.e. every individual equally—owns capital and those who work are entitled to manage their own economic affairs.\"\n : \"Socialism is an economic system characterised by state or collective ownership of the means of production, land, and capital.\";\n : \"Socialist systems are those regimes based on the economic and political theory of socialism, which advocates public ownership and cooperative management of the means of production and allocation of resources.\"\n : \"Pure socialism is defined as a system wherein all of the means of production are owned and run by the government and/or cooperative, nonprofit groups.\"\n : \"This alteration in the relationship between economy and politics is evident in the very definition of a socialist economic system. The basic characteristic of such a system is generally reckoned to be the predominance of the social ownership of the means of production.\"\n  as opposed to private ownership. It describes the economic, political, and social theories and movements associated with the implementation of such systems. Social ownership can take various forms, including public, community, collective, cooperative,: \"Socialist systems are those regimes based on the economic and political theory of socialism, which advocates public ownership and cooperative management of the means of production and allocation of resources.\" or employee.: \"Just as private ownership defines capitalism, social ownership defines socialism. The essential characteristic of socialism in theory is that it destroys social hierarchies"
+          },
+          "fr": {
+            "revid": 216079458,
+            "timestamp": "2024-06-19T16:08:32Z",
+            "title": "Socialisme",
+            "lead": "alt=Drapeau rouge du socialisme|vignette|redresse|Le drapeau rouge est le principal symbole du socialisme et du communisme à leur commencement.\n\nLe concept de socialisme recouvre un ensemble très divers de courants de pensée et de mouvements politiquesGuy Hermet, Bertrand Badie, Pierre Birnbaum, Philippe Braud, Dictionnaire de la science politique et des institutions politiques, Armand Colin, 2010, page 283., dont le point commun est de rechercher une organisation sociale et économique plus juste. Le but originel du socialisme est d'obtenir l'égalité sociale, ou du moins une réduction des inégalités. et, notamment pour les courants d'inspirations marxiste et anarchiste, d'établir une société sans classes sociales. Plus largement, le socialisme peut être défini comme une tendance politique, historiquement marquée à gauche, dont le principe de base est l'aspiration à un monde meilleur, fondé sur une organisation sociale harmonieuse et sur la lutte contre les injustices. Selon les contextes, le mot socialisme ou l'adjectif socialiste peuvent qualifier une idéologie, un parti politique, un régime politique ou une organisation sociale. La notion de socialisme s'exprime également par une forme spécifique de morale sociale laïque et non-religieuse véhiculant des valeurs morales individuelles et collectives.\n\nLe terme socialisme entre dans le langage courant à partir des années 1820, dans le contexte de la révolution industrielle et de l'urbanisation qui l'accompagne : il désigne alors un ensemble de revendications et d'idées visant à améliorer le sort des ouvriers, et plus largement de la population, via le remplacement du capitalisme par une société plus juste. L'idée socialiste, sous de multiples formes, se développe au long du  et donne naissance dans le monde entier à des partis politiques s'en réclamant sous diverses dénominations (socialiste, mais également social-démocrate, )..\n\nAu tournant du , le marxisme supplante progressivement l'anarchisme puis l'approche dite du  : le courant de pensée marxiste se veut porteur d'une forme  de socialisme, fondé sur une analyse du capitalisme, du dépassement de celui-ci par le biais de la lutte des classes et du passage à la propriété sociale des moyens de production.. Dans les dernières années du siècle, une partie du socialisme européen s'oriente cependant dans les faits vers le réformisme. À la fin de la Première Guerre mondiale, la famille politique socialiste connaît un schisme avec la naissance du courant communiste, qui continue de se réclamer du socialisme en affirmant le ramener à la tradition révolutionnaire. Les partis socialistes connaissent dans le monde entier des scissions au cours des années 1920 ; ils se trouvent dès lors en compétition avec des partis communistes qui se réclament du  (ou Enzo Traverso (dir), Le totalitarisme : le  en débat, Seuil, 2001, page 661.) appliqué par l'Union des républiques socialistes soviétiques (URSS), cette dernière s’étant auto-proclamée .Stéphane Courtois, D"
+          },
+          "pt": {
+            "revid": 67687758,
+            "timestamp": "2024-03-26T17:56:06Z",
+            "title": "Socialismo",
+            "lead": "Socialismo é uma filosofia política, social e econômica que abrange uma gama de sistemas econômicos e sociais caracterizados pela propriedade social dos meios de produção.Arnold, N. Scott (1998). The Philosophy and Economics of Market Socialism: A Critical Study. Oxford University Press. p. 8. \"What else does a socialist economic system involve? Those who favor socialism generally speak of social ownership, social control, or socialization of the means of production as the distinctive positive feature of a socialist economic system.\" Inclui as teorias políticas e movimentos associados a tais sistemas.\"Socialism\". The Free Dictionary. \"2. (Government, Politics & Diplomacy) any of various social or political theories or movements in which the common welfare is to be achieved through the establishment of a socialist economic system\". Acessado em 27 de janeiro de 2020. A propriedade social pode ser pública, coletiva, cooperativa ou patrimonial. Embora nenhuma definição única englobe os muitos tipos de socialismo, a propriedade social é o elemento comum. Os tipos de socialismo variam com base no papel dos mercados e do planejamento na alocação de recursos e na estrutura de gestão das organizações. Os socialistas discordam sobre se o governo, particularmente o governo existente, é o veículo correto para a mudança.Docherty, James C.; Lamb, Peter, eds. (2006). Historical Dictionary of Socialism (2nd ed.). Historical Dictionaries of Religions, Philosophies, and Movements. 73. Lanham, Maryland: Scarecrow Press. pp. 1–3. .\n\nOs sistemas socialistas são divididos em formas não mercantis e de mercado. O socialismo não mercantil substitui os mercados de fatores e o dinheiro por planejamento econômico integrado e critérios técnicos ou de engenharia baseados em cálculos realizados em espécie, produzindo assim um mecanismo econômico diferente que funciona de acordo com leis e dinâmicas econômicas diferentes daquelas do capitalismo.Is Socialism Dead? A Comment on Market Socialism and Basic Income Capitalism, by Arneson, Richard J. 1992. Ethics, vol. 102, no. 3, pp. 485–511. abril de 1992: \"Marxian socialism is often identified with the call to organize economic activity on a nonmarket basis.\"Schweickart, David; Lawler, James; Ticktin, Hillel; Ollman, Bertell (1998). Market Socialism: The Debate Among Socialists. \"The Difference Between Marxism and Market Socialism\". pp. 61–63. Um sistema socialista não mercantil elimina as ineficiências e crises tradicionalmente associadas à acumulação de capital e ao sistema de lucro no capitalismo.The Economics of Feasible Socialism Revisited, by Nove, Alexander. 1991. p. 13: \"Under socialism, by definition, it (private property and factor markets) would be eliminated. There would then be something like 'scientific management', 'the science of socially organized production', but it would not be economics.\"Weisskopf, Thomas E. (1992). \"Toward a Socialism for the Future, in the Wake of the Demise of the Socialism of the Past\". Revi"
+          }
+        },
+        "after": {
+          "en": {
+            "revid": 1231548542,
+            "timestamp": "2024-06-28T22:23:33Z",
+            "title": "Socialism",
+            "lead": "Socialism is an economic and political philosophy encompassing diverse economic and social systems: \"Socialism may be defined as movements for social ownership and control of the economy. It is this idea that is the common element found in the many forms of socialism.\" characterised by social ownership of the means of production, : \"Socialism may be defined as movements for social ownership and control of the economy. It is this idea that is the common element found in the many forms of socialism.\"\n : \"What else does a socialist economic system involve? Those who favor socialism generally speak of social ownership, social control, or socialization of the means of production as the distinctive positive feature of a socialist economic system.\"\n : \"Just as private ownership defines capitalism, social ownership defines socialism. The essential characteristic of socialism in theory is that it destroys social hierarchies, and therefore leads to a politically and economically egalitarian society. Two closely related consequences follow. First, every individual is entitled to an equal ownership share that earns an aliquot part of the total social dividend... Second, in order to eliminate social hierarchy in the workplace, enterprises are run by those employed, and not by the representatives of private or state capital. Thus, the well-known historical tendency of the divorce between ownership and management is brought to an end. The society—i.e. every individual equally—owns capital and those who work are entitled to manage their own economic affairs.\"\n : \"Socialism is an economic system characterised by state or collective ownership of the means of production, land, and capital.\";\n : \"Socialist systems are those regimes based on the economic and political theory of socialism, which advocates public ownership and cooperative management of the means of production and allocation of resources.\"\n : \"Pure socialism is defined as a system wherein all of the means of production are owned and run by the government and/or cooperative, nonprofit groups.\"\n : \"This alteration in the relationship between economy and politics is evident in the very definition of a socialist economic system. The basic characteristic of such a system is generally reckoned to be the predominance of the social ownership of the means of production.\"\n  as opposed to private ownership. It describes the economic, political, and social theories and movements associated with the implementation of such systems. Social ownership can take various forms, including public, community, collective, cooperative,: \"Socialist systems are those regimes based on the economic and political theory of socialism, which advocates public ownership and cooperative management of the means of production and allocation of resources.\" or employee.: \"Just as private ownership defines capitalism, social ownership defines socialism. The essential characteristic of socialism in theory is that it destroys social hierarchies"
+          },
+          "fr": {
+            "revid": 217470424,
+            "timestamp": "2024-08-07T17:51:45Z",
+            "title": "Socialisme",
+            "lead": "alt=Drapeau rouge du socialisme|vignette|redresse|Le drapeau rouge est le principal symbole du socialisme et du communisme à leur commencement.\n\nLe concept de socialisme recouvre un ensemble très divers de courants de pensée et de mouvements politiquesGuy Hermet, Bertrand Badie, Pierre Birnbaum, Philippe Braud, Dictionnaire de la science politique et des institutions politiques, Armand Colin, 2010, page 283., dont le point commun est de rechercher une organisation sociale et économique plus juste. Le but originel du socialisme est d'obtenir l'égalité sociale, ou du moins une réduction des inégalités. et, notamment pour les courants d'inspirations marxiste et anarchiste, d'établir une société sans classes sociales. Plus largement, le socialisme peut être défini comme une tendance politique, historiquement marquée à gauche, dont le principe de base est l'aspiration à un monde meilleur, fondé sur une organisation sociale harmonieuse et sur la lutte contre les injustices. Selon les contextes, le mot socialisme ou l'adjectif socialiste peuvent qualifier une idéologie, un parti politique, un régime politique ou une organisation sociale. La notion de socialisme s'exprime également par une forme spécifique de morale sociale laïque et non-religieuse véhiculant des valeurs morales individuelles et collectives.\n\nLe terme socialisme entre dans le langage courant à partir des années 1820, dans le contexte de la révolution industrielle et de l'urbanisation qui l'accompagne : il désigne alors un ensemble de revendications et d'idées visant à améliorer le sort des ouvriers, et plus largement de la population, via le remplacement du capitalisme par une société plus juste. L'idée socialiste, sous de multiples formes, se développe au long du  et donne naissance dans le monde entier à des partis politiques s'en réclamant sous diverses dénominations (socialiste, mais également social-démocrate, )..\n\nAu tournant du , le marxisme supplante progressivement l'anarchisme puis l'approche dite du  : le courant de pensée marxiste se veut porteur d'une forme  de socialisme, fondé sur une analyse du capitalisme, du dépassement de celui-ci par le biais de la lutte des classes et du passage à la propriété sociale des moyens de production.. Dans les dernières années du siècle, une partie du socialisme européen s'oriente cependant dans les faits vers le réformisme. À la fin de la Première Guerre mondiale, la famille politique socialiste connaît un schisme avec la naissance du courant communiste, qui continue de se réclamer du socialisme en affirmant le ramener à la tradition révolutionnaire. Les partis socialistes connaissent dans le monde entier des scissions au cours des années 1920 ; ils se trouvent dès lors en compétition avec des partis communistes qui se réclament du  (ou Enzo Traverso (dir), Le totalitarisme : le  en débat, Seuil, 2001, page 661.) appliqué par l'Union des républiques socialistes soviétiques (URSS), cette dernière s’étant auto-proclamée .Stéphane Courtois, D"
+          },
+          "pt": {
+            "revid": 68211042,
+            "timestamp": "2024-07-01T13:05:26Z",
+            "title": "Socialismo",
+            "lead": "Socialismo é uma filosofia política, social e econômica que abrange uma gama de sistemas econômicos e sociais caracterizados pela propriedade social dos meios de produção.Arnold, N. Scott (1998). The Philosophy and Economics of Market Socialism: A Critical Study. Oxford University Press. p. 8. \"What else does a socialist economic system involve? Those who favor socialism generally speak of social ownership, social control, or socialization of the means of production as the distinctive positive feature of a socialist economic system.\" Inclui as teorias políticas e movimentos associados a tais sistemas.\"Socialism\". The Free Dictionary. \"2. (Government, Politics & Diplomacy) any of various social or political theories or movements in which the common welfare is to be achieved through the establishment of a socialist economic system\". Acessado em 27 de janeiro de 2020. A propriedade social pode ser pública, coletiva, cooperativa ou patrimonial. Embora nenhuma definição única englobe os muitos tipos de socialismo, a propriedade social é o elemento comum. Os tipos de socialismo variam com base no papel dos mercados e do planejamento na alocação de recursos e na estrutura de gestão das organizações. Os socialistas discordam sobre se o governo, particularmente o governo existente, é o veículo correto para a mudança.Docherty, James C.; Lamb, Peter, eds. (2006). Historical Dictionary of Socialism (2nd ed.). Historical Dictionaries of Religions, Philosophies, and Movements. 73. Lanham, Maryland: Scarecrow Press. pp. 1–3. .\n\nOs sistemas socialistas são divididos em formas não mercantis e de mercado. O socialismo não mercantil substitui os mercados de fatores e o dinheiro por planejamento econômico integrado e critérios técnicos ou de engenharia baseados em cálculos realizados em espécie, produzindo assim um mecanismo econômico diferente que funciona de acordo com leis e dinâmicas econômicas diferentes daquelas do capitalismo.Is Socialism Dead? A Comment on Market Socialism and Basic Income Capitalism, by Arneson, Richard J. 1992. Ethics, vol. 102, no. 3, pp. 485–511. abril de 1992: \"Marxian socialism is often identified with the call to organize economic activity on a nonmarket basis.\"Schweickart, David; Lawler, James; Ticktin, Hillel; Ollman, Bertell (1998). Market Socialism: The Debate Among Socialists. \"The Difference Between Marxism and Market Socialism\". pp. 61–63. Um sistema socialista não mercantil elimina as ineficiências e crises tradicionalmente associadas à acumulação de capital e ao sistema de lucro no capitalismo.The Economics of Feasible Socialism Revisited, by Nove, Alexander. 1991. p. 13: \"Under socialism, by definition, it (private property and factor markets) would be eliminated. There would then be something like 'scientific management', 'the science of socially organized production', but it would not be economics.\"Weisskopf, Thomas E. (1992). \"Toward a Socialism for the Future, in the Wake of the Demise of the Socialism of the Past\". Revi"
+          }
+        }
+      },
+      "divergences": [],
+      "summary": "The English, French, and Portuguese lead sections show no substantive textual changes between the BEFORE and AFTER revisions within the given window; all four snippets are essentially identical to their prior versions. No genuine temporal or cross-edition divergence is supported by direct quotations.",
+      "run_ts": "2026-08-04T22:42:19.961986+00:00",
+      "model": "claude-sonnet-5",
+      "llm_usage": {
+        "calls": 2,
+        "input_tokens": 8303,
+        "output_tokens": 169,
+        "estimated_usd": null,
+        "all_calls_priced": false,
+        "records": [
+          {
+            "provider": "anthropic",
+            "model": "claude-sonnet-5",
+            "input_tokens": 434,
+            "output_tokens": 66,
+            "estimated_usd": null,
+            "pricing_key": null,
+            "pricing_usd_per_million": null
+          },
+          {
+            "provider": "anthropic",
+            "model": "claude-sonnet-5",
+            "input_tokens": 7869,
+            "output_tokens": 103,
+            "estimated_usd": null,
+            "pricing_key": null,
+            "pricing_usd_per_million": null
+          }
+        ]
+      },
+      "elapsed_seconds": 66.684,
+      "episode_id": "1231127385-1231548542",
+      "episode_index": 1,
+      "episode_window": {
+        "start": "2024-01-01",
+        "end": "2025-01-01",
+        "pwr_mass": 213137,
+        "status": "confirmed",
+        "before_revid": 1231127385,
+        "before_timestamp": "2024-06-26T16:32:06Z",
+        "after_revid": 1231548542,
+        "after_timestamp": "2024-06-28T22:23:33Z",
+        "durable_spine_drop": 0.372196
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Socialism",
+      "category": "general",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2005-01-01",
+        "end": "2008-01-01",
+        "pwr_mass": 20844,
+        "status": "confirmed",
+        "before_revid": 54672691,
+        "before_timestamp": "2006-05-23T08:10:15Z",
+        "after_revid": 54876527,
+        "after_timestamp": "2006-05-24T12:03:55Z",
+        "durable_spine_drop": 0.955891
+      },
+      "editions_compared": [
+        "en",
+        "fr",
+        "pt"
+      ],
+      "lead_chars": {
+        "en": 1937,
+        "fr": 1692,
+        "pt": 3000
+      },
+      "snapshots": {
+        "before": {
+          "en": {
+            "revid": 54672691,
+            "timestamp": "2006-05-23T08:10:15Z",
+            "title": "Socialism",
+            "lead": "Socialism is an economic system in which the means of production are owned and controlled collectively or a political philosophy advocating such a system. This control may be either direct, exercised through popular collectives such as workers' councils or community councils, or it may be indirect, exercised on behalf of the people through the State.  A primary concern of socialism (and, according to some, its defining feature) is social equality and an equitable distribution of wealth that would serve the interests of society as a whole.Oxford English Dictionary, Oxford University Press, 4 Apr. 2000 MSN Encarta - Socialism Accessed March 2006  \n\nSocialists hold that capitalism is an illegitimate economic system that serves the interests of the wealthy and exploits the majority of the population. As such, they wish to replace it completely or at least make substantial modifications to it, in order to create a more just society that would reward hard work, guarantee a certain basic standard of living, and extend economic and cultural opportunities to allSaint-Simon, Henri de. Letters from an Inhabitant of Geneva to His Contemporaries, 1803 Marx, Karl Heinrich. Critique of the Gotha Programme, 1875   \n\nSocialist theory is diverse, and there is no single body of thought that is universally shared by all socialists. Rather, different socialist ideologies have arrived at similar conclusions by different paths. However, there are some common themes. One such theme is the idea that humans are inherently social beings who require social interaction and the companionship of others in order to survive and develop both physically and mentallySpirkin, Alexander. Chapter 5 section 2: The Human as the Biosocial from Dialectical Materialism, Progress Publishers, 1983..\n\nHistorically, the ideology of socialism arose with the rise of organized labor, and the socialist political movement has found most of its support among the urban working class and, to a lesser extent, the peasantry. This has led to socialism being strongly associated with the working class and often identifying itself with the interests of workers and the \"common people\". In many parts of the world, the two are still strongly associated with one another; in other parts, they have become two distinct movements. \n\nMarxism is an ideology which has had a powerful influence on socialist thought. For over 50 years, from the Russian Revolution of 1917 to the 1970s, the majority of socialists were Marxists of one kind or another. This has not been the case for several decades, but Marxist ideas - particularly notions of class struggle - are common themes across a broad range of modern socialist groups. Marxism itself continues to be a strong current in the broader socialist movement. Many Marxists, past and present, use the term socialism to refer to the form of society that is supposed to replace capitalism and later develop into communism.\n\nWithin the socialist movement, there are several different i"
+          },
+          "fr": {
+            "revid": 7444395,
+            "timestamp": "2006-05-22T10:21:10Z",
+            "title": "Socialisme",
+            "lead": "Le socialisme est un ensemble de courants, dont les premiers sont apparus au cours du . Ils combattent l'individualisme ; défendent les notions d'égalité, d'égalitarisme et de solidarité. Il s'agit selon ses tenants de procéder à « l'abolition du gouvernement politique des hommes par d'autres hommes » et de « passer à une administration des choses par les hommes eux mêmes ». Le socialisme est ainsi un projet à la fois économique (collectivisme économique, autogestion, économie mixte), social (égalité), et politique (démocratie). \n\nAujourd'hui, le socialisme désigne de manière très vaste et très générale tous ceux qui prônent la rénovation de l'organisation sociale dans une perspective de justice sociale : ce sont aussi bien les marxistes, que les anarchistes et que les sociaux-démocrates. Ces courants sont opposés sur des sujets fondamentaux (pour ou contre l’État, pour le parlementarisme ou la démocratie directe, etc).\n\nDu mot latin socius (associé, compagnon), le mot socius désignait ceux qui vivent ou aiment vivre avec les autres. Il dérive du verbe 'sequi' : 'suivre'. Le socialisme se définit alors comme un système « où l'on met tout en commun ». Saint-Simon l'utilise pour la première fois en 1827. Pierre Leroux emploie le néologisme en mars 1834 dans un texte intitulé De l'individualisme et du socialisme, publié dans La Revue encyclopédique. \n\nLa recherche permanente du collectif, cette emphase sur la solidarité par opposition à l'individualisme, restent des éléments fondamentaux encore aujourd'hui. Pierre Leroux revendique son « invention », qu'il définit aussi comme « la doctrine qui ne sacrifiera aucun des termes de la formule Liberté-Fraternité-Égalité »."
+          },
+          "pt": {
+            "revid": 2124560,
+            "timestamp": "2006-05-21T16:33:45Z",
+            "title": "Socialismo",
+            "lead": "O QUE È SOCIALISMO?\n\nSocialismo é um modo de produção (forma determinada em um dado momento histórico da humanidade de produzir-se a vida, suas variações significam formas diferentes de relação homem-natureza e homem-homem). \n\nAs múltiplas variantes de socialismo partilham uma base comum que é a transformação do sistema econômico, baseado na propriedade privada dos meios de produção, numa nova e diferente ordem social. Para caracterizar uma sociedade socialista, é necessário que estejam presentes os seguintes elementos fundamentais: propriedade social dos meios de produção, o monopólio do comércio exterior e pela planificação econômica. \n\nAs diferentes teorias socialistas surgiram como reação contra esse quadro, com a proposta de buscar uma nova harmonia social por meio de drásticas mudanças, como a transferência dos meios de produção das classes proprietárias para os trabalhadores. Uma conseqüência dessa transformação no longo prazo seria o fim do trabalho assalariado e a substituição do mercado por uma gestão socializada ou planejada, com o objetivo de adequar a produção econômica às necessidades da população, assim chegando ao comunismo. Tais mudanças exigiriam necessariamente uma transformação radical do sistema político. Alguns teóricos postularam a revolução social como único meio de alcançar a nova sociedade. Outros, como os social-democratas, consideraram que as transformações políticas deveriam se realizar de forma progressiva, sem ruptura, e dentro do sistema capitalista.\n\nEntre os críticos do socialismo podemos citar o economista Ludwig von Mises, que define o socialismo como sendo um sistema econômico em que um indivíduo ou grupo de indivíduos de uma sociedade controla todos os outros indivíduos através da coerção e compulsão organizada. Um exemplo de governo totalitário nesses moldes foi a URSS durante o regime de Josef Stalin, cujo governo é acusado de ter provocado a morte de milhares de militantes do próprio socialismo (ver em Stalinismo).\n\nNo aspecto político, o socialismo, tal qual qualquer sistema de classes, tem um Estado para garantir o domínio da classe proprietária sobre as demais (ex.: o feudalismo tinha uma estrutura estatal que garantia o domínio dos senhores feudais; o capitalismo, tem um estrutura estatal que garante o domínio dos capitalistas). O Estado socialista caracteriza-se pelo domínio dos trabalhadores. Mas, como todo Estado, ele tem formas diferentes de relações entre as diversas instituições (ex.: no capitalismo, você tem os regimes democráticos, ditaduras militares, fascismo, etc., garantindo a permanência do caráter desse Estado). Podemos definir basicamente duas formas de regime num Estado socialista: as democracias operárias e os Estados Operários Burocráticos. As democracias operárias caracterizaram-se por um alto controle dos trabalhadores sobre a planificação econômica (controle operário); a criação de mecanismos de controle pela base; a fusão dos poderes executivos e legislativos; a revogabilidade per"
+          }
+        },
+        "after": {
+          "en": {
+            "revid": 54876527,
+            "timestamp": "2006-05-24T12:03:55Z",
+            "title": "Socialism",
+            "lead": "Socialism refers to both a broad array of doctrines and political movements that aspire to put these doctrines into practice. These movements generally envisage a system of social organization in which property and the distribution of income are subject to social control. As an economic system, socialism is usually associated with state or collective ownership of the means of production. This control may be either direct, exercised through popular collectives such as workers' councils, or it may be indirect, exercised on behalf of the people by the state.    \n\nThe modern socialist movement had its origin largely in the working class movement of the late-19th century. In this period, the term \"socialism\" was first used in connection with European social critics who condemned capitalism and private property. For Karl Marx, who helped establish and define the modern socialist movement, socialism implied the abolition of markets, capital, and labor as a commodity.\n\nIt is difficult to make generalizations about the diverse array of doctrines and movements that have been referred to as \"socialist.\" The various adherents of contemporary socialist movements do not agree on a common doctrine or program. As a result, the movement has split into different and sometimes opposing branches, particularly between moderate socialists and communists. Since the 19th century, socialists have differed in their vision of socialism as a system of economic organization. Some socialists have championed the complete nationalization of the means of production to implement their aims. Others have proposed selective nationalization of key industries within the framework of mixed economies. Stalinists insisted on the creation of Soviet-style command economies under strong central state direction. Others advocate \"market socialism\" in which social control of property exist within the framework of market economics and private property."
+          },
+          "fr": {
+            "revid": 7590775,
+            "timestamp": "2006-05-29T15:33:15Z",
+            "title": "Socialisme",
+            "lead": "Le socialisme est un ensemble de courants, dont les premiers sont apparus au cours du . Ils combattent l'individualisme ; défendent les notions d'égalité, d'égalitarisme et de solidarité. Il s'agit selon ses tenants de procéder à « l'abolition du gouvernement politique des hommes par d'autres hommes » et de « passer à une administration des choses par les hommes eux mêmes ». Le socialisme est ainsi un projet à la fois économique (collectivisme économique, autogestion, économie mixte), social (égalité), et politique (démocratie). \n\nAujourd'hui, le socialisme désigne de manière très vaste et très générale tous ceux qui prônent la rénovation de l'organisation sociale dans une perspective de justice sociale : ce sont aussi bien les marxistes, que les anarchistes et que les sociaux-démocrates. Ces courants sont opposés sur des sujets fondamentaux (pour ou contre l’État, pour le parlementarisme ou la démocratie directe, etc).\n\nDu mot latin socius (associé, compagnon), le mot socius désignait ceux qui vivent ou aiment vivre avec les autres. Il dérive du verbe 'sequi' : 'suivre'. Le socialisme se définit alors comme un système « où l'on met tout en commun ». Saint-Simon l'utilise pour la première fois en 1827. Pierre Leroux emploie le néologisme en mars 1834 dans un texte intitulé De l'individualisme et du socialisme, publié dans La Revue encyclopédique. \n\nLa recherche permanente du collectif, cette emphase sur la solidarité par opposition à l'individualisme, restent des éléments fondamentaux encore aujourd'hui. Pierre Leroux revendique son « invention », qu'il définit aussi comme « la doctrine qui ne sacrifiera aucun des termes de la formule Liberté-Fraternité-Égalité »."
+          },
+          "pt": {
+            "revid": 2147491,
+            "timestamp": "2006-05-24T12:25:59Z",
+            "title": "Socialismo",
+            "lead": "Socialismo é um modo de produção (forma determinada em um dado momento histórico da humanidade de produzir-se a vida, suas variações significam formas diferentes de relação homem-natureza e homem-homem). \n\nAs múltiplas variantes de socialismo partilham uma base comum que é a transformação do sistema econômico, baseado na propriedade privada dos meios de produção, numa nova e diferente ordem social. Para caracterizar uma sociedade socialista, é necessário que estejam presentes os seguintes elementos fundamentais: propriedade social dos meios de produção, o monopólio do comércio exterior e pela planificação econômica. \n\nAs diferentes teorias socialistas surgiram como reação contra esse quadro, com a proposta de buscar uma nova harmonia social por meio de drásticas mudanças, como a transferência dos meios de produção das classes proprietárias para os trabalhadores. Uma conseqüência dessa transformação no longo prazo seria o fim do trabalho assalariado e a substituição do mercado por uma gestão socializada ou planejada, com o objetivo de adequar a produção econômica às necessidades da população, assim chegando ao comunismo. Tais mudanças exigiriam necessariamente uma transformação radical do sistema político. Alguns teóricos postularam a revolução social como único meio de alcançar a nova sociedade. Outros, como os social-democratas, consideraram que as transformações políticas deveriam se realizar de forma progressiva, sem ruptura, e dentro do sistema capitalista.\n\nEntre os críticos do socialismo podemos citar o economista Ludwig von Mises, que define o socialismo como sendo um sistema econômico em que um indivíduo ou grupo de indivíduos de uma sociedade controla todos os outros indivíduos através da coerção e compulsão organizada. Um exemplo de governo totalitário nesses moldes foi a URSS durante o regime de Josef Stalin, cujo governo é acusado de ter provocado a morte de milhares de militantes do próprio socialismo (ver em Stalinismo).\n\nNo aspecto político, o socialismo, tal qual qualquer sistema de classes, tem um Estado para garantir o domínio da classe proprietária sobre as demais (ex.: o feudalismo tinha uma estrutura estatal que garantia o domínio dos senhores feudais; o capitalismo, tem um estrutura estatal que garante o domínio dos capitalistas). O Estado socialista caracteriza-se pelo domínio dos trabalhadores. Mas, como todo Estado, ele tem formas diferentes de relações entre as diversas instituições (ex.: no capitalismo, você tem os regimes democráticos, ditaduras militares, fascismo, etc., garantindo a permanência do caráter desse Estado). Podemos definir basicamente duas formas de regime num Estado socialista: as democracias operárias e os Estados Operários Burocráticos. As democracias operárias caracterizaram-se por um alto controle dos trabalhadores sobre a planificação econômica (controle operário); a criação de mecanismos de controle pela base; a fusão dos poderes executivos e legislativos; a revogabilidade permanente dos mandatos,"
+          }
+        }
+      },
+      "divergences": [
+        {
+          "topic": "Definition of socialism (system vs. movement/doctrine)",
+          "editions_differ": [
+            "FR",
+            "PT"
+          ],
+          "en_says": "Socialism refers to both a broad array of doctrines and political movements... As an economic system, socialism is usually associated with state or collective ownership of the means of production.",
+          "other_says": "Le socialisme est un ensemble de courants... Le socialisme est ainsi un projet à la fois économique, social, et politique.",
+          "verdict": "agree",
+          "evidence_en": "Socialism refers to both a broad array of doctrines and political movements that aspire to put these doctrines into practice.",
+          "evidence_other": "Le socialisme est un ensemble de courants, dont les premiers sont apparus au cours du .",
+          "temporal_read": "english_converged",
+          "en_before": "Socialism is an economic system in which the means of production are owned and controlled collectively or a political philosophy advocating such a system.",
+          "en_after": "Socialism refers to both a broad array of doctrines and political movements that aspire to put these doctrines into practice.",
+          "other_before": "Le socialisme est un ensemble de courants, dont les premiers sont apparus au cours du .",
+          "other_after": "Le socialisme est un ensemble de courants, dont les premiers sont apparus au cours du .",
+          "evidence_en_before": "Socialism is an economic system in which the means of production are owned and controlled collectively or a political philosophy advocating such a system.",
+          "evidence_en_after": "Socialism refers to both a broad array of doctrines and political movements that aspire to put these doctrines into practice.",
+          "evidence_other_before": "Le socialisme est un ensemble de courants, dont les premiers sont apparus au cours du .",
+          "evidence_other_after": "Le socialisme est un ensemble de courants, dont les premiers sont apparus au cours du ."
+        },
+        {
+          "topic": "Marx's role and definition",
+          "editions_differ": [
+            "EN"
+          ],
+          "en_says": "For Karl Marx, who helped establish and define the modern socialist movement, socialism implied the abolition of markets, capital, and labor as a commodity.",
+          "other_says": "Not present in FR or PT versions in this window.",
+          "verdict": "absent_other",
+          "evidence_en": "For Karl Marx, who helped establish and define the modern socialist movement, socialism implied the abolition of markets, capital, and labor as a commodity.",
+          "evidence_other": null,
+          "temporal_read": "english_moved_away",
+          "en_before": "Marxism is an ideology which has had a powerful influence on socialist thought. For over 50 years... the majority of socialists were Marxists of one kind or another.",
+          "en_after": "For Karl Marx, who helped establish and define the modern socialist movement, socialism implied the abolition of markets, capital, and labor as a commodity.",
+          "other_before": "Not present.",
+          "other_after": "Not present.",
+          "evidence_en_before": "Marxism is an ideology which has had a powerful influence on socialist thought.",
+          "evidence_en_after": "For Karl Marx, who helped establish and define the modern socialist movement, socialism implied the abolition of markets, capital, and labor as a commodity.",
+          "evidence_other_before": null,
+          "evidence_other_after": null
+        },
+        {
+          "topic": "Origin of the socialist movement",
+          "editions_differ": [
+            "EN",
+            "FR"
+          ],
+          "en_says": "The modern socialist movement had its origin largely in the working class movement of the late-19th century.",
+          "other_says": "Le socialisme est un ensemble de courants, dont les premiers sont apparus au cours du [siècle], attributing origins earlier without specifying late-19th century.",
+          "verdict": "differ",
+          "evidence_en": "The modern socialist movement had its origin largely in the working class movement of the late-19th century.",
+          "evidence_other": "dont les premiers sont apparus au cours du .",
+          "temporal_read": "english_moved_away",
+          "en_before": "Historically, the ideology of socialism arose with the rise of organized labor, and the socialist political movement has found most of its support among the urban working class.",
+          "en_after": "The modern socialist movement had its origin largely in the working class movement of the late-19th century.",
+          "other_before": "Le socialisme est un ensemble de courants, dont les premiers sont apparus au cours du .",
+          "other_after": "Le socialisme est un ensemble de courants, dont les premiers sont apparus au cours du .",
+          "evidence_en_before": null,
+          "evidence_en_after": "The modern socialist movement had its origin largely in the working class movement of the late-19th century.",
+          "evidence_other_before": "dont les premiers sont apparus au cours du .",
+          "evidence_other_after": "dont les premiers sont apparus au cours du ."
+        },
+        {
+          "topic": "Socialism as mode of production vs. doctrine",
+          "editions_differ": [
+            "PT",
+            "EN"
+          ],
+          "en_says": "Socialism refers to both a broad array of doctrines and political movements that aspire to put these doctrines into practice.",
+          "other_says": "Socialismo é um modo de produção (forma determinada em um dado momento histórico da humanidade de produzir-se a vida).",
+          "verdict": "contradict",
+          "evidence_en": "Socialism refers to both a broad array of doctrines and political movements that aspire to put these doctrines into practice.",
+          "evidence_other": "Socialismo é um modo de produção (forma determinada em um dado momento histórico da humanidade de produzir-se a vida, suas variações significam formas diferentes de relação homem-natureza e homem-homem).",
+          "temporal_read": "difference_persisted",
+          "en_before": "Socialism is an economic system in which the means of production are owned and controlled collectively or a political philosophy advocating such a system.",
+          "en_after": "Socialism refers to both a broad array of doctrines and political movements that aspire to put these doctrines into practice.",
+          "other_before": "Socialismo é um modo de produção (forma determinada em um dado momento histórico da humanidade de produzir-se a vida).",
+          "other_after": "Socialismo é um modo de produção (forma determinada em um dado momento histórico da humanidade de produzir-se a vida).",
+          "evidence_en_before": "Socialism is an economic system in which the means of production are owned and controlled collectively or a political philosophy advocating such a system.",
+          "evidence_en_after": "Socialism refers to both a broad array of doctrines and political movements that aspire to put these doctrines into practice.",
+          "evidence_other_before": null,
+          "evidence_other_after": null
+        },
+        {
+          "topic": "Diversity of socialist doctrines and internal splits",
+          "editions_differ": [
+            "EN",
+            "PT"
+          ],
+          "en_says": "It is difficult to make generalizations about the diverse array of doctrines and movements that have been referred to as 'socialist.'... the movement has split into different and sometimes opposing branches, particularly between moderate socialists and communists.",
+          "other_says": "As múltiplas variantes de socialismo partilham uma base comum que é a transformação do sistema econômico... Alguns teóricos postularam a revolução social... Outros, como os social-democratas, consideraram que as transformações políticas deveriam se realizar de forma progressiva.",
+          "verdict": "differ",
+          "evidence_en": "the movement has split into different and sometimes opposing branches, particularly between moderate socialists and communists.",
+          "evidence_other": "Outros, como os social-democratas, consideraram que as transformações políticas deveriam se realizar de forma progressiva, sem ruptura, e dentro do sistema capitalista.",
+          "temporal_read": "difference_persisted",
+          "en_before": "Socialist theory is diverse, and there is no single body of thought that is universally shared by all socialists.",
+          "en_after": "It is difficult to make generalizations about the diverse array of doctrines and movements that have been referred to as 'socialist.'",
+          "other_before": "As múltiplas variantes de socialismo partilham uma base comum...",
+          "other_after": "As múltiplas variantes de socialismo partilham uma base comum...",
+          "evidence_en_before": "Socialist theory is diverse, and there is no single body of thought that is universally shared by all socialists.",
+          "evidence_en_after": "the movement has split into different and sometimes opposing branches, particularly between moderate socialists and communists.",
+          "evidence_other_before": null,
+          "evidence_other_after": null
+        }
+      ],
+      "summary": "The English lead shifted substantially between the two revisions, moving from a definition centered on socialism as an economic system with equality as a core value toward a broader framing as a diverse array of doctrines and movements, introducing new material on Marx's specific views and the 19th-century origin of the movement. The French and Portuguese leads remained essentially unchanged in this window, preserving their own distinct framings (French: socialism as a set of currents opposing individualism; Portuguese: socialism as a 'mode of production'). This produced growing divergence between English and both other editions on definitional scope, origin timing, and Marx's specific role, while pre-existing conceptual differences (e.g., PT's 'mode of production' framing) persisted unchanged.",
+      "run_ts": "2026-08-04T22:44:50.569527+00:00",
+      "model": "claude-sonnet-5",
+      "llm_usage": {
+        "calls": 1,
+        "input_tokens": 6704,
+        "output_tokens": 3047,
+        "estimated_usd": null,
+        "all_calls_priced": false,
+        "records": [
+          {
+            "provider": "anthropic",
+            "model": "claude-sonnet-5",
+            "input_tokens": 6704,
+            "output_tokens": 3047,
+            "estimated_usd": null,
+            "pricing_key": null,
+            "pricing_usd_per_million": null
+          }
+        ]
+      },
+      "elapsed_seconds": 57.382,
+      "episode_id": "54672691-54876527",
+      "episode_index": 2,
+      "episode_window": {
+        "start": "2005-01-01",
+        "end": "2008-01-01",
+        "pwr_mass": 20844,
+        "status": "confirmed",
+        "before_revid": 54672691,
+        "before_timestamp": "2006-05-23T08:10:15Z",
+        "after_revid": 54876527,
+        "after_timestamp": "2006-05-24T12:03:55Z",
+        "durable_spine_drop": 0.955891
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Socialism",
+      "category": "general",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2010-01-01",
+        "end": "2011-01-01",
+        "pwr_mass": 8329,
+        "status": "confirmed",
+        "before_revid": 388146182,
+        "before_timestamp": "2010-10-01T18:59:27Z",
+        "after_revid": 388354075,
+        "after_timestamp": "2010-10-02T21:49:02Z",
+        "durable_spine_drop": 0.313225
+      },
+      "editions_compared": [
+        "en",
+        "fr",
+        "pt"
+      ],
+      "lead_chars": {
+        "en": 3000,
+        "fr": 2501,
+        "pt": 3000
+      },
+      "snapshots": {
+        "before": {
+          "en": {
+            "revid": 388146182,
+            "timestamp": "2010-10-01T18:59:27Z",
+            "title": "Socialism",
+            "lead": "Socialism is an economic and political theory advocating public or common ownership and cooperative management of the means of production and allocation of resources.Newman, Michael. (2005) Socialism: A Very Short Introduction, Oxford University Press, ISBN 0-19-280431-6\"Socialism\". Oxford English Dictionary.\n\"1. A theory or policy of social organisation which aims at or advocates the ownership and control of the means of production, capital, land, property, etc., by the community as a whole, and their administration or distribution in the interests of all people\n\n2. A state of society in which things are held or used in common.\"\"Socialism\".Merriam-Webster Unabridged Dictionary\n\nIn a socialist economic system, production is carried out by a free association of workers to directly maximise use-values (instead of indirectly producing use-value through maximising exchange-values), through coordinated planning of investment decisions, distribution of surplus, and the means of production. Socialism is a set of social and economic arrangements based on a post-monetary system of calculation, such as labour time, energy units or calculation-in-kind; at least for the factors of production.Socialism and Calculation, on worldsocialism.org. Retrieved February 15, 2010, from worldsocialism.org: http://www.worldsocialism.org/spgb/overview/calculation.pdf: \"Although money, and so monetary calculation, will disappear in socialism this does not mean that there will no longer be any need to make choices, evaluations and calculations...Wealth will be produced and distributed in its natural form of useful things, of objects that can serve to satisfy some human need or other. Not being produced for sale on a market, items of wealth will not acquire an exchange-value in addition to their use-value. In socialism their value, in the normal non-economic sense of the word, will not be their selling price nor the time needed to produce them but their usefulness. It is for this that they will be appreciated, evaluated, wanted. . . and produced.\"\n\nSocialists advocate a method of compensation based on individual merit or the amount of labour one contributes to society.Critique of the Gotha Programme, Karl Marx. They generally share the view that capitalism unfairly concentrates power and wealth within a small segment of society that controls capital and derives its wealth through a system of exploitation. They argue that this creates an unequal society that fails to provide equal opportunities for everyone to maximise their potential,Socialism, (2009), in Encyclopædia Britannica. Retrieved October 14, 2009, from Encyclopædia Britannica Online: http://www.britannica.com/EBchecked/topic/551569/socialism, \"Main\" summary: \"Socialists complain that capitalism necessarily leads to unfair and exploitative concentrations of wealth and power in the hands of the relative few who emerge victorious from free-market competition—people who then use their wealth and power to reinforce their"
+          },
+          "fr": {
+            "revid": 57363172,
+            "timestamp": "2010-09-22T18:14:08Z",
+            "title": "Socialisme",
+            "lead": "Le socialisme est un type d'organisation sociale fondé sur la propriété collective (ou propriété sociale) des moyens de production« Doctrine économique et politique qui préconise la disparition de la propriété privée des moyens de production et l’appropriation de ceux-ci par la collectivité. » (Dictionnaire Hachette encyclopédique, 2002, page 1506)« Dénomination de diverses doctrines économiques, sociales et politiques condamnant la propriété privée des moyens de production et d’échange. » (Petit Larousse Illustré, 2007, page 990. La définition du Petit Larousse 1972 était déjà quasi identique)« A political doctrine or system which aims to create a classless society by moving ownership of the nation’s wealth (land, industries, transport systems) out of private and into public hands » (Harrap’s Chambers compact dictionnary, 2000, page 744), par opposition au capitalisme.\n\nIl est l'objectif de divers courants apparus et développés depuis le , et ayant abouti aujourd'hui aux différents courants marxistes et anarchistes, ainsi qu'aux sociaux-démocrates.\n\nLe mouvement socialiste recherche une justice sociale« Théorie visant à rénover l’organisation sociale dans un but de justice » (Grand dictionnaire encyclopédique Larousse, 1985, volume 9, page 9645)), condamne les inégalités sociales et l’exploitation de l’homme par l’homme« Le socialisme a commencé par condamner les inégalités sociales et l’exploitation de l’homme par l’homme, et par demander que l’intérêt général prime en tout sur l’intérêt individuel. » (Le Quid, 1995, page 904), défend le progrès social« Doctrine d’organisation sociale qui entend faire prévaloir l’intérêt, le bien général, sur les intérêts particuliers, au moyen d’une organisation concertée (opposée à libéralisme) ; organisation sociale qui tend aux mêmes but dans un souci de progrès social. » (Nouveau Petit Robert de la langue française, 2007, page 2382 et Petit Robert 1990, page 1822), et prône l'avènement d'une société égalitaire, sans classes sociales.\n\nPour leur part, les universitaires Georges Bourgin et Pierre Rimbert définissent le socialisme comme « une forme de société dont les bases fondamentales sont les suivantes :\n Propriété sociale des instruments de production ;\n Gestion démocratique de ces instruments ;\n Orientation de la production en vue de satisfaire les besoins individuels et collectifs des hommes. »Georges Bourgin et Pierre Rimbert, Le Socialisme, Presses Universitaires de France, coll. « Que sais-je ? », 1986, p. 13."
+          },
+          "pt": {
+            "revid": 22032488,
+            "timestamp": "2010-09-29T23:32:29Z",
+            "title": "Socialismo",
+            "lead": "Socialismo refere-se a qualquer uma das várias teorias de organização económica advogando a propriedade pública ou colectiva e administração dos meios de produção e distribuição de bens e de uma sociedade caracterizada pela igualdade de oportunidades/meios para todos os indivíduos com um método mais igualitário de compensaçãoNewman, Michael. (2005) Socialism: A Very Short Introduction, Oxford University Press, ISBN 0-19-280431-6. O socialismo moderno surgiu no final do século XVIII tendo origem na classe intelectual e nos movimentos políticos da classe trabalhadora que criticavam os efeitos da industrialização e da sociedade sobre a propriedade privada. Karl Marx afirmava que o socialismo seria alcançado através da luta de classes e de uma revolução do proletariado, tornando-se a fase de transição do capitalismo para o comunismoMarx, Karl, Communist Manifesto, Penguin (2002)</ref><ref>Marx, Karl, Critique of the Gotha Program.\n\nA maioria dos socialistas possuem a opinião de que o capitalismo concentra injustamente o poder e a riqueza entre um pequeno segmento da sociedade que controla o capital e deriva a sua riqueza através da exploração, criando uma sociedade desigual, que não oferece oportunidades iguais para todos a fim de maximizar suas potencialidades.Socialism, (2009), in Encyclopædia Britannica. Retrieved October 14, 2009, from Encyclopædia Britannica Online: http://www.britannica.com/EBchecked/topic/551569/socialism, \"Main\" summary: \"Socialists complain that capitalism necessarily leads to unfair and exploitative concentrations of wealth and power in the hands of the relative few who emerge victorious from free-market competition—people who then use their wealth and power to reinforce their dominance in society.\"\n\nFriedrich Engels, um dos fundadores da teoria socialista moderna, e o socialista utópico Henri di Saint Simon defendem a criação de uma sociedade que permite a aplicação generalizada das tecnologias modernas de racionalização da atividade econômica, eliminando a anarquia na produção do capitalismo.Socialism: Utopian and Scientific at Marxists.orgChapter III: Historical Materialism Isto irá permitir que a riqueza e o poder sejam distribuídos com base na quantidade de trabalho despendido na produção, embora não haja discordância entre os socialistas sobre como e em que medida isso poderia ser conseguido.\n\nO socialismo não é uma filosofia concreta da doutrina fixa e programa; seus ramos defendem um certo grau de intervencionismo social e racionalização económica (geralmente sob a forma de planejamento econômico), às vezes opostos entre si. Uma característica de divisão do movimento socialista é a divisão entre reformistas e revolucionários sobre como uma economia socialista deveria ser estabelecida. Alguns socialistas defendem a nacionalização completa dos meios de produção, distribuição e troca, outros defendem o controle estatal do capital no âmbito de uma economia de mercado.\n\nSocialistas inspirados no modelo soviético de desen"
+          }
+        },
+        "after": {
+          "en": {
+            "revid": 388354075,
+            "timestamp": "2010-10-02T21:49:02Z",
+            "title": "Socialism",
+            "lead": "Socialism is an economic and political theory advocating public or common ownership and cooperative management of the means of production and allocation of resources.Newman, Michael. (2005) Socialism: A Very Short Introduction, Oxford University Press, ISBN 0-19-280431-6\"Socialism\". Oxford English Dictionary.\n\"1. A theory or policy of social organisation which aims at or advocates the ownership and control of the means of production, capital, land, property, etc., by the community as a whole, and their administration or distribution in the interests of all people\n\n2. A state of society in which things are held or used in common.\"\"Socialism\".Merriam-Webster Unabridged Dictionary\n\nIn a socialist economic system, production is carried out by a free association of workers to directly maximise use-values (instead of indirectly producing use-value through maximising exchange-values), through coordinated planning of investment decisions, distribution of surplus, and the means of production. Socialism is a set of social and economic arrangements based on a post-monetary system of calculation, such as labour time, energy units or calculation-in-kind; at least for the factors of production.Socialism and Calculation, on worldsocialism.org. Retrieved February 15, 2010, from worldsocialism.org: http://www.worldsocialism.org/spgb/overview/calculation.pdf: \"Although money, and so monetary calculation, will disappear in socialism this does not mean that there will no longer be any need to make choices, evaluations and calculations...Wealth will be produced and distributed in its natural form of useful things, of objects that can serve to satisfy some human need or other. Not being produced for sale on a market, items of wealth will not acquire an exchange-value in addition to their use-value. In socialism their value, in the normal non-economic sense of the word, will not be their selling price nor the time needed to produce them but their usefulness. It is for this that they will be appreciated, evaluated, wanted. . . and produced.\"\n\nSocialists advocate a method of compensation based on individual merit or the amount of labour one contributes to society.Critique of the Gotha Programme, Karl Marx. They generally share the view that capitalism unfairly concentrates power and wealth within a small segment of society that controls capital and derives its wealth through a system of exploitation. They argue that this creates an unequal society that fails to provide equal opportunities for everyone to maximise their potential,Socialism, (2009), in Encyclopædia Britannica. Retrieved October 14, 2009, from Encyclopædia Britannica Online: http://www.britannica.com/EBchecked/topic/551569/socialism, \"Main\" summary: \"Socialists complain that capitalism necessarily leads to unfair and exploitative concentrations of wealth and power in the hands of the relative few who emerge victorious from free-market competition—people who then use their wealth and power to reinforce their"
+          },
+          "fr": {
+            "revid": 57763344,
+            "timestamp": "2010-10-04T20:10:20Z",
+            "title": "Socialisme",
+            "lead": "Le socialisme est un type d'organisation sociale fondé sur la propriété collective (ou propriété sociale) des moyens de production« Doctrine économique et politique qui préconise la disparition de la propriété privée des moyens de production et l’appropriation de ceux-ci par la collectivité. » (Dictionnaire Hachette encyclopédique, 2002, page 1506)« Dénomination de diverses doctrines économiques, sociales et politiques condamnant la propriété privée des moyens de production et d’échange. » (Petit Larousse Illustré, 2007, page 990. La définition du Petit Larousse 1972 était déjà quasi identique)« A political doctrine or system which aims to create a classless society by moving ownership of the nation’s wealth (land, industries, transport systems) out of private and into public hands » (Harrap’s Chambers compact dictionnary, 2000, page 744), par opposition au capitalisme.\n\nIl est l'objectif de divers courants apparus et développés depuis le , et ayant abouti aujourd'hui aux différents courants marxistes et anarchistes, ainsi qu'aux sociaux-démocrates.\n\nLe mouvement socialiste recherche une justice sociale« Théorie visant à rénover l’organisation sociale dans un but de justice » (Grand dictionnaire encyclopédique Larousse, 1985, volume 9, page 9645)), condamne les inégalités sociales et l’exploitation de l’homme par l’homme« Le socialisme a commencé par condamner les inégalités sociales et l’exploitation de l’homme par l’homme, et par demander que l’intérêt général prime en tout sur l’intérêt individuel. » (Le Quid, 1995, page 904), défend le progrès social« Doctrine d’organisation sociale qui entend faire prévaloir l’intérêt, le bien général, sur les intérêts particuliers, au moyen d’une organisation concertée (opposée à libéralisme) ; organisation sociale qui tend aux mêmes but dans un souci de progrès social. » (Nouveau Petit Robert de la langue française, 2007, page 2382 et Petit Robert 1990, page 1822), et prône l'avènement d'une société égalitaire, sans classes sociales.\n\nPour leur part, les universitaires Georges Bourgin et Pierre Rimbert définissent le socialisme comme « une forme de société dont les bases fondamentales sont les suivantes :\n Propriété sociale des instruments de production ;\n Gestion démocratique de ces instruments ;\n Orientation de la production en vue de satisfaire les besoins individuels et collectifs des hommes. »Georges Bourgin et Pierre Rimbert, Le Socialisme, Presses Universitaires de France, coll. « Que sais-je ? », 1986, p. 13."
+          },
+          "pt": {
+            "revid": 22086700,
+            "timestamp": "2010-10-04T20:11:46Z",
+            "title": "Socialismo",
+            "lead": "Socialismo refere-se a qualquer uma das várias teorias de organização económica advogando a propriedade pública ou colectiva e administração dos meios de produção e distribuição de bens e de uma sociedade caracterizada pela igualdade de oportunidades/meios para todos os indivíduos com um método mais igualitário de compensaçãoNewman, Michael. (2005) Socialism: A Very Short Introduction, Oxford University Press, ISBN 0-19-280431-6. O socialismo moderno surgiu no final do século XVIII tendo origem na classe intelectual e nos movimentos políticos da classe trabalhadora que criticavam os efeitos da industrialização e da sociedade sobre a propriedade privada. Karl Marx afirmava que o socialismo seria alcançado através da luta de classes e de uma revolução do proletariado, tornando-se a fase de transição do capitalismo para o comunismoMarx, Karl, Communist Manifesto, Penguin (2002)</ref><ref>Marx, Karl, Critique of the Gotha Program.\n\nA maioria dos socialistas possuem a opinião de que o capitalismo concentra injustamente o poder e a riqueza entre um pequeno segmento da sociedade que controla o capital e deriva a sua riqueza através da exploração, criando uma sociedade desigual, que não oferece oportunidades iguais para todos a fim de maximizar suas potencialidades.Socialism, (2009), in Encyclopædia Britannica. Retrieved October 14, 2009, from Encyclopædia Britannica Online: http://www.britannica.com/EBchecked/topic/551569/socialism, \"Main\" summary: \"Socialists complain that capitalism necessarily leads to unfair and exploitative concentrations of wealth and power in the hands of the relative few who emerge victorious from free-market competition—people who then use their wealth and power to reinforce their dominance in society.\"\n\nFriedrich Engels, um dos fundadores da teoria socialista moderna, e o socialista utópico Henri di Saint Simon defendem a criação de uma sociedade que permite a aplicação generalizada das tecnologias modernas de racionalização da atividade econômica, eliminando a anarquia na produção do capitalismo.Socialism: Utopian and Scientific at Marxists.orgChapter III: Historical Materialism Isto irá permitir que a riqueza e o poder sejam distribuídos com base na quantidade de trabalho despendido na produção, embora não haja discordância entre os socialistas sobre como e em que medida isso poderia ser conseguido.\n\nO socialismo não é uma filosofia concreta da doutrina fixa e programa; seus ramos defendem um certo grau de intervencionismo social e racionalização económica (geralmente sob a forma de planejamento econômico), às vezes opostos entre si. Uma característica de divisão do movimento socialista é a divisão entre reformistas e revolucionários sobre como uma economia socialista deveria ser estabelecida. Alguns socialistas defendem a nacionalização completa dos meios de produção, distribuição e troca, outros defendem o controle estatal do capital no âmbito de uma economia de mercado.\n\nSocialistas inspirados no modelo soviético de desen"
+          }
+        }
+      },
+      "divergences": [],
+      "summary": "No genuine temporal or cross-edition divergence found: the English, French, and Portuguese lead sections are textually identical between their respective BEFORE and AFTER revisions in this window. No edits altering substantive content occurred, so no comparison of change patterns across editions is supported by the provided text.",
+      "run_ts": "2026-08-04T22:45:30.748720+00:00",
+      "model": "claude-sonnet-5",
+      "llm_usage": {
+        "calls": 1,
+        "input_tokens": 7751,
+        "output_tokens": 109,
+        "estimated_usd": null,
+        "all_calls_priced": false,
+        "records": [
+          {
+            "provider": "anthropic",
+            "model": "claude-sonnet-5",
+            "input_tokens": 7751,
+            "output_tokens": 109,
+            "estimated_usd": null,
+            "pricing_key": null,
+            "pricing_usd_per_million": null
+          }
+        ]
+      },
+      "elapsed_seconds": 31.718,
+      "episode_id": "388146182-388354075",
+      "episode_index": 3,
+      "episode_window": {
+        "start": "2010-01-01",
+        "end": "2011-01-01",
+        "pwr_mass": 8329,
+        "status": "confirmed",
+        "before_revid": 388146182,
+        "before_timestamp": "2010-10-01T18:59:27Z",
+        "after_revid": 388354075,
+        "after_timestamp": "2010-10-02T21:49:02Z",
+        "durable_spine_drop": 0.313225
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Socialism",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2003-01-01",
+        "end": "2004-01-01",
+        "pwr_mass": 2388,
+        "status": "confirmed",
+        "before_revid": 1113767,
+        "before_timestamp": "2003-07-03T13:20:49Z",
+        "after_revid": 1114986,
+        "after_timestamp": "2003-07-05T01:55:59Z",
+        "durable_spine_drop": 0.985194
+      },
+      "editions_compared": [
+        "en"
+      ],
+      "snapshots": {
+        "before": {
+          "en": {
+            "revid": 1113767,
+            "timestamp": "2003-07-03T13:20:49Z",
+            "title": "Socialism",
+            "lead": "de:Sozialismussv:Socialism es:socialismo pt:Socialismo\r\n\r\nSocialism is a term with conflicting definitions. Although originally defined by Karl Marx, it has been used by many different groups to mean different things.  The different meanings and uses of the term \"socialism\" over history and on opposite sides of the Atlantic have lead to much political misunderstanding and confusion. \r\n\r\nAmong liberals in the USA and Social Democrats throughout western Europe it generally denotes a political agenda where the state is responsible for effecting an even or more equitable distribution of wealth and for regulating some of the means of production and distribution of resources in an economy.  It is seen as a successor to capitalism, as both an economy and an ideology.  \r\n\r\nMost social democratic parties of Europe regard socialism as a democratic goal that is compatible with a minimally regulated market economy, and have political goals quite similar to those of liberal-minded U.S. politicians.  \r\n\r\nHowever, right-wing conservatives in the United States use the term \"socialism\" as equivalent to revolutionary socialism or communism. For this reasons, the relatively left-wing Democrat party does not use the word \"socialism\" to describe itself or its policies."
+          }
+        },
+        "after": {
+          "en": {
+            "revid": 1114986,
+            "timestamp": "2003-07-05T01:55:59Z",
+            "title": "Socialism",
+            "lead": "de:Sozialismussv:Socialism es:socialismo pt:Socialismo\r\n\r\nSocialism is a term with conflicting definitions. Although originally defined by Karl Marx, it has been used by many different groups to mean different things.  The different meanings and uses of the term \"socialism\" over history and on opposite sides of the Atlantic have lead to much political misunderstanding and confusion."
+          },
+          "ar": {
+            "revid": 33720,
+            "timestamp": "2005-05-27T19:10:54Z",
+            "title": "اشتراكية",
+            "lead": "نظام اجتماعي اقتصادي يكفل المساواة بين أفراد المجتمع في الحقوق و الواجبات و يمنع الاستعباد"
+          },
+          "vi": {
+            "revid": 264361,
+            "timestamp": "2006-07-09T06:29:00Z",
+            "title": "Chủ nghĩa xã hội",
+            "lead": "redirect Xã hội chủ nghĩa"
+          }
+        }
+      },
+      "divergences": [],
+      "summary": "Insufficient matched historical content.",
+      "run_ts": "2026-08-04T22:46:03.251021+00:00",
+      "model": "claude-sonnet-5",
+      "llm_usage": {
+        "calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "estimated_usd": null,
+        "all_calls_priced": false,
+        "records": []
+      },
+      "elapsed_seconds": 24.52,
+      "episode_id": "1113767-1114986",
+      "episode_index": 4,
+      "episode_window": {
+        "start": "2003-01-01",
+        "end": "2004-01-01",
+        "pwr_mass": 2388,
+        "status": "confirmed",
+        "before_revid": 1113767,
+        "before_timestamp": "2003-07-03T13:20:49Z",
+        "after_revid": 1114986,
+        "after_timestamp": "2003-07-05T01:55:59Z",
+        "durable_spine_drop": 0.985194
+      },
+      "analysis_status": "available"
+    }
+  ]
+}

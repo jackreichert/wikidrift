@@ -94,6 +94,54 @@ class FactcheckResilience(unittest.TestCase):
         self.assertEqual(langs, ["en", "fr"])
         self.assertFalse(auto_selected)
 
+    @patch("wikidrift.l5_factcheck.fetch_asof")
+    @patch("wikidrift.l5_factcheck.sitelinks")
+    def test_factcheck_without_questions_skips_llm_extraction(self, mock_sitelinks, mock_fetch):
+        mock_sitelinks.return_value = ("Q1", {"en": "Testland", "fr": "Testland"})
+        mock_fetch.return_value = (1, "2026-01-01T00:00:00Z", "", "prose")
+        client = Mock()
+
+        result = fc.factcheck(
+            "Testland", langs=["en", "fr"], client=client, persist=False,
+        )
+
+        client.complete_json.assert_not_called()
+        self.assertEqual(result["claim"], {"per_edition": {}, "adjudication": []})
+        self.assertEqual(result["diagnostics"]["effective_langs"], ["en", "fr"])
+
+    @patch.dict(fc.QUESTIONS, {"Testland": ["What happened?"]})
+    @patch("wikidrift.l5_factcheck.fetch_asof")
+    @patch("wikidrift.l5_factcheck.sitelinks")
+    def test_factcheck_with_questions_extracts_only_capped_editions(
+        self, mock_sitelinks, mock_fetch,
+    ):
+        mock_sitelinks.return_value = (
+            "Q1", {"en": "Testland", "fr": "Testland", "de": "Testland"},
+        )
+        mock_fetch.return_value = (1, "2026-01-01T00:00:00Z", "", "prose")
+        extraction = {
+            "answers": [{
+                "question": "What happened?", "answer": "An event.",
+                "value": "event", "evidence": "prose",
+            }],
+        }
+        adjudication = {
+            "questions": [{
+                "question": "What happened?", "verdict": "agree", "note": "Aligned.",
+            }],
+        }
+        client = Mock()
+        client.complete_json.side_effect = [extraction, extraction, adjudication]
+
+        result = fc.factcheck(
+            "Testland", langs=["en", "fr", "de"], max_langs=2,
+            client=client, persist=False,
+        )
+
+        self.assertEqual(client.complete_json.call_count, 3)
+        self.assertEqual(result["langs"], ["en", "fr"])
+        self.assertEqual(set(result["claim"]["per_edition"]), {"en", "fr"})
+
 
 class AdaptiveL5CapPolicy(unittest.TestCase):
     def test_coverage_layers_merge_shared_and_article_shard_findings(self):
@@ -171,6 +219,52 @@ class AdaptiveL5CapPolicy(unittest.TestCase):
             ["analyze", "Testland"], ["pipeline", "Testland"],
         ])
         self.assertEqual(notes, [])
+
+    def test_full_mode_requests_framing_and_facts_for_every_confirmed_episode(self):
+        commands, _ = cover_missing_topics._topic_commands(
+            "Testland", use_llm=True, include_mscore=False, include_framing=True,
+            mode="full", l5_max_langs=None, required=set(), have=set(),
+        )
+
+        pipeline_command = next(command for command in commands if "pipeline" in command)
+        self.assertIn("--framing", pipeline_command)
+        self.assertIn("--facts", pipeline_command)
+        self.assertNotIn("sources", [command[-2] for command in commands])
+
+    def test_fill_mode_requests_facts_when_factcheck_is_the_only_gap(self):
+        commands, _ = cover_missing_topics._topic_commands(
+            "Testland", use_llm=True, include_mscore=False, include_framing=True,
+            mode="fill", l5_max_langs=None, required={"factcheck"}, have=set(),
+        )
+
+        self.assertEqual(commands[0][-2:], ["analyze", "Testland"])
+        self.assertIn("pipeline", commands[1])
+        self.assertIn("--facts", commands[1])
+        self.assertNotIn("--framing", commands[1])
+
+    def test_fill_mode_combines_missing_framing_and_factcheck(self):
+        commands, _ = cover_missing_topics._topic_commands(
+            "Testland", use_llm=True, include_mscore=False, include_framing=True,
+            mode="fill", l5_max_langs=6,
+            required={"factcheck", "framing"}, have=set(),
+        )
+
+        pipeline_command = commands[1]
+        self.assertIn("--framing", pipeline_command)
+        self.assertIn("--facts", pipeline_command)
+        self.assertEqual(
+            pipeline_command[pipeline_command.index("--max-langs") + 1], "6",
+        )
+
+    def test_source_backfill_uses_episode_aware_sources_command(self):
+        commands, _ = cover_missing_topics._topic_commands(
+            "Testland", use_llm=False, include_mscore=False, include_framing=False,
+            mode="fill", l5_max_langs=None, required={"sources"}, have=set(),
+        )
+
+        self.assertEqual(commands, [[
+            sys.executable, "-m", "wikidrift.cli", "sources", "Testland",
+        ]])
 
     def test_attribution_mode_only_backfills_confirmed_pairs(self):
         commands, notes = cover_missing_topics._topic_commands(
@@ -406,6 +500,9 @@ class ParallelTopicCoverage(unittest.TestCase):
             data_dir.mkdir()
             (data_dir / "coverage-state.json").write_text(json.dumps({
                 "completed_stages": ["analyze"],
+                "completed_stage_commands": {
+                    "analyze": ["analyze", "Testland"],
+                },
             }), encoding="utf-8")
             runner = Mock(return_value=Mock(returncode=0))
 
@@ -430,6 +527,117 @@ class ParallelTopicCoverage(unittest.TestCase):
             self.assertEqual(runner.call_args.kwargs["env"]["WIKIDRIFT_DATA_DIR"], str(data_dir))
             state = json.loads((data_dir / "coverage-state.json").read_text(encoding="utf-8"))
             self.assertEqual(state["completed_stages"], ["analyze", "pipeline"])
+            self.assertEqual(state["completed_stage_commands"], {
+                "analyze": ["analyze", "Testland"],
+                "pipeline": ["pipeline", "Testland"],
+            })
+
+    def test_run_topic_reruns_when_command_adds_flag(self):
+        with tempfile.TemporaryDirectory() as directory:
+            articles_dir = pathlib.Path(directory)
+            data_dir = articles_dir / "Testland"
+            data_dir.mkdir()
+            (data_dir / "coverage-state.json").write_text(json.dumps({
+                "completed_stages": ["pipeline"],
+                "completed_stage_commands": {
+                    "pipeline": ["pipeline", "Testland", "--framing"],
+                },
+            }), encoding="utf-8")
+            runner = Mock(return_value=Mock(returncode=0))
+            expanded_command = cover_missing_topics._project_command([
+                "pipeline", "Testland", "--framing", "--facts",
+            ])
+
+            result = cover_missing_topics._run_topic_commands(
+                topic="Testland",
+                commands=[expanded_command],
+                articles_dir=articles_dir,
+                resume=True,
+                runner=runner,
+            )
+
+            self.assertEqual(result["skipped_stages"], [])
+            runner.assert_called_once()
+            state = json.loads((data_dir / "coverage-state.json").read_text(encoding="utf-8"))
+            self.assertEqual(
+                state["completed_stage_commands"]["pipeline"],
+                ["pipeline", "Testland", "--framing", "--facts"],
+            )
+
+    def test_run_topic_refreshes_legacy_stage_only_checkpoint(self):
+        with tempfile.TemporaryDirectory() as directory:
+            articles_dir = pathlib.Path(directory)
+            data_dir = articles_dir / "Testland"
+            data_dir.mkdir()
+            (data_dir / "coverage-state.json").write_text(json.dumps({
+                "completed_stages": ["pipeline"],
+            }), encoding="utf-8")
+            runner = Mock(return_value=Mock(returncode=0))
+            command = cover_missing_topics._project_command(["pipeline", "Testland"])
+
+            result = cover_missing_topics._run_topic_commands(
+                topic="Testland",
+                commands=[command],
+                articles_dir=articles_dir,
+                resume=True,
+                runner=runner,
+            )
+
+            self.assertEqual(result["skipped_stages"], [])
+            runner.assert_called_once()
+            state = json.loads((data_dir / "coverage-state.json").read_text(encoding="utf-8"))
+            self.assertEqual(
+                state["completed_stage_commands"]["pipeline"],
+                ["pipeline", "Testland"],
+            )
+            self.assertIn(
+                "REFRESH legacy stage-only checkpoint: pipeline",
+                (data_dir / "logs" / "coverage.log").read_text(encoding="utf-8"),
+            )
+
+    def test_run_topic_ignores_compatible_state_when_resume_is_disabled(self):
+        with tempfile.TemporaryDirectory() as directory:
+            articles_dir = pathlib.Path(directory)
+            data_dir = articles_dir / "Testland"
+            data_dir.mkdir()
+            (data_dir / "coverage-state.json").write_text(json.dumps({
+                "completed_stages": ["analyze"],
+                "completed_stage_commands": {
+                    "analyze": ["analyze", "Testland"],
+                },
+            }), encoding="utf-8")
+            runner = Mock(return_value=Mock(returncode=0))
+
+            result = cover_missing_topics._run_topic_commands(
+                topic="Testland",
+                commands=[cover_missing_topics._project_command(["analyze", "Testland"])],
+                articles_dir=articles_dir,
+                resume=False,
+                runner=runner,
+            )
+
+            self.assertEqual(result["skipped_stages"], [])
+            runner.assert_called_once()
+
+    def test_run_topic_recovers_from_corrupt_coverage_state(self):
+        with tempfile.TemporaryDirectory() as directory:
+            articles_dir = pathlib.Path(directory)
+            data_dir = articles_dir / "Testland"
+            data_dir.mkdir()
+            (data_dir / "coverage-state.json").write_text("{broken", encoding="utf-8")
+            runner = Mock(return_value=Mock(returncode=0))
+
+            result = cover_missing_topics._run_topic_commands(
+                topic="Testland",
+                commands=[cover_missing_topics._project_command(["analyze", "Testland"])],
+                articles_dir=articles_dir,
+                resume=True,
+                runner=runner,
+            )
+
+            self.assertTrue(result["succeeded"])
+            self.assertEqual(result["skipped_stages"], [])
+            runner.assert_called_once()
 
     def test_run_topic_stops_and_preserves_state_on_stage_failure(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -1437,6 +1645,22 @@ class PipelineCorroboration(unittest.TestCase):
                               "js_divergence": 0.08}, "mscore": None}
         self.assertIn("lexical_drift", pipeline._corroboration(result)["signals"])
 
+    def test_lexical_drift_checks_every_available_episode(self):
+        result = {
+            "l1": "HEALTHY",
+            "lexical": {
+                "episodes": [
+                    {"analysis_status": "available", "mode": "pivot_relative",
+                     "adequate": True, "js_divergence": 0.01},
+                    {"analysis_status": "available", "mode": "pivot_relative",
+                     "adequate": True, "js_divergence": 0.08},
+                ],
+            },
+            "mscore": None,
+        }
+
+        self.assertIn("lexical_drift", pipeline._corroboration(result)["signals"])
+
     def test_whole_history_lexical_change_does_not_corroborate(self):
         result = {"l1": "HEALTHY", "l2_adjudicated": False,
                   "lexical": {"mode": "whole_history", "adequate": True,
@@ -1748,6 +1972,219 @@ class PipelinePivotWindow(unittest.TestCase):
         window = pipeline._confirmed_window(confirmation, ("2024-01-01", 900))
         self.assertEqual(window["status"], "confirmed")
         self.assertEqual((window["before_revid"], window["after_revid"]), (111, 112))
+
+    def test_fresh_confirmation_supplies_every_exact_pivot_pair(self):
+        confirmation = {
+            "status": "confirmed",
+            "corpus_horizon": {"snapshot_date": "2024-01-01", "snapshot_revid": 900},
+            "thresholds": config.confirmation_thresholds(),
+            "confirmed_episodes": [
+                {
+                    "candidate_start": "2020-01-01", "candidate_end": "2021-01-01",
+                    "before_revid": 111, "before_timestamp": "2020-06-01T00:00:00Z",
+                    "after_revid": 112, "after_timestamp": "2020-06-02T00:00:00Z",
+                    "durable_spine_drop": 0.4, "pwr_mass": 42000,
+                },
+                {
+                    "candidate_start": "2022-01-01", "candidate_end": "2023-01-01",
+                    "before_revid": 211, "before_timestamp": "2022-06-01T00:00:00Z",
+                    "after_revid": 212, "after_timestamp": "2022-06-02T00:00:00Z",
+                    "durable_spine_drop": 0.3, "pwr_mass": 12000,
+                },
+            ],
+        }
+
+        windows = pipeline._confirmed_windows(confirmation, ("2024-01-01", 900))
+
+        self.assertEqual(
+            [(window["before_revid"], window["after_revid"]) for window in windows],
+            [(111, 112), (211, 212)],
+        )
+        self.assertTrue(all(window["status"] == "confirmed" for window in windows))
+
+    @patch("wikidrift.pipeline.config.write_findings")
+    @patch("wikidrift.pipeline.l5_factcheck.factcheck")
+    @patch("wikidrift.l5_framing_lite.framing_lite")
+    @patch("wikidrift.pipeline.l5_sources.sources_over_time")
+    @patch("wikidrift.pipeline.lexical.lexical_drift")
+    def test_every_confirmed_episode_runs_every_requested_analysis(
+        self, mock_lexical, mock_sources, mock_framing, mock_factcheck, mock_write,
+    ):
+        windows = [
+            {
+                "start": "2020-01-01", "end": "2021-01-01", "status": "confirmed",
+                "before_revid": 111, "before_timestamp": "2020-06-01T00:00:00Z",
+                "after_revid": 112, "after_timestamp": "2020-06-02T00:00:00Z",
+            },
+            {
+                "start": "2022-01-01", "end": "2023-01-01", "status": "confirmed",
+                "before_revid": 211, "before_timestamp": "2022-06-01T00:00:00Z",
+                "after_revid": 212, "after_timestamp": "2022-06-02T00:00:00Z",
+            },
+        ]
+        mock_lexical.side_effect = [{"js_divergence": 0.1}, {"js_divergence": 0.2}]
+        mock_sources.side_effect = [{"added": []}, {"added": []}]
+        mock_framing.side_effect = [{"divergences": []}, {"divergences": []}]
+        mock_factcheck.side_effect = [{"claim": {}}, {"claim": {}}]
+
+        artifacts = pipeline.analyze_confirmed_episodes(
+            "Testland", windows, client=object(), framing=True, facts=True,
+            factcheck_options={"max_langs": 6},
+        )
+
+        self.assertEqual(mock_lexical.call_count, 2)
+        self.assertEqual(mock_sources.call_count, 2)
+        self.assertEqual(mock_framing.call_count, 2)
+        self.assertEqual(mock_factcheck.call_count, 2)
+        self.assertEqual(
+            [call.kwargs["window"] for call in mock_lexical.call_args_list], windows,
+        )
+        self.assertTrue(all(call.kwargs["persist"] is False for call in mock_lexical.call_args_list))
+        self.assertEqual(
+            [call.kwargs["window"] for call in mock_sources.call_args_list], windows,
+        )
+        self.assertEqual(
+            [call.kwargs["pivot_window"] for call in mock_framing.call_args_list], windows,
+        )
+        self.assertTrue(all(call.kwargs["persist"] is False for call in mock_framing.call_args_list))
+        self.assertEqual(
+            [call.kwargs["ts"] for call in mock_factcheck.call_args_list],
+            ["2020-06-02T00:00:00Z", "2022-06-02T00:00:00Z"],
+        )
+        self.assertEqual(
+            [call.kwargs["context"]["lexical"]["js_divergence"]
+             for call in mock_factcheck.call_args_list],
+            [0.1, 0.2],
+        )
+        self.assertTrue(all(call.kwargs["persist"] is False for call in mock_factcheck.call_args_list))
+        self.assertTrue(all(call.kwargs["max_langs"] == 6 for call in mock_factcheck.call_args_list))
+        self.assertEqual(
+            [episode["episode_id"] for episode in artifacts["lexical"]["episodes"]],
+            ["111-112", "211-212"],
+        )
+        self.assertEqual(
+            [episode["episode_index"] for episode in artifacts["lexical"]["episodes"]],
+            [1, 2],
+        )
+        self.assertEqual(
+            [episode["episode_window"] for episode in artifacts["lexical"]["episodes"]],
+            windows,
+        )
+        self.assertEqual(artifacts["lexical"]["article"], "Testland")
+        self.assertEqual(artifacts["lexical"]["schema_version"], 1)
+        self.assertEqual(artifacts["lexical"]["analysis_scope"], "confirmed_episodes")
+        self.assertEqual(artifacts["lexical"]["episode_count"], 2)
+        self.assertEqual(artifacts["lexical"]["js_divergence"], 0.1)
+        self.assertEqual(mock_write.call_count, 4)
+
+    @patch("wikidrift.pipeline.config.write_findings")
+    def test_empty_confirmed_episode_set_is_a_noop(self, mock_write):
+        self.assertEqual(pipeline.analyze_confirmed_episodes("Testland", []), {})
+        mock_write.assert_not_called()
+
+    @patch("wikidrift.pipeline.config.write_findings")
+    @patch("wikidrift.pipeline.l5_sources.sources_over_time", return_value={"added": []})
+    @patch("wikidrift.pipeline.lexical.lexical_drift")
+    def test_episode_failure_does_not_suppress_sibling_episode(
+        self, mock_lexical, _mock_sources, _mock_write,
+    ):
+        windows = [
+            {
+                "start": "2020-01-01", "end": "2021-01-01", "status": "confirmed",
+                "before_revid": 111, "before_timestamp": "2020-06-01T00:00:00Z",
+                "after_revid": 112, "after_timestamp": "2020-06-02T00:00:00Z",
+            },
+            {
+                "start": "2022-01-01", "end": "2023-01-01", "status": "confirmed",
+                "before_revid": 211, "before_timestamp": "2022-06-01T00:00:00Z",
+                "after_revid": 212, "after_timestamp": "2022-06-02T00:00:00Z",
+            },
+        ]
+        mock_lexical.side_effect = [RuntimeError("first unavailable"), {"js_divergence": 0.2}]
+
+        artifact = pipeline.analyze_confirmed_episodes("Testland", windows)["lexical"]
+
+        self.assertEqual(
+            [episode["analysis_status"] for episode in artifact["episodes"]],
+            ["unavailable", "available"],
+        )
+        self.assertEqual(artifact["js_divergence"], 0.2)
+
+    def test_selected_layer_refresh_writes_only_requested_plural_artifact(self):
+        windows = [
+            {
+                "status": "confirmed",
+                "before_revid": 111,
+                "after_revid": 112,
+                "before_timestamp": "2020-01-01T00:00:00Z",
+                "after_timestamp": "2020-02-01T00:00:00Z",
+            },
+            {
+                "status": "confirmed",
+                "before_revid": 221,
+                "after_revid": 222,
+                "before_timestamp": "2021-01-01T00:00:00Z",
+                "after_timestamp": "2021-02-01T00:00:00Z",
+            },
+        ]
+        writes = []
+        calls = []
+
+        def fake_sources(article, window=None, persist=True, **options):
+            calls.append((article, window["before_revid"], persist, options))
+            return {"article": article, "before": {"rev": window["before_revid"]}}
+
+        with patch("wikidrift.pipeline.l5_sources.sources_over_time", side_effect=fake_sources), \
+            patch("wikidrift.pipeline.config.write_findings", side_effect=lambda name, data: writes.append((name, data))):
+            result = pipeline.analyze_confirmed_episodes(
+                "Testland", windows, lexical_layer=False,
+                source_options={"max_snaps": 7},
+            )
+
+        self.assertEqual(list(result), ["sources"])
+        self.assertEqual([call[1] for call in calls], [111, 221])
+        self.assertTrue(all(call[2] is False for call in calls))
+        self.assertTrue(all(call[3] == {"max_snaps": 7} for call in calls))
+        self.assertEqual([name for name, _ in writes], ["Testland.sources.json"])
+        self.assertEqual(writes[0][1]["episode_count"], 2)
+
+    @patch("wikidrift.pipeline.provenance.load_source_state", return_value={"source_status": "unchecked"})
+    @patch("wikidrift.pipeline.drift.verdict_dict", return_value={"verdict": "PIVOT?", "episodes": []})
+    @patch("wikidrift.pipeline.drift.load_confirmation")
+    @patch("wikidrift.pipeline.Corpus")
+    @patch("wikidrift.pipeline._snap_count", return_value=3)
+    @patch("wikidrift.pipeline.duckdb.connect")
+    def test_framing_windows_returns_every_fresh_confirmed_episode(
+        self, _mock_connect, _mock_count, mock_corpus, mock_confirmation,
+        _mock_verdict, _mock_source_state,
+    ):
+        mock_corpus.return_value.latest_snapshot.return_value = ("2024-01-01", 900)
+        mock_confirmation.return_value = {
+            "status": "confirmed",
+            "corpus_horizon": {"snapshot_date": "2024-01-01", "snapshot_revid": 900},
+            "thresholds": config.confirmation_thresholds(),
+            "confirmed_episodes": [
+                {
+                    "candidate_start": "2020-01-01", "candidate_end": "2021-01-01",
+                    "before_revid": 111, "before_timestamp": "2020-06-01T00:00:00Z",
+                    "after_revid": 112, "after_timestamp": "2020-06-02T00:00:00Z",
+                    "durable_spine_drop": 0.4, "pwr_mass": 42000,
+                },
+                {
+                    "candidate_start": "2022-01-01", "candidate_end": "2023-01-01",
+                    "before_revid": 211, "before_timestamp": "2022-06-01T00:00:00Z",
+                    "after_revid": 212, "after_timestamp": "2022-06-02T00:00:00Z",
+                    "durable_spine_drop": 0.3, "pwr_mass": 12000,
+                },
+            ],
+        }
+
+        windows = pipeline.framing_windows("Testland")
+
+        self.assertEqual(
+            [(window["before_revid"], window["after_revid"]) for window in windows],
+            [(111, 112), (211, 212)],
+        )
 
     def test_stale_confirmation_is_rejected(self):
         confirmation = {

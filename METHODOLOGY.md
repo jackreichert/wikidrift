@@ -144,6 +144,20 @@ analysis and reach exact `confirmed` status before appearing in a rewrite-lead l
 membership, or shared account can never promote an article. Exact confirmation establishes durable content
 change only; it does not establish bias, motive, policy violation, or coordination.
 
+### Analysis across confirmed events
+
+Downstream analysis is event-complete rather than article-singleton. Every fresh confirmed revision pair receives
+its own vocabulary and citation analysis. When requested, framing and fact comparison also run independently for
+every pair. Vocabulary, citations, and framing bind to the exact before and after revisions. Fact comparison asks
+a different question: it compares editions as of the exact post-event timestamp and is not presented as a
+before/after fact change.
+
+Layer artifacts retain one record per event under `episodes`, identified by the exact
+`<before_revid>-<after_revid>` pair. Each record reports whether its evidence is available. Retrieval or model
+failure for one event is retained as unavailable and cannot suppress completed sibling events or another layer.
+Top-level compatibility fields may mirror one available event, but the event collection is authoritative for
+multi-event analysis.
+
 ### Publication and schema backfill
 
 Published rewrite panels consume the exact confirmation artifact before any legacy coarse pivot export. A fresh

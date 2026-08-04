@@ -1,9 +1,28 @@
 {
   "article": "Republican Party (United States)",
-  "updated_ts": "2026-07-31T17:45:32.302604+00:00",
+  "updated_ts": "2026-08-04T22:29:06.416879+00:00",
   "completed_stages": [
     "analyze",
     "pipeline",
-    "backfill-attribution"
-  ]
+    "backfill-attribution",
+    "crosslingual",
+    "sources",
+    "profile"
+  ],
+  "completed_stage_commands": {
+    "analyze": [
+      "analyze",
+      "Republican Party (United States)"
+    ],
+    "pipeline": [
+      "pipeline",
+      "Republican Party (United States)",
+      "--llm",
+      "--mscore",
+      "--framing",
+      "--facts",
+      "--max-langs",
+      "6"
+    ]
+  }
 }

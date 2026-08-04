@@ -1,6 +1,7 @@
 {
+  "schema_version": 2,
   "article": "Fascism and ideology",
-  "run_ts": "2026-07-30T18:17:06.106152+00:00",
+  "run_ts": "2026-08-04T21:11:27.426242+00:00",
   "corpus_horizon": {
     "snapshot_date": "2026-07-01",
     "snapshot_revid": 1358688575
@@ -14,6 +15,28 @@
     "rolling_tolerance_days": 35,
     "rolling_drop": 20.0
   },
+  "sweep_thresholds": {
+    "min_confirmable_tokens": 1000,
+    "loss_floor": 15.0,
+    "gain_floor": 15.0,
+    "replacement_floor": 10.0,
+    "extreme_change": 50.0,
+    "review_mass_floor": 10000,
+    "high_mass_floor": 50000
+  },
+  "source_state": {
+    "article": "Fascism and ideology",
+    "source_status": "current_complete",
+    "source_checked_at": "2026-08-04T21:11:26.246905+00:00",
+    "source_latest_revid": 1358691279,
+    "expected_snapshots": 42,
+    "loaded_snapshots": 42,
+    "reason": null
+  },
+  "coverage_status": "complete",
+  "coverage_endpoints_complete": true,
+  "missing_snapshots": [],
+  "excluded_intervals": [],
   "coarse_verdict": "PIVOT?",
   "status": "confirmed",
   "confirmed_episodes": [
@@ -22,45 +45,600 @@
       "candidate_end": "2026-07-01",
       "candidate_before_revid": 1333641995,
       "candidate_after_revid": 1358688575,
-      "before_revid": 1358156368,
-      "before_timestamp": "2026-06-06T23:24:52Z",
-      "after_revid": 1358346972,
-      "after_timestamp": "2026-06-08T03:29:46Z",
+      "before_revid": 1356597241,
+      "before_timestamp": "2026-05-28T19:03:21Z",
+      "after_revid": 1356606621,
+      "after_timestamp": "2026-05-28T20:03:02Z",
       "durable_spine_drop": 0.606833,
       "pwr_mass": 450944,
       "peak_pct": 65.5,
       "source": "interval",
       "status": "confirmed",
-      "duration_seconds": 101094,
+      "duration_seconds": 3581,
       "attribution": {
-        "before_revid": 1358156368,
-        "before_timestamp": "2026-06-06T23:24:52Z",
-        "after_revid": 1358346972,
-        "after_timestamp": "2026-06-08T03:29:46Z",
-        "duration_seconds": 101094,
-        "removed_tokens": 24579,
-        "replacement_tokens": 227,
+        "schema_version": 3,
+        "policy_version": "multi-revision-attribution-v1",
+        "article": "Fascism and ideology",
+        "before_revid": 1356597241,
+        "before_timestamp": "2026-05-28T19:03:21Z",
+        "after_revid": 1356606621,
+        "after_timestamp": "2026-05-28T20:03:02Z",
+        "event_status": "standing",
+        "semantic_role": "event_participation_receipt",
+        "revisions": [
+          {
+            "revision_id": 1356597241,
+            "timestamp": "2026-05-28T19:03:21Z",
+            "account": "BlueberryA96",
+            "account_type": "registered",
+            "role": "stable_before",
+            "restores_revision_id": null,
+            "parent_id": null,
+            "sha1": null,
+            "edit_summary": null,
+            "tags": [],
+            "size": 185269,
+            "size_delta": null,
+            "gross_removed_tokens": 0,
+            "gross_added_tokens": 0,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 0,
+            "standing_added_tokens": 0
+          },
+          {
+            "revision_id": 1356606621,
+            "timestamp": "2026-05-28T20:03:02Z",
+            "account": "BlueberryA96",
+            "account_type": "registered",
+            "role": "consolidation",
+            "restores_revision_id": null,
+            "parent_id": null,
+            "sha1": null,
+            "edit_summary": null,
+            "tags": [],
+            "size": 185204,
+            "size_delta": -65,
+            "gross_removed_tokens": 41537,
+            "gross_added_tokens": 0,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 41537,
+            "standing_added_tokens": 0
+          }
+        ],
+        "gross": {
+          "removed_tokens": 41537,
+          "added_tokens": 0,
+          "restored_tokens": 0
+        },
+        "net_standing": {
+          "removed_tokens": 41537,
+          "replacement_tokens": 0
+        },
         "removals_by_editor": [
           {
-            "editor": "AlferedNobel",
-            "tokens": 24579
+            "editor": "BlueberryA96",
+            "tokens": 41537
+          }
+        ],
+        "replacement_by_editor": [],
+        "participation": {
+          "top_removal_share": 1.0,
+          "top_replacement_share": null,
+          "top_two_removal_share": 1.0,
+          "same_top_editor": false
+        },
+        "removed_tokens": 41537,
+        "replacement_tokens": 0,
+        "top_removal_share": 1.0,
+        "top_replacement_share": null,
+        "top_two_removal_share": 1.0,
+        "same_top_editor": false,
+        "note": "Counts describe observable public revision operations and surviving token states; they do not establish identity, coordination, motive, ownership, or misconduct.",
+        "duration_seconds": 3581
+      }
+    },
+    {
+      "candidate_start": "2011-01-01",
+      "candidate_end": "2011-07-01",
+      "candidate_before_revid": 396303994,
+      "candidate_after_revid": 436792724,
+      "before_revid": 426479421,
+      "before_timestamp": "2011-04-29T00:39:31Z",
+      "after_revid": 426748277,
+      "after_timestamp": "2011-04-30T16:54:16Z",
+      "durable_spine_drop": 0.994144,
+      "pwr_mass": 46358,
+      "peak_pct": 60.55,
+      "source": "interval",
+      "status": "confirmed",
+      "duration_seconds": 144885,
+      "attribution": {
+        "schema_version": 3,
+        "policy_version": "multi-revision-attribution-v1",
+        "article": "Fascism and ideology",
+        "before_revid": 426479421,
+        "before_timestamp": "2011-04-29T00:39:31Z",
+        "after_revid": 426748277,
+        "after_timestamp": "2011-04-30T16:54:16Z",
+        "event_status": "standing",
+        "semantic_role": "event_participation_receipt",
+        "revisions": [
+          {
+            "revision_id": 426479421,
+            "timestamp": "2011-04-29T00:39:31Z",
+            "account": "65.95.134.233",
+            "account_type": "anonymous_ip",
+            "role": "stable_before",
+            "restores_revision_id": null,
+            "parent_id": null,
+            "sha1": null,
+            "edit_summary": null,
+            "tags": [],
+            "size": 40147,
+            "size_delta": null,
+            "gross_removed_tokens": 0,
+            "gross_added_tokens": 0,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 0,
+            "standing_added_tokens": 0
+          },
+          {
+            "revision_id": 426748277,
+            "timestamp": "2011-04-30T16:54:16Z",
+            "account": "65.95.129.220",
+            "account_type": "anonymous_ip",
+            "role": "consolidation",
+            "restores_revision_id": null,
+            "parent_id": null,
+            "sha1": null,
+            "edit_summary": null,
+            "tags": [],
+            "size": 40814,
+            "size_delta": 667,
+            "gross_removed_tokens": 8622,
+            "gross_added_tokens": 0,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 8622,
+            "standing_added_tokens": 0
+          }
+        ],
+        "gross": {
+          "removed_tokens": 8622,
+          "added_tokens": 0,
+          "restored_tokens": 0
+        },
+        "net_standing": {
+          "removed_tokens": 8622,
+          "replacement_tokens": 0
+        },
+        "removals_by_editor": [
+          {
+            "editor": "65.95.129.220",
+            "tokens": 8622
+          }
+        ],
+        "replacement_by_editor": [],
+        "participation": {
+          "top_removal_share": 1.0,
+          "top_replacement_share": null,
+          "top_two_removal_share": 1.0,
+          "same_top_editor": false
+        },
+        "removed_tokens": 8622,
+        "replacement_tokens": 0,
+        "top_removal_share": 1.0,
+        "top_replacement_share": null,
+        "top_two_removal_share": 1.0,
+        "same_top_editor": false,
+        "note": "Counts describe observable public revision operations and surviving token states; they do not establish identity, coordination, motive, ownership, or misconduct.",
+        "duration_seconds": 144885
+      }
+    },
+    {
+      "candidate_start": "2012-01-01",
+      "candidate_end": "2012-07-01",
+      "candidate_before_revid": 462181984,
+      "candidate_after_revid": 499696679,
+      "before_revid": 491069344,
+      "before_timestamp": "2012-05-06T21:36:11Z",
+      "after_revid": 492797521,
+      "after_timestamp": "2012-05-16T01:49:08Z",
+      "durable_spine_drop": 0.567207,
+      "pwr_mass": 28481,
+      "peak_pct": 52.58,
+      "source": "interval",
+      "status": "confirmed",
+      "duration_seconds": 792777,
+      "attribution": {
+        "schema_version": 3,
+        "policy_version": "multi-revision-attribution-v1",
+        "article": "Fascism and ideology",
+        "before_revid": 491069344,
+        "before_timestamp": "2012-05-06T21:36:11Z",
+        "after_revid": 492797521,
+        "after_timestamp": "2012-05-16T01:49:08Z",
+        "event_status": "standing",
+        "semantic_role": "event_participation_receipt",
+        "revisions": [
+          {
+            "revision_id": 491069344,
+            "timestamp": "2012-05-06T21:36:11Z",
+            "account": "R-41",
+            "account_type": "registered",
+            "role": "stable_before",
+            "restores_revision_id": null,
+            "parent_id": null,
+            "sha1": null,
+            "edit_summary": null,
+            "tags": [],
+            "size": 72317,
+            "size_delta": null,
+            "gross_removed_tokens": 0,
+            "gross_added_tokens": 0,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 0,
+            "standing_added_tokens": 0
+          },
+          {
+            "revision_id": 492797521,
+            "timestamp": "2012-05-16T01:49:08Z",
+            "account": "R-41",
+            "account_type": "registered",
+            "role": "consolidation",
+            "restores_revision_id": null,
+            "parent_id": null,
+            "sha1": null,
+            "edit_summary": null,
+            "tags": [],
+            "size": 145618,
+            "size_delta": 73301,
+            "gross_removed_tokens": 4095,
+            "gross_added_tokens": 20192,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 4095,
+            "standing_added_tokens": 20192
+          }
+        ],
+        "gross": {
+          "removed_tokens": 4095,
+          "added_tokens": 20192,
+          "restored_tokens": 0
+        },
+        "net_standing": {
+          "removed_tokens": 4095,
+          "replacement_tokens": 20192
+        },
+        "removals_by_editor": [
+          {
+            "editor": "R-41",
+            "tokens": 4095
           }
         ],
         "replacement_by_editor": [
           {
-            "editor": "AlferedNobel",
-            "tokens": 227
+            "editor": "R-41",
+            "tokens": 20192
           }
         ],
+        "participation": {
+          "top_removal_share": 1.0,
+          "top_replacement_share": 1.0,
+          "top_two_removal_share": 1.0,
+          "same_top_editor": true
+        },
+        "removed_tokens": 4095,
+        "replacement_tokens": 20192,
         "top_removal_share": 1.0,
         "top_replacement_share": 1.0,
+        "top_two_removal_share": 1.0,
         "same_top_editor": true,
-        "top_two_removal_share": 1.0
+        "note": "Counts describe observable public revision operations and surviving token states; they do not establish identity, coordination, motive, ownership, or misconduct.",
+        "duration_seconds": 792777
+      }
+    },
+    {
+      "candidate_start": "2008-07-01",
+      "candidate_end": "2009-01-01",
+      "candidate_before_revid": 224505930,
+      "candidate_after_revid": 256185686,
+      "before_revid": 253124444,
+      "before_timestamp": "2008-11-21T03:51:51Z",
+      "after_revid": 253133592,
+      "after_timestamp": "2008-11-21T05:06:49Z",
+      "durable_spine_drop": 0.280768,
+      "pwr_mass": 11503,
+      "peak_pct": 26.31,
+      "source": "interval",
+      "status": "confirmed",
+      "duration_seconds": 4498,
+      "attribution": {
+        "schema_version": 3,
+        "policy_version": "multi-revision-attribution-v1",
+        "article": "Fascism and ideology",
+        "before_revid": 253124444,
+        "before_timestamp": "2008-11-21T03:51:51Z",
+        "after_revid": 253133592,
+        "after_timestamp": "2008-11-21T05:06:49Z",
+        "event_status": "standing",
+        "semantic_role": "event_participation_receipt",
+        "revisions": [
+          {
+            "revision_id": 253124444,
+            "timestamp": "2008-11-21T03:51:51Z",
+            "account": "Spylab",
+            "account_type": "registered",
+            "role": "stable_before",
+            "restores_revision_id": null,
+            "parent_id": null,
+            "sha1": null,
+            "edit_summary": null,
+            "tags": [],
+            "size": 46901,
+            "size_delta": null,
+            "gross_removed_tokens": 0,
+            "gross_added_tokens": 0,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 0,
+            "standing_added_tokens": 0
+          },
+          {
+            "revision_id": 253133592,
+            "timestamp": "2008-11-21T05:06:49Z",
+            "account": "Spylab",
+            "account_type": "registered",
+            "role": "consolidation",
+            "restores_revision_id": null,
+            "parent_id": null,
+            "sha1": null,
+            "edit_summary": null,
+            "tags": [],
+            "size": 44424,
+            "size_delta": -2477,
+            "gross_removed_tokens": 1481,
+            "gross_added_tokens": 1005,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 1481,
+            "standing_added_tokens": 1005
+          }
+        ],
+        "gross": {
+          "removed_tokens": 1481,
+          "added_tokens": 1005,
+          "restored_tokens": 0
+        },
+        "net_standing": {
+          "removed_tokens": 1481,
+          "replacement_tokens": 1005
+        },
+        "removals_by_editor": [
+          {
+            "editor": "Spylab",
+            "tokens": 1481
+          }
+        ],
+        "replacement_by_editor": [
+          {
+            "editor": "Spylab",
+            "tokens": 1005
+          }
+        ],
+        "participation": {
+          "top_removal_share": 1.0,
+          "top_replacement_share": 1.0,
+          "top_two_removal_share": 1.0,
+          "same_top_editor": true
+        },
+        "removed_tokens": 1481,
+        "replacement_tokens": 1005,
+        "top_removal_share": 1.0,
+        "top_replacement_share": 1.0,
+        "top_two_removal_share": 1.0,
+        "same_top_editor": true,
+        "note": "Counts describe observable public revision operations and surviving token states; they do not establish identity, coordination, motive, ownership, or misconduct.",
+        "duration_seconds": 4498
+      }
+    },
+    {
+      "candidate_start": "2006-07-01",
+      "candidate_end": "2007-01-01",
+      "candidate_before_revid": 61593416,
+      "candidate_after_revid": 97717171,
+      "before_revid": 79902939,
+      "before_timestamp": "2006-10-06T19:52:39Z",
+      "after_revid": 81311146,
+      "after_timestamp": "2006-10-14T00:10:29Z",
+      "durable_spine_drop": 0.634367,
+      "pwr_mass": 11103,
+      "peak_pct": 71.48,
+      "source": "interval",
+      "status": "confirmed",
+      "duration_seconds": 620270,
+      "attribution": {
+        "schema_version": 3,
+        "policy_version": "multi-revision-attribution-v1",
+        "article": "Fascism and ideology",
+        "before_revid": 79902939,
+        "before_timestamp": "2006-10-06T19:52:39Z",
+        "after_revid": 81311146,
+        "after_timestamp": "2006-10-14T00:10:29Z",
+        "event_status": "standing",
+        "semantic_role": "event_participation_receipt",
+        "revisions": [
+          {
+            "revision_id": 79902939,
+            "timestamp": "2006-10-06T19:52:39Z",
+            "account": "Euchiasmus",
+            "account_type": "registered",
+            "role": "stable_before",
+            "restores_revision_id": null,
+            "parent_id": null,
+            "sha1": null,
+            "edit_summary": null,
+            "tags": [],
+            "size": 47874,
+            "size_delta": null,
+            "gross_removed_tokens": 0,
+            "gross_added_tokens": 0,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 0,
+            "standing_added_tokens": 0
+          },
+          {
+            "revision_id": 81311146,
+            "timestamp": "2006-10-14T00:10:29Z",
+            "account": "Nikodemos",
+            "account_type": "registered",
+            "role": "consolidation",
+            "restores_revision_id": null,
+            "parent_id": null,
+            "sha1": null,
+            "edit_summary": null,
+            "tags": [],
+            "size": 44630,
+            "size_delta": -3244,
+            "gross_removed_tokens": 3403,
+            "gross_added_tokens": 2548,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 3403,
+            "standing_added_tokens": 2548
+          }
+        ],
+        "gross": {
+          "removed_tokens": 3403,
+          "added_tokens": 2548,
+          "restored_tokens": 0
+        },
+        "net_standing": {
+          "removed_tokens": 3403,
+          "replacement_tokens": 2548
+        },
+        "removals_by_editor": [
+          {
+            "editor": "Nikodemos",
+            "tokens": 3403
+          }
+        ],
+        "replacement_by_editor": [
+          {
+            "editor": "Nikodemos",
+            "tokens": 2548
+          }
+        ],
+        "participation": {
+          "top_removal_share": 1.0,
+          "top_replacement_share": 1.0,
+          "top_two_removal_share": 1.0,
+          "same_top_editor": true
+        },
+        "removed_tokens": 3403,
+        "replacement_tokens": 2548,
+        "top_removal_share": 1.0,
+        "top_replacement_share": 1.0,
+        "top_two_removal_share": 1.0,
+        "same_top_editor": true,
+        "note": "Counts describe observable public revision operations and surviving token states; they do not establish identity, coordination, motive, ownership, or misconduct.",
+        "duration_seconds": 620270
       }
     }
   ],
-  "attribution_backfill_ts": "2026-07-31T17:45:32.143482+00:00",
-  "schema_version": 2,
+  "evaluated_candidates": [
+    {
+      "candidate_start": "2026-01-01",
+      "candidate_end": "2026-07-01",
+      "candidate_before_revid": 1333641995,
+      "candidate_after_revid": 1358688575,
+      "source": "interval",
+      "pwr_mass": 450944,
+      "peak_pct": 65.5,
+      "exact_before_revid": 1356597241,
+      "exact_before_timestamp": "2026-05-28T19:03:21Z",
+      "exact_after_revid": 1356606621,
+      "exact_after_timestamp": "2026-05-28T20:03:02Z",
+      "durable_spine_drop": 0.606833,
+      "decision": "confirmed",
+      "rejection_reason": null
+    },
+    {
+      "candidate_start": "2020-07-01",
+      "candidate_end": "2021-01-01",
+      "candidate_before_revid": 964213724,
+      "candidate_after_revid": 997483099,
+      "source": "interval",
+      "pwr_mass": 116530,
+      "peak_pct": 26.67,
+      "exact_before_revid": 969097825,
+      "exact_before_timestamp": "2020-07-23T11:18:07Z",
+      "exact_after_revid": 969098737,
+      "exact_after_timestamp": "2020-07-23T11:28:29Z",
+      "durable_spine_drop": 0.181796,
+      "decision": "rejected",
+      "rejection_reason": "durable_spine_drop_below_threshold"
+    },
+    {
+      "candidate_start": "2011-01-01",
+      "candidate_end": "2011-07-01",
+      "candidate_before_revid": 396303994,
+      "candidate_after_revid": 436792724,
+      "source": "interval",
+      "pwr_mass": 46358,
+      "peak_pct": 60.55,
+      "exact_before_revid": 426479421,
+      "exact_before_timestamp": "2011-04-29T00:39:31Z",
+      "exact_after_revid": 426748277,
+      "exact_after_timestamp": "2011-04-30T16:54:16Z",
+      "durable_spine_drop": 0.994144,
+      "decision": "confirmed",
+      "rejection_reason": null
+    },
+    {
+      "candidate_start": "2012-01-01",
+      "candidate_end": "2012-07-01",
+      "candidate_before_revid": 462181984,
+      "candidate_after_revid": 499696679,
+      "source": "interval",
+      "pwr_mass": 28481,
+      "peak_pct": 52.58,
+      "exact_before_revid": 491069344,
+      "exact_before_timestamp": "2012-05-06T21:36:11Z",
+      "exact_after_revid": 492797521,
+      "exact_after_timestamp": "2012-05-16T01:49:08Z",
+      "durable_spine_drop": 0.567207,
+      "decision": "confirmed",
+      "rejection_reason": null
+    },
+    {
+      "candidate_start": "2008-07-01",
+      "candidate_end": "2009-01-01",
+      "candidate_before_revid": 224505930,
+      "candidate_after_revid": 256185686,
+      "source": "interval",
+      "pwr_mass": 11503,
+      "peak_pct": 26.31,
+      "exact_before_revid": 253124444,
+      "exact_before_timestamp": "2008-11-21T03:51:51Z",
+      "exact_after_revid": 253133592,
+      "exact_after_timestamp": "2008-11-21T05:06:49Z",
+      "durable_spine_drop": 0.280768,
+      "decision": "confirmed",
+      "rejection_reason": null
+    },
+    {
+      "candidate_start": "2006-07-01",
+      "candidate_end": "2007-01-01",
+      "candidate_before_revid": 61593416,
+      "candidate_after_revid": 97717171,
+      "source": "interval",
+      "pwr_mass": 11103,
+      "peak_pct": 71.48,
+      "exact_before_revid": 79902939,
+      "exact_before_timestamp": "2006-10-06T19:52:39Z",
+      "exact_after_revid": 81311146,
+      "exact_after_timestamp": "2006-10-14T00:10:29Z",
+      "durable_spine_drop": 0.634367,
+      "decision": "confirmed",
+      "rejection_reason": null
+    }
+  ],
   "interval_profile": [
     {
       "start": "2006-01-01",
@@ -68,7 +646,19 @@
       "size": 5854,
       "pwr_loss": 11.33,
       "pwr_removed": 663,
-      "mature": false
+      "pwr_gain": 87.97,
+      "pwr_added": 5150,
+      "pwr_retained": 88.67,
+      "replacement_candidate": 11.33,
+      "replacement_pwr": 663,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "gain",
+        "replacement"
+      ],
+      "priority": "high"
     },
     {
       "start": "2006-07-01",
@@ -76,7 +666,20 @@
       "size": 10341,
       "pwr_loss": 71.48,
       "pwr_removed": 11103,
-      "mature": false
+      "pwr_gain": 47.81,
+      "pwr_added": 7426,
+      "pwr_retained": 28.52,
+      "replacement_candidate": 47.81,
+      "replacement_pwr": 7426,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "high"
     },
     {
       "start": "2007-01-01",
@@ -84,7 +687,16 @@
       "size": 9955,
       "pwr_loss": 6.03,
       "pwr_removed": 867,
-      "mature": false
+      "pwr_gain": 4.5,
+      "pwr_added": 647,
+      "pwr_retained": 93.97,
+      "replacement_candidate": 4.5,
+      "replacement_pwr": 647,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2007-07-01",
@@ -92,7 +704,16 @@
       "size": 10159,
       "pwr_loss": 0.44,
       "pwr_removed": 104,
-      "mature": false
+      "pwr_gain": 0.6,
+      "pwr_added": 142,
+      "pwr_retained": 99.56,
+      "replacement_candidate": 0.44,
+      "replacement_pwr": 104,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2008-01-01",
@@ -100,7 +721,16 @@
       "size": 10268,
       "pwr_loss": 2.34,
       "pwr_removed": 792,
-      "mature": false
+      "pwr_gain": 1.88,
+      "pwr_added": 636,
+      "pwr_retained": 97.66,
+      "replacement_candidate": 1.88,
+      "replacement_pwr": 636,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2008-07-01",
@@ -108,7 +738,18 @@
       "size": 10672,
       "pwr_loss": 26.31,
       "pwr_removed": 11503,
-      "mature": false
+      "pwr_gain": 3.3,
+      "pwr_added": 1443,
+      "pwr_retained": 73.69,
+      "replacement_candidate": 3.3,
+      "replacement_pwr": 1443,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss"
+      ],
+      "priority": "review"
     },
     {
       "start": "2009-01-01",
@@ -116,7 +757,16 @@
       "size": 9251,
       "pwr_loss": 9.29,
       "pwr_removed": 3853,
-      "mature": false
+      "pwr_gain": 2.93,
+      "pwr_added": 1216,
+      "pwr_retained": 90.71,
+      "replacement_candidate": 2.93,
+      "replacement_pwr": 1216,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2009-07-01",
@@ -124,7 +774,16 @@
       "size": 9727,
       "pwr_loss": 0.66,
       "pwr_removed": 313,
-      "mature": false
+      "pwr_gain": 0.03,
+      "pwr_added": 13,
+      "pwr_retained": 99.34,
+      "replacement_candidate": 0.03,
+      "replacement_pwr": 13,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2010-01-01",
@@ -132,7 +791,16 @@
       "size": 9686,
       "pwr_loss": 0.25,
       "pwr_removed": 139,
-      "mature": false
+      "pwr_gain": 0.54,
+      "pwr_added": 309,
+      "pwr_retained": 99.75,
+      "replacement_candidate": 0.25,
+      "replacement_pwr": 139,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2010-07-01",
@@ -140,7 +808,16 @@
       "size": 9965,
       "pwr_loss": 0.04,
       "pwr_removed": 26,
-      "mature": false
+      "pwr_gain": 0.11,
+      "pwr_added": 70,
+      "pwr_retained": 99.96,
+      "replacement_candidate": 0.04,
+      "replacement_pwr": 26,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2011-01-01",
@@ -148,7 +825,19 @@
       "size": 10029,
       "pwr_loss": 60.55,
       "pwr_removed": 46358,
-      "mature": false
+      "pwr_gain": 11.5,
+      "pwr_added": 8807,
+      "pwr_retained": 39.45,
+      "replacement_candidate": 11.5,
+      "replacement_pwr": 8807,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss",
+        "replacement"
+      ],
+      "priority": "high"
     },
     {
       "start": "2011-07-01",
@@ -156,7 +845,16 @@
       "size": 12149,
       "pwr_loss": 3.39,
       "pwr_removed": 1434,
-      "mature": false
+      "pwr_gain": 5.6,
+      "pwr_added": 2370,
+      "pwr_retained": 96.61,
+      "replacement_candidate": 3.39,
+      "replacement_pwr": 1434,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2012-01-01",
@@ -164,7 +862,20 @@
       "size": 12987,
       "pwr_loss": 52.58,
       "pwr_removed": 28481,
-      "mature": false
+      "pwr_gain": 39.84,
+      "pwr_added": 21577,
+      "pwr_retained": 47.42,
+      "replacement_candidate": 39.84,
+      "replacement_pwr": 21577,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "high"
     },
     {
       "start": "2012-07-01",
@@ -172,7 +883,16 @@
       "size": 28186,
       "pwr_loss": 0.45,
       "pwr_removed": 244,
-      "mature": true
+      "pwr_gain": 0.44,
+      "pwr_added": 238,
+      "pwr_retained": 99.55,
+      "replacement_candidate": 0.44,
+      "replacement_pwr": 238,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2013-01-01",
@@ -180,7 +900,16 @@
       "size": 28240,
       "pwr_loss": 0.19,
       "pwr_removed": 155,
-      "mature": true
+      "pwr_gain": 0.05,
+      "pwr_added": 37,
+      "pwr_retained": 99.81,
+      "replacement_candidate": 0.05,
+      "replacement_pwr": 37,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2013-07-01",
@@ -188,7 +917,16 @@
       "size": 28213,
       "pwr_loss": 0.25,
       "pwr_removed": 277,
-      "mature": true
+      "pwr_gain": 0.72,
+      "pwr_added": 790,
+      "pwr_retained": 99.75,
+      "replacement_candidate": 0.25,
+      "replacement_pwr": 277,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2014-01-01",
@@ -196,7 +934,16 @@
       "size": 28924,
       "pwr_loss": 1.05,
       "pwr_removed": 1457,
-      "mature": true
+      "pwr_gain": 0.0,
+      "pwr_added": 0,
+      "pwr_retained": 98.95,
+      "replacement_candidate": 0.0,
+      "replacement_pwr": 0,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2014-07-01",
@@ -204,7 +951,16 @@
       "size": 28019,
       "pwr_loss": 0.17,
       "pwr_removed": 273,
-      "mature": true
+      "pwr_gain": 0.01,
+      "pwr_added": 13,
+      "pwr_retained": 99.83,
+      "replacement_candidate": 0.01,
+      "replacement_pwr": 13,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2015-01-01",
@@ -212,7 +968,16 @@
       "size": 27980,
       "pwr_loss": 0.54,
       "pwr_removed": 1036,
-      "mature": true
+      "pwr_gain": 0.36,
+      "pwr_added": 699,
+      "pwr_retained": 99.46,
+      "replacement_candidate": 0.36,
+      "replacement_pwr": 699,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2015-07-01",
@@ -220,7 +985,16 @@
       "size": 28358,
       "pwr_loss": 0.17,
       "pwr_removed": 365,
-      "mature": true
+      "pwr_gain": 0.01,
+      "pwr_added": 26,
+      "pwr_retained": 99.83,
+      "replacement_candidate": 0.01,
+      "replacement_pwr": 26,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2016-01-01",
@@ -228,7 +1002,16 @@
       "size": 28298,
       "pwr_loss": 0.75,
       "pwr_removed": 1861,
-      "mature": true
+      "pwr_gain": 0.15,
+      "pwr_added": 384,
+      "pwr_retained": 99.25,
+      "replacement_candidate": 0.15,
+      "replacement_pwr": 384,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2016-07-01",
@@ -236,7 +1019,16 @@
       "size": 28447,
       "pwr_loss": 0.38,
       "pwr_removed": 1038,
-      "mature": true
+      "pwr_gain": 1.9,
+      "pwr_added": 5224,
+      "pwr_retained": 99.62,
+      "replacement_candidate": 0.38,
+      "replacement_pwr": 1038,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2017-01-01",
@@ -244,7 +1036,16 @@
       "size": 33444,
       "pwr_loss": 0.77,
       "pwr_removed": 2359,
-      "mature": true
+      "pwr_gain": 1.72,
+      "pwr_added": 5285,
+      "pwr_retained": 99.23,
+      "replacement_candidate": 0.77,
+      "replacement_pwr": 2359,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2017-07-01",
@@ -252,7 +1053,16 @@
       "size": 37447,
       "pwr_loss": 4.68,
       "pwr_removed": 16048,
-      "mature": true
+      "pwr_gain": 0.56,
+      "pwr_added": 1919,
+      "pwr_retained": 95.32,
+      "replacement_candidate": 0.56,
+      "replacement_pwr": 1919,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "review"
     },
     {
       "start": "2018-01-01",
@@ -260,7 +1070,16 @@
       "size": 35967,
       "pwr_loss": 0.0,
       "pwr_removed": 14,
-      "mature": true
+      "pwr_gain": 0.07,
+      "pwr_added": 247,
+      "pwr_retained": 100.0,
+      "replacement_candidate": 0.0,
+      "replacement_pwr": 14,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2018-07-01",
@@ -268,7 +1087,16 @@
       "size": 36165,
       "pwr_loss": 0.12,
       "pwr_removed": 461,
-      "mature": true
+      "pwr_gain": 0.04,
+      "pwr_added": 150,
+      "pwr_retained": 99.88,
+      "replacement_candidate": 0.04,
+      "replacement_pwr": 150,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2019-01-01",
@@ -276,7 +1104,18 @@
       "size": 36086,
       "pwr_loss": 20.84,
       "pwr_removed": 90514,
-      "mature": true
+      "pwr_gain": 0.71,
+      "pwr_added": 3069,
+      "pwr_retained": 79.16,
+      "replacement_candidate": 0.71,
+      "replacement_pwr": 3069,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss"
+      ],
+      "priority": "high"
     },
     {
       "start": "2019-07-01",
@@ -284,7 +1123,16 @@
       "size": 32154,
       "pwr_loss": 0.62,
       "pwr_removed": 2318,
-      "mature": true
+      "pwr_gain": 0.07,
+      "pwr_added": 250,
+      "pwr_retained": 99.38,
+      "replacement_candidate": 0.07,
+      "replacement_pwr": 250,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2020-01-01",
@@ -292,7 +1140,16 @@
       "size": 31708,
       "pwr_loss": 0.15,
       "pwr_removed": 614,
-      "mature": true
+      "pwr_gain": 0.13,
+      "pwr_added": 520,
+      "pwr_retained": 99.85,
+      "replacement_candidate": 0.13,
+      "replacement_pwr": 520,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2020-07-01",
@@ -300,7 +1157,18 @@
       "size": 32140,
       "pwr_loss": 26.67,
       "pwr_removed": 116530,
-      "mature": true
+      "pwr_gain": 3.21,
+      "pwr_added": 14029,
+      "pwr_retained": 73.33,
+      "replacement_candidate": 3.21,
+      "replacement_pwr": 14029,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss"
+      ],
+      "priority": "high"
     },
     {
       "start": "2021-01-01",
@@ -308,7 +1176,16 @@
       "size": 34125,
       "pwr_loss": 0.28,
       "pwr_removed": 985,
-      "mature": true
+      "pwr_gain": 0.04,
+      "pwr_added": 139,
+      "pwr_retained": 99.72,
+      "replacement_candidate": 0.04,
+      "replacement_pwr": 139,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2021-07-01",
@@ -316,7 +1193,16 @@
       "size": 34078,
       "pwr_loss": 1.17,
       "pwr_removed": 4568,
-      "mature": true
+      "pwr_gain": 0.14,
+      "pwr_added": 529,
+      "pwr_retained": 98.83,
+      "replacement_candidate": 0.14,
+      "replacement_pwr": 529,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2022-01-01",
@@ -324,7 +1210,16 @@
       "size": 34282,
       "pwr_loss": 5.45,
       "pwr_removed": 22850,
-      "mature": true
+      "pwr_gain": 1.11,
+      "pwr_added": 4637,
+      "pwr_retained": 94.55,
+      "replacement_candidate": 1.11,
+      "replacement_pwr": 4637,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "review"
     },
     {
       "start": "2022-07-01",
@@ -332,7 +1227,16 @@
       "size": 37159,
       "pwr_loss": 0.44,
       "pwr_removed": 1910,
-      "mature": true
+      "pwr_gain": 0.04,
+      "pwr_added": 166,
+      "pwr_retained": 99.56,
+      "replacement_candidate": 0.04,
+      "replacement_pwr": 166,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2023-01-01",
@@ -340,7 +1244,16 @@
       "size": 37121,
       "pwr_loss": 0.13,
       "pwr_removed": 618,
-      "mature": true
+      "pwr_gain": 0.11,
+      "pwr_added": 502,
+      "pwr_retained": 99.87,
+      "replacement_candidate": 0.11,
+      "replacement_pwr": 502,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2023-07-01",
@@ -348,7 +1261,16 @@
       "size": 37546,
       "pwr_loss": 0.03,
       "pwr_removed": 142,
-      "mature": true
+      "pwr_gain": 0.49,
+      "pwr_added": 2491,
+      "pwr_retained": 99.97,
+      "replacement_candidate": 0.03,
+      "replacement_pwr": 142,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2024-01-01",
@@ -356,7 +1278,16 @@
       "size": 39837,
       "pwr_loss": 0.03,
       "pwr_removed": 177,
-      "mature": true
+      "pwr_gain": 0.15,
+      "pwr_added": 808,
+      "pwr_retained": 99.97,
+      "replacement_candidate": 0.03,
+      "replacement_pwr": 177,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2024-07-01",
@@ -364,7 +1295,16 @@
       "size": 40627,
       "pwr_loss": 1.21,
       "pwr_removed": 7100,
-      "mature": true
+      "pwr_gain": 0.21,
+      "pwr_added": 1205,
+      "pwr_retained": 98.79,
+      "replacement_candidate": 0.21,
+      "replacement_pwr": 1205,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2025-01-01",
@@ -372,7 +1312,16 @@
       "size": 40501,
       "pwr_loss": 1.27,
       "pwr_removed": 7887,
-      "mature": true
+      "pwr_gain": 0.37,
+      "pwr_added": 2305,
+      "pwr_retained": 98.73,
+      "replacement_candidate": 0.37,
+      "replacement_pwr": 2305,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2025-07-01",
@@ -380,7 +1329,16 @@
       "size": 41815,
       "pwr_loss": 1.18,
       "pwr_removed": 7730,
-      "mature": true
+      "pwr_gain": 0.13,
+      "pwr_added": 862,
+      "pwr_retained": 98.82,
+      "replacement_candidate": 0.13,
+      "replacement_pwr": 862,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2026-01-01",
@@ -388,8 +1346,146 @@
       "size": 41892,
       "pwr_loss": 65.5,
       "pwr_removed": 450944,
-      "mature": true
+      "pwr_gain": 0.34,
+      "pwr_added": 2355,
+      "pwr_retained": 34.5,
+      "replacement_candidate": 0.34,
+      "replacement_pwr": 2355,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss"
+      ],
+      "priority": "high"
     }
   ],
-  "interval_profile_backfill_ts": "2026-08-03T18:11:34.396536+00:00"
+  "sweep_candidates": [
+    {
+      "start": "2006-01-01",
+      "end": "2006-07-01",
+      "anomaly_types": [
+        "gain",
+        "replacement"
+      ],
+      "priority": "high",
+      "decision": "pending_confirmation",
+      "pwr_loss": 11.33,
+      "pwr_removed": 663,
+      "pwr_gain": 87.97,
+      "pwr_added": 5150,
+      "replacement_candidate": 11.33,
+      "replacement_pwr": 663
+    },
+    {
+      "start": "2006-07-01",
+      "end": "2007-01-01",
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "high",
+      "decision": "pending_confirmation",
+      "pwr_loss": 71.48,
+      "pwr_removed": 11103,
+      "pwr_gain": 47.81,
+      "pwr_added": 7426,
+      "replacement_candidate": 47.81,
+      "replacement_pwr": 7426
+    },
+    {
+      "start": "2008-07-01",
+      "end": "2009-01-01",
+      "anomaly_types": [
+        "loss"
+      ],
+      "priority": "review",
+      "decision": "pending_confirmation",
+      "pwr_loss": 26.31,
+      "pwr_removed": 11503,
+      "pwr_gain": 3.3,
+      "pwr_added": 1443,
+      "replacement_candidate": 3.3,
+      "replacement_pwr": 1443
+    },
+    {
+      "start": "2011-01-01",
+      "end": "2011-07-01",
+      "anomaly_types": [
+        "loss",
+        "replacement"
+      ],
+      "priority": "high",
+      "decision": "pending_confirmation",
+      "pwr_loss": 60.55,
+      "pwr_removed": 46358,
+      "pwr_gain": 11.5,
+      "pwr_added": 8807,
+      "replacement_candidate": 11.5,
+      "replacement_pwr": 8807
+    },
+    {
+      "start": "2012-01-01",
+      "end": "2012-07-01",
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "high",
+      "decision": "pending_confirmation",
+      "pwr_loss": 52.58,
+      "pwr_removed": 28481,
+      "pwr_gain": 39.84,
+      "pwr_added": 21577,
+      "replacement_candidate": 39.84,
+      "replacement_pwr": 21577
+    },
+    {
+      "start": "2019-01-01",
+      "end": "2019-07-01",
+      "anomaly_types": [
+        "loss"
+      ],
+      "priority": "high",
+      "decision": "pending_confirmation",
+      "pwr_loss": 20.84,
+      "pwr_removed": 90514,
+      "pwr_gain": 0.71,
+      "pwr_added": 3069,
+      "replacement_candidate": 0.71,
+      "replacement_pwr": 3069
+    },
+    {
+      "start": "2020-07-01",
+      "end": "2021-01-01",
+      "anomaly_types": [
+        "loss"
+      ],
+      "priority": "high",
+      "decision": "pending_confirmation",
+      "pwr_loss": 26.67,
+      "pwr_removed": 116530,
+      "pwr_gain": 3.21,
+      "pwr_added": 14029,
+      "replacement_candidate": 3.21,
+      "replacement_pwr": 14029
+    },
+    {
+      "start": "2026-01-01",
+      "end": "2026-07-01",
+      "anomaly_types": [
+        "loss"
+      ],
+      "priority": "high",
+      "decision": "pending_confirmation",
+      "pwr_loss": 65.5,
+      "pwr_removed": 450944,
+      "pwr_gain": 0.34,
+      "pwr_added": 2355,
+      "replacement_candidate": 0.34,
+      "replacement_pwr": 2355
+    }
+  ]
 }

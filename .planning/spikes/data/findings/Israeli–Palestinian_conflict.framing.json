@@ -5,13 +5,13 @@
   "pivot_window": {
     "start": "2024-01-01",
     "end": "2025-01-01",
-    "pwr_mass": 553813,
+    "pwr_mass": 163585,
     "status": "confirmed",
     "before_revid": 1239968080,
     "before_timestamp": "2024-08-12T19:05:51Z",
     "after_revid": 1239968974,
     "after_timestamp": "2024-08-12T19:13:55Z",
-    "durable_spine_drop": 0.367616
+    "durable_spine_drop": 0.364379
   },
   "editions_compared": [
     "en",
@@ -87,96 +87,738 @@
   },
   "divergences": [
     {
-      "topic": "Framing of the conflict's origin and terminology",
+      "topic": "Framing of the conflict's origin/nature",
       "editions_differ": [
-        "AR"
+        "AR",
+        "EN"
       ],
-      "en_says": "The Israeli–Palestinian conflict is an ongoing military and political conflict about land and self-determination within the territory of the former Mandatory Palestine.",
-      "other_says": "مصطلح يشار به إلى الخلاف السياسي والتاريخي والمشكلة الإنسانية في فلسطين بدءاً من عام 1897 (المؤتمر الصهيوني الأول) وحتى الوقت الحالي، وهي تعدّ جزءاً جوهرياً من الصراع العربي الإسرائيلي",
+      "en_says": "an ongoing military and political conflict about land and self-determination within the territory of the former Mandatory Palestine",
+      "other_says": "مصطلح يشار به إلى الخلاف السياسي والتاريخي والمشكلة الإنسانية في فلسطين بدءاً من عام 1897",
       "verdict": "differ",
-      "evidence_en": "an ongoing military and political conflict about land and self-determination within the territory of the former Mandatory Palestine",
-      "evidence_other": null,
+      "evidence_en": "The Israeli–Palestinian conflict is an ongoing military and political conflict about land and self-determination",
+      "evidence_other": "القضية الفلسطينية أو الصراع الفلسطيني الإسرائيلي مصطلح يشار به إلى الخلاف السياسي والتاريخي والمشكلة الإنسانية في فلسطين بدءاً من عام 1897",
       "temporal_read": "difference_persisted",
-      "en_before": "The Israeli–Palestinian conflict is an ongoing military and political conflict about land and self-determination within the territory of the former Mandatory Palestine.",
-      "en_after": "The Israeli–Palestinian conflict is an ongoing military and political conflict about land and self-determination within the territory of the former Mandatory Palestine.",
+      "en_before": "an ongoing military and political conflict about land and self-determination within the territory of the former Mandatory Palestine",
+      "en_after": "an ongoing military and political conflict about land and self-determination within the territory of the former Mandatory Palestine",
       "other_before": "مصطلح يشار به إلى الخلاف السياسي والتاريخي والمشكلة الإنسانية في فلسطين بدءاً من عام 1897",
       "other_after": "مصطلح يشار به إلى الخلاف السياسي والتاريخي والمشكلة الإنسانية في فلسطين بدءاً من عام 1897",
       "evidence_en_before": "an ongoing military and political conflict about land and self-determination",
       "evidence_en_after": "an ongoing military and political conflict about land and self-determination",
-      "evidence_other_before": "القضية الفلسطينية أو الصراع الفلسطيني الإسرائيلي مصطلح يشار به إلى الخلاف السياسي والتاريخي والمشكلة الإنسانية",
-      "evidence_other_after": "القضية الفلسطينية أو الصراع الفلسطيني الإسرائيلي مصطلح يشار به إلى الخلاف السياسي والتاريخي والمشكلة الإنسانية"
+      "evidence_other_before": "مصطلح يشار به إلى الخلاف السياسي والتاريخي والمشكلة الإنسانية في فلسطين",
+      "evidence_other_after": "مصطلح يشار به إلى الخلاف السياسي والتاريخي والمشكلة الإنسانية في فلسطين"
     },
     {
-      "topic": "Starting point/date of the conflict",
+      "topic": "Framing as part of broader Arab-Israeli conflict",
       "editions_differ": [
         "AR",
-        "OR"
+        "EN"
       ],
-      "en_says": "The conflict has its origins in the rise of Zionism in Europe and the arrival of Jewish settlers to Ottoman Palestine in the late 19th and early 20th centuries.",
-      "other_says": "بدءاً من عام 1897 (المؤتمر الصهيوني الأول)",
-      "verdict": "agree",
-      "evidence_en": "the rise of Zionism in Europe and the arrival of Jewish settlers to Ottoman Palestine in the late 19th and early 20th centuries",
-      "evidence_other": "بدءاً من عام 1897 (المؤتمر الصهيوني الأول)",
+      "en_says": "No mention of the conflict being part of the broader Arab–Israeli conflict",
+      "other_says": "تعدّ جزءاً جوهرياً من الصراع العربي الإسرائيلي، وما نتج عنه من أزمات وحروب في منطقة الشرق الأوسط",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": "وهي تعدّ جزءاً جوهرياً من الصراع العربي الإسرائيلي، وما نتج عنه من أزمات وحروب في منطقة الشرق الأوسط",
       "temporal_read": "difference_persisted",
-      "en_before": "The conflict has its origins in the rise of Zionism in Europe and the arrival of Jewish settlers to Ottoman Palestine in the late 19th and early 20th centuries.",
-      "en_after": "The conflict has its origins in the rise of Zionism in Europe and the arrival of Jewish settlers to Ottoman Palestine in the late 19th and early 20th centuries.",
-      "other_before": "بدءاً من عام 1897 (المؤتمر الصهيوني الأول)",
-      "other_after": "بدءاً من عام 1897 (المؤتمر الصهيوني الأول)",
-      "evidence_en_before": "the rise of Zionism in Europe and the arrival of Jewish settlers to Ottoman Palestine",
-      "evidence_en_after": "the rise of Zionism in Europe and the arrival of Jewish settlers to Ottoman Palestine",
+      "en_before": "No mention of broader Arab-Israeli conflict framing",
+      "en_after": "No mention of broader Arab-Israeli conflict framing",
+      "other_before": "وهي تعدّ جزءاً جوهرياً من الصراع العربي الإسرائيلي",
+      "other_after": "وهي تعدّ جزءاً جوهرياً من الصراع العربي الإسرائيلي",
+      "evidence_en_before": null,
+      "evidence_en_after": null,
+      "evidence_other_before": "تعدّ جزءاً جوهرياً من الصراع العربي الإسرائيلي",
+      "evidence_other_after": "تعدّ جزءاً جوهرياً من الصراع العربي الإسرائيلي"
+    },
+    {
+      "topic": "Mention of massacres against Palestinians",
+      "editions_differ": [
+        "AR",
+        "EN"
+      ],
+      "en_says": "No direct mention of massacres in the lead",
+      "other_says": "ما نتج عن ذلك من ارتكابها للمجازر بحق الفلسطينيين وعمليات المقاومة ضد الدولة العبرية",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": "وما نتج عن ذلك من ارتكابها للمجازر بحق الفلسطينيين وعمليات المقاومة ضد الدولة العبرية",
+      "temporal_read": "difference_persisted",
+      "en_before": "No mention of massacres",
+      "en_after": "No mention of massacres",
+      "other_before": "ارتكابها للمجازر بحق الفلسطينيين",
+      "other_after": "ارتكابها للمجازر بحق الفلسطينيين",
+      "evidence_en_before": null,
+      "evidence_en_after": null,
+      "evidence_other_before": "ارتكابها للمجازر بحق الفلسطينيين وعمليات المقاومة ضد الدولة العبرية",
+      "evidence_other_after": "ارتكابها للمجازر بحق الفلسطينيين وعمليات المقاومة ضد الدولة العبرية"
+    },
+    {
+      "topic": "1936 Arab revolt detail and long footnote on its consequences",
+      "editions_differ": [
+        "OR",
+        "JA",
+        "AR"
+      ],
+      "en_says": "In 1936, an Arab revolt erupted demanding independence, which the British suppressed, with extensive footnote on consequences",
+      "other_says": "No mention of the 1936 Arab revolt in OR, JA, or AR leads",
+      "verdict": "absent_other",
+      "evidence_en": "In 1936, an Arab revolt erupted demanding independence, which the British suppressed",
+      "evidence_other": null,
+      "temporal_read": "difference_persisted",
+      "en_before": "In 1936, an Arab revolt erupted demanding independence, which the British suppressed",
+      "en_after": "In 1936, an Arab revolt erupted demanding independence, which the British suppressed",
+      "other_before": "No mention of 1936 Arab revolt",
+      "other_after": "No mention of 1936 Arab revolt",
+      "evidence_en_before": "In 1936, an Arab revolt erupted demanding independence",
+      "evidence_en_after": "In 1936, an Arab revolt erupted demanding independence",
       "evidence_other_before": null,
       "evidence_other_after": null
     },
     {
-      "topic": "Characterization of Israeli actions/statehood legitimacy",
+      "topic": "Description of 1948 outcome (expulsion and flight)",
       "editions_differ": [
-        "AR"
+        "OR",
+        "EN"
       ],
-      "en_says": "Key aspects of the conflict include the Israeli occupation of the West Bank and Gaza Strip, the status of Jerusalem, Israeli settlements, borders, security, water rights, the permit regime, Palestinian freedom of movement, and the Palestinian right of return.",
-      "other_says": "شرعية دولة إسرائيل واحتلالها للأراضي الفلسطينية بعدة مراحل. وما نتج عن ذلك من ارتكابها للمجازر بحق الفلسطينيين",
-      "verdict": "contradict",
-      "evidence_en": "Key aspects of the conflict include the Israeli occupation of the West Bank and Gaza Strip",
-      "evidence_other": null,
+      "en_says": "which saw the expulsion and flight of most Palestinians, the establishment of Israel on most of the Mandate's territory",
+      "other_says": "୧୯୪୭-୧୯୪୯ ପାଲେଷ୍ଟାଇନ ଯୁଦ୍ଧକୁ ଉତ୍ତେଜିତ କରିଥିଲା (without mention of expulsion/flight)",
+      "verdict": "differ",
+      "evidence_en": "which saw the expulsion and flight of most Palestinians, the establishment of Israel on most of the Mandate's territory",
+      "evidence_other": "୧୯୪୭-୧୯୪୯ ପାଲେଷ୍ଟାଇନ ଯୁଦ୍ଧକୁ ଉତ୍ତେଜିତ କରିଥିଲା",
       "temporal_read": "difference_persisted",
-      "en_before": "Key aspects of the conflict include the Israeli occupation of the West Bank and Gaza Strip, the status of Jerusalem, Israeli settlements, borders, security, water rights, the permit regime, Palestinian freedom of movement, and the Palestinian right of return.",
-      "en_after": "Key aspects of the conflict include the Israeli occupation of the West Bank and Gaza Strip, the status of Jerusalem, Israeli settlements, borders, security, water rights, the permit regime, Palestinian freedom of movement, and the Palestinian right of return.",
-      "other_before": "شرعية دولة إسرائيل واحتلالها للأراضي الفلسطينية بعدة مراحل. وما نتج عن ذلك من ارتكابها للمجازر بحق الفلسطينيين",
-      "other_after": "شرعية دولة إسرائيل واحتلالها للأراضي الفلسطينية بعدة مراحل. وما نتج عن ذلك من ارتكابها للمجازر بحق الفلسطينيين",
-      "evidence_en_before": "Israeli occupation of the West Bank and Gaza Strip, the status of Jerusalem, Israeli settlements",
-      "evidence_en_after": "Israeli occupation of the West Bank and Gaza Strip, the status of Jerusalem, Israeli settlements",
-      "evidence_other_before": "شرعية دولة إسرائيل واحتلالها للأراضي الفلسطينية بعدة مراحل",
-      "evidence_other_after": "شرعية دولة إسرائيل واحتلالها للأراضي الفلسطينية بعدة مراحل"
+      "en_before": "which saw the expulsion and flight of most Palestinians, the establishment of Israel on most of the Mandate's territory",
+      "en_after": "which saw the expulsion and flight of most Palestinians, the establishment of Israel on most of the Mandate's territory",
+      "other_before": "୧୯୪୭-୧୯୪୯ ପାଲେଷ୍ଟାଇନ ଯୁଦ୍ଧକୁ ଉତ୍ତେଜିତ କରିଥିଲା",
+      "other_after": "୧୯୪୭-୧୯୪୯ ପାଲେଷ୍ଟାଇନ ଯୁଦ୍ଧକୁ ଉତ୍ତେଜିତ କରିଥିଲା",
+      "evidence_en_before": "expulsion and flight of most Palestinians",
+      "evidence_en_after": "expulsion and flight of most Palestinians",
+      "evidence_other_before": "ପାଲେଷ୍ଟାଇନ ଯୁଦ୍ଧକୁ ଉତ୍ତେଜିତ କରିଥିଲା",
+      "evidence_other_after": "ପାଲେଷ୍ଟାଇନ ଯୁଦ୍ଧକୁ ଉତ୍ତେଜିତ କରିଥିଲା"
     }
   ],
-  "summary": "Across this window, the English lead text is byte-identical before and after (no substantive edit occurred despite the revision timestamps), so no genuine temporal change occurred in English. The Arabic, Japanese, and Odia leads are also unchanged between their respective before/after snapshots. Therefore, all identified divergences reflect persistent, pre-existing differences between English and other editions (particularly Arabic, which frames the conflict as originating in 1897 Zionist Congress and centers on Israeli statehood legitimacy and alleged massacres, versus English's framing centered on occupation, settlements, and specific final-status issues) rather than any convergence, divergence, or parallel change during the specified period.",
-  "run_ts": "2026-07-19T17:41:55.786639+00:00",
+  "summary": "Across this window, the EN, AR, JA, and OR leads for the Israeli–Palestinian conflict article show no substantive textual changes between the BEFORE and AFTER revisions provided; each edition's text is identical in both snapshots. However, longstanding cross-edition differences persist: EN frames the topic narrowly as a land/self-determination conflict tied to Mandatory Palestine, while AR frames it as part of the broader Arab-Israeli conflict and explicitly references massacres against Palestinians and UN resolutions. OR and JA leads omit the 1936 Arab revolt detail found in EN, and OR's account of the 1948 war omits explicit mention of expulsion and flight of Palestinians that EN includes. These are persistent differences rather than changes introduced during this specific edit window, since no edition's compared revisions show textual modification of the relevant passages.",
+  "run_ts": "2026-08-04T20:12:50.818137+00:00",
   "model": "claude-sonnet-5",
   "llm_usage": {
-    "calls": 2,
-    "input_tokens": 31816,
-    "output_tokens": 6618,
+    "calls": 1,
+    "input_tokens": 15937,
+    "output_tokens": 3044,
     "estimated_usd": null,
     "all_calls_priced": false,
     "records": [
       {
         "provider": "anthropic",
         "model": "claude-sonnet-5",
-        "input_tokens": 15908,
-        "output_tokens": 4096,
-        "estimated_usd": null,
-        "pricing_key": null,
-        "pricing_usd_per_million": null
-      },
-      {
-        "provider": "anthropic",
-        "model": "claude-sonnet-5",
-        "input_tokens": 15908,
-        "output_tokens": 2522,
+        "input_tokens": 15937,
+        "output_tokens": 3044,
         "estimated_usd": null,
         "pricing_key": null,
         "pricing_usd_per_million": null
       }
     ]
   },
-  "elapsed_seconds": 85.177
+  "elapsed_seconds": 61.858,
+  "schema_version": 1,
+  "analysis_scope": "confirmed_episodes",
+  "episode_count": 3,
+  "episodes": [
+    {
+      "article": "Israeli–Palestinian conflict",
+      "category": "israeli-palestinian",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2024-01-01",
+        "end": "2025-01-01",
+        "pwr_mass": 163585,
+        "status": "confirmed",
+        "before_revid": 1239968080,
+        "before_timestamp": "2024-08-12T19:05:51Z",
+        "after_revid": 1239968974,
+        "after_timestamp": "2024-08-12T19:13:55Z",
+        "durable_spine_drop": 0.364379
+      },
+      "editions_compared": [
+        "en",
+        "ar",
+        "ja",
+        "or"
+      ],
+      "lead_chars": {
+        "en": 3000,
+        "ar": 1691,
+        "ja": 1166,
+        "or": 3000
+      },
+      "snapshots": {
+        "before": {
+          "en": {
+            "revid": 1239968080,
+            "timestamp": "2024-08-12T19:05:51Z",
+            "title": "Israeli–Palestinian conflict",
+            "lead": "The Israeli–Palestinian conflict is an ongoing military and political conflict about land and self-determination within the territory of the former Mandatory Palestine. Key aspects of the conflict include the Israeli occupation of the West Bank and Gaza Strip, the status of Jerusalem, Israeli settlements, borders, security, water rights, the permit regime, Palestinian freedom of movement, and the Palestinian right of return.\n\nThe conflict has its origins in the rise of Zionism in Europe and the arrival of Jewish settlers to Ottoman Palestine in the late 19th and early 20th centuries. The local Arab population opposed Zionism, primarily out of fear of territorial displacement and dispossession. The Zionist movement garnered the support of an imperial power in the 1917 Balfour Declaration issued by Britain, which promised to support the creation of a \"Jewish homeland in Palestine\". Following the British occupation of the formerly Ottoman region during World War I, Mandatory Palestine was established as a British mandate. Increasing Jewish immigration led to tensions between Jews and Arabs which grew into intercommunal conflict. In 1936, an Arab revolt erupted demanding independence, which the British suppressed.: \"The repression of the revolt had an impact not only on the populace, but also on the Palestinians’ ability to fight thereafter, and on the already fractured capabilities of their national leadership. A high proportion of the Arab casualties included the most experienced military cadres and enterprising fighters.6 By the end of the revolt, most of the top Arab political leaders and thousands of other cadres, militants, and fighters were imprisoned, interned by the British in the Seychelles, in exile, or dead. The British also confiscated large quantities of arms and ammunition from the Arabs during the revolt, and continued to do so during later years.7 By the end of the revolt, existing political divisions within the Palestinian polity had become envenomed, leading to profound rifts between the majority supporting the revolt and a minority that had become alienated from the leadership: the consequence was assassinations, infighting, and further weakening of the Palestinian position. The impact of the revolt on the Palestinian economy was also severe, although some of that damage was self-inflicted, as a boycott of British and Jewish goods and of the mandatory government during the strike and the revolt simply opened up opportunities for the already larger Jewish-controlled sector of the economy of Palestine to expand further.\"\n\nThe 1947 United Nations Partition Plan for Palestine triggered the 1948 Palestine war, which saw the expulsion and flight of most Palestinians, the establishment of Israel on most of the Mandate's territory, and the control of the Gaza Strip and the West Bank by Egypt and Jordan, respectively. In the 1967 Six-Day War, Israel occupied the West Bank and the Gaza Strip (which became known as the Palestinian territorie"
+          },
+          "ar": {
+            "revid": 67583936,
+            "timestamp": "2024-08-10T10:13:16Z",
+            "title": "القضية الفلسطينية",
+            "lead": "القضية الفلسطينية أو الصراع الفلسطيني الإسرائيلي مصطلح يشار به إلى الخلاف السياسي والتاريخي والمشكلة الإنسانية في فلسطين بدءاً من عام 1897 (المؤتمر الصهيوني الأول) وحتى الوقت الحالي. وهي تعدّ جزءاً جوهرياً من الصراع العربي الإسرائيلي، وما نتج عنه من أزمات وحروب في منطقة الشرق الأوسط.\n\nيرتبط هذا النزاع بشكل جذري بنشوء الصهيونية والهجرة اليهودية إلى فلسطين، والاستيطان فيها، ودور الدول العظمى في أحداث المنطقة. كما تتمحور القضية الفلسطينية حول قضية اللاجئين الفلسطينيين وشرعية دولة إسرائيل واحتلالها للأراضي الفلسطينية بعدة مراحل. وما نتج عن ذلك من ارتكابها للمجازر بحق الفلسطينيين وعمليات المقاومة ضد الدولة العبرية، وصدور قرارات كثيرة للأمم المتحدة، كان بعضها تاريخيا؛ كالقرار رقم 194 والقرار رقم 242.\n\nيُعتبر هذا النزاع، من قبل الكثير من المحللين والسياسيين القضية المركزية في الصراع العربي الإسرائيلي وسبب أزمة هذه المنطقة وتوترها. بالرغم من أن هذا النزاع يحدث ضمن منطقة جغرافية صغيرة نسبياً، إلا أنه يحظى باهتمام سياسي وإعلامي كبير نظراً لتورط العديد من الأطراف الدولية فيه وغالباً ما تكون الدول العظمى في العالم منخرطة فيه نظراً لتمركزه في منطقة حساسة من العالم وارتباطه بقضايا إشكالية تشكل ذروة أزمات العالم المعاصر، مثل الصراع بين الشرق والغرب، علاقة الأديان اليهودية والمسيحية والإسلام فيما بينها، علاقات العرب مع الغرب وأهمية النفط العربي للدول الغربية، أهمية وحساسية القضية اليهودية في الحضارة الغربية خصوصاً بعد الحرب العالمية الثانية والهولوكوست اليهودي وقضايا معاداة السامية وقوى ضغط اللوبيات اليهودية في العالم الغربي. على الصعيد العربي يعدّ الكثير من المفكرين والمنظرين العرب وحتى السياسيين أن قضية النزاع الفلسطيني الإسرائيلي هي القضية والأزمة المركزية في المنطقة وكثيراً ما يربطها بعض المفكرين بقضايا النهضة العربية وقضايا الأنظمة الشمولية وضعف الديمقراطية في الوطن العربي."
+          },
+          "he": {
+            "revid": 39298852,
+            "timestamp": "2024-08-08T17:20:03Z",
+            "title": "הסכסוך הישראלי-פלסטיני",
+            "lead": "הסכסוך הישראלי־פלסטיני (בערבית: النزاع الفلسطيني-الإسرائيلي - הסכסוך הפלסטיני־ישראלי, או القضية الفلسطينية - \"הסוגיה הפלסטינית\") הוא סכסוך בין תושביה היהודים של ארץ ישראל (היישוב), ובהמשך גם מדינת ישראל שהקימו לבין ערביי ארץ ישראל (פלסטינים). העמדה המקובלת היא שראשיתו של הסכסוך בהצהרת בלפור הבריטית ב-1917. ואולם, יש המחשיבים שההיסטוריה של הסכסוך הישראלי-פלסטיני, תחילתה בשנת 1860, אז הוקמה משכנות שאננים - השכונה היהודית הראשונה מחוץ לחומות העיר העתיקה בירושלים. כך למשל נמנים באופן רשמי נפגעי פעולות האיבה, החל משנה זו. אך זאת על אף שהיהודי הראשון שנרצח בידי מתנקשים ערבים בשטחי ארץ ישראל הוא הרב אברהם שלמה זלמן צורף שנרצח בשנת 1851. \n\nסכסוך זה בין שני חלקי האוכלוסייה היושבים בארץ ישראל, יהודים וערבים, החל לפני הקמת מדינת ישראל, והמשיך בעוז לאחריה. אף שהמונח \"פלסטינים\" במשמעותו המקובלת כיום לא היה בשימוש לפני הקמת המדינה – מורחבת כיום משמעות הביטוי \"הסכסוך הישראלי-פלסטיני\" אף לתחילתו של הסכסוך בין היהודים לערבים בארץ ישראל. והוא כולל גם את המאבק בין יהודי ארץ ישראל לבין ערביי ארץ ישראל במהלך שלהי התקופה העות'מאנית בארץ ישראל ותקופת המנדט הבריטי.\n\nהסכסוך הישראלי-פלסטיני, אף במשמעותו המורחבת כאמור, הוא למעשה לבו של הסכסוך הישראלי-ערבי הרחב יותר.\n\nשש סוגיות עיקריות, העומדות כיום במוקד המחלוקת בין הצדדים הן - גבולות הקבע, מעמד הפליטים הפלסטינים (זכות השיבה), השליטה בירושלים ובהר הבית, חלוקת משאבי המים, ההתנחלויות והסדרי הביטחון.\n\nבמהלך השנים נעשו ניסיונות רבים ליישוב הסכסוך, כגון תהליך השלום הישראלי-פלסטיני. מרבית ההצעות ניסו לקדם פתרון קבע אשר כרוך ביצירת אוטונומיה פלסטינית (למשל תוכנית האוטונומיה) או מדינה פלסטינית לצד מדינה יהודית עצמאית (עד 1948) או לצד מדינת ישראל (אחרי הקמתה), הידוע כפתרון שתי המדינות. פתרון אחר שהוצע ליישוב הסכסוך הוא \"פתרון מדינה אחת\" שלפיו כל ארץ ישראל המערבית כולל רצועת עזה ויהודה ושומרון תהפוך למדינה דו לאומית, תוך שליטה מוגברת של אחד הצדדים או שלטון שוויוני. הניסיונות לא צלחו בשל חילוקי דעות בתחומים רבים על אופי הפתרון וכן בשל אי אמון הדדי בין הצדדים. מאפיין בולט בסכסוך הוא גילויי הטרור הקשים מהצד הפלסטיני, אשר קיימים כמעט לכל אורכו של הסכסוך. הלחימה מבוצעת על ידי צבאות סדירים, כוחות צבאיים למחצה, תאי טרור ויחידים. הסכסוך הוביל לאורך השנים למספר רב של הרוגים בקרב האוכלוסייה האזרחית בשני הצדדים.\n\nגורמים בינלאומיים בולטים מעורבים בניסיונות לפתרון הסכסוך. שני הגורמים העיקריים המעורבים במשא ומתן הם ממשלת ישראל וארגון אש\"ף, קודם הקמת הרשות הפלסטינית, והרשות מאז הקמתה. מתווכים בין הצדדים נציגות בינלאומית המכונה הקוורטט לענייני המזרח התיכון אשר מורכב מנציגים מארצות הברית, רוסיה, האיחוד האירופי והאו\"ם.\n\nהסכסוך ידע עליות ומורדות והגיע לשיאו לאחר מתקפת הפתע של חמאס על ישראל, מתקפה שהובילה למלחמת חרבות ברזל."
+          },
+          "ja": {
+            "revid": 101304180,
+            "timestamp": "2024-07-31T08:36:14Z",
+            "title": "パレスチナ問題",
+            "lead": "パレスチナ問題（パレスチナもんだい）、またはイスラエルとパレスチナの紛争（イスラエルとパレスチナのふんそう、）は、イスラエル人とパレスチナ人の間で続いている暴力的な闘争についての問題である。イスラエルとパレスチナの和平プロセスの一環として、この紛争を解決するためにさまざまな試みが行われてきたEran, Oded. \"Arab-Israel Peacemaking.\" The Continuum Political Encyclopedia of the Middle East. Ed. Avraham Sela. New York: Continuum, 2002, p. 121.が、依然解決がされていない。「世界で最も解決が難しい紛争」とも呼ばれているChris Rice , quoted in Munayer Salim J, Loden Lisa, Through My Enemy's Eyes: Envisioning Reconciliation in Israel-Palestine, quote: \"The Palestinian-Israeli divide may be the most intractable conflict of our time.\"Virginia Page Fortna , Peace Time: Cease-fire Agreements and the Durability of Peace, page 67, \"Britain's contradictory promises to Arabs and Jews during World War I sowed the seeds of what would become the international community's most intractable conflict later in the century.\"Avner Falk, Fratricide in the Holy Land: A Psychoanalytic View of the Arab–Israeli Conflict, Chapter 1, page 8, \"Most experts agree that the Arab–Israeli conflict is the most intractable conflict in our world, yet very few scholars have produced any psychological explanation—let alone a satisfactory one—of this conflict's intractability\"。"
+          },
+          "or": {
+            "revid": 539502,
+            "timestamp": "2024-05-07T06:53:02Z",
+            "title": "ଇସ୍ରାଏଲ-ପାଲେଷ୍ଟାଇନ ବିବାଦ",
+            "lead": "ଇସ୍ରାଏଲ-ପାଲେଷ୍ଟାଇନ ସଂଘର୍ଷ ଲେଭାଣ୍ଟରେ ଚାଲିଥିବା ସାମରିକ ଏବଂ ରାଜନୈତିକ ସଂଘର୍ଷ । ବିଂଶ ଶତାବ୍ଦୀର ମଧ୍ୟଭାଗରୁ ଆରମ୍ଭ ହୋଇଥିବା ଏହା ବିଶ୍ୱର ସବୁଠାରୁ ଲମ୍ବା ସଂଘର୍ଷ ମଧ୍ୟରୁ ଅନ୍ୟତମ । ଇସ୍ରାଏଲ-ପାଲେଷ୍ଟାଇନ ଶାନ୍ତି ପ୍ରକ୍ରିୟା ନାମରେ ଏହି ବିବାଦର ସମାଧାନ ପାଇଁ ବିଭିନ୍ନ ପ୍ରକାରର ପ୍ରୟାସ କରାଯାଇଛି ।Virginia Page Fortna , Peace Time: Cease-fire Agreements and the Durability of Peace, page 67, \"Britain's contradictory promises to Arabs and Jews during World War I sowed the seeds of what would become the international community's most intractable conflict later in the century.\" ୧୮୯୭ ମସିହାର ପ୍ରଥମ ଜିଓନିଷ୍ଟ କଂଗ୍ରେସ ଏବଂ ୧୯୧୭ର ବାଲଫୋର ଘୋଷଣାନାମା ସମେତ ପାଲେଷ୍ଟାଇନରେ ଏକ ଇହୁଦୀ ମାତୃଭୂମି ପାଇଁ ଦାବିର ସାର୍ବଜନୀନ ଘୋଷଣା ଇହୁଦୀ ପ୍ରବାସୀଙ୍କ ଲହର ପରେ ଏହି ଅଞ୍ଚଳରେ ପ୍ରାରମ୍ଭିକ ଉତ୍ତେଜନା ସୃଷ୍ଟି କରିଥିଲା । ପ୍ରଥମ ବିଶ୍ୱଯୁଦ୍ଧ ପରେ ପାଲେଷ୍ଟାଇନ ପାଇଁ ଆଦେଶରେ \"ପାଲେଷ୍ଟାଇନରେ ଇହୁଦୀ ଲୋକଙ୍କ ପାଇଁ ଏକ ଜାତୀୟ ଗୃହ ପ୍ରତିଷ୍ଠା\" ପାଇଁ ଏକ ବାଧ୍ୟତାମୂଳକତା ନିୟମ ଅନ୍ତର୍ଭୁକ୍ତ ହୋଇଥିଲା । ଇହୁଦୀ ଓ ଆରବମାନଙ୍କ ମଧ୍ୟରେ ଉତ୍ତେଜନା ଖୋଲା ସାମ୍ପ୍ରଦାୟିକ ସଂଘର୍ଷରେ ପରିଣତ ହୋଇଥିଲା। ପାଲେଷ୍ଟାଇନ ପାଇଁ ୧୯୪୭ ମସିହାରେ ମିଳିତ ଜାତିସଂଘବିଭାଜନ ଯୋଜନା କେବେ କାର୍ଯ୍ୟକାରୀ ହୋଇନଥିଲା ଏବଂ ୧୯୪୭-୧୯୪୯ ପାଲେଷ୍ଟାଇନ ଯୁଦ୍ଧକୁ ଉତ୍ତେଜିତ କରିଥିଲା । ବର୍ତ୍ତମାନର ଇସ୍ରାଏଲ-ପାଲେଷ୍ଟାଇନ ସ୍ଥିତାବସ୍ଥା ୧୯୬୭ ମସିହାରେ ପାଲେଷ୍ଟାଇନ ଅଞ୍ଚଳ ଭାବରେ ପରିଚିତ ୬ ଦିନିଆ ଯୁଦ୍ଧରେ ପଶ୍ଚିମ ତଟ ଏବଂ ଗାଜା ଉପରେ ଇସ୍ରାଏଲର ସାମରିକ ଦଖଲ ପରେ ଆରମ୍ଭ ହୋଇଥିଲା ।\n\n୧୯୯୩-୧୯୯୫ର ଓସ୍ଲୋ ଚୁକ୍ତି ମାଧ୍ୟମରେ ଦୁଇ ରାଷ୍ଟ୍ରୀୟ ସମାଧାନ ଦିଗରେ ଅଗ୍ରଗତି ହୋଇଥିଲା । ଚୂଡ଼ାନ୍ତ ସ୍ଥିତି ପ୍ରସଙ୍ଗ ଗୁଡ଼ିକ ମଧ୍ୟରେ ଜେରୁଜେଲମର ସ୍ଥିତି, ଇସ୍ରାଏଲ ବସ୍ତି, ସୀମା, ସୁରକ୍ଷା ଏବଂ ଜଳ ଅଧିକାର ସହିତ ପାଲେଷ୍ଟାଇନ୍ର ଚଳପ୍ରଚଳ ସ୍ୱାଧୀନତା ଏବଂ ପାଲେଷ୍ଟାଇନ୍ ପ୍ରତ୍ୟାବର୍ତ୍ତନ ଅଧିକାର ଅନ୍ତର୍ଭୁକ୍ତ । ସମଗ୍ର ବିଶ୍ୱରେ ଐତିହାସିକ, ସାଂସ୍କୃତିକ ଏବଂ ଧାର୍ମିକ ସ୍ୱାର୍ଥ ସମ୍ପନ୍ନ ସ୍ଥାନରେ ସମୃଦ୍ଧ ଏହି ଅଞ୍ଚଳରେ ସଂଘର୍ଷର ହିଂସା ଐତିହାସିକ ଅଧିକାର, ନିରାପତ୍ତା ପ୍ରସଙ୍ଗ ଏବଂ ମାନବିକ ଅଧିକାର ସମ୍ବନ୍ଧୀୟ ଅନେକ ଅନ୍ତର୍ଜାତୀୟ ସମ୍ମିଳନୀର ବିଷୟ ହୋଇଛି; ଏବଂ ପର୍ଯ୍ୟଟନ ଏବଂ ସାଧାରଣ ପ୍ରବେଶରେ ବାଧା ସୃଷ୍ଟି କରୁଥିବା ଏକ କାରଣ ହୋଇଛି ଯେଉଁଠାରେ ତୀବ୍ର ପ୍ରତିଦ୍ୱନ୍ଦ୍ୱିତା ହେଉଛି । ଅଧିକାଂଶ ଶାନ୍ତି ପ୍ରୟାସ ଦୁଇ ରାଷ୍ଟ୍ର ସମାଧାନ ଉପରେ କେନ୍ଦ୍ରୀଭୂତ ହୋଇଛି, ଯେଉଁଥିରେ ଇସ୍ରାଏଲ ସହିତ ଏକ ସ୍ୱାଧୀନ ପାଲେଷ୍ଟାଇନ ରାଷ୍ଟ୍ର ପ୍ରତିଷ୍ଠା ଅନ୍ତର୍ଭୁକ୍ତ । ତେବେ ପୂର୍ବରୁ ଉଭୟ ଇସ୍ରାଏଲ ଇହୁଦୀ ଓ ପାଲେଷ୍ଟାଇନର ସମର୍ଥନ ପାଇଥିବା ଦୁଇ ରାଷ୍ଟ୍ରୀୟ ସମାଧାନ ପାଇଁ ଜନସମର୍ଥନ ସାମ୍ପ୍ରତିକ ବର୍ଷଗୁଡ଼ିକରେ ହ୍ରାସ ପାଇଛି।Dershowitz, Alan. \n\nଇସ୍ରାଏଲ ଓ ପାଲେଷ୍ଟାଇନ ସମାଜରେ ଏହି ସଂଘର୍ଷ ବିଭିନ୍ନ ପ୍ରକାରର ମତ ଓ ମତାମତ ସୃଷ୍ଟି କରିଥାଏ । ଆରମ୍ଭରୁ ଏହି ସଂଘର୍ଷରେ କେବଳ ଲଢ଼ୁଆଙ୍କ ମଧ୍ୟରେ ସୀମିତ ନ ଥିବା ବେଳେ ଉଭୟ ପକ୍ଷର ବହୁ ସଂଖ୍ୟାରେ ସାଧାରଣ ନାଗରିକ ପ୍ରାଣ ହରାଇଛନ୍ତି। ଅଳ୍ପ ସଂଖ୍ୟକ ଇହୁଦୀ ଇସ୍ରାଏଲବାସୀ (୩୨ ପ୍ରତିଶତ) ପାଲେଷ୍ଟାଇନ ସହିତ ଦୁଇ ରାଷ୍ଟ୍ରସମାଧାନକୁ ସମର୍ଥନ କରନ୍ତି । ଇସ୍ରାଏଲ ଇହୁଦୀମାନେ ଆଦର୍ଶ ଭିତ୍ତିରେ ବିଭାଜିତ ଏବଂ ଅନେକ ଲୋକ ସ୍ଥିତାବସ୍ଥା ବଜାୟ ରଖିବାକୁ ସମର୍ଥନ କରନ୍ତି । ପାଖାପାଖି ୬୦ ପ୍ରତିଶତ ପାଲେଷ୍ଟାଇନ୍ (ଗାଜା ଉପତ୍ୟକାରେ ୭୭% ଏବଂ ପଶ୍ଚିମ ତଟରେ ୪୬%) ଇସ୍ରାଏଲ ଭିତରେ ଇସ୍ରାଏଲ ବିରୋଧରେ ସଶସ୍ତ୍ର ଆକ୍ରମଣକୁ ଦଖଲକୁ ଶେଷ କରିବାର ମାଧ୍ୟମ ଭାବରେ ସମର୍ଥନ କରୁଥିବା ବେଳେ ୭୦% ବିଶ୍ୱାସ କରନ୍ତି ଯେ ଇସ୍ରାଏଲର ବସତି ସମ୍ପ୍ରସାରଣ ଫଳରେ ଦୁଇ ରାଷ୍ଟ୍ରସମାଧାନ ଆଉ ବ୍ୟବହାରିକ କିମ୍ବା ସମ୍ଭବ ନୁହେଁ । ଦୁଇ ତୃତୀୟାଂଶରୁ ଅଧିକ ଇସ୍ରାଏଲ ଇହୁଦୀ କହିଛନ୍ତି ଯେ ଯଦି ପଶ୍ଚିମ ତଟକୁ ଇସ୍ରାଏଲ ଅକ୍ତିଆର କରେ, ତେବେ ସେଠାରେ ରହୁଥିବା ପାଲେଷ୍ଟାଇନୀମାନଙ୍କୁ ଭୋଟ୍ ଦେବାକୁ ଅନୁମତି ଦିଆଯିବା ଉଚିତ ନୁହେଁ । ମୌଳିକ ପ୍ରସଙ୍ଗରେ ପାରସ୍ପରିକ ଅବିଶ୍ୱାସ ଏବଂ ଗୁରୁତ୍"
+          }
+        },
+        "after": {
+          "en": {
+            "revid": 1239968974,
+            "timestamp": "2024-08-12T19:13:55Z",
+            "title": "Israeli–Palestinian conflict",
+            "lead": "The Israeli–Palestinian conflict is an ongoing military and political conflict about land and self-determination within the territory of the former Mandatory Palestine. Key aspects of the conflict include the Israeli occupation of the West Bank and Gaza Strip, the status of Jerusalem, Israeli settlements, borders, security, water rights, the permit regime, Palestinian freedom of movement, and the Palestinian right of return.\n\nThe conflict has its origins in the rise of Zionism in Europe and the arrival of Jewish settlers to Ottoman Palestine in the late 19th and early 20th centuries. The local Arab population opposed Zionism, primarily out of fear of territorial displacement and dispossession. The Zionist movement garnered the support of an imperial power in the 1917 Balfour Declaration issued by Britain, which promised to support the creation of a \"Jewish homeland in Palestine\". Following the British occupation of the formerly Ottoman region during World War I, Mandatory Palestine was established as a British mandate. Increasing Jewish immigration led to tensions between Jews and Arabs which grew into intercommunal conflict. In 1936, an Arab revolt erupted demanding independence, which the British suppressed.: \"The repression of the revolt had an impact not only on the populace, but also on the Palestinians’ ability to fight thereafter, and on the already fractured capabilities of their national leadership. A high proportion of the Arab casualties included the most experienced military cadres and enterprising fighters.6 By the end of the revolt, most of the top Arab political leaders and thousands of other cadres, militants, and fighters were imprisoned, interned by the British in the Seychelles, in exile, or dead. The British also confiscated large quantities of arms and ammunition from the Arabs during the revolt, and continued to do so during later years.7 By the end of the revolt, existing political divisions within the Palestinian polity had become envenomed, leading to profound rifts between the majority supporting the revolt and a minority that had become alienated from the leadership: the consequence was assassinations, infighting, and further weakening of the Palestinian position. The impact of the revolt on the Palestinian economy was also severe, although some of that damage was self-inflicted, as a boycott of British and Jewish goods and of the mandatory government during the strike and the revolt simply opened up opportunities for the already larger Jewish-controlled sector of the economy of Palestine to expand further.\"\n\nThe 1947 United Nations Partition Plan for Palestine triggered the 1948 Palestine war, which saw the expulsion and flight of most Palestinians, the establishment of Israel on most of the Mandate's territory, and the control of the Gaza Strip and the West Bank by Egypt and Jordan, respectively. In the 1967 Six-Day War, Israel occupied the West Bank and the Gaza Strip (which became known as the Palestinian territorie"
+          },
+          "ar": {
+            "revid": 67610958,
+            "timestamp": "2024-08-14T17:29:32Z",
+            "title": "القضية الفلسطينية",
+            "lead": "القضية الفلسطينية أو الصراع الفلسطيني الإسرائيلي مصطلح يشار به إلى الخلاف السياسي والتاريخي والمشكلة الإنسانية في فلسطين بدءاً من عام 1897 (المؤتمر الصهيوني الأول) وحتى الوقت الحالي. وهي تعدّ جزءاً جوهرياً من الصراع العربي الإسرائيلي، وما نتج عنه من أزمات وحروب في منطقة الشرق الأوسط.\n\nيرتبط هذا النزاع بشكل جذري بنشوء الصهيونية والهجرة اليهودية إلى فلسطين، والاستيطان فيها، ودور الدول العظمى في أحداث المنطقة. كما تتمحور القضية الفلسطينية حول قضية اللاجئين الفلسطينيين وشرعية دولة إسرائيل واحتلالها للأراضي الفلسطينية بعدة مراحل. وما نتج عن ذلك من ارتكابها للمجازر بحق الفلسطينيين وعمليات المقاومة ضد الدولة العبرية، وصدور قرارات كثيرة للأمم المتحدة، كان بعضها تاريخيا؛ كالقرار رقم 194 والقرار رقم 242.\n\nيُعتبر هذا النزاع، من قبل الكثير من المحللين والسياسيين القضية المركزية في الصراع العربي الإسرائيلي وسبب أزمة هذه المنطقة وتوترها. بالرغم من أن هذا النزاع يحدث ضمن منطقة جغرافية صغيرة نسبياً، إلا أنه يحظى باهتمام سياسي وإعلامي كبير نظراً لتورط العديد من الأطراف الدولية فيه وغالباً ما تكون الدول العظمى في العالم منخرطة فيه نظراً لتمركزه في منطقة حساسة من العالم وارتباطه بقضايا إشكالية تشكل ذروة أزمات العالم المعاصر، مثل الصراع بين الشرق والغرب، علاقة الأديان اليهودية والمسيحية والإسلام فيما بينها، علاقات العرب مع الغرب وأهمية النفط العربي للدول الغربية، أهمية وحساسية القضية اليهودية في الحضارة الغربية خصوصاً بعد الحرب العالمية الثانية والهولوكوست اليهودي وقضايا معاداة السامية وقوى ضغط اللوبيات اليهودية في العالم الغربي. على الصعيد العربي يعدّ الكثير من المفكرين والمنظرين العرب وحتى السياسيين أن قضية النزاع الفلسطيني الإسرائيلي هي القضية والأزمة المركزية في المنطقة وكثيراً ما يربطها بعض المفكرين بقضايا النهضة العربية وقضايا الأنظمة الشمولية وضعف الديمقراطية في الوطن العربي."
+          },
+          "ja": {
+            "revid": 101880864,
+            "timestamp": "2024-09-17T16:46:42Z",
+            "title": "パレスチナ問題",
+            "lead": "パレスチナ問題（パレスチナもんだい）、またはイスラエルとパレスチナの紛争（イスラエルとパレスチナのふんそう、）は、イスラエル人とパレスチナ人の間で続いている暴力的な闘争についての問題である。イスラエルとパレスチナの和平プロセスの一環として、この紛争を解決するためにさまざまな試みが行われてきたEran, Oded. \"Arab-Israel Peacemaking.\" The Continuum Political Encyclopedia of the Middle East. Ed. Avraham Sela. New York: Continuum, 2002, p. 121.が、依然解決がされていない。「世界で最も解決が難しい紛争」とも呼ばれているChris Rice , quoted in Munayer Salim J, Loden Lisa, Through My Enemy's Eyes: Envisioning Reconciliation in Israel-Palestine, quote: \"The Palestinian-Israeli divide may be the most intractable conflict of our time.\"Virginia Page Fortna , Peace Time: Cease-fire Agreements and the Durability of Peace, page 67, \"Britain's contradictory promises to Arabs and Jews during World War I sowed the seeds of what would become the international community's most intractable conflict later in the century.\"Avner Falk, Fratricide in the Holy Land: A Psychoanalytic View of the Arab–Israeli Conflict, Chapter 1, page 8, \"Most experts agree that the Arab–Israeli conflict is the most intractable conflict in our world, yet very few scholars have produced any psychological explanation—let alone a satisfactory one—of this conflict's intractability\"。"
+          },
+          "or": {
+            "revid": 558335,
+            "timestamp": "2024-12-24T02:02:04Z",
+            "title": "ଇସ୍ରାଏଲ-ପାଲେଷ୍ଟାଇନ ବିବାଦ",
+            "lead": "ଇସ୍ରାଏଲ-ପାଲେଷ୍ଟାଇନ ସଂଘର୍ଷ ଲେଭାଣ୍ଟରେ ଚାଲିଥିବା ସାମରିକ ଏବଂ ରାଜନୈତିକ ସଂଘର୍ଷ । ବିଂଶ ଶତାବ୍ଦୀର ମଧ୍ୟଭାଗରୁ ଆରମ୍ଭ ହୋଇଥିବା ଏହା ବିଶ୍ୱର ସବୁଠାରୁ ଲମ୍ବା ସଂଘର୍ଷ ମଧ୍ୟରୁ ଅନ୍ୟତମ । ଇସ୍ରାଏଲ-ପାଲେଷ୍ଟାଇନ ଶାନ୍ତି ପ୍ରକ୍ରିୟା ନାମରେ ଏହି ବିବାଦର ସମାଧାନ ପାଇଁ ବିଭିନ୍ନ ପ୍ରକାରର ପ୍ରୟାସ କରାଯାଇଛି ।Virginia Page Fortna , Peace Time: Cease-fire Agreements and the Durability of Peace, page 67, \"Britain's contradictory promises to Arabs and Jews during World War I sowed the seeds of what would become the international community's most intractable conflict later in the century.\" ୧୮୯୭ ମସିହାର ପ୍ରଥମ ଜିଓନିଷ୍ଟ କଂଗ୍ରେସ ଏବଂ ୧୯୧୭ର ବାଲଫୋର ଘୋଷଣାନାମା ସମେତ ପାଲେଷ୍ଟାଇନରେ ଏକ ଇହୁଦୀ ମାତୃଭୂମି ପାଇଁ ଦାବିର ସାର୍ବଜନୀନ ଘୋଷଣା ଇହୁଦୀ ପ୍ରବାସୀଙ୍କ ଲହର ପରେ ଏହି ଅଞ୍ଚଳରେ ପ୍ରାରମ୍ଭିକ ଉତ୍ତେଜନା ସୃଷ୍ଟି କରିଥିଲା । ପ୍ରଥମ ବିଶ୍ୱଯୁଦ୍ଧ ପରେ ପାଲେଷ୍ଟାଇନ ପାଇଁ ଆଦେଶରେ \"ପାଲେଷ୍ଟାଇନରେ ଇହୁଦୀ ଲୋକଙ୍କ ପାଇଁ ଏକ ଜାତୀୟ ଗୃହ ପ୍ରତିଷ୍ଠା\" ପାଇଁ ଏକ ବାଧ୍ୟତାମୂଳକତା ନିୟମ ଅନ୍ତର୍ଭୁକ୍ତ ହୋଇଥିଲା । ଇହୁଦୀ ଓ ଆରବମାନଙ୍କ ମଧ୍ୟରେ ଉତ୍ତେଜନା ଖୋଲା ସାମ୍ପ୍ରଦାୟିକ ସଂଘର୍ଷରେ ପରିଣତ ହୋଇଥିଲା। ପାଲେଷ୍ଟାଇନ ପାଇଁ ୧୯୪୭ ମସିହାରେ ମିଳିତ ଜାତିସଂଘବିଭାଜନ ଯୋଜନା କେବେ କାର୍ଯ୍ୟକାରୀ ହୋଇନଥିଲା ଏବଂ ୧୯୪୭-୧୯୪୯ ପାଲେଷ୍ଟାଇନ ଯୁଦ୍ଧକୁ ଉତ୍ତେଜିତ କରିଥିଲା । ବର୍ତ୍ତମାନର ଇସ୍ରାଏଲ-ପାଲେଷ୍ଟାଇନ ସ୍ଥିତାବସ୍ଥା ୧୯୬୭ ମସିହାରେ ପାଲେଷ୍ଟାଇନ ଅଞ୍ଚଳ ଭାବରେ ପରିଚିତ ୬ ଦିନିଆ ଯୁଦ୍ଧରେ ପଶ୍ଚିମ ତଟ ଏବଂ ଗାଜା ଉପରେ ଇସ୍ରାଏଲର ସାମରିକ ଦଖଲ ପରେ ଆରମ୍ଭ ହୋଇଥିଲା ।\n\n୧୯୯୩-୧୯୯୫ର ଓସ୍ଲୋ ଚୁକ୍ତି ମାଧ୍ୟମରେ ଦୁଇ ରାଷ୍ଟ୍ରୀୟ ସମାଧାନ ଦିଗରେ ଅଗ୍ରଗତି ହୋଇଥିଲା । ଚୂଡ଼ାନ୍ତ ସ୍ଥିତି ପ୍ରସଙ୍ଗ ଗୁଡ଼ିକ ମଧ୍ୟରେ ଜେରୁଜେଲମର ସ୍ଥିତି, ଇସ୍ରାଏଲ ବସ୍ତି, ସୀମା, ସୁରକ୍ଷା ଏବଂ ଜଳ ଅଧିକାର ସହିତ ପାଲେଷ୍ଟାଇନ୍‌ର ଚଳପ୍ରଚଳ ସ୍ୱାଧୀନତା ଏବଂ ପାଲେଷ୍ଟାଇନ୍ ପ୍ରତ୍ୟାବର୍ତ୍ତନ ଅଧିକାର ଅନ୍ତର୍ଭୁକ୍ତ । ସମଗ୍ର ବିଶ୍ୱରେ ଐତିହାସିକ, ସାଂସ୍କୃତିକ ଏବଂ ଧାର୍ମିକ ସ୍ୱାର୍ଥ ସମ୍ପନ୍ନ ସ୍ଥାନରେ ସମୃଦ୍ଧ ଏହି ଅଞ୍ଚଳରେ ସଂଘର୍ଷର ହିଂସା ଐତିହାସିକ ଅଧିକାର, ନିରାପତ୍ତା ପ୍ରସଙ୍ଗ ଏବଂ ମାନବିକ ଅଧିକାର ସମ୍ବନ୍ଧୀୟ ଅନେକ ଅନ୍ତର୍ଜାତୀୟ ସମ୍ମିଳନୀର ବିଷୟ ହୋଇଛି; ଏବଂ ପର୍ଯ୍ୟଟନ ଏବଂ ସାଧାରଣ ପ୍ରବେଶରେ ବାଧା ସୃଷ୍ଟି କରୁଥିବା ଏକ କାରଣ ହୋଇଛି ଯେଉଁଠାରେ ତୀବ୍ର ପ୍ରତିଦ୍ୱନ୍ଦ୍ୱିତା ହେଉଛି । ଅଧିକାଂଶ ଶାନ୍ତି ପ୍ରୟାସ ଦୁଇ ରାଷ୍ଟ୍ର ସମାଧାନ ଉପରେ କେନ୍ଦ୍ରୀଭୂତ ହୋଇଛି, ଯେଉଁଥିରେ ଇସ୍ରାଏଲ ସହିତ ଏକ ସ୍ୱାଧୀନ ପାଲେଷ୍ଟାଇନ ରାଷ୍ଟ୍ର ପ୍ରତିଷ୍ଠା ଅନ୍ତର୍ଭୁକ୍ତ । ତେବେ ପୂର୍ବରୁ ଉଭୟ ଇସ୍ରାଏଲ ଇହୁଦୀ ଓ ପାଲେଷ୍ଟାଇନର ସମର୍ଥନ ପାଇଥିବା ଦୁଇ ରାଷ୍ଟ୍ରୀୟ ସମାଧାନ ପାଇଁ ଜନସମର୍ଥନ ସାମ୍ପ୍ରତିକ ବର୍ଷଗୁଡ଼ିକରେ ହ୍ରାସ ପାଇଛି।Dershowitz, Alan. \n\nଇସ୍ରାଏଲ ଓ ପାଲେଷ୍ଟାଇନ ସମାଜରେ ଏହି ସଂଘର୍ଷ ବିଭିନ୍ନ ପ୍ରକାରର ମତ ଓ ମତାମତ ସୃଷ୍ଟି କରିଥାଏ । ଆରମ୍ଭରୁ ଏହି ସଂଘର୍ଷରେ କେବଳ ଲଢ଼ୁଆଙ୍କ ମଧ୍ୟରେ ସୀମିତ ନ ଥିବା ବେଳେ ଉଭୟ ପକ୍ଷର ବହୁ ସଂଖ୍ୟାରେ ସାଧାରଣ ନାଗରିକ ପ୍ରାଣ ହରାଇଛନ୍ତି। ଅଳ୍ପ ସଂଖ୍ୟକ ଇହୁଦୀ ଇସ୍ରାଏଲବାସୀ (୩୨ ପ୍ରତିଶତ) ପାଲେଷ୍ଟାଇନ ସହିତ ଦୁଇ ରାଷ୍ଟ୍ରସମାଧାନକୁ ସମର୍ଥନ କରନ୍ତି । ଇସ୍ରାଏଲ ଇହୁଦୀମାନେ ଆଦର୍ଶ ଭିତ୍ତିରେ ବିଭାଜିତ ଏବଂ ଅନେକ ଲୋକ ସ୍ଥିତାବସ୍ଥା ବଜାୟ ରଖିବାକୁ ସମର୍ଥନ କରନ୍ତି । ପାଖାପାଖି ୬୦ ପ୍ରତିଶତ ପାଲେଷ୍ଟାଇନ୍ (ଗାଜା ଉପତ୍ୟକାରେ ୭୭% ଏବଂ ପଶ୍ଚିମ ତଟରେ ୪୬%) ଇସ୍ରାଏଲ ଭିତରେ ଇସ୍ରାଏଲ ବିରୋଧରେ ସଶସ୍ତ୍ର ଆକ୍ରମଣକୁ ଦଖଲକୁ ଶେଷ କରିବାର ମାଧ୍ୟମ ଭାବରେ ସମର୍ଥନ କରୁଥିବା ବେଳେ ୭୦% ବିଶ୍ୱାସ କରନ୍ତି ଯେ ଇସ୍ରାଏଲର ବସତି ସମ୍ପ୍ରସାରଣ ଫଳରେ ଦୁଇ ରାଷ୍ଟ୍ରସମାଧାନ ଆଉ ବ୍ୟବହାରିକ କିମ୍ବା ସମ୍ଭବ ନୁହେଁ । ଦୁଇ ତୃତୀୟାଂଶରୁ ଅଧିକ ଇସ୍ରାଏଲ ଇହୁଦୀ କହିଛନ୍ତି ଯେ ଯଦି ପଶ୍ଚିମ ତଟକୁ ଇସ୍ରାଏଲ ଅକ୍ତିଆର କରେ, ତେବେ ସେଠାରେ ରହୁଥିବା ପାଲେଷ୍ଟାଇନୀମାନଙ୍କୁ ଭୋଟ୍ ଦେବାକୁ ଅନୁମତି ଦିଆଯିବା ଉଚିତ ନୁହେଁ । ମୌଳିକ ପ୍ରସଙ୍ଗରେ ପାରସ୍ପରିକ ଅବିଶ୍ୱାସ ଏବଂ ଗୁରୁତ"
+          }
+        }
+      },
+      "divergences": [
+        {
+          "topic": "Framing of the conflict's origin/nature",
+          "editions_differ": [
+            "AR",
+            "EN"
+          ],
+          "en_says": "an ongoing military and political conflict about land and self-determination within the territory of the former Mandatory Palestine",
+          "other_says": "مصطلح يشار به إلى الخلاف السياسي والتاريخي والمشكلة الإنسانية في فلسطين بدءاً من عام 1897",
+          "verdict": "differ",
+          "evidence_en": "The Israeli–Palestinian conflict is an ongoing military and political conflict about land and self-determination",
+          "evidence_other": "القضية الفلسطينية أو الصراع الفلسطيني الإسرائيلي مصطلح يشار به إلى الخلاف السياسي والتاريخي والمشكلة الإنسانية في فلسطين بدءاً من عام 1897",
+          "temporal_read": "difference_persisted",
+          "en_before": "an ongoing military and political conflict about land and self-determination within the territory of the former Mandatory Palestine",
+          "en_after": "an ongoing military and political conflict about land and self-determination within the territory of the former Mandatory Palestine",
+          "other_before": "مصطلح يشار به إلى الخلاف السياسي والتاريخي والمشكلة الإنسانية في فلسطين بدءاً من عام 1897",
+          "other_after": "مصطلح يشار به إلى الخلاف السياسي والتاريخي والمشكلة الإنسانية في فلسطين بدءاً من عام 1897",
+          "evidence_en_before": "an ongoing military and political conflict about land and self-determination",
+          "evidence_en_after": "an ongoing military and political conflict about land and self-determination",
+          "evidence_other_before": "مصطلح يشار به إلى الخلاف السياسي والتاريخي والمشكلة الإنسانية في فلسطين",
+          "evidence_other_after": "مصطلح يشار به إلى الخلاف السياسي والتاريخي والمشكلة الإنسانية في فلسطين"
+        },
+        {
+          "topic": "Framing as part of broader Arab-Israeli conflict",
+          "editions_differ": [
+            "AR",
+            "EN"
+          ],
+          "en_says": "No mention of the conflict being part of the broader Arab–Israeli conflict",
+          "other_says": "تعدّ جزءاً جوهرياً من الصراع العربي الإسرائيلي، وما نتج عنه من أزمات وحروب في منطقة الشرق الأوسط",
+          "verdict": "absent_en",
+          "evidence_en": null,
+          "evidence_other": "وهي تعدّ جزءاً جوهرياً من الصراع العربي الإسرائيلي، وما نتج عنه من أزمات وحروب في منطقة الشرق الأوسط",
+          "temporal_read": "difference_persisted",
+          "en_before": "No mention of broader Arab-Israeli conflict framing",
+          "en_after": "No mention of broader Arab-Israeli conflict framing",
+          "other_before": "وهي تعدّ جزءاً جوهرياً من الصراع العربي الإسرائيلي",
+          "other_after": "وهي تعدّ جزءاً جوهرياً من الصراع العربي الإسرائيلي",
+          "evidence_en_before": null,
+          "evidence_en_after": null,
+          "evidence_other_before": "تعدّ جزءاً جوهرياً من الصراع العربي الإسرائيلي",
+          "evidence_other_after": "تعدّ جزءاً جوهرياً من الصراع العربي الإسرائيلي"
+        },
+        {
+          "topic": "Mention of massacres against Palestinians",
+          "editions_differ": [
+            "AR",
+            "EN"
+          ],
+          "en_says": "No direct mention of massacres in the lead",
+          "other_says": "ما نتج عن ذلك من ارتكابها للمجازر بحق الفلسطينيين وعمليات المقاومة ضد الدولة العبرية",
+          "verdict": "absent_en",
+          "evidence_en": null,
+          "evidence_other": "وما نتج عن ذلك من ارتكابها للمجازر بحق الفلسطينيين وعمليات المقاومة ضد الدولة العبرية",
+          "temporal_read": "difference_persisted",
+          "en_before": "No mention of massacres",
+          "en_after": "No mention of massacres",
+          "other_before": "ارتكابها للمجازر بحق الفلسطينيين",
+          "other_after": "ارتكابها للمجازر بحق الفلسطينيين",
+          "evidence_en_before": null,
+          "evidence_en_after": null,
+          "evidence_other_before": "ارتكابها للمجازر بحق الفلسطينيين وعمليات المقاومة ضد الدولة العبرية",
+          "evidence_other_after": "ارتكابها للمجازر بحق الفلسطينيين وعمليات المقاومة ضد الدولة العبرية"
+        },
+        {
+          "topic": "1936 Arab revolt detail and long footnote on its consequences",
+          "editions_differ": [
+            "OR",
+            "JA",
+            "AR"
+          ],
+          "en_says": "In 1936, an Arab revolt erupted demanding independence, which the British suppressed, with extensive footnote on consequences",
+          "other_says": "No mention of the 1936 Arab revolt in OR, JA, or AR leads",
+          "verdict": "absent_other",
+          "evidence_en": "In 1936, an Arab revolt erupted demanding independence, which the British suppressed",
+          "evidence_other": null,
+          "temporal_read": "difference_persisted",
+          "en_before": "In 1936, an Arab revolt erupted demanding independence, which the British suppressed",
+          "en_after": "In 1936, an Arab revolt erupted demanding independence, which the British suppressed",
+          "other_before": "No mention of 1936 Arab revolt",
+          "other_after": "No mention of 1936 Arab revolt",
+          "evidence_en_before": "In 1936, an Arab revolt erupted demanding independence",
+          "evidence_en_after": "In 1936, an Arab revolt erupted demanding independence",
+          "evidence_other_before": null,
+          "evidence_other_after": null
+        },
+        {
+          "topic": "Description of 1948 outcome (expulsion and flight)",
+          "editions_differ": [
+            "OR",
+            "EN"
+          ],
+          "en_says": "which saw the expulsion and flight of most Palestinians, the establishment of Israel on most of the Mandate's territory",
+          "other_says": "୧୯୪୭-୧୯୪୯ ପାଲେଷ୍ଟାଇନ ଯୁଦ୍ଧକୁ ଉତ୍ତେଜିତ କରିଥିଲା (without mention of expulsion/flight)",
+          "verdict": "differ",
+          "evidence_en": "which saw the expulsion and flight of most Palestinians, the establishment of Israel on most of the Mandate's territory",
+          "evidence_other": "୧୯୪୭-୧୯୪୯ ପାଲେଷ୍ଟାଇନ ଯୁଦ୍ଧକୁ ଉତ୍ତେଜିତ କରିଥିଲା",
+          "temporal_read": "difference_persisted",
+          "en_before": "which saw the expulsion and flight of most Palestinians, the establishment of Israel on most of the Mandate's territory",
+          "en_after": "which saw the expulsion and flight of most Palestinians, the establishment of Israel on most of the Mandate's territory",
+          "other_before": "୧୯୪୭-୧୯୪୯ ପାଲେଷ୍ଟାଇନ ଯୁଦ୍ଧକୁ ଉତ୍ତେଜିତ କରିଥିଲା",
+          "other_after": "୧୯୪୭-୧୯୪୯ ପାଲେଷ୍ଟାଇନ ଯୁଦ୍ଧକୁ ଉତ୍ତେଜିତ କରିଥିଲା",
+          "evidence_en_before": "expulsion and flight of most Palestinians",
+          "evidence_en_after": "expulsion and flight of most Palestinians",
+          "evidence_other_before": "ପାଲେଷ୍ଟାଇନ ଯୁଦ୍ଧକୁ ଉତ୍ତେଜିତ କରିଥିଲା",
+          "evidence_other_after": "ପାଲେଷ୍ଟାଇନ ଯୁଦ୍ଧକୁ ଉତ୍ତେଜିତ କରିଥିଲା"
+        }
+      ],
+      "summary": "Across this window, the EN, AR, JA, and OR leads for the Israeli–Palestinian conflict article show no substantive textual changes between the BEFORE and AFTER revisions provided; each edition's text is identical in both snapshots. However, longstanding cross-edition differences persist: EN frames the topic narrowly as a land/self-determination conflict tied to Mandatory Palestine, while AR frames it as part of the broader Arab-Israeli conflict and explicitly references massacres against Palestinians and UN resolutions. OR and JA leads omit the 1936 Arab revolt detail found in EN, and OR's account of the 1948 war omits explicit mention of expulsion and flight of Palestinians that EN includes. These are persistent differences rather than changes introduced during this specific edit window, since no edition's compared revisions show textual modification of the relevant passages.",
+      "run_ts": "2026-08-04T20:12:50.818137+00:00",
+      "model": "claude-sonnet-5",
+      "llm_usage": {
+        "calls": 1,
+        "input_tokens": 15937,
+        "output_tokens": 3044,
+        "estimated_usd": null,
+        "all_calls_priced": false,
+        "records": [
+          {
+            "provider": "anthropic",
+            "model": "claude-sonnet-5",
+            "input_tokens": 15937,
+            "output_tokens": 3044,
+            "estimated_usd": null,
+            "pricing_key": null,
+            "pricing_usd_per_million": null
+          }
+        ]
+      },
+      "elapsed_seconds": 61.858,
+      "episode_id": "1239968080-1239968974",
+      "episode_index": 1,
+      "episode_window": {
+        "start": "2024-01-01",
+        "end": "2025-01-01",
+        "pwr_mass": 163585,
+        "status": "confirmed",
+        "before_revid": 1239968080,
+        "before_timestamp": "2024-08-12T19:05:51Z",
+        "after_revid": 1239968974,
+        "after_timestamp": "2024-08-12T19:13:55Z",
+        "durable_spine_drop": 0.364379
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Israeli–Palestinian conflict",
+      "category": "israeli-palestinian",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2006-01-01",
+        "end": "2011-01-01",
+        "pwr_mass": 40147,
+        "status": "confirmed",
+        "before_revid": 89990629,
+        "before_timestamp": "2006-11-25T08:32:44Z",
+        "after_revid": 89994338,
+        "after_timestamp": "2006-11-25T09:14:27Z",
+        "durable_spine_drop": 0.866417
+      },
+      "editions_compared": [
+        "en",
+        "ar",
+        "he",
+        "ja"
+      ],
+      "lead_chars": {
+        "en": 640,
+        "ar": 1470,
+        "he": 89,
+        "ja": 78
+      },
+      "snapshots": {
+        "before": {
+          "en": {
+            "revid": 89990629,
+            "timestamp": "2006-11-25T08:32:44Z",
+            "title": "Israeli–Palestinian conflict",
+            "lead": "The Israeli-Palestinian conflict, a part of the greater Arab-Israeli conflict, is an ongoing dispute between the State of Israel and Palestinian people (or state).\n\nThe Israeli-Palestinian conflict is not a simple two-sided discord with all Israelis (or even all Israeli Jews) sharing one point of view and all Palestinians another. In both communities, some individuals and groups advocate total territorial removal, or transfer, of the other community, some advocate a two-state solution, and some advocate a binational solution of a single secular state encompassing present-day Israel, the Gaza Strip, the West Bank, and East Jerusalem.\n\n__TOC__"
+          },
+          "ar": {
+            "revid": 378860,
+            "timestamp": "2006-11-08T18:12:02Z",
+            "title": "القضية الفلسطينية",
+            "lead": "القضية الفلسطينية مصطلح يشار به الى الخلاف السياسي والتاريخي والمشكلة الانسانية في فلسطين بدءا من عام 1880 وحتى يومنا الحالي، وهي تعتبر جزء جوهري من الصراع العربي الاسرائيلي.\n\nفي اواسط 1880 ، ظهرت الحركة الصهيونية في اوروبا(تأسست عام 1897). وطرحت هذه الحركة ان لليهود الحق بدولة خاصة بهم ؛ والعديد من الصهاينة رأوا ان هذه الدولة يجب ان تكون في مكان الدولة التاريخية اليهودية ، المنطقة التي تعرف باسم فلسطين. في ذلك الوقت كانت فلسطين جزء من الدولة العثمانية . تحت الحكم العثماني ، كان لفلسطين حكم محلي (ولاية) ، وكانت المنطقة مأهولة بالفلسطينين العرب بشكل رئيسي (ظل اليهود يشكلون نسبة اقل من 8% حتى عام 1920).\n\nفي عام 1917 ، سيطر الجيش البريطاني على فلسطين وشرق الاردن بمساعدة الثورة العربية بقيادة الشريف حسين (التي كانت تسعى الى استقلال ووحدة الولايات العربية بناء على مراسلات حسين-مكماهون)، وتم تطبق معاهدة سايكس بيكو وخضعت الاردن وفلسطين للإنتداب البريطاني. وفي نفس العام ، ارسل آرثر جيمس بلفور ، وزير الخارجية البريطاني رسالة الى البارون ليونيب وولتر دي روتشيلد ، يتعهد فيها بتأييد بريطانيا لاقامة وطن قومي لليهود في فلسطين مع ملاحظة ان  لا يؤدي ذلك الى المس بالحقوق المدنية والدينية لغير اليهود في فلسطين، وهو ما عرف فيما بعد بوعد بلفور(النص الكامل للرسالة).\n\nوترتبط القضية الفلسطينية بشكل جذري بنشوء الصهيونية والهجرة اليهودية الى فلسطين ودور الدول العظمى في احداث المنطقة ، وتتمحور القضية الفلسطينية حول قضية اللاجئين الفلسطينين وشرعية اسرائيل واحتلالها للاراضي الفلسطينية بعدة مراحل ، كما ترتبط بقرارات الامم المتحدة كقرار 242 وقرار 338 ."
+          },
+          "he": {
+            "revid": 2200682,
+            "timestamp": "2006-11-17T21:38:26Z",
+            "title": "הסכסוך הישראלי-פלסטיני",
+            "lead": "הסכסוך הישראלי-פלסטיני הוא הסכסוך המתקיים בין תושביה היהודים לתושביה הערבים של ארץ ישראל."
+          },
+          "ja": {
+            "revid": 8977813,
+            "timestamp": "2006-11-21T14:51:15Z",
+            "title": "パレスチナ問題",
+            "lead": "パレスチナ問題とは、パレスチナの地を巡るパレスチナ定住者（パレスチナ人）とシオニスト・ユダヤ人入植者との関係から生じた紛争を一個の政治問題として扱った呼称。"
+          }
+        },
+        "after": {
+          "en": {
+            "revid": 89994338,
+            "timestamp": "2006-11-25T09:14:27Z",
+            "title": "Israeli–Palestinian conflict",
+            "lead": "The Israeli-Palestinian conflict, a part of the greater Arab-Israeli conflict, is an ongoing dispute between the State of Israel and Palestinian people (or state).\n\nThe Israeli-Palestinian conflict is not a simple two-sided discord with all Israelis (or even all Israeli Jews) sharing one point of view and all Palestinians another. In both communities, some individuals and groups advocate total territorial removal, or transfer, of the other community, some advocate a two-state solution, and some advocate a binational solution of a single secular state encompassing present-day Israel, the Gaza Strip, the West Bank, and East Jerusalem."
+          },
+          "ar": {
+            "revid": 414746,
+            "timestamp": "2006-12-04T21:32:53Z",
+            "title": "القضية الفلسطينية",
+            "lead": "القضية الفلسطينية مصطلح يشار به الى الخلاف السياسي والتاريخي والمشكلة الانسانية في فلسطين بدءا من عام 1880 وحتى يومنا الحالي، وهي تعتبر جزءا جوهريا من الصراع العربي الاسرائيلي.\n\nفي اواسط 1880 ، ظهرت الحركة الصهيونية في اوروبا(المؤتمر الصهيوني الاول كان في بازل عام 1897). وطالبت هذه الحركة باقامة دولة خاصة باليهود ؛ رأى العديد من الصهاينة ان موقع هذه الدولة يجب ان يكون في مكان الدولة التاريخية اليهودية ، المنطقة التي تعرف باسم فلسطين. كانت فلسطين حينئذ جزءا من الدولة العثمانية . تحت الحكم العثماني ، كان لفلسطين حكم محلي (ولاية) ، وكانت المنطقة مأهولة بالفلسطينين العرب بشكل رئيسي (ظل اليهود يشكلون نسبة اقل من 8% حتى عام 1920).\n\nفي عام 1917 ، سيطر الجيش البريطاني على فلسطين وشرق الاردن بمساعدة الثورة العربية بقيادة الشريف حسين (التي كانت تسعى الى استقلال ووحدة الولايات العربية بناء على مراسلات حسين-مكماهون)، وتم تطبق معاهدة سايكس بيكو وخضعت الاردن وفلسطين للإنتداب البريطاني. وفي نفس العام ، ارسل آرثر جيمس بلفور ، وزير الخارجية البريطاني رسالة الى البارون ليونيب وولتر دي روتشيلد ، يتعهد فيها بتأييد بريطانيا لاقامة وطن قومي لليهود في فلسطين مع ملاحظة ان  لا يؤدي ذلك الى المس بالحقوق المدنية والدينية لغير اليهود في فلسطين، وهو ما عرف فيما بعد بوعد بلفور(النص الكامل للرسالة).\n\nوترتبط القضية الفلسطينية بشكل جذري بنشوء الصهيونية والهجرة اليهودية الى فلسطين ودور الدول العظمى في احداث المنطقة ، وتتمحور القضية الفلسطينية حول قضية اللاجئين الفلسطينين وشرعية اسرائيل واحتلالها للاراضي الفلسطينية بعدة مراحل ، كما ترتبط بقرارات الامم المتحدة كقرار 242 وقرار 338 ."
+          },
+          "he": {
+            "revid": 2235958,
+            "timestamp": "2006-11-25T19:16:10Z",
+            "title": "הסכסוך הישראלי-פלסטיני",
+            "lead": "הסכסוך הישראלי-פלסטיני הוא הסכסוך המתקיים בין תושביה היהודים לתושביה הערבים של ארץ ישראל."
+          },
+          "ja": {
+            "revid": 9151741,
+            "timestamp": "2006-11-30T02:14:48Z",
+            "title": "パレスチナ問題",
+            "lead": "パレスチナ問題とは、パレスチナの地を巡るパレスチナ定住者（パレスチナ人）とシオニスト・ユダヤ人入植者との関係から生じた紛争を一個の政治問題として扱った呼称。"
+          },
+          "or": {
+            "revid": 513479,
+            "timestamp": "2023-10-09T19:01:49Z",
+            "title": "ଇସ୍ରାଏଲ-ପାଲେଷ୍ଟାଇନ ବିବାଦ",
+            "lead": "ଇସ୍ରାଏଲ-ପାଲେଷ୍ଟାଇନ ସଂଘର୍ଷ ଲେଭାଣ୍ଟରେ ଚାଲିଥିବା ସାମରିକ ଏବଂ ରାଜନୈତିକ ସଂଘର୍ଷ । ବିଂଶ ଶତାବ୍ଦୀର ମଧ୍ୟଭାଗରୁ ଆରମ୍ଭ ହୋଇଥିବା ଏହା ବିଶ୍ୱର ସବୁଠାରୁ ଲମ୍ବା ସଂଘର୍ଷ ମଧ୍ୟରୁ ଅନ୍ୟତମ । ଇସ୍ରାଏଲ-ପାଲେଷ୍ଟାଇନ ଶାନ୍ତି ପ୍ରକ୍ରିୟା ନାମରେ ଏହି ବିବାଦର ସମାଧାନ ପାଇଁ ବିଭିନ୍ନ ପ୍ରକାରର ପ୍ରୟାସ କରାଯାଇଛି ।Virginia Page Fortna , Peace Time: Cease-fire Agreements and the Durability of Peace, page 67, \"Britain's contradictory promises to Arabs and Jews during World War I sowed the seeds of what would become the international community's most intractable conflict later in the century.\" ୧୮୯୭ ମସିହାର ପ୍ରଥମ ଜିଓନିଷ୍ଟ କଂଗ୍ରେସ ଏବଂ ୧୯୧୭ର ବାଲଫୋର ଘୋଷଣାନାମା ସମେତ ପାଲେଷ୍ଟାଇନରେ ଏକ ଇହୁଦୀ ମାତୃଭୂମି ପାଇଁ ଦାବିର ସାର୍ବଜନୀନ ଘୋଷଣା ଇହୁଦୀ ପ୍ରବାସୀଙ୍କ ଲହର ପରେ ଏହି ଅଞ୍ଚଳରେ ପ୍ରାରମ୍ଭିକ ଉତ୍ତେଜନା ସୃଷ୍ଟି କରିଥିଲା । ପ୍ରଥମ ବିଶ୍ୱଯୁଦ୍ଧ ପରେ ପାଲେଷ୍ଟାଇନ ପାଇଁ ଆଦେଶରେ \"ପାଲେଷ୍ଟାଇନରେ ଇହୁଦୀ ଲୋକଙ୍କ ପାଇଁ ଏକ ଜାତୀୟ ଗୃହ ପ୍ରତିଷ୍ଠା\" ପାଇଁ ଏକ ବାଧ୍ୟତାମୂଳକତା ନିୟମ ଅନ୍ତର୍ଭୁକ୍ତ ହୋଇଥିଲା । ଇହୁଦୀ ଓ ଆରବମାନଙ୍କ ମଧ୍ୟରେ ଉତ୍ତେଜନା ଖୋଲା ସାମ୍ପ୍ରଦାୟିକ ସଂଘର୍ଷରେ ପରିଣତ ହୋଇଥିଲା। ପାଲେଷ୍ଟାଇନ ପାଇଁ ୧୯୪୭ ମସିହାରେ ମିଳିତ ଜାତିସଂଘବିଭାଜନ ଯୋଜନା କେବେ କାର୍ଯ୍ୟକାରୀ ହୋଇନଥିଲା ଏବଂ ୧୯୪୭-୧୯୪୯ ପାଲେଷ୍ଟାଇନ ଯୁଦ୍ଧକୁ ଉତ୍ତେଜିତ କରିଥିଲା । ବର୍ତ୍ତମାନର ଇସ୍ରାଏଲ-ପାଲେଷ୍ଟାଇନ ସ୍ଥିତାବସ୍ଥା ୧୯୬୭ ମସିହାରେ ପାଲେଷ୍ଟାଇନ ଅଞ୍ଚଳ ଭାବରେ ପରିଚିତ ୬ ଦିନିଆ ଯୁଦ୍ଧରେ ପଶ୍ଚିମ ତଟ ଏବଂ ଗାଜା ଉପରେ ଇସ୍ରାଏଲର ସାମରିକ ଦଖଲ ପରେ ଆରମ୍ଭ ହୋଇଥିଲା ।\n\n୧୯୯୩-୧୯୯୫ ର ଓସ୍ଲୋ ଚୁକ୍ତି ମାଧ୍ୟମରେ ଦୁଇ ରାଷ୍ଟ୍ରୀୟ ସମାଧାନ ଦିଗରେ ଅଗ୍ରଗତି ହୋଇଥିଲା । ଚୂଡ଼ାନ୍ତ ସ୍ଥିତି ପ୍ରସଙ୍ଗ ଗୁଡ଼ିକ ମଧ୍ୟରେ ଜେରୁଜେଲମର ସ୍ଥିତି, ଇସ୍ରାଏଲ ବସ୍ତି, ସୀମା, ସୁରକ୍ଷା ଏବଂ ଜଳ ଅଧିକାର ସହିତ ପାଲେଷ୍ଟାଇନ୍ର ଚଳପ୍ରଚଳ ସ୍ୱାଧୀନତା ଏବଂ ପାଲେଷ୍ଟାଇନ୍ ପ୍ରତ୍ୟାବର୍ତ୍ତନ ଅଧିକାର ଅନ୍ତର୍ଭୁକ୍ତ । ସମଗ୍ର ବିଶ୍ୱରେ ଐତିହାସିକ, ସାଂସ୍କୃତିକ ଏବଂ ଧାର୍ମିକ ସ୍ୱାର୍ଥ ସମ୍ପନ୍ନ ସ୍ଥାନରେ ସମୃଦ୍ଧ ଏହି ଅଞ୍ଚଳରେ ସଂଘର୍ଷର ହିଂସା ଐତିହାସିକ ଅଧିକାର, ନିରାପତ୍ତା ପ୍ରସଙ୍ଗ ଏବଂ ମାନବିକ ଅଧିକାର ସମ୍ବନ୍ଧୀୟ ଅନେକ ଅନ୍ତର୍ଜାତୀୟ ସମ୍ମିଳନୀର ବିଷୟ ହୋଇଛି; ଏବଂ ପର୍ଯ୍ୟଟନ ଏବଂ ସାଧାରଣ ପ୍ରବେଶରେ ବାଧା ସୃଷ୍ଟି କରୁଥିବା ଏକ କାରଣ ହୋଇଛି ଯେଉଁଠାରେ ତୀବ୍ର ପ୍ରତିଦ୍ୱନ୍ଦ୍ୱିତା ହେଉଛି । ଅଧିକାଂଶ ଶାନ୍ତି ପ୍ରୟାସ ଦୁଇ ରାଷ୍ଟ୍ର ସମାଧାନ ଉପରେ କେନ୍ଦ୍ରୀଭୂତ ହୋଇଛି, ଯେଉଁଥିରେ ଇସ୍ରାଏଲ ସହିତ ଏକ ସ୍ୱାଧୀନ ପାଲେଷ୍ଟାଇନ ରାଷ୍ଟ୍ର ପ୍ରତିଷ୍ଠା ଅନ୍ତର୍ଭୁକ୍ତ । ତେବେ ପୂର୍ବରୁ ଉଭୟ ଇସ୍ରାଏଲ ଇହୁଦୀ ଓ ପାଲେଷ୍ଟାଇନର ସମର୍ଥନ ପାଇଥିବା ଦୁଇ ରାଷ୍ଟ୍ରୀୟ ସମାଧାନ ପାଇଁ ଜନସମର୍ଥନ ସାମ୍ପ୍ରତିକ ବର୍ଷଗୁଡ଼ିକରେ ହ୍ରାସ ପାଇଛି।Dershowitz, Alan. \n\nଇସ୍ରାଏଲ ଓ ପାଲେଷ୍ଟାଇନ ସମାଜରେ ଏହି ସଂଘର୍ଷ ବିଭିନ୍ନ ପ୍ରକାରର ମତ ଓ ମତାମତ ସୃଷ୍ଟି କରିଥାଏ । ଆରମ୍ଭରୁ ଏହି ସଂଘର୍ଷରେ କେବଳ ଲଢ଼ୁଆଙ୍କ ମଧ୍ୟରେ ସୀମିତ ନ ଥିବା ବେଳେ ଉଭୟ ପକ୍ଷର ବହୁ ସଂଖ୍ୟାରେ ସାଧାରଣ ନାଗରିକ ପ୍ରାଣ ହରାଇଛନ୍ତି। ଅଳ୍ପ ସଂଖ୍ୟକ ଇହୁଦୀ ଇସ୍ରାଏଲବାସୀ (୩୨ ପ୍ରତିଶତ) ପାଲେଷ୍ଟାଇନ ସହିତ ଦୁଇ ରାଷ୍ଟ୍ରସମାଧାନକୁ ସମର୍ଥନ କରନ୍ତି । ଇସ୍ରାଏଲ ଇହୁଦୀମାନେ ଆଦର୍ଶ ଭିତ୍ତିରେ ବିଭାଜିତ ଏବଂ ଅନେକ ଲୋକ ସ୍ଥିତାବସ୍ଥା ବଜାୟ ରଖିବାକୁ ସମର୍ଥନ କରନ୍ତି । ପାଖାପାଖି ୬୦ ପ୍ରତିଶତ ପାଲେଷ୍ଟାଇନ୍ (ଗାଜା ଉପତ୍ୟକାରେ ୭୭% ଏବଂ ପଶ୍ଚିମ ତଟରେ ୪୬%) ଇସ୍ରାଏଲ ଭିତରେ ଇସ୍ରାଏଲ ବିରୋଧରେ ସଶସ୍ତ୍ର ଆକ୍ରମଣକୁ ଦଖଲ କୁ ଶେଷ କରିବାର ମାଧ୍ୟମ ଭାବରେ ସମର୍ଥନ କରୁଥିବା ବେଳେ ୭୦% ବିଶ୍ୱାସ କରନ୍ତି ଯେ ଇସ୍ରାଏଲର ବସତି ସମ୍ପ୍ରସାରଣ ଫଳରେ ଦୁଇ ରାଷ୍ଟ୍ରସମାଧାନ ଆଉ ବ୍ୟବହାରିକ କିମ୍ବା ସମ୍ଭବ ନୁହେଁ । ଦୁଇ ତୃତୀୟାଂଶରୁ ଅଧିକ ଇସ୍ରାଏଲ ଇହୁଦୀ କହିଛନ୍ତି ଯେ ଯଦି ପଶ୍ଚିମ ତଟକୁ ଇସ୍ରାଏଲ ଅକ୍ତିଆର କରେ, ତେବେ ସେଠାରେ ରହୁଥିବା ପାଲେଷ୍ଟାଇନୀମାନଙ୍କୁ ଭୋଟ୍ ଦେବାକୁ ଅନୁମତି ଦିଆଯିବା ଉଚିତ ନୁହେଁ । ମୌଳିକ ପ୍ରସଙ୍ଗରେ ପାରସ୍ପରିକ ଅବିଶ୍ୱାସ ଏବଂ ଗୁରୁ"
+          }
+        }
+      },
+      "divergences": [
+        {
+          "topic": "Definition of the conflict's scope/framing",
+          "editions_differ": [
+            "AR",
+            "HE",
+            "JA"
+          ],
+          "en_says": "The Israeli-Palestinian conflict, a part of the greater Arab-Israeli conflict, is an ongoing dispute between the State of Israel and Palestinian people (or state).",
+          "other_says": "القضية الفلسطينية مصطلح يشار به الى الخلاف السياسي والتاريخي والمشكلة الانسانية في فلسطين بدءا من عام 1880 وحتى يومنا الحالي",
+          "verdict": "differ",
+          "evidence_en": "is an ongoing dispute between the State of Israel and Palestinian people (or state)",
+          "evidence_other": "مصطلح يشار به الى الخلاف السياسي والتاريخي والمشكلة الانسانية في فلسطين بدءا من عام 1880",
+          "temporal_read": "difference_persisted",
+          "en_before": "The Israeli-Palestinian conflict, a part of the greater Arab-Israeli conflict, is an ongoing dispute between the State of Israel and Palestinian people (or state).",
+          "en_after": "The Israeli-Palestinian conflict, a part of the greater Arab-Israeli conflict, is an ongoing dispute between the State of Israel and Palestinian people (or state).",
+          "other_before": "القضية الفلسطينية مصطلح يشار به الى الخلاف السياسي والتاريخي والمشكلة الانسانية في فلسطين بدءا من عام 1880 وحتى يومنا الحالي",
+          "other_after": "القضية الفلسطينية مصطلح يشار به الى الخلاف السياسي والتاريخي والمشكلة الانسانية في فلسطين بدءا من عام 1880 وحتى يومنا الحالي",
+          "evidence_en_before": "is an ongoing dispute between the State of Israel and Palestinian people (or state)",
+          "evidence_en_after": "is an ongoing dispute between the State of Israel and Palestinian people (or state)",
+          "evidence_other_before": "مصطلح يشار به الى الخلاف السياسي والتاريخي والمشكلة الانسانية في فلسطين بدءا من عام 1880",
+          "evidence_other_after": "مصطلح يشار به الى الخلاف السياسي والتاريخي والمشكلة الانسانية في فلسطين بدءا من عام 1880"
+        },
+        {
+          "topic": "Parties to the conflict",
+          "editions_differ": [
+            "HE"
+          ],
+          "en_says": "an ongoing dispute between the State of Israel and Palestinian people (or state)",
+          "other_says": "הסכסוך המתקיים בין תושביה היהודים לתושביה הערבים של ארץ ישראל",
+          "verdict": "differ",
+          "evidence_en": "an ongoing dispute between the State of Israel and Palestinian people (or state)",
+          "evidence_other": "הסכסוך המתקיים בין תושביה היהודים לתושביה הערבים של ארץ ישראל",
+          "temporal_read": "difference_persisted",
+          "en_before": "an ongoing dispute between the State of Israel and Palestinian people (or state)",
+          "en_after": "an ongoing dispute between the State of Israel and Palestinian people (or state)",
+          "other_before": "הסכסוך המתקיים בין תושביה היהודים לתושביה הערבים של ארץ ישראל",
+          "other_after": "הסכסוך המתקיים בין תושביה היהודים לתושביה הערבים של ארץ ישראל",
+          "evidence_en_before": "an ongoing dispute between the State of Israel and Palestinian people (or state)",
+          "evidence_en_after": "an ongoing dispute between the State of Israel and Palestinian people (or state)",
+          "evidence_other_before": "הסכסוך המתקיים בין תושביה היהודים לתושביה הערבים של ארץ ישראל",
+          "evidence_other_after": "הסכסוך המתקיים בין תושביה היהודים לתושביה הערבים של ארץ ישראל"
+        },
+        {
+          "topic": "Internal diversity of positions within communities",
+          "editions_differ": [
+            "AR",
+            "HE",
+            "JA"
+          ],
+          "en_says": "some individuals and groups advocate total territorial removal, or transfer, of the other community, some advocate a two-state solution, and some advocate a binational solution of a single secular state",
+          "other_says": "パレスチナ定住者（パレスチナ人）とシオニスト・ユダヤ人入植者との関係から生じた紛争を一個の政治問題として扱った呼称",
+          "verdict": "absent_other",
+          "evidence_en": "some individuals and groups advocate total territorial removal, or transfer, of the other community, some advocate a two-state solution, and some advocate a binational solution of a single secular state",
+          "evidence_other": null,
+          "temporal_read": "difference_persisted",
+          "en_before": "some individuals and groups advocate total territorial removal, or transfer, of the other community, some advocate a two-state solution, and some advocate a binational solution of a single secular state",
+          "en_after": "some individuals and groups advocate total territorial removal, or transfer, of the other community, some advocate a two-state solution, and some advocate a binational solution of a single secular state",
+          "other_before": "パレスチナ定住者（パレスチナ人）とシオニスト・ユダヤ人入植者との関係から生じた紛争を一個の政治問題として扱った呼称",
+          "other_after": "パレスチナ定住者（パレスチナ人）とシオニスト・ユダヤ人入植者との関係から生じた紛争を一個の政治問題として扱った呼称",
+          "evidence_en_before": "some individuals and groups advocate total territorial removal, or transfer, of the other community, some advocate a two-state solution, and some advocate a binational solution of a single secular state",
+          "evidence_en_after": "some individuals and groups advocate total territorial removal, or transfer, of the other community, some advocate a two-state solution, and some advocate a binational solution of a single secular state",
+          "evidence_other_before": null,
+          "evidence_other_after": null
+        },
+        {
+          "topic": "Historical starting point/origin framing",
+          "editions_differ": [
+            "AR"
+          ],
+          "en_says": "The Israeli-Palestinian conflict, a part of the greater Arab-Israeli conflict, is an ongoing dispute",
+          "other_says": "في اواسط 1880 ، ظهرت الحركة الصهيونية في اوروبا",
+          "verdict": "absent_en",
+          "evidence_en": "The Israeli-Palestinian conflict, a part of the greater Arab-Israeli conflict, is an ongoing dispute between the State of Israel and Palestinian people (or state).",
+          "evidence_other": "في اواسط 1880 ، ظهرت الحركة الصهيونية في اوروبا(المؤتمر الصهيوني الاول كان في بازل عام 1897)",
+          "temporal_read": "difference_persisted",
+          "en_before": "The Israeli-Palestinian conflict, a part of the greater Arab-Israeli conflict, is an ongoing dispute between the State of Israel and Palestinian people (or state).",
+          "en_after": "The Israeli-Palestinian conflict, a part of the greater Arab-Israeli conflict, is an ongoing dispute between the State of Israel and Palestinian people (or state).",
+          "other_before": "في اواسط 1880 ، ظهرت الحركة الصهيونية في اوروبا(تأسست عام 1897)",
+          "other_after": "في اواسط 1880 ، ظهرت الحركة الصهيونية في اوروبا(المؤتمر الصهيوني الاول كان في بازل عام 1897)",
+          "evidence_en_before": "The Israeli-Palestinian conflict, a part of the greater Arab-Israeli conflict, is an ongoing dispute between the State of Israel and Palestinian people (or state).",
+          "evidence_en_after": "The Israeli-Palestinian conflict, a part of the greater Arab-Israeli conflict, is an ongoing dispute between the State of Israel and Palestinian people (or state).",
+          "evidence_other_before": "في اواسط 1880 ، ظهرت الحركة الصهيونية في اوروبا(تأسست عام 1897)",
+          "evidence_other_after": "في اواسط 1880 ، ظهرت الحركة الصهيونية في اوروبا(المؤتمر الصهيوني الاول كان في بازل عام 1897)"
+        }
+      ],
+      "summary": "Across the 2006 revision window, the English lead remained textually unchanged, as did the Hebrew and Japanese leads. Arabic underwent only minor wording revisions (e.g., specifying the 1897 Basel Zionist Congress) without altering its overall framing. All observed cross-edition differences—English's dispute-between-state-and-people framing versus Arabic's historical/humanitarian-issue framing and Hebrew's Jewish-Arab resident framing, plus English's detail on internal factional positions absent elsewhere—reflect pre-existing divergences that persisted through this window rather than new changes in either direction.",
+      "run_ts": "2026-08-04T20:16:11.058602+00:00",
+      "model": "claude-sonnet-5",
+      "llm_usage": {
+        "calls": 1,
+        "input_tokens": 4441,
+        "output_tokens": 2999,
+        "estimated_usd": null,
+        "all_calls_priced": false,
+        "records": [
+          {
+            "provider": "anthropic",
+            "model": "claude-sonnet-5",
+            "input_tokens": 4441,
+            "output_tokens": 2999,
+            "estimated_usd": null,
+            "pricing_key": null,
+            "pricing_usd_per_million": null
+          }
+        ]
+      },
+      "elapsed_seconds": 43.542,
+      "episode_id": "89990629-89994338",
+      "episode_index": 2,
+      "episode_window": {
+        "start": "2006-01-01",
+        "end": "2011-01-01",
+        "pwr_mass": 40147,
+        "status": "confirmed",
+        "before_revid": 89990629,
+        "before_timestamp": "2006-11-25T08:32:44Z",
+        "after_revid": 89994338,
+        "after_timestamp": "2006-11-25T09:14:27Z",
+        "durable_spine_drop": 0.866417
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Israeli–Palestinian conflict",
+      "category": "israeli-palestinian",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2003-01-01",
+        "end": "2005-01-01",
+        "pwr_mass": 7888,
+        "status": "confirmed",
+        "before_revid": 1937346,
+        "before_timestamp": "2003-12-11T23:49:24Z",
+        "after_revid": 1937381,
+        "after_timestamp": "2003-12-12T05:10:46Z",
+        "durable_spine_drop": 0.925163
+      },
+      "editions_compared": [
+        "en",
+        "he",
+        "ja"
+      ],
+      "lead_chars": {
+        "en": 246,
+        "he": 284,
+        "ja": 72
+      },
+      "snapshots": {
+        "before": {
+          "en": {
+            "revid": 1937346,
+            "timestamp": "2003-12-11T23:49:24Z",
+            "title": "Israeli–Palestinian conflict",
+            "lead": "zh:以巴冲突\r\n\r\n(The neutrality of this article is disputed.)\r\n\r\nThe Israeli-Palestinian conflict is an ongoing conflict between Israelis and Palestinians. This conflict is one element of the larger Arab-Israeli conflict."
+          },
+          "he": {
+            "revid": 13893,
+            "timestamp": "2003-12-08T03:48:10Z",
+            "title": "הסכסוך הישראלי-פלסטיני",
+            "lead": "הצעות לפתרון הסכסוך הישראלי-פלשתינאי:\r\n\r\nתוכנית האוטונומיה במסגרת חוזה השלום עם מצרים\r\n\r\nהסכמי אוסלו\r\n\r\nהסכם לונדון\r\n\r\nמתווה קלינטון\r\n\r\nתוכנית הקנטונים\r\n\r\nמפת הדרכים\r\n\r\nיוזמת ז'נווה\r\n\r\nהמפקד הלאומי\r\n\r\nמדינה דו לאומית ומתן אזרחות מלאה לתושבים בשטחים המוחזקים\r\n\r\nערי מדינה בקונפדרציה עם ירדן\r\n\r\nהסכמות טאבה\r\n\r\n ראה גם:\r\n\r\nהרשות הפלסטינית\r\n\r\nארגון שחרור פלסטין"
+          },
+          "ja": {
+            "revid": 1895897,
+            "timestamp": "2003-12-06T17:48:29Z",
+            "title": "パレスチナ問題",
+            "lead": "パレスチナ問題とは、パレスチナの地を巡るパレスチナ定住者（パレスチナ人）とユダヤ人帰還者との関係から生じた紛争を一個の政治問題として扱った呼称。"
+          }
+        },
+        "after": {
+          "en": {
+            "revid": 1937381,
+            "timestamp": "2003-12-12T05:10:46Z",
+            "title": "Israeli–Palestinian conflict",
+            "lead": "zh:以巴冲突\r\n\r\n(The neutrality of this article is [[Wikipedia:NPOV\r\ndispute|disputed]].)\r\n\r\nThe Israeli-Palestinian conflict is an ongoing conflict between\r\nIsraelis and Palestinians. This conflict is one element of the\r\nlarger Arab-Israeli conflict."
+          },
+          "ar": {
+            "revid": 13835,
+            "timestamp": "2004-10-25T23:14:31Z",
+            "title": "القضية الفلسطينية",
+            "lead": "القضية الفلسطينية او الصراع العربي الاسرائيلي مصطلح يشار به الى الخلاف السياسي والتاريخي والمشكلة الانسانية في فلسطين ، وترتبط القضية الفلسطينية بشكل جذري بنشوء الصهيونية والهجرة اليهودية الى فلسطين ودور الدول العظمى في احداث المنطقة ، وتتمحور القضية الفلسطينية حول قضية اللاجئين الفلسطينين وشرعية اسرائيل واحتلالها للاراضي الفلسطينية بعدة مراحل ، كما ترتبط بقرارات الامم المتحدة كقرار 242 وقرار 338 .\n\nen:Israeli-Palestinian conflict\nde:Nahostkonflikt\nes:Conflicto árabe-israelí\nhe:הסכסוך הישראלי פלשתינאי\nsv:Israel/Palestina-konflikten\nzh:以巴冲突"
+          },
+          "he": {
+            "revid": 13894,
+            "timestamp": "2003-12-16T17:42:32Z",
+            "title": "הסכסוך הישראלי-פלסטיני",
+            "lead": "הצעות לפתרון הסכסוך הישראלי-פלשתינאי:\r\n\r\nתוכנית האוטונומיה במסגרת חוזה השלום עם מצרים\r\nהסכמי אוסלו\r\nהסכם לונדון\r\nמתווה קלינטון\r\nתוכנית הקנטונים\r\nמפת הדרכים\r\nיוזמת ז'נווה\r\nהמפקד הלאומי\r\nמדינה דו לאומית ומתן אזרחות מלאה לתושבים בשטחים המוחזקים\r\nערי מדינה בקונפדרציה עם ירדן\r\nהסכמות טאבה"
+          },
+          "ja": {
+            "revid": 1895898,
+            "timestamp": "2004-01-03T14:37:34Z",
+            "title": "パレスチナ問題",
+            "lead": "パレスチナ問題とは、パレスチナの地を巡るパレスチナ定住者（パレスチナ人）とユダヤ人帰還者との関係から生じた紛争を一個の政治問題として扱った呼称。"
+          },
+          "or": {
+            "revid": 513479,
+            "timestamp": "2023-10-09T19:01:49Z",
+            "title": "ଇସ୍ରାଏଲ-ପାଲେଷ୍ଟାଇନ ବିବାଦ",
+            "lead": "ଇସ୍ରାଏଲ-ପାଲେଷ୍ଟାଇନ ସଂଘର୍ଷ ଲେଭାଣ୍ଟରେ ଚାଲିଥିବା ସାମରିକ ଏବଂ ରାଜନୈତିକ ସଂଘର୍ଷ । ବିଂଶ ଶତାବ୍ଦୀର ମଧ୍ୟଭାଗରୁ ଆରମ୍ଭ ହୋଇଥିବା ଏହା ବିଶ୍ୱର ସବୁଠାରୁ ଲମ୍ବା ସଂଘର୍ଷ ମଧ୍ୟରୁ ଅନ୍ୟତମ । ଇସ୍ରାଏଲ-ପାଲେଷ୍ଟାଇନ ଶାନ୍ତି ପ୍ରକ୍ରିୟା ନାମରେ ଏହି ବିବାଦର ସମାଧାନ ପାଇଁ ବିଭିନ୍ନ ପ୍ରକାରର ପ୍ରୟାସ କରାଯାଇଛି ।Virginia Page Fortna , Peace Time: Cease-fire Agreements and the Durability of Peace, page 67, \"Britain's contradictory promises to Arabs and Jews during World War I sowed the seeds of what would become the international community's most intractable conflict later in the century.\" ୧୮୯୭ ମସିହାର ପ୍ରଥମ ଜିଓନିଷ୍ଟ କଂଗ୍ରେସ ଏବଂ ୧୯୧୭ର ବାଲଫୋର ଘୋଷଣାନାମା ସମେତ ପାଲେଷ୍ଟାଇନରେ ଏକ ଇହୁଦୀ ମାତୃଭୂମି ପାଇଁ ଦାବିର ସାର୍ବଜନୀନ ଘୋଷଣା ଇହୁଦୀ ପ୍ରବାସୀଙ୍କ ଲହର ପରେ ଏହି ଅଞ୍ଚଳରେ ପ୍ରାରମ୍ଭିକ ଉତ୍ତେଜନା ସୃଷ୍ଟି କରିଥିଲା । ପ୍ରଥମ ବିଶ୍ୱଯୁଦ୍ଧ ପରେ ପାଲେଷ୍ଟାଇନ ପାଇଁ ଆଦେଶରେ \"ପାଲେଷ୍ଟାଇନରେ ଇହୁଦୀ ଲୋକଙ୍କ ପାଇଁ ଏକ ଜାତୀୟ ଗୃହ ପ୍ରତିଷ୍ଠା\" ପାଇଁ ଏକ ବାଧ୍ୟତାମୂଳକତା ନିୟମ ଅନ୍ତର୍ଭୁକ୍ତ ହୋଇଥିଲା । ଇହୁଦୀ ଓ ଆରବମାନଙ୍କ ମଧ୍ୟରେ ଉତ୍ତେଜନା ଖୋଲା ସାମ୍ପ୍ରଦାୟିକ ସଂଘର୍ଷରେ ପରିଣତ ହୋଇଥିଲା। ପାଲେଷ୍ଟାଇନ ପାଇଁ ୧୯୪୭ ମସିହାରେ ମିଳିତ ଜାତିସଂଘବିଭାଜନ ଯୋଜନା କେବେ କାର୍ଯ୍ୟକାରୀ ହୋଇନଥିଲା ଏବଂ ୧୯୪୭-୧୯୪୯ ପାଲେଷ୍ଟାଇନ ଯୁଦ୍ଧକୁ ଉତ୍ତେଜିତ କରିଥିଲା । ବର୍ତ୍ତମାନର ଇସ୍ରାଏଲ-ପାଲେଷ୍ଟାଇନ ସ୍ଥିତାବସ୍ଥା ୧୯୬୭ ମସିହାରେ ପାଲେଷ୍ଟାଇନ ଅଞ୍ଚଳ ଭାବରେ ପରିଚିତ ୬ ଦିନିଆ ଯୁଦ୍ଧରେ ପଶ୍ଚିମ ତଟ ଏବଂ ଗାଜା ଉପରେ ଇସ୍ରାଏଲର ସାମରିକ ଦଖଲ ପରେ ଆରମ୍ଭ ହୋଇଥିଲା ।\n\n୧୯୯୩-୧୯୯୫ ର ଓସ୍ଲୋ ଚୁକ୍ତି ମାଧ୍ୟମରେ ଦୁଇ ରାଷ୍ଟ୍ରୀୟ ସମାଧାନ ଦିଗରେ ଅଗ୍ରଗତି ହୋଇଥିଲା । ଚୂଡ଼ାନ୍ତ ସ୍ଥିତି ପ୍ରସଙ୍ଗ ଗୁଡ଼ିକ ମଧ୍ୟରେ ଜେରୁଜେଲମର ସ୍ଥିତି, ଇସ୍ରାଏଲ ବସ୍ତି, ସୀମା, ସୁରକ୍ଷା ଏବଂ ଜଳ ଅଧିକାର ସହିତ ପାଲେଷ୍ଟାଇନ୍ର ଚଳପ୍ରଚଳ ସ୍ୱାଧୀନତା ଏବଂ ପାଲେଷ୍ଟାଇନ୍ ପ୍ରତ୍ୟାବର୍ତ୍ତନ ଅଧିକାର ଅନ୍ତର୍ଭୁକ୍ତ । ସମଗ୍ର ବିଶ୍ୱରେ ଐତିହାସିକ, ସାଂସ୍କୃତିକ ଏବଂ ଧାର୍ମିକ ସ୍ୱାର୍ଥ ସମ୍ପନ୍ନ ସ୍ଥାନରେ ସମୃଦ୍ଧ ଏହି ଅଞ୍ଚଳରେ ସଂଘର୍ଷର ହିଂସା ଐତିହାସିକ ଅଧିକାର, ନିରାପତ୍ତା ପ୍ରସଙ୍ଗ ଏବଂ ମାନବିକ ଅଧିକାର ସମ୍ବନ୍ଧୀୟ ଅନେକ ଅନ୍ତର୍ଜାତୀୟ ସମ୍ମିଳନୀର ବିଷୟ ହୋଇଛି; ଏବଂ ପର୍ଯ୍ୟଟନ ଏବଂ ସାଧାରଣ ପ୍ରବେଶରେ ବାଧା ସୃଷ୍ଟି କରୁଥିବା ଏକ କାରଣ ହୋଇଛି ଯେଉଁଠାରେ ତୀବ୍ର ପ୍ରତିଦ୍ୱନ୍ଦ୍ୱିତା ହେଉଛି । ଅଧିକାଂଶ ଶାନ୍ତି ପ୍ରୟାସ ଦୁଇ ରାଷ୍ଟ୍ର ସମାଧାନ ଉପରେ କେନ୍ଦ୍ରୀଭୂତ ହୋଇଛି, ଯେଉଁଥିରେ ଇସ୍ରାଏଲ ସହିତ ଏକ ସ୍ୱାଧୀନ ପାଲେଷ୍ଟାଇନ ରାଷ୍ଟ୍ର ପ୍ରତିଷ୍ଠା ଅନ୍ତର୍ଭୁକ୍ତ । ତେବେ ପୂର୍ବରୁ ଉଭୟ ଇସ୍ରାଏଲ ଇହୁଦୀ ଓ ପାଲେଷ୍ଟାଇନର ସମର୍ଥନ ପାଇଥିବା ଦୁଇ ରାଷ୍ଟ୍ରୀୟ ସମାଧାନ ପାଇଁ ଜନସମର୍ଥନ ସାମ୍ପ୍ରତିକ ବର୍ଷଗୁଡ଼ିକରେ ହ୍ରାସ ପାଇଛି।Dershowitz, Alan. \n\nଇସ୍ରାଏଲ ଓ ପାଲେଷ୍ଟାଇନ ସମାଜରେ ଏହି ସଂଘର୍ଷ ବିଭିନ୍ନ ପ୍ରକାରର ମତ ଓ ମତାମତ ସୃଷ୍ଟି କରିଥାଏ । ଆରମ୍ଭରୁ ଏହି ସଂଘର୍ଷରେ କେବଳ ଲଢ଼ୁଆଙ୍କ ମଧ୍ୟରେ ସୀମିତ ନ ଥିବା ବେଳେ ଉଭୟ ପକ୍ଷର ବହୁ ସଂଖ୍ୟାରେ ସାଧାରଣ ନାଗରିକ ପ୍ରାଣ ହରାଇଛନ୍ତି। ଅଳ୍ପ ସଂଖ୍ୟକ ଇହୁଦୀ ଇସ୍ରାଏଲବାସୀ (୩୨ ପ୍ରତିଶତ) ପାଲେଷ୍ଟାଇନ ସହିତ ଦୁଇ ରାଷ୍ଟ୍ରସମାଧାନକୁ ସମର୍ଥନ କରନ୍ତି । ଇସ୍ରାଏଲ ଇହୁଦୀମାନେ ଆଦର୍ଶ ଭିତ୍ତିରେ ବିଭାଜିତ ଏବଂ ଅନେକ ଲୋକ ସ୍ଥିତାବସ୍ଥା ବଜାୟ ରଖିବାକୁ ସମର୍ଥନ କରନ୍ତି । ପାଖାପାଖି ୬୦ ପ୍ରତିଶତ ପାଲେଷ୍ଟାଇନ୍ (ଗାଜା ଉପତ୍ୟକାରେ ୭୭% ଏବଂ ପଶ୍ଚିମ ତଟରେ ୪୬%) ଇସ୍ରାଏଲ ଭିତରେ ଇସ୍ରାଏଲ ବିରୋଧରେ ସଶସ୍ତ୍ର ଆକ୍ରମଣକୁ ଦଖଲ କୁ ଶେଷ କରିବାର ମାଧ୍ୟମ ଭାବରେ ସମର୍ଥନ କରୁଥିବା ବେଳେ ୭୦% ବିଶ୍ୱାସ କରନ୍ତି ଯେ ଇସ୍ରାଏଲର ବସତି ସମ୍ପ୍ରସାରଣ ଫଳରେ ଦୁଇ ରାଷ୍ଟ୍ରସମାଧାନ ଆଉ ବ୍ୟବହାରିକ କିମ୍ବା ସମ୍ଭବ ନୁହେଁ । ଦୁଇ ତୃତୀୟାଂଶରୁ ଅଧିକ ଇସ୍ରାଏଲ ଇହୁଦୀ କହିଛନ୍ତି ଯେ ଯଦି ପଶ୍ଚିମ ତଟକୁ ଇସ୍ରାଏଲ ଅକ୍ତିଆର କରେ, ତେବେ ସେଠାରେ ରହୁଥିବା ପାଲେଷ୍ଟାଇନୀମାନଙ୍କୁ ଭୋଟ୍ ଦେବାକୁ ଅନୁମତି ଦିଆଯିବା ଉଚିତ ନୁହେଁ । ମୌଳିକ ପ୍ରସଙ୍ଗରେ ପାରସ୍ପରିକ ଅବିଶ୍ୱାସ ଏବଂ ଗୁରୁ"
+          }
+        }
+      },
+      "divergences": [
+        {
+          "topic": "Content focus and framing of the conflict",
+          "editions_differ": [
+            "he",
+            "ja"
+          ],
+          "en_says": "The Israeli-Palestinian conflict is an ongoing conflict between Israelis and Palestinians. This conflict is one element of the larger Arab-Israeli conflict.",
+          "other_says": "הצעות לפתרון הסכסוך הישראלי-פלשתינאי: תוכנית האוטונומיה... הסכמי אוסלו... הסכמות טאבה",
+          "verdict": "differ",
+          "evidence_en": "This conflict is one element of the larger Arab-Israeli conflict.",
+          "evidence_other": "הצעות לפתרון הסכסוך הישראלי-פלשתינאי",
+          "temporal_read": "difference_persisted",
+          "en_before": "The Israeli-Palestinian conflict is an ongoing conflict between Israelis and Palestinians. This conflict is one element of the larger Arab-Israeli conflict.",
+          "en_after": "The Israeli-Palestinian conflict is an ongoing conflict between Israelis and Palestinians. This conflict is one element of the larger Arab-Israeli conflict.",
+          "other_before": "הצעות לפתרון הסכסוך הישראלי-פלשתינאי: תוכנית האוטונומיה... הסכמי אוסלו... הסכמות טאבה",
+          "other_after": "הצעות לפתרון הסכסוך הישראלי-פלשתינאי: תוכנית האוטונומיה... הסכמי אוסלו... הסכמות טאבה",
+          "evidence_en_before": "This conflict is one element of the larger Arab-Israeli conflict.",
+          "evidence_en_after": "This conflict is one element of the larger Arab-Israeli conflict.",
+          "evidence_other_before": "הצעות לפתרון הסכסוך הישראלי-פלשתינאי",
+          "evidence_other_after": "הצעות לפתרון הסכסוך הישראלי-פלשתינאי"
+        },
+        {
+          "topic": "Definitional framing: conflict description vs. political issue naming",
+          "editions_differ": [
+            "ja"
+          ],
+          "en_says": "The Israeli-Palestinian conflict is an ongoing conflict between Israelis and Palestinians.",
+          "other_says": "パレスチナ問題とは、パレスチナの地を巡るパレスチナ定住者（パレスチナ人）とユダヤ人帰還者との関係から生じた紛争を一個の政治問題として扱った呼称。",
+          "verdict": "differ",
+          "evidence_en": "The Israeli-Palestinian conflict is an ongoing conflict between Israelis and Palestinians.",
+          "evidence_other": "一個の政治問題として扱った呼称",
+          "temporal_read": "difference_persisted",
+          "en_before": "The Israeli-Palestinian conflict is an ongoing conflict between Israelis and Palestinians.",
+          "en_after": "The Israeli-Palestinian conflict is an ongoing conflict between Israelis and Palestinians.",
+          "other_before": "パレスチナ問題とは、パレスチナの地を巡るパレスチナ定住者（パレスチナ人）とユダヤ人帰還者との関係から生じた紛争を一個の政治問題として扱った呼称。",
+          "other_after": "パレスチナ問題とは、パレスチナの地を巡るパレスチナ定住者（パレスチナ人）とユダヤ人帰還者との関係から生じた紛争を一個の政治問題として扱った呼称。",
+          "evidence_en_before": "an ongoing conflict between Israelis and Palestinians",
+          "evidence_en_after": "an ongoing conflict between Israelis and Palestinians",
+          "evidence_other_before": "一個の政治問題として扱った呼称",
+          "evidence_other_after": "一個の政治問題として扱った呼称"
+        }
+      ],
+      "summary": "The English text underwent only a minor markup change (adding a wikilink to 'disputed') between the before and after revisions, with the substantive wording unchanged. The Hebrew edition's before/after revisions show only formatting changes (removal of line breaks and a 'see also' section) with no substantive textual change, and it presents a list of peace-proposal topics rather than a definitional lead, differing persistently from the English framing. The Japanese edition's text is identical before and after, framing the topic as a political naming issue rather than describing an ongoing conflict, a difference that persisted unchanged across the window. No genuine temporal shift (English moving away or converging) is supported by the quoted text in any edition.",
+      "run_ts": "2026-08-04T20:18:39.395841+00:00",
+      "model": "claude-sonnet-5",
+      "llm_usage": {
+        "calls": 1,
+        "input_tokens": 2563,
+        "output_tokens": 1502,
+        "estimated_usd": null,
+        "all_calls_priced": false,
+        "records": [
+          {
+            "provider": "anthropic",
+            "model": "claude-sonnet-5",
+            "input_tokens": 2563,
+            "output_tokens": 1502,
+            "estimated_usd": null,
+            "pricing_key": null,
+            "pricing_usd_per_million": null
+          }
+        ]
+      },
+      "elapsed_seconds": 36.225,
+      "episode_id": "1937346-1937381",
+      "episode_index": 3,
+      "episode_window": {
+        "start": "2003-01-01",
+        "end": "2005-01-01",
+        "pwr_mass": 7888,
+        "status": "confirmed",
+        "before_revid": 1937346,
+        "before_timestamp": "2003-12-11T23:49:24Z",
+        "after_revid": 1937381,
+        "after_timestamp": "2003-12-12T05:10:46Z",
+        "durable_spine_drop": 0.925163
+      },
+      "analysis_status": "available"
+    }
+  ]
 }

@@ -1,0 +1,27 @@
+{
+  "article": "Capitalism",
+  "qid": "Q6206",
+  "editions": {
+    "de": {
+      "present": true,
+      "revid": 269351388,
+      "title": "Kapitalismus",
+      "timestamp": "2026-08-03T18:14:26Z",
+      "prose_chars": 100912
+    },
+    "fr": {
+      "present": true,
+      "revid": 237658643,
+      "title": "Capitalisme",
+      "timestamp": "2026-07-08T13:29:23Z",
+      "prose_chars": 72002
+    },
+    "en": {
+      "present": true,
+      "revid": 1367549037,
+      "title": "Capitalism",
+      "timestamp": "2026-08-03T19:37:08Z",
+      "prose_chars": 63281
+    }
+  }
+}

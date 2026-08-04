@@ -1,0 +1,2149 @@
+{
+  "schema_version": 1,
+  "prompt_version": "stance-v3",
+  "article": "Fascism and ideology",
+  "entities": [
+    "Fascism and ideology"
+  ],
+  "repeated_run_policy": {
+    "runs_near_apparent_transition": 3,
+    "agreement_floor": 0.8,
+    "text_similarity_floor": 0.98
+  },
+  "revisions": [
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 33656980,
+      "timestamp": "2006-01-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=33656980",
+      "passage_hash": "sha256:a5fb35ada028388dec59a606ee0b824d26c07610173e338cf9f6c33ca6fc219f",
+      "passage": "There are numerous debates concerning fascism and ideology and where fascism fits on the political spectrum.",
+      "has_focal_prose": true,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-08-04T21:29:58.164975+00:00",
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Fascism and ideology",
+              "stance": "neutral",
+              "npov_departure": false,
+              "confidence": 0.85,
+              "evidence": "There are numerous debates concerning fascism and ideology and where fascism fits on the political spectrum.",
+              "evidence_spans": [
+                "There are numerous debates concerning fascism and ideology and where fascism fits on the political spectrum."
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Fascism and ideology": {
+          "label": "neutral",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "neutral": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.85
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 61593416,
+      "timestamp": "2006-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=61593416",
+      "passage_hash": "sha256:a5fb35ada028388dec59a606ee0b824d26c07610173e338cf9f6c33ca6fc219f",
+      "passage": "There are numerous debates concerning fascism and ideology and where fascism fits on the political spectrum.",
+      "has_focal_prose": true,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-08-04T21:30:03.338641+00:00",
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Fascism and ideology",
+              "stance": "neutral",
+              "npov_departure": false,
+              "confidence": 0.85,
+              "evidence": "There are numerous debates concerning fascism and ideology and where fascism fits on the political spectrum.",
+              "evidence_spans": [
+                "There are numerous debates concerning fascism and ideology and where fascism fits on the political spectrum."
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Fascism and ideology": {
+          "label": "neutral",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "neutral": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.85
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 97717171,
+      "timestamp": "2007-01-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=97717171",
+      "passage_hash": "sha256:a5fb35ada028388dec59a606ee0b824d26c07610173e338cf9f6c33ca6fc219f",
+      "passage": "There are numerous debates concerning fascism and ideology and where fascism fits on the political spectrum.",
+      "has_focal_prose": true,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-08-04T21:30:10.007610+00:00",
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Fascism and ideology",
+              "stance": "neutral",
+              "npov_departure": false,
+              "confidence": 0.85,
+              "evidence": "There are numerous debates concerning fascism and ideology and where fascism fits on the political spectrum.",
+              "evidence_spans": [
+                "There are numerous debates concerning fascism and ideology and where fascism fits on the political spectrum."
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Fascism and ideology": {
+          "label": "neutral",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "neutral": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.85
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 142723908,
+      "timestamp": "2007-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=142723908",
+      "passage_hash": "sha256:a5fb35ada028388dec59a606ee0b824d26c07610173e338cf9f6c33ca6fc219f",
+      "passage": "There are numerous debates concerning fascism and ideology and where fascism fits on the political spectrum.",
+      "has_focal_prose": true,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-08-04T21:30:12.308548+00:00",
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Fascism and ideology",
+              "stance": "neutral",
+              "npov_departure": false,
+              "confidence": 0.85,
+              "evidence": "There are numerous debates concerning fascism and ideology and where fascism fits on the political spectrum.",
+              "evidence_spans": [
+                "There are numerous debates concerning fascism and ideology and where fascism fits on the political spectrum."
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Fascism and ideology": {
+          "label": "neutral",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "neutral": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.85
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 176824903,
+      "timestamp": "2008-01-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=176824903",
+      "passage_hash": "sha256:7a83183f48f00e8051b28895eb004e6ed35b30e89270afa64c9185bd6498e9ff",
+      "passage": "There are numerous debates concerning fascism and ideology Bertrand Russell wrote that\"Fascism is not an ordered set of beliefs....there is no philosophy of fascism, but only a psycho-analysis\"Bertrand Russell, \"Scylla and Charybdis\" from \"In Praise of Idleness and other essays, 1958 5th.",
+      "has_focal_prose": true,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-08-04T21:30:16.275786+00:00",
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Fascism",
+              "stance": "critical",
+              "npov_departure": true,
+              "confidence": 0.55,
+              "evidence": "\"Fascism is not an ordered set of beliefs....there is no philosophy of fascism, but only a psycho-analysis\"",
+              "evidence_spans": [
+                "Fascism is not an ordered set of beliefs....there is no philosophy of fascism, but only a psycho-analysis"
+              ]
+            },
+            {
+              "entity": "ideology",
+              "stance": "neutral",
+              "npov_departure": false,
+              "confidence": 0.6,
+              "evidence": "There are numerous debates concerning fascism and ideology",
+              "evidence_spans": [
+                "There are numerous debates concerning fascism and ideology"
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {}
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 224505930,
+      "timestamp": "2008-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=224505930",
+      "passage_hash": "sha256:a297c20eb4aebe3611f2c113f592c1f34107bb07f38f4bb4d3a920b4fd244aae",
+      "passage": "There are numerous debates concerning fascism and ideology.",
+      "has_focal_prose": true,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-08-04T21:30:18.360518+00:00",
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Fascism",
+              "stance": "neutral",
+              "npov_departure": false,
+              "confidence": 0.6,
+              "evidence": "There are numerous debates concerning fascism and ideology.",
+              "evidence_spans": [
+                "There are numerous debates concerning fascism and ideology."
+              ]
+            },
+            {
+              "entity": "ideology",
+              "stance": "neutral",
+              "npov_departure": false,
+              "confidence": 0.6,
+              "evidence": "There are numerous debates concerning fascism and ideology.",
+              "evidence_spans": [
+                "There are numerous debates concerning fascism and ideology."
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {}
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 256185686,
+      "timestamp": "2009-01-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=256185686",
+      "passage_hash": "sha256:a297c20eb4aebe3611f2c113f592c1f34107bb07f38f4bb4d3a920b4fd244aae",
+      "passage": "There are numerous debates concerning fascism and ideology.",
+      "has_focal_prose": true,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-08-04T21:30:20.663416+00:00",
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Fascism",
+              "stance": "neutral",
+              "npov_departure": false,
+              "confidence": 0.7,
+              "evidence": "There are numerous debates concerning fascism and ideology.",
+              "evidence_spans": [
+                "There are numerous debates concerning fascism and ideology."
+              ]
+            },
+            {
+              "entity": "ideology",
+              "stance": "neutral",
+              "npov_departure": false,
+              "confidence": 0.7,
+              "evidence": "There are numerous debates concerning fascism and ideology.",
+              "evidence_spans": [
+                "There are numerous debates concerning fascism and ideology."
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {}
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 295911512,
+      "timestamp": "2009-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=295911512",
+      "passage_hash": "sha256:a297c20eb4aebe3611f2c113f592c1f34107bb07f38f4bb4d3a920b4fd244aae",
+      "passage": "There are numerous debates concerning fascism and ideology.",
+      "has_focal_prose": true,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-08-04T21:30:23.630251+00:00",
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Fascism",
+              "stance": "neutral",
+              "npov_departure": false,
+              "confidence": 0.6,
+              "evidence": "There are numerous debates concerning fascism and ideology.",
+              "evidence_spans": [
+                "There are numerous debates concerning fascism and ideology."
+              ]
+            },
+            {
+              "entity": "ideology",
+              "stance": "neutral",
+              "npov_departure": false,
+              "confidence": 0.6,
+              "evidence": "There are numerous debates concerning fascism and ideology.",
+              "evidence_spans": [
+                "There are numerous debates concerning fascism and ideology."
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {}
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 318796426,
+      "timestamp": "2010-01-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=318796426",
+      "passage_hash": "sha256:a297c20eb4aebe3611f2c113f592c1f34107bb07f38f4bb4d3a920b4fd244aae",
+      "passage": "There are numerous debates concerning fascism and ideology.",
+      "has_focal_prose": true,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-08-04T21:30:28.235326+00:00",
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Fascism and ideology",
+              "stance": "neutral",
+              "npov_departure": false,
+              "confidence": 0.6,
+              "evidence": "There are numerous debates concerning fascism and ideology.",
+              "evidence_spans": [
+                "There are numerous debates concerning fascism and ideology."
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Fascism and ideology": {
+          "label": "neutral",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "neutral": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.6
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 366463094,
+      "timestamp": "2010-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=366463094",
+      "passage_hash": "sha256:b99313ec345f6cdf0e4442b3a3468999c67afe2428e527a699d4c936e3af006b",
+      "passage": "Fascism and ideology is the subject of numerous debates.",
+      "has_focal_prose": true,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-08-04T21:30:30.697614+00:00",
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Fascism and ideology",
+              "stance": "neutral",
+              "npov_departure": false,
+              "confidence": 0.55,
+              "evidence": "Fascism and ideology is the subject of numerous debates.",
+              "evidence_spans": [
+                "Fascism and ideology is the subject of numerous debates."
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Fascism and ideology": {
+          "label": "neutral",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "neutral": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.55
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 396303994,
+      "timestamp": "2011-01-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=396303994",
+      "passage_hash": "sha256:b99313ec345f6cdf0e4442b3a3468999c67afe2428e527a699d4c936e3af006b",
+      "passage": "Fascism and ideology is the subject of numerous debates.",
+      "has_focal_prose": true,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-08-04T21:30:45.746248+00:00",
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Fascism and ideology",
+              "stance": "neutral",
+              "npov_departure": false,
+              "confidence": 0.85,
+              "evidence": "Fascism and ideology is the subject of numerous debates.",
+              "evidence_spans": [
+                "Fascism and ideology is the subject of numerous debates."
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Fascism and ideology": {
+          "label": "neutral",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "neutral": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.85
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 436792724,
+      "timestamp": "2011-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=436792724",
+      "passage_hash": "sha256:b99313ec345f6cdf0e4442b3a3468999c67afe2428e527a699d4c936e3af006b",
+      "passage": "Fascism and ideology is the subject of numerous debates.",
+      "has_focal_prose": true,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-08-04T21:30:48.147174+00:00",
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Fascism and ideology",
+              "stance": "neutral",
+              "npov_departure": false,
+              "confidence": 0.85,
+              "evidence": "Fascism and ideology is the subject of numerous debates.",
+              "evidence_spans": [
+                "Fascism and ideology is the subject of numerous debates."
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Fascism and ideology": {
+          "label": "neutral",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "neutral": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.85
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 462181984,
+      "timestamp": "2012-01-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=462181984",
+      "passage_hash": "sha256:b99313ec345f6cdf0e4442b3a3468999c67afe2428e527a699d4c936e3af006b",
+      "passage": "Fascism and ideology is the subject of numerous debates.",
+      "has_focal_prose": true,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-08-04T21:30:50.394106+00:00",
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Fascism and ideology",
+              "stance": "neutral",
+              "npov_departure": false,
+              "confidence": 0.6,
+              "evidence": "Fascism and ideology is the subject of numerous debates.",
+              "evidence_spans": [
+                "Fascism and ideology is the subject of numerous debates."
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Fascism and ideology": {
+          "label": "neutral",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "neutral": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.6
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 499696679,
+      "timestamp": "2012-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=499696679",
+      "passage_hash": "sha256:b99313ec345f6cdf0e4442b3a3468999c67afe2428e527a699d4c936e3af006b",
+      "passage": "Fascism and ideology is the subject of numerous debates.",
+      "has_focal_prose": true,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-08-04T21:30:52.715632+00:00",
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Fascism and ideology",
+              "stance": "neutral",
+              "npov_departure": false,
+              "confidence": 0.55,
+              "evidence": "Fascism and ideology is the subject of numerous debates.",
+              "evidence_spans": [
+                "Fascism and ideology is the subject of numerous debates."
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Fascism and ideology": {
+          "label": "neutral",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "neutral": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.55
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 526290460,
+      "timestamp": "2013-01-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=526290460",
+      "passage_hash": "sha256:b99313ec345f6cdf0e4442b3a3468999c67afe2428e527a699d4c936e3af006b",
+      "passage": "Fascism and ideology is the subject of numerous debates.",
+      "has_focal_prose": true,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-08-04T21:30:54.966110+00:00",
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Fascism and ideology",
+              "stance": "neutral",
+              "npov_departure": false,
+              "confidence": 0.55,
+              "evidence": "Fascism and ideology is the subject of numerous debates.",
+              "evidence_spans": [
+                "Fascism and ideology is the subject of numerous debates."
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Fascism and ideology": {
+          "label": "neutral",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "neutral": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.55
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 561973960,
+      "timestamp": "2013-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=561973960",
+      "passage_hash": "sha256:b99313ec345f6cdf0e4442b3a3468999c67afe2428e527a699d4c936e3af006b",
+      "passage": "Fascism and ideology is the subject of numerous debates.",
+      "has_focal_prose": true,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-08-04T21:30:57.323111+00:00",
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Fascism and ideology",
+              "stance": "neutral",
+              "npov_departure": false,
+              "confidence": 0.55,
+              "evidence": "Fascism and ideology is the subject of numerous debates.",
+              "evidence_spans": [
+                "Fascism and ideology is the subject of numerous debates."
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Fascism and ideology": {
+          "label": "neutral",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "neutral": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.55
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 590258178,
+      "timestamp": "2014-01-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=590258178",
+      "passage_hash": "sha256:b99313ec345f6cdf0e4442b3a3468999c67afe2428e527a699d4c936e3af006b",
+      "passage": "Fascism and ideology is the subject of numerous debates.",
+      "has_focal_prose": true,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-08-04T21:30:59.767562+00:00",
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Fascism and ideology",
+              "stance": "neutral",
+              "npov_departure": false,
+              "confidence": 0.55,
+              "evidence": "Fascism and ideology is the subject of numerous debates.",
+              "evidence_spans": [
+                "Fascism and ideology is the subject of numerous debates."
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Fascism and ideology": {
+          "label": "neutral",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "neutral": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.55
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 596581041,
+      "timestamp": "2014-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=596581041",
+      "passage_hash": "sha256:b99313ec345f6cdf0e4442b3a3468999c67afe2428e527a699d4c936e3af006b",
+      "passage": "Fascism and ideology is the subject of numerous debates.",
+      "has_focal_prose": true,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-08-04T21:31:02.806160+00:00",
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Fascism",
+              "stance": "neutral",
+              "npov_departure": false,
+              "confidence": 0.6,
+              "evidence": "Fascism and ideology is the subject of numerous debates.",
+              "evidence_spans": [
+                "Fascism and ideology is the subject of numerous debates."
+              ]
+            },
+            {
+              "entity": "ideology",
+              "stance": "absent",
+              "npov_departure": false,
+              "confidence": 0.5,
+              "evidence": "The passage only mentions ideology as part of the topic title, without discussing it substantively.",
+              "evidence_spans": [
+                "Fascism and ideology is the subject of numerous debates."
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {}
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 642826171,
+      "timestamp": "2015-01-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=642826171",
+      "passage_hash": "sha256:b99313ec345f6cdf0e4442b3a3468999c67afe2428e527a699d4c936e3af006b",
+      "passage": "Fascism and ideology is the subject of numerous debates.",
+      "has_focal_prose": true,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-08-04T21:31:05.367283+00:00",
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Fascism and ideology",
+              "stance": "neutral",
+              "npov_departure": false,
+              "confidence": 0.55,
+              "evidence": "Fascism and ideology is the subject of numerous debates.",
+              "evidence_spans": [
+                "Fascism and ideology is the subject of numerous debates."
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Fascism and ideology": {
+          "label": "neutral",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "neutral": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.55
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 669113824,
+      "timestamp": "2015-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=669113824",
+      "passage_hash": "sha256:92021273d3f4cf4bb368b9c4c5d9a138d1f5b52b64b3eef13fc0e8d85f14264e",
+      "passage": "The history of Fascist ideology, or fascism and ideology, is long and involves many sources.",
+      "has_focal_prose": true,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-08-04T21:31:07.865785+00:00",
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Fascism and ideology",
+              "stance": "neutral",
+              "npov_departure": false,
+              "confidence": 0.8,
+              "evidence": "The history of Fascist ideology, or fascism and ideology, is long and involves many sources.",
+              "evidence_spans": [
+                "The history of Fascist ideology, or fascism and ideology, is long and involves many sources."
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Fascism and ideology": {
+          "label": "neutral",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "neutral": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.8
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 697655408,
+      "timestamp": "2016-01-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=697655408",
+      "passage_hash": "sha256:92021273d3f4cf4bb368b9c4c5d9a138d1f5b52b64b3eef13fc0e8d85f14264e",
+      "passage": "The history of Fascist ideology, or fascism and ideology, is long and involves many sources.",
+      "has_focal_prose": true,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-08-04T21:31:10.222215+00:00",
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Fascism and ideology",
+              "stance": "neutral",
+              "npov_departure": false,
+              "confidence": 0.6,
+              "evidence": "The history of Fascist ideology, or fascism and ideology, is long and involves many sources.",
+              "evidence_spans": [
+                "The history of Fascist ideology, or fascism and ideology, is long and involves many sources."
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Fascism and ideology": {
+          "label": "neutral",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "neutral": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.6
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 730430587,
+      "timestamp": "2016-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=730430587",
+      "passage_hash": "sha256:92021273d3f4cf4bb368b9c4c5d9a138d1f5b52b64b3eef13fc0e8d85f14264e",
+      "passage": "The history of Fascist ideology, or fascism and ideology, is long and involves many sources.",
+      "has_focal_prose": true,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-08-04T21:31:12.784181+00:00",
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Fascism and ideology",
+              "stance": "neutral",
+              "npov_departure": false,
+              "confidence": 0.85,
+              "evidence": "The history of Fascist ideology, or fascism and ideology, is long and involves many sources.",
+              "evidence_spans": [
+                "The history of Fascist ideology, or fascism and ideology, is long and involves many sources."
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Fascism and ideology": {
+          "label": "neutral",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "neutral": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.85
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 757993738,
+      "timestamp": "2017-01-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=757993738",
+      "passage_hash": "sha256:92021273d3f4cf4bb368b9c4c5d9a138d1f5b52b64b3eef13fc0e8d85f14264e",
+      "passage": "The history of Fascist ideology, or fascism and ideology, is long and involves many sources.",
+      "has_focal_prose": true,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-08-04T21:31:15.290466+00:00",
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Fascism and ideology",
+              "stance": "neutral",
+              "npov_departure": false,
+              "confidence": 0.6,
+              "evidence": "The history of Fascist ideology, or fascism and ideology, is long and involves many sources.",
+              "evidence_spans": [
+                "The history of Fascist ideology, or fascism and ideology, is long and involves many sources."
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Fascism and ideology": {
+          "label": "neutral",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "neutral": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.6
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 787319753,
+      "timestamp": "2017-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=787319753",
+      "passage_hash": "sha256:92021273d3f4cf4bb368b9c4c5d9a138d1f5b52b64b3eef13fc0e8d85f14264e",
+      "passage": "The history of Fascist ideology, or fascism and ideology, is long and involves many sources.",
+      "has_focal_prose": true,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-08-04T21:31:18.315845+00:00",
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Fascism and ideology",
+              "stance": "neutral",
+              "npov_departure": false,
+              "confidence": 0.65,
+              "evidence": "The history of Fascist ideology, or fascism and ideology, is long and involves many sources.",
+              "evidence_spans": [
+                "The history of Fascist ideology, or fascism and ideology, is long and involves many sources."
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Fascism and ideology": {
+          "label": "neutral",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "neutral": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.65
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 819899011,
+      "timestamp": "2018-01-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=819899011",
+      "passage_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passage": "",
+      "has_focal_prose": false,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [],
+      "summaries": {}
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 849773775,
+      "timestamp": "2018-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=849773775",
+      "passage_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passage": "",
+      "has_focal_prose": false,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [],
+      "summaries": {}
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 875859679,
+      "timestamp": "2019-01-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=875859679",
+      "passage_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passage": "",
+      "has_focal_prose": false,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [],
+      "summaries": {}
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 904374952,
+      "timestamp": "2019-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=904374952",
+      "passage_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passage": "",
+      "has_focal_prose": false,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [],
+      "summaries": {}
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 936770750,
+      "timestamp": "2020-01-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=936770750",
+      "passage_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passage": "",
+      "has_focal_prose": false,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [],
+      "summaries": {}
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 964213724,
+      "timestamp": "2020-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=964213724",
+      "passage_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passage": "",
+      "has_focal_prose": false,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [],
+      "summaries": {}
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 997483099,
+      "timestamp": "2021-01-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=997483099",
+      "passage_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passage": "",
+      "has_focal_prose": false,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [],
+      "summaries": {}
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 1032411257,
+      "timestamp": "2021-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=1032411257",
+      "passage_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passage": "",
+      "has_focal_prose": false,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [],
+      "summaries": {}
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 1062921510,
+      "timestamp": "2022-01-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=1062921510",
+      "passage_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passage": "",
+      "has_focal_prose": false,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [],
+      "summaries": {}
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 1096018211,
+      "timestamp": "2022-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=1096018211",
+      "passage_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passage": "",
+      "has_focal_prose": false,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [],
+      "summaries": {}
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 1130780348,
+      "timestamp": "2023-01-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=1130780348",
+      "passage_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passage": "",
+      "has_focal_prose": false,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [],
+      "summaries": {}
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 1162652592,
+      "timestamp": "2023-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=1162652592",
+      "passage_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passage": "",
+      "has_focal_prose": false,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [],
+      "summaries": {}
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 1192665770,
+      "timestamp": "2024-01-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=1192665770",
+      "passage_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passage": "",
+      "has_focal_prose": false,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [],
+      "summaries": {}
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 1233493264,
+      "timestamp": "2024-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=1233493264",
+      "passage_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passage": "",
+      "has_focal_prose": false,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [],
+      "summaries": {}
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 1268201024,
+      "timestamp": "2025-01-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=1268201024",
+      "passage_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passage": "",
+      "has_focal_prose": false,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [],
+      "summaries": {}
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 1298283598,
+      "timestamp": "2025-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=1298283598",
+      "passage_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passage": "",
+      "has_focal_prose": false,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [],
+      "summaries": {}
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 1333641995,
+      "timestamp": "2026-01-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=1333641995",
+      "passage_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passage": "",
+      "has_focal_prose": false,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [],
+      "summaries": {}
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Fascism and ideology",
+      "revision_id": 1358688575,
+      "timestamp": "2026-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Fascism_and_ideology&oldid=1358688575",
+      "passage_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passage": "",
+      "has_focal_prose": false,
+      "entities": [
+        "Fascism and ideology"
+      ],
+      "runs": [],
+      "summaries": {}
+    }
+  ],
+  "transitions": [
+    {
+      "before_revision_id": 33656980,
+      "after_revision_id": 61593416,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "no_change",
+          "entity": "Fascism and ideology",
+          "text_similarity": 1.0,
+          "text_changed": false,
+          "label_changed": false,
+          "before_label": "neutral",
+          "after_label": "neutral",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    },
+    {
+      "before_revision_id": 61593416,
+      "after_revision_id": 97717171,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "no_change",
+          "entity": "Fascism and ideology",
+          "text_similarity": 1.0,
+          "text_changed": false,
+          "label_changed": false,
+          "before_label": "neutral",
+          "after_label": "neutral",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    },
+    {
+      "before_revision_id": 97717171,
+      "after_revision_id": 142723908,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "no_change",
+          "entity": "Fascism and ideology",
+          "text_similarity": 1.0,
+          "text_changed": false,
+          "label_changed": false,
+          "before_label": "neutral",
+          "after_label": "neutral",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    },
+    {
+      "before_revision_id": 142723908,
+      "after_revision_id": 176824903,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "insufficient_evidence",
+          "entity": "Fascism and ideology",
+          "audited_shift": false,
+          "reason": "one or both passages have no classification for the entity"
+        }
+      }
+    },
+    {
+      "before_revision_id": 176824903,
+      "after_revision_id": 224505930,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "insufficient_evidence",
+          "entity": "Fascism and ideology",
+          "audited_shift": false,
+          "reason": "one or both passages have no classification for the entity"
+        }
+      }
+    },
+    {
+      "before_revision_id": 224505930,
+      "after_revision_id": 256185686,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "insufficient_evidence",
+          "entity": "Fascism and ideology",
+          "audited_shift": false,
+          "reason": "one or both passages have no classification for the entity"
+        }
+      }
+    },
+    {
+      "before_revision_id": 256185686,
+      "after_revision_id": 295911512,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "insufficient_evidence",
+          "entity": "Fascism and ideology",
+          "audited_shift": false,
+          "reason": "one or both passages have no classification for the entity"
+        }
+      }
+    },
+    {
+      "before_revision_id": 295911512,
+      "after_revision_id": 318796426,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "insufficient_evidence",
+          "entity": "Fascism and ideology",
+          "audited_shift": false,
+          "reason": "one or both passages have no classification for the entity"
+        }
+      }
+    },
+    {
+      "before_revision_id": 318796426,
+      "after_revision_id": 366463094,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "text_changed",
+          "entity": "Fascism and ideology",
+          "text_similarity": 0.3478,
+          "text_changed": true,
+          "label_changed": false,
+          "before_label": "neutral",
+          "after_label": "neutral",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    },
+    {
+      "before_revision_id": 366463094,
+      "after_revision_id": 396303994,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "no_change",
+          "entity": "Fascism and ideology",
+          "text_similarity": 1.0,
+          "text_changed": false,
+          "label_changed": false,
+          "before_label": "neutral",
+          "after_label": "neutral",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    },
+    {
+      "before_revision_id": 396303994,
+      "after_revision_id": 436792724,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "no_change",
+          "entity": "Fascism and ideology",
+          "text_similarity": 1.0,
+          "text_changed": false,
+          "label_changed": false,
+          "before_label": "neutral",
+          "after_label": "neutral",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    },
+    {
+      "before_revision_id": 436792724,
+      "after_revision_id": 462181984,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "no_change",
+          "entity": "Fascism and ideology",
+          "text_similarity": 1.0,
+          "text_changed": false,
+          "label_changed": false,
+          "before_label": "neutral",
+          "after_label": "neutral",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    },
+    {
+      "before_revision_id": 462181984,
+      "after_revision_id": 499696679,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "no_change",
+          "entity": "Fascism and ideology",
+          "text_similarity": 1.0,
+          "text_changed": false,
+          "label_changed": false,
+          "before_label": "neutral",
+          "after_label": "neutral",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    },
+    {
+      "before_revision_id": 499696679,
+      "after_revision_id": 526290460,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "no_change",
+          "entity": "Fascism and ideology",
+          "text_similarity": 1.0,
+          "text_changed": false,
+          "label_changed": false,
+          "before_label": "neutral",
+          "after_label": "neutral",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    },
+    {
+      "before_revision_id": 526290460,
+      "after_revision_id": 561973960,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "no_change",
+          "entity": "Fascism and ideology",
+          "text_similarity": 1.0,
+          "text_changed": false,
+          "label_changed": false,
+          "before_label": "neutral",
+          "after_label": "neutral",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    },
+    {
+      "before_revision_id": 561973960,
+      "after_revision_id": 590258178,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "no_change",
+          "entity": "Fascism and ideology",
+          "text_similarity": 1.0,
+          "text_changed": false,
+          "label_changed": false,
+          "before_label": "neutral",
+          "after_label": "neutral",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    },
+    {
+      "before_revision_id": 590258178,
+      "after_revision_id": 596581041,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "insufficient_evidence",
+          "entity": "Fascism and ideology",
+          "audited_shift": false,
+          "reason": "one or both passages have no classification for the entity"
+        }
+      }
+    },
+    {
+      "before_revision_id": 596581041,
+      "after_revision_id": 642826171,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "insufficient_evidence",
+          "entity": "Fascism and ideology",
+          "audited_shift": false,
+          "reason": "one or both passages have no classification for the entity"
+        }
+      }
+    },
+    {
+      "before_revision_id": 642826171,
+      "after_revision_id": 669113824,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "text_changed",
+          "entity": "Fascism and ideology",
+          "text_similarity": 0.4324,
+          "text_changed": true,
+          "label_changed": false,
+          "before_label": "neutral",
+          "after_label": "neutral",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    },
+    {
+      "before_revision_id": 669113824,
+      "after_revision_id": 697655408,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "no_change",
+          "entity": "Fascism and ideology",
+          "text_similarity": 1.0,
+          "text_changed": false,
+          "label_changed": false,
+          "before_label": "neutral",
+          "after_label": "neutral",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    },
+    {
+      "before_revision_id": 697655408,
+      "after_revision_id": 730430587,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "no_change",
+          "entity": "Fascism and ideology",
+          "text_similarity": 1.0,
+          "text_changed": false,
+          "label_changed": false,
+          "before_label": "neutral",
+          "after_label": "neutral",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    },
+    {
+      "before_revision_id": 730430587,
+      "after_revision_id": 757993738,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "no_change",
+          "entity": "Fascism and ideology",
+          "text_similarity": 1.0,
+          "text_changed": false,
+          "label_changed": false,
+          "before_label": "neutral",
+          "after_label": "neutral",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    },
+    {
+      "before_revision_id": 757993738,
+      "after_revision_id": 787319753,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "no_change",
+          "entity": "Fascism and ideology",
+          "text_similarity": 1.0,
+          "text_changed": false,
+          "label_changed": false,
+          "before_label": "neutral",
+          "after_label": "neutral",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    },
+    {
+      "before_revision_id": 787319753,
+      "after_revision_id": 819899011,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "insufficient_evidence",
+          "entity": "Fascism and ideology",
+          "audited_shift": false,
+          "reason": "one or both passages have no classification for the entity"
+        }
+      }
+    },
+    {
+      "before_revision_id": 819899011,
+      "after_revision_id": 849773775,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "insufficient_evidence",
+          "entity": "Fascism and ideology",
+          "audited_shift": false,
+          "reason": "one or both passages have no classification for the entity"
+        }
+      }
+    },
+    {
+      "before_revision_id": 849773775,
+      "after_revision_id": 875859679,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "insufficient_evidence",
+          "entity": "Fascism and ideology",
+          "audited_shift": false,
+          "reason": "one or both passages have no classification for the entity"
+        }
+      }
+    },
+    {
+      "before_revision_id": 875859679,
+      "after_revision_id": 904374952,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "insufficient_evidence",
+          "entity": "Fascism and ideology",
+          "audited_shift": false,
+          "reason": "one or both passages have no classification for the entity"
+        }
+      }
+    },
+    {
+      "before_revision_id": 904374952,
+      "after_revision_id": 936770750,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "insufficient_evidence",
+          "entity": "Fascism and ideology",
+          "audited_shift": false,
+          "reason": "one or both passages have no classification for the entity"
+        }
+      }
+    },
+    {
+      "before_revision_id": 936770750,
+      "after_revision_id": 964213724,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "insufficient_evidence",
+          "entity": "Fascism and ideology",
+          "audited_shift": false,
+          "reason": "one or both passages have no classification for the entity"
+        }
+      }
+    },
+    {
+      "before_revision_id": 964213724,
+      "after_revision_id": 997483099,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "insufficient_evidence",
+          "entity": "Fascism and ideology",
+          "audited_shift": false,
+          "reason": "one or both passages have no classification for the entity"
+        }
+      }
+    },
+    {
+      "before_revision_id": 997483099,
+      "after_revision_id": 1032411257,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "insufficient_evidence",
+          "entity": "Fascism and ideology",
+          "audited_shift": false,
+          "reason": "one or both passages have no classification for the entity"
+        }
+      }
+    },
+    {
+      "before_revision_id": 1032411257,
+      "after_revision_id": 1062921510,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "insufficient_evidence",
+          "entity": "Fascism and ideology",
+          "audited_shift": false,
+          "reason": "one or both passages have no classification for the entity"
+        }
+      }
+    },
+    {
+      "before_revision_id": 1062921510,
+      "after_revision_id": 1096018211,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "insufficient_evidence",
+          "entity": "Fascism and ideology",
+          "audited_shift": false,
+          "reason": "one or both passages have no classification for the entity"
+        }
+      }
+    },
+    {
+      "before_revision_id": 1096018211,
+      "after_revision_id": 1130780348,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "insufficient_evidence",
+          "entity": "Fascism and ideology",
+          "audited_shift": false,
+          "reason": "one or both passages have no classification for the entity"
+        }
+      }
+    },
+    {
+      "before_revision_id": 1130780348,
+      "after_revision_id": 1162652592,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "insufficient_evidence",
+          "entity": "Fascism and ideology",
+          "audited_shift": false,
+          "reason": "one or both passages have no classification for the entity"
+        }
+      }
+    },
+    {
+      "before_revision_id": 1162652592,
+      "after_revision_id": 1192665770,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "insufficient_evidence",
+          "entity": "Fascism and ideology",
+          "audited_shift": false,
+          "reason": "one or both passages have no classification for the entity"
+        }
+      }
+    },
+    {
+      "before_revision_id": 1192665770,
+      "after_revision_id": 1233493264,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "insufficient_evidence",
+          "entity": "Fascism and ideology",
+          "audited_shift": false,
+          "reason": "one or both passages have no classification for the entity"
+        }
+      }
+    },
+    {
+      "before_revision_id": 1233493264,
+      "after_revision_id": 1268201024,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "insufficient_evidence",
+          "entity": "Fascism and ideology",
+          "audited_shift": false,
+          "reason": "one or both passages have no classification for the entity"
+        }
+      }
+    },
+    {
+      "before_revision_id": 1268201024,
+      "after_revision_id": 1298283598,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "insufficient_evidence",
+          "entity": "Fascism and ideology",
+          "audited_shift": false,
+          "reason": "one or both passages have no classification for the entity"
+        }
+      }
+    },
+    {
+      "before_revision_id": 1298283598,
+      "after_revision_id": 1333641995,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "insufficient_evidence",
+          "entity": "Fascism and ideology",
+          "audited_shift": false,
+          "reason": "one or both passages have no classification for the entity"
+        }
+      }
+    },
+    {
+      "before_revision_id": 1333641995,
+      "after_revision_id": 1358688575,
+      "entities": {
+        "Fascism and ideology": {
+          "state": "insufficient_evidence",
+          "entity": "Fascism and ideology",
+          "audited_shift": false,
+          "reason": "one or both passages have no classification for the entity"
+        }
+      }
+    }
+  ],
+  "shifts": {
+    "Fascism and ideology": {
+      "start": 0,
+      "end": 0,
+      "shifted": false,
+      "n": 19,
+      "audited_transition_count": 0,
+      "transition_states": [
+        "no_change",
+        "no_change",
+        "no_change",
+        "insufficient_evidence",
+        "insufficient_evidence",
+        "insufficient_evidence",
+        "insufficient_evidence",
+        "insufficient_evidence",
+        "text_changed",
+        "no_change",
+        "no_change",
+        "no_change",
+        "no_change",
+        "no_change",
+        "no_change",
+        "no_change",
+        "insufficient_evidence",
+        "insufficient_evidence",
+        "text_changed",
+        "no_change",
+        "no_change",
+        "no_change",
+        "no_change",
+        "insufficient_evidence",
+        "insufficient_evidence",
+        "insufficient_evidence",
+        "insufficient_evidence",
+        "insufficient_evidence",
+        "insufficient_evidence",
+        "insufficient_evidence",
+        "insufficient_evidence",
+        "insufficient_evidence",
+        "insufficient_evidence",
+        "insufficient_evidence",
+        "insufficient_evidence",
+        "insufficient_evidence",
+        "insufficient_evidence",
+        "insufficient_evidence",
+        "insufficient_evidence",
+        "insufficient_evidence",
+        "insufficient_evidence"
+      ]
+    }
+  },
+  "since": null
+}

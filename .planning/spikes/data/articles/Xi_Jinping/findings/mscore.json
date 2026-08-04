@@ -1,0 +1,17 @@
+{
+  "Xi Jinping": {
+    "raw": {
+      "revs": 6721,
+      "mutual_pairs": 95,
+      "M": 84912,
+      "M_per_rev": 12.63
+    },
+    "refined": {
+      "revs": 5670,
+      "mutual_pairs": 9,
+      "M": 2336,
+      "M_per_rev": 0.41
+    },
+    "refined_per_rev": 0.35
+  }
+}

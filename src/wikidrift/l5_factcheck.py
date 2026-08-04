@@ -291,41 +291,47 @@ def factcheck(article, langs=None, ts=None, persist=True, provider=None, model=N
     # claim divergence
     qs = QUESTIONS.get(article, [])
     per = {}
-    for l in ok_langs:
-        prose = prose_by_lang.get(l, "")
-        try:
-            ans = _call(
-                client,
-                EXTRACT_SCHEMA,
-                EXTRACT_PROMPT.format(qs="\n".join(f"- {q}" for q in qs), passage=prose[:MAX_CHARS]),
-            )["answers"]
-        except Exception as e:  # noqa: BLE001
-            msg = str(e)
-            errors.append({"lang": l, "stage": "extract", "error": msg})
-            print(f"  edition skipped [{l}] extract error: {msg}")
-            continue
-        per[l] = {a["question"]: a for a in ans}
-
-    claim_langs = [l for l in ok_langs if l in per]
     if not qs:
+        claim_langs = ok_langs
         adj = []
         print("  CLAIM divergence skipped: no configured questions for this article.")
-    elif len(claim_langs) < MIN_EDITION_COUNT:
-        note = f"insufficient extracted editions: need >= {MIN_EDITION_COUNT}, got {len(claim_langs)}"
-        adj = _insufficient_adjudication(qs, note)
-        print(f"  CLAIM divergence unavailable: {note}")
     else:
-        lines = []
-        for q in qs:
-            lines.append(f"Q: {q}")
-            for l in claim_langs:
-                a = per[l].get(q, {})
-                lines.append(f"  [{l}] value={a.get('value', '?')!r} — {a.get('answer', '')[:180]}")
-        payload = _context_block(context) + "\n".join(lines)
-        adj, retry_error = _adjudicate_with_retry(client, payload, qs)
-        if retry_error:
-            errors.append({"lang": "all", "stage": "adjudicate", "error": retry_error})
-            print("  adjudication needed retry due to malformed response.")
+        for l in ok_langs:
+            prose = prose_by_lang.get(l, "")
+            try:
+                ans = _call(
+                    client,
+                    EXTRACT_SCHEMA,
+                    EXTRACT_PROMPT.format(
+                        qs="\n".join(f"- {q}" for q in qs), passage=prose[:MAX_CHARS],
+                    ),
+                )["answers"]
+            except Exception as e:  # noqa: BLE001
+                msg = str(e)
+                errors.append({"lang": l, "stage": "extract", "error": msg})
+                print(f"  edition skipped [{l}] extract error: {msg}")
+                continue
+            per[l] = {a["question"]: a for a in ans}
+
+        claim_langs = [l for l in ok_langs if l in per]
+        if len(claim_langs) < MIN_EDITION_COUNT:
+            note = f"insufficient extracted editions: need >= {MIN_EDITION_COUNT}, got {len(claim_langs)}"
+            adj = _insufficient_adjudication(qs, note)
+            print(f"  CLAIM divergence unavailable: {note}")
+        else:
+            lines = []
+            for q in qs:
+                lines.append(f"Q: {q}")
+                for l in claim_langs:
+                    a = per[l].get(q, {})
+                    lines.append(
+                        f"  [{l}] value={a.get('value', '?')!r} — {a.get('answer', '')[:180]}"
+                    )
+            payload = _context_block(context) + "\n".join(lines)
+            adj, retry_error = _adjudicate_with_retry(client, payload, qs)
+            if retry_error:
+                errors.append({"lang": "all", "stage": "adjudicate", "error": retry_error})
+                print("  adjudication needed retry due to malformed response.")
 
     print("  CLAIM divergence (the reliable signal):")
     for a in adj:

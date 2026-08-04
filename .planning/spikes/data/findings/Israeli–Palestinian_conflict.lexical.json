@@ -1,301 +1,1226 @@
 {
   "article": "Israeli–Palestinian conflict",
-  "span": "2024-01-01 -> 2024-07-01 (around L1 pivot ~2024-01-01)",
+  "mode": "pivot_relative",
+  "requested_mode": "pivot_relative",
+  "adequate": true,
+  "adequacy_reason": null,
+  "size_ratio": 1.0265,
+  "interval_source": "exact_confirmation",
+  "span": "rev 1239968080 -> rev 1239968974 (exact confirmation)",
   "pivot": "2024-01-01",
   "before": {
-    "date": "2024-01-01",
-    "rev": 1192950462,
-    "tokens": 8385
+    "date": "2024-08-12",
+    "rev": 1239968080,
+    "tokens": 11741
   },
   "after": {
-    "date": "2024-07-01",
-    "rev": 1231920220,
-    "tokens": 9079
+    "date": "2024-08-12",
+    "rev": 1239968974,
+    "tokens": 11438
   },
-  "js_divergence": 0.042,
+  "js_divergence": 0.0025,
   "overrepresented_after_terms": [
     {
-      "term": "consensus",
-      "before": 0,
-      "after": 6,
-      "delta": 6,
-      "log_odds": 2.4861
-    },
-    {
-      "term": "self",
-      "before": 0,
-      "after": 6,
-      "delta": 6,
-      "log_odds": 2.4861
-    },
-    {
-      "term": "record",
-      "before": 0,
-      "after": 5,
-      "delta": 5,
-      "log_odds": 2.3189
-    },
-    {
-      "term": "arrival",
-      "before": 0,
+      "term": "often",
+      "before": 2,
       "after": 4,
-      "delta": 4,
-      "log_odds": 2.1182
+      "delta": 2,
+      "log_odds": 0.6141
     },
     {
-      "term": "determination",
-      "before": 0,
-      "after": 4,
-      "delta": 4,
-      "log_odds": 2.1182
-    },
-    {
-      "term": "head",
-      "before": 0,
-      "after": 4,
-      "delta": 4,
-      "log_odds": 2.1182
-    },
-    {
-      "term": "icj",
-      "before": 0,
-      "after": 4,
-      "delta": 4,
-      "log_odds": 2.1182
-    },
-    {
-      "term": "primarily",
-      "before": 0,
-      "after": 4,
-      "delta": 4,
-      "log_odds": 2.1182
-    },
-    {
-      "term": "repeatedly",
-      "before": 0,
-      "after": 4,
-      "delta": 4,
-      "log_odds": 2.1182
-    },
-    {
-      "term": "aliyah",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 1.8667
-    },
-    {
-      "term": "best",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 1.8667
-    },
-    {
-      "term": "incremental",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 1.8667
-    },
-    {
-      "term": "instead",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 1.8667
-    },
-    {
-      "term": "intelligence",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 1.8667
-    },
-    {
-      "term": "interpretation",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 1.8667
-    },
-    {
-      "term": "lethal",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 1.8667
-    },
-    {
-      "term": "ottoman",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 1.8667
-    },
-    {
-      "term": "sought",
+      "term": "involves",
       "before": 1,
-      "after": 7,
-      "delta": 6,
-      "log_odds": 1.5306
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.5371
     },
     {
-      "term": "historic",
+      "term": "protected",
       "before": 1,
-      "after": 6,
-      "delta": 5,
-      "log_odds": 1.3874
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.5371
     },
     {
-      "term": "zionist",
+      "term": "reports",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.5371
+    },
+    {
+      "term": "bypass",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": 0.3627
+    },
+    {
+      "term": "furthermore",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": 0.3627
+    },
+    {
+      "term": "roads",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": 0.3627
+    },
+    {
+      "term": "seriously",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": 0.3627
+    },
+    {
+      "term": "source",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": 0.3627
+    },
+    {
+      "term": "confiscation",
       "before": 3,
-      "after": 14,
-      "delta": 11,
-      "log_odds": 1.3431
+      "after": 4,
+      "delta": 1,
+      "log_odds": 0.2776
+    },
+    {
+      "term": "creating",
+      "before": 3,
+      "after": 4,
+      "delta": 1,
+      "log_odds": 0.2776
+    },
+    {
+      "term": "displacement",
+      "before": 3,
+      "after": 4,
+      "delta": 1,
+      "log_odds": 0.2776
+    },
+    {
+      "term": "freedom",
+      "before": 3,
+      "after": 4,
+      "delta": 1,
+      "log_odds": 0.2776
+    },
+    {
+      "term": "amnesty",
+      "before": 6,
+      "after": 7,
+      "delta": 1,
+      "log_odds": 0.1693
+    },
+    {
+      "term": "leading",
+      "before": 7,
+      "after": 8,
+      "delta": 1,
+      "log_odds": 0.1514
+    },
+    {
+      "term": "presence",
+      "before": 7,
+      "after": 8,
+      "delta": 1,
+      "log_odds": 0.1514
+    },
+    {
+      "term": "resources",
+      "before": 9,
+      "after": 10,
+      "delta": 1,
+      "log_odds": 0.1263
+    },
+    {
+      "term": "economic",
+      "before": 12,
+      "after": 13,
+      "delta": 1,
+      "log_odds": 0.1032
+    },
+    {
+      "term": "only",
+      "before": 18,
+      "after": 19,
+      "delta": 1,
+      "log_odds": 0.0789
+    },
+    {
+      "term": "movement",
+      "before": 26,
+      "after": 27,
+      "delta": 1,
+      "log_odds": 0.0633
     }
   ],
   "underrepresented_after_terms": [
     {
-      "term": "collision",
-      "before": 3,
-      "after": 0,
-      "delta": -3,
-      "log_odds": -2.0258
+      "term": "settler",
+      "before": 10,
+      "after": 3,
+      "delta": -7,
+      "log_odds": -1.0731
     },
     {
-      "term": "incursion",
-      "before": 3,
-      "after": 0,
-      "delta": -3,
-      "log_odds": -2.0258
-    },
-    {
-      "term": "jenin",
-      "before": 3,
-      "after": 0,
-      "delta": -3,
-      "log_odds": -2.0258
-    },
-    {
-      "term": "none",
-      "before": 3,
-      "after": 0,
-      "delta": -3,
-      "log_odds": -2.0258
-    },
-    {
-      "term": "official",
-      "before": 6,
-      "after": 1,
-      "delta": -5,
-      "log_odds": -1.5465
-    },
-    {
-      "term": "movements",
-      "before": 5,
-      "after": 1,
-      "delta": -4,
-      "log_odds": -1.3793
-    },
-    {
-      "term": "jihad",
+      "term": "obama",
       "before": 4,
       "after": 1,
       "delta": -3,
-      "log_odds": -1.1785
+      "log_odds": -1.0727
     },
     {
-      "term": "current",
-      "before": 6,
+      "term": "stop",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.8213
+    },
+    {
+      "term": "viewed",
+      "before": 3,
+      "after": 1,
+      "delta": -2,
+      "log_odds": -0.8213
+    },
+    {
+      "term": "said",
+      "before": 4,
       "after": 2,
-      "delta": -4,
-      "log_odds": -1.0355
+      "delta": -2,
+      "log_odds": -0.5618
     },
     {
-      "term": "added",
-      "before": 3,
+      "term": "barack",
+      "before": 2,
       "after": 1,
-      "delta": -2,
-      "log_odds": -0.9271
+      "delta": -1,
+      "log_odds": -0.4848
     },
     {
-      "term": "counter",
-      "before": 3,
+      "term": "breach",
+      "before": 2,
       "after": 1,
-      "delta": -2,
-      "log_odds": -0.9271
+      "delta": -1,
+      "log_odds": -0.4848
     },
     {
-      "term": "counterproposal",
-      "before": 3,
+      "term": "calling",
+      "before": 2,
       "after": 1,
-      "delta": -2,
-      "log_odds": -0.9271
+      "delta": -1,
+      "log_odds": -0.4848
+    },
+    {
+      "term": "communal",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.4848
+    },
+    {
+      "term": "concessions",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.4848
+    },
+    {
+      "term": "condemned",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.4848
     },
     {
       "term": "deep",
-      "before": 3,
+      "before": 2,
       "after": 1,
-      "delta": -2,
-      "log_odds": -0.9271
+      "delta": -1,
+      "log_odds": -0.4848
     },
     {
-      "term": "distrust",
-      "before": 3,
+      "term": "department",
+      "before": 2,
       "after": 1,
-      "delta": -2,
-      "log_odds": -0.9271
+      "delta": -1,
+      "log_odds": -0.4848
     },
     {
-      "term": "happened",
-      "before": 3,
+      "term": "destroyed",
+      "before": 2,
       "after": 1,
-      "delta": -2,
-      "log_odds": -0.9271
+      "delta": -1,
+      "log_odds": -0.4848
     },
     {
-      "term": "hit",
-      "before": 3,
+      "term": "effective",
+      "before": 2,
       "after": 1,
-      "delta": -2,
-      "log_odds": -0.9271
+      "delta": -1,
+      "log_odds": -0.4848
     },
     {
-      "term": "longer",
-      "before": 3,
+      "term": "emergency",
+      "before": 2,
       "after": 1,
-      "delta": -2,
-      "log_odds": -0.9271
+      "delta": -1,
+      "log_odds": -0.4848
     },
     {
-      "term": "naval",
-      "before": 3,
+      "term": "exceptions",
+      "before": 2,
       "after": 1,
-      "delta": -2,
-      "log_odds": -0.9271
+      "delta": -1,
+      "log_odds": -0.4848
     },
     {
-      "term": "offered",
-      "before": 3,
+      "term": "inter",
+      "before": 2,
       "after": 1,
-      "delta": -2,
-      "log_odds": -0.9271
+      "delta": -1,
+      "log_odds": -0.4848
     },
     {
-      "term": "positions",
-      "before": 3,
+      "term": "keep",
+      "before": 2,
       "after": 1,
-      "delta": -2,
-      "log_odds": -0.9271
+      "delta": -1,
+      "log_odds": -0.4848
     },
     {
-      "term": "possible",
-      "before": 3,
+      "term": "kingdom",
+      "before": 2,
       "after": 1,
-      "delta": -2,
-      "log_odds": -0.9271
+      "delta": -1,
+      "log_odds": -0.4848
     }
   ],
-  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict.",
+  "schema_version": 1,
+  "analysis_scope": "confirmed_episodes",
+  "episode_count": 3,
+  "episodes": [
+    {
+      "article": "Israeli–Palestinian conflict",
+      "mode": "pivot_relative",
+      "requested_mode": "pivot_relative",
+      "adequate": true,
+      "adequacy_reason": null,
+      "size_ratio": 1.0265,
+      "interval_source": "exact_confirmation",
+      "span": "rev 1239968080 -> rev 1239968974 (exact confirmation)",
+      "pivot": "2024-01-01",
+      "before": {
+        "date": "2024-08-12",
+        "rev": 1239968080,
+        "tokens": 11741
+      },
+      "after": {
+        "date": "2024-08-12",
+        "rev": 1239968974,
+        "tokens": 11438
+      },
+      "js_divergence": 0.0025,
+      "overrepresented_after_terms": [
+        {
+          "term": "often",
+          "before": 2,
+          "after": 4,
+          "delta": 2,
+          "log_odds": 0.6141
+        },
+        {
+          "term": "involves",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 0.5371
+        },
+        {
+          "term": "protected",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 0.5371
+        },
+        {
+          "term": "reports",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 0.5371
+        },
+        {
+          "term": "bypass",
+          "before": 2,
+          "after": 3,
+          "delta": 1,
+          "log_odds": 0.3627
+        },
+        {
+          "term": "furthermore",
+          "before": 2,
+          "after": 3,
+          "delta": 1,
+          "log_odds": 0.3627
+        },
+        {
+          "term": "roads",
+          "before": 2,
+          "after": 3,
+          "delta": 1,
+          "log_odds": 0.3627
+        },
+        {
+          "term": "seriously",
+          "before": 2,
+          "after": 3,
+          "delta": 1,
+          "log_odds": 0.3627
+        },
+        {
+          "term": "source",
+          "before": 2,
+          "after": 3,
+          "delta": 1,
+          "log_odds": 0.3627
+        },
+        {
+          "term": "confiscation",
+          "before": 3,
+          "after": 4,
+          "delta": 1,
+          "log_odds": 0.2776
+        },
+        {
+          "term": "creating",
+          "before": 3,
+          "after": 4,
+          "delta": 1,
+          "log_odds": 0.2776
+        },
+        {
+          "term": "displacement",
+          "before": 3,
+          "after": 4,
+          "delta": 1,
+          "log_odds": 0.2776
+        },
+        {
+          "term": "freedom",
+          "before": 3,
+          "after": 4,
+          "delta": 1,
+          "log_odds": 0.2776
+        },
+        {
+          "term": "amnesty",
+          "before": 6,
+          "after": 7,
+          "delta": 1,
+          "log_odds": 0.1693
+        },
+        {
+          "term": "leading",
+          "before": 7,
+          "after": 8,
+          "delta": 1,
+          "log_odds": 0.1514
+        },
+        {
+          "term": "presence",
+          "before": 7,
+          "after": 8,
+          "delta": 1,
+          "log_odds": 0.1514
+        },
+        {
+          "term": "resources",
+          "before": 9,
+          "after": 10,
+          "delta": 1,
+          "log_odds": 0.1263
+        },
+        {
+          "term": "economic",
+          "before": 12,
+          "after": 13,
+          "delta": 1,
+          "log_odds": 0.1032
+        },
+        {
+          "term": "only",
+          "before": 18,
+          "after": 19,
+          "delta": 1,
+          "log_odds": 0.0789
+        },
+        {
+          "term": "movement",
+          "before": 26,
+          "after": 27,
+          "delta": 1,
+          "log_odds": 0.0633
+        }
+      ],
+      "underrepresented_after_terms": [
+        {
+          "term": "settler",
+          "before": 10,
+          "after": 3,
+          "delta": -7,
+          "log_odds": -1.0731
+        },
+        {
+          "term": "obama",
+          "before": 4,
+          "after": 1,
+          "delta": -3,
+          "log_odds": -1.0727
+        },
+        {
+          "term": "stop",
+          "before": 3,
+          "after": 1,
+          "delta": -2,
+          "log_odds": -0.8213
+        },
+        {
+          "term": "viewed",
+          "before": 3,
+          "after": 1,
+          "delta": -2,
+          "log_odds": -0.8213
+        },
+        {
+          "term": "said",
+          "before": 4,
+          "after": 2,
+          "delta": -2,
+          "log_odds": -0.5618
+        },
+        {
+          "term": "barack",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": -0.4848
+        },
+        {
+          "term": "breach",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": -0.4848
+        },
+        {
+          "term": "calling",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": -0.4848
+        },
+        {
+          "term": "communal",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": -0.4848
+        },
+        {
+          "term": "concessions",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": -0.4848
+        },
+        {
+          "term": "condemned",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": -0.4848
+        },
+        {
+          "term": "deep",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": -0.4848
+        },
+        {
+          "term": "department",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": -0.4848
+        },
+        {
+          "term": "destroyed",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": -0.4848
+        },
+        {
+          "term": "effective",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": -0.4848
+        },
+        {
+          "term": "emergency",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": -0.4848
+        },
+        {
+          "term": "exceptions",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": -0.4848
+        },
+        {
+          "term": "inter",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": -0.4848
+        },
+        {
+          "term": "keep",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": -0.4848
+        },
+        {
+          "term": "kingdom",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": -0.4848
+        }
+      ],
+      "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict.",
+      "episode_id": "1239968080-1239968974",
+      "episode_index": 1,
+      "episode_window": {
+        "start": "2024-01-01",
+        "end": "2025-01-01",
+        "pwr_mass": 163585,
+        "status": "confirmed",
+        "before_revid": 1239968080,
+        "before_timestamp": "2024-08-12T19:05:51Z",
+        "after_revid": 1239968974,
+        "after_timestamp": "2024-08-12T19:13:55Z",
+        "durable_spine_drop": 0.364379
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Israeli–Palestinian conflict",
+      "mode": "pivot_relative",
+      "requested_mode": "pivot_relative",
+      "adequate": true,
+      "adequacy_reason": null,
+      "size_ratio": 1.1799,
+      "interval_source": "exact_confirmation",
+      "span": "rev 89990629 -> rev 89994338 (exact confirmation)",
+      "pivot": "2006-01-01",
+      "before": {
+        "date": "2006-11-25",
+        "rev": 89990629,
+        "tokens": 2079
+      },
+      "after": {
+        "date": "2006-11-25",
+        "rev": 89994338,
+        "tokens": 1762
+      },
+      "js_divergence": 0.0318,
+      "overrepresented_after_terms": [
+        {
+          "term": "territories",
+          "before": 2,
+          "after": 3,
+          "delta": 1,
+          "log_odds": 0.5026
+        },
+        {
+          "term": "occupied",
+          "before": 4,
+          "after": 5,
+          "delta": 1,
+          "log_odds": 0.367
+        },
+        {
+          "term": "palestinians",
+          "before": 21,
+          "after": 22,
+          "delta": 1,
+          "log_odds": 0.2133
+        },
+        {
+          "term": "history",
+          "before": 16,
+          "after": 15,
+          "delta": -1,
+          "log_odds": 0.1037
+        },
+        {
+          "term": "israel",
+          "before": 73,
+          "after": 68,
+          "delta": -5,
+          "log_odds": 0.0986
+        },
+        {
+          "term": "state",
+          "before": 14,
+          "after": 13,
+          "delta": -1,
+          "log_odds": 0.0946
+        },
+        {
+          "term": "peace",
+          "before": 24,
+          "after": 22,
+          "delta": -2,
+          "log_odds": 0.0812
+        },
+        {
+          "term": "sites",
+          "before": 8,
+          "after": 7,
+          "delta": -1,
+          "log_odds": 0.0404
+        },
+        {
+          "term": "gaza",
+          "before": 16,
+          "after": 14,
+          "delta": -2,
+          "log_odds": 0.0364
+        },
+        {
+          "term": "israeli",
+          "before": 61,
+          "after": 53,
+          "delta": -8,
+          "log_odds": 0.0268
+        },
+        {
+          "term": "human",
+          "before": 7,
+          "after": 6,
+          "delta": -1,
+          "log_odds": 0.0223
+        },
+        {
+          "term": "jerusalem",
+          "before": 7,
+          "after": 6,
+          "delta": -1,
+          "log_odds": 0.0223
+        },
+        {
+          "term": "rights",
+          "before": 7,
+          "after": 6,
+          "delta": -1,
+          "log_odds": 0.0223
+        }
+      ],
+      "underrepresented_after_terms": [
+        {
+          "term": "list",
+          "before": 6,
+          "after": 0,
+          "delta": -6,
+          "log_odds": -2.4024
+        },
+        {
+          "term": "htm",
+          "before": 5,
+          "after": 0,
+          "delta": -5,
+          "log_odds": -2.2349
+        },
+        {
+          "term": "www",
+          "before": 5,
+          "after": 0,
+          "delta": -5,
+          "log_odds": -2.2349
+        },
+        {
+          "term": "aqsa",
+          "before": 4,
+          "after": 0,
+          "delta": -4,
+          "log_odds": -2.0338
+        },
+        {
+          "term": "coexistence",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.782
+        },
+        {
+          "term": "cover",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.782
+        },
+        {
+          "term": "dommartin",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.782
+        },
+        {
+          "term": "front",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.782
+        },
+        {
+          "term": "http",
+          "before": 6,
+          "after": 1,
+          "delta": -5,
+          "log_odds": -1.3033
+        },
+        {
+          "term": "liberation",
+          "before": 5,
+          "after": 1,
+          "delta": -4,
+          "log_odds": -1.1357
+        },
+        {
+          "term": "attacks",
+          "before": 4,
+          "after": 1,
+          "delta": -3,
+          "log_odds": -0.9346
+        },
+        {
+          "term": "suicide",
+          "before": 4,
+          "after": 1,
+          "delta": -3,
+          "log_odds": -0.9346
+        },
+        {
+          "term": "accords",
+          "before": 3,
+          "after": 1,
+          "delta": -2,
+          "log_odds": -0.6828
+        },
+        {
+          "term": "camp",
+          "before": 3,
+          "after": 1,
+          "delta": -2,
+          "log_odds": -0.6828
+        },
+        {
+          "term": "ehud",
+          "before": 3,
+          "after": 1,
+          "delta": -2,
+          "log_odds": -0.6828
+        },
+        {
+          "term": "jihad",
+          "before": 3,
+          "after": 1,
+          "delta": -2,
+          "log_odds": -0.6828
+        },
+        {
+          "term": "war",
+          "before": 11,
+          "after": 5,
+          "delta": -6,
+          "log_odds": -0.5747
+        },
+        {
+          "term": "plan",
+          "before": 4,
+          "after": 2,
+          "delta": -2,
+          "log_odds": -0.4232
+        },
+        {
+          "term": "see",
+          "before": 4,
+          "after": 2,
+          "delta": -2,
+          "log_odds": -0.4232
+        },
+        {
+          "term": "david",
+          "before": 7,
+          "after": 4,
+          "delta": -3,
+          "log_odds": -0.3465
+        }
+      ],
+      "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict.",
+      "episode_id": "89990629-89994338",
+      "episode_index": 2,
+      "episode_window": {
+        "start": "2006-01-01",
+        "end": "2011-01-01",
+        "pwr_mass": 40147,
+        "status": "confirmed",
+        "before_revid": 89990629,
+        "before_timestamp": "2006-11-25T08:32:44Z",
+        "after_revid": 89994338,
+        "after_timestamp": "2006-11-25T09:14:27Z",
+        "durable_spine_drop": 0.866417
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Israeli–Palestinian conflict",
+      "mode": "pivot_relative",
+      "requested_mode": "pivot_relative",
+      "adequate": true,
+      "adequacy_reason": null,
+      "size_ratio": 1.2559,
+      "interval_source": "exact_confirmation",
+      "span": "rev 1937346 -> rev 1937381 (exact confirmation)",
+      "pivot": "2003-01-01",
+      "before": {
+        "date": "2003-12-11",
+        "rev": 1937346,
+        "tokens": 2174
+      },
+      "after": {
+        "date": "2003-12-12",
+        "rev": 1937381,
+        "tokens": 1731
+      },
+      "js_divergence": 0.126,
+      "overrepresented_after_terms": [
+        {
+          "term": "zionists",
+          "before": 0,
+          "after": 6,
+          "delta": 6,
+          "log_odds": 2.7962
+        },
+        {
+          "term": "main",
+          "before": 1,
+          "after": 15,
+          "delta": 14,
+          "log_odds": 2.5714
+        },
+        {
+          "term": "movement",
+          "before": 0,
+          "after": 3,
+          "delta": 3,
+          "log_odds": 2.1755
+        },
+        {
+          "term": "article",
+          "before": 2,
+          "after": 14,
+          "delta": 12,
+          "log_odds": 1.9929
+        },
+        {
+          "term": "occupied",
+          "before": 2,
+          "after": 6,
+          "delta": 4,
+          "log_odds": 1.1859
+        },
+        {
+          "term": "zionist",
+          "before": 2,
+          "after": 6,
+          "delta": 4,
+          "log_odds": 1.1859
+        },
+        {
+          "term": "broke",
+          "before": 1,
+          "after": 3,
+          "delta": 2,
+          "log_odds": 1.0764
+        },
+        {
+          "term": "carried",
+          "before": 1,
+          "after": 3,
+          "delta": 2,
+          "log_odds": 1.0764
+        },
+        {
+          "term": "following",
+          "before": 1,
+          "after": 3,
+          "delta": 2,
+          "log_odds": 1.0764
+        },
+        {
+          "term": "june",
+          "before": 1,
+          "after": 3,
+          "delta": 2,
+          "log_odds": 1.0764
+        },
+        {
+          "term": "massacre",
+          "before": 1,
+          "after": 3,
+          "delta": 2,
+          "log_odds": 1.0764
+        },
+        {
+          "term": "question",
+          "before": 1,
+          "after": 3,
+          "delta": 2,
+          "log_odds": 1.0764
+        },
+        {
+          "term": "september",
+          "before": 1,
+          "after": 3,
+          "delta": 2,
+          "log_odds": 1.0764
+        },
+        {
+          "term": "territories",
+          "before": 3,
+          "after": 7,
+          "delta": 4,
+          "log_odds": 0.9926
+        },
+        {
+          "term": "organization",
+          "before": 4,
+          "after": 8,
+          "delta": 4,
+          "log_odds": 0.8666
+        },
+        {
+          "term": "favour",
+          "before": 2,
+          "after": 4,
+          "delta": 2,
+          "log_odds": 0.817
+        },
+        {
+          "term": "yassir",
+          "before": 2,
+          "after": 4,
+          "delta": 2,
+          "log_odds": 0.817
+        },
+        {
+          "term": "plo",
+          "before": 5,
+          "after": 9,
+          "delta": 4,
+          "log_odds": 0.7773
+        },
+        {
+          "term": "lebanon",
+          "before": 4,
+          "after": 7,
+          "delta": 3,
+          "log_odds": 0.7408
+        },
+        {
+          "term": "six",
+          "before": 4,
+          "after": 7,
+          "delta": 3,
+          "log_odds": 0.7408
+        }
+      ],
+      "underrepresented_after_terms": [
+        {
+          "term": "often",
+          "before": 4,
+          "after": 0,
+          "delta": -4,
+          "log_odds": -1.9713
+        },
+        {
+          "term": "civilians",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7195
+        },
+        {
+          "term": "favor",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7195
+        },
+        {
+          "term": "fedayeen",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7195
+        },
+        {
+          "term": "full",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7195
+        },
+        {
+          "term": "homes",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7195
+        },
+        {
+          "term": "immigrants",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7195
+        },
+        {
+          "term": "never",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7195
+        },
+        {
+          "term": "provisional",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7195
+        },
+        {
+          "term": "sometimes",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7195
+        },
+        {
+          "term": "themselves",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7195
+        },
+        {
+          "term": "usa",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7195
+        },
+        {
+          "term": "vast",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7195
+        },
+        {
+          "term": "well",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7195
+        },
+        {
+          "term": "allowed",
+          "before": 6,
+          "after": 1,
+          "delta": -5,
+          "log_odds": -1.2407
+        },
+        {
+          "term": "groups",
+          "before": 5,
+          "after": 1,
+          "delta": -4,
+          "log_odds": -1.0732
+        },
+        {
+          "term": "several",
+          "before": 5,
+          "after": 1,
+          "delta": -4,
+          "log_odds": -1.0732
+        },
+        {
+          "term": "nations",
+          "before": 19,
+          "after": 6,
+          "delta": -13,
+          "log_odds": -0.8761
+        },
+        {
+          "term": "area",
+          "before": 7,
+          "after": 2,
+          "delta": -5,
+          "log_odds": -0.8729
+        },
+        {
+          "term": "militants",
+          "before": 4,
+          "after": 1,
+          "delta": -3,
+          "log_odds": -0.8721
+        }
+      ],
+      "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict.",
+      "episode_id": "1937346-1937381",
+      "episode_index": 3,
+      "episode_window": {
+        "start": "2003-01-01",
+        "end": "2005-01-01",
+        "pwr_mass": 7888,
+        "status": "confirmed",
+        "before_revid": 1937346,
+        "before_timestamp": "2003-12-11T23:49:24Z",
+        "after_revid": 1937381,
+        "after_timestamp": "2003-12-12T05:10:46Z",
+        "durable_spine_drop": 0.925163
+      },
+      "analysis_status": "available"
+    }
+  ]
 }

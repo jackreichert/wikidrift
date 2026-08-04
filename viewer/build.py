@@ -553,6 +553,23 @@ def receipts_section(rec, framing=None):
 def fact_section(article, fcs):
     if not fcs:
         return ""
+    episode_records = [
+        episode
+        for finding in fcs.values()
+        if isinstance(finding, dict)
+        for episode in (finding.get("episodes") or [])
+    ]
+    if episode_records:
+        return _episode_analysis_section(
+            episode_records,
+            "facts",
+            lambda episode: _fact_results({(episode.get("asof") or "unknown")[:10]: episode}),
+        )
+    return _fact_results(fcs)
+
+
+def _fact_results(fcs):
+    """Render one or more legacy dated fact-check results."""
     times = sorted(fcs, key=lambda t: (t == "now", t))  # dated first, 'now' last
     first = fcs[times[0]]
     adj0 = (first.get("claim") or {}).get("adjudication") or []
@@ -613,6 +630,85 @@ def fact_section(article, fcs):
         f'<div class="tablewrap"><table class="grid"><thead><tr><th scope="col">question</th>{thead}</tr>'
         f'</thead><tbody>{"".join(rows)}</tbody></table></div>'
         '<p class="muted">These checks are starting points for a reader. They do not decide who is right.</p>'
+    )
+
+
+_EPISODE_TITLES = {
+    "lexical": "Which words grew or shrank?",
+    "sources": "How the footnotes changed",
+    "framing": "How did language editions frame this event?",
+    "facts": "Do the languages agree on basic facts?",
+}
+
+
+def _episode_analysis_section(records, layer, render):
+    """Render every event result and visible event controls when an artifact is plural."""
+    if not records:
+        return ""
+
+    def render_record(record):
+        if record.get("analysis_status") != "unavailable":
+            return render(record)
+        title = _EPISODE_TITLES.get(layer, f"{layer.title()} analysis")
+        return (
+            f'<h2>{esc(title)}</h2>'
+            f'<p class="episode-unavailable">Analysis unavailable for this event: '
+            f'{esc(record.get("reason") or "no evidence was returned")}.</p>'
+        )
+
+    if len(records) == 1:
+        return render_record(records[0])
+
+    controls = []
+    views = []
+    seen_episode_ids = set()
+    for index, record in enumerate(records):
+        window = record.get("episode_window")
+        window = window if isinstance(window, dict) else {}
+        before_revid = window.get("before_revid")
+        after_revid = window.get("after_revid")
+        episode_id = record.get("episode_id")
+        if not episode_id:
+            episode_id = (
+                f"{before_revid}-{after_revid}"
+                if before_revid is not None and after_revid is not None
+                else f"{layer}-event-{index + 1}"
+            )
+        if episode_id in seen_episode_ids:
+            episode_id = f"{layer}-event-{index + 1}"
+        seen_episode_ids.add(episode_id)
+        timestamp = window.get("after_timestamp") or ""
+        date = timestamp[:10] or window.get("end") or f"Event {index + 1}"
+        revisions = (
+            f" · rev {before_revid} → {after_revid}"
+            if before_revid is not None and after_revid is not None else ""
+        )
+        unavailable = record.get("analysis_status") == "unavailable"
+        state = '<span class="episode-state">Unavailable</span>' if unavailable else ""
+        control_id = f"episode-{layer}-{index + 1}"
+        view_id = f"episode-view-{layer}-{index + 1}"
+        controls.append(
+            f'<input class="episode-radio" type="radio" name="episode-{layer}" '
+            f'id="{control_id}" value="{esc(episode_id)}" data-episode-control '
+            f'aria-controls="{view_id}"{" checked" if index == 0 else ""}>'
+            f'<label class="episode-option" for="{control_id}">'
+            f'<span class="episode-number">Event {index + 1}</span>'
+            f'{state}<span class="episode-date">{esc(date + revisions)}</span></label>'
+        )
+        content = render_record(record)
+        views.append(
+            f'<section class="episode-view" id="{view_id}" '
+            f'data-episode-view="{esc(episode_id)}"'
+            f'{"" if index == 0 else " hidden"}>{content}</section>'
+        )
+    return (
+        f'<fieldset class="episode-switcher" role="radiogroup" '
+        f'data-episode-switcher data-episode-layer="{layer}">'
+        '<legend>Confirmed event</legend>'
+        f'<div class="episode-options">{"".join(controls)}</div>'
+        '<span class="episode-count" data-episode-status aria-live="polite">'
+        f'Event 1 of {len(records)}</span></fieldset>'
+        f'{"".join(views)}'
     )
 
 
@@ -1410,15 +1506,16 @@ def _candidate_evaluations_receipt(confirmation, pivots=None, slug=None, episode
             f'{_glossary_term("pwr-mass", "PWR mass")}</td></tr>'
         )
     return (
-        '<h3 id="candidate-outcomes-heading">Candidates and exact outcomes</h3>'
+        '<div class="candidate-outcome-details">'
+        '<h4 id="candidate-decisions-heading">Exact candidate decisions</h4>'
         '<p class="muted">Every coarse lead and its revision-level decision, including rejected '
         f'candidates. {_glossary_term("redline", "Redlines")} compare the full candidate window.</p>'
         '<div class="tablewrap"><table class="candidate-outcomes" '
-        'aria-labelledby="candidate-outcomes-heading">'
+        'aria-labelledby="candidate-decisions-heading">'
         '<thead><tr><th scope="col">Candidate window</th>'
         '<th scope="col">Exact outcome</th><th scope="col">Coarse signal</th>'
         '</tr></thead>'
-        f'<tbody>{"".join(rows)}</tbody></table></div>'
+        f'<tbody>{"".join(rows)}</tbody></table></div></div>'
     )
 
 
@@ -1511,7 +1608,7 @@ def _rewrite_analysis_path(confirmation, interval_count):
     )
 
 
-def _interval_profile_chart(confirmation):
+def _interval_profile_chart(confirmation, nested=False):
     intervals = confirmation.get("interval_profile") or []
     candidates = confirmation.get("evaluated_candidates") or []
     episodes = confirmation.get("confirmed_episodes") or []
@@ -1546,13 +1643,20 @@ def _interval_profile_chart(confirmation):
         candidate_decision = candidate.get("decision") if candidate else (
             "confirmed" if episode else None
         )
+        candidate_window = candidate or episode or {}
+        candidate_range = (
+            f': {candidate_window.get("candidate_start")} → '
+            f'{candidate_window.get("candidate_end")}'
+            if candidate_window.get("candidate_start") and candidate_window.get("candidate_end")
+            else ""
+        )
         is_candidate = candidate is not None or episode is not None
         state = (
             "Excluded: missing source coverage" if not eligible
             else {
-                "confirmed": "Confirmed candidate window",
-                "rejected": "Rejected candidate window",
-            }.get(candidate_decision, "Candidate: exact check pending") if is_candidate
+                "confirmed": f"Confirmed candidate window{candidate_range}",
+                "rejected": f"Rejected candidate window{candidate_range}",
+            }.get(candidate_decision, f"Candidate exact check pending{candidate_range}") if is_candidate
             else "Descriptive anomaly: below exact-check floor"
             if anomaly_types and not confirmable
             else "Measured anomaly: exact check pending"
@@ -1608,10 +1712,12 @@ def _interval_profile_chart(confirmation):
             '<strong class="drift-state">Data missing: verdict unavailable</strong></li></ul>'
             f'<p class="drift-missing-reason">{esc(empty_detail)}</p>'
         )
+    heading_tag = "h4" if nested else "h3"
     return (
         '<figure class="drift-profile" aria-labelledby="drift-profile-title">'
-        '<figcaption><h3 id="drift-profile-title">'
-        f'{_glossary_term("persistence-weighted-loss", "Persistence-weighted change")} by interval</h3>'
+        f'<figcaption><{heading_tag} id="drift-profile-title">'
+        f'{_glossary_term("persistence-weighted-loss", "Persistence-weighted change")} by interval'
+        f'</{heading_tag}>'
         '<p>Each row reports established wording lost, standing wording gained, and paired change as a '
         'replacement lead. The bar shows loss for continuity with earlier reports. '
         'Below-floor anomalies remain descriptive evidence but cannot receive exact confirmation. '
@@ -1620,6 +1726,28 @@ def _interval_profile_chart(confirmation):
         'containing that interval.</p></figcaption>'
         f'{_rewrite_analysis_path(confirmation, len(intervals))}{plot}'
         '</figure>'
+    )
+
+
+def _candidate_analysis(confirmation, interval_chart, candidate_receipt):
+    if not candidate_receipt:
+        return interval_chart
+    intervals = confirmation.get("interval_profile") or []
+    candidates = confirmation.get("evaluated_candidates") or []
+    confirmed_count = sum(item.get("decision") == "confirmed" for item in candidates)
+    rejected_count = sum(item.get("decision") == "rejected" for item in candidates)
+    pending_count = len(candidates) - confirmed_count - rejected_count
+    pending_summary = f", {pending_count} pending" if pending_count else ""
+    return (
+        '<section class="candidate-analysis" aria-labelledby="candidate-outcomes-heading">'
+        '<h3 id="candidate-outcomes-heading">Candidates and exact outcomes</h3>'
+        '<p class="candidate-analysis-summary">'
+        f'The detector scored {len(intervals)} interval rows and sent {len(candidates)} candidate '
+        f'window{"s" if len(candidates) != 1 else ""} to exact checking: '
+        f'{confirmed_count} confirmed, {rejected_count} rejected{pending_summary}. '
+        'A candidate window can span multiple interval rows, so rows marked as candidates do not '
+        'equal the rewrite episode count.</p>'
+        f'{interval_chart}{candidate_receipt}</section>'
     )
 
 
@@ -1761,15 +1889,16 @@ def confirmation_section(confirmation, pivots=None, slug=None):
             f'{_durable_spine_explanation()}{_interval_profile_chart(confirmation)}'
         )
     episodes = confirmation.get("confirmed_episodes") or []
-    interval_chart = _interval_profile_chart(confirmation)
     candidate_receipt = _candidate_evaluations_receipt(confirmation, pivots, slug, episodes)
+    interval_chart = _interval_profile_chart(confirmation, nested=bool(candidate_receipt))
+    candidate_analysis = _candidate_analysis(confirmation, interval_chart, candidate_receipt)
     if not episodes:
         return (
             '<h2>No candidate rewrite window was confirmed</h2>'
             '<p class="missing-note">The exact L1 check ran, but no candidate showed the required '
             'durable-spine drop. This is a completed negative result for that detector, not a claim '
             f'that the article never changed.</p>{_durable_spine_explanation()}'
-            f'{interval_chart}{candidate_receipt}'
+            f'{candidate_analysis}'
         )
     horizon_note = _confirmation_horizon_note(confirmation)
     legacy_episode_table = ""
@@ -1794,8 +1923,8 @@ def confirmation_section(confirmation, pivots=None, slug=None):
         f'<h2>{count} confirmed {_glossary_term("rewrite-episode", "rewrite episode")}'
         f'{"s" if count != 1 else ""}</h2>'
         '<p>Events bounded by stable revisions where long-lived wording was substantially replaced.</p>'
-        f'{horizon_note}{_durable_spine_explanation()}{interval_chart}'
-        f'{candidate_receipt}{legacy_episode_table}{receipts}'
+        f'{horizon_note}{_durable_spine_explanation()}{candidate_analysis}'
+        f'{legacy_episode_table}{receipts}'
         '<p class="muted">Attribution describes public revision-history associations and origin authorship. '
         'It does not establish bias, motive, or misconduct.</p>'
     )
@@ -1804,6 +1933,16 @@ def confirmation_section(confirmation, pivots=None, slug=None):
 def sources_section(article, src):
     if not src:
         return ""
+    records = src.get("episodes") if isinstance(src.get("episodes"), list) else None
+    if records:
+        return _episode_analysis_section(
+            records, "sources", lambda episode: _sources_result(article, episode),
+        )
+    return _sources_result(article, src)
+
+
+def _sources_result(article, src):
+    """Render one citation-source comparison."""
     b, a = src["before"], src["after"]
     n_add, n_drop = len(src.get("added") or []), len(src.get("dropped") or [])
 
@@ -1899,6 +2038,16 @@ def _lexical_comparison_span(lex, confirmation):
 def lexical_section(lex, confirmation=None):
     if not lex:
         return ""
+    records = lex.get("episodes") if isinstance(lex.get("episodes"), list) else None
+    if records:
+        return _episode_analysis_section(
+            records, "lexical", lambda episode: _lexical_result(episode, confirmation),
+        )
+    return _lexical_result(lex, confirmation)
+
+
+def _lexical_result(lex, confirmation=None):
+    """Render one lexical comparison."""
     confirmation = confirmation or {}
     over = _filter_lex_terms(lex.get("overrepresented_after_terms") or lex.get("gained_terms") or [])
     under = _filter_lex_terms(lex.get("underrepresented_after_terms") or lex.get("lost_terms") or [])
@@ -2092,6 +2241,11 @@ def framing_lite_block(fr):
 def framing_tab(article, f):
     """Render the current cross-language lead comparison when available."""
     fr = f.framings.get(article)
+    records = fr.get("episodes") if isinstance(fr, dict) and isinstance(fr.get("episodes"), list) else None
+    if records:
+        if not any(record.get("analysis_status") == "available" for record in records):
+            return ""
+        return _episode_analysis_section(records, "framing", framing_lite_block)
     if not _framing_result_available(fr):
         return ""
     return framing_lite_block(fr)
@@ -2153,7 +2307,9 @@ def article_page(article, f, categories=None):
         panels.append(("Versions", receipts_section(rec, f.framings.get(article)), "revisions"))
     cat = _category_for(article, categories)
     body = (
-        f'<div class="page-intro"><p class="kicker">{esc(cat)}</p><h1>{esc(article)}</h1>'
+        '<div class="page-intro"><a class="article-back" href="../findings.html">'
+        '&larr; Back to all analyses</a>'
+        f'<p class="kicker">{esc(cat)}</p><h1>{esc(article)}</h1>'
         f'<p class="summary">{esc(lead)}</p>'
         '<p class="disclaimer">Something to inspect — not a judgment of bias or bad faith.</p></div>'
         f'<div class="workspace">{tabs(panels)}</div>'

@@ -1,0 +1,58 @@
+{
+  "static": {
+    "Capitalism": {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "model_contract": {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "prompt_version": "stance-v3"
+      },
+      "variants": {
+        "lead": {
+          "divergence": 0.0,
+          "spreads": {
+            "Capitalism": 0
+          }
+        },
+        "focal": {
+          "divergence": 0.0,
+          "spreads": {
+            "Capitalism": 0
+          }
+        }
+      }
+    }
+  },
+  "pivot_relative": {
+    "Capitalism": {
+      "pivot": "2006-01-01",
+      "pivot_source": "confirmed L1",
+      "en_gap_before": 0.0,
+      "en_gap_after": 0.0,
+      "read": "no net change",
+      "before": {
+        "de": {
+          "Capitalism": 0
+        },
+        "fr": {
+          "Capitalism": 0
+        },
+        "en": {
+          "Capitalism": 0
+        }
+      },
+      "after": {
+        "de": {
+          "Capitalism": 0
+        },
+        "fr": {
+          "Capitalism": 0
+        },
+        "en": {
+          "Capitalism": 0
+        }
+      }
+    }
+  }
+}

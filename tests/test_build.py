@@ -96,6 +96,171 @@ class FindingsDiscovery(unittest.TestCase):
         self.assertIn("The redline supports reading the change", rendered)
         self.assertIn("the receipt supports auditing", rendered)
 
+
+class MultiEpisodePanels(unittest.TestCase):
+    @staticmethod
+    def _window(before_revid, after_revid, after_timestamp):
+        return {
+            "before_revid": before_revid,
+            "after_revid": after_revid,
+            "before_timestamp": "2020-01-01T00:00:00Z",
+            "after_timestamp": after_timestamp,
+        }
+
+    def test_vocabulary_navigator_retains_every_exact_event(self):
+        records = [
+            {
+                "analysis_status": "available",
+                "episode_window": self._window(111, 112, "2020-02-03T04:05:06Z"),
+                "span": "first comparison",
+                "before": {"tokens": 100}, "after": {"tokens": 120},
+                "overrepresented_after_terms": [{"term": "alpha", "before": 1, "after": 4}],
+            },
+            {
+                "analysis_status": "available",
+                "episode_window": self._window(211, 212, "2021-03-04T05:06:07Z"),
+                "span": "second comparison",
+                "before": {"tokens": 200}, "after": {"tokens": 240},
+                "overrepresented_after_terms": [{"term": "beta", "before": 2, "after": 8}],
+            },
+        ]
+
+        rendered = build.lexical_section({"episodes": records})
+
+        self.assertIn('data-episode-layer="lexical"', rendered)
+        self.assertIn('role="radiogroup"', rendered)
+        self.assertIn('id="episode-lexical-1"', rendered)
+        self.assertIn('aria-controls="episode-view-lexical-1"', rendered)
+        self.assertNotIn("<select", rendered)
+        self.assertIn("2020-02-03 · rev 111 → 112", rendered)
+        self.assertIn("2021-03-04 · rev 211 → 212", rendered)
+        self.assertIn("alpha", rendered)
+        self.assertIn("beta", rendered)
+        self.assertIn('data-episode-view="211-212" hidden', rendered)
+
+    def test_citation_navigator_exposes_unavailable_event(self):
+        available = {
+            "analysis_status": "available",
+            "episode_window": self._window(111, 112, "2020-02-03T04:05:06Z"),
+            "span": "rev 111 to rev 112",
+            "before": {"refs": 2, "n_domains": 2},
+            "after": {"refs": 3, "n_domains": 3},
+            "added": [{"domain": "example.org", "from": 0, "to": 1}],
+            "dropped": [],
+        }
+        unavailable = {
+            "analysis_status": "unavailable",
+            "reason": "revision retrieval failed",
+            "episode_window": self._window(211, 212, "2021-03-04T05:06:07Z"),
+        }
+
+        rendered = build.sources_section("Testland", {"episodes": [available, unavailable]})
+
+        self.assertIn('data-episode-layer="sources"', rendered)
+        self.assertIn("2021-03-04 · rev 211 → 212", rendered)
+        self.assertIn('<span class="episode-state">Unavailable</span>', rendered)
+        self.assertIn("Analysis unavailable for this event", rendered)
+        self.assertIn("revision retrieval failed", rendered)
+
+    def test_framing_and_fact_panels_use_event_navigators(self):
+        windows = [
+            self._window(111, 112, "2020-02-03T04:05:06Z"),
+            self._window(211, 212, "2021-03-04T05:06:07Z"),
+        ]
+        framing_records = [
+            {
+                "analysis_status": "available", "episode_window": window,
+                "mode": "pivot_relative", "editions_compared": ["en", "fr"],
+                "divergences": [{"topic": f"topic {index}", "verdict": "differ"}],
+            }
+            for index, window in enumerate(windows, start=1)
+        ]
+        fact_records = [
+            {
+                "analysis_status": "available", "episode_window": window,
+                "asof": window["after_timestamp"],
+                "claim": {"adjudication": [{
+                    "question": f"question {index}", "verdict": "agree", "note": "aligned",
+                }]},
+            }
+            for index, window in enumerate(windows, start=1)
+        ]
+        findings = build.Findings(framings={"Testland": {"episodes": framing_records}})
+
+        framing_html = build.framing_tab("Testland", findings)
+        facts_html = build.fact_section("Testland", {"2020-02-03": {"episodes": fact_records}})
+
+        self.assertIn('data-episode-layer="framing"', framing_html)
+        self.assertIn("topic 1", framing_html)
+        self.assertIn("topic 2", framing_html)
+        self.assertIn('data-episode-layer="facts"', facts_html)
+        self.assertIn("question 1", facts_html)
+        self.assertIn("question 2", facts_html)
+
+    def test_singleton_artifact_does_not_add_selector(self):
+        rendered = build.lexical_section({
+            "span": "one comparison",
+            "before": {"tokens": 10}, "after": {"tokens": 11},
+        })
+
+        self.assertNotIn("data-episode-switcher", rendered)
+        self.assertIn("Which words grew or shrank?", rendered)
+
+    def test_single_unavailable_event_does_not_add_selector(self):
+        rendered = build.sources_section("Testland", {"episodes": [{
+            "analysis_status": "unavailable",
+            "reason": "revision retrieval failed",
+            "episode_window": self._window(111, 112, "2020-02-03T04:05:06Z"),
+        }]})
+
+        self.assertNotIn("data-episode-switcher", rendered)
+        self.assertIn("How the footnotes changed", rendered)
+        self.assertIn("revision retrieval failed", rendered)
+
+    def test_missing_revision_identity_stays_local_to_each_layer(self):
+        records = [
+            {
+                "analysis_status": "unavailable",
+                "reason": "missing revision metadata",
+                "episode_window": None,
+            },
+            {
+                "analysis_status": "unavailable",
+                "reason": "missing revision metadata",
+                "episode_window": "malformed",
+            },
+        ]
+
+        lexical_html = build._episode_analysis_section(records, "lexical", lambda record: "")
+        sources_html = build._episode_analysis_section(records, "sources", lambda record: "")
+
+        self.assertIn('value="lexical-event-1"', lexical_html)
+        self.assertIn('value="sources-event-1"', sources_html)
+        self.assertNotIn('value="lexical-event-1"', sources_html)
+
+    def test_duplicate_episode_identity_keeps_views_unique(self):
+        records = [
+            {
+                "episode_id": "111-112",
+                "analysis_status": "unavailable",
+                "reason": "first result",
+            },
+            {
+                "episode_id": "111-112",
+                "analysis_status": "unavailable",
+                "reason": "duplicate result",
+            },
+        ]
+
+        rendered = build._episode_analysis_section(records, "lexical", lambda record: "")
+
+        self.assertEqual(rendered.count('value="111-112"'), 1)
+        self.assertIn('value="lexical-event-2"', rendered)
+        self.assertEqual(rendered.count('data-episode-view="111-112"'), 1)
+
+
+class FindingsDiscoveryMore(unittest.TestCase):
+
     def test_every_published_article_explains_and_renders_the_interval_metric(self):
         findings = build.gather()
         invalid_counts = {}
@@ -469,7 +634,30 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertEqual(rewrite.count("<table"), 1)
         self.assertIn("Candidates and exact outcomes", rewrite)
         self.assertNotIn("Candidates checked exactly", rewrite)
-        self.assertIn('aria-labelledby="candidate-outcomes-heading"', rewrite)
+        self.assertIn('<section class="candidate-analysis"', rewrite)
+        self.assertIn(
+            "The detector scored 2 interval rows and sent 1 candidate window to exact checking: "
+            "1 confirmed, 0 rejected.",
+            rewrite,
+        )
+        self.assertIn(
+            "A candidate window can span multiple interval rows, so rows marked as candidates do "
+            "not equal the rewrite episode count.",
+            rewrite,
+        )
+        self.assertEqual(
+            rewrite.count("Confirmed candidate window: 2023-07-01 → 2024-07-01"),
+            2,
+        )
+        self.assertIn('aria-labelledby="candidate-decisions-heading"', rewrite)
+        self.assertIn('<h4 id="candidate-decisions-heading">Exact candidate decisions</h4>', rewrite)
+        candidate_section = rewrite[rewrite.index('<section class="candidate-analysis"'):]
+        self.assertLess(candidate_section.index('</figure>'), candidate_section.index('<table'))
+        self.assertLess(
+            candidate_section.index('<table'),
+            candidate_section.index('</table></div></div></section>'),
+        )
+        self.assertEqual(candidate_section.count('id="candidate-outcomes-heading"'), 1)
         self.assertIn('aria-label="View redline for candidate 2023-07-01 to 2024-07-01"', rewrite)
         self.assertIn('aria-label="Before exact revision: 2024-01-01T00:00:00Z"', rewrite)
         self.assertLess(rewrite.index("Exact outcome"), rewrite.index("Coarse signal"))
@@ -1138,6 +1326,14 @@ class ArticlePageRendering(unittest.TestCase):
 
 
 class SiteRouting(unittest.TestCase):
+    def test_article_has_local_return_link_to_all_analyses(self):
+        page = _article_html()
+
+        self.assertIn(
+            '<a class="article-back" href="../findings.html">&larr; Back to all analyses</a>',
+            page,
+        )
+
     def test_homepage_is_about(self):
         about = build.simple_page("About", "<h1>About WikiDrift</h1>", "about", path="index.html")
         self.assertIn("About WikiDrift", about)
@@ -1226,6 +1422,14 @@ class SiteRouting(unittest.TestCase):
         self.assertIn("dialog.showModal()", runtime)
         self.assertIn('if (event.key !== "Escape") return', runtime)
         self.assertIn('dialog.addEventListener("close", restoreDiagram)', runtime)
+
+    def test_article_runtime_synchronizes_matching_event_ids(self):
+        runtime = (build.VIEWER / "site.js").read_text(encoding="utf-8")
+
+        self.assertIn("function activateEpisode(episodeId)", runtime)
+        self.assertIn('[data-episode-control]', runtime)
+        self.assertIn("matchingControl", runtime)
+        self.assertIn("view.dataset.episodeView !== episodeId", runtime)
 
 
 if __name__ == "__main__":

@@ -1,301 +1,1292 @@
 {
   "article": "Socialism",
-  "span": "2020-01-01 -> 2026-01-01 (around L1 pivot ~2020-01-01)",
-  "pivot": "2020-01-01",
+  "mode": "pivot_relative",
+  "requested_mode": "pivot_relative",
+  "adequate": true,
+  "adequacy_reason": null,
+  "size_ratio": 1.5945,
+  "interval_source": "exact_confirmation",
+  "span": "rev 1231127385 -> rev 1231548542 (exact confirmation)",
+  "pivot": "2024-01-01",
   "before": {
-    "date": "2020-01-01",
-    "rev": 933368202,
-    "tokens": 16269
+    "date": "2024-06-26",
+    "rev": 1231127385,
+    "tokens": 15028
   },
   "after": {
-    "date": "2026-01-01",
-    "rev": 1330743304,
-    "tokens": 9455
+    "date": "2024-06-28",
+    "rev": 1231548542,
+    "tokens": 9425
   },
-  "js_divergence": 0.1324,
+  "js_divergence": 0.0615,
   "overrepresented_after_terms": [
     {
-      "term": "ethical",
-      "before": 0,
+      "term": "dedicated",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.9775
+    },
+    {
+      "term": "drawing",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.9775
+    },
+    {
+      "term": "precedents",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.9775
+    },
+    {
+      "term": "progressivism",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.9775
+    },
+    {
+      "term": "tended",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.9775
+    },
+    {
+      "term": "abolished",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": 0.8032
+    },
+    {
+      "term": "causes",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": 0.8032
+    },
+    {
+      "term": "creation",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": 0.8032
+    },
+    {
+      "term": "enlightenment",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": 0.8032
+    },
+    {
+      "term": "environmentalism",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": 0.8032
+    },
+    {
+      "term": "owns",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": 0.8032
+    },
+    {
+      "term": "changes",
+      "before": 4,
+      "after": 5,
+      "delta": 1,
+      "log_odds": 0.6675
+    },
+    {
+      "term": "fact",
+      "before": 4,
+      "after": 5,
+      "delta": 1,
+      "log_odds": 0.6675
+    },
+    {
+      "term": "friedrich",
+      "before": 4,
+      "after": 5,
+      "delta": 1,
+      "log_odds": 0.6675
+    },
+    {
+      "term": "cooperatives",
+      "before": 5,
       "after": 6,
-      "delta": 6,
-      "log_odds": 3.1083
+      "delta": 1,
+      "log_odds": 0.6339
     },
     {
-      "term": "respondents",
-      "before": 0,
+      "term": "directed",
+      "before": 5,
       "after": 6,
-      "delta": 6,
-      "log_odds": 3.1083
+      "delta": 1,
+      "log_odds": 0.6339
     },
     {
-      "term": "camp",
-      "before": 0,
-      "after": 4,
-      "delta": 4,
-      "log_odds": 2.7403
+      "term": "future",
+      "before": 6,
+      "after": 7,
+      "delta": 1,
+      "log_odds": 0.61
     },
     {
-      "term": "defines",
-      "before": 0,
-      "after": 4,
-      "delta": 4,
-      "log_odds": 2.7403
+      "term": "feminism",
+      "before": 8,
+      "after": 9,
+      "delta": 1,
+      "log_odds": 0.5782
     },
     {
-      "term": "draper",
-      "before": 0,
-      "after": 4,
-      "delta": 4,
-      "log_odds": 2.7403
+      "term": "just",
+      "before": 8,
+      "after": 9,
+      "delta": 1,
+      "log_odds": 0.5782
     },
     {
-      "term": "artistic",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 2.4889
-    },
-    {
-      "term": "canadians",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 2.4889
-    },
-    {
-      "term": "characteristic",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 2.4889
-    },
-    {
-      "term": "discussed",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 2.4889
-    },
-    {
-      "term": "energy",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 2.4889
-    },
-    {
-      "term": "grounds",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 2.4889
-    },
-    {
-      "term": "israeli",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 2.4889
-    },
-    {
-      "term": "peru",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 2.4889
-    },
-    {
-      "term": "pierson",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 2.4889
-    },
-    {
-      "term": "prefer",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 2.4889
-    },
-    {
-      "term": "quality",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 2.4889
-    },
-    {
-      "term": "socialistic",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 2.4889
-    },
-    {
-      "term": "symbol",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 2.4889
-    },
-    {
-      "term": "water",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 2.4889
-    },
-    {
-      "term": "young",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 2.4889
+      "term": "karl",
+      "before": 12,
+      "after": 13,
+      "delta": 1,
+      "log_odds": 0.5441
     }
   ],
   "underrepresented_after_terms": [
     {
-      "term": "president",
-      "before": 19,
-      "after": 0,
-      "delta": -19,
-      "log_odds": -3.122
-    },
-    {
-      "term": "october",
-      "before": 16,
-      "after": 0,
-      "delta": -16,
-      "log_odds": -2.9548
-    },
-    {
-      "term": "january",
-      "before": 14,
-      "after": 0,
-      "delta": -14,
-      "log_odds": -2.8255
-    },
-    {
-      "term": "july",
-      "before": 11,
-      "after": 0,
-      "delta": -11,
-      "log_odds": -2.5935
-    },
-    {
-      "term": "march",
-      "before": 11,
-      "after": 0,
-      "delta": -11,
-      "log_odds": -2.5935
-    },
-    {
-      "term": "protests",
-      "before": 11,
-      "after": 0,
-      "delta": -11,
-      "log_odds": -2.5935
-    },
-    {
-      "term": "cambridge",
-      "before": 10,
-      "after": 0,
-      "delta": -10,
-      "log_odds": -2.5024
-    },
-    {
-      "term": "conference",
-      "before": 10,
-      "after": 0,
-      "delta": -10,
-      "log_odds": -2.5024
-    },
-    {
-      "term": "eds",
+      "term": "nationalised",
       "before": 9,
       "after": 0,
       "delta": -9,
-      "log_odds": -2.4023
-    },
-    {
-      "term": "military",
-      "before": 9,
-      "after": 0,
-      "delta": -9,
-      "log_odds": -2.4023
+      "log_odds": -2.4785
     },
     {
       "term": "norway",
       "before": 9,
       "after": 0,
       "delta": -9,
-      "log_odds": -2.4023
+      "log_odds": -2.4785
     },
     {
-      "term": "parliament",
-      "before": 9,
-      "after": 0,
-      "delta": -9,
-      "log_odds": -2.4023
-    },
-    {
-      "term": "paul",
-      "before": 9,
-      "after": 0,
-      "delta": -9,
-      "log_odds": -2.4023
-    },
-    {
-      "term": "african",
+      "term": "october",
       "before": 8,
       "after": 0,
       "delta": -8,
-      "log_odds": -2.291
+      "log_odds": -2.3672
     },
     {
       "term": "denmark",
-      "before": 8,
+      "before": 7,
       "after": 0,
-      "delta": -8,
-      "log_odds": -2.291
+      "delta": -7,
+      "log_odds": -2.242
     },
     {
       "term": "february",
-      "before": 8,
+      "before": 7,
       "after": 0,
-      "delta": -8,
-      "log_odds": -2.291
+      "delta": -7,
+      "log_odds": -2.242
     },
     {
-      "term": "macmillan",
-      "before": 8,
+      "term": "protests",
+      "before": 7,
       "after": 0,
-      "delta": -8,
-      "log_odds": -2.291
+      "delta": -7,
+      "log_odds": -2.242
     },
     {
-      "term": "nationalised",
-      "before": 8,
+      "term": "cold",
+      "before": 6,
       "after": 0,
-      "delta": -8,
-      "log_odds": -2.291
+      "delta": -6,
+      "log_odds": -2.0988
     },
     {
-      "term": "review",
-      "before": 8,
+      "term": "finland",
+      "before": 6,
       "after": 0,
-      "delta": -8,
-      "log_odds": -2.291
+      "delta": -6,
+      "log_odds": -2.0988
     },
     {
-      "term": "thomas",
-      "before": 8,
+      "term": "hungarian",
+      "before": 6,
       "after": 0,
-      "delta": -8,
-      "log_odds": -2.291
+      "delta": -6,
+      "log_odds": -2.0988
+    },
+    {
+      "term": "indonesia",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -2.0988
+    },
+    {
+      "term": "military",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -2.0988
+    },
+    {
+      "term": "pki",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -2.0988
+    },
+    {
+      "term": "sought",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -2.0988
+    },
+    {
+      "term": "conference",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -1.9317
+    },
+    {
+      "term": "declared",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -1.9317
+    },
+    {
+      "term": "dictatorship",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -1.9317
+    },
+    {
+      "term": "january",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -1.9317
+    },
+    {
+      "term": "lasted",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -1.9317
+    },
+    {
+      "term": "norwegian",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -1.9317
+    },
+    {
+      "term": "president",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -1.9317
     }
   ],
-  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict.",
+  "schema_version": 1,
+  "analysis_scope": "confirmed_episodes",
+  "episode_count": 4,
+  "episodes": [
+    {
+      "article": "Socialism",
+      "mode": "pivot_relative",
+      "requested_mode": "pivot_relative",
+      "adequate": true,
+      "adequacy_reason": null,
+      "size_ratio": 1.5945,
+      "interval_source": "exact_confirmation",
+      "span": "rev 1231127385 -> rev 1231548542 (exact confirmation)",
+      "pivot": "2024-01-01",
+      "before": {
+        "date": "2024-06-26",
+        "rev": 1231127385,
+        "tokens": 15028
+      },
+      "after": {
+        "date": "2024-06-28",
+        "rev": 1231548542,
+        "tokens": 9425
+      },
+      "js_divergence": 0.0615,
+      "overrepresented_after_terms": [
+        {
+          "term": "dedicated",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 0.9775
+        },
+        {
+          "term": "drawing",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 0.9775
+        },
+        {
+          "term": "precedents",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 0.9775
+        },
+        {
+          "term": "progressivism",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 0.9775
+        },
+        {
+          "term": "tended",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 0.9775
+        },
+        {
+          "term": "abolished",
+          "before": 2,
+          "after": 3,
+          "delta": 1,
+          "log_odds": 0.8032
+        },
+        {
+          "term": "causes",
+          "before": 2,
+          "after": 3,
+          "delta": 1,
+          "log_odds": 0.8032
+        },
+        {
+          "term": "creation",
+          "before": 2,
+          "after": 3,
+          "delta": 1,
+          "log_odds": 0.8032
+        },
+        {
+          "term": "enlightenment",
+          "before": 2,
+          "after": 3,
+          "delta": 1,
+          "log_odds": 0.8032
+        },
+        {
+          "term": "environmentalism",
+          "before": 2,
+          "after": 3,
+          "delta": 1,
+          "log_odds": 0.8032
+        },
+        {
+          "term": "owns",
+          "before": 2,
+          "after": 3,
+          "delta": 1,
+          "log_odds": 0.8032
+        },
+        {
+          "term": "changes",
+          "before": 4,
+          "after": 5,
+          "delta": 1,
+          "log_odds": 0.6675
+        },
+        {
+          "term": "fact",
+          "before": 4,
+          "after": 5,
+          "delta": 1,
+          "log_odds": 0.6675
+        },
+        {
+          "term": "friedrich",
+          "before": 4,
+          "after": 5,
+          "delta": 1,
+          "log_odds": 0.6675
+        },
+        {
+          "term": "cooperatives",
+          "before": 5,
+          "after": 6,
+          "delta": 1,
+          "log_odds": 0.6339
+        },
+        {
+          "term": "directed",
+          "before": 5,
+          "after": 6,
+          "delta": 1,
+          "log_odds": 0.6339
+        },
+        {
+          "term": "future",
+          "before": 6,
+          "after": 7,
+          "delta": 1,
+          "log_odds": 0.61
+        },
+        {
+          "term": "feminism",
+          "before": 8,
+          "after": 9,
+          "delta": 1,
+          "log_odds": 0.5782
+        },
+        {
+          "term": "just",
+          "before": 8,
+          "after": 9,
+          "delta": 1,
+          "log_odds": 0.5782
+        },
+        {
+          "term": "karl",
+          "before": 12,
+          "after": 13,
+          "delta": 1,
+          "log_odds": 0.5441
+        }
+      ],
+      "underrepresented_after_terms": [
+        {
+          "term": "nationalised",
+          "before": 9,
+          "after": 0,
+          "delta": -9,
+          "log_odds": -2.4785
+        },
+        {
+          "term": "norway",
+          "before": 9,
+          "after": 0,
+          "delta": -9,
+          "log_odds": -2.4785
+        },
+        {
+          "term": "october",
+          "before": 8,
+          "after": 0,
+          "delta": -8,
+          "log_odds": -2.3672
+        },
+        {
+          "term": "denmark",
+          "before": 7,
+          "after": 0,
+          "delta": -7,
+          "log_odds": -2.242
+        },
+        {
+          "term": "february",
+          "before": 7,
+          "after": 0,
+          "delta": -7,
+          "log_odds": -2.242
+        },
+        {
+          "term": "protests",
+          "before": 7,
+          "after": 0,
+          "delta": -7,
+          "log_odds": -2.242
+        },
+        {
+          "term": "cold",
+          "before": 6,
+          "after": 0,
+          "delta": -6,
+          "log_odds": -2.0988
+        },
+        {
+          "term": "finland",
+          "before": 6,
+          "after": 0,
+          "delta": -6,
+          "log_odds": -2.0988
+        },
+        {
+          "term": "hungarian",
+          "before": 6,
+          "after": 0,
+          "delta": -6,
+          "log_odds": -2.0988
+        },
+        {
+          "term": "indonesia",
+          "before": 6,
+          "after": 0,
+          "delta": -6,
+          "log_odds": -2.0988
+        },
+        {
+          "term": "military",
+          "before": 6,
+          "after": 0,
+          "delta": -6,
+          "log_odds": -2.0988
+        },
+        {
+          "term": "pki",
+          "before": 6,
+          "after": 0,
+          "delta": -6,
+          "log_odds": -2.0988
+        },
+        {
+          "term": "sought",
+          "before": 6,
+          "after": 0,
+          "delta": -6,
+          "log_odds": -2.0988
+        },
+        {
+          "term": "conference",
+          "before": 5,
+          "after": 0,
+          "delta": -5,
+          "log_odds": -1.9317
+        },
+        {
+          "term": "declared",
+          "before": 5,
+          "after": 0,
+          "delta": -5,
+          "log_odds": -1.9317
+        },
+        {
+          "term": "dictatorship",
+          "before": 5,
+          "after": 0,
+          "delta": -5,
+          "log_odds": -1.9317
+        },
+        {
+          "term": "january",
+          "before": 5,
+          "after": 0,
+          "delta": -5,
+          "log_odds": -1.9317
+        },
+        {
+          "term": "lasted",
+          "before": 5,
+          "after": 0,
+          "delta": -5,
+          "log_odds": -1.9317
+        },
+        {
+          "term": "norwegian",
+          "before": 5,
+          "after": 0,
+          "delta": -5,
+          "log_odds": -1.9317
+        },
+        {
+          "term": "president",
+          "before": 5,
+          "after": 0,
+          "delta": -5,
+          "log_odds": -1.9317
+        }
+      ],
+      "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict.",
+      "episode_id": "1231127385-1231548542",
+      "episode_index": 1,
+      "episode_window": {
+        "start": "2024-01-01",
+        "end": "2025-01-01",
+        "pwr_mass": 213137,
+        "status": "confirmed",
+        "before_revid": 1231127385,
+        "before_timestamp": "2024-06-26T16:32:06Z",
+        "after_revid": 1231548542,
+        "after_timestamp": "2024-06-28T22:23:33Z",
+        "durable_spine_drop": 0.372196
+      },
+      "analysis_status": "available"
+    },
+    {
+      "episode_id": "54672691-54876527",
+      "episode_index": 2,
+      "episode_window": {
+        "start": "2005-01-01",
+        "end": "2008-01-01",
+        "pwr_mass": 20844,
+        "status": "confirmed",
+        "before_revid": 54672691,
+        "before_timestamp": "2006-05-23T08:10:15Z",
+        "after_revid": 54876527,
+        "after_timestamp": "2006-05-24T12:03:55Z",
+        "durable_spine_drop": 0.955891
+      },
+      "analysis_status": "unavailable",
+      "reason": "HTTPSConnectionPool(host='en.wikipedia.org', port=443): Read timed out. (read timeout=30)"
+    },
+    {
+      "article": "Socialism",
+      "mode": "pivot_relative",
+      "requested_mode": "pivot_relative",
+      "adequate": true,
+      "adequacy_reason": null,
+      "size_ratio": 1.061,
+      "interval_source": "exact_confirmation",
+      "span": "rev 388146182 -> rev 388354075 (exact confirmation)",
+      "pivot": "2010-01-01",
+      "before": {
+        "date": "2010-10-01",
+        "rev": 388146182,
+        "tokens": 7760
+      },
+      "after": {
+        "date": "2010-10-02",
+        "rev": 388354075,
+        "tokens": 7314
+      },
+      "js_divergence": 0.0082,
+      "overrepresented_after_terms": [
+        {
+          "term": "accessed",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 0.5702
+        },
+        {
+          "term": "encyclopedia",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 0.5702
+        },
+        {
+          "term": "living",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 0.5702
+        },
+        {
+          "term": "representing",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 0.5702
+        },
+        {
+          "term": "termed",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 0.5702
+        },
+        {
+          "term": "workingmen",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 0.5702
+        },
+        {
+          "term": "became",
+          "before": 4,
+          "after": 6,
+          "delta": 2,
+          "log_odds": 0.4272
+        },
+        {
+          "term": "london",
+          "before": 4,
+          "after": 6,
+          "delta": 2,
+          "log_odds": 0.4272
+        },
+        {
+          "term": "organizations",
+          "before": 2,
+          "after": 3,
+          "delta": 1,
+          "log_odds": 0.3958
+        },
+        {
+          "term": "sought",
+          "before": 2,
+          "after": 3,
+          "delta": 1,
+          "log_odds": 0.3958
+        },
+        {
+          "term": "july",
+          "before": 3,
+          "after": 4,
+          "delta": 1,
+          "log_odds": 0.3107
+        },
+        {
+          "term": "third",
+          "before": 3,
+          "after": 4,
+          "delta": 1,
+          "log_odds": 0.3107
+        },
+        {
+          "term": "come",
+          "before": 5,
+          "after": 6,
+          "delta": 1,
+          "log_odds": 0.2264
+        },
+        {
+          "term": "held",
+          "before": 5,
+          "after": 6,
+          "delta": 1,
+          "log_odds": 0.2264
+        },
+        {
+          "term": "organisation",
+          "before": 5,
+          "after": 6,
+          "delta": 1,
+          "log_odds": 0.2264
+        },
+        {
+          "term": "ideas",
+          "before": 6,
+          "after": 7,
+          "delta": 1,
+          "log_odds": 0.2025
+        },
+        {
+          "term": "particularly",
+          "before": 6,
+          "after": 7,
+          "delta": 1,
+          "log_odds": 0.2025
+        },
+        {
+          "term": "major",
+          "before": 9,
+          "after": 10,
+          "delta": 1,
+          "log_odds": 0.1595
+        },
+        {
+          "term": "marxism",
+          "before": 10,
+          "after": 11,
+          "delta": 1,
+          "log_odds": 0.1504
+        },
+        {
+          "term": "economic",
+          "before": 67,
+          "after": 66,
+          "delta": -1,
+          "log_odds": 0.0447
+        }
+      ],
+      "underrepresented_after_terms": [
+        {
+          "term": "zimmerwald",
+          "before": 5,
+          "after": 0,
+          "delta": -5,
+          "log_odds": -2.3394
+        },
+        {
+          "term": "debs",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.8871
+        },
+        {
+          "term": "struggles",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.8871
+        },
+        {
+          "term": "commune",
+          "before": 4,
+          "after": 1,
+          "delta": -3,
+          "log_odds": -1.0398
+        },
+        {
+          "term": "paris",
+          "before": 6,
+          "after": 2,
+          "delta": -4,
+          "log_odds": -0.8968
+        },
+        {
+          "term": "proletarian",
+          "before": 3,
+          "after": 1,
+          "delta": -2,
+          "log_odds": -0.7884
+        },
+        {
+          "term": "received",
+          "before": 3,
+          "after": 1,
+          "delta": -2,
+          "log_odds": -0.7884
+        },
+        {
+          "term": "september",
+          "before": 3,
+          "after": 1,
+          "delta": -2,
+          "log_odds": -0.7884
+        },
+        {
+          "term": "spd",
+          "before": 8,
+          "after": 4,
+          "delta": -4,
+          "log_odds": -0.5773
+        },
+        {
+          "term": "votes",
+          "before": 6,
+          "after": 3,
+          "delta": -3,
+          "log_odds": -0.5602
+        },
+        {
+          "term": "imperialist",
+          "before": 4,
+          "after": 2,
+          "delta": -2,
+          "log_odds": -0.5288
+        },
+        {
+          "term": "preface",
+          "before": 4,
+          "after": 2,
+          "delta": -2,
+          "log_odds": -0.5288
+        },
+        {
+          "term": "too",
+          "before": 4,
+          "after": 2,
+          "delta": -2,
+          "log_odds": -0.5288
+        },
+        {
+          "term": "volume",
+          "before": 4,
+          "after": 2,
+          "delta": -2,
+          "log_odds": -0.5288
+        },
+        {
+          "term": "german",
+          "before": 11,
+          "after": 6,
+          "delta": -5,
+          "log_odds": -0.512
+        },
+        {
+          "term": "germany",
+          "before": 9,
+          "after": 5,
+          "delta": -4,
+          "log_odds": -0.4878
+        },
+        {
+          "term": "introduction",
+          "before": 7,
+          "after": 4,
+          "delta": -3,
+          "log_odds": -0.452
+        },
+        {
+          "term": "able",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": -0.4518
+        },
+        {
+          "term": "archive",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": -0.4518
+        },
+        {
+          "term": "aspect",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": -0.4518
+        }
+      ],
+      "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict.",
+      "episode_id": "388146182-388354075",
+      "episode_index": 3,
+      "episode_window": {
+        "start": "2010-01-01",
+        "end": "2011-01-01",
+        "pwr_mass": 8329,
+        "status": "confirmed",
+        "before_revid": 388146182,
+        "before_timestamp": "2010-10-01T18:59:27Z",
+        "after_revid": 388354075,
+        "after_timestamp": "2010-10-02T21:49:02Z",
+        "durable_spine_drop": 0.313225
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Socialism",
+      "mode": "pivot_relative",
+      "requested_mode": "pivot_relative",
+      "adequate": true,
+      "adequacy_reason": null,
+      "size_ratio": 1.0236,
+      "interval_source": "exact_confirmation",
+      "span": "rev 1113767 -> rev 1114986 (exact confirmation)",
+      "pivot": "2003-01-01",
+      "before": {
+        "date": "2003-07-03",
+        "rev": 1113767,
+        "tokens": 805
+      },
+      "after": {
+        "date": "2003-07-05",
+        "rev": 1114986,
+        "tokens": 824
+      },
+      "js_divergence": 0.3568,
+      "overrepresented_after_terms": [
+        {
+          "term": "system",
+          "before": 0,
+          "after": 7,
+          "delta": 7,
+          "log_odds": 2.6933
+        },
+        {
+          "term": "leninist",
+          "before": 0,
+          "after": 6,
+          "delta": 6,
+          "log_odds": 2.5489
+        },
+        {
+          "term": "soviet",
+          "before": 0,
+          "after": 5,
+          "delta": 5,
+          "log_odds": 2.3807
+        },
+        {
+          "term": "believe",
+          "before": 0,
+          "after": 4,
+          "delta": 4,
+          "log_odds": 2.1788
+        },
+        {
+          "term": "described",
+          "before": 0,
+          "after": 4,
+          "delta": 4,
+          "log_odds": 2.1788
+        },
+        {
+          "term": "planning",
+          "before": 0,
+          "after": 4,
+          "delta": 4,
+          "log_odds": 2.1788
+        },
+        {
+          "term": "argue",
+          "before": 0,
+          "after": 3,
+          "delta": 3,
+          "log_odds": 1.9262
+        },
+        {
+          "term": "central",
+          "before": 0,
+          "after": 3,
+          "delta": 3,
+          "log_odds": 1.9262
+        },
+        {
+          "term": "critics",
+          "before": 0,
+          "after": 3,
+          "delta": 3,
+          "log_odds": 1.9262
+        },
+        {
+          "term": "description",
+          "before": 0,
+          "after": 3,
+          "delta": 3,
+          "log_odds": 1.9262
+        },
+        {
+          "term": "economics",
+          "before": 0,
+          "after": 3,
+          "delta": 3,
+          "log_odds": 1.9262
+        },
+        {
+          "term": "essentially",
+          "before": 0,
+          "after": 3,
+          "delta": 3,
+          "log_odds": 1.9262
+        },
+        {
+          "term": "governments",
+          "before": 0,
+          "after": 3,
+          "delta": 3,
+          "log_odds": 1.9262
+        },
+        {
+          "term": "individual",
+          "before": 0,
+          "after": 3,
+          "delta": 3,
+          "log_odds": 1.9262
+        },
+        {
+          "term": "markets",
+          "before": 0,
+          "after": 3,
+          "delta": 3,
+          "log_odds": 1.9262
+        },
+        {
+          "term": "planners",
+          "before": 0,
+          "after": 3,
+          "delta": 3,
+          "log_odds": 1.9262
+        },
+        {
+          "term": "style",
+          "before": 0,
+          "after": 3,
+          "delta": 3,
+          "log_odds": 1.9262
+        },
+        {
+          "term": "through",
+          "before": 0,
+          "after": 3,
+          "delta": 3,
+          "log_odds": 1.9262
+        },
+        {
+          "term": "towards",
+          "before": 0,
+          "after": 3,
+          "delta": 3,
+          "log_odds": 1.9262
+        },
+        {
+          "term": "type",
+          "before": 0,
+          "after": 3,
+          "delta": 3,
+          "log_odds": 1.9262
+        }
+      ],
+      "underrepresented_after_terms": [
+        {
+          "term": "parties",
+          "before": 7,
+          "after": 0,
+          "delta": -7,
+          "log_odds": -2.7401
+        },
+        {
+          "term": "support",
+          "before": 6,
+          "after": 0,
+          "delta": -6,
+          "log_odds": -2.5957
+        },
+        {
+          "term": "world",
+          "before": 6,
+          "after": 0,
+          "delta": -6,
+          "log_odds": -2.5957
+        },
+        {
+          "term": "call",
+          "before": 5,
+          "after": 0,
+          "delta": -5,
+          "log_odds": -2.4274
+        },
+        {
+          "term": "china",
+          "before": 5,
+          "after": 0,
+          "delta": -5,
+          "log_odds": -2.4274
+        },
+        {
+          "term": "word",
+          "before": 5,
+          "after": 0,
+          "delta": -5,
+          "log_odds": -2.4274
+        },
+        {
+          "term": "pure",
+          "before": 4,
+          "after": 0,
+          "delta": -4,
+          "log_odds": -2.2255
+        },
+        {
+          "term": "regulation",
+          "before": 4,
+          "after": 0,
+          "delta": -4,
+          "log_odds": -2.2255
+        },
+        {
+          "term": "bellamy",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.973
+        },
+        {
+          "term": "consider",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.973
+        },
+        {
+          "term": "example",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.973
+        },
+        {
+          "term": "forms",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.973
+        },
+        {
+          "term": "grass",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.973
+        },
+        {
+          "term": "ideology",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.973
+        },
+        {
+          "term": "level",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.973
+        },
+        {
+          "term": "liberal",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.973
+        },
+        {
+          "term": "notion",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.973
+        },
+        {
+          "term": "public",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.973
+        },
+        {
+          "term": "reform",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.973
+        },
+        {
+          "term": "root",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.973
+        }
+      ],
+      "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict.",
+      "episode_id": "1113767-1114986",
+      "episode_index": 4,
+      "episode_window": {
+        "start": "2003-01-01",
+        "end": "2004-01-01",
+        "pwr_mass": 2388,
+        "status": "confirmed",
+        "before_revid": 1113767,
+        "before_timestamp": "2003-07-03T13:20:49Z",
+        "after_revid": 1114986,
+        "after_timestamp": "2003-07-05T01:55:59Z",
+        "durable_spine_drop": 0.985194
+      },
+      "analysis_status": "available"
+    }
+  ]
 }

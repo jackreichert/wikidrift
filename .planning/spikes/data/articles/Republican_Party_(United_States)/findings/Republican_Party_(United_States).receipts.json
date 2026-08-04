@@ -1,0 +1,27 @@
+{
+  "article": "Republican Party (United States)",
+  "qid": "Q29468",
+  "editions": {
+    "de": {
+      "present": true,
+      "revid": 269373600,
+      "title": "Republikanische Partei",
+      "timestamp": "2026-08-04T15:44:37Z",
+      "prose_chars": 148956
+    },
+    "en": {
+      "present": true,
+      "revid": 1367719471,
+      "title": "Republican Party (United States)",
+      "timestamp": "2026-08-04T19:46:27Z",
+      "prose_chars": 79352
+    },
+    "es": {
+      "present": true,
+      "revid": 174614073,
+      "title": "Partido Republicano (Estados Unidos)",
+      "timestamp": "2026-07-30T06:48:25Z",
+      "prose_chars": 67664
+    }
+  }
+}

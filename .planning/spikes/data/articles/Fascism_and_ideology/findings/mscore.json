@@ -1,0 +1,17 @@
+{
+  "Fascism and ideology": {
+    "raw": {
+      "revs": 1625,
+      "mutual_pairs": 17,
+      "M": 5060,
+      "M_per_rev": 3.11
+    },
+    "refined": {
+      "revs": 1327,
+      "mutual_pairs": 4,
+      "M": 860,
+      "M_per_rev": 0.65
+    },
+    "refined_per_rev": 0.53
+  }
+}

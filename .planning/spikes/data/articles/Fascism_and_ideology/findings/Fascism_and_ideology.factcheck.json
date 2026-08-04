@@ -1,0 +1,1727 @@
+{
+  "article": "Fascism and ideology",
+  "asof": "2026-05-28T20:03:02Z",
+  "langs": [
+    "ko",
+    "en",
+    "it",
+    "ru",
+    "ar"
+  ],
+  "citation": {
+    "mean_jaccard": 0.18,
+    "domains_per_edition": {
+      "ko": 32,
+      "en": 32,
+      "it": 4,
+      "ru": 27,
+      "ar": 4
+    }
+  },
+  "claim": {
+    "per_edition": {
+      "ko": {
+        "파시즘 선전 포스터에 등장하는 이탈리아의 두체는 누구인가?": {
+          "question": "파시즘 선전 포스터에 등장하는 이탈리아의 두체는 누구인가?",
+          "answer": "베니토 무솔리니",
+          "value": "베니토 무솔리니",
+          "evidence": "이탈리아의 두체인 베니토 무솔리니가 등장하는 파시스트 선전 포스터."
+        },
+        "로저 그리핀은 파시즘을 무엇이라고 명명했는가?": {
+          "question": "로저 그리핀은 파시즘을 무엇이라고 명명했는가?",
+          "answer": "재생적 국수주의",
+          "value": "재생적 국수주의",
+          "evidence": "로저 그리핀은 파시즘이 국가의 재탄생과 재생이라는 신화를 통해 신성시된 전체주의와 국수주의의 합성물이라고 제안했으며, 이를 \"재생적 국수주의\"라고 명명했다."
+        },
+        "나치의 인종관의 핵심이 된 편견은 어떤 문화 간의 대립인가?": {
+          "question": "나치의 인종관의 핵심이 된 편견은 어떤 문화 간의 대립인가?",
+          "answer": "고귀한 아리아인 문화와 기생적인 셈족 문화",
+          "value": "아리아인 대 셈족",
+          "evidence": "\"기생적인\" 셈족 문화에 반대되는 \"고귀한\" 아리아인 문화라는 편견은 나치의 인종관의 핵심이었으며"
+        },
+        "고대 그리스 도시 국가 중 나치즘과 메탁사스주의에 영감을 준 곳은 어디인가?": {
+          "question": "고대 그리스 도시 국가 중 나치즘과 메탁사스주의에 영감을 준 곳은 어디인가?",
+          "answer": "스파르타",
+          "value": "스파르타",
+          "evidence": "고대 스파르타는 나치즘 및 준파시스트 성격의 메탁사스주의와 같은 파시스트 및 준파시스트 운동에 영감을 준 것으로 간주되어 왔다."
+        },
+        "플라톤이 국가에서 이상 국가를 통치해야 한다고 주장한 정예 계급의 이름은 무엇인가?": {
+          "question": "플라톤이 국가에서 이상 국가를 통치해야 한다고 주장한 정예 계급의 이름은 무엇인가?",
+          "answer": "수호자",
+          "value": "수호자",
+          "evidence": "플라톤은 이상 국가가 \"수호자\"로 알려진 정예 통치 계급에 의해 통치될 것이라고 믿었으며 사회적 평등의 아이디어를 거부했다."
+        },
+        "플라톤의 국가는 언제 저술되었는가?": {
+          "question": "플라톤의 국가는 언제 저술되었는가?",
+          "answer": "기원전 약 380년",
+          "value": "기원전 약 380년",
+          "evidence": "국가(기원전 약 380년)에서 플라톤은 이상적인 국가에서 철인 왕의 필요성을 강조한다."
+        },
+        "이탈리아 파시스트들이 우상화한 로마의 두 인물은 누구인가?": {
+          "question": "이탈리아 파시스트들이 우상화한 로마의 두 인물은 누구인가?",
+          "answer": "율리우스 카이사르와 아우구스투스",
+          "value": "율리우스 카이사르, 아우구스투스",
+          "evidence": "이탈리아 파시스트들은 자신들의 이념이 고대 로마, 특히 로마 제국의 유산과 연결되어 있다고 규정했으며, 율리우스 카이사르와 아우구스투스를 우상화했다."
+        },
+        "로마 권위의 상징으로 이탈리아 파시스트들이 채택한 상징은 무엇인가?": {
+          "question": "로마 권위의 상징으로 이탈리아 파시스트들이 채택한 상징은 무엇인가?",
+          "answer": "속간(fasces)",
+          "value": "속간(fasces)",
+          "evidence": "로마 권위의 상징인 속간(fasces)은 이탈리아 파시스트들의 상징이었으며"
+        },
+        "히틀러는 사적인 대화에서 로마 제국의 멸망 원인을 무엇으로 비난했는가?": {
+          "question": "히틀러는 사적인 대화에서 로마 제국의 멸망 원인을 무엇으로 비난했는가?",
+          "answer": "기독교 수용으로 인한 인종적 혼합",
+          "value": "기독교 수용",
+          "evidence": "히틀러는 로마 제국의 멸망 원인을 로마가 기독교를 받아들였기 때문이라고 비난했는데, 그는 기독교가 인종적 혼합을 허용하여 로마를 약화시키고 파멸로 이끌었다고 주장했다."
+        },
+        "토머스 홉스의 리바이어던은 몇 년에 출판되었는가?": {
+          "question": "토머스 홉스의 리바이어던은 몇 년에 출판되었는가?",
+          "answer": "1651년",
+          "value": "1651",
+          "evidence": "영국의 정치 이론가 토머스 홉스는 그의 저서 리바이어던(1651)에서 국가 내부의 질서를 유지하기 위해 전지전능한 전제군주제를 옹호하는 절대주의 이념을 창안했다."
+        },
+        "내셔널리즘(nationalismus)이라는 용어를 개발한 인물은 누구인가?": {
+          "question": "내셔널리즘(nationalismus)이라는 용어를 개발한 인물은 누구인가?",
+          "answer": "요한 고트프리트 헤르더",
+          "value": "요한 고트프리트 헤르더",
+          "evidence": "헤르더는 이러한 문화적 현상을 설명하기 위해 내셔널리즘(\"nationalismus\")이라는 용어를 개발했다."
+        },
+        "헤겔은 국가에 대해 무엇이라고 말했는가?": {
+          "question": "헤겔은 국가에 대해 무엇이라고 말했는가?",
+          "answer": "국가만이 자유의 실현이며 지상에 행차하는 신의 행렬이라고 말했다",
+          "value": "국가는 자유의 실현, 신의 행렬",
+          "evidence": "헤겔은 국가의 절대적 권위를 장려했으며 \"국가만이 자유의 실현\"이며 \"국가는 지상에 행차하는 신의 행렬\"이라고 말했다."
+        },
+        "무솔리니가 볼로냐 대학교 명예 박사 학위 논문 서문으로 쓴 글의 제목은 무엇인가?": {
+          "question": "무솔리니가 볼로냐 대학교 명예 박사 학위 논문 서문으로 쓴 글의 제목은 무엇인가?",
+          "answer": "마키아벨리 서설",
+          "value": "마키아벨리 서설",
+          "evidence": "무솔리니는 자신을 현대의 마키아벨리주의자로 여겼으며 볼로냐 대학교 명예 박사 학위 논문의 서문으로 \"마키아벨리 서설\"을 썼다."
+        },
+        "프랑스 혁명군에 의해 개발되어 나치가 이상화한 시스템은 무엇인가?": {
+          "question": "프랑스 혁명군에 의해 개발되어 나치가 이상화한 시스템은 무엇인가?",
+          "answer": "국민개병(집단 동원)",
+          "value": "국민개병",
+          "evidence": "나치는 프랑스 혁명군에 의해 개발된 국민개병(집단 동원)을 이상화했으며 그들의 준군사 운동에 이 시스템을 사용하고자 했다."
+        },
+        "세기말 시대의 지성 학파에 속한 이탈리아 인물 두 명은 누구인가?": {
+          "question": "세기말 시대의 지성 학파에 속한 이탈리아 인물 두 명은 누구인가?",
+          "answer": "가브리엘레 단눈치오와 엔리코 코라디니",
+          "value": "가브리엘레 단눈치오, 엔리코 코라디니",
+          "evidence": "이탈리아의 가브리엘레 단눈치오와 엔리코 코라디니, 프랑스의 모리스 바레스, 에두아르 드뤼몽, 조르주 소렐, 그리고 독일의 파울 드 라가르드, 율리우스 랑벤, 아르투어 묄러 판 덴 브루크를 포함한 1890년대의 세기말 지성 학파"
+        },
+        "파시즘의 이념적 뿌리는 몇 년대로 거슬러 올라가는가?": {
+          "question": "파시즘의 이념적 뿌리는 몇 년대로 거슬러 올라가는가?",
+          "answer": "1880년대",
+          "value": "1880년대",
+          "evidence": "파시즘의 이념적 뿌리는 1880년대, 특히 그 당시의 세기말(fin de siècle) 주제로 거슬러 올라간다."
+        },
+        "\"신은 죽었다\"라는 주장을 한 철학자는 누구인가?": {
+          "question": "\"신은 죽었다\"라는 주장을 한 철학자는 누구인가?",
+          "answer": "프리드리히 니체",
+          "value": "프리드리히 니체",
+          "evidence": "\"신은 죽었다\"라는 니체의 주장은 기독교, 민주주의 및 현대 집단주의의 \"노예 도덕\"에 대한 그의 공격과 일치했다."
+        }
+      },
+      "en": {
+        "Which ancient Greek city-state, under Lycurgus, was admired by the Nazis for militarism and racial purity?": {
+          "question": "Which ancient Greek city-state, under Lycurgus, was admired by the Nazis for militarism and racial purity?",
+          "answer": "Sparta",
+          "value": "Sparta",
+          "evidence": "the ancient Greek city state of Sparta under Lycurgus, with its emphasis on militarism and racial purity, were admired by the Nazis"
+        },
+        "Who wrote The Republic and emphasized the need for a philosopher king?": {
+          "question": "Who wrote The Republic and emphasized the need for a philosopher king?",
+          "answer": "Plato",
+          "value": "Plato",
+          "evidence": "In The Republic (c. 380 BC), Plato emphasizes the need for a philosopher king in an ideal state."
+        },
+        "What term did Plato use for the elite ruling class in his ideal state?": {
+          "question": "What term did Plato use for the elite ruling class in his ideal state?",
+          "answer": "Guardians",
+          "value": "Guardians",
+          "evidence": "Plato believed the ideal state would be ruled by an elite class of rulers known as \"Guardians\" and rejected the idea of social equality."
+        },
+        "Which quasi-fascist Greek leader emulated the Spartans in the 1930s-1940s?": {
+          "question": "Which quasi-fascist Greek leader emulated the Spartans in the 1930s-1940s?",
+          "answer": "Ioannis Metaxas",
+          "value": "Ioannis Metaxas",
+          "evidence": "The Spartans were emulated by the quasi-fascist regime of Ioannis Metaxas who called for Greeks to wholly commit themselves to the nation with self-control as the Spartans had done."
+        },
+        "Which two Roman leaders did Italian Fascists idolize?": {
+          "question": "Which two Roman leaders did Italian Fascists idolize?",
+          "answer": "Julius Caesar and Augustus",
+          "value": "Julius Caesar and Augustus",
+          "evidence": "they idolized Julius Caesar and Augustus."
+        },
+        "What symbol of Roman authority became the symbol of Italian Fascists?": {
+          "question": "What symbol of Roman authority became the symbol of Italian Fascists?",
+          "answer": "the fasces",
+          "value": "fasces",
+          "evidence": "The fasces – a symbol of Roman authority – was the symbol of the Italian Fascists and was additionally adopted by many other national fascist movements formed in emulation of Italian Fascism."
+        },
+        "What did Hitler blame for the fall of the Roman Empire?": {
+          "question": "What did Hitler blame for the fall of the Roman Empire?",
+          "answer": "the Roman adoption of Christianity, which he claimed authorized racial intermixing",
+          "value": "Christianity/racial intermixing",
+          "evidence": "Hitler blamed the fall of the Roman Empire on the Roman adoption of Christianity because he claimed that Christianity authorized racial intermixing that he claimed weakened Rome and led to its destruction."
+        },
+        "What term did Roger Griffin propose to describe fascism as a synthesis of totalitarianism and ultranationalism?": {
+          "question": "What term did Roger Griffin propose to describe fascism as a synthesis of totalitarianism and ultranationalism?",
+          "answer": "Palingenetic ultranationalism",
+          "value": "palingenetic ultranationalism",
+          "evidence": "Roger Griffin has proposed that fascism is a synthesis of totalitarianism and ultranationalism sacralized through a myth of national rebirth and regeneration, which he terms \"palingenetic ultranationalism\"."
+        },
+        "Which Renaissance figure influenced Italian Fascism through promotion of absolute state authority?": {
+          "question": "Which Renaissance figure influenced Italian Fascism through promotion of absolute state authority?",
+          "answer": "Niccolò Machiavelli",
+          "value": "Niccolò Machiavelli",
+          "evidence": "Niccolò Machiavelli is said to have influenced Italian Fascism, particularly through his promotion of the absolute authority of the state."
+        },
+        "Which philosopher's view on the absolute authority of the state strongly influenced fascist thinking?": {
+          "question": "Which philosopher's view on the absolute authority of the state strongly influenced fascist thinking?",
+          "answer": "Georg Wilhelm Friedrich Hegel",
+          "value": "Hegel",
+          "evidence": "Georg Wilhelm Friedrich Hegel's view on the absolute authority of the state also strongly influenced fascist thinking."
+        },
+        "What year was the French Revolution that influenced fascist and Nazi ideology?": {
+          "question": "What year was the French Revolution that influenced fascist and Nazi ideology?",
+          "answer": "1789",
+          "value": "1789",
+          "evidence": "The 1789 French Revolution was a major influence insofar as the Nazis saw themselves as fighting back against many of the ideas which it brought to prominence"
+        },
+        "According to the passage, did Plato promote expansionism or offensive war?": {
+          "question": "According to the passage, did Plato promote expansionism or offensive war?",
+          "answer": "No, unlike fascism, Plato opposed offensive war and never promoted expansionism",
+          "value": "No",
+          "evidence": "Unlike fascism, Plato never promoted expansionism and he was opposed to offensive war."
+        }
+      },
+      "it": {
+        "Chi è Roger Griffin e cosa ha proposto riguardo al fascismo?": {
+          "question": "Chi è Roger Griffin e cosa ha proposto riguardo al fascismo?",
+          "answer": "Roger Griffin ha proposto che il fascismo sia una sintesi di totalitarismo e ultranazionalismo sacralizzato attraverso un mito di rinascita e rigenerazione nazionale",
+          "value": "ultranazionalismo palingenetico",
+          "evidence": "Roger Griffin (n. 1948) ha proposto che il fascismo sia una sintesi di totalitarismo e ultranazionalismo sacralizzato attraverso un mito di rinascita e rigenerazione nazionale, che egli definisce \"ultranazionalismo palingenetico\"."
+        },
+        "Quale città-stato greca era ammirata dai nazisti per il militarismo e la purezza razziale?": {
+          "question": "Quale città-stato greca era ammirata dai nazisti per il militarismo e la purezza razziale?",
+          "answer": "Sparta",
+          "value": "Sparta",
+          "evidence": "la città-stato greca di Sparta sotto Licurgo, con la sua enfasi sul militarismo e la purezza razziale, erano ammirate dai nazisti."
+        },
+        "Chi era il Führer nazista citato nel testo?": {
+          "question": "Chi era il Führer nazista citato nel testo?",
+          "answer": "Adolf Hitler",
+          "value": "Adolf Hitler",
+          "evidence": "Il Führer nazista Adolf Hitler sottolineava che la Germania dovesse aderire ai valori e alla cultura ellenica, in particolare a quelli dell'antica Sparta."
+        },
+        "In quale opera Hitler scrisse sulla razza ariana e gli antichi Greci?": {
+          "question": "In quale opera Hitler scrisse sulla razza ariana e gli antichi Greci?",
+          "answer": "Mein Kampf",
+          "value": "Mein Kampf",
+          "evidence": "affermando in Mein Kampf: \"Non si devono permettere le differenze delle singole razze di lacerare la più grande comunità razziale\"."
+        },
+        "Chi guidava il regime quasi fascista greco che emulava gli Spartani?": {
+          "question": "Chi guidava il regime quasi fascista greco che emulava gli Spartani?",
+          "answer": "Ioannis Metaxas",
+          "value": "Ioannis Metaxas",
+          "evidence": "Il regime quasi fascista di Ioannis Metaxas emulò gli Spartani, esortando i Greci a dedicarsi interamente alla nazione con autocontrollo, proprio come avevano fatto gli Spartani."
+        },
+        "Quale filosofo greco sostenne posizioni politiche simili al fascismo secondo il testo?": {
+          "question": "Quale filosofo greco sostenne posizioni politiche simili al fascismo secondo il testo?",
+          "answer": "Platone",
+          "value": "Platone",
+          "evidence": "Anche il filosofo greco Platone sostenne molte posizioni politiche simili a quelle del fascismo."
+        },
+        "In quale opera Platone sottolinea la necessità di un re filosofo?": {
+          "question": "In quale opera Platone sottolinea la necessità di un re filosofo?",
+          "answer": "La Repubblica",
+          "value": "La Repubblica (circa 380 a.C.)",
+          "evidence": "In La Repubblica (circa 380 a.C.), Platone sottolinea la necessità di un re filosofo in uno stato ideale."
+        },
+        "Come venivano chiamati i governanti nello stato ideale di Platone?": {
+          "question": "Come venivano chiamati i governanti nello stato ideale di Platone?",
+          "answer": "Guardiani",
+          "value": "Guardiani",
+          "evidence": "Platone riteneva che lo stato ideale dovesse essere governato da una classe d'élite di governanti, chiamati \"Guardiani,\" e rifiutava l'idea di uguaglianza sociale."
+        },
+        "Quale differenza fondamentale esisteva tra Platone e il fascismo secondo il testo?": {
+          "question": "Quale differenza fondamentale esisteva tra Platone e il fascismo secondo il testo?",
+          "answer": "Platone non promosse mai l'espansionismo e si oppose alla guerra offensiva",
+          "value": "opposizione all'espansionismo",
+          "evidence": "A differenza del fascismo, Platone non promosse mai l'espansionismo e si oppose alla guerra offensiva."
+        },
+        "Quali due figure romane idolatravano i fascisti italiani?": {
+          "question": "Quali due figure romane idolatravano i fascisti italiani?",
+          "answer": "Giulio Cesare e Augusto",
+          "value": "Giulio Cesare e Augusto",
+          "evidence": "I fascisti italiani identificavano la loro ideologia come legata all'eredità dell'antica Roma, e in particolare all'Impero Romano: idolatravano Giulio Cesare e Augusto."
+        },
+        "Quale simbolo dell'autorità romana fu adottato dai fascisti italiani?": {
+          "question": "Quale simbolo dell'autorità romana fu adottato dai fascisti italiani?",
+          "answer": "Il fascio littorio",
+          "value": "fascio littorio",
+          "evidence": "Il fascio littorio – un simbolo dell'autorità romana – era il simbolo dei fascisti italiani ed era inoltre adottato da molti altri movimenti fascisti nazionali formati in emulazione del fascismo italiano."
+        },
+        "Chi era il Duce d'Italia menzionato nel testo?": {
+          "question": "Chi era il Duce d'Italia menzionato nel testo?",
+          "answer": "Benito Mussolini",
+          "value": "Benito Mussolini",
+          "evidence": "Il Duce Benito Mussolini aveva un forte legame con le opere di Platone."
+        },
+        "A quali temi comuni fanno riferimento i movimenti fascisti secondo il testo?": {
+          "question": "A quali temi comuni fanno riferimento i movimenti fascisti secondo il testo?",
+          "answer": "Autoritarismo, nazionalismo, gerarchia ed elitarismo e militarismo",
+          "value": "autoritarismo, nazionalismo, gerarchia, elitarismo, militarismo",
+          "evidence": "I temi comuni ai movimenti fascisti includono: autoritarismo, nazionalismo (compreso il nazionalismo razziale e il nazionalismo religioso), gerarchia ed elitarismo e militarismo."
+        },
+        "A quali ideologie si opponeva fermamente il fascismo?": {
+          "question": "A quali ideologie si opponeva fermamente il fascismo?",
+          "answer": "Liberalismo, comunismo, anarchismo e socialismo democratico",
+          "value": "liberalismo, comunismo, anarchismo, socialismo democratico",
+          "evidence": "Si oppose fermamente al liberalismo, comunismo, anarchismo e al socialismo democratico."
+        },
+        "Quale pensatore influenzò fortemente il fascismo con la sua concezione dell'autorità assoluta dello Stato?": {
+          "question": "Quale pensatore influenzò fortemente il fascismo con la sua concezione dell'autorità assoluta dello Stato?",
+          "answer": "Georg Wilhelm Friedrich Hegel",
+          "value": "Hegel",
+          "evidence": "Anche la concezione di Georg Wilhelm Friedrich Hegel sull'autorità assoluta dello Stato influenzò fortemente il pensiero fascista."
+        },
+        "Quale evento storico del 1789 influenzò il fascismo in senso oppositivo?": {
+          "question": "Quale evento storico del 1789 influenzò il fascismo in senso oppositivo?",
+          "answer": "La rivoluzione francese",
+          "value": "Rivoluzione francese del 1789",
+          "evidence": "La rivoluzione francese del 1789 fu una grande influenza, poiché i nazisti si consideravano in lotta contro molte delle idee che essa aveva portato alla ribalta, in particolare il liberalismo, la democrazia liberale e l'uguaglianza razziale."
+        },
+        "Chi guidò l'antica civiltà ateniese citata come giustificazione della dittatura di Metaxas?": {
+          "question": "Chi guidò l'antica civiltà ateniese citata come giustificazione della dittatura di Metaxas?",
+          "answer": "Pericle",
+          "value": "Pericle",
+          "evidence": "I sostenitori del regime del 4 agosto degli anni '30 e '40 giustificavano la dittatura di Metaxas basandosi sul fatto che la \"prima civiltà greca\" comprendeva una dittatura ateniese guidata da Pericle, che aveva portato l'antica Grecia alla grandezza."
+        }
+      },
+      "ru": {
+        "Кто руководил итальянским фашизмом в 1919—1945 годах?": {
+          "question": "Кто руководил итальянским фашизмом в 1919—1945 годах?",
+          "answer": "Бенито Муссолини",
+          "value": "Бенито Муссолини",
+          "evidence": "праворадикальное политическое движение тоталитарного типа в Италии в 1919—1945 годах под руководством Бенито Муссолини"
+        },
+        "Какой британский политолог связывает фашизм с концепцией «палингенетического ультранационализма»?": {
+          "question": "Какой британский политолог связывает фашизм с концепцией «палингенетического ультранационализма»?",
+          "answer": "Роджер Гриффин",
+          "value": "Роджер Гриффин",
+          "evidence": "Он определяет фашизм как «палингенетический ультранационализм»"
+        },
+        "Кто дал определение фашизма как «гипернационалистического... движения, ставящего целью национальное и социальное объединение через единую партию и корпоративное представительство»?": {
+          "question": "Кто дал определение фашизма как «гипернационалистического... движения, ставящего целью национальное и социальное объединение через единую партию и корпоративное представительство»?",
+          "answer": "Хуан Линц",
+          "value": "Хуан Линц",
+          "evidence": "Социолог фашизма Хуан Линц даёт более пространное определение фашизма"
+        },
+        "В каком году было издано определение фашизма Колумбийским университетом как организованной формы интегративного радикального националистического авторитаризма?": {
+          "question": "В каком году было издано определение фашизма Колумбийским университетом как организованной формы интегративного радикального националистического авторитаризма?",
+          "answer": "1984 год",
+          "value": "1984",
+          "evidence": "В издании Колумбийского университета 1984 года фашизм понимается как организованная форма интегративного радикального националистического авторитаризма"
+        },
+        "В каком десятилетии сформировался «новый консенсус» в понимании фашизма?": {
+          "question": "В каком десятилетии сформировался «новый консенсус» в понимании фашизма?",
+          "answer": "1990-е годы",
+          "value": "1990-е",
+          "evidence": "Почва для возникшего в 1990-х годах «нового консенсуса»"
+        },
+        "Кто из исследователей писал о «литургическом» стиле как существенной части фашистской политики?": {
+          "question": "Кто из исследователей писал о «литургическом» стиле как существенной части фашистской политики?",
+          "answer": "Эмилио Джентиле",
+          "value": "Эмилио Джентиле",
+          "evidence": "Эмилио Джентиле писал, что существенной частью фашистского «стиля» политики стал «литургический» стиль"
+        },
+        "Немецкий политолог, считающий концепцию Гриффина принятой в англоязычном научном сообществе": {
+          "question": "Немецкий политолог, считающий концепцию Гриффина принятой в англоязычном научном сообществе",
+          "answer": "Андреас Умланд",
+          "value": "Андреас Умланд",
+          "evidence": "по мнению немецкого политолога Андреаса Умланда, можно считать более или менее принятой на сегодняшний день в англоязычном научном сообществе"
+        },
+        "Какие организации/движения 1920—1945 годов относят к фашистским по мнению нескольких источников?": {
+          "question": "Какие организации/движения 1920—1945 годов относят к фашистским по мнению нескольких источников?",
+          "answer": "НСДАП, Испанская фаланга, усташи, португальский Национальный союз, финляндское Движение Лапуа, Скрещённые стрелы, румынская Железная гвардия и др.",
+          "value": "НСДАП, Испанская фаланга, усташи, Национальный союз, Движение Лапуа, Скрещённые стрелы, Железная гвардия",
+          "evidence": "относят к фашистским ряд организаций и движений, активных в 1920—1945 годах: НСДАП, Испанская фаланга, усташи, португальский Национальный союз финляндское Движение Лапуа, Скрещённые стрелы в Венгрии, румынская Железная гвардия и ряд других"
+        },
+        "Что стало результатом установления фашистских режимов в первой половине XX века?": {
+          "question": "Что стало результатом установления фашистских режимов в первой половине XX века?",
+          "answer": "Инициирование Второй мировой войны",
+          "value": "Вторая мировая война",
+          "evidence": "Фашистские режимы, установившиеся в ряде государств Европы в первой половине века, стали инициаторами Второй мировой войны"
+        },
+        "Как называется идеологическое и политическое наследие фашизма, сформировавшееся после войны?": {
+          "question": "Как называется идеологическое и политическое наследие фашизма, сформировавшееся после войны?",
+          "answer": "Неофашизм",
+          "value": "неофашизм",
+          "evidence": "сформировались ультраправые националистические партии и группы, являющиеся идеологическими и политическими наследниками фашизма (неофашизм)"
+        }
+      },
+      "ar": {
+        "من هو صاحب نظرية «الولادة الجديدة للقومية المتطرفة»؟": {
+          "question": "من هو صاحب نظرية «الولادة الجديدة للقومية المتطرفة»؟",
+          "answer": "روجر غريفين",
+          "value": "روجر غريفين",
+          "evidence": "وهي نظرية طرحها روجر غريفين، مفادها أن الفاشية هي عبارة عن مزيج بين الشمولية والتطرف القومي"
+        },
+        "من هو الحاكم الإسبارطي الذي أعجب النازيون بحكمه؟": {
+          "question": "من هو الحاكم الإسبارطي الذي أعجب النازيون بحكمه؟",
+          "answer": "ليكرجوس",
+          "value": "ليكرجوس",
+          "evidence": "إسبرطة الإغريقية القديمة تحت حكم ليكرجوس وإعلائها من شأن السياسة العسكرية والنقاء العِرقي"
+        },
+        "في أي كتاب أكد هتلر على وجوب التزام ألمانيا بالقيم الهلنستية؟": {
+          "question": "في أي كتاب أكد هتلر على وجوب التزام ألمانيا بالقيم الهلنستية؟",
+          "answer": "كفاحي",
+          "value": "كفاحي",
+          "evidence": "وذكر في كتابه كفاحي: «يجب على المرء ألا يسمح للفروقات بين آحاد الأعراق بإحداث شرخ ضمن المجتمع العِرقي الأكبر»"
+        },
+        "من هو قائد النظام شبه الفاشي في اليونان الذي احتذى مثال الإسبرطيين؟": {
+          "question": "من هو قائد النظام شبه الفاشي في اليونان الذي احتذى مثال الإسبرطيين؟",
+          "answer": "أيوانيس متاكساس",
+          "value": "أيوانيس متاكساس",
+          "evidence": "احتذى النظام شبه الفاشي بقيادة أيوانيس متاكساس مثال الإسبرطيين وأطلق نداءً لليونايين بإلزام أنفسهم بشكل تام للأمة"
+        },
+        "ما اسم نظام متاكساس الذي حكم في ثلاثينيات وأربعينيات القرن العشرين؟": {
+          "question": "ما اسم نظام متاكساس الذي حكم في ثلاثينيات وأربعينيات القرن العشرين؟",
+          "answer": "نظام الرابع من أغسطس",
+          "value": "نظام الرابع من أغسطس",
+          "evidence": "برر أنصار نظام الرابع من أغسطس في ثلاثينيات وأربعينيات القرن العشرين دكتاتورية متاكساس"
+        },
+        "من هو القائد الأثيني الذي أوصل اليونان القديمة إلى العظمة بحسب النص؟": {
+          "question": "من هو القائد الأثيني الذي أوصل اليونان القديمة إلى العظمة بحسب النص؟",
+          "answer": "بريكليس",
+          "value": "بريكليس",
+          "evidence": "ديكتاتورية أثينية بقيادة بريكليس الذي أوصل اليونان القديمة إلى العَظَمة"
+        },
+        "من كتب كتاب الجمهورية وما هو تاريخ تأليفه التقريبي؟": {
+          "question": "من كتب كتاب الجمهورية وما هو تاريخ تأليفه التقريبي؟",
+          "answer": "أفلاطون، حوالي 380 قبل الميلاد",
+          "value": "حوالي 380 قبل الميلاد",
+          "evidence": "في كتابه الجمهورية (حوالي العام 380 قبل الميلاد)... يؤكد أفلاطون على الحاجة إلى الملك الفيلسوف في الدولة المثالية"
+        },
+        "ما الاسم الذي أطلقه أفلاطون على النخبة الحاكمة في دولته المثالية؟": {
+          "question": "ما الاسم الذي أطلقه أفلاطون على النخبة الحاكمة في دولته المثالية؟",
+          "answer": "الأوصياء",
+          "value": "الأوصياء",
+          "evidence": "آمن أفلاطون أن الدولة المثالية تحكمها نخبة من الحكام الذين يُعرفون باسم «الأوصياء»"
+        },
+        "ما هو الفرق الجوهري بين أفلاطون والفاشية بخصوص الحروب؟": {
+          "question": "ما هو الفرق الجوهري بين أفلاطون والفاشية بخصوص الحروب؟",
+          "answer": "لم يدعم أفلاطون النزعة التوسعية وكان معارضًا للحروب الهجومية",
+          "value": "معارضة الحروب الهجومية",
+          "evidence": "فعلى الضد من الفاشية، لم يدعم أفلاطون أبدًا النزعة التوسّعية، وكان معارِضًا للحروب الهجومية"
+        },
+        "من هما الشخصيتان الرومانيتان اللتان كانتا محط إعجاب شديد للفاشيين الطليان؟": {
+          "question": "من هما الشخصيتان الرومانيتان اللتان كانتا محط إعجاب شديد للفاشيين الطليان؟",
+          "answer": "يوليوس قيصر والإمبراطور أغسطس",
+          "value": "يوليوس قيصر وأغسطس",
+          "evidence": "كان يوليوس قيصر والإمبراطور أغسطس محط إعجاب شديد للفاشيين الطليان"
+        },
+        "ما الرمز الروماني الذي اتخذه الفاشيون الإيطاليون رمزًا خاصًا بهم؟": {
+          "question": "ما الرمز الروماني الذي اتخذه الفاشيون الإيطاليون رمزًا خاصًا بهم؟",
+          "answer": "الفاسيز",
+          "value": "الفاسيز",
+          "evidence": "اتخذ الفاشيون الطليان الفاسيز –رمز السلطة الرومانية– رمزًا خاصًا بهم"
+        },
+        "إلى ماذا أرجع هتلر سبب سقوط الإمبراطورية الرومانية؟": {
+          "question": "إلى ماذا أرجع هتلر سبب سقوط الإمبراطورية الرومانية؟",
+          "answer": "تبنيها المسيحية التي سمحت بالاختلاط العرقي",
+          "value": "تبني المسيحية والاختلاط العرقي",
+          "evidence": "أرجع هتلر سبب سقوط الإمبراطورية الرومانية إلى تبنيها المسيحية التي سمحت بالاختلاط العِرقي الذي أضعف روما وأفضى في النهاية إلى تدميرها"
+        },
+        "من هو المفكر الذي ترك بصمته في الفاشية الإيطالية عبر ترويجه لسلطة الدولة المطلقة خلال عصر النهضة؟": {
+          "question": "من هو المفكر الذي ترك بصمته في الفاشية الإيطالية عبر ترويجه لسلطة الدولة المطلقة خلال عصر النهضة؟",
+          "answer": "نيكولو مكيافيللي",
+          "value": "نيكولو مكيافيللي",
+          "evidence": "من المعروف أن نيكولو مكيافيللي قد ترك بصمته في الفاشية الإيطالية، وخصوصًا عبر ترويجه لسلطة الدولة المطلقة"
+        },
+        "من اعتبر نفسه مكيافيليًا معاصرًا؟": {
+          "question": "من اعتبر نفسه مكيافيليًا معاصرًا؟",
+          "answer": "موسوليني",
+          "value": "موسوليني",
+          "evidence": "اعتبر موسوليني نفسه مكيافليًا معاصرً"
+        },
+        "ما هو رأي أفلاطون في الديمقراطية كما ورد في النص؟": {
+          "question": "ما هو رأي أفلاطون في الديمقراطية كما ورد في النص؟",
+          "answer": "كان يزدريها ويرى أن قوانينها بلا أثر وحريتها فوضى",
+          "value": "ازدراء شديد",
+          "evidence": "كنّ أفلاطون للديمقراطية كل الازدراء، وقال: «تبقى قوانين الديمقراطية دون أثر يُذكر، وحريتها ليست سوى فوضى، والمساواة فيها هي مساواة بين أطراف غير متكافئة»"
+        }
+      }
+    },
+    "adjudication": []
+  },
+  "diagnostics": {
+    "min_edition_count": 2,
+    "effective_langs": [
+      "ko",
+      "en",
+      "it",
+      "ru",
+      "ar"
+    ],
+    "errors": []
+  },
+  "schema_version": 1,
+  "analysis_scope": "confirmed_episodes",
+  "episode_count": 5,
+  "episodes": [
+    {
+      "article": "Fascism and ideology",
+      "asof": "2026-05-28T20:03:02Z",
+      "langs": [
+        "ko",
+        "en",
+        "it",
+        "ru",
+        "ar"
+      ],
+      "citation": {
+        "mean_jaccard": 0.18,
+        "domains_per_edition": {
+          "ko": 32,
+          "en": 32,
+          "it": 4,
+          "ru": 27,
+          "ar": 4
+        }
+      },
+      "claim": {
+        "per_edition": {
+          "ko": {
+            "파시즘 선전 포스터에 등장하는 이탈리아의 두체는 누구인가?": {
+              "question": "파시즘 선전 포스터에 등장하는 이탈리아의 두체는 누구인가?",
+              "answer": "베니토 무솔리니",
+              "value": "베니토 무솔리니",
+              "evidence": "이탈리아의 두체인 베니토 무솔리니가 등장하는 파시스트 선전 포스터."
+            },
+            "로저 그리핀은 파시즘을 무엇이라고 명명했는가?": {
+              "question": "로저 그리핀은 파시즘을 무엇이라고 명명했는가?",
+              "answer": "재생적 국수주의",
+              "value": "재생적 국수주의",
+              "evidence": "로저 그리핀은 파시즘이 국가의 재탄생과 재생이라는 신화를 통해 신성시된 전체주의와 국수주의의 합성물이라고 제안했으며, 이를 \"재생적 국수주의\"라고 명명했다."
+            },
+            "나치의 인종관의 핵심이 된 편견은 어떤 문화 간의 대립인가?": {
+              "question": "나치의 인종관의 핵심이 된 편견은 어떤 문화 간의 대립인가?",
+              "answer": "고귀한 아리아인 문화와 기생적인 셈족 문화",
+              "value": "아리아인 대 셈족",
+              "evidence": "\"기생적인\" 셈족 문화에 반대되는 \"고귀한\" 아리아인 문화라는 편견은 나치의 인종관의 핵심이었으며"
+            },
+            "고대 그리스 도시 국가 중 나치즘과 메탁사스주의에 영감을 준 곳은 어디인가?": {
+              "question": "고대 그리스 도시 국가 중 나치즘과 메탁사스주의에 영감을 준 곳은 어디인가?",
+              "answer": "스파르타",
+              "value": "스파르타",
+              "evidence": "고대 스파르타는 나치즘 및 준파시스트 성격의 메탁사스주의와 같은 파시스트 및 준파시스트 운동에 영감을 준 것으로 간주되어 왔다."
+            },
+            "플라톤이 국가에서 이상 국가를 통치해야 한다고 주장한 정예 계급의 이름은 무엇인가?": {
+              "question": "플라톤이 국가에서 이상 국가를 통치해야 한다고 주장한 정예 계급의 이름은 무엇인가?",
+              "answer": "수호자",
+              "value": "수호자",
+              "evidence": "플라톤은 이상 국가가 \"수호자\"로 알려진 정예 통치 계급에 의해 통치될 것이라고 믿었으며 사회적 평등의 아이디어를 거부했다."
+            },
+            "플라톤의 국가는 언제 저술되었는가?": {
+              "question": "플라톤의 국가는 언제 저술되었는가?",
+              "answer": "기원전 약 380년",
+              "value": "기원전 약 380년",
+              "evidence": "국가(기원전 약 380년)에서 플라톤은 이상적인 국가에서 철인 왕의 필요성을 강조한다."
+            },
+            "이탈리아 파시스트들이 우상화한 로마의 두 인물은 누구인가?": {
+              "question": "이탈리아 파시스트들이 우상화한 로마의 두 인물은 누구인가?",
+              "answer": "율리우스 카이사르와 아우구스투스",
+              "value": "율리우스 카이사르, 아우구스투스",
+              "evidence": "이탈리아 파시스트들은 자신들의 이념이 고대 로마, 특히 로마 제국의 유산과 연결되어 있다고 규정했으며, 율리우스 카이사르와 아우구스투스를 우상화했다."
+            },
+            "로마 권위의 상징으로 이탈리아 파시스트들이 채택한 상징은 무엇인가?": {
+              "question": "로마 권위의 상징으로 이탈리아 파시스트들이 채택한 상징은 무엇인가?",
+              "answer": "속간(fasces)",
+              "value": "속간(fasces)",
+              "evidence": "로마 권위의 상징인 속간(fasces)은 이탈리아 파시스트들의 상징이었으며"
+            },
+            "히틀러는 사적인 대화에서 로마 제국의 멸망 원인을 무엇으로 비난했는가?": {
+              "question": "히틀러는 사적인 대화에서 로마 제국의 멸망 원인을 무엇으로 비난했는가?",
+              "answer": "기독교 수용으로 인한 인종적 혼합",
+              "value": "기독교 수용",
+              "evidence": "히틀러는 로마 제국의 멸망 원인을 로마가 기독교를 받아들였기 때문이라고 비난했는데, 그는 기독교가 인종적 혼합을 허용하여 로마를 약화시키고 파멸로 이끌었다고 주장했다."
+            },
+            "토머스 홉스의 리바이어던은 몇 년에 출판되었는가?": {
+              "question": "토머스 홉스의 리바이어던은 몇 년에 출판되었는가?",
+              "answer": "1651년",
+              "value": "1651",
+              "evidence": "영국의 정치 이론가 토머스 홉스는 그의 저서 리바이어던(1651)에서 국가 내부의 질서를 유지하기 위해 전지전능한 전제군주제를 옹호하는 절대주의 이념을 창안했다."
+            },
+            "내셔널리즘(nationalismus)이라는 용어를 개발한 인물은 누구인가?": {
+              "question": "내셔널리즘(nationalismus)이라는 용어를 개발한 인물은 누구인가?",
+              "answer": "요한 고트프리트 헤르더",
+              "value": "요한 고트프리트 헤르더",
+              "evidence": "헤르더는 이러한 문화적 현상을 설명하기 위해 내셔널리즘(\"nationalismus\")이라는 용어를 개발했다."
+            },
+            "헤겔은 국가에 대해 무엇이라고 말했는가?": {
+              "question": "헤겔은 국가에 대해 무엇이라고 말했는가?",
+              "answer": "국가만이 자유의 실현이며 지상에 행차하는 신의 행렬이라고 말했다",
+              "value": "국가는 자유의 실현, 신의 행렬",
+              "evidence": "헤겔은 국가의 절대적 권위를 장려했으며 \"국가만이 자유의 실현\"이며 \"국가는 지상에 행차하는 신의 행렬\"이라고 말했다."
+            },
+            "무솔리니가 볼로냐 대학교 명예 박사 학위 논문 서문으로 쓴 글의 제목은 무엇인가?": {
+              "question": "무솔리니가 볼로냐 대학교 명예 박사 학위 논문 서문으로 쓴 글의 제목은 무엇인가?",
+              "answer": "마키아벨리 서설",
+              "value": "마키아벨리 서설",
+              "evidence": "무솔리니는 자신을 현대의 마키아벨리주의자로 여겼으며 볼로냐 대학교 명예 박사 학위 논문의 서문으로 \"마키아벨리 서설\"을 썼다."
+            },
+            "프랑스 혁명군에 의해 개발되어 나치가 이상화한 시스템은 무엇인가?": {
+              "question": "프랑스 혁명군에 의해 개발되어 나치가 이상화한 시스템은 무엇인가?",
+              "answer": "국민개병(집단 동원)",
+              "value": "국민개병",
+              "evidence": "나치는 프랑스 혁명군에 의해 개발된 국민개병(집단 동원)을 이상화했으며 그들의 준군사 운동에 이 시스템을 사용하고자 했다."
+            },
+            "세기말 시대의 지성 학파에 속한 이탈리아 인물 두 명은 누구인가?": {
+              "question": "세기말 시대의 지성 학파에 속한 이탈리아 인물 두 명은 누구인가?",
+              "answer": "가브리엘레 단눈치오와 엔리코 코라디니",
+              "value": "가브리엘레 단눈치오, 엔리코 코라디니",
+              "evidence": "이탈리아의 가브리엘레 단눈치오와 엔리코 코라디니, 프랑스의 모리스 바레스, 에두아르 드뤼몽, 조르주 소렐, 그리고 독일의 파울 드 라가르드, 율리우스 랑벤, 아르투어 묄러 판 덴 브루크를 포함한 1890년대의 세기말 지성 학파"
+            },
+            "파시즘의 이념적 뿌리는 몇 년대로 거슬러 올라가는가?": {
+              "question": "파시즘의 이념적 뿌리는 몇 년대로 거슬러 올라가는가?",
+              "answer": "1880년대",
+              "value": "1880년대",
+              "evidence": "파시즘의 이념적 뿌리는 1880년대, 특히 그 당시의 세기말(fin de siècle) 주제로 거슬러 올라간다."
+            },
+            "\"신은 죽었다\"라는 주장을 한 철학자는 누구인가?": {
+              "question": "\"신은 죽었다\"라는 주장을 한 철학자는 누구인가?",
+              "answer": "프리드리히 니체",
+              "value": "프리드리히 니체",
+              "evidence": "\"신은 죽었다\"라는 니체의 주장은 기독교, 민주주의 및 현대 집단주의의 \"노예 도덕\"에 대한 그의 공격과 일치했다."
+            }
+          },
+          "en": {
+            "Which ancient Greek city-state, under Lycurgus, was admired by the Nazis for militarism and racial purity?": {
+              "question": "Which ancient Greek city-state, under Lycurgus, was admired by the Nazis for militarism and racial purity?",
+              "answer": "Sparta",
+              "value": "Sparta",
+              "evidence": "the ancient Greek city state of Sparta under Lycurgus, with its emphasis on militarism and racial purity, were admired by the Nazis"
+            },
+            "Who wrote The Republic and emphasized the need for a philosopher king?": {
+              "question": "Who wrote The Republic and emphasized the need for a philosopher king?",
+              "answer": "Plato",
+              "value": "Plato",
+              "evidence": "In The Republic (c. 380 BC), Plato emphasizes the need for a philosopher king in an ideal state."
+            },
+            "What term did Plato use for the elite ruling class in his ideal state?": {
+              "question": "What term did Plato use for the elite ruling class in his ideal state?",
+              "answer": "Guardians",
+              "value": "Guardians",
+              "evidence": "Plato believed the ideal state would be ruled by an elite class of rulers known as \"Guardians\" and rejected the idea of social equality."
+            },
+            "Which quasi-fascist Greek leader emulated the Spartans in the 1930s-1940s?": {
+              "question": "Which quasi-fascist Greek leader emulated the Spartans in the 1930s-1940s?",
+              "answer": "Ioannis Metaxas",
+              "value": "Ioannis Metaxas",
+              "evidence": "The Spartans were emulated by the quasi-fascist regime of Ioannis Metaxas who called for Greeks to wholly commit themselves to the nation with self-control as the Spartans had done."
+            },
+            "Which two Roman leaders did Italian Fascists idolize?": {
+              "question": "Which two Roman leaders did Italian Fascists idolize?",
+              "answer": "Julius Caesar and Augustus",
+              "value": "Julius Caesar and Augustus",
+              "evidence": "they idolized Julius Caesar and Augustus."
+            },
+            "What symbol of Roman authority became the symbol of Italian Fascists?": {
+              "question": "What symbol of Roman authority became the symbol of Italian Fascists?",
+              "answer": "the fasces",
+              "value": "fasces",
+              "evidence": "The fasces – a symbol of Roman authority – was the symbol of the Italian Fascists and was additionally adopted by many other national fascist movements formed in emulation of Italian Fascism."
+            },
+            "What did Hitler blame for the fall of the Roman Empire?": {
+              "question": "What did Hitler blame for the fall of the Roman Empire?",
+              "answer": "the Roman adoption of Christianity, which he claimed authorized racial intermixing",
+              "value": "Christianity/racial intermixing",
+              "evidence": "Hitler blamed the fall of the Roman Empire on the Roman adoption of Christianity because he claimed that Christianity authorized racial intermixing that he claimed weakened Rome and led to its destruction."
+            },
+            "What term did Roger Griffin propose to describe fascism as a synthesis of totalitarianism and ultranationalism?": {
+              "question": "What term did Roger Griffin propose to describe fascism as a synthesis of totalitarianism and ultranationalism?",
+              "answer": "Palingenetic ultranationalism",
+              "value": "palingenetic ultranationalism",
+              "evidence": "Roger Griffin has proposed that fascism is a synthesis of totalitarianism and ultranationalism sacralized through a myth of national rebirth and regeneration, which he terms \"palingenetic ultranationalism\"."
+            },
+            "Which Renaissance figure influenced Italian Fascism through promotion of absolute state authority?": {
+              "question": "Which Renaissance figure influenced Italian Fascism through promotion of absolute state authority?",
+              "answer": "Niccolò Machiavelli",
+              "value": "Niccolò Machiavelli",
+              "evidence": "Niccolò Machiavelli is said to have influenced Italian Fascism, particularly through his promotion of the absolute authority of the state."
+            },
+            "Which philosopher's view on the absolute authority of the state strongly influenced fascist thinking?": {
+              "question": "Which philosopher's view on the absolute authority of the state strongly influenced fascist thinking?",
+              "answer": "Georg Wilhelm Friedrich Hegel",
+              "value": "Hegel",
+              "evidence": "Georg Wilhelm Friedrich Hegel's view on the absolute authority of the state also strongly influenced fascist thinking."
+            },
+            "What year was the French Revolution that influenced fascist and Nazi ideology?": {
+              "question": "What year was the French Revolution that influenced fascist and Nazi ideology?",
+              "answer": "1789",
+              "value": "1789",
+              "evidence": "The 1789 French Revolution was a major influence insofar as the Nazis saw themselves as fighting back against many of the ideas which it brought to prominence"
+            },
+            "According to the passage, did Plato promote expansionism or offensive war?": {
+              "question": "According to the passage, did Plato promote expansionism or offensive war?",
+              "answer": "No, unlike fascism, Plato opposed offensive war and never promoted expansionism",
+              "value": "No",
+              "evidence": "Unlike fascism, Plato never promoted expansionism and he was opposed to offensive war."
+            }
+          },
+          "it": {
+            "Chi è Roger Griffin e cosa ha proposto riguardo al fascismo?": {
+              "question": "Chi è Roger Griffin e cosa ha proposto riguardo al fascismo?",
+              "answer": "Roger Griffin ha proposto che il fascismo sia una sintesi di totalitarismo e ultranazionalismo sacralizzato attraverso un mito di rinascita e rigenerazione nazionale",
+              "value": "ultranazionalismo palingenetico",
+              "evidence": "Roger Griffin (n. 1948) ha proposto che il fascismo sia una sintesi di totalitarismo e ultranazionalismo sacralizzato attraverso un mito di rinascita e rigenerazione nazionale, che egli definisce \"ultranazionalismo palingenetico\"."
+            },
+            "Quale città-stato greca era ammirata dai nazisti per il militarismo e la purezza razziale?": {
+              "question": "Quale città-stato greca era ammirata dai nazisti per il militarismo e la purezza razziale?",
+              "answer": "Sparta",
+              "value": "Sparta",
+              "evidence": "la città-stato greca di Sparta sotto Licurgo, con la sua enfasi sul militarismo e la purezza razziale, erano ammirate dai nazisti."
+            },
+            "Chi era il Führer nazista citato nel testo?": {
+              "question": "Chi era il Führer nazista citato nel testo?",
+              "answer": "Adolf Hitler",
+              "value": "Adolf Hitler",
+              "evidence": "Il Führer nazista Adolf Hitler sottolineava che la Germania dovesse aderire ai valori e alla cultura ellenica, in particolare a quelli dell'antica Sparta."
+            },
+            "In quale opera Hitler scrisse sulla razza ariana e gli antichi Greci?": {
+              "question": "In quale opera Hitler scrisse sulla razza ariana e gli antichi Greci?",
+              "answer": "Mein Kampf",
+              "value": "Mein Kampf",
+              "evidence": "affermando in Mein Kampf: \"Non si devono permettere le differenze delle singole razze di lacerare la più grande comunità razziale\"."
+            },
+            "Chi guidava il regime quasi fascista greco che emulava gli Spartani?": {
+              "question": "Chi guidava il regime quasi fascista greco che emulava gli Spartani?",
+              "answer": "Ioannis Metaxas",
+              "value": "Ioannis Metaxas",
+              "evidence": "Il regime quasi fascista di Ioannis Metaxas emulò gli Spartani, esortando i Greci a dedicarsi interamente alla nazione con autocontrollo, proprio come avevano fatto gli Spartani."
+            },
+            "Quale filosofo greco sostenne posizioni politiche simili al fascismo secondo il testo?": {
+              "question": "Quale filosofo greco sostenne posizioni politiche simili al fascismo secondo il testo?",
+              "answer": "Platone",
+              "value": "Platone",
+              "evidence": "Anche il filosofo greco Platone sostenne molte posizioni politiche simili a quelle del fascismo."
+            },
+            "In quale opera Platone sottolinea la necessità di un re filosofo?": {
+              "question": "In quale opera Platone sottolinea la necessità di un re filosofo?",
+              "answer": "La Repubblica",
+              "value": "La Repubblica (circa 380 a.C.)",
+              "evidence": "In La Repubblica (circa 380 a.C.), Platone sottolinea la necessità di un re filosofo in uno stato ideale."
+            },
+            "Come venivano chiamati i governanti nello stato ideale di Platone?": {
+              "question": "Come venivano chiamati i governanti nello stato ideale di Platone?",
+              "answer": "Guardiani",
+              "value": "Guardiani",
+              "evidence": "Platone riteneva che lo stato ideale dovesse essere governato da una classe d'élite di governanti, chiamati \"Guardiani,\" e rifiutava l'idea di uguaglianza sociale."
+            },
+            "Quale differenza fondamentale esisteva tra Platone e il fascismo secondo il testo?": {
+              "question": "Quale differenza fondamentale esisteva tra Platone e il fascismo secondo il testo?",
+              "answer": "Platone non promosse mai l'espansionismo e si oppose alla guerra offensiva",
+              "value": "opposizione all'espansionismo",
+              "evidence": "A differenza del fascismo, Platone non promosse mai l'espansionismo e si oppose alla guerra offensiva."
+            },
+            "Quali due figure romane idolatravano i fascisti italiani?": {
+              "question": "Quali due figure romane idolatravano i fascisti italiani?",
+              "answer": "Giulio Cesare e Augusto",
+              "value": "Giulio Cesare e Augusto",
+              "evidence": "I fascisti italiani identificavano la loro ideologia come legata all'eredità dell'antica Roma, e in particolare all'Impero Romano: idolatravano Giulio Cesare e Augusto."
+            },
+            "Quale simbolo dell'autorità romana fu adottato dai fascisti italiani?": {
+              "question": "Quale simbolo dell'autorità romana fu adottato dai fascisti italiani?",
+              "answer": "Il fascio littorio",
+              "value": "fascio littorio",
+              "evidence": "Il fascio littorio – un simbolo dell'autorità romana – era il simbolo dei fascisti italiani ed era inoltre adottato da molti altri movimenti fascisti nazionali formati in emulazione del fascismo italiano."
+            },
+            "Chi era il Duce d'Italia menzionato nel testo?": {
+              "question": "Chi era il Duce d'Italia menzionato nel testo?",
+              "answer": "Benito Mussolini",
+              "value": "Benito Mussolini",
+              "evidence": "Il Duce Benito Mussolini aveva un forte legame con le opere di Platone."
+            },
+            "A quali temi comuni fanno riferimento i movimenti fascisti secondo il testo?": {
+              "question": "A quali temi comuni fanno riferimento i movimenti fascisti secondo il testo?",
+              "answer": "Autoritarismo, nazionalismo, gerarchia ed elitarismo e militarismo",
+              "value": "autoritarismo, nazionalismo, gerarchia, elitarismo, militarismo",
+              "evidence": "I temi comuni ai movimenti fascisti includono: autoritarismo, nazionalismo (compreso il nazionalismo razziale e il nazionalismo religioso), gerarchia ed elitarismo e militarismo."
+            },
+            "A quali ideologie si opponeva fermamente il fascismo?": {
+              "question": "A quali ideologie si opponeva fermamente il fascismo?",
+              "answer": "Liberalismo, comunismo, anarchismo e socialismo democratico",
+              "value": "liberalismo, comunismo, anarchismo, socialismo democratico",
+              "evidence": "Si oppose fermamente al liberalismo, comunismo, anarchismo e al socialismo democratico."
+            },
+            "Quale pensatore influenzò fortemente il fascismo con la sua concezione dell'autorità assoluta dello Stato?": {
+              "question": "Quale pensatore influenzò fortemente il fascismo con la sua concezione dell'autorità assoluta dello Stato?",
+              "answer": "Georg Wilhelm Friedrich Hegel",
+              "value": "Hegel",
+              "evidence": "Anche la concezione di Georg Wilhelm Friedrich Hegel sull'autorità assoluta dello Stato influenzò fortemente il pensiero fascista."
+            },
+            "Quale evento storico del 1789 influenzò il fascismo in senso oppositivo?": {
+              "question": "Quale evento storico del 1789 influenzò il fascismo in senso oppositivo?",
+              "answer": "La rivoluzione francese",
+              "value": "Rivoluzione francese del 1789",
+              "evidence": "La rivoluzione francese del 1789 fu una grande influenza, poiché i nazisti si consideravano in lotta contro molte delle idee che essa aveva portato alla ribalta, in particolare il liberalismo, la democrazia liberale e l'uguaglianza razziale."
+            },
+            "Chi guidò l'antica civiltà ateniese citata come giustificazione della dittatura di Metaxas?": {
+              "question": "Chi guidò l'antica civiltà ateniese citata come giustificazione della dittatura di Metaxas?",
+              "answer": "Pericle",
+              "value": "Pericle",
+              "evidence": "I sostenitori del regime del 4 agosto degli anni '30 e '40 giustificavano la dittatura di Metaxas basandosi sul fatto che la \"prima civiltà greca\" comprendeva una dittatura ateniese guidata da Pericle, che aveva portato l'antica Grecia alla grandezza."
+            }
+          },
+          "ru": {
+            "Кто руководил итальянским фашизмом в 1919—1945 годах?": {
+              "question": "Кто руководил итальянским фашизмом в 1919—1945 годах?",
+              "answer": "Бенито Муссолини",
+              "value": "Бенито Муссолини",
+              "evidence": "праворадикальное политическое движение тоталитарного типа в Италии в 1919—1945 годах под руководством Бенито Муссолини"
+            },
+            "Какой британский политолог связывает фашизм с концепцией «палингенетического ультранационализма»?": {
+              "question": "Какой британский политолог связывает фашизм с концепцией «палингенетического ультранационализма»?",
+              "answer": "Роджер Гриффин",
+              "value": "Роджер Гриффин",
+              "evidence": "Он определяет фашизм как «палингенетический ультранационализм»"
+            },
+            "Кто дал определение фашизма как «гипернационалистического... движения, ставящего целью национальное и социальное объединение через единую партию и корпоративное представительство»?": {
+              "question": "Кто дал определение фашизма как «гипернационалистического... движения, ставящего целью национальное и социальное объединение через единую партию и корпоративное представительство»?",
+              "answer": "Хуан Линц",
+              "value": "Хуан Линц",
+              "evidence": "Социолог фашизма Хуан Линц даёт более пространное определение фашизма"
+            },
+            "В каком году было издано определение фашизма Колумбийским университетом как организованной формы интегративного радикального националистического авторитаризма?": {
+              "question": "В каком году было издано определение фашизма Колумбийским университетом как организованной формы интегративного радикального националистического авторитаризма?",
+              "answer": "1984 год",
+              "value": "1984",
+              "evidence": "В издании Колумбийского университета 1984 года фашизм понимается как организованная форма интегративного радикального националистического авторитаризма"
+            },
+            "В каком десятилетии сформировался «новый консенсус» в понимании фашизма?": {
+              "question": "В каком десятилетии сформировался «новый консенсус» в понимании фашизма?",
+              "answer": "1990-е годы",
+              "value": "1990-е",
+              "evidence": "Почва для возникшего в 1990-х годах «нового консенсуса»"
+            },
+            "Кто из исследователей писал о «литургическом» стиле как существенной части фашистской политики?": {
+              "question": "Кто из исследователей писал о «литургическом» стиле как существенной части фашистской политики?",
+              "answer": "Эмилио Джентиле",
+              "value": "Эмилио Джентиле",
+              "evidence": "Эмилио Джентиле писал, что существенной частью фашистского «стиля» политики стал «литургический» стиль"
+            },
+            "Немецкий политолог, считающий концепцию Гриффина принятой в англоязычном научном сообществе": {
+              "question": "Немецкий политолог, считающий концепцию Гриффина принятой в англоязычном научном сообществе",
+              "answer": "Андреас Умланд",
+              "value": "Андреас Умланд",
+              "evidence": "по мнению немецкого политолога Андреаса Умланда, можно считать более или менее принятой на сегодняшний день в англоязычном научном сообществе"
+            },
+            "Какие организации/движения 1920—1945 годов относят к фашистским по мнению нескольких источников?": {
+              "question": "Какие организации/движения 1920—1945 годов относят к фашистским по мнению нескольких источников?",
+              "answer": "НСДАП, Испанская фаланга, усташи, португальский Национальный союз, финляндское Движение Лапуа, Скрещённые стрелы, румынская Железная гвардия и др.",
+              "value": "НСДАП, Испанская фаланга, усташи, Национальный союз, Движение Лапуа, Скрещённые стрелы, Железная гвардия",
+              "evidence": "относят к фашистским ряд организаций и движений, активных в 1920—1945 годах: НСДАП, Испанская фаланга, усташи, португальский Национальный союз финляндское Движение Лапуа, Скрещённые стрелы в Венгрии, румынская Железная гвардия и ряд других"
+            },
+            "Что стало результатом установления фашистских режимов в первой половине XX века?": {
+              "question": "Что стало результатом установления фашистских режимов в первой половине XX века?",
+              "answer": "Инициирование Второй мировой войны",
+              "value": "Вторая мировая война",
+              "evidence": "Фашистские режимы, установившиеся в ряде государств Европы в первой половине века, стали инициаторами Второй мировой войны"
+            },
+            "Как называется идеологическое и политическое наследие фашизма, сформировавшееся после войны?": {
+              "question": "Как называется идеологическое и политическое наследие фашизма, сформировавшееся после войны?",
+              "answer": "Неофашизм",
+              "value": "неофашизм",
+              "evidence": "сформировались ультраправые националистические партии и группы, являющиеся идеологическими и политическими наследниками фашизма (неофашизм)"
+            }
+          },
+          "ar": {
+            "من هو صاحب نظرية «الولادة الجديدة للقومية المتطرفة»؟": {
+              "question": "من هو صاحب نظرية «الولادة الجديدة للقومية المتطرفة»؟",
+              "answer": "روجر غريفين",
+              "value": "روجر غريفين",
+              "evidence": "وهي نظرية طرحها روجر غريفين، مفادها أن الفاشية هي عبارة عن مزيج بين الشمولية والتطرف القومي"
+            },
+            "من هو الحاكم الإسبارطي الذي أعجب النازيون بحكمه؟": {
+              "question": "من هو الحاكم الإسبارطي الذي أعجب النازيون بحكمه؟",
+              "answer": "ليكرجوس",
+              "value": "ليكرجوس",
+              "evidence": "إسبرطة الإغريقية القديمة تحت حكم ليكرجوس وإعلائها من شأن السياسة العسكرية والنقاء العِرقي"
+            },
+            "في أي كتاب أكد هتلر على وجوب التزام ألمانيا بالقيم الهلنستية؟": {
+              "question": "في أي كتاب أكد هتلر على وجوب التزام ألمانيا بالقيم الهلنستية؟",
+              "answer": "كفاحي",
+              "value": "كفاحي",
+              "evidence": "وذكر في كتابه كفاحي: «يجب على المرء ألا يسمح للفروقات بين آحاد الأعراق بإحداث شرخ ضمن المجتمع العِرقي الأكبر»"
+            },
+            "من هو قائد النظام شبه الفاشي في اليونان الذي احتذى مثال الإسبرطيين؟": {
+              "question": "من هو قائد النظام شبه الفاشي في اليونان الذي احتذى مثال الإسبرطيين؟",
+              "answer": "أيوانيس متاكساس",
+              "value": "أيوانيس متاكساس",
+              "evidence": "احتذى النظام شبه الفاشي بقيادة أيوانيس متاكساس مثال الإسبرطيين وأطلق نداءً لليونايين بإلزام أنفسهم بشكل تام للأمة"
+            },
+            "ما اسم نظام متاكساس الذي حكم في ثلاثينيات وأربعينيات القرن العشرين؟": {
+              "question": "ما اسم نظام متاكساس الذي حكم في ثلاثينيات وأربعينيات القرن العشرين؟",
+              "answer": "نظام الرابع من أغسطس",
+              "value": "نظام الرابع من أغسطس",
+              "evidence": "برر أنصار نظام الرابع من أغسطس في ثلاثينيات وأربعينيات القرن العشرين دكتاتورية متاكساس"
+            },
+            "من هو القائد الأثيني الذي أوصل اليونان القديمة إلى العظمة بحسب النص؟": {
+              "question": "من هو القائد الأثيني الذي أوصل اليونان القديمة إلى العظمة بحسب النص؟",
+              "answer": "بريكليس",
+              "value": "بريكليس",
+              "evidence": "ديكتاتورية أثينية بقيادة بريكليس الذي أوصل اليونان القديمة إلى العَظَمة"
+            },
+            "من كتب كتاب الجمهورية وما هو تاريخ تأليفه التقريبي؟": {
+              "question": "من كتب كتاب الجمهورية وما هو تاريخ تأليفه التقريبي؟",
+              "answer": "أفلاطون، حوالي 380 قبل الميلاد",
+              "value": "حوالي 380 قبل الميلاد",
+              "evidence": "في كتابه الجمهورية (حوالي العام 380 قبل الميلاد)... يؤكد أفلاطون على الحاجة إلى الملك الفيلسوف في الدولة المثالية"
+            },
+            "ما الاسم الذي أطلقه أفلاطون على النخبة الحاكمة في دولته المثالية؟": {
+              "question": "ما الاسم الذي أطلقه أفلاطون على النخبة الحاكمة في دولته المثالية؟",
+              "answer": "الأوصياء",
+              "value": "الأوصياء",
+              "evidence": "آمن أفلاطون أن الدولة المثالية تحكمها نخبة من الحكام الذين يُعرفون باسم «الأوصياء»"
+            },
+            "ما هو الفرق الجوهري بين أفلاطون والفاشية بخصوص الحروب؟": {
+              "question": "ما هو الفرق الجوهري بين أفلاطون والفاشية بخصوص الحروب؟",
+              "answer": "لم يدعم أفلاطون النزعة التوسعية وكان معارضًا للحروب الهجومية",
+              "value": "معارضة الحروب الهجومية",
+              "evidence": "فعلى الضد من الفاشية، لم يدعم أفلاطون أبدًا النزعة التوسّعية، وكان معارِضًا للحروب الهجومية"
+            },
+            "من هما الشخصيتان الرومانيتان اللتان كانتا محط إعجاب شديد للفاشيين الطليان؟": {
+              "question": "من هما الشخصيتان الرومانيتان اللتان كانتا محط إعجاب شديد للفاشيين الطليان؟",
+              "answer": "يوليوس قيصر والإمبراطور أغسطس",
+              "value": "يوليوس قيصر وأغسطس",
+              "evidence": "كان يوليوس قيصر والإمبراطور أغسطس محط إعجاب شديد للفاشيين الطليان"
+            },
+            "ما الرمز الروماني الذي اتخذه الفاشيون الإيطاليون رمزًا خاصًا بهم؟": {
+              "question": "ما الرمز الروماني الذي اتخذه الفاشيون الإيطاليون رمزًا خاصًا بهم؟",
+              "answer": "الفاسيز",
+              "value": "الفاسيز",
+              "evidence": "اتخذ الفاشيون الطليان الفاسيز –رمز السلطة الرومانية– رمزًا خاصًا بهم"
+            },
+            "إلى ماذا أرجع هتلر سبب سقوط الإمبراطورية الرومانية؟": {
+              "question": "إلى ماذا أرجع هتلر سبب سقوط الإمبراطورية الرومانية؟",
+              "answer": "تبنيها المسيحية التي سمحت بالاختلاط العرقي",
+              "value": "تبني المسيحية والاختلاط العرقي",
+              "evidence": "أرجع هتلر سبب سقوط الإمبراطورية الرومانية إلى تبنيها المسيحية التي سمحت بالاختلاط العِرقي الذي أضعف روما وأفضى في النهاية إلى تدميرها"
+            },
+            "من هو المفكر الذي ترك بصمته في الفاشية الإيطالية عبر ترويجه لسلطة الدولة المطلقة خلال عصر النهضة؟": {
+              "question": "من هو المفكر الذي ترك بصمته في الفاشية الإيطالية عبر ترويجه لسلطة الدولة المطلقة خلال عصر النهضة؟",
+              "answer": "نيكولو مكيافيللي",
+              "value": "نيكولو مكيافيللي",
+              "evidence": "من المعروف أن نيكولو مكيافيللي قد ترك بصمته في الفاشية الإيطالية، وخصوصًا عبر ترويجه لسلطة الدولة المطلقة"
+            },
+            "من اعتبر نفسه مكيافيليًا معاصرًا؟": {
+              "question": "من اعتبر نفسه مكيافيليًا معاصرًا؟",
+              "answer": "موسوليني",
+              "value": "موسوليني",
+              "evidence": "اعتبر موسوليني نفسه مكيافليًا معاصرً"
+            },
+            "ما هو رأي أفلاطون في الديمقراطية كما ورد في النص؟": {
+              "question": "ما هو رأي أفلاطون في الديمقراطية كما ورد في النص؟",
+              "answer": "كان يزدريها ويرى أن قوانينها بلا أثر وحريتها فوضى",
+              "value": "ازدراء شديد",
+              "evidence": "كنّ أفلاطون للديمقراطية كل الازدراء، وقال: «تبقى قوانين الديمقراطية دون أثر يُذكر، وحريتها ليست سوى فوضى، والمساواة فيها هي مساواة بين أطراف غير متكافئة»"
+            }
+          }
+        },
+        "adjudication": []
+      },
+      "diagnostics": {
+        "min_edition_count": 2,
+        "effective_langs": [
+          "ko",
+          "en",
+          "it",
+          "ru",
+          "ar"
+        ],
+        "errors": []
+      },
+      "episode_id": "1356597241-1356606621",
+      "episode_index": 1,
+      "episode_window": {
+        "start": "2026-01-01",
+        "end": "2026-07-01",
+        "pwr_mass": 450944,
+        "status": "confirmed",
+        "before_revid": 1356597241,
+        "before_timestamp": "2026-05-28T19:03:21Z",
+        "after_revid": 1356606621,
+        "after_timestamp": "2026-05-28T20:03:02Z",
+        "durable_spine_drop": 0.606833
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Fascism and ideology",
+      "asof": "2011-04-30T16:54:16Z",
+      "langs": [
+        "ko",
+        "en",
+        "it",
+        "ru",
+        "ar"
+      ],
+      "citation": {
+        "mean_jaccard": 0.37,
+        "domains_per_edition": {
+          "ko": 0,
+          "en": 13,
+          "it": 0,
+          "ru": 12,
+          "ar": 0
+        }
+      },
+      "claim": {
+        "per_edition": {
+          "ko": {},
+          "en": {
+            "What did fascists accuse liberalism of causing?": {
+              "question": "What did fascists accuse liberalism of causing?",
+              "answer": "Despiritualization of human beings, turning them into materialistic beings whose highest ideal is moneymaking",
+              "value": "despiritualization/materialism",
+              "evidence": "Fascists accuse liberalism as being the cause of despiritualization of human beings and transforming them into materialistic beings in which the highest ideal is moneymaking."
+            },
+            "What is one issue where fascism agrees with liberalism?": {
+              "question": "What is one issue where fascism agrees with liberalism?",
+              "answer": "Support of private property rights and market economy",
+              "value": "private property rights and market economy",
+              "evidence": "One issue where fascism is in accord with liberalism is in its support of private property rights and the existence of a market economy."
+            },
+            "Who founded fascism in Italy and had previously been associated with the Italian Socialist Party?": {
+              "question": "Who founded fascism in Italy and had previously been associated with the Italian Socialist Party?",
+              "answer": "Mussolini",
+              "value": "Mussolini",
+              "evidence": "Fascism was originally founded in Italy by a number of people formerly associated with the Italian Socialist Party, including Mussolini, who opposed the Italian Socialist Party's internationalism."
+            },
+            "What common position do fascism and communism share regarding change?": {
+              "question": "What common position do fascism and communism share regarding change?",
+              "answer": "The need for violent revolution to forge a new era",
+              "value": "violent revolution",
+              "evidence": "Fascists and communists also mutually agree in the need for violent revolution to forge a new era."
+            },
+            "What did the Nazis add to original fascist ideas?": {
+              "question": "What did the Nazis add to original fascist ideas?",
+              "answer": "Racism and anti-Semitism",
+              "value": "racism and anti-Semitism",
+              "evidence": "However, the Nazis added racism and anti-Semitism to the original fascist ideas."
+            },
+            "When did Italian fascists adopt a white supremacist doctrine in their African colonies?": {
+              "question": "When did Italian fascists adopt a white supremacist doctrine in their African colonies?",
+              "answer": "By the 1930s",
+              "value": "1930s",
+              "evidence": "The Italian fascists were not interested in racism at first, but by the 1930s adopted a staunch white supremacist doctrine in Italian African colonies."
+            },
+            "What salute did Hitler copy from the Italian fascists?": {
+              "question": "What salute did Hitler copy from the Italian fascists?",
+              "answer": "The Roman salute",
+              "value": "Roman salute",
+              "evidence": "Hitler admired Mussolini, going as far as to copy the Roman salute used by Italian fascists and make it the basis of the Hitler salute."
+            },
+            "What tension arose between fascist Italy and Nazi Germany in the early 1930s?": {
+              "question": "What tension arose between fascist Italy and Nazi Germany in the early 1930s?",
+              "answer": "Tensions over the possibility of an Austria-Germany merger (Anschluss)",
+              "value": "Anschluss tension",
+              "evidence": "In the early 1930s, there were tensions between fascist Italy and Nazi Germany over the increasing possibility of an Austria-Germany merger (Anschluss), which would create a more powerful Greater Germany."
+            },
+            "When did Mussolini make his first written denunciation of Jews?": {
+              "question": "When did Mussolini make his first written denunciation of Jews?",
+              "answer": "1936",
+              "value": "1936",
+              "evidence": "In 1936, Mussolini made his first written denunciation of Jews by claiming that anti-Semitism had only arisen because Jews had become too pre"
+            },
+            "What do conservatives and fascists both reject regarding history?": {
+              "question": "What do conservatives and fascists both reject regarding history?",
+              "answer": "The liberal and Marxist emphasis on linear progressive evolution in history",
+              "value": "linear progressive evolution in history",
+              "evidence": "Conservatives and fascists both reject the liberal and Marxist emphasis on linear progressive evolution in history."
+            },
+            "What aspects of fascism appealed to conservatives?": {
+              "question": "What aspects of fascism appealed to conservatives?",
+              "answer": "Order, discipline, hierarchy, martial virtues, and preservation of private property",
+              "value": "order, discipline, hierarchy, martial virtues, private property",
+              "evidence": "Fascism's emphasis on order, discipline, hierarchy, martial virtues, and preservation of private property appealed to conservatives."
+            },
+            "How does fascism differ from conservatism in terms of modernity?": {
+              "question": "How does fascism differ from conservatism in terms of modernity?",
+              "answer": "Fascism presents itself as a modern ideology willing to break free from moral and political constraints of traditional society",
+              "value": "modern ideology vs traditionalism",
+              "evidence": "Unlike conservatism, fascism specifically presents itself as a modern ideology that is willing to break free from moral and political constraints of traditional society."
+            },
+            "What did fascism denounce democratic socialism as?": {
+              "question": "What did fascism denounce democratic socialism as?",
+              "answer": "A failure",
+              "value": "a failure",
+              "evidence": "Fascism denounces democratic socialism as a failure."
+            }
+          },
+          "it": {},
+          "ru": {
+            "Кто первоначально возглавлял движение, из которого произошёл термин «фашизм»?": {
+              "question": "Кто первоначально возглавлял движение, из которого произошёл термин «фашизм»?",
+              "answer": "Бенито Муссолини",
+              "value": "Бенито Муссолини",
+              "evidence": "Первоначально под фашизмом подразумевались политические движения в Италии в 1922—1943 гг. под руководством Бенито Муссолини."
+            },
+            "Кто назвал фашизм «оскорблением против своих политических противников»?": {
+              "question": "Кто назвал фашизм «оскорблением против своих политических противников»?",
+              "answer": "Джордж Оруэлл",
+              "value": "Джордж Оруэлл",
+              "evidence": "Джордж Оруэлл назвал фашизмом оскорблением против своих политических противников."
+            },
+            "Как называют последователей фашистской идеологии во второй половине XX века?": {
+              "question": "Как называют последователей фашистской идеологии во второй половине XX века?",
+              "answer": "неофашисты",
+              "value": "неофашисты",
+              "evidence": "а последователей этой идеологии во второй половине XX века называли неофашистами."
+            },
+            "Какая идеология считается одной из форм фашизма под руководством Гитлера?": {
+              "question": "Какая идеология считается одной из форм фашизма под руководством Гитлера?",
+              "answer": "нацизм",
+              "value": "нацизм",
+              "evidence": "Нацизм под руководством Гитлера считается одной из форм фашизма."
+            },
+            "В каком году Муссолини сделал свой первый письменный донос на евреев?": {
+              "question": "В каком году Муссолини сделал свой первый письменный донос на евреев?",
+              "answer": "1936 год",
+              "value": "1936",
+              "evidence": "В 1936 году Муссолини сделал свой первый письменный донос на евреев."
+            },
+            "В каком году Муссолини ввёл антисемитские законы в Италии?": {
+              "question": "В каком году Муссолини ввёл антисемитские законы в Италии?",
+              "answer": "1938 год",
+              "value": "1938",
+              "evidence": "В 1938 году Муссолини ввёл антисемитские законы, ссылаясь на то, что евреи заняли ключевые позиции во власти, системе финансов, школах."
+            },
+            "Кто описал фашизм как «жесткий центр» в политическом спектре?": {
+              "question": "Кто описал фашизм как «жесткий центр» в политическом спектре?",
+              "answer": "Освальд Мосли",
+              "value": "Освальд Мосли",
+              "evidence": "Освальд Мосли описал фашизм как «жесткий центр» в политическом спектре."
+            },
+            "Кто назвал фашистов «экстремистами в центре»?": {
+              "question": "Кто назвал фашистов «экстремистами в центре»?",
+              "answer": "Сеймур Мартин Липсет",
+              "value": "Сеймур Мартин Липсет",
+              "evidence": "Сеймур Мартин Липсет назвал фашистов «экстремистами в центре»."
+            },
+            "Кто считает, что фашизм — крайне правая идеология?": {
+              "question": "Кто считает, что фашизм — крайне правая идеология?",
+              "answer": "Евгений Вебер",
+              "value": "Евгений Вебер",
+              "evidence": "Евгений Вебер считает, что фашизм — крайне правая идеология."
+            },
+            "Членом какой партии был Муссолини в молодости?": {
+              "question": "Членом какой партии был Муссолини в молодости?",
+              "answer": "Итальянской социалистической партии",
+              "value": "Итальянская социалистическая партия",
+              "evidence": "Бенито Муссолини был видным членом Итальянской социалистической партии в молодости."
+            },
+            "Что заставило Муссолини отказаться от социализма?": {
+              "question": "Что заставило Муссолини отказаться от социализма?",
+              "answer": "его националистические чувства в годы Первой мировой войны",
+              "value": "националистические чувства в годы Первой мировой войны",
+              "evidence": "Но его националистические чувства в годы Первой мировой войны заставили отказаться от социализма."
+            },
+            "Кто критиковал сионистское движение в 1937 году как часть британской внешней политики?": {
+              "question": "Кто критиковал сионистское движение в 1937 году как часть британской внешней политики?",
+              "answer": "Паоло Орано",
+              "value": "Паоло Орано",
+              "evidence": "В 1937 году член фашистской партии Паоло Орано критикует сионистское движение как часть британской внешней политики."
+            }
+          },
+          "ar": {
+            "No passage was provided. Please provide the Wikipedia passage text so I can answer questions about it.": {
+              "question": "No passage was provided. Please provide the Wikipedia passage text so I can answer questions about it.",
+              "answer": "No passage provided",
+              "value": "not stated",
+              "evidence": "not stated"
+            }
+          }
+        },
+        "adjudication": []
+      },
+      "diagnostics": {
+        "min_edition_count": 2,
+        "effective_langs": [
+          "ko",
+          "en",
+          "it",
+          "ru",
+          "ar"
+        ],
+        "errors": []
+      },
+      "episode_id": "426479421-426748277",
+      "episode_index": 2,
+      "episode_window": {
+        "start": "2011-01-01",
+        "end": "2011-07-01",
+        "pwr_mass": 46358,
+        "status": "confirmed",
+        "before_revid": 426479421,
+        "before_timestamp": "2011-04-29T00:39:31Z",
+        "after_revid": 426748277,
+        "after_timestamp": "2011-04-30T16:54:16Z",
+        "durable_spine_drop": 0.994144
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Fascism and ideology",
+      "asof": "2012-05-16T01:49:08Z",
+      "langs": [
+        "ko",
+        "en",
+        "it",
+        "ru",
+        "ar"
+      ],
+      "citation": {
+        "mean_jaccard": 0.36,
+        "domains_per_edition": {
+          "ko": 0,
+          "en": 15,
+          "it": 0,
+          "ru": 12,
+          "ar": 0
+        }
+      },
+      "claim": {
+        "per_edition": {
+          "ko": {},
+          "en": {
+            "Which ancient Greek city-state was admired by Nazis for its emphasis on rule by a minority of elites and racial purity?": {
+              "question": "Which ancient Greek city-state was admired by Nazis for its emphasis on rule by a minority of elites and racial purity?",
+              "answer": "Sparta",
+              "value": "Sparta",
+              "evidence": "the ancient Greek city state of Sparta with its emphasis on rule by a minority of elites and on racial purity were admired by the Nazis."
+            },
+            "Who led the 4th of August Regime in Greece?": {
+              "question": "Who led the 4th of August Regime in Greece?",
+              "answer": "Ioannis Metaxas",
+              "value": "Ioannis Metaxas",
+              "evidence": "quasi-fascist 4th of August Regime of Ioannis Metaxas called for Greeks to wholly commit themselves to the nation with self-control as the Spartans had done."
+            },
+            "In which book did Hitler discuss the common Aryan race connection with ancient Greeks?": {
+              "question": "In which book did Hitler discuss the common Aryan race connection with ancient Greeks?",
+              "answer": "Mein Kampf",
+              "value": "Mein Kampf",
+              "evidence": "Hitler rebuked potential criticism of Hellenic values being non-German by emphasizing the common Aryan race connection with ancient Greeks, saying in Mein Kampf"
+            },
+            "Which Athenian leader was credited by supporters of the 4th of August Regime with bringing ancient Greece to greatness through dictatorship?": {
+              "question": "Which Athenian leader was credited by supporters of the 4th of August Regime with bringing ancient Greece to greatness through dictatorship?",
+              "answer": "Pericles",
+              "value": "Pericles",
+              "evidence": "the \"First Greek Civilization\" involved an Athenian dictatorship led by Pericles who had brought ancient Greece to greatness."
+            },
+            "Who wrote The Republic and around what year?": {
+              "question": "Who wrote The Republic and around what year?",
+              "answer": "Plato, approximately 380 BC",
+              "value": "380 BC",
+              "evidence": "Philosopher Plato's work The Republic (approx. 380 BC)."
+            },
+            "What did Plato call the elite ruling class in his ideal state?": {
+              "question": "What did Plato call the elite ruling class in his ideal state?",
+              "answer": "Guardians",
+              "value": "Guardians",
+              "evidence": "Plato believed the ideal state would be ruled by an elite class of rulers known as \"Guardians\", and rejected the idea of social equality."
+            },
+            "What economic system did Plato advocate that fascism ideologically opposes?": {
+              "question": "What economic system did Plato advocate that fascism ideologically opposes?",
+              "answer": "An effectively communist economy",
+              "value": "communist economy",
+              "evidence": "Plato advocated an effectively communist economy while fascism is ideologically opposed to communism."
+            },
+            "Which two ancient Roman figures were idolized by Italian Fascists?": {
+              "question": "Which two ancient Roman figures were idolized by Italian Fascists?",
+              "answer": "Julius Caesar and Augustus",
+              "value": "Julius Caesar and Augustus",
+              "evidence": "Julius Caesar and Augustus were idolized by Italian Fascists."
+            },
+            "What symbol of Roman authority became the symbol of the Italian Fascists?": {
+              "question": "What symbol of Roman authority became the symbol of the Italian Fascists?",
+              "answer": "The fasces",
+              "value": "fasces",
+              "evidence": "The fasces - a symbol of Roman authority was the symbol of the Italian Fascists."
+            },
+            "What did Hitler blame for the fall of the Roman Empire?": {
+              "question": "What did Hitler blame for the fall of the Roman Empire?",
+              "answer": "The Roman adoption of Christianity, which he claimed authorized racial intermixing",
+              "value": "adoption of Christianity",
+              "evidence": "he blamed the fall on the Roman Empire on the Roman adoption of Christianity that he claimed authorized the racial intermixing that he claimed weakened Rome and lead to its destruction."
+            },
+            "Who wrote Leviathan and in what year was it published?": {
+              "question": "Who wrote Leviathan and in what year was it published?",
+              "answer": "Thomas Hobbes, 1651",
+              "value": "1651",
+              "evidence": "Leviathan (1651), the book written by Thomas Hobbes that advocates absolute monarchy."
+            },
+            "Which Renaissance Italian political theorist influenced Italian Fascism through his promotion of absolute state authority?": {
+              "question": "Which Renaissance Italian political theorist influenced Italian Fascism through his promotion of absolute state authority?",
+              "answer": "Niccolo Machiavelli",
+              "value": "Niccolo Machiavelli",
+              "evidence": "Niccolo Machiavelli is known to have influenced Italian Fascism, particularly his promotion of the absolute authority of the state."
+            },
+            "What ideology did Thomas Hobbes create in Leviathan?": {
+              "question": "What ideology did Thomas Hobbes create in Leviathan?",
+              "answer": "Absolutism",
+              "value": "Absolutism",
+              "evidence": "English political theorist Thomas Hobbes in his work Leviathan (1651) created the ideology of absolutism that advocated an all-powerful absolute monarchy to maintain order within a state."
+            }
+          },
+          "it": {
+            "No passage was provided. Please provide the Wikipedia passage and questions for me to answer.": {
+              "question": "No passage was provided. Please provide the Wikipedia passage and questions for me to answer.",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "not stated"
+            }
+          },
+          "ru": {
+            "Кто первоначально руководил фашистскими движениями в Италии в 1922—1943 гг.?": {
+              "question": "Кто первоначально руководил фашистскими движениями в Италии в 1922—1943 гг.?",
+              "answer": "Бенито Муссолини",
+              "value": "Бенито Муссолини",
+              "evidence": "Первоначально под фашизмом подразумевались политические движения в Италии в 1922—1943 гг. под руководством Бенито Муссолини."
+            },
+            "Как назвал фашизм Джордж Оруэлл?": {
+              "question": "Как назвал фашизм Джордж Оруэлл?",
+              "answer": "Оскорблением против политических противников",
+              "value": "оскорбление",
+              "evidence": "Джордж Оруэлл назвал фашизмом оскорблением против своих политических противников."
+            },
+            "Как охарактеризовал фашизм Бертран Рассел?": {
+              "question": "Как охарактеризовал фашизм Бертран Рассел?",
+              "answer": "Философия, но только в психоанализе, не упорядоченный набор убеждений",
+              "value": "не упорядоченный набор убеждений / философия в психоанализе",
+              "evidence": "Бертран Рассел писал: «Фашизм — это не упорядоченный набор убеждений… нет, это философия, но только в психоанализе»."
+            },
+            "Как считает Евгений Вебер о фашизме в политическом спектре?": {
+              "question": "Как считает Евгений Вебер о фашизме в политическом спектре?",
+              "answer": "Крайне правая идеология",
+              "value": "крайне правая идеология",
+              "evidence": "Евгений Вебер считает, что фашизм — крайне правая идеология."
+            },
+            "Как Освальд Мосли описал фашизм в политическом спектре?": {
+              "question": "Как Освальд Мосли описал фашизм в политическом спектре?",
+              "answer": "Жёсткий центр",
+              "value": "жёсткий центр",
+              "evidence": "Освальд Мосли описал фашизм как «жесткий центр» в политическом спектре."
+            },
+            "Как Сеймур Мартин Липсет назвал фашистов?": {
+              "question": "Как Сеймур Мартин Липсет назвал фашистов?",
+              "answer": "Экстремисты в центре",
+              "value": "экстремисты в центре",
+              "evidence": "Сеймур Мартин Липсет назвал фашистов «экстремистами в центре»."
+            },
+            "Членом какой партии был Муссолини в молодости?": {
+              "question": "Членом какой партии был Муссолини в молодости?",
+              "answer": "Итальянской социалистической партии",
+              "value": "Итальянская социалистическая партия",
+              "evidence": "Бенито Муссолини был видным членом Итальянской социалистической партии в молодости."
+            },
+            "В каком году Муссолини сделал свой первый письменный донос на евреев?": {
+              "question": "В каком году Муссолини сделал свой первый письменный донос на евреев?",
+              "answer": "1936 год",
+              "value": "1936",
+              "evidence": "В 1936 году Муссолини сделал свой первый письменный донос на евреев."
+            },
+            "В каком году Муссолини ввёл антисемитские законы?": {
+              "question": "В каком году Муссолини ввёл антисемитские законы?",
+              "answer": "1938 год",
+              "value": "1938",
+              "evidence": "В 1938 году Муссолини ввёл антисемитские законы, ссылаясь на то, что евреи заняли ключевые позиции во власти, системе финансов, школах."
+            },
+            "Кто критиковал сионистское движение в 1937 году как часть британской внешней политики?": {
+              "question": "Кто критиковал сионистское движение в 1937 году как часть британской внешней политики?",
+              "answer": "Паоло Орано",
+              "value": "Паоло Орано",
+              "evidence": "В 1937 году член фашистской партии Паоло Орано критикует сионистское движение как часть британской внешней политики."
+            },
+            "Что скопировали нацисты у итальянских фашистов, помимо идей?": {
+              "question": "Что скопировали нацисты у итальянских фашистов, помимо идей?",
+              "answer": "Приветствие (римский салют)",
+              "value": "нацистское приветствие как копия римского салюта",
+              "evidence": "Гитлер восхищался Муссолини доходя до того, что нацистское приветствие стало копией римского салюта фашистов."
+            },
+            "Отличались ли фашисты от нацистов в вопросе расизма и антисемитизма изначально?": {
+              "question": "Отличались ли фашисты от нацистов в вопросе расизма и антисемитизма изначально?",
+              "answer": "Да, фашисты изначально не были расистами и антисемитами",
+              "value": "да",
+              "evidence": "Фашисты, в отличие от нацистов, не были расистами и антисемитами."
+            }
+          },
+          "ar": {
+            "Please provide the questions you want answered based on the passage.": {
+              "question": "Please provide the questions you want answered based on the passage.",
+              "answer": "No passage or questions were provided.",
+              "value": "not stated",
+              "evidence": "No content was given."
+            }
+          }
+        },
+        "adjudication": []
+      },
+      "diagnostics": {
+        "min_edition_count": 2,
+        "effective_langs": [
+          "ko",
+          "en",
+          "it",
+          "ru",
+          "ar"
+        ],
+        "errors": []
+      },
+      "episode_id": "491069344-492797521",
+      "episode_index": 3,
+      "episode_window": {
+        "start": "2012-01-01",
+        "end": "2012-07-01",
+        "pwr_mass": 28481,
+        "status": "confirmed",
+        "before_revid": 491069344,
+        "before_timestamp": "2012-05-06T21:36:11Z",
+        "after_revid": 492797521,
+        "after_timestamp": "2012-05-16T01:49:08Z",
+        "durable_spine_drop": 0.567207
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Fascism and ideology",
+      "asof": "2008-11-21T05:06:49Z",
+      "langs": [
+        "ko",
+        "en",
+        "it",
+        "ru",
+        "ar"
+      ],
+      "citation": {
+        "mean_jaccard": 0.6,
+        "domains_per_edition": {
+          "ko": 0,
+          "en": 14,
+          "it": 0,
+          "ru": 0,
+          "ar": 0
+        }
+      },
+      "claim": {
+        "per_edition": {
+          "ko": {},
+          "en": {
+            "Who led the Italian fascist movement from 1922 to 1943?": {
+              "question": "Who led the Italian fascist movement from 1922 to 1943?",
+              "answer": "Benito Mussolini",
+              "value": "Benito Mussolini",
+              "evidence": "which ruled the country from 1922 to 1943 under the leadership of Benito Mussolini"
+            },
+            "According to Bertrand Russell, what is fascism instead of an ordered set of beliefs?": {
+              "question": "According to Bertrand Russell, what is fascism instead of an ordered set of beliefs?",
+              "answer": "Only a psycho-analysis, with no philosophy of fascism",
+              "value": "psycho-analysis",
+              "evidence": "there is no philosophy of fascism, but only a psycho-analysis"
+            },
+            "How did George Orwell describe fascism?": {
+              "question": "How did George Orwell describe fascism?",
+              "answer": "An insult used by various groups against political opponents",
+              "value": "an insult",
+              "evidence": "George Orwell, has called fascism nothing more than an insult that various groups use against their political opponents."
+            },
+            "What is the majority view among scholars and the general population regarding fascism's place on the political spectrum?": {
+              "question": "What is the majority view among scholars and the general population regarding fascism's place on the political spectrum?",
+              "answer": "Fascism is part of the far right",
+              "value": "far right",
+              "evidence": "The majority view among both scholars and the general population is that fascism is part of the far right."
+            },
+            "According to The Doctrine of Fascism, what political tendency does the 20th century, as the Fascist century, tend toward?": {
+              "question": "According to The Doctrine of Fascism, what political tendency does the 20th century, as the Fascist century, tend toward?",
+              "answer": "The right",
+              "value": "right",
+              "evidence": "a century tending to the \"right\", a Fascist century."
+            },
+            "What did Griffin suggest about categorizing fascism relative to left and right?": {
+              "question": "What did Griffin suggest about categorizing fascism relative to left and right?",
+              "answer": "Placing it in a category of its own, beyond left and right",
+              "value": "beyond left and right",
+              "evidence": "there are good ground for cutting this particular Gordian knot altogether by placing it in a category of its own \"beyond left and right.\""
+            },
+            "What political party was Mussolini a prominent member of in his youth?": {
+              "question": "What political party was Mussolini a prominent member of in his youth?",
+              "answer": "Italian Socialist Party",
+              "value": "Italian Socialist Party",
+              "evidence": "Benito Mussolini had been a prominent member of the Italian Socialist Party in his youth."
+            },
+            "According to the political compass model, how is fascism characterized economically and socially?": {
+              "question": "According to the political compass model, how is fascism characterized economically and socially?",
+              "answer": "Extremely authoritarian socially but only moderately right-wing economically",
+              "value": "extremely authoritarian socially, moderately right-wing economically",
+              "evidence": "The political compass marks fascism as extremely authoritarian in its social outlook but only moderately right-wing in its economic policies."
+            },
+            "On the Pournelle chart, how does fascism appear?": {
+              "question": "On the Pournelle chart, how does fascism appear?",
+              "answer": "As a combination of strong statism and strong irrationalism",
+              "value": "strong statism and strong irrationalism",
+              "evidence": "on the Pournelle chart, fascism appears as the combination of strong statism and strong irrationalism."
+            },
+            "What salute did Hitler base the Hitler salute on, admired from Italian fascists?": {
+              "question": "What salute did Hitler base the Hitler salute on, admired from Italian fascists?",
+              "answer": "The Roman salute",
+              "value": "Roman salute",
+              "evidence": "going as far as to copy the Roman salute used by Italian fascists and make it the basis of the Hitler salute."
+            },
+            "What ideological elements did the Nazis add to the original fascist ideas?": {
+              "question": "What ideological elements did the Nazis add to the original fascist ideas?",
+              "answer": "Racism and anti-Semitism",
+              "value": "racism and anti-Semitism",
+              "evidence": "the Nazis added racism and anti-Semitism to the original fascist ideas."
+            },
+            "In what decade did Italian fascists adopt a staunch white supremacist doctrine in Italian African colonies?": {
+              "question": "In what decade did Italian fascists adopt a staunch white supremacist doctrine in Italian African colonies?",
+              "answer": "The 1930s",
+              "value": "1930s",
+              "evidence": "but by the 1930s adopted a staunch white supremacist doctrine in Italian African colonies."
+            },
+            "In what year did Mussolini make his first written denunciation of Jews?": {
+              "question": "In what year did Mussolini make his first written denunciation of Jews?",
+              "answer": "1936",
+              "value": "1936",
+              "evidence": "In 1936, Mussolini made his first written denunciation of Jews by claiming that anti-Semitism had only arisen because Jews had become too predominant in the positions of power of countries"
+            },
+            "In what year did Fascist party member Paolo Orano criticize the Zionist movement?": {
+              "question": "In what year did Fascist party member Paolo Orano criticize the Zionist movement?",
+              "answer": "1937",
+              "value": "1937",
+              "evidence": "In 1937, Fascist party member Paolo Orano criticized the Zionist movement as being part of British foreign policy"
+            },
+            "Which organization did Italian Fascism merge with, described as one of the most radical right authoritarian movements in Europe?": {
+              "question": "Which organization did Italian Fascism merge with, described as one of the most radical right authoritarian movements in Europe?",
+              "answer": "The Italian Nationalist Association (ANI)",
+              "value": "Italian Nationalist Association (ANI)",
+              "evidence": "Italian Fascism as a semi-coherent entity was partly defined by its merger with one of the most radical of all right authoritarian movements in Europe, the Italian Nationalist Association (ANI)."
+            }
+          },
+          "it": {
+            "No passage provided.": {
+              "question": "No passage provided.",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage text was given."
+            }
+          },
+          "ru": {
+            "No passage was provided. Please provide the Wikipedia passage and questions you would like answered.": {
+              "question": "No passage was provided. Please provide the Wikipedia passage and questions you would like answered.",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "not stated"
+            }
+          },
+          "ar": {
+            "Please provide the passage text you'd like me to analyze along with the specific questions you want answered.": {
+              "question": "Please provide the passage text you'd like me to analyze along with the specific questions you want answered.",
+              "answer": "No passage was provided",
+              "value": "not stated",
+              "evidence": "not stated"
+            }
+          }
+        },
+        "adjudication": []
+      },
+      "diagnostics": {
+        "min_edition_count": 2,
+        "effective_langs": [
+          "ko",
+          "en",
+          "it",
+          "ru",
+          "ar"
+        ],
+        "errors": []
+      },
+      "episode_id": "253124444-253133592",
+      "episode_index": 4,
+      "episode_window": {
+        "start": "2008-07-01",
+        "end": "2009-01-01",
+        "pwr_mass": 11503,
+        "status": "confirmed",
+        "before_revid": 253124444,
+        "before_timestamp": "2008-11-21T03:51:51Z",
+        "after_revid": 253133592,
+        "after_timestamp": "2008-11-21T05:06:49Z",
+        "durable_spine_drop": 0.280768
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Fascism and ideology",
+      "asof": "2006-10-14T00:10:29Z",
+      "langs": [
+        "ko",
+        "en",
+        "it",
+        "ru",
+        "ar"
+      ],
+      "citation": {
+        "mean_jaccard": 0.6,
+        "domains_per_edition": {
+          "ko": 0,
+          "en": 22,
+          "it": 0,
+          "ru": 0,
+          "ar": 0
+        }
+      },
+      "claim": {
+        "per_edition": {
+          "ko": {
+            "No passage was provided. Please share the Wikipedia passage and questions you'd like answered.": {
+              "question": "No passage was provided. Please share the Wikipedia passage and questions you'd like answered.",
+              "answer": "No passage provided",
+              "value": "not stated",
+              "evidence": "not stated"
+            }
+          },
+          "en": {
+            "Who led Italian Fascism and ruled Italy from 1922 to 1943?": {
+              "question": "Who led Italian Fascism and ruled Italy from 1922 to 1943?",
+              "answer": "Benito Mussolini",
+              "value": "Benito Mussolini",
+              "evidence": "a political movement that existed in a single country (Italy) for less than 30 years and ruled the country from 1922 to 1943 under the leadership of Benito Mussolini"
+            },
+            "What did George Orwell call 'fascism'?": {
+              "question": "What did George Orwell call 'fascism'?",
+              "answer": "Nothing more than an insult used against political opponents",
+              "value": "an insult/term of abuse",
+              "evidence": "Some, such as George Orwell, have called \"fascism\" nothing more than an insult that various groups use against their political opponents."
+            },
+            "What is the fallacy called that argues 'Hitler (or fascism) supported X, therefore X must be evil'?": {
+              "question": "What is the fallacy called that argues 'Hitler (or fascism) supported X, therefore X must be evil'?",
+              "answer": "Reductio ad Hitlerum",
+              "value": "Reductio ad Hitlerum",
+              "evidence": "A common fallacy is Reductio ad Hitlerum, which is any argument along the lines of \"Hitler (or fascism) supported X, therefore X must be evil\"."
+            },
+            "What name did the only relevant self-proclaimed fascist party in Italy after World War II call itself?": {
+              "question": "What name did the only relevant self-proclaimed fascist party in Italy after World War II call itself?",
+              "answer": "National Right",
+              "value": "National Right",
+              "evidence": "After World War II, the only relevant self-proclaimed fascist party in Italy, the Italian Social Movement, called itself \"National Right\"."
+            },
+            "What is the majority view among scholars and the general population about fascism's position on the political spectrum?": {
+              "question": "What is the majority view among scholars and the general population about fascism's position on the political spectrum?",
+              "answer": "Fascism is part of the far right",
+              "value": "far right",
+              "evidence": "The majority view among both scholars and the general population is that fascism is part of the far right."
+            },
+            "Which three conservative and libertarian scholars argue fascism was actually a left-wing movement?": {
+              "question": "Which three conservative and libertarian scholars argue fascism was actually a left-wing movement?",
+              "answer": "Friedrich Hayek, Ludwig von Mises, and John T. Flynn",
+              "value": "Friedrich Hayek, Ludwig von Mises, John T. Flynn",
+              "evidence": "There are a number of conservative and libertarian scholars who argue that fascism was actually a left-wing movement - among them Friedrich Hayek, Ludwig von Mises, and John T. Flynn."
+            },
+            "How many years did Italian Fascism rule Italy according to the passage?": {
+              "question": "How many years did Italian Fascism rule Italy according to the passage?",
+              "answer": "Less than 30 years",
+              "value": "less than 30 years",
+              "evidence": "a political movement that existed in a single country (Italy) for less than 30 years and ruled the country from 1922 to 1943"
+            },
+            "Which philosophers mentioned were former syndicalists?": {
+              "question": "Which philosophers mentioned were former syndicalists?",
+              "answer": "Robert Michels, Sergio Panunzio, and Giovanni Gentile",
+              "value": "Robert Michels, Sergio Panunzio, Giovanni Gentile",
+              "evidence": "Philosophers such as Robert Michels, Sergio Panunzio, and Giovanni Gentile were former syndicalists"
+            },
+            "Who was a former anarchist among the theorists mentioned?": {
+              "question": "Who was a former anarchist among the theorists mentioned?",
+              "answer": "Gabriele D'Annunzio",
+              "value": "Gabriele D'Annunzio",
+              "evidence": "Gabriele D'Annunzio was a former anarchist and Alceste de Ambris had been influenced by anarcho-syndicalism."
+            },
+            "What essay signed by Mussolini conveyed the basic principles of Italian Fascism?": {
+              "question": "What essay signed by Mussolini conveyed the basic principles of Italian Fascism?",
+              "answer": "The Doctrine of Fascism",
+              "value": "The Doctrine of Fascism",
+              "evidence": "In The Doctrine of Fascism, an essay signed by Benito Mussolini which was meant to convey the basic principles of Italian Fascism"
+            },
+            "What term is used for fringe groups claiming to follow pre-1945 fascist tradition?": {
+              "question": "What term is used for fringe groups claiming to follow pre-1945 fascist tradition?",
+              "answer": "Neo-fascists",
+              "value": "neo-fascists",
+              "evidence": "there are also a number of fringe groups that claim to follow the tradition of pre-1945 fascists (these are usually called neo-fascists)"
+            },
+            "According to Eatwell, in what type of countries did fascism tend to gather force?": {
+              "question": "According to Eatwell, in what type of countries did fascism tend to gather force?",
+              "answer": "Countries where the right was weak",
+              "value": "countries where the right was weak",
+              "evidence": "Eatwell also observes that \"in most countries it tended to gather force in countries where the right was weak\" p. 39."
+            }
+          },
+          "it": {
+            "No passage provided.": {
+              "question": "No passage provided.",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage text was given in the prompt."
+            }
+          },
+          "ru": {
+            "No passage provided": {
+              "question": "No passage provided",
+              "answer": "No passage was provided in the request",
+              "value": "not stated",
+              "evidence": "No passage content was given"
+            }
+          },
+          "ar": {
+            "No questions provided in passage.": {
+              "question": "No questions provided in passage.",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage content was provided."
+            }
+          }
+        },
+        "adjudication": []
+      },
+      "diagnostics": {
+        "min_edition_count": 2,
+        "effective_langs": [
+          "ko",
+          "en",
+          "it",
+          "ru",
+          "ar"
+        ],
+        "errors": []
+      },
+      "episode_id": "79902939-81311146",
+      "episode_index": 5,
+      "episode_window": {
+        "start": "2006-07-01",
+        "end": "2007-01-01",
+        "pwr_mass": 11103,
+        "status": "confirmed",
+        "before_revid": 79902939,
+        "before_timestamp": "2006-10-06T19:52:39Z",
+        "after_revid": 81311146,
+        "after_timestamp": "2006-10-14T00:10:29Z",
+        "durable_spine_drop": 0.634367
+      },
+      "analysis_status": "available"
+    }
+  ]
+}

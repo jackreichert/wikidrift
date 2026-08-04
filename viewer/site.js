@@ -237,6 +237,34 @@
     });
   });
 
+  // Confirmed events share one article-level selection when the same event exists in each layer.
+  var episodeSwitchers = [].slice.call(document.querySelectorAll("[data-episode-switcher]"));
+  function activateEpisode(episodeId) {
+    episodeSwitchers.forEach(function (switcher) {
+      var controls = [].slice.call(switcher.querySelectorAll("[data-episode-control]"));
+      var matchingControl = controls.find(function (control) { return control.value === episodeId; });
+      var panel = switcher.parentElement;
+      if (!matchingControl || !panel) return;
+
+      controls.forEach(function (control) { control.checked = control === matchingControl; });
+      [].slice.call(panel.querySelectorAll(":scope > [data-episode-view]")).forEach(function (view) {
+        view.hidden = view.dataset.episodeView !== episodeId;
+      });
+      var status = switcher.querySelector("[data-episode-status]");
+      if (status) {
+        status.textContent = "Event " + (controls.indexOf(matchingControl) + 1)
+          + " of " + controls.length;
+      }
+    });
+  }
+  episodeSwitchers.forEach(function (switcher) {
+    switcher.querySelectorAll("[data-episode-control]").forEach(function (control) {
+      control.addEventListener("change", function () {
+        if (control.checked) activateEpisode(control.value);
+      });
+    });
+  });
+
   // Stance evidence: expand quote on click (not title-only)
   document.querySelectorAll(".cell-ev").forEach(function (btn) {
     btn.addEventListener("click", function () {

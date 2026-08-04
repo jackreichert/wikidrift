@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "prompt_version": "stance-v3",
+  "model_contract": {
+    "provider": "anthropic",
+    "model": "claude-sonnet-5",
+    "prompt_version": "stance-v3"
+  },
+  "article": "Socialism",
+  "langs": [
+    "fr",
+    "pt",
+    "en"
+  ],
+  "entities": [
+    "Socialism"
+  ],
+  "editions": {
+    "fr": {
+      "focal": {
+        "Socialism": {
+          "entity": "Socialism",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.72,
+          "evidence": "Le socialisme est une philosophie économique et politique qui englobe un large éventail de courants de pensées et de mouvements",
+          "evidence_spans": [
+            "Le socialisme est une philosophie économique et politique qui englobe un large éventail de courants de pensées et de mouvements",
+            "Le but originel du socialisme est d'obtenir l'égalité sociale, ou du moins une réduction des inégalités",
+            "il condamne les inégalités sociales et l’exploitation de l’homme par l’homme",
+            "le socialisme peut se trouver en contradiction avec la démocratie"
+          ]
+        }
+      },
+      "lead": {
+        "Socialism": {
+          "entity": "Socialism",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "confidence": 0.72,
+          "evidence": "il condamne les inégalités sociales et l’exploitation de l’homme par l’homme et défend le progrès social",
+          "evidence_spans": [
+            "il condamne les inégalités sociales et l’exploitation de l’homme par l’homme",
+            "et défend le progrès social",
+            "rechercher une organisation sociale et économique plus juste",
+            "améliorer le sort des ouvriers, et plus largement de la population, via le remplacement du capitalisme par une société plus juste"
+          ]
+        }
+      }
+    },
+    "pt": {
+      "focal": {
+        "Socialism": {
+          "entity": "Socialism",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.85,
+          "evidence": "Socialismo é uma filosofia política, social e econômica que abrange uma gama de sistemas econômicos e sociais caracterizados pela propriedade social dos meios de produção.",
+          "evidence_spans": [
+            "Socialismo é uma filosofia política, social e econômica que abrange uma gama de sistemas econômicos e sociais caracterizados pela propriedade social dos meios de produção.",
+            "com o próprio socialismo se tornando o movimento secular mais influente do século XX.",
+            "Modelos e ideias socialistas que defendem a propriedade comum ou pública existem desde a Antiguidade."
+          ]
+        }
+      },
+      "lead": {
+        "Socialism": {
+          "entity": "Socialism",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.92,
+          "evidence": "Socialismo é uma filosofia política, social e econômica que abrange uma gama de sistemas econômicos e sociais caracterizados pela propriedade social dos meios de produção.",
+          "evidence_spans": [
+            "Socialismo é uma filosofia política, social e econômica que abrange uma gama de sistemas econômicos e sociais caracterizados pela propriedade social dos meios de produção",
+            "Embora nenhuma definição única englobe os muitos tipos de socialismo, a propriedade social é o elemento comum",
+            "Os socialistas discordam sobre se o governo, particularmente o governo existente, é o veículo correto para a mudança"
+          ]
+        }
+      }
+    },
+    "en": {
+      "focal": {
+        "Socialism": {
+          "entity": "Socialism",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.85,
+          "evidence": "Socialism is an economic ideology and political philosophy encompassing diverse economic and social systems",
+          "evidence_spans": [
+            "Socialism is an economic ideology and political philosophy encompassing diverse economic and social systems",
+            "As one of the main ideologies on the political spectrum, socialism is the standard left-wing ideology in most countries.",
+            "Types of socialism vary based on the role of markets and planning in resource allocation, and the structure of management in organizations.",
+            "Socialism has historically been committed to the improvement of people's material standards of living."
+          ]
+        }
+      },
+      "lead": {
+        "Socialism": {
+          "entity": "Socialism",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.92,
+          "evidence": "Socialism is an economic ideology and political philosophy encompassing diverse economic and social systems",
+          "evidence_spans": [
+            "Socialism is an economic ideology and political philosophy encompassing diverse economic and social systems",
+            "It describes the economic, political, and social theories and movements associated with the implementation of such systems.",
+            "Types of socialism vary based on the role of markets and planning in resource allocation, and the structure of management in organizations."
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1837 @@
+{
+  "article": "Democratic Socialists of America",
+  "pivot": "2025-01-01",
+  "span": "rev 1321624877 → rev 1321630141  (exact confirmation, 2025-11-11 → 2025-11-11)",
+  "mode": "pivot_relative",
+  "pivot_window": {
+    "start": "2025-01-01",
+    "end": "2026-01-01",
+    "pwr_mass": 290234,
+    "status": "confirmed",
+    "before_revid": 1321624877,
+    "before_timestamp": "2025-11-11T17:36:50Z",
+    "after_revid": 1321630141,
+    "after_timestamp": "2025-11-11T18:17:24Z",
+    "durable_spine_drop": 0.869639
+  },
+  "before": {
+    "date": "2025-11-11",
+    "rev": 1321624877,
+    "refs": 413,
+    "n_domains": 152,
+    "cite_mix": {
+      "web": 73,
+      "news": 24,
+      "book": 3,
+      "journal": 1
+    },
+    "domains": {
+      "democraticleft.dsausa.org": 3,
+      "socialistforum.dsausa.org": 4,
+      "y.dsausa.org": 2,
+      "instagram.com": 1,
+      "nymag.com": 3,
+      "theatlantic.com": 4,
+      "gothamgazette.com": 1,
+      "cambridge.org": 1,
+      "gothamist.com": 1,
+      "straitstimes.com": 1,
+      "post-gazette.com": 1,
+      "politico.com": 7,
+      "cityandstateny.com": 2,
+      "forward.com": 2,
+      "inthesetimes.com": 7,
+      "books.google.com": 5,
+      "vox.com": 6,
+      "thenation.com": 7,
+      "truthout.org": 2,
+      "rupture.ie": 1,
+      "newlinesmag.com": 2,
+      "rollingstone.com": 3,
+      "congress.gov": 2,
+      "newrepublic.com": 5,
+      "d3n8a8pro7vhmx.cloudfront.net": 1,
+      "dsausa.org": 33,
+      "marxisthistory.org": 2,
+      "socialistcall.com": 2,
+      "reformandrevolution.org": 3,
+      "partisanmag.com": 1,
+      "marxistunity.com": 1,
+      "newleftreview.org": 2,
+      "progressive.international": 2,
+      "dsa-lsc.org": 4,
+      "roarmag.org": 1,
+      "solidarity-us.org": 1,
+      "redstarcaucus.org": 1,
+      "theindy.org": 1,
+      "program.dsausa.org": 6,
+      "economist.com": 1,
+      "archive.today": 1,
+      "teenvogue.com": 1,
+      "indypendent.org": 2,
+      "jacobin.com": 8,
+      "theintercept.com": 3,
+      "commondreams.org": 2,
+      "nytimes.com": 16,
+      "theguardian.com": 4,
+      "canarymedia.com": 1,
+      "dailynorthwestern.com": 1,
+      "leftvoice.org": 2,
+      "nationalreview.com": 1,
+      "wweek.com": 1,
+      "platform.dsausa.org": 1,
+      "archivesspace.mit.edu": 1,
+      "bbc.com": 1,
+      "algemeiner.com": 1,
+      "middleeasteye.net": 1,
+      "thehill.com": 2,
+      "usnews.com": 1,
+      "npr.org": 2,
+      "independent.com": 1,
+      "thenevadaindependent.com": 2,
+      "dailytarheel.com": 1,
+      "purdueexponent.org": 1,
+      "twitter.com": 7,
+      "the-independent.com": 2,
+      "nydailynews.com": 4,
+      "abc7ny.com": 1,
+      "cbsnews.com": 1,
+      "cnn.com": 4,
+      "ifnotnowmovement.org": 1,
+      "thecut.com": 2,
+      "bush.house.gov": 1,
+      "aljazeera.com": 2,
+      "sacdsa.org": 4,
+      "dlarchive.dsausa.org": 2,
+      "huffingtonpost.com": 1,
+      "chicagotribune.com": 2,
+      "publicseminar.org": 1,
+      "jacobinmag.com": 5,
+      "socialismbeatsfascism.org": 1,
+      "apnews.com": 2,
+      "newpol.org": 1,
+      "facebook.com": 1,
+      "dsasf.org": 2,
+      "yallpolitics.com": 2,
+      "nbcnews.com": 1,
+      "texassignal.com": 2,
+      "forbes.com": 1,
+      "metrotimes.com": 1,
+      "drive.google.com": 2,
+      "socialists.nyc": 1,
+      "nypost.com": 2,
+      "usatoday.com": 2,
+      "news.wttw.com": 1,
+      "bettergov.org": 1,
+      "politi.co": 1,
+      "thedailyline.com": 1,
+      "thedp.com": 1,
+      "billingsgazette.com": 1,
+      "mdcdsa.org": 1,
+      "washingtonpost.com": 3,
+      "sfchronicle.com": 2,
+      "news.azpm.org": 2,
+      "texasobserver.org": 1,
+      "madison.dsausa.org": 2,
+      "vtdigger.org": 1,
+      "champlainvalleydsa.org": 2,
+      "cltampa.com": 1,
+      "news3lv.com": 1,
+      "lvdsa.org": 1,
+      "newsweek.com": 2,
+      "wkbw.com": 1,
+      "blockclubchicago.org": 2,
+      "chicagoelections.gov": 2,
+      "app.chicagoelections.com": 1,
+      "staradvertiser.com": 1,
+      "newyorker.com": 1,
+      "pghdsa.org": 1,
+      "buzzfeednews.com": 1,
+      "foxnews.com": 2,
+      "realclearpolitics.com": 1,
+      "wsws.org": 2,
+      "thedailybeast.com": 4,
+      "guidestar.org": 1,
+      "news.google.com": 4,
+      "southernmainedsa.org": 2,
+      "eastbaydsa.org": 2,
+      "vogue.com": 1,
+      "abc7chicago.com": 1,
+      "vice.com": 1,
+      "weeklyworker.co.uk": 2,
+      "businessinsider.com": 2,
+      "theweek.com": 2,
+      "governing.com": 1,
+      "lamag.com": 1,
+      "independent.co.uk": 1,
+      "cosmonautmag.com": 1,
+      "timesofisrael.com": 1,
+      "abcnews.go.com": 1,
+      "ny1.com": 1,
+      "reuters.com": 1,
+      "time.com": 2,
+      "s3.amazonaws.com": 1,
+      "2025.dsausa.org": 1,
+      "theprincetonprogressive.com": 1,
+      "prospect.org": 1,
+      "portside.org": 1,
+      "the1a.org": 1,
+      "boisestatepublicradio.org": 1,
+      "dsabuild.org": 1
+    }
+  },
+  "after": {
+    "date": "2025-11-11",
+    "rev": 1321630141,
+    "refs": 150,
+    "n_domains": 87,
+    "cite_mix": {
+      "web": 70,
+      "news": 25,
+      "book": 5,
+      "journal": 1
+    },
+    "domains": {
+      "democraticleft.dsausa.org": 2,
+      "socialistforum.dsausa.org": 3,
+      "y.dsausa.org": 2,
+      "instagram.com": 1,
+      "nymag.com": 3,
+      "theatlantic.com": 2,
+      "gothamgazette.com": 1,
+      "cambridge.org": 1,
+      "gothamist.com": 1,
+      "straitstimes.com": 1,
+      "post-gazette.com": 1,
+      "politico.com": 2,
+      "cityandstateny.com": 2,
+      "forward.com": 1,
+      "inthesetimes.com": 4,
+      "books.google.com": 4,
+      "vox.com": 5,
+      "thenation.com": 3,
+      "truthout.org": 1,
+      "rupture.ie": 1,
+      "newlinesmag.com": 2,
+      "rollingstone.com": 3,
+      "congress.gov": 1,
+      "newrepublic.com": 5,
+      "d3n8a8pro7vhmx.cloudfront.net": 1,
+      "dsausa.org": 20,
+      "theintercept.com": 1,
+      "thenevadaindependent.com": 1,
+      "marxisthistory.org": 2,
+      "socialistcall.com": 1,
+      "reformandrevolution.org": 1,
+      "partisanmag.com": 1,
+      "marxistunity.com": 1,
+      "newleftreview.org": 2,
+      "progressive.international": 2,
+      "twitter.com": 3,
+      "nytimes.com": 9,
+      "staradvertiser.com": 1,
+      "newyorker.com": 1,
+      "thehill.com": 1,
+      "pghdsa.org": 1,
+      "cnn.com": 3,
+      "buzzfeednews.com": 1,
+      "foxnews.com": 2,
+      "realclearpolitics.com": 1,
+      "wsws.org": 2,
+      "thedailybeast.com": 4,
+      "guidestar.org": 1,
+      "news.google.com": 4,
+      "southernmainedsa.org": 2,
+      "eastbaydsa.org": 2,
+      "vogue.com": 1,
+      "abc7chicago.com": 1,
+      "sfchronicle.com": 1,
+      "vice.com": 1,
+      "weeklyworker.co.uk": 2,
+      "dsa-lsc.org": 3,
+      "businessinsider.com": 2,
+      "theweek.com": 2,
+      "drive.google.com": 1,
+      "npr.org": 1,
+      "governing.com": 1,
+      "newsweek.com": 1,
+      "jacobinmag.com": 1,
+      "lamag.com": 1,
+      "independent.co.uk": 1,
+      "cosmonautmag.com": 1,
+      "aljazeera.com": 1,
+      "timesofisrael.com": 1,
+      "abcnews.go.com": 1,
+      "ny1.com": 1,
+      "jacobin.com": 4,
+      "the-independent.com": 1,
+      "leftvoice.org": 1,
+      "nydailynews.com": 2,
+      "reuters.com": 1,
+      "washingtonpost.com": 2,
+      "time.com": 2,
+      "s3.amazonaws.com": 1,
+      "2025.dsausa.org": 1,
+      "theprincetonprogressive.com": 1,
+      "theguardian.com": 1,
+      "prospect.org": 1,
+      "portside.org": 1,
+      "the1a.org": 1,
+      "boisestatepublicradio.org": 1,
+      "dsabuild.org": 1
+    }
+  },
+  "added": [],
+  "dropped": [
+    {
+      "domain": "dsausa.org",
+      "from": 33,
+      "to": 20
+    },
+    {
+      "domain": "nytimes.com",
+      "from": 16,
+      "to": 9
+    },
+    {
+      "domain": "program.dsausa.org",
+      "from": 6,
+      "to": 0
+    },
+    {
+      "domain": "politico.com",
+      "from": 7,
+      "to": 2
+    },
+    {
+      "domain": "sacdsa.org",
+      "from": 4,
+      "to": 0
+    },
+    {
+      "domain": "jacobin.com",
+      "from": 8,
+      "to": 4
+    },
+    {
+      "domain": "thenation.com",
+      "from": 7,
+      "to": 3
+    },
+    {
+      "domain": "jacobinmag.com",
+      "from": 5,
+      "to": 1
+    },
+    {
+      "domain": "twitter.com",
+      "from": 7,
+      "to": 3
+    },
+    {
+      "domain": "inthesetimes.com",
+      "from": 7,
+      "to": 4
+    },
+    {
+      "domain": "theguardian.com",
+      "from": 4,
+      "to": 1
+    },
+    {
+      "domain": "dlarchive.dsausa.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "texassignal.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "news.azpm.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "champlainvalleydsa.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "reformandrevolution.org",
+      "from": 3,
+      "to": 1
+    },
+    {
+      "domain": "nydailynews.com",
+      "from": 4,
+      "to": 2
+    },
+    {
+      "domain": "thecut.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "blockclubchicago.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "chicagotribune.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "madison.dsausa.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "nypost.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "dsasf.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "chicagoelections.gov",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "theintercept.com",
+      "from": 3,
+      "to": 1
+    },
+    {
+      "domain": "theatlantic.com",
+      "from": 4,
+      "to": 2
+    },
+    {
+      "domain": "usatoday.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "commondreams.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "apnews.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "indypendent.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "yallpolitics.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "npr.org",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "aljazeera.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "truthout.org",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "congress.gov",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "bbc.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "dailytarheel.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "thehill.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "archivesspace.mit.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "vtdigger.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "books.google.com",
+      "from": 5,
+      "to": 4
+    },
+    {
+      "domain": "socialistcall.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "thenevadaindependent.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "dailynorthwestern.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "cbsnews.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "ifnotnowmovement.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "redstarcaucus.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "economist.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "socialismbeatsfascism.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "wkbw.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "lvdsa.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "forward.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "bettergov.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "forbes.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "usnews.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "teenvogue.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "the-independent.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "canarymedia.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "cnn.com",
+      "from": 4,
+      "to": 3
+    },
+    {
+      "domain": "mdcdsa.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "socialistforum.dsausa.org",
+      "from": 4,
+      "to": 3
+    },
+    {
+      "domain": "independent.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "vox.com",
+      "from": 6,
+      "to": 5
+    },
+    {
+      "domain": "facebook.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "washingtonpost.com",
+      "from": 3,
+      "to": 2
+    },
+    {
+      "domain": "texasobserver.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "platform.dsausa.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "dsa-lsc.org",
+      "from": 4,
+      "to": 3
+    },
+    {
+      "domain": "newsweek.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "metrotimes.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "news3lv.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "abc7ny.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "nationalreview.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "theindy.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "solidarity-us.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "roarmag.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "sfchronicle.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "publicseminar.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "leftvoice.org",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "politi.co",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "purdueexponent.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "wweek.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "drive.google.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "app.chicagoelections.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "newpol.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "bush.house.gov",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "democraticleft.dsausa.org",
+      "from": 3,
+      "to": 2
+    },
+    {
+      "domain": "news.wttw.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "cltampa.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "thedp.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "archive.today",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "middleeasteye.net",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "nbcnews.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "huffingtonpost.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "algemeiner.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "socialists.nyc",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "thedailyline.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "billingsgazette.com",
+      "from": 1,
+      "to": 0
+    }
+  ],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+  "schema_version": 1,
+  "analysis_scope": "confirmed_episodes",
+  "episode_count": 3,
+  "episodes": [
+    {
+      "article": "Democratic Socialists of America",
+      "pivot": "2025-01-01",
+      "span": "rev 1321624877 → rev 1321630141  (exact confirmation, 2025-11-11 → 2025-11-11)",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2025-01-01",
+        "end": "2026-01-01",
+        "pwr_mass": 290234,
+        "status": "confirmed",
+        "before_revid": 1321624877,
+        "before_timestamp": "2025-11-11T17:36:50Z",
+        "after_revid": 1321630141,
+        "after_timestamp": "2025-11-11T18:17:24Z",
+        "durable_spine_drop": 0.869639
+      },
+      "before": {
+        "date": "2025-11-11",
+        "rev": 1321624877,
+        "refs": 413,
+        "n_domains": 152,
+        "cite_mix": {
+          "web": 73,
+          "news": 24,
+          "book": 3,
+          "journal": 1
+        },
+        "domains": {
+          "democraticleft.dsausa.org": 3,
+          "socialistforum.dsausa.org": 4,
+          "y.dsausa.org": 2,
+          "instagram.com": 1,
+          "nymag.com": 3,
+          "theatlantic.com": 4,
+          "gothamgazette.com": 1,
+          "cambridge.org": 1,
+          "gothamist.com": 1,
+          "straitstimes.com": 1,
+          "post-gazette.com": 1,
+          "politico.com": 7,
+          "cityandstateny.com": 2,
+          "forward.com": 2,
+          "inthesetimes.com": 7,
+          "books.google.com": 5,
+          "vox.com": 6,
+          "thenation.com": 7,
+          "truthout.org": 2,
+          "rupture.ie": 1,
+          "newlinesmag.com": 2,
+          "rollingstone.com": 3,
+          "congress.gov": 2,
+          "newrepublic.com": 5,
+          "d3n8a8pro7vhmx.cloudfront.net": 1,
+          "dsausa.org": 33,
+          "marxisthistory.org": 2,
+          "socialistcall.com": 2,
+          "reformandrevolution.org": 3,
+          "partisanmag.com": 1,
+          "marxistunity.com": 1,
+          "newleftreview.org": 2,
+          "progressive.international": 2,
+          "dsa-lsc.org": 4,
+          "roarmag.org": 1,
+          "solidarity-us.org": 1,
+          "redstarcaucus.org": 1,
+          "theindy.org": 1,
+          "program.dsausa.org": 6,
+          "economist.com": 1,
+          "archive.today": 1,
+          "teenvogue.com": 1,
+          "indypendent.org": 2,
+          "jacobin.com": 8,
+          "theintercept.com": 3,
+          "commondreams.org": 2,
+          "nytimes.com": 16,
+          "theguardian.com": 4,
+          "canarymedia.com": 1,
+          "dailynorthwestern.com": 1,
+          "leftvoice.org": 2,
+          "nationalreview.com": 1,
+          "wweek.com": 1,
+          "platform.dsausa.org": 1,
+          "archivesspace.mit.edu": 1,
+          "bbc.com": 1,
+          "algemeiner.com": 1,
+          "middleeasteye.net": 1,
+          "thehill.com": 2,
+          "usnews.com": 1,
+          "npr.org": 2,
+          "independent.com": 1,
+          "thenevadaindependent.com": 2,
+          "dailytarheel.com": 1,
+          "purdueexponent.org": 1,
+          "twitter.com": 7,
+          "the-independent.com": 2,
+          "nydailynews.com": 4,
+          "abc7ny.com": 1,
+          "cbsnews.com": 1,
+          "cnn.com": 4,
+          "ifnotnowmovement.org": 1,
+          "thecut.com": 2,
+          "bush.house.gov": 1,
+          "aljazeera.com": 2,
+          "sacdsa.org": 4,
+          "dlarchive.dsausa.org": 2,
+          "huffingtonpost.com": 1,
+          "chicagotribune.com": 2,
+          "publicseminar.org": 1,
+          "jacobinmag.com": 5,
+          "socialismbeatsfascism.org": 1,
+          "apnews.com": 2,
+          "newpol.org": 1,
+          "facebook.com": 1,
+          "dsasf.org": 2,
+          "yallpolitics.com": 2,
+          "nbcnews.com": 1,
+          "texassignal.com": 2,
+          "forbes.com": 1,
+          "metrotimes.com": 1,
+          "drive.google.com": 2,
+          "socialists.nyc": 1,
+          "nypost.com": 2,
+          "usatoday.com": 2,
+          "news.wttw.com": 1,
+          "bettergov.org": 1,
+          "politi.co": 1,
+          "thedailyline.com": 1,
+          "thedp.com": 1,
+          "billingsgazette.com": 1,
+          "mdcdsa.org": 1,
+          "washingtonpost.com": 3,
+          "sfchronicle.com": 2,
+          "news.azpm.org": 2,
+          "texasobserver.org": 1,
+          "madison.dsausa.org": 2,
+          "vtdigger.org": 1,
+          "champlainvalleydsa.org": 2,
+          "cltampa.com": 1,
+          "news3lv.com": 1,
+          "lvdsa.org": 1,
+          "newsweek.com": 2,
+          "wkbw.com": 1,
+          "blockclubchicago.org": 2,
+          "chicagoelections.gov": 2,
+          "app.chicagoelections.com": 1,
+          "staradvertiser.com": 1,
+          "newyorker.com": 1,
+          "pghdsa.org": 1,
+          "buzzfeednews.com": 1,
+          "foxnews.com": 2,
+          "realclearpolitics.com": 1,
+          "wsws.org": 2,
+          "thedailybeast.com": 4,
+          "guidestar.org": 1,
+          "news.google.com": 4,
+          "southernmainedsa.org": 2,
+          "eastbaydsa.org": 2,
+          "vogue.com": 1,
+          "abc7chicago.com": 1,
+          "vice.com": 1,
+          "weeklyworker.co.uk": 2,
+          "businessinsider.com": 2,
+          "theweek.com": 2,
+          "governing.com": 1,
+          "lamag.com": 1,
+          "independent.co.uk": 1,
+          "cosmonautmag.com": 1,
+          "timesofisrael.com": 1,
+          "abcnews.go.com": 1,
+          "ny1.com": 1,
+          "reuters.com": 1,
+          "time.com": 2,
+          "s3.amazonaws.com": 1,
+          "2025.dsausa.org": 1,
+          "theprincetonprogressive.com": 1,
+          "prospect.org": 1,
+          "portside.org": 1,
+          "the1a.org": 1,
+          "boisestatepublicradio.org": 1,
+          "dsabuild.org": 1
+        }
+      },
+      "after": {
+        "date": "2025-11-11",
+        "rev": 1321630141,
+        "refs": 150,
+        "n_domains": 87,
+        "cite_mix": {
+          "web": 70,
+          "news": 25,
+          "book": 5,
+          "journal": 1
+        },
+        "domains": {
+          "democraticleft.dsausa.org": 2,
+          "socialistforum.dsausa.org": 3,
+          "y.dsausa.org": 2,
+          "instagram.com": 1,
+          "nymag.com": 3,
+          "theatlantic.com": 2,
+          "gothamgazette.com": 1,
+          "cambridge.org": 1,
+          "gothamist.com": 1,
+          "straitstimes.com": 1,
+          "post-gazette.com": 1,
+          "politico.com": 2,
+          "cityandstateny.com": 2,
+          "forward.com": 1,
+          "inthesetimes.com": 4,
+          "books.google.com": 4,
+          "vox.com": 5,
+          "thenation.com": 3,
+          "truthout.org": 1,
+          "rupture.ie": 1,
+          "newlinesmag.com": 2,
+          "rollingstone.com": 3,
+          "congress.gov": 1,
+          "newrepublic.com": 5,
+          "d3n8a8pro7vhmx.cloudfront.net": 1,
+          "dsausa.org": 20,
+          "theintercept.com": 1,
+          "thenevadaindependent.com": 1,
+          "marxisthistory.org": 2,
+          "socialistcall.com": 1,
+          "reformandrevolution.org": 1,
+          "partisanmag.com": 1,
+          "marxistunity.com": 1,
+          "newleftreview.org": 2,
+          "progressive.international": 2,
+          "twitter.com": 3,
+          "nytimes.com": 9,
+          "staradvertiser.com": 1,
+          "newyorker.com": 1,
+          "thehill.com": 1,
+          "pghdsa.org": 1,
+          "cnn.com": 3,
+          "buzzfeednews.com": 1,
+          "foxnews.com": 2,
+          "realclearpolitics.com": 1,
+          "wsws.org": 2,
+          "thedailybeast.com": 4,
+          "guidestar.org": 1,
+          "news.google.com": 4,
+          "southernmainedsa.org": 2,
+          "eastbaydsa.org": 2,
+          "vogue.com": 1,
+          "abc7chicago.com": 1,
+          "sfchronicle.com": 1,
+          "vice.com": 1,
+          "weeklyworker.co.uk": 2,
+          "dsa-lsc.org": 3,
+          "businessinsider.com": 2,
+          "theweek.com": 2,
+          "drive.google.com": 1,
+          "npr.org": 1,
+          "governing.com": 1,
+          "newsweek.com": 1,
+          "jacobinmag.com": 1,
+          "lamag.com": 1,
+          "independent.co.uk": 1,
+          "cosmonautmag.com": 1,
+          "aljazeera.com": 1,
+          "timesofisrael.com": 1,
+          "abcnews.go.com": 1,
+          "ny1.com": 1,
+          "jacobin.com": 4,
+          "the-independent.com": 1,
+          "leftvoice.org": 1,
+          "nydailynews.com": 2,
+          "reuters.com": 1,
+          "washingtonpost.com": 2,
+          "time.com": 2,
+          "s3.amazonaws.com": 1,
+          "2025.dsausa.org": 1,
+          "theprincetonprogressive.com": 1,
+          "theguardian.com": 1,
+          "prospect.org": 1,
+          "portside.org": 1,
+          "the1a.org": 1,
+          "boisestatepublicradio.org": 1,
+          "dsabuild.org": 1
+        }
+      },
+      "added": [],
+      "dropped": [
+        {
+          "domain": "dsausa.org",
+          "from": 33,
+          "to": 20
+        },
+        {
+          "domain": "nytimes.com",
+          "from": 16,
+          "to": 9
+        },
+        {
+          "domain": "program.dsausa.org",
+          "from": 6,
+          "to": 0
+        },
+        {
+          "domain": "politico.com",
+          "from": 7,
+          "to": 2
+        },
+        {
+          "domain": "sacdsa.org",
+          "from": 4,
+          "to": 0
+        },
+        {
+          "domain": "jacobin.com",
+          "from": 8,
+          "to": 4
+        },
+        {
+          "domain": "thenation.com",
+          "from": 7,
+          "to": 3
+        },
+        {
+          "domain": "jacobinmag.com",
+          "from": 5,
+          "to": 1
+        },
+        {
+          "domain": "twitter.com",
+          "from": 7,
+          "to": 3
+        },
+        {
+          "domain": "inthesetimes.com",
+          "from": 7,
+          "to": 4
+        },
+        {
+          "domain": "theguardian.com",
+          "from": 4,
+          "to": 1
+        },
+        {
+          "domain": "dlarchive.dsausa.org",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "texassignal.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "news.azpm.org",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "champlainvalleydsa.org",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "reformandrevolution.org",
+          "from": 3,
+          "to": 1
+        },
+        {
+          "domain": "nydailynews.com",
+          "from": 4,
+          "to": 2
+        },
+        {
+          "domain": "thecut.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "blockclubchicago.org",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "chicagotribune.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "madison.dsausa.org",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "nypost.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "dsasf.org",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "chicagoelections.gov",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "theintercept.com",
+          "from": 3,
+          "to": 1
+        },
+        {
+          "domain": "theatlantic.com",
+          "from": 4,
+          "to": 2
+        },
+        {
+          "domain": "usatoday.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "commondreams.org",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "apnews.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "indypendent.org",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "yallpolitics.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "npr.org",
+          "from": 2,
+          "to": 1
+        },
+        {
+          "domain": "aljazeera.com",
+          "from": 2,
+          "to": 1
+        },
+        {
+          "domain": "truthout.org",
+          "from": 2,
+          "to": 1
+        },
+        {
+          "domain": "congress.gov",
+          "from": 2,
+          "to": 1
+        },
+        {
+          "domain": "bbc.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "dailytarheel.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "thehill.com",
+          "from": 2,
+          "to": 1
+        },
+        {
+          "domain": "archivesspace.mit.edu",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "vtdigger.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "books.google.com",
+          "from": 5,
+          "to": 4
+        },
+        {
+          "domain": "socialistcall.com",
+          "from": 2,
+          "to": 1
+        },
+        {
+          "domain": "thenevadaindependent.com",
+          "from": 2,
+          "to": 1
+        },
+        {
+          "domain": "dailynorthwestern.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "cbsnews.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "ifnotnowmovement.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "redstarcaucus.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "economist.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "socialismbeatsfascism.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "wkbw.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "lvdsa.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "forward.com",
+          "from": 2,
+          "to": 1
+        },
+        {
+          "domain": "bettergov.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "forbes.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "usnews.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "teenvogue.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "the-independent.com",
+          "from": 2,
+          "to": 1
+        },
+        {
+          "domain": "canarymedia.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "cnn.com",
+          "from": 4,
+          "to": 3
+        },
+        {
+          "domain": "mdcdsa.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "socialistforum.dsausa.org",
+          "from": 4,
+          "to": 3
+        },
+        {
+          "domain": "independent.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "vox.com",
+          "from": 6,
+          "to": 5
+        },
+        {
+          "domain": "facebook.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "washingtonpost.com",
+          "from": 3,
+          "to": 2
+        },
+        {
+          "domain": "texasobserver.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "platform.dsausa.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "dsa-lsc.org",
+          "from": 4,
+          "to": 3
+        },
+        {
+          "domain": "newsweek.com",
+          "from": 2,
+          "to": 1
+        },
+        {
+          "domain": "metrotimes.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "news3lv.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "abc7ny.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "nationalreview.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "theindy.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "solidarity-us.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "roarmag.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "sfchronicle.com",
+          "from": 2,
+          "to": 1
+        },
+        {
+          "domain": "publicseminar.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "leftvoice.org",
+          "from": 2,
+          "to": 1
+        },
+        {
+          "domain": "politi.co",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "purdueexponent.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "wweek.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "drive.google.com",
+          "from": 2,
+          "to": 1
+        },
+        {
+          "domain": "app.chicagoelections.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "newpol.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "bush.house.gov",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "democraticleft.dsausa.org",
+          "from": 3,
+          "to": 2
+        },
+        {
+          "domain": "news.wttw.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "cltampa.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "thedp.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "archive.today",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "middleeasteye.net",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "nbcnews.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "huffingtonpost.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "algemeiner.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "socialists.nyc",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "thedailyline.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "billingsgazette.com",
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+      "episode_id": "1321624877-1321630141",
+      "episode_index": 1,
+      "episode_window": {
+        "start": "2025-01-01",
+        "end": "2026-01-01",
+        "pwr_mass": 290234,
+        "status": "confirmed",
+        "before_revid": 1321624877,
+        "before_timestamp": "2025-11-11T17:36:50Z",
+        "after_revid": 1321630141,
+        "after_timestamp": "2025-11-11T18:17:24Z",
+        "durable_spine_drop": 0.869639
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Democratic Socialists of America",
+      "pivot": "2020-01-01",
+      "span": "rev 951975376 → rev 951977396  (exact confirmation, 2020-04-19 → 2020-04-19)",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2020-01-01",
+        "end": "2020-07-01",
+        "pwr_mass": 61516,
+        "status": "confirmed",
+        "before_revid": 951975376,
+        "before_timestamp": "2020-04-19T22:56:43Z",
+        "after_revid": 951977396,
+        "after_timestamp": "2020-04-19T23:12:16Z",
+        "durable_spine_drop": 0.340927
+      },
+      "before": {
+        "date": "2020-04-19",
+        "rev": 951975376,
+        "refs": 302,
+        "n_domains": 66,
+        "cite_mix": {
+          "web": 76,
+          "news": 21,
+          "book": 3
+        },
+        "domains": {
+          "dsatlas.org": 1,
+          "dsausa.org": 58,
+          "dsatesting.info": 3,
+          "d3n8a8pro7vhmx.cloudfront.net": 5,
+          "democraticleft.dsausa.org": 4,
+          "timesofisrael.com": 1,
+          "nytimes.com": 9,
+          "marxisthistory.org": 3,
+          "twitter.com": 4,
+          "phillymag.com": 1,
+          "thenation.com": 2,
+          "governing.com": 1,
+          "mashable.com": 1,
+          "fruitsofourlabour.blogspot.com": 1,
+          "books.google.com": 4,
+          "inthesetimes.com": 4,
+          "jacobinmag.com": 2,
+          "staradvertiser.com": 1,
+          "newyorker.com": 1,
+          "thehill.com": 1,
+          "pghdsa.org": 1,
+          "cnn.com": 1,
+          "buzzfeednews.com": 1,
+          "foxnews.com": 3,
+          "realclearpolitics.com": 1,
+          "wsws.org": 1,
+          "archive.org": 1,
+          "the1a.org": 2,
+          "people-press.org": 1,
+          "newrepublic.com": 3,
+          "huffingtonpost.com": 2,
+          "leoweekly.com": 1,
+          "latimes.com": 1,
+          "dailypublic.com": 1,
+          "thedailybeast.com": 4,
+          "leftvoice.org": 2,
+          "alternet.org": 1,
+          "breadandrosesdsa.org": 1,
+          "dsa-lsc.org": 2,
+          "guidestar.org": 1,
+          "news.google.com": 3,
+          "chicagotribune.com": 2,
+          "southernmainedsa.org": 1,
+          "eastbaydsa.org": 1,
+          "vogue.com": 1,
+          "vox.com": 2,
+          "abc7chicago.com": 1,
+          "sfchronicle.com": 1,
+          "vice.com": 1,
+          "reuters.com": 1,
+          "medium.com": 3,
+          "talkingunion.wordpress.com": 1,
+          "weeklyworker.co.uk": 1,
+          "ydsusa.org": 6,
+          "iusy.org": 1,
+          "articles.latimes.com": 1,
+          "businessinsider.com": 1,
+          "theweek.com": 1,
+          "theguardian.com": 1,
+          "prospect.org": 1,
+          "rollingstone.com": 1,
+          "portside.org": 1,
+          "boisestatepublicradio.org": 1,
+          "nydailynews.com": 1,
+          "dsabuild.org": 1,
+          "nymag.com": 1
+        }
+      },
+      "after": {
+        "date": "2020-04-19",
+        "rev": 951977396,
+        "refs": 302,
+        "n_domains": 65,
+        "cite_mix": {
+          "web": 76,
+          "news": 21,
+          "book": 3
+        },
+        "domains": {
+          "dsatlas.org": 1,
+          "timesofisrael.com": 1,
+          "nytimes.com": 9,
+          "marxisthistory.org": 3,
+          "twitter.com": 4,
+          "phillymag.com": 1,
+          "thenation.com": 2,
+          "governing.com": 1,
+          "mashable.com": 1,
+          "fruitsofourlabour.blogspot.com": 1,
+          "dsausa.org": 50,
+          "books.google.com": 4,
+          "inthesetimes.com": 4,
+          "jacobinmag.com": 2,
+          "staradvertiser.com": 1,
+          "newyorker.com": 1,
+          "thehill.com": 1,
+          "pghdsa.org": 1,
+          "cnn.com": 1,
+          "buzzfeednews.com": 1,
+          "foxnews.com": 3,
+          "realclearpolitics.com": 1,
+          "wsws.org": 1,
+          "archive.org": 1,
+          "the1a.org": 2,
+          "people-press.org": 1,
+          "newrepublic.com": 3,
+          "huffingtonpost.com": 2,
+          "leoweekly.com": 1,
+          "latimes.com": 1,
+          "dailypublic.com": 1,
+          "thedailybeast.com": 4,
+          "d3n8a8pro7vhmx.cloudfront.net": 1,
+          "leftvoice.org": 2,
+          "alternet.org": 1,
+          "democraticleft.dsausa.org": 2,
+          "breadandrosesdsa.org": 1,
+          "dsa-lsc.org": 2,
+          "guidestar.org": 1,
+          "news.google.com": 3,
+          "chicagotribune.com": 2,
+          "southernmainedsa.org": 1,
+          "eastbaydsa.org": 1,
+          "vogue.com": 1,
+          "vox.com": 2,
+          "abc7chicago.com": 1,
+          "sfchronicle.com": 1,
+          "vice.com": 1,
+          "reuters.com": 1,
+          "medium.com": 3,
+          "talkingunion.wordpress.com": 1,
+          "weeklyworker.co.uk": 1,
+          "ydsusa.org": 6,
+          "iusy.org": 1,
+          "articles.latimes.com": 1,
+          "businessinsider.com": 1,
+          "theweek.com": 1,
+          "theguardian.com": 1,
+          "prospect.org": 1,
+          "rollingstone.com": 1,
+          "portside.org": 1,
+          "boisestatepublicradio.org": 1,
+          "nydailynews.com": 1,
+          "dsabuild.org": 1,
+          "nymag.com": 1
+        }
+      },
+      "added": [],
+      "dropped": [
+        {
+          "domain": "dsausa.org",
+          "from": 58,
+          "to": 50
+        },
+        {
+          "domain": "d3n8a8pro7vhmx.cloudfront.net",
+          "from": 5,
+          "to": 1
+        },
+        {
+          "domain": "dsatesting.info",
+          "from": 3,
+          "to": 0
+        },
+        {
+          "domain": "democraticleft.dsausa.org",
+          "from": 4,
+          "to": 2
+        }
+      ],
+      "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+      "episode_id": "951975376-951977396",
+      "episode_index": 2,
+      "episode_window": {
+        "start": "2020-01-01",
+        "end": "2020-07-01",
+        "pwr_mass": 61516,
+        "status": "confirmed",
+        "before_revid": 951975376,
+        "before_timestamp": "2020-04-19T22:56:43Z",
+        "after_revid": 951977396,
+        "after_timestamp": "2020-04-19T23:12:16Z",
+        "durable_spine_drop": 0.340927
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Democratic Socialists of America",
+      "pivot": "2009-07-01",
+      "span": "rev 324111042 → rev 324127928  (exact confirmation, 2009-11-05 → 2009-11-05)",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2009-07-01",
+        "end": "2010-07-01",
+        "pwr_mass": 6923,
+        "status": "confirmed",
+        "before_revid": 324111042,
+        "before_timestamp": "2009-11-05T17:11:27Z",
+        "after_revid": 324127928,
+        "after_timestamp": "2009-11-05T18:51:24Z",
+        "durable_spine_drop": 0.419014
+      },
+      "before": {
+        "date": "2009-11-05",
+        "rev": 324111042,
+        "refs": 0,
+        "n_domains": 0,
+        "cite_mix": {},
+        "domains": {}
+      },
+      "after": {
+        "date": "2009-11-05",
+        "rev": 324127928,
+        "refs": 0,
+        "n_domains": 0,
+        "cite_mix": {},
+        "domains": {}
+      },
+      "added": [],
+      "dropped": [],
+      "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+      "episode_id": "324111042-324127928",
+      "episode_index": 3,
+      "episode_window": {
+        "start": "2009-07-01",
+        "end": "2010-07-01",
+        "pwr_mass": 6923,
+        "status": "confirmed",
+        "before_revid": 324111042,
+        "before_timestamp": "2009-11-05T17:11:27Z",
+        "after_revid": 324127928,
+        "after_timestamp": "2009-11-05T18:51:24Z",
+        "durable_spine_drop": 0.419014
+      },
+      "analysis_status": "available"
+    }
+  ]
+}

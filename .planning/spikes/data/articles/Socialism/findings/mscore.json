@@ -1,0 +1,17 @@
+{
+  "Socialism": {
+    "raw": {
+      "revs": 15337,
+      "mutual_pairs": 610,
+      "M": 5016357,
+      "M_per_rev": 327.08
+    },
+    "refined": {
+      "revs": 11044,
+      "mutual_pairs": 98,
+      "M": 365650,
+      "M_per_rev": 33.11
+    },
+    "refined_per_rev": 23.84
+  }
+}

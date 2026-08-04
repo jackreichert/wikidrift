@@ -1,0 +1,2583 @@
+{
+  "article": "Republican Party (United States)",
+  "pivot": "2025-01-01",
+  "span": "rev 1284886106 → rev 1284887246  (exact confirmation, 2025-04-10 → 2025-04-10)",
+  "mode": "pivot_relative",
+  "pivot_window": {
+    "start": "2025-01-01",
+    "end": "2026-01-01",
+    "pwr_mass": 143511,
+    "status": "confirmed",
+    "before_revid": 1284886106,
+    "before_timestamp": "2025-04-10T09:52:46Z",
+    "after_revid": 1284887246,
+    "after_timestamp": "2025-04-10T10:08:31Z",
+    "durable_spine_drop": 0.289771
+  },
+  "before": {
+    "date": "2025-04-10",
+    "rev": 1284886106,
+    "refs": 882,
+    "n_domains": 222,
+    "cite_mix": {
+      "web": 46,
+      "news": 34,
+      "journal": 12,
+      "book": 8
+    },
+    "domains": {
+      "content.wisconsinhistory.org": 4,
+      "opinionator.blogs.nytimes.com": 1,
+      "digital.lib.niu.edu": 2,
+      "hdl.handle.net": 1,
+      "gilderlehrman.org": 2,
+      "online.norwich.edu": 2,
+      "doi.org": 5,
+      "politico.com": 44,
+      "journals.uchicago.edu": 3,
+      "books.google.com": 40,
+      "oxfordre.com": 3,
+      "taylorfrancis.com": 3,
+      "persee.fr": 1,
+      "hirr.hartsem.edu": 2,
+      "theconversation.com": 6,
+      "fivethirtyeight.com": 18,
+      "idu.org": 4,
+      "ecrparty.eu": 2,
+      "prospect.org": 4,
+      "theamericanconservative.com": 2,
+      "journals.openedition.org": 4,
+      "tandfonline.com": 3,
+      "ocregister.com": 2,
+      "washingtonpost.com": 82,
+      "thehill.com": 21,
+      "reuters.com": 11,
+      "aei.org": 2,
+      "newstatesman.com": 4,
+      "nytimes.com": 120,
+      "apnews.com": 23,
+      "ft.com": 5,
+      "economist.com": 18,
+      "global.oup.com": 2,
+      "bloomberg.com": 4,
+      "wsj.com": 15,
+      "axios.com": 13,
+      "brookings.edu": 4,
+      "reason.com": 4,
+      "deathpenaltyinfo.org": 1,
+      "time.com": 5,
+      "usatoday.com": 4,
+      "senate.gov": 2,
+      "smithsonianmag.com": 4,
+      "gop.com": 10,
+      "faculty.winthrop.edu": 2,
+      "loc.gov": 2,
+      "history.com": 12,
+      "millercenter.org": 14,
+      "archive.org": 14,
+      "usnews.com": 9,
+      "jstor.org": 13,
+      "vox.com": 11,
+      "amazon.com": 3,
+      "theatlantic.com": 28,
+      "content.time.com": 2,
+      "uncpress.org": 2,
+      "mises-media.s3.amazonaws.com": 2,
+      "wbur.org": 2,
+      "rferl.org": 2,
+      "euronews.com": 3,
+      "npr.org": 20,
+      "baltimoresun.com": 2,
+      "hoover.org": 2,
+      "journals.sagepub.com": 2,
+      "nowpublishers.com": 4,
+      "pewresearch.org": 25,
+      "nymag.com": 13,
+      "newrepublic.com": 8,
+      "rollingstone.com": 2,
+      "people-press.org": 3,
+      "cato.org": 4,
+      "realclearpolitics.com": 2,
+      "rollcall.com": 8,
+      "nydailynews.com": 2,
+      "theguardian.com": 20,
+      "guardian.co.uk": 1,
+      "bbc.com": 5,
+      "newsweek.com": 5,
+      "huffingtonpost.com": 4,
+      "csmonitor.com": 4,
+      "abcnews.go.com": 7,
+      "latimes.com": 5,
+      "quorum.us": 2,
+      "images.skem1.com": 2,
+      "cbsnews.com": 4,
+      "nbcnews.com": 23,
+      "governing.com": 4,
+      "pressreader.com": 2,
+      "cnbc.com": 2,
+      "ghostarchive.org": 2,
+      "academic.oup.com": 3,
+      "foreignaffairs.com": 4,
+      "journalofdemocracy.org": 1,
+      "v-dem.net": 2,
+      "ncsl.org": 4,
+      "gazette.com": 2,
+      "desmoinesregister.com": 2,
+      "pbs.org": 3,
+      "ushistory.org": 2,
+      "britannica.com": 3,
+      "harpweek.com": 2,
+      "unc.edu": 2,
+      "brennancenter.org": 4,
+      "westkentuckystar.com": 2,
+      "washingtonmonthly.com": 4,
+      "projects.fivethirtyeight.com": 2,
+      "newyorker.com": 4,
+      "punchbowl.news": 2,
+      "cnn.com": 35,
+      "telegraph.co.uk": 2,
+      "sites.uw.edu": 2,
+      "wzb.eu": 2,
+      "ideas.repec.org": 2,
+      "france24.com": 2,
+      "news.sky.com": 1,
+      "businessinsider.com": 2,
+      "forbes.com": 2,
+      "economictimes.indiatimes.com": 1,
+      "m.economictimes.com": 1,
+      "cambridge.org": 16,
+      "gallup.com": 2,
+      "aljazeera.com": 2,
+      "edition.cnn.com": 8,
+      "theintercept.com": 2,
+      "ny1.com": 1,
+      "nbcwashington.com": 1,
+      "al.com": 1,
+      "times-herald.com": 1,
+      "thenation.com": 1,
+      "news.gallup.com": 6,
+      "natesilver.net": 2,
+      "rsc-hern.house.gov": 2,
+      "religionnews.com": 2,
+      "prri.org": 4,
+      "news.yale.edu": 2,
+      "findarticles.com": 1,
+      "arquivo.pt": 1,
+      "l4l.org": 2,
+      "courier-journal.com": 2,
+      "foxnews.com": 11,
+      "marketplace.org": 1,
+      "salon.com": 1,
+      "wusa9.com": 2,
+      "itep.org": 1,
+      "russellsage.org": 1,
+      "cprr.org": 2,
+      "routledge.com": 2,
+      "propublica.org": 2,
+      "muse.jhu.edu": 4,
+      "mercatus.org": 2,
+      "kff.org": 2,
+      "independent.co.uk": 1,
+      "nlrb.gov": 2,
+      "pantheon.cis.yale.edu": 2,
+      "elgaronline.com": 2,
+      "sciencedirect.com": 2,
+      "hup.harvard.edu": 2,
+      "georgewbush-whitehouse.archives.gov": 2,
+      "green.blogs.nytimes.com": 2,
+      "politifact.com": 4,
+      "healthaffairs.org": 2,
+      "read.dukeupress.edu": 2,
+      "oxfordreference.com": 2,
+      "nationalreview.com": 2,
+      "i24news.tv": 1,
+      "timesofisrael.com": 1,
+      "globalaffairs.org": 2,
+      "msnbc.com": 3,
+      "prod-static-ngop-pbl.s3.amazonaws.com": 2,
+      "weeklystandard.com": 2,
+      "ispionline.it": 1,
+      "politico.eu": 1,
+      "kyivindependent.com": 1,
+      "quinnipiac.edu": 2,
+      "nybooks.com": 2,
+      "thegospelcoalition.org": 2,
+      "archive.nytimes.com": 2,
+      "christianitytoday.com": 2,
+      "baptistnews.com": 2,
+      "finance.yahoo.com": 2,
+      "cup.columbia.edu": 2,
+      "ontheissues.org": 3,
+      "nejm.org": 1,
+      "presidency.ucsb.edu": 5,
+      "republicanviews.org": 4,
+      "thetrace.org": 2,
+      "bop.gov": 1,
+      "famm.org": 2,
+      "washingtonblade.com": 2,
+      "publicreligion.org": 2,
+      "huffpost.com": 2,
+      "prod-cdn-static.gop.com": 2,
+      "metroweekly.com": 2,
+      "grinnell.edu": 2,
+      "today.yougov.com": 2,
+      "docs.cdn.yougov.com": 2,
+      "advocate.com": 1,
+      "pewtrusts.org": 2,
+      "theweek.com": 2,
+      "lawandcrime.com": 2,
+      "poll.qu.edu": 2,
+      "scholarlycommons.law.case.edu": 2,
+      "digitalcommons.law.mercer.edu": 2,
+      "deseret.com": 1,
+      "insidenova.com": 1,
+      "census.gov": 2,
+      "wvwv.org": 2,
+      "crisismagazine.com": 2,
+      "split-ticket.org": 2,
+      "uselectionatlas.org": 2,
+      "history.house.gov": 2,
+      "politics.blogs.foxnews.com": 2,
+      "mattbarreto.com": 2,
+      "news.bbc.co.uk": 2,
+      "deccanherald.com": 2,
+      "dw.com": 2,
+      "slate.com": 2,
+      "sltrib.com": 2,
+      "fox13now.com": 1,
+      "jta.org": 4,
+      "wikipedialibrary.wmflabs.org": 2,
+      "questia.com": 2
+    }
+  },
+  "after": {
+    "date": "2025-04-10",
+    "rev": 1284887246,
+    "refs": 765,
+    "n_domains": 202,
+    "cite_mix": {
+      "web": 46,
+      "news": 34,
+      "journal": 12,
+      "book": 8
+    },
+    "domains": {
+      "content.wisconsinhistory.org": 2,
+      "opinionator.blogs.nytimes.com": 1,
+      "digital.lib.niu.edu": 2,
+      "hdl.handle.net": 1,
+      "gilderlehrman.org": 2,
+      "online.norwich.edu": 2,
+      "doi.org": 5,
+      "politico.com": 34,
+      "journals.uchicago.edu": 3,
+      "books.google.com": 36,
+      "oxfordre.com": 3,
+      "taylorfrancis.com": 1,
+      "persee.fr": 1,
+      "hirr.hartsem.edu": 2,
+      "theconversation.com": 6,
+      "fivethirtyeight.com": 18,
+      "idu.org": 4,
+      "ecrparty.eu": 2,
+      "prospect.org": 2,
+      "theamericanconservative.com": 2,
+      "journals.openedition.org": 4,
+      "tandfonline.com": 3,
+      "ocregister.com": 2,
+      "washingtonpost.com": 64,
+      "thehill.com": 19,
+      "reuters.com": 11,
+      "aei.org": 2,
+      "newstatesman.com": 4,
+      "nytimes.com": 113,
+      "apnews.com": 23,
+      "ft.com": 5,
+      "economist.com": 18,
+      "global.oup.com": 2,
+      "bloomberg.com": 4,
+      "wsj.com": 11,
+      "axios.com": 13,
+      "brookings.edu": 4,
+      "reason.com": 2,
+      "deathpenaltyinfo.org": 1,
+      "time.com": 3,
+      "usatoday.com": 4,
+      "cup.columbia.edu": 3,
+      "dailykos.com": 1,
+      "presidency.ucsb.edu": 6,
+      "nbcnews.com": 23,
+      "governing.com": 4,
+      "usnews.com": 7,
+      "pressreader.com": 2,
+      "theatlantic.com": 22,
+      "cnbc.com": 2,
+      "npr.org": 14,
+      "ghostarchive.org": 2,
+      "academic.oup.com": 3,
+      "foreignaffairs.com": 4,
+      "journalofdemocracy.org": 1,
+      "v-dem.net": 2,
+      "ncsl.org": 4,
+      "gazette.com": 2,
+      "desmoinesregister.com": 2,
+      "pbs.org": 3,
+      "archive.org": 9,
+      "ushistory.org": 2,
+      "britannica.com": 3,
+      "harpweek.com": 2,
+      "unc.edu": 2,
+      "brennancenter.org": 4,
+      "westkentuckystar.com": 2,
+      "washingtonmonthly.com": 4,
+      "projects.fivethirtyeight.com": 2,
+      "newyorker.com": 4,
+      "punchbowl.news": 2,
+      "cnn.com": 35,
+      "newrepublic.com": 4,
+      "telegraph.co.uk": 2,
+      "vox.com": 9,
+      "theguardian.com": 19,
+      "sites.uw.edu": 2,
+      "wzb.eu": 2,
+      "csmonitor.com": 2,
+      "abcnews.go.com": 5,
+      "newsweek.com": 3,
+      "ideas.repec.org": 2,
+      "france24.com": 2,
+      "news.sky.com": 1,
+      "businessinsider.com": 2,
+      "forbes.com": 2,
+      "economictimes.indiatimes.com": 1,
+      "m.economictimes.com": 1,
+      "cambridge.org": 16,
+      "gallup.com": 2,
+      "aljazeera.com": 2,
+      "nymag.com": 11,
+      "edition.cnn.com": 8,
+      "theintercept.com": 2,
+      "ny1.com": 1,
+      "nbcwashington.com": 1,
+      "al.com": 1,
+      "times-herald.com": 1,
+      "thenation.com": 1,
+      "news.gallup.com": 6,
+      "natesilver.net": 2,
+      "bbc.com": 3,
+      "rsc-hern.house.gov": 2,
+      "pewresearch.org": 23,
+      "religionnews.com": 2,
+      "prri.org": 4,
+      "latimes.com": 3,
+      "news.yale.edu": 2,
+      "jstor.org": 4,
+      "findarticles.com": 1,
+      "arquivo.pt": 1,
+      "l4l.org": 2,
+      "courier-journal.com": 2,
+      "foxnews.com": 11,
+      "rollcall.com": 4,
+      "marketplace.org": 1,
+      "euronews.com": 1,
+      "salon.com": 1,
+      "wusa9.com": 2,
+      "itep.org": 1,
+      "russellsage.org": 1,
+      "cprr.org": 2,
+      "routledge.com": 2,
+      "propublica.org": 2,
+      "muse.jhu.edu": 4,
+      "nowpublishers.com": 2,
+      "mercatus.org": 2,
+      "kff.org": 2,
+      "independent.co.uk": 1,
+      "nlrb.gov": 2,
+      "pantheon.cis.yale.edu": 2,
+      "elgaronline.com": 2,
+      "sciencedirect.com": 2,
+      "hup.harvard.edu": 2,
+      "people-press.org": 1,
+      "georgewbush-whitehouse.archives.gov": 2,
+      "gop.com": 8,
+      "green.blogs.nytimes.com": 2,
+      "politifact.com": 4,
+      "healthaffairs.org": 2,
+      "read.dukeupress.edu": 2,
+      "oxfordreference.com": 2,
+      "nationalreview.com": 2,
+      "i24news.tv": 1,
+      "timesofisrael.com": 1,
+      "globalaffairs.org": 2,
+      "msnbc.com": 3,
+      "prod-static-ngop-pbl.s3.amazonaws.com": 2,
+      "weeklystandard.com": 2,
+      "ispionline.it": 1,
+      "politico.eu": 1,
+      "kyivindependent.com": 1,
+      "quinnipiac.edu": 2,
+      "nybooks.com": 2,
+      "thegospelcoalition.org": 2,
+      "archive.nytimes.com": 2,
+      "christianitytoday.com": 2,
+      "baptistnews.com": 2,
+      "finance.yahoo.com": 2,
+      "ontheissues.org": 3,
+      "nejm.org": 1,
+      "republicanviews.org": 4,
+      "thetrace.org": 2,
+      "bop.gov": 1,
+      "famm.org": 2,
+      "history.com": 1,
+      "washingtonblade.com": 2,
+      "publicreligion.org": 2,
+      "huffpost.com": 2,
+      "prod-cdn-static.gop.com": 2,
+      "metroweekly.com": 2,
+      "grinnell.edu": 2,
+      "today.yougov.com": 2,
+      "docs.cdn.yougov.com": 2,
+      "advocate.com": 1,
+      "pewtrusts.org": 2,
+      "theweek.com": 2,
+      "lawandcrime.com": 2,
+      "poll.qu.edu": 2,
+      "scholarlycommons.law.case.edu": 2,
+      "digitalcommons.law.mercer.edu": 2,
+      "cbsnews.com": 2,
+      "deseret.com": 1,
+      "insidenova.com": 1,
+      "census.gov": 2,
+      "wvwv.org": 2,
+      "crisismagazine.com": 2,
+      "split-ticket.org": 2,
+      "uselectionatlas.org": 2,
+      "history.house.gov": 2,
+      "politics.blogs.foxnews.com": 2,
+      "mattbarreto.com": 2,
+      "news.bbc.co.uk": 2,
+      "deccanherald.com": 2,
+      "dw.com": 2,
+      "slate.com": 2,
+      "sltrib.com": 2,
+      "fox13now.com": 1,
+      "jta.org": 4,
+      "amazon.com": 2,
+      "wikipedialibrary.wmflabs.org": 2,
+      "questia.com": 2
+    }
+  },
+  "added": [
+    {
+      "domain": "dailykos.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "cup.columbia.edu",
+      "from": 2,
+      "to": 3
+    },
+    {
+      "domain": "presidency.ucsb.edu",
+      "from": 5,
+      "to": 6
+    }
+  ],
+  "dropped": [
+    {
+      "domain": "washingtonpost.com",
+      "from": 82,
+      "to": 64
+    },
+    {
+      "domain": "millercenter.org",
+      "from": 14,
+      "to": 0
+    },
+    {
+      "domain": "history.com",
+      "from": 12,
+      "to": 1
+    },
+    {
+      "domain": "politico.com",
+      "from": 44,
+      "to": 34
+    },
+    {
+      "domain": "jstor.org",
+      "from": 13,
+      "to": 4
+    },
+    {
+      "domain": "nytimes.com",
+      "from": 120,
+      "to": 113
+    },
+    {
+      "domain": "theatlantic.com",
+      "from": 28,
+      "to": 22
+    },
+    {
+      "domain": "npr.org",
+      "from": 20,
+      "to": 14
+    },
+    {
+      "domain": "archive.org",
+      "from": 14,
+      "to": 9
+    },
+    {
+      "domain": "smithsonianmag.com",
+      "from": 4,
+      "to": 0
+    },
+    {
+      "domain": "books.google.com",
+      "from": 40,
+      "to": 36
+    },
+    {
+      "domain": "wsj.com",
+      "from": 15,
+      "to": 11
+    },
+    {
+      "domain": "huffingtonpost.com",
+      "from": 4,
+      "to": 0
+    },
+    {
+      "domain": "newrepublic.com",
+      "from": 8,
+      "to": 4
+    },
+    {
+      "domain": "rollcall.com",
+      "from": 8,
+      "to": 4
+    },
+    {
+      "domain": "cato.org",
+      "from": 4,
+      "to": 0
+    },
+    {
+      "domain": "nydailynews.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "reason.com",
+      "from": 4,
+      "to": 2
+    },
+    {
+      "domain": "quorum.us",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "rollingstone.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "nowpublishers.com",
+      "from": 4,
+      "to": 2
+    },
+    {
+      "domain": "cbsnews.com",
+      "from": 4,
+      "to": 2
+    },
+    {
+      "domain": "images.skem1.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "faculty.winthrop.edu",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "people-press.org",
+      "from": 3,
+      "to": 1
+    },
+    {
+      "domain": "hoover.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "thehill.com",
+      "from": 21,
+      "to": 19
+    },
+    {
+      "domain": "rferl.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "abcnews.go.com",
+      "from": 7,
+      "to": 5
+    },
+    {
+      "domain": "gop.com",
+      "from": 10,
+      "to": 8
+    },
+    {
+      "domain": "uncpress.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "nymag.com",
+      "from": 13,
+      "to": 11
+    },
+    {
+      "domain": "bbc.com",
+      "from": 5,
+      "to": 3
+    },
+    {
+      "domain": "content.time.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "mises-media.s3.amazonaws.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "newsweek.com",
+      "from": 5,
+      "to": 3
+    },
+    {
+      "domain": "journals.sagepub.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "taylorfrancis.com",
+      "from": 3,
+      "to": 1
+    },
+    {
+      "domain": "baltimoresun.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "euronews.com",
+      "from": 3,
+      "to": 1
+    },
+    {
+      "domain": "time.com",
+      "from": 5,
+      "to": 3
+    },
+    {
+      "domain": "usnews.com",
+      "from": 9,
+      "to": 7
+    },
+    {
+      "domain": "vox.com",
+      "from": 11,
+      "to": 9
+    },
+    {
+      "domain": "csmonitor.com",
+      "from": 4,
+      "to": 2
+    },
+    {
+      "domain": "senate.gov",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "realclearpolitics.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "wbur.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "loc.gov",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "prospect.org",
+      "from": 4,
+      "to": 2
+    },
+    {
+      "domain": "pewresearch.org",
+      "from": 25,
+      "to": 23
+    },
+    {
+      "domain": "content.wisconsinhistory.org",
+      "from": 4,
+      "to": 2
+    },
+    {
+      "domain": "latimes.com",
+      "from": 5,
+      "to": 3
+    },
+    {
+      "domain": "guardian.co.uk",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "amazon.com",
+      "from": 3,
+      "to": 2
+    },
+    {
+      "domain": "theguardian.com",
+      "from": 20,
+      "to": 19
+    }
+  ],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+  "schema_version": 1,
+  "analysis_scope": "confirmed_episodes",
+  "episode_count": 3,
+  "episodes": [
+    {
+      "article": "Republican Party (United States)",
+      "pivot": "2025-01-01",
+      "span": "rev 1284886106 → rev 1284887246  (exact confirmation, 2025-04-10 → 2025-04-10)",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2025-01-01",
+        "end": "2026-01-01",
+        "pwr_mass": 143511,
+        "status": "confirmed",
+        "before_revid": 1284886106,
+        "before_timestamp": "2025-04-10T09:52:46Z",
+        "after_revid": 1284887246,
+        "after_timestamp": "2025-04-10T10:08:31Z",
+        "durable_spine_drop": 0.289771
+      },
+      "before": {
+        "date": "2025-04-10",
+        "rev": 1284886106,
+        "refs": 882,
+        "n_domains": 222,
+        "cite_mix": {
+          "web": 46,
+          "news": 34,
+          "journal": 12,
+          "book": 8
+        },
+        "domains": {
+          "content.wisconsinhistory.org": 4,
+          "opinionator.blogs.nytimes.com": 1,
+          "digital.lib.niu.edu": 2,
+          "hdl.handle.net": 1,
+          "gilderlehrman.org": 2,
+          "online.norwich.edu": 2,
+          "doi.org": 5,
+          "politico.com": 44,
+          "journals.uchicago.edu": 3,
+          "books.google.com": 40,
+          "oxfordre.com": 3,
+          "taylorfrancis.com": 3,
+          "persee.fr": 1,
+          "hirr.hartsem.edu": 2,
+          "theconversation.com": 6,
+          "fivethirtyeight.com": 18,
+          "idu.org": 4,
+          "ecrparty.eu": 2,
+          "prospect.org": 4,
+          "theamericanconservative.com": 2,
+          "journals.openedition.org": 4,
+          "tandfonline.com": 3,
+          "ocregister.com": 2,
+          "washingtonpost.com": 82,
+          "thehill.com": 21,
+          "reuters.com": 11,
+          "aei.org": 2,
+          "newstatesman.com": 4,
+          "nytimes.com": 120,
+          "apnews.com": 23,
+          "ft.com": 5,
+          "economist.com": 18,
+          "global.oup.com": 2,
+          "bloomberg.com": 4,
+          "wsj.com": 15,
+          "axios.com": 13,
+          "brookings.edu": 4,
+          "reason.com": 4,
+          "deathpenaltyinfo.org": 1,
+          "time.com": 5,
+          "usatoday.com": 4,
+          "senate.gov": 2,
+          "smithsonianmag.com": 4,
+          "gop.com": 10,
+          "faculty.winthrop.edu": 2,
+          "loc.gov": 2,
+          "history.com": 12,
+          "millercenter.org": 14,
+          "archive.org": 14,
+          "usnews.com": 9,
+          "jstor.org": 13,
+          "vox.com": 11,
+          "amazon.com": 3,
+          "theatlantic.com": 28,
+          "content.time.com": 2,
+          "uncpress.org": 2,
+          "mises-media.s3.amazonaws.com": 2,
+          "wbur.org": 2,
+          "rferl.org": 2,
+          "euronews.com": 3,
+          "npr.org": 20,
+          "baltimoresun.com": 2,
+          "hoover.org": 2,
+          "journals.sagepub.com": 2,
+          "nowpublishers.com": 4,
+          "pewresearch.org": 25,
+          "nymag.com": 13,
+          "newrepublic.com": 8,
+          "rollingstone.com": 2,
+          "people-press.org": 3,
+          "cato.org": 4,
+          "realclearpolitics.com": 2,
+          "rollcall.com": 8,
+          "nydailynews.com": 2,
+          "theguardian.com": 20,
+          "guardian.co.uk": 1,
+          "bbc.com": 5,
+          "newsweek.com": 5,
+          "huffingtonpost.com": 4,
+          "csmonitor.com": 4,
+          "abcnews.go.com": 7,
+          "latimes.com": 5,
+          "quorum.us": 2,
+          "images.skem1.com": 2,
+          "cbsnews.com": 4,
+          "nbcnews.com": 23,
+          "governing.com": 4,
+          "pressreader.com": 2,
+          "cnbc.com": 2,
+          "ghostarchive.org": 2,
+          "academic.oup.com": 3,
+          "foreignaffairs.com": 4,
+          "journalofdemocracy.org": 1,
+          "v-dem.net": 2,
+          "ncsl.org": 4,
+          "gazette.com": 2,
+          "desmoinesregister.com": 2,
+          "pbs.org": 3,
+          "ushistory.org": 2,
+          "britannica.com": 3,
+          "harpweek.com": 2,
+          "unc.edu": 2,
+          "brennancenter.org": 4,
+          "westkentuckystar.com": 2,
+          "washingtonmonthly.com": 4,
+          "projects.fivethirtyeight.com": 2,
+          "newyorker.com": 4,
+          "punchbowl.news": 2,
+          "cnn.com": 35,
+          "telegraph.co.uk": 2,
+          "sites.uw.edu": 2,
+          "wzb.eu": 2,
+          "ideas.repec.org": 2,
+          "france24.com": 2,
+          "news.sky.com": 1,
+          "businessinsider.com": 2,
+          "forbes.com": 2,
+          "economictimes.indiatimes.com": 1,
+          "m.economictimes.com": 1,
+          "cambridge.org": 16,
+          "gallup.com": 2,
+          "aljazeera.com": 2,
+          "edition.cnn.com": 8,
+          "theintercept.com": 2,
+          "ny1.com": 1,
+          "nbcwashington.com": 1,
+          "al.com": 1,
+          "times-herald.com": 1,
+          "thenation.com": 1,
+          "news.gallup.com": 6,
+          "natesilver.net": 2,
+          "rsc-hern.house.gov": 2,
+          "religionnews.com": 2,
+          "prri.org": 4,
+          "news.yale.edu": 2,
+          "findarticles.com": 1,
+          "arquivo.pt": 1,
+          "l4l.org": 2,
+          "courier-journal.com": 2,
+          "foxnews.com": 11,
+          "marketplace.org": 1,
+          "salon.com": 1,
+          "wusa9.com": 2,
+          "itep.org": 1,
+          "russellsage.org": 1,
+          "cprr.org": 2,
+          "routledge.com": 2,
+          "propublica.org": 2,
+          "muse.jhu.edu": 4,
+          "mercatus.org": 2,
+          "kff.org": 2,
+          "independent.co.uk": 1,
+          "nlrb.gov": 2,
+          "pantheon.cis.yale.edu": 2,
+          "elgaronline.com": 2,
+          "sciencedirect.com": 2,
+          "hup.harvard.edu": 2,
+          "georgewbush-whitehouse.archives.gov": 2,
+          "green.blogs.nytimes.com": 2,
+          "politifact.com": 4,
+          "healthaffairs.org": 2,
+          "read.dukeupress.edu": 2,
+          "oxfordreference.com": 2,
+          "nationalreview.com": 2,
+          "i24news.tv": 1,
+          "timesofisrael.com": 1,
+          "globalaffairs.org": 2,
+          "msnbc.com": 3,
+          "prod-static-ngop-pbl.s3.amazonaws.com": 2,
+          "weeklystandard.com": 2,
+          "ispionline.it": 1,
+          "politico.eu": 1,
+          "kyivindependent.com": 1,
+          "quinnipiac.edu": 2,
+          "nybooks.com": 2,
+          "thegospelcoalition.org": 2,
+          "archive.nytimes.com": 2,
+          "christianitytoday.com": 2,
+          "baptistnews.com": 2,
+          "finance.yahoo.com": 2,
+          "cup.columbia.edu": 2,
+          "ontheissues.org": 3,
+          "nejm.org": 1,
+          "presidency.ucsb.edu": 5,
+          "republicanviews.org": 4,
+          "thetrace.org": 2,
+          "bop.gov": 1,
+          "famm.org": 2,
+          "washingtonblade.com": 2,
+          "publicreligion.org": 2,
+          "huffpost.com": 2,
+          "prod-cdn-static.gop.com": 2,
+          "metroweekly.com": 2,
+          "grinnell.edu": 2,
+          "today.yougov.com": 2,
+          "docs.cdn.yougov.com": 2,
+          "advocate.com": 1,
+          "pewtrusts.org": 2,
+          "theweek.com": 2,
+          "lawandcrime.com": 2,
+          "poll.qu.edu": 2,
+          "scholarlycommons.law.case.edu": 2,
+          "digitalcommons.law.mercer.edu": 2,
+          "deseret.com": 1,
+          "insidenova.com": 1,
+          "census.gov": 2,
+          "wvwv.org": 2,
+          "crisismagazine.com": 2,
+          "split-ticket.org": 2,
+          "uselectionatlas.org": 2,
+          "history.house.gov": 2,
+          "politics.blogs.foxnews.com": 2,
+          "mattbarreto.com": 2,
+          "news.bbc.co.uk": 2,
+          "deccanherald.com": 2,
+          "dw.com": 2,
+          "slate.com": 2,
+          "sltrib.com": 2,
+          "fox13now.com": 1,
+          "jta.org": 4,
+          "wikipedialibrary.wmflabs.org": 2,
+          "questia.com": 2
+        }
+      },
+      "after": {
+        "date": "2025-04-10",
+        "rev": 1284887246,
+        "refs": 765,
+        "n_domains": 202,
+        "cite_mix": {
+          "web": 46,
+          "news": 34,
+          "journal": 12,
+          "book": 8
+        },
+        "domains": {
+          "content.wisconsinhistory.org": 2,
+          "opinionator.blogs.nytimes.com": 1,
+          "digital.lib.niu.edu": 2,
+          "hdl.handle.net": 1,
+          "gilderlehrman.org": 2,
+          "online.norwich.edu": 2,
+          "doi.org": 5,
+          "politico.com": 34,
+          "journals.uchicago.edu": 3,
+          "books.google.com": 36,
+          "oxfordre.com": 3,
+          "taylorfrancis.com": 1,
+          "persee.fr": 1,
+          "hirr.hartsem.edu": 2,
+          "theconversation.com": 6,
+          "fivethirtyeight.com": 18,
+          "idu.org": 4,
+          "ecrparty.eu": 2,
+          "prospect.org": 2,
+          "theamericanconservative.com": 2,
+          "journals.openedition.org": 4,
+          "tandfonline.com": 3,
+          "ocregister.com": 2,
+          "washingtonpost.com": 64,
+          "thehill.com": 19,
+          "reuters.com": 11,
+          "aei.org": 2,
+          "newstatesman.com": 4,
+          "nytimes.com": 113,
+          "apnews.com": 23,
+          "ft.com": 5,
+          "economist.com": 18,
+          "global.oup.com": 2,
+          "bloomberg.com": 4,
+          "wsj.com": 11,
+          "axios.com": 13,
+          "brookings.edu": 4,
+          "reason.com": 2,
+          "deathpenaltyinfo.org": 1,
+          "time.com": 3,
+          "usatoday.com": 4,
+          "cup.columbia.edu": 3,
+          "dailykos.com": 1,
+          "presidency.ucsb.edu": 6,
+          "nbcnews.com": 23,
+          "governing.com": 4,
+          "usnews.com": 7,
+          "pressreader.com": 2,
+          "theatlantic.com": 22,
+          "cnbc.com": 2,
+          "npr.org": 14,
+          "ghostarchive.org": 2,
+          "academic.oup.com": 3,
+          "foreignaffairs.com": 4,
+          "journalofdemocracy.org": 1,
+          "v-dem.net": 2,
+          "ncsl.org": 4,
+          "gazette.com": 2,
+          "desmoinesregister.com": 2,
+          "pbs.org": 3,
+          "archive.org": 9,
+          "ushistory.org": 2,
+          "britannica.com": 3,
+          "harpweek.com": 2,
+          "unc.edu": 2,
+          "brennancenter.org": 4,
+          "westkentuckystar.com": 2,
+          "washingtonmonthly.com": 4,
+          "projects.fivethirtyeight.com": 2,
+          "newyorker.com": 4,
+          "punchbowl.news": 2,
+          "cnn.com": 35,
+          "newrepublic.com": 4,
+          "telegraph.co.uk": 2,
+          "vox.com": 9,
+          "theguardian.com": 19,
+          "sites.uw.edu": 2,
+          "wzb.eu": 2,
+          "csmonitor.com": 2,
+          "abcnews.go.com": 5,
+          "newsweek.com": 3,
+          "ideas.repec.org": 2,
+          "france24.com": 2,
+          "news.sky.com": 1,
+          "businessinsider.com": 2,
+          "forbes.com": 2,
+          "economictimes.indiatimes.com": 1,
+          "m.economictimes.com": 1,
+          "cambridge.org": 16,
+          "gallup.com": 2,
+          "aljazeera.com": 2,
+          "nymag.com": 11,
+          "edition.cnn.com": 8,
+          "theintercept.com": 2,
+          "ny1.com": 1,
+          "nbcwashington.com": 1,
+          "al.com": 1,
+          "times-herald.com": 1,
+          "thenation.com": 1,
+          "news.gallup.com": 6,
+          "natesilver.net": 2,
+          "bbc.com": 3,
+          "rsc-hern.house.gov": 2,
+          "pewresearch.org": 23,
+          "religionnews.com": 2,
+          "prri.org": 4,
+          "latimes.com": 3,
+          "news.yale.edu": 2,
+          "jstor.org": 4,
+          "findarticles.com": 1,
+          "arquivo.pt": 1,
+          "l4l.org": 2,
+          "courier-journal.com": 2,
+          "foxnews.com": 11,
+          "rollcall.com": 4,
+          "marketplace.org": 1,
+          "euronews.com": 1,
+          "salon.com": 1,
+          "wusa9.com": 2,
+          "itep.org": 1,
+          "russellsage.org": 1,
+          "cprr.org": 2,
+          "routledge.com": 2,
+          "propublica.org": 2,
+          "muse.jhu.edu": 4,
+          "nowpublishers.com": 2,
+          "mercatus.org": 2,
+          "kff.org": 2,
+          "independent.co.uk": 1,
+          "nlrb.gov": 2,
+          "pantheon.cis.yale.edu": 2,
+          "elgaronline.com": 2,
+          "sciencedirect.com": 2,
+          "hup.harvard.edu": 2,
+          "people-press.org": 1,
+          "georgewbush-whitehouse.archives.gov": 2,
+          "gop.com": 8,
+          "green.blogs.nytimes.com": 2,
+          "politifact.com": 4,
+          "healthaffairs.org": 2,
+          "read.dukeupress.edu": 2,
+          "oxfordreference.com": 2,
+          "nationalreview.com": 2,
+          "i24news.tv": 1,
+          "timesofisrael.com": 1,
+          "globalaffairs.org": 2,
+          "msnbc.com": 3,
+          "prod-static-ngop-pbl.s3.amazonaws.com": 2,
+          "weeklystandard.com": 2,
+          "ispionline.it": 1,
+          "politico.eu": 1,
+          "kyivindependent.com": 1,
+          "quinnipiac.edu": 2,
+          "nybooks.com": 2,
+          "thegospelcoalition.org": 2,
+          "archive.nytimes.com": 2,
+          "christianitytoday.com": 2,
+          "baptistnews.com": 2,
+          "finance.yahoo.com": 2,
+          "ontheissues.org": 3,
+          "nejm.org": 1,
+          "republicanviews.org": 4,
+          "thetrace.org": 2,
+          "bop.gov": 1,
+          "famm.org": 2,
+          "history.com": 1,
+          "washingtonblade.com": 2,
+          "publicreligion.org": 2,
+          "huffpost.com": 2,
+          "prod-cdn-static.gop.com": 2,
+          "metroweekly.com": 2,
+          "grinnell.edu": 2,
+          "today.yougov.com": 2,
+          "docs.cdn.yougov.com": 2,
+          "advocate.com": 1,
+          "pewtrusts.org": 2,
+          "theweek.com": 2,
+          "lawandcrime.com": 2,
+          "poll.qu.edu": 2,
+          "scholarlycommons.law.case.edu": 2,
+          "digitalcommons.law.mercer.edu": 2,
+          "cbsnews.com": 2,
+          "deseret.com": 1,
+          "insidenova.com": 1,
+          "census.gov": 2,
+          "wvwv.org": 2,
+          "crisismagazine.com": 2,
+          "split-ticket.org": 2,
+          "uselectionatlas.org": 2,
+          "history.house.gov": 2,
+          "politics.blogs.foxnews.com": 2,
+          "mattbarreto.com": 2,
+          "news.bbc.co.uk": 2,
+          "deccanherald.com": 2,
+          "dw.com": 2,
+          "slate.com": 2,
+          "sltrib.com": 2,
+          "fox13now.com": 1,
+          "jta.org": 4,
+          "amazon.com": 2,
+          "wikipedialibrary.wmflabs.org": 2,
+          "questia.com": 2
+        }
+      },
+      "added": [
+        {
+          "domain": "dailykos.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "cup.columbia.edu",
+          "from": 2,
+          "to": 3
+        },
+        {
+          "domain": "presidency.ucsb.edu",
+          "from": 5,
+          "to": 6
+        }
+      ],
+      "dropped": [
+        {
+          "domain": "washingtonpost.com",
+          "from": 82,
+          "to": 64
+        },
+        {
+          "domain": "millercenter.org",
+          "from": 14,
+          "to": 0
+        },
+        {
+          "domain": "history.com",
+          "from": 12,
+          "to": 1
+        },
+        {
+          "domain": "politico.com",
+          "from": 44,
+          "to": 34
+        },
+        {
+          "domain": "jstor.org",
+          "from": 13,
+          "to": 4
+        },
+        {
+          "domain": "nytimes.com",
+          "from": 120,
+          "to": 113
+        },
+        {
+          "domain": "theatlantic.com",
+          "from": 28,
+          "to": 22
+        },
+        {
+          "domain": "npr.org",
+          "from": 20,
+          "to": 14
+        },
+        {
+          "domain": "archive.org",
+          "from": 14,
+          "to": 9
+        },
+        {
+          "domain": "smithsonianmag.com",
+          "from": 4,
+          "to": 0
+        },
+        {
+          "domain": "books.google.com",
+          "from": 40,
+          "to": 36
+        },
+        {
+          "domain": "wsj.com",
+          "from": 15,
+          "to": 11
+        },
+        {
+          "domain": "huffingtonpost.com",
+          "from": 4,
+          "to": 0
+        },
+        {
+          "domain": "newrepublic.com",
+          "from": 8,
+          "to": 4
+        },
+        {
+          "domain": "rollcall.com",
+          "from": 8,
+          "to": 4
+        },
+        {
+          "domain": "cato.org",
+          "from": 4,
+          "to": 0
+        },
+        {
+          "domain": "nydailynews.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "reason.com",
+          "from": 4,
+          "to": 2
+        },
+        {
+          "domain": "quorum.us",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "rollingstone.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "nowpublishers.com",
+          "from": 4,
+          "to": 2
+        },
+        {
+          "domain": "cbsnews.com",
+          "from": 4,
+          "to": 2
+        },
+        {
+          "domain": "images.skem1.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "faculty.winthrop.edu",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "people-press.org",
+          "from": 3,
+          "to": 1
+        },
+        {
+          "domain": "hoover.org",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "thehill.com",
+          "from": 21,
+          "to": 19
+        },
+        {
+          "domain": "rferl.org",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "abcnews.go.com",
+          "from": 7,
+          "to": 5
+        },
+        {
+          "domain": "gop.com",
+          "from": 10,
+          "to": 8
+        },
+        {
+          "domain": "uncpress.org",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "nymag.com",
+          "from": 13,
+          "to": 11
+        },
+        {
+          "domain": "bbc.com",
+          "from": 5,
+          "to": 3
+        },
+        {
+          "domain": "content.time.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "mises-media.s3.amazonaws.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "newsweek.com",
+          "from": 5,
+          "to": 3
+        },
+        {
+          "domain": "journals.sagepub.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "taylorfrancis.com",
+          "from": 3,
+          "to": 1
+        },
+        {
+          "domain": "baltimoresun.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "euronews.com",
+          "from": 3,
+          "to": 1
+        },
+        {
+          "domain": "time.com",
+          "from": 5,
+          "to": 3
+        },
+        {
+          "domain": "usnews.com",
+          "from": 9,
+          "to": 7
+        },
+        {
+          "domain": "vox.com",
+          "from": 11,
+          "to": 9
+        },
+        {
+          "domain": "csmonitor.com",
+          "from": 4,
+          "to": 2
+        },
+        {
+          "domain": "senate.gov",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "realclearpolitics.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "wbur.org",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "loc.gov",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "prospect.org",
+          "from": 4,
+          "to": 2
+        },
+        {
+          "domain": "pewresearch.org",
+          "from": 25,
+          "to": 23
+        },
+        {
+          "domain": "content.wisconsinhistory.org",
+          "from": 4,
+          "to": 2
+        },
+        {
+          "domain": "latimes.com",
+          "from": 5,
+          "to": 3
+        },
+        {
+          "domain": "guardian.co.uk",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "amazon.com",
+          "from": 3,
+          "to": 2
+        },
+        {
+          "domain": "theguardian.com",
+          "from": 20,
+          "to": 19
+        }
+      ],
+      "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+      "episode_id": "1284886106-1284887246",
+      "episode_index": 1,
+      "episode_window": {
+        "start": "2025-01-01",
+        "end": "2026-01-01",
+        "pwr_mass": 143511,
+        "status": "confirmed",
+        "before_revid": 1284886106,
+        "before_timestamp": "2025-04-10T09:52:46Z",
+        "after_revid": 1284887246,
+        "after_timestamp": "2025-04-10T10:08:31Z",
+        "durable_spine_drop": 0.289771
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Republican Party (United States)",
+      "pivot": "2016-01-01",
+      "span": "rev 700687073 → rev 700688825  (exact confirmation, 2016-01-20 → 2016-01-20)",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2016-01-01",
+        "end": "2017-01-01",
+        "pwr_mass": 56963,
+        "status": "confirmed",
+        "before_revid": 700687073,
+        "before_timestamp": "2016-01-20T00:44:51Z",
+        "after_revid": 700688825,
+        "after_timestamp": "2016-01-20T00:57:25Z",
+        "durable_spine_drop": 0.282159
+      },
+      "before": {
+        "date": "2016-01-20",
+        "rev": 700687073,
+        "refs": 0,
+        "n_domains": 0,
+        "cite_mix": {},
+        "domains": {}
+      },
+      "after": {
+        "date": "2016-01-20",
+        "rev": 700688825,
+        "refs": 241,
+        "n_domains": 150,
+        "cite_mix": {
+          "web": 59,
+          "news": 32,
+          "book": 9
+        },
+        "domains": {
+          "2012election.procon.org": 1,
+          "jstor.org": 3,
+          "usconservatives.about.com": 1,
+          "thecrimson.com": 1,
+          "aecr.eu": 1,
+          "idu.org": 1,
+          "gop.com": 5,
+          "books.google.com": 7,
+          "nytimes.com": 4,
+          "rslc.gop": 2,
+          "realclearpolitics.com": 2,
+          "ncsl.org": 1,
+          "content.wisconsinhistory.org": 1,
+          "query.nytimes.com": 1,
+          "abcnews.go.com": 2,
+          "cbsnews.com": 1,
+          "washingtonpost.com": 9,
+          "harpweek.com": 2,
+          "ushistory.org": 1,
+          "politico.com": 4,
+          "adamgoldfein.com": 1,
+          "economist.com": 2,
+          "waysandmeans.house.gov": 2,
+          "webcitation.org": 2,
+          "citizen.org": 1,
+          "cbpp.org": 1,
+          "ontheissues.org": 1,
+          "dissentmagazine.org": 1,
+          "elections.nytimes.com": 1,
+          "article.nationalreview.com": 1,
+          "washingtontimes.com": 2,
+          "boston.com": 1,
+          "nybooks.com": 1,
+          "pantheon.cis.yale.edu": 1,
+          "www2.epa.gov": 1,
+          "nbcnews.com": 1,
+          "georgewbush-whitehouse.archives.gov": 2,
+          "www1.realclearpolitics.com": 1,
+          "mittromney.com": 2,
+          "green.blogs.nytimes.com": 1,
+          "people-press.org": 5,
+          "npr.org": 2,
+          "mayoclinic.com": 1,
+          "science.howstuffworks.com": 1,
+          "stemcells.nih.gov": 1,
+          "finance.yahoo.com": 1,
+          "cnn.com": 5,
+          "famm.org": 1,
+          "thedailybeast.com": 1,
+          "publicreligion.org": 1,
+          "presidency.ucsb.edu": 7,
+          "nationaljournal.com": 1,
+          "gallup.com": 3,
+          "thehill.com": 2,
+          "amazon.com": 1,
+          "tandfonline.com": 1,
+          "quinnipiac.edu": 1,
+          "weeklystandard.com": 1,
+          "bloomberg.com": 1,
+          "foxnews.com": 1,
+          "msnbc.com": 1,
+          "online.wsj.com": 1,
+          "articles.washingtonpost.com": 1,
+          "www2.cnn.com": 1,
+          "google.com": 1,
+          "vdare.com": 1,
+          "wvwv.org": 2,
+          "crisismagazine.com": 1,
+          "theguardian.com": 1,
+          "socialsecuritywaste.org": 1,
+          "slate.com": 1,
+          "politics.blogs.foxnews.com": 1,
+          "news.bbc.co.uk": 1,
+          "deccanherald.com": 1,
+          "pewresearch.org": 3,
+          "edition.cnn.com": 1,
+          "ncronline.org": 1,
+          "ncregister.com": 1,
+          "pewforum.org": 1,
+          "fivethirtyeight.blogs.nytimes.com": 1,
+          "cato.org": 1,
+          "news.yahoo.com": 1,
+          "nydailynews.com": 1,
+          "images.skem1.com": 1,
+          "algop.org": 1,
+          "alaskarepublicans.com": 1,
+          "azgop.org": 1,
+          "arkansasgop.org": 1,
+          "cagop.org": 1,
+          "cologop.org": 1,
+          "ctgop.org": 1,
+          "delawaregop.com": 1,
+          "rpof.org": 1,
+          "gagop.org": 1,
+          "gophawaii.com": 1,
+          "idgop.org": 1,
+          "ilgop.org": 1,
+          "indgop.org": 1,
+          "iowagop.org": 1,
+          "ksgop.org": 1,
+          "rpk.org": 1,
+          "lagop.com": 1,
+          "mainegop.com": 1,
+          "mdgop.org": 1,
+          "massgop.com": 1,
+          "migop.org": 1,
+          "mngop.com": 1,
+          "msgop.org": 1,
+          "mogop.org": 1,
+          "mtgop.org": 1,
+          "negop.org": 1,
+          "nevadagop.org": 1,
+          "nhgop.org": 1,
+          "njgop.org": 1,
+          "gopnm.org": 1,
+          "nygop.org": 1,
+          "ncgop.org": 1,
+          "ndgop.com": 1,
+          "ohiogop.org": 1,
+          "okgop.com": 1,
+          "orgop.org": 1,
+          "pagop.org": 1,
+          "rigop.org": 1,
+          "scgop.com": 1,
+          "southdakotagop.com": 1,
+          "tngop.org": 1,
+          "texasgop.org": 1,
+          "utgop.org": 1,
+          "vtgop.org": 1,
+          "vagop.com": 1,
+          "wsrp.org": 1,
+          "wvgop.org": 1,
+          "wisgop.org": 1,
+          "wygop.org": 1,
+          "as.gop.com": 1,
+          "dcgop.com": 1,
+          "gu.gop.com": 1,
+          "mp.gop.com": 1,
+          "goppr.org": 2,
+          "virepublicanwomen.com": 1,
+          "src.senate.gov": 1,
+          "gop.gov": 1,
+          "nrsc.org": 1,
+          "nrcc.org": 1,
+          "rga.org": 1,
+          "rslc.com": 1,
+          "nationalblackrepublicans.com": 1,
+          "republicansabroad.org": 1,
+          "yrnf.com": 1,
+          "crnc.org": 1
+        }
+      },
+      "added": [
+        {
+          "domain": "washingtonpost.com",
+          "from": 0,
+          "to": 9
+        },
+        {
+          "domain": "presidency.ucsb.edu",
+          "from": 0,
+          "to": 7
+        },
+        {
+          "domain": "books.google.com",
+          "from": 0,
+          "to": 7
+        },
+        {
+          "domain": "cnn.com",
+          "from": 0,
+          "to": 5
+        },
+        {
+          "domain": "people-press.org",
+          "from": 0,
+          "to": 5
+        },
+        {
+          "domain": "gop.com",
+          "from": 0,
+          "to": 5
+        },
+        {
+          "domain": "nytimes.com",
+          "from": 0,
+          "to": 4
+        },
+        {
+          "domain": "politico.com",
+          "from": 0,
+          "to": 4
+        },
+        {
+          "domain": "gallup.com",
+          "from": 0,
+          "to": 3
+        },
+        {
+          "domain": "jstor.org",
+          "from": 0,
+          "to": 3
+        },
+        {
+          "domain": "pewresearch.org",
+          "from": 0,
+          "to": 3
+        },
+        {
+          "domain": "goppr.org",
+          "from": 0,
+          "to": 2
+        },
+        {
+          "domain": "mittromney.com",
+          "from": 0,
+          "to": 2
+        },
+        {
+          "domain": "thehill.com",
+          "from": 0,
+          "to": 2
+        },
+        {
+          "domain": "georgewbush-whitehouse.archives.gov",
+          "from": 0,
+          "to": 2
+        },
+        {
+          "domain": "harpweek.com",
+          "from": 0,
+          "to": 2
+        },
+        {
+          "domain": "wvwv.org",
+          "from": 0,
+          "to": 2
+        },
+        {
+          "domain": "abcnews.go.com",
+          "from": 0,
+          "to": 2
+        },
+        {
+          "domain": "realclearpolitics.com",
+          "from": 0,
+          "to": 2
+        },
+        {
+          "domain": "rslc.gop",
+          "from": 0,
+          "to": 2
+        },
+        {
+          "domain": "economist.com",
+          "from": 0,
+          "to": 2
+        },
+        {
+          "domain": "npr.org",
+          "from": 0,
+          "to": 2
+        },
+        {
+          "domain": "webcitation.org",
+          "from": 0,
+          "to": 2
+        },
+        {
+          "domain": "waysandmeans.house.gov",
+          "from": 0,
+          "to": 2
+        },
+        {
+          "domain": "washingtontimes.com",
+          "from": 0,
+          "to": 2
+        },
+        {
+          "domain": "slate.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "rigop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "boston.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "iowagop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "nydailynews.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "deccanherald.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "vdare.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "alaskarepublicans.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "gophawaii.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "cato.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "nybooks.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "republicansabroad.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "rpof.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "tandfonline.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "mainegop.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "wygop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "dissentmagazine.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "2012election.procon.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "citizen.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "mp.gop.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "yrnf.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "green.blogs.nytimes.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "rga.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "bloomberg.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "ncgop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "cbsnews.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "thecrimson.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "rpk.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "mayoclinic.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "politics.blogs.foxnews.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "images.skem1.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "tngop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "gop.gov",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "ohiogop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "aecr.eu",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "ilgop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "nationaljournal.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "algop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "crisismagazine.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "src.senate.gov",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "orgop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "msgop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "nrsc.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "gopnm.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "edition.cnn.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "www1.realclearpolitics.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "amazon.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "njgop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "pantheon.cis.yale.edu",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "as.gop.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "pewforum.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "nevadagop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "ontheissues.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "ksgop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "publicreligion.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "weeklystandard.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "nationalblackrepublicans.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "www2.cnn.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "mngop.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "massgop.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "negop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "utgop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "migop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "azgop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "elections.nytimes.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "wisgop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "lagop.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "mogop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "famm.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "gu.gop.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "nrcc.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "crnc.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "quinnipiac.edu",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "adamgoldfein.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "foxnews.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "cagop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "ndgop.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "nygop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "mdgop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "ushistory.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "indgop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "mtgop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "www2.epa.gov",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "delawaregop.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "southdakotagop.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "idu.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "article.nationalreview.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "nbcnews.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "virepublicanwomen.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "articles.washingtonpost.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "arkansasgop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "scgop.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "cologop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "vagop.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "socialsecuritywaste.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "google.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "online.wsj.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "fivethirtyeight.blogs.nytimes.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "wsrp.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "ncregister.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "content.wisconsinhistory.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "cbpp.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "theguardian.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "vtgop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "usconservatives.about.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "science.howstuffworks.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "stemcells.nih.gov",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "nhgop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "msnbc.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "rslc.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "finance.yahoo.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "ctgop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "query.nytimes.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "texasgop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "gagop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "wvgop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "ncsl.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "news.bbc.co.uk",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "ncronline.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "pagop.org",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "okgop.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "thedailybeast.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "news.yahoo.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "dcgop.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "idgop.org",
+          "from": 0,
+          "to": 1
+        }
+      ],
+      "dropped": [],
+      "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+      "episode_id": "700687073-700688825",
+      "episode_index": 2,
+      "episode_window": {
+        "start": "2016-01-01",
+        "end": "2017-01-01",
+        "pwr_mass": 56963,
+        "status": "confirmed",
+        "before_revid": 700687073,
+        "before_timestamp": "2016-01-20T00:44:51Z",
+        "after_revid": 700688825,
+        "after_timestamp": "2016-01-20T00:57:25Z",
+        "durable_spine_drop": 0.282159
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Republican Party (United States)",
+      "pivot": "2005-01-01",
+      "span": "rev 9321996 → rev 9322502  (exact confirmation, 2005-01-12 → 2005-01-12)",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2005-01-01",
+        "end": "2009-01-01",
+        "pwr_mass": 41099,
+        "status": "confirmed",
+        "before_revid": 9321996,
+        "before_timestamp": "2005-01-12T20:55:02Z",
+        "after_revid": 9322502,
+        "after_timestamp": "2005-01-12T22:49:39Z",
+        "durable_spine_drop": 0.92655
+      },
+      "before": {
+        "date": "2005-01-12",
+        "rev": 9321996,
+        "refs": 0,
+        "n_domains": 11,
+        "cite_mix": {},
+        "domains": {
+          "harpweek.com": 1,
+          "republicanmainstreet.org": 2,
+          "rnc.org": 1,
+          "gop.com": 1,
+          "crnc.org": 1,
+          "pachyderms.org": 1,
+          "gopwing.com": 1,
+          "rlc.org": 1,
+          "republicanissues.com": 1,
+          "goptoday.com": 1,
+          "republicanleadership.org": 1
+        }
+      },
+      "after": {
+        "date": "2005-01-12",
+        "rev": 9322502,
+        "refs": 0,
+        "n_domains": 11,
+        "cite_mix": {},
+        "domains": {
+          "harpweek.com": 1,
+          "rnc.org": 1,
+          "gop.com": 1,
+          "crnc.org": 1,
+          "pachyderms.org": 1,
+          "gopwing.com": 1,
+          "republicanmainstreet.org": 1,
+          "rlc.org": 1,
+          "republicanissues.com": 1,
+          "goptoday.com": 1,
+          "republicanleadership.org": 1
+        }
+      },
+      "added": [],
+      "dropped": [
+        {
+          "domain": "republicanmainstreet.org",
+          "from": 2,
+          "to": 1
+        }
+      ],
+      "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+      "episode_id": "9321996-9322502",
+      "episode_index": 3,
+      "episode_window": {
+        "start": "2005-01-01",
+        "end": "2009-01-01",
+        "pwr_mass": 41099,
+        "status": "confirmed",
+        "before_revid": 9321996,
+        "before_timestamp": "2005-01-12T20:55:02Z",
+        "after_revid": 9322502,
+        "after_timestamp": "2005-01-12T22:49:39Z",
+        "durable_spine_drop": 0.92655
+      },
+      "analysis_status": "available"
+    }
+  ]
+}

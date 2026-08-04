@@ -1,0 +1,27 @@
+{
+  "article": "Democratic Socialists of America",
+  "qid": "Q164182",
+  "editions": {
+    "en": {
+      "present": true,
+      "revid": 1367636695,
+      "title": "Democratic Socialists of America",
+      "timestamp": "2026-08-04T07:26:09Z",
+      "prose_chars": 49457
+    },
+    "ja": {
+      "present": true,
+      "revid": 110509923,
+      "title": "アメリカ民主社会主義者",
+      "timestamp": "2026-08-03T01:02:45Z",
+      "prose_chars": 23837
+    },
+    "es": {
+      "present": true,
+      "revid": 174643332,
+      "title": "Socialistas Democráticos de América",
+      "timestamp": "2026-08-01T05:43:22Z",
+      "prose_chars": 14901
+    }
+  }
+}

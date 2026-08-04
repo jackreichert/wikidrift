@@ -1,17 +1,51 @@
 {
   "article": "Israeli–Palestinian conflict",
-  "asof": null,
+  "asof": "2024-08-12T19:13:55Z",
   "langs": [
     "en",
     "he",
-    "ar"
+    "ar",
+    "es",
+    "sv",
+    "ja",
+    "cs",
+    "ko",
+    "fr",
+    "it",
+    "ru",
+    "tr",
+    "id",
+    "pt",
+    "nl",
+    "zh",
+    "de",
+    "fa",
+    "pl",
+    "uk"
   ],
   "citation": {
-    "mean_jaccard": 0.04,
+    "mean_jaccard": 0.06,
     "domains_per_edition": {
-      "en": 157,
-      "he": 23,
-      "ar": 30
+      "en": 114,
+      "he": 22,
+      "ar": 30,
+      "es": 71,
+      "sv": 120,
+      "ja": 155,
+      "cs": 39,
+      "ko": 1,
+      "fr": 53,
+      "it": 25,
+      "ru": 89,
+      "tr": 34,
+      "id": 99,
+      "pt": 36,
+      "nl": 15,
+      "zh": 61,
+      "de": 26,
+      "fa": 8,
+      "pl": 9,
+      "uk": 7
     }
   },
   "claim": {
@@ -19,43 +53,281 @@
       "en": {
         "When is the conflict said to have begun?": {
           "question": "When is the conflict said to have begun?",
-          "answer": "The conflict began in the late 19th and early 20th centuries, with the rise of political Zionism and the arrival of Zionist settlers to Palestine.",
+          "answer": "In the late 19th and early 20th centuries, with the development of political Zionism and arrival of Zionist settlers to Palestine",
           "value": "late 19th–early 20th century",
           "evidence": "The Israeli–Palestinian conflict began in the late 19th and early 20th centuries, with the development of political Zionism and the arrival of Zionist settlers to Palestine."
         },
         "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
           "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
-          "answer": "The article lists Palestinian refugees, the Israeli occupation of the West Bank and Gaza Strip, the status of Jerusalem, Israeli settlements, borders, security, water rights, the permit regime in the West Bank and Gaza Strip, Palestinian freedom of movement, and the Palestinian right of return.",
-          "value": "refugees, occupation of West Bank/Gaza, Jerusalem status, settlements, borders, security, water rights, permit regime, freedom of movement, right of return",
-          "evidence": "Key aspects of the conflict have included Palestinian refugees, the Israeli occupation of the West Bank and Gaza Strip, the status of Jerusalem, Israeli settlements, borders, security, water rights, the permit regime in the West Bank and in the Gaza Strip, Palestinian freedom of movement, and the Palestinian right of return."
+          "answer": "The article lists the Israeli occupation of the West Bank and Gaza Strip, the status of Jerusalem, Israeli settlements, borders, security, water rights, the permit regime, Palestinian freedom of movement, and the Palestinian right of return",
+          "value": "occupation of West Bank/Gaza, status of Jerusalem, settlements, borders, security, water rights, permit regime, freedom of movement, right of return",
+          "evidence": "Key aspects of the conflict include the Israeli occupation of the West Bank and Gaza Strip, the status of Jerusalem, Israeli settlements, borders, security, water rights, the permit regime, Palestinian freedom of movement, and the Palestinian right of return."
         }
       },
       "he": {
         "When is the conflict said to have begun?": {
           "question": "When is the conflict said to have begun?",
-          "answer": "The accepted view is that the conflict began with the British Balfour Declaration in 1917, though the underlying Jewish-Arab struggle predates the establishment of the State of Israel and continued afterward.",
-          "value": "1917",
-          "evidence": "העמדה המקובלת היא שראשיתו של הסכסוך בהצהרת בלפור הבריטית ב-1917"
+          "answer": "The common view is that the conflict began with the British Balfour Declaration in 1917, though some date it to 1860 when Mishkenot Sha'ananim, the first Jewish neighborhood outside Jerusalem's Old City walls, was established.",
+          "value": "1917 (commonly); 1860 (alternative view)",
+          "evidence": "העמדה המקובלת היא שראשיתו של הסכסוך בהצהרת בלפור הבריטית ב-1917. ואולם, יש המחשיבים שההיסטוריה של הסכסוך הישראלי-פלסטיני, תחילתה בשנת 1860"
         },
         "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
           "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
-          "answer": "The article lists six main issues at the heart of the dispute: permanent borders, the status of Palestinian refugees (right of return), control over Jerusalem and the Temple Mount, division of water resources, settlements, and security arrangements.",
-          "value": "borders, refugees/right of return, Jerusalem/Temple Mount, water resources, settlements, security arrangements",
-          "evidence": "שש סוגיות עיקריות, העומדות כיום במוקד המחלוקת בין הצדדים הן – גבולות הקבע, מעמד הפליטים הפלסטינים (זכות השיבה), השליטה בירושלים ובהר הבית, חלוקת משאבי המים, ההתנחלויות והסדרי הביטחון."
+          "answer": "Six main issues: permanent borders, the status of Palestinian refugees (right of return), control over Jerusalem and the Temple Mount, division of water resources, settlements, and security arrangements.",
+          "value": "borders, refugees (right of return), Jerusalem/Temple Mount, water resources, settlements, security arrangements",
+          "evidence": "שש סוגיות עיקריות, העומדות כיום במוקד המחלוקת בין הצדדים הן - גבולות הקבע, מעמד הפליטים הפלסטינים (זכות השיבה), השליטה בירושלים ובהר הבית, חלוקת משאבי המים, ההתנחלויות והסדרי הביטחון."
         }
       },
       "ar": {
         "When is the conflict said to have begun?": {
           "question": "When is the conflict said to have begun?",
-          "answer": "The conflict is said to have begun in 1897, with the First Zionist Congress.",
+          "answer": "1897, the year of the First Zionist Congress",
           "value": "1897",
-          "evidence": "مصطلح يشار به إلى الخلاف السياسي والتاريخي والمشكلة الإنسانية في فلسطين بدءاً من عام 1897 (المؤتمر الصهيوني الأول) وحتى الوقت الحالي."
+          "evidence": "مصطلح يشار به إلى الخلاف السياسي والتاريخي والمشكلة الإنسانية في فلسطين بدءاً من عام 1897 (المؤتمر الصهيوني الأول) وحتى الوقت الحالي"
         },
         "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
           "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
-          "answer": "The article centers the issue on the Zionist movement and Jewish immigration/settlement in Palestine, the legitimacy of the State of Israel, its occupation of Palestinian lands in stages, and the Palestinian refugee issue; it does not explicitly list borders, Jerusalem, or settlements as separate core disputed issues in this passage.",
-          "value": "refugees; legitimacy/occupation of Israel; Zionist settlement and immigration (borders, Jerusalem, and settlements not explicitly stated as separate core issues)",
-          "evidence": "كما تتمحور القضية الفلسطينية حول قضية اللاجئين الفلسطينيين وشرعية دولة إسرائيل واحتلالها للأراضي الفلسطينية بعدة مراحل."
+          "answer": "The article centers on Palestinian refugees, the legitimacy of the State of Israel, its occupation of Palestinian lands in stages, massacres against Palestinians, and resistance operations against Israel; borders, Jerusalem, and settlements as such are not explicitly listed as separate core issues in this passage.",
+          "value": "refugees; legitimacy of Israel; occupation of lands (stages); massacres; resistance operations",
+          "evidence": "كما تتمحور القضية الفلسطينية حول قضية اللاجئين الفلسطينيين وشرعية دولة إسرائيل واحتلالها للأراضي الفلسطينية بعدة مراحل. وما نتج عن ذلك من ارتكابها للمجازر بحق الفلسطينيين وعمليات المقاومة ضد الدولة العبرية"
+        }
+      },
+      "es": {
+        "When is the conflict said to have begun?": {
+          "question": "When is the conflict said to have begun?",
+          "answer": "It is said to date back to the beginning of the 20th century",
+          "value": "early 20th century",
+          "evidence": "que se remonta a principios del ."
+        },
+        "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+          "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+          "answer": "The four main obstacles listed are secure and defined borders, control of Jerusalem, Israeli settlements, and the right of return of Palestinian refugees",
+          "value": "borders, Jerusalem, settlements, refugee right of return",
+          "evidence": "Tradicionalmente se han identificado cuatro escollos principales para la resolución del conflicto: el establecimiento de fronteras seguras y definidas, el control de Jerusalén, los asentamientos israelíes y el derecho de retorno de los refugiados palestinos"
+        }
+      },
+      "sv": {
+        "When is the conflict said to have begun?": {
+          "question": "When is the conflict said to have begun?",
+          "answer": "The conflict is said to have emerged in the late 1800s, particularly intensifying after Israel's founding in 1948",
+          "value": "late 1800s / 1948",
+          "evidence": "framför allt efter att Israel grundades år 1948... Konflikten växte fram i slutet av 1800-talet, då sionismen... ökade i popularitet."
+        },
+        "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+          "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+          "answer": "The article lists border demarcations, the future of Israeli settlements, the Palestinian refugee issue, the blockade of Gaza, Israel's security, and Jerusalem's Old City as sacred and disputed territory",
+          "value": "borders, Jerusalem, refugees, settlements, Gaza blockade, Israel's security",
+          "evidence": "Utöver gränsdragningar finns flera andra svårlösta konfliktpunkter. Dessa innefattar bland annat de israeliska bosättningarnas framtid, den palestinska flyktingfrågan, blockaden av Gaza, och Israels säkerhet. ... Detsamma gäller i ännu högre grad för Jerusalems gamla stad, där både klagomuren och al-Aqsa-moskén finns."
+        }
+      },
+      "ja": {
+        "When is the conflict said to have begun?": {
+          "question": "When is the conflict said to have begun?",
+          "answer": "The article states that the current Israeli-Palestinian relationship began with Israel's occupation of the Palestinian territories in the 1967 Third Middle East War (Six-Day War), though earlier tensions trace back to the 1897 First Zionist Congress and the 1917 Balfour Declaration.",
+          "value": "1967 (current relations); tensions traced from 1897/1917",
+          "evidence": "現在のイスラエルとパレスチナの関係は、1967年の第三次中東戦争でイスラエル軍がパレスチナ自治区を占領したことで始まった。"
+        },
+        "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+          "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+          "answer": "The main issues hindering further progress are national security, borders, water rights, control of Jerusalem, Jewish settlements, Palestinian freedom of movement, and the Palestinian right of return.",
+          "value": "national security, borders, water rights, Jerusalem, settlements, freedom of movement, right of return",
+          "evidence": "さらなる進展を妨げている主な問題は、国家安全保障、国境、水利権、エルサレムの支配、ユダヤ人入植地、パレスチナ人の移動の自由、パレスチナ人の帰還権である。"
+        }
+      },
+      "cs": {
+        "When is the conflict said to have begun?": {
+          "question": "When is the conflict said to have begun?",
+          "answer": "The origins of the conflict are linked to the rise of Zionism and Jewish immigration from the end of the 19th century, though the article also notes the first violent clashes did not occur until after 1920, and the conflict became part of the wider Arab-Israeli conflict after the establishment of Israel in 1948.",
+          "value": "end of 19th century",
+          "evidence": "Jeho vznik od konce 19. století je spojen s židovským přistěhovalectvím a sionismem, úsilím o vytvoření židovského národního státu."
+        },
+        "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+          "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+          "answer": "Jerusalem, Palestinian refugees, Israeli settlements, security, borders and international status, and division of water resources",
+          "value": "Jerusalem, refugees, settlements, security, borders/international status, water resources",
+          "evidence": "Mezi klíčové sporné otázky konfliktu patří Jeruzalém, palestinští uprchlíci, izraelské osady, bezpečnost, hranice a mezinárodní status a rozdělení vodních zdrojů."
+        }
+      },
+      "ko": {
+        "When is the conflict said to have begun?": {
+          "question": "When is the conflict said to have begun?",
+          "answer": "It is said to have begun in the mid-20th century amid the Arab-Israeli conflict.",
+          "value": "mid-20th century",
+          "evidence": "이스라엘-팔레스타인 갈등은 20세기 중반 아랍-이스라엘 갈등 속에서 시작된 이스라엘과 팔레스타인 사이의 지속적인 투쟁이다."
+        },
+        "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+          "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+          "answer": "The article does not specifically list borders, Jerusalem, refugees, or settlements; it instead cites religious conflict, territorial disputes, and history as the complex causes, with the territorial dispute stemming from the Balfour Declaration and the forced expulsion of Palestinians.",
+          "value": "religious conflict, territorial dispute, history (not explicitly borders/Jerusalem/refugees/settlements)",
+          "evidence": "이스라엘과 팔레스타인 간에는 종교 분쟁, 영토 분쟁, 역사를 분쟁의 복합적인 원인으로 하여 크고 작은 분쟁이 지속되고 있다."
+        }
+      },
+      "fr": {
+        "When is the conflict said to have begun?": {
+          "question": "When is the conflict said to have begun?",
+          "answer": "The conflict began mainly after the 1917 Balfour Declaration, though Arab opposition to Zionism appeared from the start of the British Mandate over Palestine.",
+          "value": "1917",
+          "evidence": "Le conflit entre le Yishouv et les Arabes de Palestine débute principalement après la Déclaration Balfour de 1917."
+        },
+        "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+          "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+          "answer": "The main aspects of the conflict listed are the Israeli occupation of the West Bank and Gaza Strip, the status of Jerusalem, Israeli settlements, and the question of Israel's borders and security, along with the Palestinian refugee problem.",
+          "value": "occupation of West Bank/Gaza, status of Jerusalem, Israeli settlements, borders and security, refugees",
+          "evidence": "Les principaux aspects du conflit comprennent l'occupation israélienne de la Cisjordanie et de la bande de Gaza, le statut de Jérusalem, les colonies israéliennes, la question des frontières et de la sécurité d'Israël."
+        }
+      },
+      "it": {
+        "When is the conflict said to have begun?": {
+          "question": "When is the conflict said to have begun?",
+          "answer": "The conflict is said to have originated at the beginning of the 20th century",
+          "value": "early 20th century",
+          "evidence": "è il conflitto politico, armato e sociale in corso tra Israele ed i palestinesi, ed ha origine all'inizio del XX secolo"
+        },
+        "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+          "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+          "answer": "The article lists four main obstacles: secure and defined borders, control of Jerusalem, Israeli settlements in Palestinian territories, and the right of return of Palestinian refugees",
+          "value": "borders, Jerusalem, settlements, refugees",
+          "evidence": "quattro principali ostacoli alla risoluzione dei conflitti: la creazione di confini sicuri e definiti, il controllo di Gerusalemme, gli insediamenti israeliani nei territori palestinesi e il diritto al ritorno dei rifugiati palestinesi"
+        }
+      },
+      "ru": {
+        "When is the conflict said to have begun?": {
+          "question": "When is the conflict said to have begun?",
+          "answer": "The article traces the roots of the conflict to the establishment and partition of Mandatory Palestine starting in 1920, with the League of Nations granting Britain the mandate that year.",
+          "value": "1920",
+          "evidence": "По окончании Первой мировой войны, в 1920 году, Лига Наций предоставила правительству Британии мандат на управление ранее завоёванной ею Палестиной, ратифицированный в 1923 году."
+        },
+        "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+          "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+          "answer": "The passage does not explicitly list these as a defined set of 'core disputed issues'; however, it discusses territorial partition disputes and control over Jerusalem as central points of contention, without a specific mention of refugees or settlements as a labeled list of core issues.",
+          "value": "borders, Jerusalem (refugees and settlements not explicitly stated as a core issues list)",
+          "evidence": "зоны, остающиеся под международным контролем — Иерусалим и его окрестности, а также Вифлеем (Бейт-Лехем)."
+        }
+      },
+      "tr": {
+        "When is the conflict said to have begun?": {
+          "question": "When is the conflict said to have begun?",
+          "answer": "The ongoing Israeli-Palestinian situation is said to have begun with Israel's occupation of Palestinian territories in the 1967 Six-Day War, though roots trace to the late 19th/early 20th century.",
+          "value": "1967 (roots in late 19th–early 20th century)",
+          "evidence": "İsrail-Filistin süregelen durumu, 1967 Altı Gün Savaşı'nda İsrail'in Filistin topraklarını işgal etmesiyle başladı."
+        },
+        "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+          "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+          "answer": "The passage does not explicitly enumerate borders, Jerusalem, refugees, and settlements as a defined list of core disputed issues; it mentions historic rights, security issues, and human rights as subjects of international conferences, and separately references refugee problems and settlement/occupation of territories in the historical narrative.",
+          "value": "not stated as an explicit list",
+          "evidence": "çatışmanın şiddeti, tarihi haklar, güvenlik sorunları ve insan haklarıyla ilgili çok sayıda uluslararası konferansa konu olmuş"
+        }
+      },
+      "id": {
+        "When is the conflict said to have begun?": {
+          "question": "When is the conflict said to have begun?",
+          "answer": "The conflict is described as ongoing from the 19th century to the 21st century, with its historical roots beginning in the late 19th century when Zionists sought to establish a homeland for Jews in Ottoman-controlled Palestine.",
+          "value": "late 19th century",
+          "evidence": "Sejarah dimulainya konflik Israel-Palestina berawal pada akhir abad ke-19, ketika Zionis berusaha mendirikan tanah air bagi orang-orang Yahudi di Palestina yang saat itu masih dikuasai oleh Ottoman"
+        },
+        "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+          "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+          "answer": "The main issues include the status of Jerusalem, Israeli settlements, borders, security, Palestinian water rights and freedom of movement, and the Palestinian right of return.",
+          "value": "Jerusalem status, Israeli settlements, borders, security, water rights, freedom of movement, Palestinian right of return",
+          "evidence": "Masalah utama dari konflik ini mencakup status kepemilikan Yerusalem, pemukiman Israel, perbatasan, keamanan dan hak atas air serta kebebasan bergerak Palestina dan hak kembali Palestina."
+        }
+      },
+      "pt": {
+        "When is the conflict said to have begun?": {
+          "question": "When is the conflict said to have begun?",
+          "answer": "The tensions/roots of the conflict are said to have begun in the 1890s, with the founding of the Zionist movement and Jewish immigration to Palestine",
+          "value": "1890s",
+          "evidence": "As tensões entre judeus e árabes começaram a emergir a partir da década de 1890, após a fundação do movimento sionista"
+        },
+        "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+          "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+          "answer": "The passage does not explicitly list a set of core disputed issues like borders, Jerusalem, refugees, and settlements as a category; it mentions Jerusalem's status (as a corpus separatum under the UN Partition Plan) and land/settlement disputes (Jewish settlers acquiring land from Ottomans and Arab landowners), but does not present them as an enumerated list of core issues",
+          "value": "not stated",
+          "evidence": "Segundo esta proposta, a cidade de Jerusalém, fundada pelos judeus, teria um estatuto de cidade internacional - um corpus separatum - administrada pelas Nações Unidas para evitar um possível conflito sobre o seu estatuto."
+        }
+      },
+      "nl": {
+        "When is the conflict said to have begun?": {
+          "question": "When is the conflict said to have begun?",
+          "answer": "The conflict is said to have begun with the rise of political Zionism at the end of the nineteenth century.",
+          "value": "end of the 19th century",
+          "evidence": "Het Israëlisch-Palestijns conflict is de strijd om de soevereiniteit over historisch Palestina, sinds de opkomst van het politieke zionisme aan het eind van de negentiende eeuw."
+        },
+        "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+          "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+          "answer": "The passage does not explicitly list 'borders, Jerusalem, refugees, settlements' as a defined set of core disputed issues; it instead discusses sovereignty over historical Palestine, the division of territory between Jewish and Arab states (partition), the status of Jerusalem/Al Quds under international control, and the mass displacement of Palestinian refugees.",
+          "value": "not stated as a defined list; sovereignty over territory, partition, Jerusalem's status, and refugees are discussed",
+          "evidence": "Jeruzalem/Al Quds en omgeving zou onder internationaal beheer vallen... Toen waren al 250.000 Palestijnen van huis en haard verdreven of gevlucht... Het is een onderdeel van het Arabisch-Israëlisch conflict."
+        }
+      },
+      "zh": {
+        "When is the conflict said to have begun?": {
+          "question": "When is the conflict said to have begun?",
+          "answer": "The conflict began in 1948 (with roots tracing back to the 1880s Arab-Jewish conflict in Palestine).",
+          "value": "1948 (roots from 1880s)",
+          "evidence": "以巴衝突是自1948年持续至今的衝突...以巴衝突始于1880年代巴勒斯坦地區阿拉伯人与犹太人之间的冲突。"
+        },
+        "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+          "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+          "answer": "The Oslo Accords tried to address Jerusalem's status, Israeli settlements, borders, security, water rights, and the fate of Palestinian refugees.",
+          "value": "Jerusalem status, settlements, borders, security, water rights, refugees",
+          "evidence": "这份协议大致划定了耶路撒冷的地位、以色列定居点、边界、安全、水权、巴勒斯坦人的和。"
+        }
+      },
+      "de": {
+        "When is the conflict said to have begun?": {
+          "question": "When is the conflict said to have begun?",
+          "answer": "The conflict is said to have arisen at the beginning of the 20th century between Jews and Arabs, rooted in Britain's occupation of Palestine and the 1947 UN Partition Plan.",
+          "value": "early 20th century (with key escalation from 1947 UN Partition Plan)",
+          "evidence": "der zu Beginn des 20. Jahrhunderts zwischen Juden und Arabern entstand ... Der aktuelle Konflikt in der Region geht auf die Besetzung Palästinas durch Großbritannien und die Aufteilung des Landes ... im UN-Teilungsplan von 1947 zurück."
+        },
+        "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+          "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+          "answer": "The article identifies the land/territory, the security of borders, and the statehood of two nations as central issues, and specifically discusses the Palestinian and Jewish refugee problems, Israeli settlements in occupied territories, and the status of Jerusalem (East Jerusalem occupied since 1967) as key disputed issues.",
+          "value": "land/borders, statehood, refugees, settlements, East Jerusalem",
+          "evidence": "Es geht um das Land, die Sicherheit von Grenzen und um die Staatlichkeit zweier Nationen. ... werden laut eines Rechtsgutachtens des Internationalen Gerichtshofs der Gazastreifen, das Westjordanland und Ostjerusalem seit 1967 von Israel besetzt. ... führten der Palästinakrieg 1948 und die Nakba auf arabischer Seite zum palästinensischen Flüchtlingsproblem, die Vertreibung von Juden aus arabischen und islamischen Ländern auf israelischer Seite zu einem jüdischen Flüchtlingsproblem."
+        }
+      },
+      "fa": {
+        "When is the conflict said to have begun?": {
+          "question": "When is the conflict said to have begun?",
+          "answer": "The conflict began in the middle of the 20th century",
+          "value": "mid-20th century",
+          "evidence": "مناقشه‌ای جاری میان فلسطینی‌ها و اسرائیلی‌ها است، که در میانهٔ سدهٔ بیستم آغاز شد"
+        },
+        "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+          "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+          "answer": "Mutual recognition, borders, security, water rights, control of Jerusalem, Israeli settlements, freedom of movement for Palestinians, and resolution of Palestinian refugees' right of return claims",
+          "value": "mutual recognition; borders; security; water rights; Jerusalem; settlements; freedom of movement; refugees' right of return",
+          "evidence": "مسائل کلیدی باقی‌مانده عبارت‌اند از: شناسایی متقابل، مرزها، امنیت، حقوق آب، کنترل اورشلیم، شهرک‌های اسرائیلی، آزادی آمد و شد فلسطینیان، و حل و فصل دعاوی فلسطینیان، مبنی بر حق بازگشت آوارگان‌شان."
+        }
+      },
+      "pl": {
+        "When is the conflict said to have begun?": {
+          "question": "When is the conflict said to have begun?",
+          "answer": "The conflict is said to have been ongoing since the mid-20th century",
+          "value": "mid-20th century",
+          "evidence": "trwający od połowy XX wieku, będący częścią konfliktu izraelsko-arabskiego."
+        },
+        "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+          "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+          "answer": "The passage does not explicitly list a set of core disputed issues such as borders, Jerusalem, refugees, and settlements as a defined category; it only mentions related events like the Palestinian refugee exodus, Jewish settlement in occupied territories, and East Jerusalem coming under occupation.",
+          "value": "not stated",
+          "evidence": "Wojna wywołała także masowy, wymuszony działaniami zbrojnymi i, niekiedy, celową polityką Izraela, eksodus Palestyńczyków (ok. 750 tysięcy) z terenów państwa żydowskiego... Zachodni Brzeg Jordanu (w tym Wschodnia Jerozolima), Strefa Gazy... Rozpoczęło się żydowskie osadnictwo na tych terenach, zwłaszcza w rejonie Jerozolimy i na Zachodnim Brzegu."
+        }
+      },
+      "uk": {
+        "When is the conflict said to have begun?": {
+          "question": "When is the conflict said to have begun?",
+          "answer": "1920",
+          "value": "1920",
+          "evidence": "1920 — початок"
+        },
+        "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+          "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+          "answer": "The article does not specifically list borders, Jerusalem, refugees, and settlements as core disputed issues; it only generally mentions disagreement over the form of a final agreement and mutual distrust regarding security",
+          "value": "not stated",
+          "evidence": "є значні сфери розбіжностей щодо форми будь-якої остаточної угоди, а також щодо рівня довіри: кожна сторона бачить в іншій загрозу власній безпеці"
         }
       }
     },
@@ -63,13 +335,1205 @@
       {
         "question": "When is the conflict said to have begun?",
         "verdict": "contradict",
-        "note": "en cites late 19th–early 20th century, he cites 1917 (Balfour Declaration), ar cites 1897 (First Zionist Congress) — differing specific start dates/events."
+        "note": "Editions cite widely divergent start dates ranging from 1860 to 1967, reflecting incompatible framings of the conflict's origin."
       },
       {
         "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
         "verdict": "differ",
-        "note": "All mention refugees, Jerusalem, and settlements/borders in some form, but en and he give explicit itemized lists of similar core issues while ar frames the dispute more broadly around Zionist immigration and Israel's legitimacy rather than listing discrete issues."
+        "note": "Most editions list overlapping core issues (borders, Jerusalem, refugees, settlements) with varying additional items, while some (ar, ko, ru, tr, pt, nl, pl, uk) omit or frame the list very differently."
       }
     ]
-  }
+  },
+  "diagnostics": {
+    "min_edition_count": 2,
+    "effective_langs": [
+      "en",
+      "he",
+      "ar",
+      "es",
+      "sv",
+      "ja",
+      "cs",
+      "ko",
+      "fr",
+      "it",
+      "ru",
+      "tr",
+      "id",
+      "pt",
+      "nl",
+      "zh",
+      "de",
+      "fa",
+      "pl",
+      "uk"
+    ],
+    "errors": []
+  },
+  "schema_version": 1,
+  "analysis_scope": "confirmed_episodes",
+  "episode_count": 3,
+  "episodes": [
+    {
+      "article": "Israeli–Palestinian conflict",
+      "asof": "2024-08-12T19:13:55Z",
+      "langs": [
+        "en",
+        "he",
+        "ar",
+        "es",
+        "sv",
+        "ja",
+        "cs",
+        "ko",
+        "fr",
+        "it",
+        "ru",
+        "tr",
+        "id",
+        "pt",
+        "nl",
+        "zh",
+        "de",
+        "fa",
+        "pl",
+        "uk"
+      ],
+      "citation": {
+        "mean_jaccard": 0.06,
+        "domains_per_edition": {
+          "en": 114,
+          "he": 22,
+          "ar": 30,
+          "es": 71,
+          "sv": 120,
+          "ja": 155,
+          "cs": 39,
+          "ko": 1,
+          "fr": 53,
+          "it": 25,
+          "ru": 89,
+          "tr": 34,
+          "id": 99,
+          "pt": 36,
+          "nl": 15,
+          "zh": 61,
+          "de": 26,
+          "fa": 8,
+          "pl": 9,
+          "uk": 7
+        }
+      },
+      "claim": {
+        "per_edition": {
+          "en": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "In the late 19th and early 20th centuries, with the development of political Zionism and arrival of Zionist settlers to Palestine",
+              "value": "late 19th–early 20th century",
+              "evidence": "The Israeli–Palestinian conflict began in the late 19th and early 20th centuries, with the development of political Zionism and the arrival of Zionist settlers to Palestine."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "The article lists the Israeli occupation of the West Bank and Gaza Strip, the status of Jerusalem, Israeli settlements, borders, security, water rights, the permit regime, Palestinian freedom of movement, and the Palestinian right of return",
+              "value": "occupation of West Bank/Gaza, status of Jerusalem, settlements, borders, security, water rights, permit regime, freedom of movement, right of return",
+              "evidence": "Key aspects of the conflict include the Israeli occupation of the West Bank and Gaza Strip, the status of Jerusalem, Israeli settlements, borders, security, water rights, the permit regime, Palestinian freedom of movement, and the Palestinian right of return."
+            }
+          },
+          "he": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "The common view is that the conflict began with the British Balfour Declaration in 1917, though some date it to 1860 when Mishkenot Sha'ananim, the first Jewish neighborhood outside Jerusalem's Old City walls, was established.",
+              "value": "1917 (commonly); 1860 (alternative view)",
+              "evidence": "העמדה המקובלת היא שראשיתו של הסכסוך בהצהרת בלפור הבריטית ב-1917. ואולם, יש המחשיבים שההיסטוריה של הסכסוך הישראלי-פלסטיני, תחילתה בשנת 1860"
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "Six main issues: permanent borders, the status of Palestinian refugees (right of return), control over Jerusalem and the Temple Mount, division of water resources, settlements, and security arrangements.",
+              "value": "borders, refugees (right of return), Jerusalem/Temple Mount, water resources, settlements, security arrangements",
+              "evidence": "שש סוגיות עיקריות, העומדות כיום במוקד המחלוקת בין הצדדים הן - גבולות הקבע, מעמד הפליטים הפלסטינים (זכות השיבה), השליטה בירושלים ובהר הבית, חלוקת משאבי המים, ההתנחלויות והסדרי הביטחון."
+            }
+          },
+          "ar": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "1897, the year of the First Zionist Congress",
+              "value": "1897",
+              "evidence": "مصطلح يشار به إلى الخلاف السياسي والتاريخي والمشكلة الإنسانية في فلسطين بدءاً من عام 1897 (المؤتمر الصهيوني الأول) وحتى الوقت الحالي"
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "The article centers on Palestinian refugees, the legitimacy of the State of Israel, its occupation of Palestinian lands in stages, massacres against Palestinians, and resistance operations against Israel; borders, Jerusalem, and settlements as such are not explicitly listed as separate core issues in this passage.",
+              "value": "refugees; legitimacy of Israel; occupation of lands (stages); massacres; resistance operations",
+              "evidence": "كما تتمحور القضية الفلسطينية حول قضية اللاجئين الفلسطينيين وشرعية دولة إسرائيل واحتلالها للأراضي الفلسطينية بعدة مراحل. وما نتج عن ذلك من ارتكابها للمجازر بحق الفلسطينيين وعمليات المقاومة ضد الدولة العبرية"
+            }
+          },
+          "es": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "It is said to date back to the beginning of the 20th century",
+              "value": "early 20th century",
+              "evidence": "que se remonta a principios del ."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "The four main obstacles listed are secure and defined borders, control of Jerusalem, Israeli settlements, and the right of return of Palestinian refugees",
+              "value": "borders, Jerusalem, settlements, refugee right of return",
+              "evidence": "Tradicionalmente se han identificado cuatro escollos principales para la resolución del conflicto: el establecimiento de fronteras seguras y definidas, el control de Jerusalén, los asentamientos israelíes y el derecho de retorno de los refugiados palestinos"
+            }
+          },
+          "sv": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "The conflict is said to have emerged in the late 1800s, particularly intensifying after Israel's founding in 1948",
+              "value": "late 1800s / 1948",
+              "evidence": "framför allt efter att Israel grundades år 1948... Konflikten växte fram i slutet av 1800-talet, då sionismen... ökade i popularitet."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "The article lists border demarcations, the future of Israeli settlements, the Palestinian refugee issue, the blockade of Gaza, Israel's security, and Jerusalem's Old City as sacred and disputed territory",
+              "value": "borders, Jerusalem, refugees, settlements, Gaza blockade, Israel's security",
+              "evidence": "Utöver gränsdragningar finns flera andra svårlösta konfliktpunkter. Dessa innefattar bland annat de israeliska bosättningarnas framtid, den palestinska flyktingfrågan, blockaden av Gaza, och Israels säkerhet. ... Detsamma gäller i ännu högre grad för Jerusalems gamla stad, där både klagomuren och al-Aqsa-moskén finns."
+            }
+          },
+          "ja": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "The article states that the current Israeli-Palestinian relationship began with Israel's occupation of the Palestinian territories in the 1967 Third Middle East War (Six-Day War), though earlier tensions trace back to the 1897 First Zionist Congress and the 1917 Balfour Declaration.",
+              "value": "1967 (current relations); tensions traced from 1897/1917",
+              "evidence": "現在のイスラエルとパレスチナの関係は、1967年の第三次中東戦争でイスラエル軍がパレスチナ自治区を占領したことで始まった。"
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "The main issues hindering further progress are national security, borders, water rights, control of Jerusalem, Jewish settlements, Palestinian freedom of movement, and the Palestinian right of return.",
+              "value": "national security, borders, water rights, Jerusalem, settlements, freedom of movement, right of return",
+              "evidence": "さらなる進展を妨げている主な問題は、国家安全保障、国境、水利権、エルサレムの支配、ユダヤ人入植地、パレスチナ人の移動の自由、パレスチナ人の帰還権である。"
+            }
+          },
+          "cs": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "The origins of the conflict are linked to the rise of Zionism and Jewish immigration from the end of the 19th century, though the article also notes the first violent clashes did not occur until after 1920, and the conflict became part of the wider Arab-Israeli conflict after the establishment of Israel in 1948.",
+              "value": "end of 19th century",
+              "evidence": "Jeho vznik od konce 19. století je spojen s židovským přistěhovalectvím a sionismem, úsilím o vytvoření židovského národního státu."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "Jerusalem, Palestinian refugees, Israeli settlements, security, borders and international status, and division of water resources",
+              "value": "Jerusalem, refugees, settlements, security, borders/international status, water resources",
+              "evidence": "Mezi klíčové sporné otázky konfliktu patří Jeruzalém, palestinští uprchlíci, izraelské osady, bezpečnost, hranice a mezinárodní status a rozdělení vodních zdrojů."
+            }
+          },
+          "ko": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "It is said to have begun in the mid-20th century amid the Arab-Israeli conflict.",
+              "value": "mid-20th century",
+              "evidence": "이스라엘-팔레스타인 갈등은 20세기 중반 아랍-이스라엘 갈등 속에서 시작된 이스라엘과 팔레스타인 사이의 지속적인 투쟁이다."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "The article does not specifically list borders, Jerusalem, refugees, or settlements; it instead cites religious conflict, territorial disputes, and history as the complex causes, with the territorial dispute stemming from the Balfour Declaration and the forced expulsion of Palestinians.",
+              "value": "religious conflict, territorial dispute, history (not explicitly borders/Jerusalem/refugees/settlements)",
+              "evidence": "이스라엘과 팔레스타인 간에는 종교 분쟁, 영토 분쟁, 역사를 분쟁의 복합적인 원인으로 하여 크고 작은 분쟁이 지속되고 있다."
+            }
+          },
+          "fr": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "The conflict began mainly after the 1917 Balfour Declaration, though Arab opposition to Zionism appeared from the start of the British Mandate over Palestine.",
+              "value": "1917",
+              "evidence": "Le conflit entre le Yishouv et les Arabes de Palestine débute principalement après la Déclaration Balfour de 1917."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "The main aspects of the conflict listed are the Israeli occupation of the West Bank and Gaza Strip, the status of Jerusalem, Israeli settlements, and the question of Israel's borders and security, along with the Palestinian refugee problem.",
+              "value": "occupation of West Bank/Gaza, status of Jerusalem, Israeli settlements, borders and security, refugees",
+              "evidence": "Les principaux aspects du conflit comprennent l'occupation israélienne de la Cisjordanie et de la bande de Gaza, le statut de Jérusalem, les colonies israéliennes, la question des frontières et de la sécurité d'Israël."
+            }
+          },
+          "it": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "The conflict is said to have originated at the beginning of the 20th century",
+              "value": "early 20th century",
+              "evidence": "è il conflitto politico, armato e sociale in corso tra Israele ed i palestinesi, ed ha origine all'inizio del XX secolo"
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "The article lists four main obstacles: secure and defined borders, control of Jerusalem, Israeli settlements in Palestinian territories, and the right of return of Palestinian refugees",
+              "value": "borders, Jerusalem, settlements, refugees",
+              "evidence": "quattro principali ostacoli alla risoluzione dei conflitti: la creazione di confini sicuri e definiti, il controllo di Gerusalemme, gli insediamenti israeliani nei territori palestinesi e il diritto al ritorno dei rifugiati palestinesi"
+            }
+          },
+          "ru": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "The article traces the roots of the conflict to the establishment and partition of Mandatory Palestine starting in 1920, with the League of Nations granting Britain the mandate that year.",
+              "value": "1920",
+              "evidence": "По окончании Первой мировой войны, в 1920 году, Лига Наций предоставила правительству Британии мандат на управление ранее завоёванной ею Палестиной, ратифицированный в 1923 году."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "The passage does not explicitly list these as a defined set of 'core disputed issues'; however, it discusses territorial partition disputes and control over Jerusalem as central points of contention, without a specific mention of refugees or settlements as a labeled list of core issues.",
+              "value": "borders, Jerusalem (refugees and settlements not explicitly stated as a core issues list)",
+              "evidence": "зоны, остающиеся под международным контролем — Иерусалим и его окрестности, а также Вифлеем (Бейт-Лехем)."
+            }
+          },
+          "tr": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "The ongoing Israeli-Palestinian situation is said to have begun with Israel's occupation of Palestinian territories in the 1967 Six-Day War, though roots trace to the late 19th/early 20th century.",
+              "value": "1967 (roots in late 19th–early 20th century)",
+              "evidence": "İsrail-Filistin süregelen durumu, 1967 Altı Gün Savaşı'nda İsrail'in Filistin topraklarını işgal etmesiyle başladı."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "The passage does not explicitly enumerate borders, Jerusalem, refugees, and settlements as a defined list of core disputed issues; it mentions historic rights, security issues, and human rights as subjects of international conferences, and separately references refugee problems and settlement/occupation of territories in the historical narrative.",
+              "value": "not stated as an explicit list",
+              "evidence": "çatışmanın şiddeti, tarihi haklar, güvenlik sorunları ve insan haklarıyla ilgili çok sayıda uluslararası konferansa konu olmuş"
+            }
+          },
+          "id": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "The conflict is described as ongoing from the 19th century to the 21st century, with its historical roots beginning in the late 19th century when Zionists sought to establish a homeland for Jews in Ottoman-controlled Palestine.",
+              "value": "late 19th century",
+              "evidence": "Sejarah dimulainya konflik Israel-Palestina berawal pada akhir abad ke-19, ketika Zionis berusaha mendirikan tanah air bagi orang-orang Yahudi di Palestina yang saat itu masih dikuasai oleh Ottoman"
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "The main issues include the status of Jerusalem, Israeli settlements, borders, security, Palestinian water rights and freedom of movement, and the Palestinian right of return.",
+              "value": "Jerusalem status, Israeli settlements, borders, security, water rights, freedom of movement, Palestinian right of return",
+              "evidence": "Masalah utama dari konflik ini mencakup status kepemilikan Yerusalem, pemukiman Israel, perbatasan, keamanan dan hak atas air serta kebebasan bergerak Palestina dan hak kembali Palestina."
+            }
+          },
+          "pt": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "The tensions/roots of the conflict are said to have begun in the 1890s, with the founding of the Zionist movement and Jewish immigration to Palestine",
+              "value": "1890s",
+              "evidence": "As tensões entre judeus e árabes começaram a emergir a partir da década de 1890, após a fundação do movimento sionista"
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "The passage does not explicitly list a set of core disputed issues like borders, Jerusalem, refugees, and settlements as a category; it mentions Jerusalem's status (as a corpus separatum under the UN Partition Plan) and land/settlement disputes (Jewish settlers acquiring land from Ottomans and Arab landowners), but does not present them as an enumerated list of core issues",
+              "value": "not stated",
+              "evidence": "Segundo esta proposta, a cidade de Jerusalém, fundada pelos judeus, teria um estatuto de cidade internacional - um corpus separatum - administrada pelas Nações Unidas para evitar um possível conflito sobre o seu estatuto."
+            }
+          },
+          "nl": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "The conflict is said to have begun with the rise of political Zionism at the end of the nineteenth century.",
+              "value": "end of the 19th century",
+              "evidence": "Het Israëlisch-Palestijns conflict is de strijd om de soevereiniteit over historisch Palestina, sinds de opkomst van het politieke zionisme aan het eind van de negentiende eeuw."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "The passage does not explicitly list 'borders, Jerusalem, refugees, settlements' as a defined set of core disputed issues; it instead discusses sovereignty over historical Palestine, the division of territory between Jewish and Arab states (partition), the status of Jerusalem/Al Quds under international control, and the mass displacement of Palestinian refugees.",
+              "value": "not stated as a defined list; sovereignty over territory, partition, Jerusalem's status, and refugees are discussed",
+              "evidence": "Jeruzalem/Al Quds en omgeving zou onder internationaal beheer vallen... Toen waren al 250.000 Palestijnen van huis en haard verdreven of gevlucht... Het is een onderdeel van het Arabisch-Israëlisch conflict."
+            }
+          },
+          "zh": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "The conflict began in 1948 (with roots tracing back to the 1880s Arab-Jewish conflict in Palestine).",
+              "value": "1948 (roots from 1880s)",
+              "evidence": "以巴衝突是自1948年持续至今的衝突...以巴衝突始于1880年代巴勒斯坦地區阿拉伯人与犹太人之间的冲突。"
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "The Oslo Accords tried to address Jerusalem's status, Israeli settlements, borders, security, water rights, and the fate of Palestinian refugees.",
+              "value": "Jerusalem status, settlements, borders, security, water rights, refugees",
+              "evidence": "这份协议大致划定了耶路撒冷的地位、以色列定居点、边界、安全、水权、巴勒斯坦人的和。"
+            }
+          },
+          "de": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "The conflict is said to have arisen at the beginning of the 20th century between Jews and Arabs, rooted in Britain's occupation of Palestine and the 1947 UN Partition Plan.",
+              "value": "early 20th century (with key escalation from 1947 UN Partition Plan)",
+              "evidence": "der zu Beginn des 20. Jahrhunderts zwischen Juden und Arabern entstand ... Der aktuelle Konflikt in der Region geht auf die Besetzung Palästinas durch Großbritannien und die Aufteilung des Landes ... im UN-Teilungsplan von 1947 zurück."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "The article identifies the land/territory, the security of borders, and the statehood of two nations as central issues, and specifically discusses the Palestinian and Jewish refugee problems, Israeli settlements in occupied territories, and the status of Jerusalem (East Jerusalem occupied since 1967) as key disputed issues.",
+              "value": "land/borders, statehood, refugees, settlements, East Jerusalem",
+              "evidence": "Es geht um das Land, die Sicherheit von Grenzen und um die Staatlichkeit zweier Nationen. ... werden laut eines Rechtsgutachtens des Internationalen Gerichtshofs der Gazastreifen, das Westjordanland und Ostjerusalem seit 1967 von Israel besetzt. ... führten der Palästinakrieg 1948 und die Nakba auf arabischer Seite zum palästinensischen Flüchtlingsproblem, die Vertreibung von Juden aus arabischen und islamischen Ländern auf israelischer Seite zu einem jüdischen Flüchtlingsproblem."
+            }
+          },
+          "fa": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "The conflict began in the middle of the 20th century",
+              "value": "mid-20th century",
+              "evidence": "مناقشه‌ای جاری میان فلسطینی‌ها و اسرائیلی‌ها است، که در میانهٔ سدهٔ بیستم آغاز شد"
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "Mutual recognition, borders, security, water rights, control of Jerusalem, Israeli settlements, freedom of movement for Palestinians, and resolution of Palestinian refugees' right of return claims",
+              "value": "mutual recognition; borders; security; water rights; Jerusalem; settlements; freedom of movement; refugees' right of return",
+              "evidence": "مسائل کلیدی باقی‌مانده عبارت‌اند از: شناسایی متقابل، مرزها، امنیت، حقوق آب، کنترل اورشلیم، شهرک‌های اسرائیلی، آزادی آمد و شد فلسطینیان، و حل و فصل دعاوی فلسطینیان، مبنی بر حق بازگشت آوارگان‌شان."
+            }
+          },
+          "pl": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "The conflict is said to have been ongoing since the mid-20th century",
+              "value": "mid-20th century",
+              "evidence": "trwający od połowy XX wieku, będący częścią konfliktu izraelsko-arabskiego."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "The passage does not explicitly list a set of core disputed issues such as borders, Jerusalem, refugees, and settlements as a defined category; it only mentions related events like the Palestinian refugee exodus, Jewish settlement in occupied territories, and East Jerusalem coming under occupation.",
+              "value": "not stated",
+              "evidence": "Wojna wywołała także masowy, wymuszony działaniami zbrojnymi i, niekiedy, celową polityką Izraela, eksodus Palestyńczyków (ok. 750 tysięcy) z terenów państwa żydowskiego... Zachodni Brzeg Jordanu (w tym Wschodnia Jerozolima), Strefa Gazy... Rozpoczęło się żydowskie osadnictwo na tych terenach, zwłaszcza w rejonie Jerozolimy i na Zachodnim Brzegu."
+            }
+          },
+          "uk": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "1920",
+              "value": "1920",
+              "evidence": "1920 — початок"
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "The article does not specifically list borders, Jerusalem, refugees, and settlements as core disputed issues; it only generally mentions disagreement over the form of a final agreement and mutual distrust regarding security",
+              "value": "not stated",
+              "evidence": "є значні сфери розбіжностей щодо форми будь-якої остаточної угоди, а також щодо рівня довіри: кожна сторона бачить в іншій загрозу власній безпеці"
+            }
+          }
+        },
+        "adjudication": [
+          {
+            "question": "When is the conflict said to have begun?",
+            "verdict": "contradict",
+            "note": "Editions cite widely divergent start dates ranging from 1860 to 1967, reflecting incompatible framings of the conflict's origin."
+          },
+          {
+            "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+            "verdict": "differ",
+            "note": "Most editions list overlapping core issues (borders, Jerusalem, refugees, settlements) with varying additional items, while some (ar, ko, ru, tr, pt, nl, pl, uk) omit or frame the list very differently."
+          }
+        ]
+      },
+      "diagnostics": {
+        "min_edition_count": 2,
+        "effective_langs": [
+          "en",
+          "he",
+          "ar",
+          "es",
+          "sv",
+          "ja",
+          "cs",
+          "ko",
+          "fr",
+          "it",
+          "ru",
+          "tr",
+          "id",
+          "pt",
+          "nl",
+          "zh",
+          "de",
+          "fa",
+          "pl",
+          "uk"
+        ],
+        "errors": []
+      },
+      "episode_id": "1239968080-1239968974",
+      "episode_index": 1,
+      "episode_window": {
+        "start": "2024-01-01",
+        "end": "2025-01-01",
+        "pwr_mass": 163585,
+        "status": "confirmed",
+        "before_revid": 1239968080,
+        "before_timestamp": "2024-08-12T19:05:51Z",
+        "after_revid": 1239968974,
+        "after_timestamp": "2024-08-12T19:13:55Z",
+        "durable_spine_drop": 0.364379
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Israeli–Palestinian conflict",
+      "asof": "2006-11-25T09:14:27Z",
+      "langs": [
+        "en",
+        "he",
+        "ar",
+        "es",
+        "sv",
+        "ja",
+        "cs",
+        "ko",
+        "fr",
+        "it",
+        "ru",
+        "tr",
+        "id",
+        "pt",
+        "nl",
+        "zh",
+        "de",
+        "fa",
+        "pl",
+        "uk"
+      ],
+      "citation": {
+        "mean_jaccard": 0.35,
+        "domains_per_edition": {
+          "en": 45,
+          "he": 1,
+          "ar": 1,
+          "es": 0,
+          "sv": 1,
+          "ja": 6,
+          "cs": 0,
+          "ko": 0,
+          "fr": 9,
+          "it": 0,
+          "ru": 0,
+          "tr": 0,
+          "id": 28,
+          "pt": 0,
+          "nl": 0,
+          "zh": 18,
+          "de": 0,
+          "fa": 0,
+          "pl": 0,
+          "uk": 0
+        }
+      },
+      "claim": {
+        "per_edition": {
+          "en": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "The related History of the Israeli-Palestinian conflict article covers the beginning in the 1880s, continuing to the present day.",
+              "value": "1880s",
+              "evidence": "See History of the Israeli-Palestinian conflict for an account of the Israeli-Palestinian conflict beginning in the 1880s and continuing to the present day."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "The main unresolved issues listed are: the status/future of the West Bank, Gaza Strip, and East Jerusalem (proposed State of Palestine); Israeli security and recognition of Israel's right to exist; the nature of a future Palestinian state; the fate of Palestinian refugees; Israeli settlement policies and the fate of settlements; and sovereignty over Jerusalem's holy sites including the Temple Mount and Western Wall complex.",
+              "value": "territory/borders (West Bank, Gaza, East Jerusalem); security and recognition of Israel; nature of Palestinian state; refugees; settlements; sovereignty over Jerusalem holy sites",
+              "evidence": "The main unresolved issues between these two bodies are: The status and future of the West Bank, Gaza Strip, and East Jerusalem which comprise the areas for the proposed State of Palestine. Israeli security and recognition of Israel's right to exist. The nature of a future Palestinian state. The fate of the Palestinian refugees. The settlement policies of Israel, and the ultimate fate of settlements. Sovereignty over Jerusalem's holy sites, including the Temple Mount and Western Wall complex."
+            }
+          },
+          "he": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "The article divides the conflict into four periods, the first being the British Mandate period, implying the conflict's origins trace back to that era, though no single specific start date is explicitly stated.",
+              "value": "British Mandate period (not a single explicit date)",
+              "evidence": "תקופת המנדט הבריטי, שבה היו שני הצדדים לסכסוך נתונים לשלטונה של בריטניה, תחת יישות מדינית אחת, \"פלשתינה (א\"י)\"."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "The article lists territorial division/borders, Jerusalem and the holy sites, the refugee problem and right of return, and settlements in Judea and Samaria, among many other issues (recognition of a Palestinian state, recognition of Israel, the separation barrier, incitement, territorial contiguity, the Jordan Valley, safe passage, terror organizations, prisoners, IDF activity, water, a Palestinian army, economy/customs, ports/airport, and border crossings).",
+              "value": "borders, Jerusalem, refugees/right of return, settlements (plus additional issues: statehood recognition, recognition of Israel, security fence, incitement, territorial contiguity, Jordan Valley, safe passage, terror organizations, prisoners, IDF presence, water, Palestinian army, economy/customs, ports, border crossings)",
+              "evidence": "חלוקת השטח בין המדינות... ירושלים - סוגיית שייכותה של העיר ירושלים... בעיית הפליטים וזכות השיבה... התנחלויות ביהודה ושומרון - הפלסטינים מבקשים את הפסקת הבנייה בהתנחלויות ופינוין."
+            }
+          },
+          "ar": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "The Palestinian cause is said to begin in the year 1880",
+              "value": "1880",
+              "evidence": "مصطلح يشار به الى الخلاف السياسي والتاريخي والمشكلة الانسانية في فلسطين بدءا من عام 1880 وحتى يومنا الحالي"
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "The article centers on the issue of Palestinian refugees and the legitimacy of Israel and its occupation of Palestinian lands in several stages; it does not explicitly list borders, Jerusalem, or settlements as separate core issues.",
+              "value": "refugees; legitimacy of Israel; occupation of Palestinian lands (borders/Jerusalem/settlements not stated)",
+              "evidence": "وتتمحور القضية الفلسطينية حول قضية اللاجئين الفلسطينين وشرعية اسرائيل واحتلالها للاراضي الفلسطينية بعدة مراحل ، كما ترتبط بقرارات الامم المتحدة كقرار 242 وقرار 338"
+            }
+          },
+          "es": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage was provided."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage was provided."
+            }
+          },
+          "sv": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "The conflict is said to have begun in 1948, with Egypt declaring war on Israel upon its declaration of independence.",
+              "value": "1948",
+              "evidence": "Därmed hade en, flera decennier, lång mellanstatlig konflikt mellan Israel och dess grannländer påbörjats."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "The passage discusses borders/territory division, the status of Jerusalem, and refugees, but does not mention settlements as a disputed issue.",
+              "value": "borders, Jerusalem, refugees",
+              "evidence": "Man ville dela upp området väster om Jordanfloden (nuvarande gränsen mot Jordanien) mellan Yishuv och palestinier med endast Jerusalem under internationell kontroll. ... Ungefär 2/3 av palestinierna flydde sitt hemland ... Jerusalem delades i en västlig del som Israel annekterade och en östlig som Jordanien annekterade."
+            }
+          },
+          "ja": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "The article traces the origins to World War I-era British diplomacy (Hussein-McMahon Agreement 1915, Balfour Declaration 1917, Sykes-Picot Agreement), which set the stage for the conflict between Palestinian settlers and Zionist Jewish immigrants; it is described as not originally an ethnic conflict, with tensions escalating by 1947-1948 into open conflict and the 1948 war.",
+              "value": "World War I era (1915–1917), escalating to open conflict in 1947–1948",
+              "evidence": "本来は民族紛争ではなかった。第一次世界大戦において連合国側のイギリスは…その際この対価として1915年10月にフサイン＝マクマホン協定を結びこの地域の独立を認めた。"
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "The article's summary section lists: the status of the occupied territories (West Bank and Gaza), the Jerusalem issue, the Hebron issue (holy sites of Abrahamic religions), issues concerning Jericho and other areas, the settlement issue, water resources issue, economic issues, the 'right of return' of refugees, the ideological issue of coexistence, the status of the Golan Heights, the Katzrin issue, and normalization of relations with Arab states.",
+              "value": "Occupied territories/borders (West Bank & Gaza), Jerusalem, Hebron, settlements, water resources, economy, refugees' right of return, coexistence ideology, Golan Heights, Katzrin, Arab normalization",
+              "evidence": "パレスチナが「占領地域」と呼ぶ紛争地域、ヨルダン川西岸地区・ガザ地区の地位に関する問題　エルサレム問題　ヘブロン問題 - アブラハムの宗教の聖地　エリコ、その他の地域に関する問題　入植地問題　水資源問題　経済問題　「難民」の「帰還権」　パレスチナの思想的問題（併存問題）　ゴラン高原の地位に関する問題　カツェリーン問題　アラブ諸国との関係正常化"
+            }
+          },
+          "cs": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": ""
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": ""
+            }
+          },
+          "ko": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage text was provided."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage text was provided."
+            }
+          },
+          "fr": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "The passage traces origins to World War I / the Ottoman Empire's collapse and British policy from 1914-1917 onward, culminating in the 1947 UN Partition Plan and creation of Israel in 1948",
+              "value": "1914-1948 (roots in WWI, formalized 1947-1948)",
+              "evidence": "Suite au plan de partage de la Palestine de 1947, Israël a bien été créé en 1948, alors que les Arabes Palestiniens continuent à exprimer leurs revendications pour un État."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "The passage does not explicitly list borders, Jerusalem, refugees, and settlements as a set of core disputed issues; it instead frames the conflict as a territorial dispute with religious dimensions between two peoples claiming rights to the same land, and mentions Jerusalem as an internationally administered holy city under the partition plan",
+              "value": "not stated as a defined list; territorial/religious dispute; Jerusalem mentioned as internationalized zone",
+              "evidence": "Il s'agit d'un conflit territorial (qui inclut des arguments religieux non négligeables) entre deux peuples qui revendiquent des droits sur la même terre... le reste étant la ville sainte et ses environs administrée internationalement."
+            }
+          },
+          "it": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "REDIRECT Conflitti arabo-israeliani"
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "REDIRECT Conflitti arabo-israeliani"
+            }
+          },
+          "ru": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage text was provided."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage text was provided."
+            }
+          },
+          "tr": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "Not stated in the passage",
+              "value": "not stated",
+              "evidence": "REDIRECT Arap-İsrail Savaşları"
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "Not stated in the passage",
+              "value": "not stated",
+              "evidence": "REDIRECT Arap-İsrail Savaşları"
+            }
+          },
+          "id": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "The conflict's history is dated as starting in the 1880s and continuing to the present.",
+              "value": "1880s",
+              "evidence": "kejadian-kejadian sekitar konflik Israel-Palestina dimulai pada 1880-an dan berlanjut hingga sekarang."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "The unresolved issues listed include the status/future of the West Bank, Gaza Strip and East Jerusalem, Israeli security, Palestinian security, the nature of the future Palestinian state, the fate of Palestinian refugees, Israeli settlement policies and settlers' fate, and sovereignty over holy sites in Jerusalem (Temple Mount and Western Wall).",
+              "value": "West Bank/Gaza/East Jerusalem status, Israeli security, Palestinian security, future Palestinian state, refugees, settlements, sovereignty over Jerusalem holy sites",
+              "evidence": "Status dan masa depan Tepi Barat, Jalur Gaza, dan Yerusalem Timur... Keamanan Israel. Keamanan Palestina. Hakikat masa depan negara Palestina. Nasib para pengungsi Palestina. Kebijakan-kebijakan pemukiman pemerintah Israel, dan nasib para penduduk pemukiman itu. Kedaulatan terhadap tempat-tempat suci di Yerusalem, termasuk Bukit Bait Suci dan kompleks Tembok (Ratapan) Barat."
+            }
+          },
+          "pt": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "The conflict is said to have begun in 1948, when Israel became a new state and rejected Arab forces, occupying the West Bank and Gaza Strip (though remote roots trace to the late 19th century Zionist settlement).",
+              "value": "1948",
+              "evidence": "Começou desta maneira o conflito israelo-palestino, com novo estado de Israel rechaçando as forças árabes e ocupando a Cisjordânia e a Faixa de Gaza, territórios do planejado estado árabe/palestino."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "The article lists the Palestinian refugee issue (right of return) and the sovereignty/status of Jerusalem as the main obstacles to peace negotiations; it also mentions borders/territories (Gaza, West Bank) and Israeli settlements in the historical narrative.",
+              "value": "refugees, Jerusalem, borders/territories, settlements",
+              "evidence": "Outro grande entrave para as negociações de paz é a reivindicação de soberania com relação à cidade de Jerusalém... a dúvida é se estes refugiados palestinos algum dia poderão retornar a seus antigos lares, complicando as conversações entre as partes envolvidas."
+            }
+          },
+          "nl": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage text was provided."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage text was provided."
+            }
+          },
+          "zh": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "The conflict is said to have begun in the 1880s (19th century, after the 1880s), intensifying further after Israel's founding in 1948",
+              "value": "1880s (intensified from 1948)",
+              "evidence": "以巴衝突是从19世纪80年代后的以巴衝突开始而持续至今的。自1948年以色列建国起衝突进一步激化"
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "The article discusses disputed territory/borders in the West Bank, sovereignty over East Jerusalem, Palestinian refugees' ability to return, and Israeli settlements as key contentious issues in negotiations",
+              "value": "borders/territory, Jerusalem, refugees, settlements",
+              "evidence": "以色列总理巴拉克称已经提供了巴勒斯坦人大约 95%的有争执的领土，连同在东耶路撒冷上的巴勒斯坦主权...这让巴勒斯坦人削弱他们自由地旅行在领土上旅行而且减少吸收巴勒斯坦难民的能力...被巴勒斯坦人看作对和平的最大障碍之一的以色列定居点，没有得到拆除"
+            }
+          },
+          "de": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "redirect Nahostkonflikt"
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "redirect Nahostkonflikt"
+            }
+          },
+          "fa": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": ""
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": ""
+            }
+          },
+          "pl": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage text was provided."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage text was provided."
+            }
+          },
+          "uk": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage text was provided."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage text was provided."
+            }
+          }
+        },
+        "adjudication": [
+          {
+            "question": "When is the conflict said to have begun?",
+            "verdict": "contradict",
+            "note": "Editions give widely divergent start points (1880s, 1914, 1915-17, 1948, British Mandate era, or not stated), a large factual spread rather than mere emphasis differences."
+          },
+          {
+            "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+            "verdict": "differ",
+            "note": "Most editions that state issues converge on borders, Jerusalem, refugees, and settlements (plus extra items), while some emphasize fewer or different aspects (e.g., ar focuses on refugees/legitimacy); many are not stated, but no direct contradiction among those that specify."
+          }
+        ]
+      },
+      "diagnostics": {
+        "min_edition_count": 2,
+        "effective_langs": [
+          "en",
+          "he",
+          "ar",
+          "es",
+          "sv",
+          "ja",
+          "cs",
+          "ko",
+          "fr",
+          "it",
+          "ru",
+          "tr",
+          "id",
+          "pt",
+          "nl",
+          "zh",
+          "de",
+          "fa",
+          "pl",
+          "uk"
+        ],
+        "errors": []
+      },
+      "episode_id": "89990629-89994338",
+      "episode_index": 2,
+      "episode_window": {
+        "start": "2006-01-01",
+        "end": "2011-01-01",
+        "pwr_mass": 40147,
+        "status": "confirmed",
+        "before_revid": 89990629,
+        "before_timestamp": "2006-11-25T08:32:44Z",
+        "after_revid": 89994338,
+        "after_timestamp": "2006-11-25T09:14:27Z",
+        "durable_spine_drop": 0.866417
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Israeli–Palestinian conflict",
+      "asof": "2003-12-12T05:10:46Z",
+      "langs": [
+        "en",
+        "he",
+        "ar",
+        "es",
+        "sv",
+        "ja",
+        "cs",
+        "ko",
+        "fr",
+        "it",
+        "ru",
+        "tr",
+        "id",
+        "pt",
+        "nl",
+        "zh",
+        "de",
+        "fa",
+        "pl",
+        "uk"
+      ],
+      "citation": {
+        "mean_jaccard": 0.81,
+        "domains_per_edition": {
+          "en": 8,
+          "he": 0,
+          "ar": 0,
+          "es": 0,
+          "sv": 0,
+          "ja": 1,
+          "cs": 0,
+          "ko": 0,
+          "fr": 0,
+          "it": 0,
+          "ru": 0,
+          "tr": 0,
+          "id": 0,
+          "pt": 0,
+          "nl": 0,
+          "zh": 0,
+          "de": 0,
+          "fa": 0,
+          "pl": 0,
+          "uk": 0
+        }
+      },
+      "claim": {
+        "per_edition": {
+          "en": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "The passage does not give a single explicit start date for the overall conflict, but traces its origins to the 1880s with the initiation of the Zionist Movement and subsequent Jewish immigration to Palestine.",
+              "value": "1880s",
+              "evidence": "In the 1880:s, the Zionist Movement was initiated in Europe."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "The article identifies two core disputed issues: the fate of the Occupied Territories (West Bank and Gaza) and the fate of the Palestinian refugees.",
+              "value": "Occupied Territories (West Bank and Gaza); Palestinian refugees",
+              "evidence": "The conflict between Israelis and Palestinians revolve today around the following two most important issues: The fate of the Occupied Territories, the West Bank and Gaza. The fate of the 5,5-6,5 million Palestinian refugees."
+            }
+          },
+          "he": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "Not stated in the passage",
+              "value": "not stated",
+              "evidence": "הצעות לפתרון הסכסוך הישראלי-פלשתינאי:"
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "Not stated in the passage; it only lists proposed solutions/plans, not the core disputed issues",
+              "value": "not stated",
+              "evidence": "תוכנית האוטונומיה במסגרת חוזה השלום עם מצרים, הסכמי אוסלו, הסכם לונדון, מתווה קלינטון, תוכנית הקנטונים, מפת הדרכים, יוזמת ז'נווה, המפקד הלאומי, מדינה דו לאומית ומתן אזרחות מלאה לתושבים בשטחים המוחזקים, ערי מדינה בקונפדרציה עם ירדן, הסכמות טאבה"
+            }
+          },
+          "ar": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage text was provided."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage text was provided."
+            }
+          },
+          "es": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": ""
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": ""
+            }
+          },
+          "sv": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage text was provided."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage text was provided."
+            }
+          },
+          "ja": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "The conflict became actualized with the establishment of Israel in May 1948, following the UN Partition Plan of November 1947, though its roots trace to WWI-era British diplomacy (Hussein-McMahon Agreement 1915, Balfour Declaration 1917).",
+              "value": "1948 (with roots from 1915-1917)",
+              "evidence": "1947年11月、国連総会でパレスチナ分割決議が...可決された。それを受け、1948年５月イスラエルが建設された。その為、対立が現実化"
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "The article specifically mentions Palestinian refugees (created by the 1948 war) and Israeli settlements built in Palestinian territory as points of conflict; it does not explicitly discuss borders or Jerusalem as distinct disputed issues.",
+              "value": "refugees, settlements (borders and Jerusalem not stated)",
+              "evidence": "1948年の時点でパレスチナの地に住んでいたアラブ人(広義)が難民化した(パレスチナ難民)。／パレスチナ領内に入植地が建設されるなど合意違反が続いている。"
+            }
+          },
+          "cs": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage text was provided."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage text was provided."
+            }
+          },
+          "ko": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage text was provided."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage text was provided."
+            }
+          },
+          "fr": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage text was provided."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage text was provided."
+            }
+          },
+          "it": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": ""
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": ""
+            }
+          },
+          "ru": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage text was provided."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage text was provided."
+            }
+          },
+          "tr": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": ""
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": ""
+            }
+          },
+          "id": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": ""
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": ""
+            }
+          },
+          "pt": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": ""
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": ""
+            }
+          },
+          "nl": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": ""
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": ""
+            }
+          },
+          "zh": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "Not stated in the passage",
+              "value": "not stated",
+              "evidence": "以色列－巴勒斯坦冲突是长期以来以色列与巴勒斯坦由于领土和宗教原因进行的冲突。"
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "The article only mentions territorial and religious reasons; it does not specifically list borders, Jerusalem, refugees, or settlements.",
+              "value": "territorial and religious reasons",
+              "evidence": "以色列与巴勒斯坦由于领土和宗教原因进行的冲突"
+            }
+          },
+          "de": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "Not stated in the passage",
+              "value": "not stated",
+              "evidence": "redirect Nahostkonflikt"
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "Not stated in the passage",
+              "value": "not stated",
+              "evidence": "redirect Nahostkonflikt"
+            }
+          },
+          "fa": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": ""
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": ""
+            }
+          },
+          "pl": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage text was provided."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage text was provided."
+            }
+          },
+          "uk": {
+            "When is the conflict said to have begun?": {
+              "question": "When is the conflict said to have begun?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage text was provided."
+            },
+            "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?": {
+              "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+              "answer": "not stated",
+              "value": "not stated",
+              "evidence": "No passage text was provided."
+            }
+          }
+        },
+        "adjudication": [
+          {
+            "question": "When is the conflict said to have begun?",
+            "verdict": "differ",
+            "note": "en cites 1880s Zionist origins, ja cites 1948 statehood with WWI-era roots, most others state nothing"
+          },
+          {
+            "question": "What are the core disputed issues the article lists (borders, Jerusalem, refugees, settlements)?",
+            "verdict": "differ",
+            "note": "en lists occupied territories and refugees, ja lists refugees and settlements, zh gives generic territorial/religious reasons, most others unstated"
+          }
+        ]
+      },
+      "diagnostics": {
+        "min_edition_count": 2,
+        "effective_langs": [
+          "en",
+          "he",
+          "ar",
+          "es",
+          "sv",
+          "ja",
+          "cs",
+          "ko",
+          "fr",
+          "it",
+          "ru",
+          "tr",
+          "id",
+          "pt",
+          "nl",
+          "zh",
+          "de",
+          "fa",
+          "pl",
+          "uk"
+        ],
+        "errors": []
+      },
+      "episode_id": "1937346-1937381",
+      "episode_index": 3,
+      "episode_window": {
+        "start": "2003-01-01",
+        "end": "2005-01-01",
+        "pwr_mass": 7888,
+        "status": "confirmed",
+        "before_revid": 1937346,
+        "before_timestamp": "2003-12-11T23:49:24Z",
+        "after_revid": 1937381,
+        "after_timestamp": "2003-12-12T05:10:46Z",
+        "durable_spine_drop": 0.925163
+      },
+      "analysis_status": "available"
+    }
+  ]
 }
