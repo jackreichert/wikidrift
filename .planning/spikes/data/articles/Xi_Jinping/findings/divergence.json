@@ -1,0 +1,58 @@
+{
+  "static": {
+    "Xi Jinping": {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "model_contract": {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "prompt_version": "stance-v3"
+      },
+      "variants": {
+        "lead": {
+          "divergence": 1.0,
+          "spreads": {
+            "Xi Jinping": 1
+          }
+        },
+        "focal": {
+          "divergence": 0.0,
+          "spreads": {
+            "Xi Jinping": 0
+          }
+        }
+      }
+    }
+  },
+  "pivot_relative": {
+    "Xi Jinping": {
+      "pivot": "2025-07-01",
+      "pivot_source": "confirmed L1",
+      "en_gap_before": 0.5,
+      "en_gap_after": 1.0,
+      "read": "PEELED AWAY",
+      "before": {
+        "pt": {
+          "Xi Jinping": 0
+        },
+        "en": {
+          "Xi Jinping": 0
+        },
+        "nl": {
+          "Xi Jinping": -1
+        }
+      },
+      "after": {
+        "pt": {
+          "Xi Jinping": -1
+        },
+        "en": {
+          "Xi Jinping": 0
+        },
+        "nl": {
+          "Xi Jinping": -1
+        }
+      }
+    }
+  }
+}

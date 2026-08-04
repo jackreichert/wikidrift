@@ -484,6 +484,29 @@
           }
         }
       }
+    },
+    "United Nations General Assembly observers": {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "model_contract": {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "prompt_version": "stance-v3"
+      },
+      "variants": {
+        "lead": {
+          "divergence": 0.0,
+          "spreads": {
+            "United Nations General Assembly observers": 0
+          }
+        },
+        "focal": {
+          "divergence": 0.0,
+          "spreads": {
+            "United Nations General Assembly observers": 0
+          }
+        }
+      }
     }
   },
   "pivot_relative": {
@@ -1253,6 +1276,32 @@
         },
         "zh": {
           "Ilhan Omar": 1
+        }
+      }
+    },
+    "United Nations General Assembly observers": {
+      "pivot": "2023-10-01",
+      "pivot_source": "fallback (L1=HEALTHY — addition-side growth)",
+      "en_gap_before": 0.0,
+      "en_gap_after": 0.0,
+      "read": "no net change",
+      "before": {
+        "en": {
+          "United Nations General Assembly observers": 0
+        },
+        "es": {
+          "United Nations General Assembly observers": 0
+        }
+      },
+      "after": {
+        "fr": {
+          "United Nations General Assembly observers": 0
+        },
+        "en": {
+          "United Nations General Assembly observers": 0
+        },
+        "es": {
+          "United Nations General Assembly observers": 0
         }
       }
     }

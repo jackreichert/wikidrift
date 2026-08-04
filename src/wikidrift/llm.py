@@ -261,6 +261,23 @@ def _retry_after(exc):
         return None
 
 
+def _sanitize_anthropic_schema(schema):
+    """Return Anthropic-compatible JSON Schema without unsupported numeric bounds."""
+    if isinstance(schema, dict):
+        node_type = schema.get("type")
+        return {
+            key: _sanitize_anthropic_schema(value)
+            for key, value in schema.items()
+            if not (
+                node_type in {"number", "integer"}
+                and key in {"minimum", "maximum", "exclusiveMinimum", "exclusiveMaximum"}
+            )
+        }
+    if isinstance(schema, list):
+        return [_sanitize_anthropic_schema(value) for value in schema]
+    return schema
+
+
 class Client:
     """Provider-agnostic LLM client. One method: complete_json(schema, prompt, max_tokens) -> dict.
 
@@ -348,7 +365,7 @@ class Client:
         resp = self._send(lambda: self._client().messages.create(
             model=self.model, max_tokens=max_tokens,
             thinking={"type": "disabled"},
-            output_config={"format": {"type": "json_schema", "schema": schema}},
+            output_config={"format": {"type": "json_schema", "schema": _sanitize_anthropic_schema(schema)}},
             messages=[{"role": "user", "content": prompt}]))
         text = next((b.text for b in resp.content if b.type == "text"), None)
         if not text:  # e.g. max_tokens hit before any text; clearer than a bare StopIteration

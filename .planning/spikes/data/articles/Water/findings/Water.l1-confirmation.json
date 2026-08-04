@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "article": "Water",
-  "run_ts": "2026-08-01T22:24:07.594755+00:00",
+  "run_ts": "2026-08-04T15:53:49.235783+00:00",
   "corpus_horizon": {
     "snapshot_date": "2026-07-01",
     "snapshot_revid": 1361772051
@@ -18,7 +18,7 @@
   "source_state": {
     "article": "Water",
     "source_status": "current_complete",
-    "source_checked_at": "2026-08-01T22:24:06.857032+00:00",
+    "source_checked_at": "2026-08-04T15:53:48.545766+00:00",
     "source_latest_revid": 1366569788,
     "expected_snapshots": 25,
     "loaded_snapshots": 25,

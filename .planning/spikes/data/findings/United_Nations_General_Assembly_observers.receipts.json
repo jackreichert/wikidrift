@@ -1,0 +1,27 @@
+{
+  "article": "United Nations General Assembly observers",
+  "qid": "Q219082",
+  "editions": {
+    "fr": {
+      "present": true,
+      "revid": 237438579,
+      "title": "Observateurs à l'Assemblée générale des Nations unies",
+      "timestamp": "2026-06-29T15:42:00Z",
+      "prose_chars": 24128
+    },
+    "en": {
+      "present": true,
+      "revid": 1363171755,
+      "title": "United Nations General Assembly observers",
+      "timestamp": "2026-07-08T14:19:54Z",
+      "prose_chars": 22762
+    },
+    "es": {
+      "present": true,
+      "revid": 173678948,
+      "title": "Observador permanente de la Asamblea General de las Naciones Unidas",
+      "timestamp": "2026-05-28T11:12:28Z",
+      "prose_chars": 20266
+    }
+  }
+}

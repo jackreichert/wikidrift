@@ -96,6 +96,24 @@ class FactcheckResilience(unittest.TestCase):
 
 
 class AdaptiveL5CapPolicy(unittest.TestCase):
+    def test_coverage_layers_merge_shared_and_article_shard_findings(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = pathlib.Path(directory)
+            shared = root / "findings"
+            shard = root / "articles" / "Testland" / "findings"
+            shared.mkdir()
+            shard.mkdir(parents=True)
+            (shared / "Testland.profile.json").write_text("{}", encoding="utf-8")
+            (shard / "Testland.stance.json").write_text("{}", encoding="utf-8")
+            (shard / "Testland.receipts.json").write_text("{}", encoding="utf-8")
+            (shard / "Testland.framing.json").write_text(
+                json.dumps({"article": "Testland"}), encoding="utf-8"
+            )
+
+            layers = cover_missing_topics._load_coverage_layers(shared, root / "articles")
+
+            self.assertEqual(layers["Testland"], {"profile", "stance", "receipts", "framing"})
+
     def test_adaptive_cap_uses_default_when_no_prior_diagnostics(self):
         cap, note = cover_missing_topics._adaptive_l5_cap("Abortion", {}, 6)
         self.assertEqual(cap, 6)

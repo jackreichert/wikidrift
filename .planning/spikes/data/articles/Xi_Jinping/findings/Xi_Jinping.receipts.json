@@ -1,0 +1,27 @@
+{
+  "article": "Xi Jinping",
+  "qid": "Q15031",
+  "editions": {
+    "pt": {
+      "present": true,
+      "revid": 72735013,
+      "title": "Xi Jinping",
+      "timestamp": "2026-07-31T14:01:04Z",
+      "prose_chars": 119555
+    },
+    "en": {
+      "present": true,
+      "revid": 1367624838,
+      "title": "Xi Jinping",
+      "timestamp": "2026-08-04T05:30:00Z",
+      "prose_chars": 98692
+    },
+    "nl": {
+      "present": true,
+      "revid": 71290855,
+      "title": "Xi Jinping",
+      "timestamp": "2026-05-28T01:39:26Z",
+      "prose_chars": 71830
+    }
+  }
+}

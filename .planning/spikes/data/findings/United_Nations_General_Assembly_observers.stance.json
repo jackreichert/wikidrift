@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "prompt_version": "stance-v3",
+  "model_contract": {
+    "provider": "anthropic",
+    "model": "claude-sonnet-5",
+    "prompt_version": "stance-v3"
+  },
+  "article": "United Nations General Assembly observers",
+  "langs": [
+    "fr",
+    "en",
+    "es"
+  ],
+  "entities": [
+    "United Nations General Assembly observers"
+  ],
+  "editions": {
+    "fr": {
+      "focal": {
+        "United Nations General Assembly observers": {
+          "entity": "United Nations General Assembly observers",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.9,
+          "evidence": "L'Assemblée générale des Nations unies a accordé le statut d'observateur aux organisations internationales, aux entités et aux États non membres de l'Organisation des Nations unies, pour leur permettre de participer aux travaux de l'Assemblée générale des Nations unies, mais avec des limitations.",
+          "evidence_spans": [
+            "a accordé le statut d'observateur aux organisations internationales, aux entités et aux États non membres de l'Organisation des Nations unies, pour leur permettre de participer aux travaux de l'Assemblée générale des Nations unies, mais avec des limitations",
+            "Le statut d’observateur peut être accordé par une résolution de l’Assemblée générale des Nations unies",
+            "La pratique consiste à faire la distinction entre les observateurs étatiques et non étatiques"
+          ]
+        }
+      },
+      "lead": {
+        "United Nations General Assembly observers": {
+          "entity": "United Nations General Assembly observers",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.85,
+          "evidence": "L'Assemblée générale détermine les droits et privilèges qu'elle accorde à chaque observateur, au-delà de ceux prévus lors de la Conférence de 1986 sur les traités entre États et organisations internationales.",
+          "evidence_spans": [
+            "L'Assemblée générale des Nations unies a accordé le statut d'observateur aux organisations internationales, aux entités et aux États non membres de l'Organisation des Nations unies, pour leur permettre de participer aux travaux de l'Assemblée générale des Nations unies, mais avec des limitations.",
+            "Le statut d’observateur peut être accordé par une résolution de l’Assemblée générale des Nations unies.",
+            "L’octroi du statut d’observateur est accordé uniquement par l’Assemblée générale ; il n’est pas soumis à un vote du Conseil de sécurité."
+          ]
+        }
+      }
+    },
+    "en": {
+      "focal": {
+        "United Nations General Assembly observers": {
+          "entity": "United Nations General Assembly observers",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.95,
+          "evidence": "See also Member states of the United Nations, List of current permanent representatives to the United Nations",
+          "evidence_spans": [
+            "Member states of the United Nations",
+            "List of current permanent representatives to the United Nations",
+            "About Permanent Observers"
+          ]
+        }
+      },
+      "lead": {
+        "United Nations General Assembly observers": {
+          "entity": "United Nations General Assembly observers",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.85,
+          "evidence": "The status of a permanent observer is based purely on practice of the General Assembly, and there are no provisions for it in the United Nations Charter.",
+          "evidence_spans": [
+            "The status of a permanent observer is based purely on practice of the General Assembly, and there are no provisions for it in the United Nations Charter.",
+            "The General Assembly may invite non-member entities to participate in the work of the United Nations without formal membership, and has done so on numerous occasions.",
+            "Observer status may be granted by a United Nations General Assembly resolution."
+          ]
+        }
+      }
+    },
+    "es": {
+      "focal": {
+        "United Nations General Assembly observers": {
+          "entity": "United Nations General Assembly observers",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.85,
+          "evidence": "La Asamblea General de las Naciones Unidas puede otorgar el estatus de observador a una organización internacional, entidad o Estado no miembro, lo que le da derecho a la entidad a participar en el trabajo de ella, aunque con limitaciones.",
+          "evidence_spans": [
+            "puede otorgar el estatus de observador a una organización internacional, entidad o Estado no miembro, lo que le da derecho a la entidad a participar en el trabajo de ella, aunque con limitaciones",
+            "La condición de observador puede ser otorgada por una resolución de la Asamblea General de las Naciones Unidas",
+            "La concesión de la condición de observador se hace solo por la Asamblea General, y no está sujeta a un veto del Consejo de Seguridad",
+            "se consideró una cortesía diplomática, para permitir al Vaticano participar en las actividades humanitarias de la ONU y en la promoción de la paz"
+          ]
+        }
+      },
+      "lead": {
+        "United Nations General Assembly observers": {
+          "entity": "United Nations General Assembly observers",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.85,
+          "evidence": "La Asamblea General puede otorgar el estatus de observador a una organización internacional, entidad o Estado no miembro, lo que le da derecho a la entidad a participar en el trabajo de ella, aunque con limitaciones.",
+          "evidence_spans": [
+            "La Asamblea General puede otorgar el estatus de observador a una organización internacional, entidad o Estado no miembro, lo que le da derecho a la entidad a participar en el trabajo de ella, aunque con limitaciones.",
+            "La condición de observador puede ser otorgada por una resolución de la Asamblea General de las Naciones Unidas.",
+            "Dichos participantes se describen como observadores, algunos de los cuales pueden clasificarse además como estados observadores no miembros.",
+            "Los asientos en el Salón de la Asamblea General se organizan de modo que los Estados observadores no miembros se sienten inmediatamente después de los Estados miembros de la ONU y antes de los otros observadores."
+          ]
+        }
+      }
+    }
+  }
+}

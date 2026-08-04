@@ -9,6 +9,7 @@ Deploy: GitHub Pages serves `/docs`; CNAME = wikidrift.encyclopediae.org
 import argparse
 import difflib
 import html
+import itertools
 import json
 import pathlib
 import re
@@ -33,6 +34,63 @@ EXCLUDE_ARTICLES = {"Demo Topic"}  # test fixtures — never ship
 
 VIEWER = pathlib.Path(__file__).resolve().parent
 
+# Concise point-of-use microcopy; the linked glossary remains the full definition.
+GLOSSARY_TERMS = {
+    "persistence-weighted-loss": (
+        "persistence-weighted-loss",
+        "The share of wording lost, weighted so text that survived more snapshots counts more.",
+    ),
+    "pwr-mass": (
+        "persistence-weighted-loss",
+        "The absolute persistence-weighted amount of text lost.",
+    ),
+    "durable-spine": (
+        "durable-spine",
+        "The more persistent half of the wording present at the start of a candidate window.",
+    ),
+    "durable-spine-drop": (
+        "durable-spine",
+        "The percentage-point decline in durable-spine survival across the whole candidate window.",
+    ),
+    "rewrite-episode": (
+        "rewrite-episode",
+        "A bounded window in which established wording was substantially replaced.",
+    ),
+    "peak-interval": (
+        "rewrite-episode",
+        "The snapshot interval with the largest persistence-weighted loss in a wider episode.",
+    ),
+    "coarse-scan": (
+        "coarse-exact",
+        "A snapshot comparison that finds candidate windows for closer inspection.",
+    ),
+    "exact-check": (
+        "coarse-exact",
+        "A revision-level test of whether a candidate window's durable spine collapsed.",
+    ),
+    "redline": (
+        "redline-receipt",
+        "A before-and-after view showing wording removed and added.",
+    ),
+    "receipt": (
+        "redline-receipt",
+        "A structured record of the evidence inspected, measurements made, and decision reached.",
+    ),
+    "snapshot": (
+        "snapshot-mature-token",
+        "An article version selected near a sampling date for interval comparison.",
+    ),
+    "mature-interval": (
+        "snapshot-mature-token",
+        "An interval measured after the article has enough tracked text for persistence analysis.",
+    ),
+    "token": (
+        "snapshot-mature-token",
+        "One tracked unit of text, usually a word or punctuation mark.",
+    ),
+}
+_GLOSSARY_DESCRIPTION_IDS = itertools.count(1)
+
 
 def _asset(rel):
     """Read a static template/asset (HTML/CSS/JS) that lives beside build.py, verbatim."""
@@ -43,6 +101,19 @@ def _md_asset(stem):
     """Compile a Markdown template to HTML. Raw HTML blocks pass through unchanged."""
     text = (VIEWER / f"templates/{stem}.md").read_text(encoding="utf-8")
     return _md.markdown(text, extensions=["extra"])
+
+
+def _glossary_term(term, label=None):
+    """Link a public metric label to its glossary entry with an accessible tooltip."""
+    anchor, definition = GLOSSARY_TERMS[term]
+    visible_label = label or term.replace("-", " ")
+    description_id = f"glossary-description-{next(_GLOSSARY_DESCRIPTION_IDS)}"
+    return (
+        f'<a class="glossary-term" href="../glossary.html#{anchor}" '
+        f'data-tooltip="{esc(definition)}" aria-describedby="{description_id}">'
+        f'{esc(visible_label)}</a>'
+        f'<span class="sr-only" id="{description_id}">{esc(definition)}</span>'
+    )
 
 # Editor tints for the (opt-in) blame overlay — light backgrounds, dark text (AA-safe).
 BLAME_PALETTE = ["#f6dede", "#dde6f4", "#dfeede", "#f4eccf", "#e7ddf2", "#d5ecec",
@@ -718,7 +789,8 @@ def pivot_page(article, p, i):
     body = (
         f'<div class="page-intro"><p class="kicker"><a href="{slug}.html">← {esc(article)}</a></p>'
         f'<h1>{title} · {esc(p["start"])} → {esc(p["end"])}</h1>'
-        f'<p class="summary">The peak interval measured {_pwr_read(p.get("peak_pct"))}. '
+        f'<p class="summary">The {_glossary_term("peak-interval")} measured '
+        f'{_pwr_read(p.get("peak_pct"))}. '
         f'Read it like tracked changes: <del>struck-out text</del> was removed; '
         f'<ins>highlighted text</ins> was added (color hints which account added it).</p>'
         f'<p class="disclaimer">{exact_status}. This is the coarse candidate window, not the exact event pair. '
@@ -1171,6 +1243,7 @@ def missing_diff_section(state="unavailable", reason=None):
             '<p class="missing-note">The L1 rewrite scan ran, but no interval crossed its candidate '
             'threshold. This is a completed negative result for that detector, not a claim that the '
             'article never changed.</p>'
+            + _durable_spine_explanation()
             + _interval_profile_chart({
                 "coarse_verdict": "HEALTHY",
                 "status": "not_confirmed",
@@ -1181,6 +1254,7 @@ def missing_diff_section(state="unavailable", reason=None):
     title, note = _unavailable_rewrite_copy(reason)
     return (
         f'<h2>{esc(title)}</h2><p class="missing-note">{esc(note)}</p>'
+        + _durable_spine_explanation()
         + _interval_profile_chart({
             "coarse_verdict": "SKIP" if reason == "too few snapshots" else "UNAVAILABLE",
             "status": "unavailable",
@@ -1320,12 +1394,13 @@ def _candidate_evaluations_receipt(confirmation, pivots=None, slug=None, episode
             f'<span class="candidate-evidence">{evidence}</span></td>'
             f'<td>{outcome}</td>'
             f'<td>{esc(source)} · {esc(_pwr_read(candidate.get("peak_pct")))} · '
-            f'{int(candidate.get("pwr_mass") or 0):,} PWR mass</td></tr>'
+            f'{int(candidate.get("pwr_mass") or 0):,} '
+            f'{_glossary_term("pwr-mass", "PWR mass")}</td></tr>'
         )
     return (
         '<h3 id="candidate-outcomes-heading">Candidates and exact outcomes</h3>'
         '<p class="muted">Every coarse lead and its revision-level decision, including rejected '
-        'candidates. Redlines compare the full candidate window.</p>'
+        f'candidates. {_glossary_term("redline", "Redlines")} compare the full candidate window.</p>'
         '<div class="tablewrap"><table class="candidate-outcomes" '
         'aria-labelledby="candidate-outcomes-heading">'
         '<thead><tr><th scope="col">Candidate window</th>'
@@ -1335,10 +1410,11 @@ def _candidate_evaluations_receipt(confirmation, pivots=None, slug=None, episode
     )
 
 
-def _analysis_stage(label, state, detail):
+def _analysis_stage(label, state, detail, glossary_term=None):
+    rendered_label = _glossary_term(glossary_term, label) if glossary_term else esc(label)
     return (
         '<li><span class="analysis-stage">'
-        f'{esc(label)}</span><strong>{esc(state)}</strong><span>{esc(detail)}</span></li>'
+        f'{rendered_label}</span><strong>{esc(state)}</strong><span>{esc(detail)}</span></li>'
     )
 
 
@@ -1409,9 +1485,9 @@ def _rewrite_analysis_path(confirmation, interval_count):
         '<section class="analysis-path-wrap" aria-labelledby="analysis-path-title">'
         '<h4 id="analysis-path-title">How the detector reached this state</h4>'
         '<ol class="analysis-path">'
-        f'{_analysis_stage("1 · Coarse scan", coarse_state, coarse_detail)}'
+        f'{_analysis_stage("1 · Coarse scan", coarse_state, coarse_detail, "coarse-scan")}'
         f'{_analysis_stage("2 · Interval scoring", interval_state, interval_detail)}'
-        f'{_analysis_stage("3 · Exact check", exact_state, exact_detail)}'
+        f'{_analysis_stage("3 · Exact check", exact_state, exact_detail, "exact-check")}'
         '</ol></section>'
     )
 
@@ -1496,7 +1572,8 @@ def _interval_profile_chart(confirmation):
         )
     return (
         '<figure class="drift-profile" aria-labelledby="drift-profile-title">'
-        '<figcaption><h3 id="drift-profile-title">Persistence-weighted loss by interval</h3>'
+        '<figcaption><h3 id="drift-profile-title">'
+        f'{_glossary_term("persistence-weighted-loss", "Persistence-weighted loss")} by interval</h3>'
         '<p>Each bar is the share of established wording lost by the interval end date. '
         'Measured means the interval was scored but not sent to exact checking. '
         'Candidate-window labels report the exact revision-level decision for the broader window '
@@ -1517,7 +1594,8 @@ def _attribution_receipt(episode):
     removal_rows = attribution.get("removals_by_editor") or []
     replacement_rows = attribution.get("replacement_by_editor") or []
     details = [
-        f'<b>{int(attribution.get("removed_tokens") or 0):,}</b> tokens removed',
+        f'<b>{int(attribution.get("removed_tokens") or 0):,}</b> '
+        f'{_glossary_term("token", "tokens")} removed',
         f'<b>{int(attribution.get("replacement_tokens") or 0):,}</b> surviving replacement tokens',
     ]
     if removal_rows and attribution.get("top_removal_share") is not None:
@@ -1614,6 +1692,21 @@ def _process_context_receipt(episode):
     )
 
 
+def _durable_spine_explanation():
+    return (
+        '<aside class="metric-definition" aria-labelledby="durable-spine-title">'
+        '<h3 id="durable-spine-title">What is a '
+        f'{_glossary_term("durable-spine-drop", "durable-spine drop")}?</h3>'
+        f'<p>The <b>{_glossary_term("durable-spine", "durable spine")}</b> is the more persistent '
+        'half of the wording present at the '
+        'start of a candidate interval. The drop is the percentage-point decline in how much of '
+        'that wording survives across the whole candidate window. The linked before-and-after '
+        'revision pair locates the dominant step within that window; the percentage still measures '
+        'the whole window. It measures established wording loss, not whether the resulting text is '
+        'better, worse, more neutral, or less neutral.</p></aside>'
+    )
+
+
 def confirmation_section(confirmation, pivots=None, slug=None):
     """Render authoritative exact-confirmation episodes and revision receipts."""
     if confirmation.get("status") == "unavailable":
@@ -1623,7 +1716,7 @@ def confirmation_section(confirmation, pivots=None, slug=None):
         title, note = _unavailable_rewrite_copy(reason)
         return (
             f'<h2>{esc(title)}</h2><p class="missing-note">{esc(note)}</p>'
-            f'{_interval_profile_chart(confirmation)}'
+            f'{_durable_spine_explanation()}{_interval_profile_chart(confirmation)}'
         )
     episodes = confirmation.get("confirmed_episodes") or []
     interval_chart = _interval_profile_chart(confirmation)
@@ -1633,7 +1726,8 @@ def confirmation_section(confirmation, pivots=None, slug=None):
             '<h2>No candidate rewrite window was confirmed</h2>'
             '<p class="missing-note">The exact L1 check ran, but no candidate showed the required '
             'durable-spine drop. This is a completed negative result for that detector, not a claim '
-            f'that the article never changed.</p>{interval_chart}{candidate_receipt}'
+            f'that the article never changed.</p>{_durable_spine_explanation()}'
+            f'{interval_chart}{candidate_receipt}'
         )
     horizon_note = _confirmation_horizon_note(confirmation)
     legacy_episode_table = ""
@@ -1655,9 +1749,11 @@ def confirmation_section(confirmation, pivots=None, slug=None):
     )
     count = len(episodes)
     return (
-        f'<h2>{count} confirmed rewrite episode{"s" if count != 1 else ""}</h2>'
+        f'<h2>{count} confirmed {_glossary_term("rewrite-episode", "rewrite episode")}'
+        f'{"s" if count != 1 else ""}</h2>'
         '<p>Events bounded by stable revisions where long-lived wording was substantially replaced.</p>'
-        f'{horizon_note}{interval_chart}{candidate_receipt}{legacy_episode_table}{receipts}'
+        f'{horizon_note}{_durable_spine_explanation()}{interval_chart}'
+        f'{candidate_receipt}{legacy_episode_table}{receipts}'
         '<p class="muted">Attribution describes public revision-history associations and origin authorship. '
         'It does not establish bias, motive, or misconduct.</p>'
     )
@@ -1991,10 +2087,12 @@ def article_page(article, f, categories=None):
         panels.append(("Rewrite", confirmation_section(confirmation, pv, slugify(article)), "diff"))
     elif pv:
         chart = _interval_profile_chart({"coarse_verdict": "PIVOT?", "status": "candidate"})
-        panels.append(("Rewrite", chart + render_pivots(pv, slugify(article)), "diff"))
+        panels.append((
+            "Rewrite", render_pivots(pv, slugify(article)) + _durable_spine_explanation() + chart, "diff"
+        ))
     elif diff:
         chart = _interval_profile_chart({"coarse_verdict": "PIVOT?", "status": "candidate"})
-        panels.append(("Rewrite", chart + diff_section(diff), "diff"))
+        panels.append(("Rewrite", diff_section(diff) + _durable_spine_explanation() + chart, "diff"))
     else:
         rewrite_state, rewrite_reason = _rewrite_info(article, f)
         panels.append(("Rewrite", missing_diff_section(rewrite_state, rewrite_reason), "diff"))

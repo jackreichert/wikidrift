@@ -120,6 +120,49 @@
     });
   }
 
+  // Glossary terms remain ordinary links; this adds a shared hover/focus explanation.
+  var glossaryTerms = [].slice.call(document.querySelectorAll(".glossary-term[data-tooltip]"));
+  if (glossaryTerms.length) {
+    var glossaryTooltip = document.createElement("div");
+    glossaryTooltip.id = "glossary-tooltip";
+    glossaryTooltip.className = "glossary-tooltip";
+    glossaryTooltip.setAttribute("aria-hidden", "true");
+    glossaryTooltip.hidden = true;
+    document.body.appendChild(glossaryTooltip);
+
+    function showGlossaryTooltip(trigger) {
+      glossaryTooltip.textContent = trigger.dataset.tooltip;
+      glossaryTooltip.hidden = false;
+      var triggerRect = trigger.getBoundingClientRect();
+      var tooltipRect = glossaryTooltip.getBoundingClientRect();
+      var left = triggerRect.left + triggerRect.width / 2 - tooltipRect.width / 2;
+      left = Math.max(12, Math.min(left, window.innerWidth - tooltipRect.width - 12));
+      var top = triggerRect.top - tooltipRect.height - 10;
+      if (top < 12) top = triggerRect.bottom + 10;
+      glossaryTooltip.style.left = left + "px";
+      glossaryTooltip.style.top = top + "px";
+    }
+
+    function hideGlossaryTooltip(trigger, force) {
+      if (!force && document.activeElement === trigger) return;
+      glossaryTooltip.hidden = true;
+    }
+
+    glossaryTerms.forEach(function (term) {
+      term.addEventListener("mouseenter", function () { showGlossaryTooltip(term); });
+      term.addEventListener("mouseleave", function () { hideGlossaryTooltip(term, false); });
+      term.addEventListener("focus", function () { showGlossaryTooltip(term); });
+      term.addEventListener("blur", function () { hideGlossaryTooltip(term, true); });
+      term.addEventListener("keydown", function (event) {
+        if (event.key !== "Escape") return;
+        event.preventDefault();
+        hideGlossaryTooltip(term, true);
+      });
+    });
+    window.addEventListener("resize", function () { glossaryTooltip.hidden = true; });
+    window.addEventListener("scroll", function () { glossaryTooltip.hidden = true; }, true);
+  }
+
   // Tabs: click + hash deep-link (#framing, #facts, #diff, #sources, #receipts, #overview)
   document.querySelectorAll(".tabs").forEach(function (root) {
     var tabs = [].slice.call(root.querySelectorAll(".tabbar .tab"));

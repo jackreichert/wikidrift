@@ -216,6 +216,15 @@ def _load_topic_layers(findings_dir: Path) -> dict[str, set[str]]:
     return layers
 
 
+def _load_coverage_layers(findings_dir: Path, articles_dir: Path) -> dict[str, set[str]]:
+    """Merge legacy shared findings with article-owned shard findings."""
+    layers = _load_topic_layers(findings_dir)
+    for shard_findings in sorted(articles_dir.glob("*/findings")):
+        for topic, shard_layers in _load_topic_layers(shard_findings).items():
+            layers.setdefault(topic, set()).update(shard_layers)
+    return layers
+
+
 def _run(cmd: list[str], execute: bool) -> int:
     rendered = " ".join(subprocess.list2cmdline([part]) for part in cmd)
     print(f"  $ {rendered}")
@@ -742,7 +751,7 @@ def main() -> int:
     required = set(args.required_layers)
     if args.framing:
         required.add("framing")
-    layers = _load_topic_layers(findings_dir)
+    layers = _load_coverage_layers(findings_dir, args.articles_dir)
 
     # Ensure controls are visible even if they have zero files.
     for control in args.controls:

@@ -170,6 +170,12 @@ to three non-overlapping rolling candidates. For each candidate, it takes the mo
 the text present at the start and searches the underlying revisions for the pair where survival of
 that text drops most sharply.
 
+WikiDrift calls that more persistent starting half the **durable spine**. The **durable-spine drop**
+is the percentage-point decline in how much of that cohort survives from the beginning to the end of
+the whole candidate window. The exact before-and-after revision pair localizes the dominant step
+inside the window; the reported percentage remains the whole-window decline. It measures established
+wording loss, not whether the resulting text is better, worse, more neutral, or less neutral.
+
 The durable text must decline by at least 20 percentage points across the interval to confirm the
 pivot. This keeps a coarse snapshot gap from looking decisive when the revisions inside it do not
 show the same collapse. The confirmation artifact keeps an audit receipt for every candidate sent to

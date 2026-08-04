@@ -28,6 +28,21 @@ body{
 }
 a{color:var(--ink)}a:hover{opacity:.72}
 :focus-visible{outline:2px solid #000;outline-offset:3px;border-radius:2px}
+.glossary-term{
+  color:inherit;text-decoration-line:underline;text-decoration-style:dotted;
+  text-decoration-thickness:1px;text-underline-offset:.18em;
+}
+.glossary-term:hover{opacity:1;text-decoration-style:solid}
+.glossary-tooltip{
+  position:fixed;z-index:2200;width:max-content;max-width:min(24rem,calc(100vw - 24px));
+  padding:.55rem .7rem;border-radius:var(--r);background:#000;color:#fff;
+  font-size:.82rem;font-weight:400;line-height:1.4;box-shadow:0 4px 16px rgba(0,0,0,.18);
+  pointer-events:none;
+}
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0;
+}
 .skip{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .skip:focus{position:fixed;left:12px;top:12px;width:auto;height:auto;padding:8px 14px;background:#000;color:#fff;z-index:2000}
 
