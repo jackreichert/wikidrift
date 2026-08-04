@@ -872,7 +872,11 @@ def _rewrite_info(article, f):
     if status == "not_confirmed":
         return "none", None
     if status == "unavailable":
-        reason = "too few snapshots" if confirmation.get("coarse_verdict") == "SKIP" else None
+        reason = (
+            "too few snapshots"
+            if confirmation.get("coarse_verdict") == "SKIP"
+            else confirmation.get("reason")
+        )
         return "unavailable", reason
     if article in f.pivots or article in f.diffs:
         return "finding", None
@@ -910,6 +914,12 @@ def _unavailable_rewrite_copy(reason):
             "Rewrite analysis needs refresh",
             "The saved exact result does not match the current local corpus or detector thresholds. "
             "It is withheld until refreshed, rather than shown as a current finding.",
+        )
+    if reason and reason.startswith("loaded ") and reason.endswith(" expected snapshots"):
+        return (
+            "Rewrite analysis has incomplete source coverage",
+            f"The exact rewrite detector {reason} from the public revision history. It withholds "
+            "the result rather than treating gaps in readable history as evidence.",
         )
     return (
         "Rewrite analysis is not available",

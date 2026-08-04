@@ -1001,6 +1001,20 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("saved token corpus does not contain enough snapshots", out)
         self.assertNotIn("No rewrite timeline was exported", out)
 
+    def test_partial_confirmation_explains_source_coverage_gap(self):
+        findings = build.Findings(confirmations={"Testland": {
+            "status": "unavailable",
+            "coarse_verdict": "UNAVAILABLE",
+            "reason": "loaded 32 of 42 expected snapshots",
+        }})
+
+        out = build.article_page("Testland", findings)
+
+        self.assertIn("Rewrite analysis has incomplete source coverage", out)
+        self.assertIn("loaded 32 of 42 expected snapshots", out)
+        self.assertIn("withholds the result", out)
+        self.assertNotIn("Rewrite analysis is not available", out)
+
     def test_coarse_pivot_is_a_candidate_with_pwr_metric(self):
         findings = build.Findings(pivots={"Testland": {"pivots": [{
             "start": "2024-01-01", "end": "2025-01-01", "peak_pct": 42.0,
