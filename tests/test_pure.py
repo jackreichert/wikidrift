@@ -984,6 +984,19 @@ class DriftEpisodes(unittest.TestCase):
         self.assertEqual(candidates[0]["source"], "rolling")
         self.assertGreaterEqual(candidates[0]["peak"], 20.0)
 
+    def test_rolling_candidates_skip_windows_crossing_missing_snapshot_dates(self):
+        snaps = [("2022-01-01", 1), ("2022-07-01", 2), ("2023-01-01", 3)]
+        members = [set(range(100)), set(range(90)), set(range(70))]
+        present = {token: [index for index, member in enumerate(members) if token in member]
+                   for token in range(100)}
+
+        candidates = drift.rolling_candidates(
+            snaps, members, present, min_mature=50, threshold=20.0, mass_floor=20,
+            blocked_dates={"2022-04-01"},
+        )
+
+        self.assertEqual(candidates, [])
+
     def test_rolling_candidates_skip_sparse_and_immature_starts(self):
         snaps = [("2022-01-01", 1), ("2022-03-01", 2), ("2023-07-01", 3)]
         members = [set(range(10)), set(range(100)), set(range(50))]
@@ -1821,6 +1834,32 @@ class PipelinePivotWindow(unittest.TestCase):
         )
         self.assertEqual(state["analysis_status"], "unavailable")
         self.assertEqual(state["resolved_status"], "unavailable")
+        self.assertEqual(state["reason"], "loaded 24 of 25 expected snapshots")
+
+    def test_partial_source_with_fresh_qualified_confirmation_is_available(self):
+        confirmation = {
+            "schema_version": drift.CONFIRMATION_SCHEMA_VERSION,
+            "status": "not_confirmed",
+            "coverage_status": "partial",
+            "corpus_horizon": {"snapshot_date": "2024-01-01", "snapshot_revid": 900},
+            "thresholds": config.confirmation_thresholds(),
+            "confirmed_episodes": [],
+        }
+
+        state = pipeline.resolve_l1_state(
+            {"verdict": "HEALTHY", "episodes": []},
+            confirmation,
+            ("2024-01-01", 900),
+            source_state={
+                "source_status": "partial",
+                "expected_snapshots": 25,
+                "loaded_snapshots": 24,
+                "reason": "loaded 24 of 25 expected snapshots",
+            },
+        )
+
+        self.assertEqual(state["analysis_status"], "qualified")
+        self.assertEqual(state["resolved_status"], "healthy")
         self.assertEqual(state["reason"], "loaded 24 of 25 expected snapshots")
 
     def test_source_revision_ahead_of_stable_cadence_snapshot_remains_available(self):

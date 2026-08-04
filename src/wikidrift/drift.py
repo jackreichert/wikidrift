@@ -69,6 +69,33 @@ def load_membership(con, article):
     return snaps, members, present, idx_of_rev
 
 
+def _coverage_plan(expected_snapshots, loaded_snapshots):
+    """Describe missing scheduled snapshots and intervals that cross those evidence gaps."""
+    loaded_revids = {revid for _date, revid in loaded_snapshots}
+    missing = [
+        {"date": date, "revid": revid}
+        for date, revid in expected_snapshots
+        if revid not in loaded_revids
+    ]
+    missing_dates = {item["date"] for item in missing}
+    excluded = {
+        (start_revid, end_revid)
+        for (start_date, start_revid), (end_date, end_revid)
+        in zip(loaded_snapshots, loaded_snapshots[1:])
+        if any(start_date < missing_date < end_date for missing_date in missing_dates)
+    }
+    expected_revids = {revid for _date, revid in expected_snapshots}
+    endpoints_complete = bool(expected_snapshots) and {
+        expected_snapshots[0][1], expected_snapshots[-1][1],
+    }.issubset(loaded_revids)
+    return {
+        "status": "partial" if expected_revids - loaded_revids else "complete",
+        "missing_snapshots": missing,
+        "excluded_intervals": excluded,
+        "endpoints_complete": endpoints_complete,
+    }
+
+
 def _pwr(present, token, k):
     """Earned survival (persistent-word-snapshots) of `token` as of snapshot k."""
     return bisect_right(present[token], k)
@@ -90,14 +117,16 @@ def _intervals(snaps, members, present):
         yield d0, r0, d1, r1, ratio, size, wlost, size >= MIN_MATURE
 
 
-def coarse(snaps, members, present):
+def coarse(snaps, members, present, excluded_intervals=None):
     """Per-interval persistence-weighted content loss — the PWR-grounded drift metric. PURE (no printing;
     presentation is `print_coarse_report`).
 
     ratio D = Σ w(t) over tokens lost in [k,k+1] / Σ w(t) over tokens present at k; absolute magnitude
     = Σ w(t) removed (the episode-ranking key). Returns (series, (mean, med, std)) over MATURE intervals."""
+    excluded_intervals = excluded_intervals or set()
     series = [(d0, r0, d1, r1, ratio, size, wlost)
-              for d0, r0, d1, r1, ratio, size, wlost, mature in _intervals(snaps, members, present) if mature]
+              for d0, r0, d1, r1, ratio, size, wlost, mature in _intervals(snaps, members, present)
+              if mature and (r0, r1) not in excluded_intervals]
     vals = [row[4] for row in series]
     if not vals:
         return [], (0, 0, 0)
@@ -106,16 +135,22 @@ def coarse(snaps, members, present):
     return series, (mean, med, std)
 
 
-def print_coarse_report(snaps, members, present):
+def print_coarse_report(snaps, members, present, excluded_intervals=None):
     """Print the human-readable per-interval PWR-loss table (the presentation half of `coarse`)."""
+    excluded_intervals = excluded_intervals or set()
     print(f"\n{'interval end':>12} | {'size':>7} | {'pwr_loss':>8} | {'pwr_removed':>13}")
     print("-" * 52)
     vals = []
     for d0, r0, d1, r1, ratio, size, wlost, mature in _intervals(snaps, members, present):
-        flag = "" if mature else "  (immature — excluded)"
-        bar = "#" * int(ratio / 3) if mature else ""
+        covered = (r0, r1) not in excluded_intervals
+        flag = (
+            "  (coverage gap — excluded)" if not covered
+            else "" if mature
+            else "  (immature — excluded)"
+        )
+        bar = "#" * int(ratio / 3) if mature and covered else ""
         print(f"{d1:>12} | {size:>7,} | {ratio:>7.1f}% | {wlost:>13,} {bar}{flag}")
-        if mature:
+        if mature and covered:
             vals.append(ratio)
     if vals:
         mean = statistics.mean(vals); med = statistics.median(vals)
@@ -123,8 +158,9 @@ def print_coarse_report(snaps, members, present):
         print(f"persistence-weighted loss: mean {mean:.1f}%  median {med:.1f}%  peak {max(vals):.1f}%")
 
 
-def _coarse_profile(snaps, members, present):
+def _coarse_profile(snaps, members, present, excluded_intervals=None):
     """Serialize the terminal PWR interval series for downstream visualizations."""
+    excluded_intervals = excluded_intervals or set()
     return [
         {
             "start": start_date,
@@ -133,8 +169,9 @@ def _coarse_profile(snaps, members, present):
             "pwr_loss": round(ratio, 2),
             "pwr_removed": int(weighted_loss),
             "mature": mature,
+            "eligible": (start_revid, end_revid) not in excluded_intervals,
         }
-        for start_date, _start_revid, end_date, _end_revid, ratio, size, weighted_loss, mature
+        for start_date, start_revid, end_date, end_revid, ratio, size, weighted_loss, mature
         in _intervals(snaps, members, present)
     ]
 
@@ -159,13 +196,14 @@ def build_episodes(series, elevated=ELEVATED):
 
 def rolling_candidates(snaps, members, present, months=ROLLING_WINDOW_MONTHS,
                        tolerance_days=ROLLING_TOLERANCE_DAYS, threshold=ROLLING_DROP,
-                       mass_floor=MASS_FLOOR, min_mature=MIN_MATURE):
+                       mass_floor=MASS_FLOOR, min_mature=MIN_MATURE, blocked_dates=None):
     """Find direct weighted cohort loss near the target window length.
 
     This second pass catches sustained medium loss that does not cross the high-precision threshold in
     any single snapshot interval. Sparse histories without a snapshot inside the tolerance are skipped.
     """
     candidates = []
+    blocked_dates = {dt.date.fromisoformat(date) for date in (blocked_dates or set())}
     target_days = round(months * 365.25 / 12)
     snap_dates = [dt.date.fromisoformat(snap[0]) for snap in snaps]
     for start in range(len(snaps) - 1):
@@ -177,6 +215,8 @@ def rolling_candidates(snaps, members, present, months=ROLLING_WINDOW_MONTHS,
         if not eligible or len(members[start]) < min_mature:
             continue
         end = min(eligible, key=lambda index: abs((snap_dates[index] - start_date).days - target_days))
+        if any(start_date < blocked_date < snap_dates[end] for blocked_date in blocked_dates):
+            continue
         at_start, at_end = members[start], members[end]
         total_weight = sum(_pwr(present, token, start) for token in at_start)
         lost_weight = sum(_pwr(present, token, start) for token in at_start - at_end)
@@ -494,7 +534,7 @@ def _creep_or_healthy_label(mean):
     return "CREEP" if mean > CREEP_MEAN else "HEALTHY/stable"
 
 
-def ranked_episodes(con, article):
+def ranked_episodes(con, article, excluded_intervals=None):
     """Shared L1 core: load snapshots, compute the coarse PWR series, and rank the above-floor episodes by
     PWR-mass. Returns (snaps, members, present, idx_of_rev, series, stats, episodes); episodes is [] when
     there are too few snapshots. Single source for verdict_dict / analyze / l4.top_episode (was open-coded
@@ -502,7 +542,7 @@ def ranked_episodes(con, article):
     snaps, members, present, idx_of_rev = load_membership(con, article)
     if len(snaps) < 3:
         return snaps, members, present, idx_of_rev, [], (0, 0, 0), []
-    series, stats = coarse(snaps, members, present)
+    series, stats = coarse(snaps, members, present, excluded_intervals)
     horizon = snaps[-1][0]
     episodes = annotate_episodes([e for e in build_episodes(series) if e["peak"] >= MAG_FLOOR], horizon)
     return snaps, members, present, idx_of_rev, series, stats, episodes
@@ -679,7 +719,7 @@ def analyze(article, con=None, persist=True):
     provenance.ensure_indexes(con)
     provenance.build_snapshots(con, article)
     source_state = provenance.load_source_state(con, article)
-    if (source_state or {}).get("source_status") in {"partial", "unavailable"}:
+    if (source_state or {}).get("source_status") == "unavailable":
         horizon = Corpus(con).latest_snapshot(article)
         result = {
             "schema_version": CONFIRMATION_SCHEMA_VERSION,
@@ -703,7 +743,21 @@ def analyze(article, con=None, persist=True):
         if owns:
             con.close()
         return result
-    snaps, members, present, idx_of_rev, series, (mean, med, std), episodes = ranked_episodes(con, article)
+    analysis = ranked_episodes(con, article)
+    coverage = (
+        _coverage_plan(provenance.snapshot_picks(con, article), analysis[0])
+        if (source_state or {}).get("source_status") == "partial"
+        else {
+            "status": "complete",
+            "missing_snapshots": [],
+            "excluded_intervals": set(),
+            "endpoints_complete": bool(analysis[0]),
+        }
+    )
+    excluded_intervals = coverage["excluded_intervals"]
+    if excluded_intervals:
+        analysis = ranked_episodes(con, article, excluded_intervals=excluded_intervals)
+    snaps, members, present, idx_of_rev, series, (mean, med, std), episodes = analysis
     result = {
         "schema_version": CONFIRMATION_SCHEMA_VERSION,
         "article": article,
@@ -713,20 +767,27 @@ def analyze(article, con=None, persist=True):
         } if snaps else None,
         "thresholds": config.confirmation_thresholds(),
         "source_state": source_state,
-        "coarse_verdict": "SKIP" if len(snaps) < 3 else verdict_dict(con, article)["verdict"],
-        "status": "unavailable" if len(snaps) < 3 else "not_confirmed",
+        "coverage_status": coverage["status"],
+        "coverage_endpoints_complete": coverage["endpoints_complete"],
+        "missing_snapshots": coverage["missing_snapshots"],
+        "excluded_intervals": [list(interval) for interval in sorted(excluded_intervals)],
+        "coarse_verdict": "SKIP" if len(snaps) < 3 or not series else (
+            "PIVOT?" if episodes else "CREEP?" if mean > CREEP_MEAN else "HEALTHY"
+        ),
+        "status": "unavailable" if len(snaps) < 3 or not series else "not_confirmed",
         "confirmed_episodes": [],
         "evaluated_candidates": [],
-        "interval_profile": _coarse_profile(snaps, members, present),
+        "interval_profile": _coarse_profile(snaps, members, present, excluded_intervals),
     }
-    if len(snaps) < 3:
-        print("  too few snapshots to analyze")
+    if len(snaps) < 3 or not series:
+        result["reason"] = "too few snapshots" if len(snaps) < 3 else "no mature covered intervals"
+        print(f"  {result['reason']}")
         if persist:
             config.write_findings(confirmation_name(article), result)
         if owns: con.close()
         return result
     print(f"  {len(snaps)} persistent snapshots {snaps[0][0]}..{snaps[-1][0]}", flush=True)
-    print_coarse_report(snaps, members, present)
+    print_coarse_report(snaps, members, present, excluded_intervals)
 
     confirmed = []
     if episodes:
@@ -745,7 +806,11 @@ def analyze(article, con=None, persist=True):
 
     if not confirmed:
         rolling = non_overlapping_candidates(
-            rolling_candidates(snaps, members, present), blocked=episodes,
+            rolling_candidates(
+                snaps, members, present,
+                blocked_dates={item["date"] for item in coverage["missing_snapshots"]},
+            ),
+            blocked=episodes,
         )[:3]
         if rolling:
             print("\nrolling second-pass candidates (12-month weighted loss):")
