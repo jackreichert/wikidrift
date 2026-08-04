@@ -2148,6 +2148,7 @@ class PipelinePivotWindow(unittest.TestCase):
         self.assertEqual([name for name, _ in writes], ["Testland.sources.json"])
         self.assertEqual(writes[0][1]["episode_count"], 2)
 
+    @patch("wikidrift.pipeline.config.DB")
     @patch("wikidrift.pipeline.provenance.load_source_state", return_value={"source_status": "unchecked"})
     @patch("wikidrift.pipeline.drift.verdict_dict", return_value={"verdict": "PIVOT?", "episodes": []})
     @patch("wikidrift.pipeline.drift.load_confirmation")
@@ -2156,8 +2157,9 @@ class PipelinePivotWindow(unittest.TestCase):
     @patch("wikidrift.pipeline.duckdb.connect")
     def test_framing_windows_returns_every_fresh_confirmed_episode(
         self, _mock_connect, _mock_count, mock_corpus, mock_confirmation,
-        _mock_verdict, _mock_source_state,
+        _mock_verdict, _mock_source_state, mock_db,
     ):
+        mock_db.exists.return_value = True
         mock_corpus.return_value.latest_snapshot.return_value = ("2024-01-01", 900)
         mock_confirmation.return_value = {
             "status": "confirmed",
