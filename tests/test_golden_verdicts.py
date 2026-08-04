@@ -32,8 +32,10 @@ class GoldenVerdicts(unittest.TestCase):
         self.assertIn("PIVOT", label)
         self.assertIn("824,017", label)          # PWR-mass of the post-Oct-7 retrofit
 
-    def test_photosynthesis_control_is_healthy(self):
-        self.assertIn("HEALTHY", self._label("Photosynthesis"))
+    def test_photosynthesis_control_preserves_sub_legacy_floor_anomaly(self):
+        label = self._label("Photosynthesis")
+        self.assertIn("PIVOT?", label)
+        self.assertIn("unconfirmed", label)
 
     def test_nakba_is_healthy_born_framed(self):
         # grown by addition, no removal-retrofit -> L1 correctly reads HEALTHY (L5 catches its framing)

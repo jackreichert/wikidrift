@@ -1522,7 +1522,10 @@ def _interval_profile_chart(confirmation):
     rows = []
     for interval in intervals:
         loss = float(interval.get("pwr_loss") or 0)
-        mature = bool(interval.get("mature"))
+        gain = float(interval.get("pwr_gain") or 0)
+        replacement = float(interval.get("replacement_candidate") or 0)
+        confirmable = bool(interval.get("confirmable", interval.get("mature")))
+        anomaly_types = interval.get("anomaly_types") or []
         eligible = interval.get("eligible", True) is not False
         interval_start = interval.get("start")
         interval_end = interval.get("end")
@@ -1550,23 +1553,36 @@ def _interval_profile_chart(confirmation):
                 "confirmed": "Confirmed candidate window",
                 "rejected": "Rejected candidate window",
             }.get(candidate_decision, "Candidate: exact check pending") if is_candidate
-            else "Measured: not investigated"
-            if mature else "Excluded: below mature size; not investigated"
+            else "Descriptive anomaly: below exact-check floor"
+            if anomaly_types and not confirmable
+            else "Measured anomaly: exact check pending"
+            if anomaly_types else "Measured: no anomaly threshold crossed"
         )
         classes = ["drift-row"]
         if is_candidate:
             classes.append("candidate")
             if candidate_decision in {"confirmed", "rejected"}:
                 classes.append(f"candidate-{candidate_decision}")
-        if not mature or not eligible:
+        if not eligible:
             classes.append("excluded")
+        if anomaly_types and not confirmable:
+            classes.append("descriptive")
+        metrics = [f"Loss {loss:.1f}%"]
+        if "gain" in anomaly_types or gain:
+            metrics.append(f"Gain {gain:.1f}%")
+        if "replacement" in anomaly_types or replacement:
+            metrics.append(f"Replacement lead {replacement:.1f}%")
         rows.append(
             f'<li class="{" ".join(classes)}">'
             f'<span class="drift-date">{esc(interval.get("end"))}</span>'
             '<span class="drift-track" aria-hidden="true">'
             f'<span class="drift-bar" style="width:{min(max(loss, 0), 100):.2f}%"></span></span>'
-            f'<span class="drift-value">{loss:.1f}%</span>'
-            f'<span class="drift-mass">{int(interval.get("pwr_removed") or 0):,} PWR</span>'
+            f'<span class="drift-value">{esc(", ".join(metrics))}</span>'
+            f'<span class="drift-mass" aria-label="'
+            f'{int(interval.get("pwr_removed") or 0):,} removed, '
+            f'{int(interval.get("pwr_added") or 0):,} added persistence-weighted units">'
+            f'{int(interval.get("pwr_removed") or 0):,} removed · '
+            f'{int(interval.get("pwr_added") or 0):,} added PWR</span>'
             f'<span class="drift-state">{esc(state)}</span></li>'
         )
     if rows:
@@ -1595,9 +1611,10 @@ def _interval_profile_chart(confirmation):
     return (
         '<figure class="drift-profile" aria-labelledby="drift-profile-title">'
         '<figcaption><h3 id="drift-profile-title">'
-        f'{_glossary_term("persistence-weighted-loss", "Persistence-weighted loss")} by interval</h3>'
-        '<p>Each bar is the share of established wording lost by the interval end date. '
-        'Measured means the interval was scored but not sent to exact checking. '
+        f'{_glossary_term("persistence-weighted-loss", "Persistence-weighted change")} by interval</h3>'
+        '<p>Each row reports established wording lost, standing wording gained, and paired change as a '
+        'replacement lead. The bar shows loss for continuity with earlier reports. '
+        'Below-floor anomalies remain descriptive evidence but cannot receive exact confirmation. '
         'A coverage gap is shown descriptively but excluded from detector decisions. '
         'Candidate-window labels report the exact revision-level decision for the broader window '
         'containing that interval.</p></figcaption>'

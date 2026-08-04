@@ -1737,13 +1737,7 @@ class PipelinePivotWindow(unittest.TestCase):
         confirmation = {
             "status": "confirmed",
             "corpus_horizon": {"snapshot_date": "2024-01-01", "snapshot_revid": 900},
-            "thresholds": {
-                "confirm_drop": config.CONFIRM_DROP, "durable_quantile": config.DURABLE_Q,
-                "min_cohort": config.MIN_COHORT, "magnitude_floor": config.MAG_FLOOR,
-                "rolling_window_months": config.ROLLING_WINDOW_MONTHS,
-                "rolling_tolerance_days": config.ROLLING_TOLERANCE_DAYS,
-                "rolling_drop": config.ROLLING_DROP,
-            },
+            "thresholds": config.confirmation_thresholds(),
             "confirmed_episodes": [{
                 "candidate_start": "2020-01-01", "candidate_end": "2021-01-01",
                 "before_revid": 111, "before_timestamp": "2020-06-01T00:00:00Z",

@@ -12,8 +12,10 @@ from .parsing import ANON_IP_RE, slugify, citation_domains  # noqa: F401
 from .findings_store import write_findings, load_findings  # noqa: F401
 from .thresholds import (  # noqa: F401
     MIN_COHORT, MIN_MATURE, MAG_FLOOR, CONFIRM_DROP, CREEP_MEAN, DURABLE_Q, RECENT_YEARS, ELEVATED,
+    GAIN_FLOOR, REPLACEMENT_FLOOR, EXTREME_CHANGE, REVIEW_MASS_FLOOR,
     BIN_DAYS, MIN_REVS, SMOOTH_K, LEAD_FLOOR, ANOMALY_MIN, GROWTH_RATIO, CHURN_ANOMALY, CHURN_MIN_BYTES,
-    MASS_FLOOR, ROLLING_WINDOW_MONTHS, ROLLING_TOLERANCE_DAYS, ROLLING_DROP, confirmation_thresholds)
+    MASS_FLOOR, ROLLING_WINDOW_MONTHS, ROLLING_TOLERANCE_DAYS, ROLLING_DROP,
+    confirmation_thresholds, sweep_thresholds)
 from .providers import LLM_PROVIDER, LLM_PROVIDER_PRIORITY, DEFAULT_MODELS, KEY_ENV, MODEL  # noqa: F401
 
 __all__ = [
@@ -22,8 +24,9 @@ __all__ = [
     "ANON_IP_RE", "slugify", "citation_domains",
     "write_findings", "load_findings",
     "MIN_COHORT", "MIN_MATURE", "MAG_FLOOR", "CONFIRM_DROP", "CREEP_MEAN", "DURABLE_Q", "RECENT_YEARS",
-    "ELEVATED", "BIN_DAYS", "MIN_REVS", "SMOOTH_K", "LEAD_FLOOR", "ANOMALY_MIN", "GROWTH_RATIO",
+    "ELEVATED", "GAIN_FLOOR", "REPLACEMENT_FLOOR", "EXTREME_CHANGE", "REVIEW_MASS_FLOOR",
+    "BIN_DAYS", "MIN_REVS", "SMOOTH_K", "LEAD_FLOOR", "ANOMALY_MIN", "GROWTH_RATIO",
     "CHURN_ANOMALY", "CHURN_MIN_BYTES", "MASS_FLOOR", "ROLLING_WINDOW_MONTHS", "ROLLING_TOLERANCE_DAYS",
-    "ROLLING_DROP", "confirmation_thresholds",
+    "ROLLING_DROP", "confirmation_thresholds", "sweep_thresholds",
     "LLM_PROVIDER", "LLM_PROVIDER_PRIORITY", "DEFAULT_MODELS", "KEY_ENV", "MODEL",
 ]

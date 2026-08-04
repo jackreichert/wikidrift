@@ -382,7 +382,7 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("240,130", out)
         self.assertIn('href="../glossary.html#persistence-weighted-loss"', out)
         self.assertIn("Rejected candidate window", out)
-        self.assertIn("Excluded: below mature size; not investigated", out)
+        self.assertIn("Measured: no anomaly threshold crossed", out)
         self.assertIn("2024-01-01 → 2024-07-01", out)
         self.assertIn("10.0% durable-spine drop", out)
         self.assertIn("below the required 20.0%", out)
@@ -493,6 +493,33 @@ class ArticlePageRendering(unittest.TestCase):
         })
 
         self.assertIn("Confirmed candidate window", out)
+
+    def test_interval_profile_renders_loss_gain_and_replacement_without_hiding_subfloor_anomaly(self):
+        out = build._interval_profile_chart({
+            "status": "not_confirmed",
+            "interval_profile": [{
+                "start": "2025-01-01",
+                "end": "2026-01-01",
+                "pwr_loss": 30.0,
+                "pwr_removed": 900,
+                "pwr_gain": 45.0,
+                "pwr_added": 1300,
+                "pwr_retained": 70.0,
+                "replacement_candidate": 30.0,
+                "replacement_pwr": 900,
+                "confirmable": False,
+                "mature": False,
+                "eligible": True,
+                "anomaly_types": ["loss", "gain", "replacement"],
+                "priority": "review",
+            }],
+        })
+
+        self.assertIn("Loss 30.0%", out)
+        self.assertIn("Gain 45.0%", out)
+        self.assertIn("Replacement lead 30.0%", out)
+        self.assertIn("Descriptive anomaly: below exact-check floor", out)
+        self.assertNotIn("Excluded: below mature size", out)
 
     def test_confirmed_analysis_discloses_horizon_duration_and_neutral_attribution(self):
         findings = build.Findings(confirmations={"Testland": {

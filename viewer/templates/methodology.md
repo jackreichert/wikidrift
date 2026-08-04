@@ -116,8 +116,8 @@ not decide what happened.
 
 ## L1: detecting durable rewrites
 
-L1 is the main offline change detector. It compares consecutive mature snapshots and measures the
-established text present before an interval but absent afterward.
+L1 is the main offline change detector. It compares every covered pair of consecutive snapshots and
+measures established text lost, standing text gained, and text retained.
 
 Each token is weighted by the number of snapshots it had survived up to that point. The calculation
 for one interval is:
@@ -125,23 +125,29 @@ for one interval is:
 `D_k = sum(weight of each lost token) / sum(weight of each token present before the interval)`
 
 In plain terms: removing wording that had survived across many snapshots counts more than removing
-wording that had just appeared. L1 also keeps the absolute amount of persistence-weighted text lost,
-so a tiny article does not outrank a large one merely because its percentage is dramatic.
+wording that had just appeared. New text is measured at the interval end, so additions must still be
+standing there to count. Concurrent loss and standing gain produce a replacement lead, not a claim that
+one passage semantically replaced another.
 
 ### Finding candidate episodes
 
-L1 measures every eligible interval after the article reaches the minimum mature size. An interval
-with at least 15% persistence-weighted loss can start or extend an episode, and an episode needs a
-peak of at least 25% to become a pivot candidate. L1 ranks candidates by the total persistence-weighted
-text they removed, not by percentage alone.
+The recall sweep preserves every covered interval with at least 15% loss, 15% standing gain, or 10%
+paired change. It uses absolute PWR mass to set review priority, never to hide a lead. A dramatic
+percentage can receive high priority even in a small article.
+
+Exact durable-spine checking begins at 1,000 starting tokens. This floor is structural: confirmation
+uses the top persistence half and requires a 500-token cohort. Below 1,000 tokens an anomaly remains
+visible as descriptive evidence, but the system does not pretend it can confirm an exact collapse.
+
+For loss confirmation, an interval with at least 15% persistence-weighted loss can start or extend an
+episode, and an episode needs a peak of at least 25% to become a pivot candidate.
 
 Candidate detection has two passes:
 
-1. The primary pass checks the sharp interval episodes above and sends up to the three strongest to
+1. The primary pass checks every sharp interval episode above and sends every confirmable candidate to
   revision-level confirmation.
 2. If none confirms, a rolling second pass measures the direct persistence-weighted loss of the same
-  starting cohort across approximately twelve months. It requires at least 20% loss and at least
-  50,000 persistence-weighted tokens removed. Overlapping windows are reduced to the strongest
+  starting cohort across approximately twelve months. It requires at least 20% loss. Overlapping windows are reduced to the strongest
   non-overlapping candidates before confirmation.
 
 The rolling pass is a candidate search, not a second definition of a pivot. It improves recall for
@@ -157,7 +163,9 @@ The initial outcomes are:
 
 - **PIVOT?** A large candidate episode exists, but the revision-level check has not confirmed it.
 - **CREEP?** No single episode clears the pivot rules, but mean interval loss is elevated.
-- **HEALTHY.** No pivot exists and mean interval loss is below the creep threshold.
+- **DESCRIPTIVE ANOMALY.** The sweep crossed a loss, gain, or paired-change threshold but exact
+  confirmation is unavailable or not applicable.
+- **HEALTHY.** No sweep anomaly exists and mean interval loss is below the creep threshold.
 - **SKIP.** There are too few snapshots for the measurement.
 
 These labels describe the detector's result, not the quality or neutrality of the article. An old

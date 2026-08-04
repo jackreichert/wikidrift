@@ -54,15 +54,23 @@ Feature: Explore WikiDrift evidence on the website
     Scenario: Inspect every available rewrite interval
       Given an article has been analyzed with one or more stored snapshots
       When I open the Rewrite section
-      Then I see a "Persistence-weighted loss by interval" chart
-      And I see the persistence-weighted loss for every interval that could be measured
+      Then I see a "Persistence-weighted change by interval" chart
+      And I see persistence-weighted loss, standing gain, and replacement leads for every measured interval
+      And replacement leads are not presented as confirmed semantic replacement
       And any unavailable or excluded interval remains visible with its missing-data reason
-      And candidate, confirmed, rejected, excluded, and measured states are distinguishable
+      And descriptive, candidate, confirmed, rejected, excluded, and measured states are distinguishable
+
+    Scenario: Keep a sub-floor anomaly visible
+      Given a measured interval crosses a sweep anomaly floor
+      But it starts below the exact-check token floor
+      When I open the Rewrite section
+      Then the interval is labeled a descriptive anomaly
+      And the report does not describe it as excluded or healthy
 
     Scenario: Keep the interval chart visible when measurements are missing
       Given an analyzed article has incomplete snapshot or interval evidence
       When I open the Rewrite section
-      Then I still see a "Persistence-weighted loss by interval" chart
+      Then I still see a "Persistence-weighted change by interval" chart
       And the chart identifies which measurements are missing and why when known
       And missing measurements are not presented as zero loss or a negative finding
 

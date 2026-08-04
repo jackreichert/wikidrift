@@ -141,6 +141,68 @@ class EngineOnSyntheticCorpus(unittest.TestCase):
         series, _stats = drift.coarse(snaps, members, present)
         self.assertTrue(any(abs(row[4] - 75.0) < 0.01 for row in series))
 
+    def test_interval_profile_measures_loss_gain_retention_and_replacement(self):
+        snaps = [("2020-01-01", 10), ("2021-01-01", 20)]
+        members = [{1, 2, 3, 4}, {1, 2, 5, 6}]
+        present = {1: [0, 1], 2: [0, 1], 3: [0], 4: [0], 5: [1], 6: [1]}
+
+        with mock.patch.object(drift, "MIN_MATURE", 4):
+            profile = drift._coarse_profile(snaps, members, present)
+
+        self.assertEqual(profile, [{
+            "start": "2020-01-01",
+            "end": "2021-01-01",
+            "size": 4,
+            "pwr_loss": 50.0,
+            "pwr_removed": 2,
+            "pwr_gain": 50.0,
+            "pwr_added": 2,
+            "pwr_retained": 50.0,
+            "replacement_candidate": 50.0,
+            "replacement_pwr": 2,
+            "confirmable": True,
+            "mature": True,
+            "eligible": True,
+            "anomaly_types": ["loss", "gain", "replacement"],
+            "priority": "high",
+        }])
+
+    def test_subfloor_anomaly_remains_descriptive(self):
+        snaps = [("2020-01-01", 10), ("2021-01-01", 20)]
+        members = [{1, 2, 3, 4}, {1}]
+        present = {1: [0, 1], 2: [0], 3: [0], 4: [0]}
+
+        with mock.patch.object(drift, "MIN_MATURE", 1000):
+            profile = drift._coarse_profile(snaps, members, present)
+
+        self.assertFalse(profile[0]["confirmable"])
+        self.assertEqual(profile[0]["anomaly_types"], ["loss"])
+        self.assertEqual(profile[0]["priority"], "high")
+
+    def test_mass_sets_review_priority_without_suppressing_candidates(self):
+        profile = [{
+            "start": "2020-01-01", "end": "2021-01-01",
+            "pwr_loss": 16.0, "pwr_removed": 100,
+            "pwr_gain": 0.0, "pwr_added": 0,
+            "replacement_candidate": 0.0, "replacement_pwr": 0,
+            "confirmable": True, "eligible": True,
+            "anomaly_types": ["loss"], "priority": "low",
+        }]
+
+        self.assertEqual(drift._sweep_candidates(profile), [{
+            "start": "2020-01-01",
+            "end": "2021-01-01",
+            "anomaly_types": ["loss"],
+            "priority": "low",
+            "decision": "pending_confirmation",
+            "pwr_loss": 16.0,
+            "pwr_removed": 100,
+            "pwr_gain": 0.0,
+            "pwr_added": 0,
+            "replacement_candidate": 0.0,
+            "replacement_pwr": 0,
+        }])
+
     def test_print_coarse_report_emits_the_interval_table(self):
         # the presentation half split out of coarse still prints the header + footer-stats lines.
         import io, contextlib
@@ -714,6 +776,39 @@ class RefineBinarySearch(unittest.TestCase):
 
 
 class AnalyzeConfirmationContract(unittest.TestCase):
+    def test_evaluates_every_primary_candidate(self):
+        con = duckdb.connect(":memory:")
+        self.addCleanup(con.close)
+        episodes = [
+            {
+                "start": (f"202{index}-01-01", index * 10),
+                "end": (f"202{index + 1}-01-01", (index + 1) * 10),
+                "abs": 1000 - index,
+                "peak": 30.0,
+                "age": float(5 - index),
+            }
+            for index in range(4)
+        ]
+        ranked = (
+            [(f"202{index}-01-01", index * 10) for index in range(5)],
+            [set() for _ in range(5)], {}, {},
+            [("2020-01-01", 0, "2021-01-01", 10, 30.0, 1000, 1000)],
+            (6.0, 4.0, 1.0), episodes,
+        )
+
+        with mock.patch.object(provenance, "ensure_sizes"), \
+             mock.patch.object(provenance, "ensure_indexes"), \
+             mock.patch.object(provenance, "build_snapshots"), \
+             mock.patch.object(drift, "ranked_episodes", return_value=ranked), \
+             mock.patch.object(drift, "refine", return_value=None) as refine, \
+             mock.patch.object(drift, "rolling_candidates", return_value=[]), \
+             mock.patch.object(drift, "print_coarse_report"), \
+             mock.patch.object(drift.config, "write_findings"):
+            result = drift.analyze("A", con=con)
+
+        self.assertEqual(refine.call_count, 4)
+        self.assertEqual(len(result["evaluated_candidates"]), 4)
+
     def test_partial_snapshot_coverage_runs_descriptive_analysis_without_mature_intervals(self):
         con = duckdb.connect(":memory:")
         provenance.ensure_schema(con)
