@@ -34,7 +34,7 @@ is not necessarily wrong.
 ```mermaid
 flowchart TD
   accTitle: WikiDrift analysis layers
-  accDescr: Wikipedia revision history feeds persistent snapshots, a metadata router, and optional controversy context. Snapshots feed durable-content, stance, vocabulary, and citation-history checks. Durable-content findings can anchor temporal comparisons and, through public edit attribution, candidate discovery. Other language editions support language and fact comparisons even without a detected rewrite. All outputs become research leads.
+  accDescr: Wikipedia revision history feeds persistent snapshots, a metadata router, and optional controversy context. Snapshots feed durable-content, stance, vocabulary, and citation-history checks. Durable-content findings can anchor temporal comparisons and, through public edit attribution, candidate discovery. L3 exports inspectable redlines and authorship views into the static site. Other language editions support language and fact comparisons even without a detected rewrite. All outputs become research leads.
   A[Wikipedia revision history] --> B[Persistent snapshots<br/>and token provenance]
   A --> C[Metadata pre-ranker]
   B --> D[L1 durable-content drift]
@@ -50,6 +50,13 @@ flowchart TD
   D -.->|optional temporal anchor| J
   B --> M[L5 citation history]
   D -.->|optional pivot window| M
+  D --> O[L3 evidence export<br/>and static site]
+  E --> O
+  F --> O
+  G --> O
+  I --> O
+  J --> O
+  M --> O
   D --> K[Research leads]
   E --> K
   F --> K
@@ -57,13 +64,15 @@ flowchart TD
   I --> K
   J --> K
   M --> K
+  O --> K
 ```
 
 The default `pipeline` command runs L1, the metadata pre-ranker, and L2.5. It does not run every box in
 the diagram. L2 runs only when the pre-ranker produces an addition or churn lead and the user enables
 the language-model option. M-score and the cross-language lead comparison also require explicit options.
 L1 supplies a temporal anchor to L2.5 and cross-language comparison when it has a usable candidate or
-confirmed window; those checks can still use whole-history or static comparisons without one. L4 discovery
+confirmed window; those checks can still use whole-history or static comparisons without one. L3 turns
+saved findings into readable before-and-after and authorship views for the published site. L4 discovery
 and the fuller language, fact, and source checks are separate commands. This is why one published article
 may have more tabs or evidence than another.
 
@@ -255,6 +264,37 @@ A high score means the page saw sustained mutual reverts. It does not mean a rew
 A low score does not clear an article either: it may indicate that a large change happened without an
 edit war. M-score is context for a content finding, not a content finding itself.
 
+## L3: showing the evidence on the website
+
+L3 is the presentation layer. Analysis commands write structured findings; L3 turns those findings into
+artifacts the static site can render so a reader can inspect the wording, not only the summary metrics.
+
+It does three related jobs:
+
+1. **Rewrite redlines.** For each L1 candidate that reached revision-level investigation, L3 materializes
+   the public before and after revisions as readable prose. Removed wording is marked as deleted text and
+   replacement wording as inserted text. Confirmed and rejected investigations both keep a redline when
+   the revision pair can be retrieved; the outcome label stays attached so a rejected candidate is never
+   presented as a confirmed rewrite.
+2. **Authorship overlay.** Where token provenance is available, L3 attributes spans of the current lead to
+   the public account and origin revision that introduced them. Adjacent tokens with the same origin may
+   be grouped into readable spans. Unknown provenance stays visibly unknown. This records observable
+   origin, not identity, motive, coordination, or factual correctness.
+3. **Publication trust gates.** Stale confirmation artifacts, quarantined revisions, or pairs that cannot
+   be materialized are withheld with a reason rather than published as current evidence. A missing L3
+   artifact means the presentation data is unavailable; it is not a negative finding about the article.
+
+L3 does not re-run L1, stance, vocabulary, discovery, or cross-language checks. It reads the local corpus
+and public Wikipedia and WikiWho services to assemble diffs and authorship views from already-saved
+results. The site builder is a further read-only step: it consumes the findings and L3 artifacts and
+emits static HTML under `docs/`. That compiled site is what readers browse; the command-line tool remains
+the analysis engine.
+
+Fallback comparisons (for example when no fresh confirmed pivot exists) still identify how the compared
+versions were chosen. They are not labeled as exact confirmed events. Every published redline remains
+evidence of change to inspect, not a verdict that the earlier wording was better or that anyone acted in
+bad faith.
+
 ## L4: using a finding to discover other candidates
 
 L4 uses fresh structured attribution from an exact confirmed L1 event as a starting point for finding
@@ -358,8 +398,8 @@ The underlying evidence remains more important than the number of checks that fi
 ## How published pages are produced
 
 Analysis and publication are separate steps. The analysis commands create findings from the local
-corpus and public APIs. The L3 export step then reads the local corpus and calls public Wikipedia and
-WikiWho services to build before-and-after and authorship artifacts.
+corpus and public APIs. As described in the L3 section above, an export step then builds before-and-after
+and authorship artifacts from those findings, and the site builder compiles everything into static HTML.
 
 Framing findings have their own refresh path. Run `wikidrift analyze "Article"` once to write the
 structured L1 confirmation, then run `wikidrift framing "Article"` to fetch matched historical leads
@@ -367,9 +407,8 @@ and replace that article's framing finding. The second command does not recomput
 vocabulary, sources, or the other L5 checks. Existing articles analyzed before confirmation artifacts
 were introduced need that one-time `analyze` rerun to receive confirmed pivot-relative framing.
 
-The site builder is a separate, read-only step. It reads the saved findings and L3 artifacts and
-renders static HTML; it does not rerun the analysis or query DuckDB. A published page therefore
-reflects the findings and artifacts available when the site was built.
+A published page therefore reflects the findings and L3 artifacts available when the site was built. The
+builder does not rerun the analysis or query DuckDB.
 
 ## Reading a result
 
