@@ -1,301 +1,873 @@
 {
   "article": "Democratic Socialists of America",
-  "span": "2025-01-01 -> 2025-07-01 (around L1 pivot ~2025-01-01)",
+  "mode": "pivot_relative",
+  "requested_mode": "pivot_relative",
+  "adequate": true,
+  "adequacy_reason": null,
+  "size_ratio": 1.8051,
+  "interval_source": "exact_confirmation",
+  "span": "rev 1321624877 -> rev 1321630141 (exact confirmation)",
   "pivot": "2025-01-01",
   "before": {
-    "date": "2025-01-01",
-    "rev": 1266721233,
-    "tokens": 3880
+    "date": "2025-11-11",
+    "rev": 1321624877,
+    "tokens": 5381
   },
   "after": {
-    "date": "2025-07-01",
-    "rev": 1298147008,
-    "tokens": 3829
+    "date": "2025-11-11",
+    "rev": 1321630141,
+    "tokens": 2981
   },
-  "js_divergence": 0.043,
+  "js_divergence": 0.1354,
   "overrepresented_after_terms": [
     {
-      "term": "abolishing",
+      "term": "involves",
       "before": 0,
-      "after": 8,
-      "delta": 8,
-      "log_odds": 2.8485
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.5375
     },
     {
-      "term": "college",
+      "term": "reduction",
       "before": 0,
-      "after": 4,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.5375
+    },
+    {
+      "term": "sometimes",
+      "before": 0,
+      "after": 3,
+      "delta": 3,
+      "log_odds": 2.5375
+    },
+    {
+      "term": "universal",
+      "before": 1,
+      "after": 6,
+      "delta": 5,
+      "log_odds": 2.0587
+    },
+    {
+      "term": "worker",
+      "before": 1,
+      "after": 5,
       "delta": 4,
-      "log_odds": 2.2115
+      "log_odds": 1.8913
     },
     {
-      "term": "wall",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 1.9599
-    },
-    {
-      "term": "care",
+      "term": "establishing",
       "before": 1,
       "after": 4,
       "delta": 3,
-      "log_odds": 1.1126
+      "log_odds": 1.6903
     },
     {
-      "term": "politics",
+      "term": "system",
       "before": 1,
       "after": 4,
       "delta": 3,
-      "log_odds": 1.1126
+      "log_odds": 1.6903
     },
     {
-      "term": "recent",
-      "before": 1,
-      "after": 4,
-      "delta": 3,
-      "log_odds": 1.1126
-    },
-    {
-      "term": "away",
-      "before": 1,
-      "after": 3,
-      "delta": 2,
-      "log_odds": 0.8611
-    },
-    {
-      "term": "demand",
-      "before": 1,
-      "after": 3,
-      "delta": 2,
-      "log_odds": 0.8611
-    },
-    {
-      "term": "development",
-      "before": 1,
-      "after": 3,
-      "delta": 2,
-      "log_odds": 0.8611
-    },
-    {
-      "term": "establish",
-      "before": 1,
-      "after": 3,
-      "delta": 2,
-      "log_odds": 0.8611
-    },
-    {
-      "term": "industry",
-      "before": 1,
-      "after": 3,
-      "delta": 2,
-      "log_odds": 0.8611
-    },
-    {
-      "term": "movements",
-      "before": 1,
-      "after": 3,
-      "delta": 2,
-      "log_odds": 0.8611
-    },
-    {
-      "term": "relations",
-      "before": 1,
-      "after": 3,
-      "delta": 2,
-      "log_odds": 0.8611
-    },
-    {
-      "term": "reparations",
-      "before": 1,
-      "after": 3,
-      "delta": 2,
-      "log_odds": 0.8611
-    },
-    {
-      "term": "republic",
-      "before": 1,
-      "after": 3,
-      "delta": 2,
-      "log_odds": 0.8611
-    },
-    {
-      "term": "shifted",
-      "before": 1,
-      "after": 3,
-      "delta": 2,
-      "log_odds": 0.8611
-    },
-    {
-      "term": "slavery",
-      "before": 1,
-      "after": 3,
-      "delta": 2,
-      "log_odds": 0.8611
-    },
-    {
-      "term": "transition",
-      "before": 1,
-      "after": 3,
-      "delta": 2,
-      "log_odds": 0.8611
-    },
-    {
-      "term": "free",
+      "term": "ownership",
       "before": 2,
-      "after": 5,
-      "delta": 3,
-      "log_odds": 0.8025
+      "after": 6,
+      "delta": 4,
+      "log_odds": 1.5477
     },
     {
-      "term": "past",
-      "before": 2,
-      "after": 5,
+      "term": "accountable",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 1.4387
+    },
+    {
+      "term": "broad",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 1.4387
+    },
+    {
+      "term": "document",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 1.4387
+    },
+    {
+      "term": "large",
+      "before": 1,
+      "after": 3,
+      "delta": 2,
+      "log_odds": 1.4387
+    },
+    {
+      "term": "file",
+      "before": 3,
+      "after": 6,
       "delta": 3,
-      "log_odds": 0.8025
+      "log_odds": 1.211
+    },
+    {
+      "term": "rank",
+      "before": 3,
+      "after": 6,
+      "delta": 3,
+      "log_odds": 1.211
+    },
+    {
+      "term": "approach",
+      "before": 2,
+      "after": 4,
+      "delta": 2,
+      "log_odds": 1.1793
+    },
+    {
+      "term": "include",
+      "before": 2,
+      "after": 4,
+      "delta": 2,
+      "log_odds": 1.1793
+    },
+    {
+      "term": "own",
+      "before": 2,
+      "after": 4,
+      "delta": 2,
+      "log_odds": 1.1793
+    },
+    {
+      "term": "aim",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 1.1019
+    },
+    {
+      "term": "capacity",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 1.1019
+    },
+    {
+      "term": "constituency",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 1.1019
     }
   ],
   "underrepresented_after_terms": [
     {
-      "term": "class",
-      "before": 4,
+      "term": "israeli",
+      "before": 14,
       "after": 0,
-      "delta": -4,
-      "log_odds": -2.185
+      "delta": -14,
+      "log_odds": -2.7794
     },
     {
-      "term": "program",
-      "before": 3,
+      "term": "nominee",
+      "before": 8,
       "after": 0,
-      "delta": -3,
-      "log_odds": -1.9335
+      "delta": -8,
+      "log_odds": -2.2442
     },
     {
-      "term": "universal",
-      "before": 3,
+      "term": "representative",
+      "before": 8,
       "after": 0,
-      "delta": -3,
-      "log_odds": -1.9335
-    },
-    {
-      "term": "organization",
-      "before": 33,
-      "after": 8,
-      "delta": -25,
-      "log_odds": -1.3647
-    },
-    {
-      "term": "degrowth",
-      "before": 5,
-      "after": 1,
-      "delta": -4,
-      "log_odds": -1.2871
-    },
-    {
-      "term": "founding",
-      "before": 4,
-      "after": 1,
-      "delta": -3,
-      "log_odds": -1.0862
-    },
-    {
-      "term": "hamas",
-      "before": 9,
-      "after": 3,
-      "delta": -6,
-      "log_odds": -0.9868
-    },
-    {
-      "term": "featured",
-      "before": 3,
-      "after": 1,
-      "delta": -2,
-      "log_odds": -0.8346
-    },
-    {
-      "term": "healthcare",
-      "before": 3,
-      "after": 1,
-      "delta": -2,
-      "log_odds": -0.8346
-    },
-    {
-      "term": "included",
-      "before": 3,
-      "after": 1,
-      "delta": -2,
-      "log_odds": -0.8346
-    },
-    {
-      "term": "like",
-      "before": 3,
-      "after": 1,
-      "delta": -2,
-      "log_odds": -0.8346
-    },
-    {
-      "term": "place",
-      "before": 3,
-      "after": 1,
-      "delta": -2,
-      "log_odds": -0.8346
-    },
-    {
-      "term": "supports",
-      "before": 3,
-      "after": 1,
-      "delta": -2,
-      "log_odds": -0.8346
-    },
-    {
-      "term": "took",
-      "before": 3,
-      "after": 1,
-      "delta": -2,
-      "log_odds": -0.8346
-    },
-    {
-      "term": "call",
-      "before": 5,
-      "after": 2,
-      "delta": -3,
-      "log_odds": -0.776
-    },
-    {
-      "term": "ehrenreich",
-      "before": 5,
-      "after": 2,
-      "delta": -3,
-      "log_odds": -0.776
+      "delta": -8,
+      "log_odds": -2.2442
     },
     {
       "term": "abolition",
       "before": 6,
-      "after": 3,
-      "delta": -3,
-      "log_odds": -0.6066
+      "after": 0,
+      "delta": -6,
+      "log_odds": -1.9755
     },
     {
-      "term": "barbara",
-      "before": 4,
-      "after": 2,
-      "delta": -2,
-      "log_odds": -0.5751
+      "term": "five",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -1.9755
     },
     {
-      "term": "economy",
-      "before": 4,
-      "after": 2,
-      "delta": -2,
-      "log_odds": -0.5751
+      "term": "lee",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -1.9755
     },
     {
-      "term": "foreign",
+      "term": "obama",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -1.9755
+    },
+    {
+      "term": "race",
+      "before": 6,
+      "after": 0,
+      "delta": -6,
+      "log_odds": -1.9755
+    },
+    {
+      "term": "biden",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -1.8083
+    },
+    {
+      "term": "funding",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -1.8083
+    },
+    {
+      "term": "jewish",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -1.8083
+    },
+    {
+      "term": "kerry",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -1.8083
+    },
+    {
+      "term": "resources",
+      "before": 5,
+      "after": 0,
+      "delta": -5,
+      "log_odds": -1.8083
+    },
+    {
+      "term": "amendment",
       "before": 4,
-      "after": 2,
-      "delta": -2,
-      "log_odds": -0.5751
+      "after": 0,
+      "delta": -4,
+      "log_odds": -1.6074
+    },
+    {
+      "term": "among",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -1.6074
+    },
+    {
+      "term": "bds",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -1.6074
+    },
+    {
+      "term": "county",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -1.6074
+    },
+    {
+      "term": "defeating",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -1.6074
+    },
+    {
+      "term": "four",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -1.6074
+    },
+    {
+      "term": "francisco",
+      "before": 4,
+      "after": 0,
+      "delta": -4,
+      "log_odds": -1.6074
     }
   ],
-  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict.",
+  "schema_version": 1,
+  "analysis_scope": "confirmed_episodes",
+  "episode_count": 3,
+  "episodes": [
+    {
+      "article": "Democratic Socialists of America",
+      "mode": "pivot_relative",
+      "requested_mode": "pivot_relative",
+      "adequate": true,
+      "adequacy_reason": null,
+      "size_ratio": 1.8051,
+      "interval_source": "exact_confirmation",
+      "span": "rev 1321624877 -> rev 1321630141 (exact confirmation)",
+      "pivot": "2025-01-01",
+      "before": {
+        "date": "2025-11-11",
+        "rev": 1321624877,
+        "tokens": 5381
+      },
+      "after": {
+        "date": "2025-11-11",
+        "rev": 1321630141,
+        "tokens": 2981
+      },
+      "js_divergence": 0.1354,
+      "overrepresented_after_terms": [
+        {
+          "term": "involves",
+          "before": 0,
+          "after": 3,
+          "delta": 3,
+          "log_odds": 2.5375
+        },
+        {
+          "term": "reduction",
+          "before": 0,
+          "after": 3,
+          "delta": 3,
+          "log_odds": 2.5375
+        },
+        {
+          "term": "sometimes",
+          "before": 0,
+          "after": 3,
+          "delta": 3,
+          "log_odds": 2.5375
+        },
+        {
+          "term": "universal",
+          "before": 1,
+          "after": 6,
+          "delta": 5,
+          "log_odds": 2.0587
+        },
+        {
+          "term": "worker",
+          "before": 1,
+          "after": 5,
+          "delta": 4,
+          "log_odds": 1.8913
+        },
+        {
+          "term": "establishing",
+          "before": 1,
+          "after": 4,
+          "delta": 3,
+          "log_odds": 1.6903
+        },
+        {
+          "term": "system",
+          "before": 1,
+          "after": 4,
+          "delta": 3,
+          "log_odds": 1.6903
+        },
+        {
+          "term": "ownership",
+          "before": 2,
+          "after": 6,
+          "delta": 4,
+          "log_odds": 1.5477
+        },
+        {
+          "term": "accountable",
+          "before": 1,
+          "after": 3,
+          "delta": 2,
+          "log_odds": 1.4387
+        },
+        {
+          "term": "broad",
+          "before": 1,
+          "after": 3,
+          "delta": 2,
+          "log_odds": 1.4387
+        },
+        {
+          "term": "document",
+          "before": 1,
+          "after": 3,
+          "delta": 2,
+          "log_odds": 1.4387
+        },
+        {
+          "term": "large",
+          "before": 1,
+          "after": 3,
+          "delta": 2,
+          "log_odds": 1.4387
+        },
+        {
+          "term": "file",
+          "before": 3,
+          "after": 6,
+          "delta": 3,
+          "log_odds": 1.211
+        },
+        {
+          "term": "rank",
+          "before": 3,
+          "after": 6,
+          "delta": 3,
+          "log_odds": 1.211
+        },
+        {
+          "term": "approach",
+          "before": 2,
+          "after": 4,
+          "delta": 2,
+          "log_odds": 1.1793
+        },
+        {
+          "term": "include",
+          "before": 2,
+          "after": 4,
+          "delta": 2,
+          "log_odds": 1.1793
+        },
+        {
+          "term": "own",
+          "before": 2,
+          "after": 4,
+          "delta": 2,
+          "log_odds": 1.1793
+        },
+        {
+          "term": "aim",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 1.1019
+        },
+        {
+          "term": "capacity",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 1.1019
+        },
+        {
+          "term": "constituency",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 1.1019
+        }
+      ],
+      "underrepresented_after_terms": [
+        {
+          "term": "israeli",
+          "before": 14,
+          "after": 0,
+          "delta": -14,
+          "log_odds": -2.7794
+        },
+        {
+          "term": "nominee",
+          "before": 8,
+          "after": 0,
+          "delta": -8,
+          "log_odds": -2.2442
+        },
+        {
+          "term": "representative",
+          "before": 8,
+          "after": 0,
+          "delta": -8,
+          "log_odds": -2.2442
+        },
+        {
+          "term": "abolition",
+          "before": 6,
+          "after": 0,
+          "delta": -6,
+          "log_odds": -1.9755
+        },
+        {
+          "term": "five",
+          "before": 6,
+          "after": 0,
+          "delta": -6,
+          "log_odds": -1.9755
+        },
+        {
+          "term": "lee",
+          "before": 6,
+          "after": 0,
+          "delta": -6,
+          "log_odds": -1.9755
+        },
+        {
+          "term": "obama",
+          "before": 6,
+          "after": 0,
+          "delta": -6,
+          "log_odds": -1.9755
+        },
+        {
+          "term": "race",
+          "before": 6,
+          "after": 0,
+          "delta": -6,
+          "log_odds": -1.9755
+        },
+        {
+          "term": "biden",
+          "before": 5,
+          "after": 0,
+          "delta": -5,
+          "log_odds": -1.8083
+        },
+        {
+          "term": "funding",
+          "before": 5,
+          "after": 0,
+          "delta": -5,
+          "log_odds": -1.8083
+        },
+        {
+          "term": "jewish",
+          "before": 5,
+          "after": 0,
+          "delta": -5,
+          "log_odds": -1.8083
+        },
+        {
+          "term": "kerry",
+          "before": 5,
+          "after": 0,
+          "delta": -5,
+          "log_odds": -1.8083
+        },
+        {
+          "term": "resources",
+          "before": 5,
+          "after": 0,
+          "delta": -5,
+          "log_odds": -1.8083
+        },
+        {
+          "term": "amendment",
+          "before": 4,
+          "after": 0,
+          "delta": -4,
+          "log_odds": -1.6074
+        },
+        {
+          "term": "among",
+          "before": 4,
+          "after": 0,
+          "delta": -4,
+          "log_odds": -1.6074
+        },
+        {
+          "term": "bds",
+          "before": 4,
+          "after": 0,
+          "delta": -4,
+          "log_odds": -1.6074
+        },
+        {
+          "term": "county",
+          "before": 4,
+          "after": 0,
+          "delta": -4,
+          "log_odds": -1.6074
+        },
+        {
+          "term": "defeating",
+          "before": 4,
+          "after": 0,
+          "delta": -4,
+          "log_odds": -1.6074
+        },
+        {
+          "term": "four",
+          "before": 4,
+          "after": 0,
+          "delta": -4,
+          "log_odds": -1.6074
+        },
+        {
+          "term": "francisco",
+          "before": 4,
+          "after": 0,
+          "delta": -4,
+          "log_odds": -1.6074
+        }
+      ],
+      "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict.",
+      "episode_id": "1321624877-1321630141",
+      "episode_index": 1,
+      "episode_window": {
+        "start": "2025-01-01",
+        "end": "2026-01-01",
+        "pwr_mass": 290234,
+        "status": "confirmed",
+        "before_revid": 1321624877,
+        "before_timestamp": "2025-11-11T17:36:50Z",
+        "after_revid": 1321630141,
+        "after_timestamp": "2025-11-11T18:17:24Z",
+        "durable_spine_drop": 0.869639
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Democratic Socialists of America",
+      "mode": "pivot_relative",
+      "requested_mode": "pivot_relative",
+      "adequate": true,
+      "adequacy_reason": null,
+      "size_ratio": 1.1315,
+      "interval_source": "exact_confirmation",
+      "span": "rev 951975376 -> rev 951977396 (exact confirmation)",
+      "pivot": "2020-01-01",
+      "before": {
+        "date": "2020-04-19",
+        "rev": 951975376,
+        "tokens": 3829
+      },
+      "after": {
+        "date": "2020-04-19",
+        "rev": 951977396,
+        "tokens": 3384
+      },
+      "js_divergence": 0.0171,
+      "overrepresented_after_terms": [
+        {
+          "term": "democratic",
+          "before": 68,
+          "after": 65,
+          "delta": -3,
+          "log_odds": 0.0802
+        },
+        {
+          "term": "convention",
+          "before": 12,
+          "after": 11,
+          "delta": -1,
+          "log_odds": 0.0403
+        },
+        {
+          "term": "national",
+          "before": 22,
+          "after": 20,
+          "delta": -2,
+          "log_odds": 0.0306
+        },
+        {
+          "term": "office",
+          "before": 10,
+          "after": 9,
+          "delta": -1,
+          "log_odds": 0.0235
+        },
+        {
+          "term": "socialists",
+          "before": 19,
+          "after": 17,
+          "delta": -2,
+          "log_odds": 0.0154
+        },
+        {
+          "term": "statement",
+          "before": 9,
+          "after": 8,
+          "delta": -1,
+          "log_odds": 0.0123
+        }
+      ],
+      "underrepresented_after_terms": [
+        {
+          "term": "vol",
+          "before": 18,
+          "after": 1,
+          "delta": -17,
+          "log_odds": -2.3932
+        },
+        {
+          "term": "milestone",
+          "before": 5,
+          "after": 0,
+          "delta": -5,
+          "log_odds": -2.2757
+        },
+        {
+          "term": "reached",
+          "before": 5,
+          "after": 0,
+          "delta": -5,
+          "log_odds": -2.2757
+        },
+        {
+          "term": "date",
+          "before": 8,
+          "after": 1,
+          "delta": -7,
+          "log_odds": -1.6129
+        },
+        {
+          "term": "align",
+          "before": 120,
+          "after": 33,
+          "delta": -87,
+          "log_odds": -1.1786
+        },
+        {
+          "term": "style",
+          "before": 120,
+          "after": 33,
+          "delta": -87,
+          "log_odds": -1.1786
+        },
+        {
+          "term": "text",
+          "before": 120,
+          "after": 33,
+          "delta": -87,
+          "log_odds": -1.1786
+        },
+        {
+          "term": "just",
+          "before": 5,
+          "after": 1,
+          "delta": -4,
+          "log_odds": -1.1768
+        },
+        {
+          "term": "center",
+          "before": 122,
+          "after": 35,
+          "delta": -87,
+          "log_odds": -1.137
+        },
+        {
+          "term": "wikitable",
+          "before": 3,
+          "after": 1,
+          "delta": -2,
+          "log_odds": -0.7243
+        },
+        {
+          "term": "july",
+          "before": 4,
+          "after": 2,
+          "delta": -2,
+          "log_odds": -0.4647
+        },
+        {
+          "term": "published",
+          "before": 4,
+          "after": 2,
+          "delta": -2,
+          "log_odds": -0.4647
+        },
+        {
+          "term": "april",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": -0.3875
+        },
+        {
+          "term": "circulation",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": -0.3875
+        },
+        {
+          "term": "event",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": -0.3875
+        },
+        {
+          "term": "october",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": -0.3875
+        },
+        {
+          "term": "general",
+          "before": 5,
+          "after": 3,
+          "delta": -2,
+          "log_odds": -0.3289
+        },
+        {
+          "term": "report",
+          "before": 5,
+          "after": 3,
+          "delta": -2,
+          "log_odds": -0.3289
+        },
+        {
+          "term": "class",
+          "before": 6,
+          "after": 4,
+          "delta": -2,
+          "log_odds": -0.2446
+        },
+        {
+          "term": "average",
+          "before": 3,
+          "after": 2,
+          "delta": -1,
+          "log_odds": -0.2131
+        }
+      ],
+      "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict.",
+      "episode_id": "951975376-951977396",
+      "episode_index": 2,
+      "episode_window": {
+        "start": "2020-01-01",
+        "end": "2020-07-01",
+        "pwr_mass": 61516,
+        "status": "confirmed",
+        "before_revid": 951975376,
+        "before_timestamp": "2020-04-19T22:56:43Z",
+        "after_revid": 951977396,
+        "after_timestamp": "2020-04-19T23:12:16Z",
+        "durable_spine_drop": 0.340927
+      },
+      "analysis_status": "available"
+    },
+    {
+      "episode_id": "324111042-324127928",
+      "episode_index": 3,
+      "episode_window": {
+        "start": "2009-07-01",
+        "end": "2010-07-01",
+        "pwr_mass": 6923,
+        "status": "confirmed",
+        "before_revid": 324111042,
+        "before_timestamp": "2009-11-05T17:11:27Z",
+        "after_revid": 324127928,
+        "after_timestamp": "2009-11-05T18:51:24Z",
+        "durable_spine_drop": 0.419014
+      },
+      "analysis_status": "unavailable",
+      "reason": "Expecting value: line 1 column 1 (char 0)"
+    }
+  ]
 }

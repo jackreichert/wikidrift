@@ -1,0 +1,1388 @@
+{
+  "article": "Democratic Party (United States)",
+  "pivot": "2023-01-01",
+  "span": "rev 1184243041 → rev 1184839521  (exact confirmation, 2023-11-09 → 2023-11-12)",
+  "mode": "pivot_relative",
+  "pivot_window": {
+    "start": "2023-01-01",
+    "end": "2025-01-01",
+    "pwr_mass": 211296,
+    "status": "confirmed",
+    "before_revid": 1184243041,
+    "before_timestamp": "2023-11-09T05:48:37Z",
+    "after_revid": 1184839521,
+    "after_timestamp": "2023-11-12T23:30:48Z",
+    "durable_spine_drop": 0.294443
+  },
+  "before": {
+    "date": "2023-11-09",
+    "rev": 1184243041,
+    "refs": 511,
+    "n_domains": 155,
+    "cite_mix": {
+      "web": 50,
+      "news": 31,
+      "book": 11,
+      "journal": 8
+    },
+    "domains": {
+      "democrats.org": 29,
+      "stonewalldems.org": 1,
+      "ballot-access.org": 1,
+      "huffingtonpost.com": 14,
+      "nytimes.com": 35,
+      "reuters.com": 5,
+      "theatlantic.com": 11,
+      "newyorker.com": 3,
+      "fivethirtyeight.com": 3,
+      "books.google.com": 20,
+      "washingtonpost.com": 20,
+      "online.norwich.edu": 2,
+      "archive.org": 8,
+      "britannica.com": 3,
+      "jstor.org": 8,
+      "politico.com": 11,
+      "news.bloomberglaw.com": 2,
+      "businessinsider.com": 1,
+      "thecut.com": 1,
+      "prospect.org": 3,
+      "npr.org": 10,
+      "themarshallproject.org": 2,
+      "thoughtco.com": 2,
+      "press.princeton.edu": 6,
+      "congress.gov": 1,
+      "nationalgeographic.com": 2,
+      "yalebooks.yale.edu": 2,
+      "oxfordhandbooks.com": 2,
+      "hup.harvard.edu": 4,
+      "vox.com": 3,
+      "law.cornell.edu": 2,
+      "bloomberg.com": 1,
+      "theguardian.com": 7,
+      "wsj.com": 4,
+      "aljazeera.com": 2,
+      "apnews.com": 6,
+      "usatoday.com": 3,
+      "thehill.com": 1,
+      "news.yahoo.com": 1,
+      "cnn.com": 30,
+      "pbs.org": 4,
+      "bbc.com": 1,
+      "cnbc.com": 5,
+      "ncsl.org": 1,
+      "foxnews.com": 2,
+      "gazette.com": 1,
+      "worldpress.org": 1,
+      "news.google.com": 3,
+      "wvsos.com": 4,
+      "ithaca.edu": 2,
+      "snopes.com": 1,
+      "brennancenter.org": 2,
+      "bangornews.com": 2,
+      "hamptonroads.com": 2,
+      "salon.com": 3,
+      "usnews.com": 4,
+      "democraticmayors.org": 2,
+      "ontheissues.org": 10,
+      "scholarsstrategynetwork.org": 2,
+      "democrats.edworkforce.house.gov": 2,
+      "wbur.org": 2,
+      "politicalticker.blogs.cnn.com": 2,
+      "irregulartimes.com": 2,
+      "journals.uchicago.edu": 1,
+      "muse.jhu.edu": 1,
+      "nowpublishers.com": 1,
+      "cambridge.org": 2,
+      "economics.about.com": 2,
+      "newsweek.com": 1,
+      "usinfo.state.gov": 2,
+      "nbcnews.com": 3,
+      "news.vice.com": 2,
+      "presidency.ucsb.edu": 6,
+      "clinton.senate.gov": 2,
+      "pewresearch.org": 23,
+      "news.gallup.com": 4,
+      "sciencedirect.com": 1,
+      "elgaronline.com": 1,
+      "thenation.com": 1,
+      "wayback.archive-it.org": 1,
+      "usliberals.about.com": 2,
+      "nybooks.com": 1,
+      "thegospelcoalition.org": 1,
+      "pollingreport.com": 10,
+      "demconvention.com": 5,
+      "msnbc.com": 2,
+      "senate.gov": 6,
+      "theconversation.com": 1,
+      "abcnews.go.com": 2,
+      "people-press.org": 8,
+      "gallup.com": 8,
+      "advocate.com": 2,
+      "cbsnews.com": 5,
+      "voices.washingtonpost.com": 2,
+      "obama.senate.gov": 2,
+      "ac360.blogs.cnn.com": 2,
+      "current.com": 2,
+      "thinkprogress.org": 2,
+      "governing.com": 1,
+      "queerty.com": 2,
+      "newser.com": 2,
+      "pewforum.org": 4,
+      "archive.today": 1,
+      "quinnipiac.edu": 2,
+      "boston.com": 4,
+      "news.brisbanetimes.com.au": 2,
+      "iht.com": 2,
+      "heraldsun.com.au": 2,
+      "haaretz.com": 4,
+      "timesofisrael.com": 3,
+      "nydailynews.com": 2,
+      "latimesblogs.latimes.com": 2,
+      "theaustralian.news.com.au": 2,
+      "manhattan-institute.org": 1,
+      "deseret.com": 1,
+      "axios.com": 1,
+      "oxford.universitypressscholarship.com": 1,
+      "newdemocratcoalition.house.gov": 2,
+      "newdemocratcoalition-kind.house.gov": 2,
+      "csmonitor.com": 1,
+      "semanticscholar.org": 1,
+      "economist.com": 1,
+      "dir.salon.com": 1,
+      "nymag.com": 2,
+      "bartleby.com": 2,
+      "www-personal.umd.umich.edu": 2,
+      "bungalow.com": 1,
+      "dailydot.com": 1,
+      "nationaljournal.com": 4,
+      "rollcall.com": 3,
+      "progressives.house.gov": 1,
+      "centerforpolitics.org": 1,
+      "newrepublic.com": 2,
+      "www4.cnn.com": 1,
+      "brookings.edu": 3,
+      "law.ucla.edu": 2,
+      "adl.org": 2,
+      "factcheck.org": 2,
+      "encyclopedia.com": 2,
+      "cbc.house.gov": 1,
+      "candidatecubawatch.blogspot.com": 2,
+      "articles.timesofindia.indiatimes.com": 2,
+      "ropercenter.cornell.edu": 1,
+      "teenvogue.com": 2,
+      "history.house.gov": 1,
+      "sltrib.com": 1,
+      "secular.org": 4,
+      "ajc.org": 1,
+      "voanews.com": 2,
+      "aaiusa.org": 3,
+      "business-standard.com": 2,
+      "arabamerica.com": 1,
+      "amazon.com": 3,
+      "wikipedialibrary.wmflabs.org": 1,
+      "people.bu.edu": 2
+    }
+  },
+  "after": {
+    "date": "2023-11-12",
+    "rev": 1184839521,
+    "refs": 365,
+    "n_domains": 131,
+    "cite_mix": {
+      "web": 50,
+      "news": 27,
+      "book": 13,
+      "journal": 10
+    },
+    "domains": {
+      "democrats.org": 29,
+      "stonewalldems.org": 1,
+      "ballot-access.org": 1,
+      "huffingtonpost.com": 14,
+      "nytimes.com": 21,
+      "reuters.com": 2,
+      "theatlantic.com": 7,
+      "newyorker.com": 2,
+      "fivethirtyeight.com": 3,
+      "books.google.com": 15,
+      "washingtonpost.com": 16,
+      "online.norwich.edu": 2,
+      "archive.org": 8,
+      "britannica.com": 3,
+      "jstor.org": 8,
+      "politico.com": 6,
+      "gallup.com": 8,
+      "news.bloomberglaw.com": 2,
+      "businessinsider.com": 1,
+      "thecut.com": 1,
+      "prospect.org": 1,
+      "npr.org": 7,
+      "themarshallproject.org": 2,
+      "thoughtco.com": 2,
+      "press.princeton.edu": 6,
+      "congress.gov": 1,
+      "nationalgeographic.com": 2,
+      "yalebooks.yale.edu": 2,
+      "oxfordhandbooks.com": 2,
+      "hup.harvard.edu": 4,
+      "vox.com": 3,
+      "law.cornell.edu": 2,
+      "bloomberg.com": 1,
+      "theguardian.com": 6,
+      "wsj.com": 2,
+      "aljazeera.com": 2,
+      "apnews.com": 5,
+      "usatoday.com": 1,
+      "thehill.com": 1,
+      "news.yahoo.com": 1,
+      "cnn.com": 13,
+      "pbs.org": 2,
+      "bbc.com": 1,
+      "cnbc.com": 4,
+      "ncsl.org": 1,
+      "foxnews.com": 2,
+      "gazette.com": 1,
+      "worldpress.org": 1,
+      "news.google.com": 3,
+      "wvsos.com": 4,
+      "ithaca.edu": 2,
+      "snopes.com": 1,
+      "brennancenter.org": 2,
+      "bangornews.com": 2,
+      "hamptonroads.com": 2,
+      "salon.com": 3,
+      "usnews.com": 4,
+      "democraticmayors.org": 2,
+      "ontheissues.org": 10,
+      "scholarsstrategynetwork.org": 2,
+      "democrats.edworkforce.house.gov": 2,
+      "wbur.org": 2,
+      "politicalticker.blogs.cnn.com": 2,
+      "irregulartimes.com": 2,
+      "journals.uchicago.edu": 1,
+      "muse.jhu.edu": 1,
+      "nowpublishers.com": 1,
+      "cambridge.org": 1,
+      "economics.about.com": 2,
+      "newsweek.com": 1,
+      "usinfo.state.gov": 2,
+      "nbcnews.com": 2,
+      "news.vice.com": 2,
+      "presidency.ucsb.edu": 6,
+      "clinton.senate.gov": 2,
+      "pewresearch.org": 14,
+      "news.gallup.com": 3,
+      "sciencedirect.com": 1,
+      "elgaronline.com": 1,
+      "thenation.com": 1,
+      "wayback.archive-it.org": 1,
+      "usliberals.about.com": 2,
+      "nybooks.com": 1,
+      "thegospelcoalition.org": 1,
+      "pollingreport.com": 2,
+      "demconvention.com": 5,
+      "msnbc.com": 2,
+      "senate.gov": 6,
+      "theconversation.com": 1,
+      "abcnews.go.com": 2,
+      "people-press.org": 6,
+      "advocate.com": 2,
+      "cbsnews.com": 3,
+      "voices.washingtonpost.com": 2,
+      "obama.senate.gov": 2,
+      "ac360.blogs.cnn.com": 2,
+      "current.com": 2,
+      "thinkprogress.org": 2,
+      "governing.com": 1,
+      "queerty.com": 2,
+      "newser.com": 2,
+      "pewforum.org": 3,
+      "archive.today": 1,
+      "quinnipiac.edu": 2,
+      "haaretz.com": 2,
+      "timesofisrael.com": 3,
+      "boston.com": 2,
+      "nydailynews.com": 2,
+      "latimesblogs.latimes.com": 2,
+      "theaustralian.news.com.au": 2,
+      "ropercenter.cornell.edu": 1,
+      "law.ucla.edu": 2,
+      "factcheck.org": 2,
+      "oxford.universitypressscholarship.com": 1,
+      "newdemocratcoalition.house.gov": 2,
+      "newdemocratcoalition-kind.house.gov": 2,
+      "csmonitor.com": 1,
+      "semanticscholar.org": 1,
+      "economist.com": 1,
+      "dir.salon.com": 1,
+      "nymag.com": 1,
+      "bartleby.com": 2,
+      "www-personal.umd.umich.edu": 2,
+      "bungalow.com": 1,
+      "dailydot.com": 1,
+      "nationaljournal.com": 2,
+      "rollcall.com": 2,
+      "progressives.house.gov": 1,
+      "amazon.com": 3,
+      "wikipedialibrary.wmflabs.org": 1,
+      "people.bu.edu": 2
+    }
+  },
+  "added": [],
+  "dropped": [
+    {
+      "domain": "cnn.com",
+      "from": 30,
+      "to": 13
+    },
+    {
+      "domain": "nytimes.com",
+      "from": 35,
+      "to": 21
+    },
+    {
+      "domain": "pewresearch.org",
+      "from": 23,
+      "to": 14
+    },
+    {
+      "domain": "pollingreport.com",
+      "from": 10,
+      "to": 2
+    },
+    {
+      "domain": "books.google.com",
+      "from": 20,
+      "to": 15
+    },
+    {
+      "domain": "politico.com",
+      "from": 11,
+      "to": 6
+    },
+    {
+      "domain": "washingtonpost.com",
+      "from": 20,
+      "to": 16
+    },
+    {
+      "domain": "theatlantic.com",
+      "from": 11,
+      "to": 7
+    },
+    {
+      "domain": "secular.org",
+      "from": 4,
+      "to": 0
+    },
+    {
+      "domain": "reuters.com",
+      "from": 5,
+      "to": 2
+    },
+    {
+      "domain": "aaiusa.org",
+      "from": 3,
+      "to": 0
+    },
+    {
+      "domain": "npr.org",
+      "from": 10,
+      "to": 7
+    },
+    {
+      "domain": "brookings.edu",
+      "from": 3,
+      "to": 0
+    },
+    {
+      "domain": "iht.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "boston.com",
+      "from": 4,
+      "to": 2
+    },
+    {
+      "domain": "haaretz.com",
+      "from": 4,
+      "to": 2
+    },
+    {
+      "domain": "prospect.org",
+      "from": 3,
+      "to": 1
+    },
+    {
+      "domain": "people-press.org",
+      "from": 8,
+      "to": 6
+    },
+    {
+      "domain": "nationaljournal.com",
+      "from": 4,
+      "to": 2
+    },
+    {
+      "domain": "newrepublic.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "voanews.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "news.brisbanetimes.com.au",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "cbsnews.com",
+      "from": 5,
+      "to": 3
+    },
+    {
+      "domain": "pbs.org",
+      "from": 4,
+      "to": 2
+    },
+    {
+      "domain": "encyclopedia.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "candidatecubawatch.blogspot.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "wsj.com",
+      "from": 4,
+      "to": 2
+    },
+    {
+      "domain": "heraldsun.com.au",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "articles.timesofindia.indiatimes.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "business-standard.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "adl.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "teenvogue.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "usatoday.com",
+      "from": 3,
+      "to": 1
+    },
+    {
+      "domain": "arabamerica.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "cambridge.org",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "cbc.house.gov",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "www4.cnn.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "theguardian.com",
+      "from": 7,
+      "to": 6
+    },
+    {
+      "domain": "apnews.com",
+      "from": 6,
+      "to": 5
+    },
+    {
+      "domain": "manhattan-institute.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "sltrib.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "nymag.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "history.house.gov",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "news.gallup.com",
+      "from": 4,
+      "to": 3
+    },
+    {
+      "domain": "centerforpolitics.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "deseret.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "cnbc.com",
+      "from": 5,
+      "to": 4
+    },
+    {
+      "domain": "axios.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "pewforum.org",
+      "from": 4,
+      "to": 3
+    },
+    {
+      "domain": "rollcall.com",
+      "from": 3,
+      "to": 2
+    },
+    {
+      "domain": "nbcnews.com",
+      "from": 3,
+      "to": 2
+    },
+    {
+      "domain": "newyorker.com",
+      "from": 3,
+      "to": 2
+    },
+    {
+      "domain": "ajc.org",
+      "from": 1,
+      "to": 0
+    }
+  ],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+  "schema_version": 1,
+  "analysis_scope": "confirmed_episodes",
+  "episode_count": 2,
+  "episodes": [
+    {
+      "article": "Democratic Party (United States)",
+      "pivot": "2023-01-01",
+      "span": "rev 1184243041 → rev 1184839521  (exact confirmation, 2023-11-09 → 2023-11-12)",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2023-01-01",
+        "end": "2025-01-01",
+        "pwr_mass": 211296,
+        "status": "confirmed",
+        "before_revid": 1184243041,
+        "before_timestamp": "2023-11-09T05:48:37Z",
+        "after_revid": 1184839521,
+        "after_timestamp": "2023-11-12T23:30:48Z",
+        "durable_spine_drop": 0.294443
+      },
+      "before": {
+        "date": "2023-11-09",
+        "rev": 1184243041,
+        "refs": 511,
+        "n_domains": 155,
+        "cite_mix": {
+          "web": 50,
+          "news": 31,
+          "book": 11,
+          "journal": 8
+        },
+        "domains": {
+          "democrats.org": 29,
+          "stonewalldems.org": 1,
+          "ballot-access.org": 1,
+          "huffingtonpost.com": 14,
+          "nytimes.com": 35,
+          "reuters.com": 5,
+          "theatlantic.com": 11,
+          "newyorker.com": 3,
+          "fivethirtyeight.com": 3,
+          "books.google.com": 20,
+          "washingtonpost.com": 20,
+          "online.norwich.edu": 2,
+          "archive.org": 8,
+          "britannica.com": 3,
+          "jstor.org": 8,
+          "politico.com": 11,
+          "news.bloomberglaw.com": 2,
+          "businessinsider.com": 1,
+          "thecut.com": 1,
+          "prospect.org": 3,
+          "npr.org": 10,
+          "themarshallproject.org": 2,
+          "thoughtco.com": 2,
+          "press.princeton.edu": 6,
+          "congress.gov": 1,
+          "nationalgeographic.com": 2,
+          "yalebooks.yale.edu": 2,
+          "oxfordhandbooks.com": 2,
+          "hup.harvard.edu": 4,
+          "vox.com": 3,
+          "law.cornell.edu": 2,
+          "bloomberg.com": 1,
+          "theguardian.com": 7,
+          "wsj.com": 4,
+          "aljazeera.com": 2,
+          "apnews.com": 6,
+          "usatoday.com": 3,
+          "thehill.com": 1,
+          "news.yahoo.com": 1,
+          "cnn.com": 30,
+          "pbs.org": 4,
+          "bbc.com": 1,
+          "cnbc.com": 5,
+          "ncsl.org": 1,
+          "foxnews.com": 2,
+          "gazette.com": 1,
+          "worldpress.org": 1,
+          "news.google.com": 3,
+          "wvsos.com": 4,
+          "ithaca.edu": 2,
+          "snopes.com": 1,
+          "brennancenter.org": 2,
+          "bangornews.com": 2,
+          "hamptonroads.com": 2,
+          "salon.com": 3,
+          "usnews.com": 4,
+          "democraticmayors.org": 2,
+          "ontheissues.org": 10,
+          "scholarsstrategynetwork.org": 2,
+          "democrats.edworkforce.house.gov": 2,
+          "wbur.org": 2,
+          "politicalticker.blogs.cnn.com": 2,
+          "irregulartimes.com": 2,
+          "journals.uchicago.edu": 1,
+          "muse.jhu.edu": 1,
+          "nowpublishers.com": 1,
+          "cambridge.org": 2,
+          "economics.about.com": 2,
+          "newsweek.com": 1,
+          "usinfo.state.gov": 2,
+          "nbcnews.com": 3,
+          "news.vice.com": 2,
+          "presidency.ucsb.edu": 6,
+          "clinton.senate.gov": 2,
+          "pewresearch.org": 23,
+          "news.gallup.com": 4,
+          "sciencedirect.com": 1,
+          "elgaronline.com": 1,
+          "thenation.com": 1,
+          "wayback.archive-it.org": 1,
+          "usliberals.about.com": 2,
+          "nybooks.com": 1,
+          "thegospelcoalition.org": 1,
+          "pollingreport.com": 10,
+          "demconvention.com": 5,
+          "msnbc.com": 2,
+          "senate.gov": 6,
+          "theconversation.com": 1,
+          "abcnews.go.com": 2,
+          "people-press.org": 8,
+          "gallup.com": 8,
+          "advocate.com": 2,
+          "cbsnews.com": 5,
+          "voices.washingtonpost.com": 2,
+          "obama.senate.gov": 2,
+          "ac360.blogs.cnn.com": 2,
+          "current.com": 2,
+          "thinkprogress.org": 2,
+          "governing.com": 1,
+          "queerty.com": 2,
+          "newser.com": 2,
+          "pewforum.org": 4,
+          "archive.today": 1,
+          "quinnipiac.edu": 2,
+          "boston.com": 4,
+          "news.brisbanetimes.com.au": 2,
+          "iht.com": 2,
+          "heraldsun.com.au": 2,
+          "haaretz.com": 4,
+          "timesofisrael.com": 3,
+          "nydailynews.com": 2,
+          "latimesblogs.latimes.com": 2,
+          "theaustralian.news.com.au": 2,
+          "manhattan-institute.org": 1,
+          "deseret.com": 1,
+          "axios.com": 1,
+          "oxford.universitypressscholarship.com": 1,
+          "newdemocratcoalition.house.gov": 2,
+          "newdemocratcoalition-kind.house.gov": 2,
+          "csmonitor.com": 1,
+          "semanticscholar.org": 1,
+          "economist.com": 1,
+          "dir.salon.com": 1,
+          "nymag.com": 2,
+          "bartleby.com": 2,
+          "www-personal.umd.umich.edu": 2,
+          "bungalow.com": 1,
+          "dailydot.com": 1,
+          "nationaljournal.com": 4,
+          "rollcall.com": 3,
+          "progressives.house.gov": 1,
+          "centerforpolitics.org": 1,
+          "newrepublic.com": 2,
+          "www4.cnn.com": 1,
+          "brookings.edu": 3,
+          "law.ucla.edu": 2,
+          "adl.org": 2,
+          "factcheck.org": 2,
+          "encyclopedia.com": 2,
+          "cbc.house.gov": 1,
+          "candidatecubawatch.blogspot.com": 2,
+          "articles.timesofindia.indiatimes.com": 2,
+          "ropercenter.cornell.edu": 1,
+          "teenvogue.com": 2,
+          "history.house.gov": 1,
+          "sltrib.com": 1,
+          "secular.org": 4,
+          "ajc.org": 1,
+          "voanews.com": 2,
+          "aaiusa.org": 3,
+          "business-standard.com": 2,
+          "arabamerica.com": 1,
+          "amazon.com": 3,
+          "wikipedialibrary.wmflabs.org": 1,
+          "people.bu.edu": 2
+        }
+      },
+      "after": {
+        "date": "2023-11-12",
+        "rev": 1184839521,
+        "refs": 365,
+        "n_domains": 131,
+        "cite_mix": {
+          "web": 50,
+          "news": 27,
+          "book": 13,
+          "journal": 10
+        },
+        "domains": {
+          "democrats.org": 29,
+          "stonewalldems.org": 1,
+          "ballot-access.org": 1,
+          "huffingtonpost.com": 14,
+          "nytimes.com": 21,
+          "reuters.com": 2,
+          "theatlantic.com": 7,
+          "newyorker.com": 2,
+          "fivethirtyeight.com": 3,
+          "books.google.com": 15,
+          "washingtonpost.com": 16,
+          "online.norwich.edu": 2,
+          "archive.org": 8,
+          "britannica.com": 3,
+          "jstor.org": 8,
+          "politico.com": 6,
+          "gallup.com": 8,
+          "news.bloomberglaw.com": 2,
+          "businessinsider.com": 1,
+          "thecut.com": 1,
+          "prospect.org": 1,
+          "npr.org": 7,
+          "themarshallproject.org": 2,
+          "thoughtco.com": 2,
+          "press.princeton.edu": 6,
+          "congress.gov": 1,
+          "nationalgeographic.com": 2,
+          "yalebooks.yale.edu": 2,
+          "oxfordhandbooks.com": 2,
+          "hup.harvard.edu": 4,
+          "vox.com": 3,
+          "law.cornell.edu": 2,
+          "bloomberg.com": 1,
+          "theguardian.com": 6,
+          "wsj.com": 2,
+          "aljazeera.com": 2,
+          "apnews.com": 5,
+          "usatoday.com": 1,
+          "thehill.com": 1,
+          "news.yahoo.com": 1,
+          "cnn.com": 13,
+          "pbs.org": 2,
+          "bbc.com": 1,
+          "cnbc.com": 4,
+          "ncsl.org": 1,
+          "foxnews.com": 2,
+          "gazette.com": 1,
+          "worldpress.org": 1,
+          "news.google.com": 3,
+          "wvsos.com": 4,
+          "ithaca.edu": 2,
+          "snopes.com": 1,
+          "brennancenter.org": 2,
+          "bangornews.com": 2,
+          "hamptonroads.com": 2,
+          "salon.com": 3,
+          "usnews.com": 4,
+          "democraticmayors.org": 2,
+          "ontheissues.org": 10,
+          "scholarsstrategynetwork.org": 2,
+          "democrats.edworkforce.house.gov": 2,
+          "wbur.org": 2,
+          "politicalticker.blogs.cnn.com": 2,
+          "irregulartimes.com": 2,
+          "journals.uchicago.edu": 1,
+          "muse.jhu.edu": 1,
+          "nowpublishers.com": 1,
+          "cambridge.org": 1,
+          "economics.about.com": 2,
+          "newsweek.com": 1,
+          "usinfo.state.gov": 2,
+          "nbcnews.com": 2,
+          "news.vice.com": 2,
+          "presidency.ucsb.edu": 6,
+          "clinton.senate.gov": 2,
+          "pewresearch.org": 14,
+          "news.gallup.com": 3,
+          "sciencedirect.com": 1,
+          "elgaronline.com": 1,
+          "thenation.com": 1,
+          "wayback.archive-it.org": 1,
+          "usliberals.about.com": 2,
+          "nybooks.com": 1,
+          "thegospelcoalition.org": 1,
+          "pollingreport.com": 2,
+          "demconvention.com": 5,
+          "msnbc.com": 2,
+          "senate.gov": 6,
+          "theconversation.com": 1,
+          "abcnews.go.com": 2,
+          "people-press.org": 6,
+          "advocate.com": 2,
+          "cbsnews.com": 3,
+          "voices.washingtonpost.com": 2,
+          "obama.senate.gov": 2,
+          "ac360.blogs.cnn.com": 2,
+          "current.com": 2,
+          "thinkprogress.org": 2,
+          "governing.com": 1,
+          "queerty.com": 2,
+          "newser.com": 2,
+          "pewforum.org": 3,
+          "archive.today": 1,
+          "quinnipiac.edu": 2,
+          "haaretz.com": 2,
+          "timesofisrael.com": 3,
+          "boston.com": 2,
+          "nydailynews.com": 2,
+          "latimesblogs.latimes.com": 2,
+          "theaustralian.news.com.au": 2,
+          "ropercenter.cornell.edu": 1,
+          "law.ucla.edu": 2,
+          "factcheck.org": 2,
+          "oxford.universitypressscholarship.com": 1,
+          "newdemocratcoalition.house.gov": 2,
+          "newdemocratcoalition-kind.house.gov": 2,
+          "csmonitor.com": 1,
+          "semanticscholar.org": 1,
+          "economist.com": 1,
+          "dir.salon.com": 1,
+          "nymag.com": 1,
+          "bartleby.com": 2,
+          "www-personal.umd.umich.edu": 2,
+          "bungalow.com": 1,
+          "dailydot.com": 1,
+          "nationaljournal.com": 2,
+          "rollcall.com": 2,
+          "progressives.house.gov": 1,
+          "amazon.com": 3,
+          "wikipedialibrary.wmflabs.org": 1,
+          "people.bu.edu": 2
+        }
+      },
+      "added": [],
+      "dropped": [
+        {
+          "domain": "cnn.com",
+          "from": 30,
+          "to": 13
+        },
+        {
+          "domain": "nytimes.com",
+          "from": 35,
+          "to": 21
+        },
+        {
+          "domain": "pewresearch.org",
+          "from": 23,
+          "to": 14
+        },
+        {
+          "domain": "pollingreport.com",
+          "from": 10,
+          "to": 2
+        },
+        {
+          "domain": "books.google.com",
+          "from": 20,
+          "to": 15
+        },
+        {
+          "domain": "politico.com",
+          "from": 11,
+          "to": 6
+        },
+        {
+          "domain": "washingtonpost.com",
+          "from": 20,
+          "to": 16
+        },
+        {
+          "domain": "theatlantic.com",
+          "from": 11,
+          "to": 7
+        },
+        {
+          "domain": "secular.org",
+          "from": 4,
+          "to": 0
+        },
+        {
+          "domain": "reuters.com",
+          "from": 5,
+          "to": 2
+        },
+        {
+          "domain": "aaiusa.org",
+          "from": 3,
+          "to": 0
+        },
+        {
+          "domain": "npr.org",
+          "from": 10,
+          "to": 7
+        },
+        {
+          "domain": "brookings.edu",
+          "from": 3,
+          "to": 0
+        },
+        {
+          "domain": "iht.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "boston.com",
+          "from": 4,
+          "to": 2
+        },
+        {
+          "domain": "haaretz.com",
+          "from": 4,
+          "to": 2
+        },
+        {
+          "domain": "prospect.org",
+          "from": 3,
+          "to": 1
+        },
+        {
+          "domain": "people-press.org",
+          "from": 8,
+          "to": 6
+        },
+        {
+          "domain": "nationaljournal.com",
+          "from": 4,
+          "to": 2
+        },
+        {
+          "domain": "newrepublic.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "voanews.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "news.brisbanetimes.com.au",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "cbsnews.com",
+          "from": 5,
+          "to": 3
+        },
+        {
+          "domain": "pbs.org",
+          "from": 4,
+          "to": 2
+        },
+        {
+          "domain": "encyclopedia.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "candidatecubawatch.blogspot.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "wsj.com",
+          "from": 4,
+          "to": 2
+        },
+        {
+          "domain": "heraldsun.com.au",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "articles.timesofindia.indiatimes.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "business-standard.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "adl.org",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "teenvogue.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "usatoday.com",
+          "from": 3,
+          "to": 1
+        },
+        {
+          "domain": "arabamerica.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "cambridge.org",
+          "from": 2,
+          "to": 1
+        },
+        {
+          "domain": "cbc.house.gov",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "www4.cnn.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "theguardian.com",
+          "from": 7,
+          "to": 6
+        },
+        {
+          "domain": "apnews.com",
+          "from": 6,
+          "to": 5
+        },
+        {
+          "domain": "manhattan-institute.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "sltrib.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "nymag.com",
+          "from": 2,
+          "to": 1
+        },
+        {
+          "domain": "history.house.gov",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "news.gallup.com",
+          "from": 4,
+          "to": 3
+        },
+        {
+          "domain": "centerforpolitics.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "deseret.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "cnbc.com",
+          "from": 5,
+          "to": 4
+        },
+        {
+          "domain": "axios.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "pewforum.org",
+          "from": 4,
+          "to": 3
+        },
+        {
+          "domain": "rollcall.com",
+          "from": 3,
+          "to": 2
+        },
+        {
+          "domain": "nbcnews.com",
+          "from": 3,
+          "to": 2
+        },
+        {
+          "domain": "newyorker.com",
+          "from": 3,
+          "to": 2
+        },
+        {
+          "domain": "ajc.org",
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+      "episode_id": "1184243041-1184839521",
+      "episode_index": 1,
+      "episode_window": {
+        "start": "2023-01-01",
+        "end": "2025-01-01",
+        "pwr_mass": 211296,
+        "status": "confirmed",
+        "before_revid": 1184243041,
+        "before_timestamp": "2023-11-09T05:48:37Z",
+        "after_revid": 1184839521,
+        "after_timestamp": "2023-11-12T23:30:48Z",
+        "durable_spine_drop": 0.294443
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Democratic Party (United States)",
+      "pivot": "2007-01-01",
+      "span": "rev 122338208 → rev 122346077  (exact confirmation, 2007-04-12 → 2007-04-12)",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2007-01-01",
+        "end": "2009-01-01",
+        "pwr_mass": 28810,
+        "status": "confirmed",
+        "before_revid": 122338208,
+        "before_timestamp": "2007-04-12T22:11:59Z",
+        "after_revid": 122346077,
+        "after_timestamp": "2007-04-12T22:45:01Z",
+        "durable_spine_drop": 0.798041
+      },
+      "before": {
+        "date": "2007-04-12",
+        "rev": 122338208,
+        "refs": 21,
+        "n_domains": 35,
+        "cite_mix": {
+          "news": 82,
+          "web": 18
+        },
+        "domains": {
+          "democrats.org": 5,
+          "msnbc.msn.com": 1,
+          "energycommerce.house.gov": 1,
+          "tedkennedy.com": 1,
+          "clinton.senate.gov": 1,
+          "washingtonpost.com": 1,
+          "thenation.com": 2,
+          "select.nytimes.com": 1,
+          "commondreams.org": 1,
+          "post-gazette.com": 1,
+          "weeklystandard.com": 1,
+          "blogforamerica.com": 1,
+          "nytimes.com": 1,
+          "ssl.tnr.com": 1,
+          "inthesetimes.com": 1,
+          "time.com": 1,
+          "nydailynews.com": 1,
+          "latimes.com": 1,
+          "memory.loc.gov": 1,
+          "pbs.org": 1,
+          "afoolintheforest.com": 1,
+          "salon.com": 1,
+          "questia.com": 1,
+          "democrats.senate.gov": 1,
+          "housedemocrats.gov": 1,
+          "dscc.org": 1,
+          "dccc.org": 1,
+          "dlcc.org": 1,
+          "democraticgovernors.org": 1,
+          "democraticags.org": 1,
+          "collegedems.com": 1,
+          "yda.org": 1,
+          "democratsabroad.org": 1,
+          "presidency.ucsb.edu": 1,
+          "a9.g.akamai.net": 1
+        }
+      },
+      "after": {
+        "date": "2007-04-12",
+        "rev": 122346077,
+        "refs": 14,
+        "n_domains": 25,
+        "cite_mix": {
+          "news": 71,
+          "web": 29
+        },
+        "domains": {
+          "democrats.org": 5,
+          "msnbc.msn.com": 1,
+          "energycommerce.house.gov": 1,
+          "tedkennedy.com": 1,
+          "clinton.senate.gov": 1,
+          "washingtonpost.com": 1,
+          "thenation.com": 2,
+          "latimes.com": 1,
+          "memory.loc.gov": 1,
+          "pbs.org": 1,
+          "afoolintheforest.com": 1,
+          "salon.com": 1,
+          "questia.com": 1,
+          "democrats.senate.gov": 1,
+          "housedemocrats.gov": 1,
+          "dscc.org": 1,
+          "dccc.org": 1,
+          "dlcc.org": 1,
+          "democraticgovernors.org": 1,
+          "democraticags.org": 1,
+          "collegedems.com": 1,
+          "yda.org": 1,
+          "democratsabroad.org": 1,
+          "presidency.ucsb.edu": 1,
+          "a9.g.akamai.net": 1
+        }
+      },
+      "added": [],
+      "dropped": [
+        {
+          "domain": "nydailynews.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "weeklystandard.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "inthesetimes.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "nytimes.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "blogforamerica.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "post-gazette.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "ssl.tnr.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "time.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "select.nytimes.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "commondreams.org",
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+      "episode_id": "122338208-122346077",
+      "episode_index": 2,
+      "episode_window": {
+        "start": "2007-01-01",
+        "end": "2009-01-01",
+        "pwr_mass": 28810,
+        "status": "confirmed",
+        "before_revid": 122338208,
+        "before_timestamp": "2007-04-12T22:11:59Z",
+        "after_revid": 122346077,
+        "after_timestamp": "2007-04-12T22:45:01Z",
+        "durable_spine_drop": 0.798041
+      },
+      "analysis_status": "available"
+    }
+  ]
+}

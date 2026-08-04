@@ -5,13 +5,17 @@ Values are unchanged from the spikes that validated them (005-analyzer, 008-prer
 """
 # --- L1 drift engine thresholds (from 005-analyzer) -------------------------
 MIN_COHORT = 500        # refine: min durable-spine tokens needed to binary-search a drop
-MIN_MATURE = 15000      # only analyze once the article has >= this many tokens (skip stub-era churn)
+MIN_MATURE = 1000       # exact-check floor: top persistence half can still satisfy MIN_COHORT
 MAG_FLOOR = 25.0        # min persistence-weighted loss % in an interval to consider a PIVOT
 CONFIRM_DROP = 0.20     # binary search must confirm the durable spine declined by >= this fraction
 CREEP_MEAN = 8.0        # sustained mean weighted-loss above this (no single pivot) = CREEP
 DURABLE_Q = 0.50        # refine cohort = tokens present at interval start above this persistence quantile
 RECENT_YEARS = 3.0      # episodes ending within this of the horizon are tagged "recent" (else "standing")
 ELEVATED = 15.0         # per-interval loss % that starts/extends an episode (build_episodes)
+GAIN_FLOOR = 15.0       # provisional recall-first persistent-gain candidate floor
+REPLACEMENT_FLOOR = 10.0  # provisional floor when persistent loss and gain occur together
+EXTREME_CHANGE = 50.0   # extreme percentage escalates priority even when absolute mass is small
+REVIEW_MASS_FLOOR = 10_000  # medium-priority review tier; never suppresses a candidate
 
 # --- metadata pre-ranker thresholds (from 008-prerank) ----------------------
 BIN_DAYS = 180          # calendar bin width for byte-delta binning
@@ -41,6 +45,19 @@ def confirmation_thresholds():
 		"rolling_window_months": ROLLING_WINDOW_MONTHS,
 		"rolling_tolerance_days": ROLLING_TOLERANCE_DAYS,
 		"rolling_drop": ROLLING_DROP,
+	}
+
+
+def sweep_thresholds():
+	"""Return the additive recall-sweep contract, separate from exact-result freshness."""
+	return {
+		"min_confirmable_tokens": MIN_MATURE,
+		"loss_floor": ELEVATED,
+		"gain_floor": GAIN_FLOOR,
+		"replacement_floor": REPLACEMENT_FLOOR,
+		"extreme_change": EXTREME_CHANGE,
+		"review_mass_floor": REVIEW_MASS_FLOOR,
+		"high_mass_floor": MASS_FLOOR,
 	}
 
 # --- benchmark (from 009-benchmark) -----------------------------------------

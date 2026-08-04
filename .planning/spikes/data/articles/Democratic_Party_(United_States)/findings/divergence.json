@@ -1,0 +1,58 @@
+{
+  "static": {
+    "Democratic Party (United States)": {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "model_contract": {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "prompt_version": "stance-v3"
+      },
+      "variants": {
+        "lead": {
+          "divergence": 0.0,
+          "spreads": {
+            "Democratic Party (United States)": 0
+          }
+        },
+        "focal": {
+          "divergence": 1.0,
+          "spreads": {
+            "Democratic Party (United States)": 1
+          }
+        }
+      }
+    }
+  },
+  "pivot_relative": {
+    "Democratic Party (United States)": {
+      "pivot": "2023-01-01",
+      "pivot_source": "confirmed L1",
+      "en_gap_before": 0.0,
+      "en_gap_after": 0.0,
+      "read": "no net change",
+      "before": {
+        "en": {
+          "Democratic Party (United States)": 0
+        },
+        "es": {
+          "Democratic Party (United States)": 0
+        },
+        "uk": {
+          "Democratic Party (United States)": 0
+        }
+      },
+      "after": {
+        "en": {
+          "Democratic Party (United States)": 0
+        },
+        "es": {
+          "Democratic Party (United States)": 0
+        },
+        "uk": {
+          "Democratic Party (United States)": 0
+        }
+      }
+    }
+  }
+}

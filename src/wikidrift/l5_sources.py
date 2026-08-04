@@ -96,11 +96,17 @@ def _deltas(early, late):
     return added, dropped
 
 
-def sources_over_time(article, max_snaps=12, persist=True):
+def sources_over_time(article, max_snaps=12, persist=True, window=None):
     """Citation-source composition trajectory for one article + growth (first→last and across the L1 pivot).
     Prints a report and writes findings/<slug>.sources.json. Reference-agnostic; no LLM."""
     con = duckdb.connect(str(config.DB), read_only=True)
-    snaps = _snaps(con, article)
+    if window and window.get("status") == "confirmed":
+        snaps = [
+            (window["before_timestamp"][:10], window["before_revid"]),
+            (window["after_timestamp"][:10], window["after_revid"]),
+        ]
+    else:
+        snaps = _snaps(con, article)
     pivot = None
     try:                                            # offline L1 pivot (top episode start), if any
         v = drift.verdict_dict(con, article)
@@ -111,7 +117,9 @@ def sources_over_time(article, max_snaps=12, persist=True):
     con.close()
     if not snaps:
         print(f"  no snapshots for {article}"); return None
-    if max_snaps and len(snaps) > max_snaps:        # even-sample to bound Action-API fetches
+    if window and window.get("status") == "confirmed":
+        pivot = window["start"]
+    elif max_snaps and len(snaps) > max_snaps:      # even-sample to bound Action-API fetches
         step = len(snaps) / max_snaps
         idx = sorted({int(i * step) for i in range(max_snaps)} | {len(snaps) - 1})
         snaps = [snaps[i] for i in idx]
@@ -125,7 +133,13 @@ def sources_over_time(article, max_snaps=12, persist=True):
 
     # Anchor to the L1 pivot: compare the state just BEFORE the pivot to now — "what the sourcing changed
     # from → to, across the pivot". No pivot ⇒ fall back to whole-history first→now (stated as such).
-    if pivot:
+    if window and window.get("status") == "confirmed":
+        pre_row = traj[0]
+        span = (
+            f"rev {pre_row[1]} → rev {last_row[1]}  "
+            f"(exact confirmation, {pre_row[0]} → {last_row[0]})"
+        )
+    elif pivot:
         pre_row = max((r for r in traj if r[0] <= pivot), default=traj[0], key=lambda r: r[0])
         span = f"{pre_row[0]} → {last_row[0]}  (across the L1 pivot ~{pivot})"
     else:
@@ -153,9 +167,13 @@ def sources_over_time(article, max_snaps=12, persist=True):
 
     out = {
         "article": article, "pivot": pivot, "span": span,
-        "before": {"date": pre_row[0], "refs": pre["refs"], "n_domains": pre["n_domains"],
+        "mode": "pivot_relative" if window and window.get("status") == "confirmed" else "trajectory",
+        "pivot_window": window,
+        "before": {"date": pre_row[0], "rev": pre_row[1],
+                   "refs": pre["refs"], "n_domains": pre["n_domains"],
                    "cite_mix": _mix(pre), "domains": pre["domains"]},
-        "after": {"date": last_row[0], "refs": now["refs"], "n_domains": now["n_domains"],
+        "after": {"date": last_row[0], "rev": last_row[1],
+                  "refs": now["refs"], "n_domains": now["n_domains"],
                   "cite_mix": _mix(now), "domains": now["domains"]},
         "added": [{"domain": d, "from": e, "to": l} for d, dl, e, l in added],
         "dropped": [{"domain": d, "from": e, "to": l} for d, dl, e, l in dropped],

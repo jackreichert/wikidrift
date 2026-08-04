@@ -275,28 +275,51 @@ def _write_article_identities(articles_dir: Path, identities: list[provenance.Re
 
 
 def _stage_name(command: list[str]) -> str:
+    return _stage_command(command)[0]
+
+
+def _stage_command(command: list[str]) -> list[str]:
     for entrypoint in ("wikidrift.cli", "wikidrift"):
         try:
-            return command[command.index(entrypoint) + 1]
+            stage_command = command[command.index(entrypoint) + 1:]
         except (ValueError, IndexError):
             continue
+        if stage_command:
+            return stage_command
     raise ValueError(f"not a wikidrift command: {command!r}")
 
 
-def _load_completed_stages(state_path: Path) -> list[str]:
+def _load_coverage_state(state_path: Path) -> tuple[list[str], dict[str, list[str]]]:
     try:
         payload = json.loads(state_path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError):
-        return []
+        return [], {}
     stages = payload.get("completed_stages") or []
-    return [stage for stage in stages if isinstance(stage, str)]
+    commands = payload.get("completed_stage_commands") or {}
+    completed_stages = [stage for stage in stages if isinstance(stage, str)]
+    completed_commands = {
+        stage: command
+        for stage, command in commands.items()
+        if (
+            isinstance(stage, str)
+            and isinstance(command, list)
+            and all(isinstance(argument, str) for argument in command)
+        )
+    } if isinstance(commands, dict) else {}
+    return completed_stages, completed_commands
 
 
-def _write_coverage_state(state_path: Path, topic: str, completed_stages: list[str]) -> None:
+def _write_coverage_state(
+    state_path: Path,
+    topic: str,
+    completed_stages: list[str],
+    completed_commands: dict[str, list[str]],
+) -> None:
     payload = {
         "article": topic,
         "updated_ts": dt.datetime.now(dt.timezone.utc).isoformat(),
         "completed_stages": completed_stages,
+        "completed_stage_commands": completed_commands,
     }
     temporary = state_path.with_suffix(".json.tmp")
     try:
@@ -377,7 +400,7 @@ def _run_topic_commands(
     log_dir.mkdir(parents=True, exist_ok=True)
     log_path = log_dir / "coverage.log"
     state_path = data_dir / "coverage-state.json"
-    completed_stages = _load_completed_stages(state_path)
+    completed_stages, completed_commands = _load_coverage_state(state_path)
     skipped_stages = []
     stages = []
 
@@ -392,12 +415,16 @@ def _run_topic_commands(
                 log.write("CANCEL before next stage\n")
                 break
             stage = _stage_name(command)
+            stage_command = _stage_command(command)
             if resume and stage in completed_stages:
-                skipped_stages.append(stage)
-                log.write(f"SKIP completed stage: {stage}\n")
-                if runner is None:
-                    _emit_topic_output(topic, f"SKIP completed stage: {stage}", output_lock)
-                continue
+                if completed_commands.get(stage) == stage_command:
+                    skipped_stages.append(stage)
+                    log.write(f"SKIP completed stage: {stage}\n")
+                    if runner is None:
+                        _emit_topic_output(topic, f"SKIP completed stage: {stage}", output_lock)
+                    continue
+                if stage not in completed_commands:
+                    log.write(f"REFRESH legacy stage-only checkpoint: {stage}\n")
             log.write(f"$ {' '.join(command)}\n")
             log.flush()
             if runner is None:
@@ -428,7 +455,10 @@ def _run_topic_commands(
                 break
             if stage not in completed_stages:
                 completed_stages.append(stage)
-            _write_coverage_state(state_path, topic, completed_stages)
+            completed_commands[stage] = stage_command
+            _write_coverage_state(
+                state_path, topic, completed_stages, completed_commands,
+            )
 
     return {
         "article": topic,
@@ -543,7 +573,7 @@ def _write_cost_report(findings_dir: Path, topic: str, stages: list[dict]) -> di
 
 
 def _pipeline_cmd(topic: str, use_llm: bool, include_mscore: bool, include_framing: bool = False,
-                  l5_max_langs: int | None = None) -> list[str]:
+                  include_facts: bool = False, l5_max_langs: int | None = None) -> list[str]:
     cmd = _project_command(["pipeline", topic])
     if use_llm:
         cmd.append("--llm")
@@ -551,6 +581,10 @@ def _pipeline_cmd(topic: str, use_llm: bool, include_mscore: bool, include_frami
         cmd.append("--mscore")
     if include_framing:
         cmd.append("--framing")
+    if include_facts:
+        cmd.append("--facts")
+        if l5_max_langs:
+            cmd.extend(["--max-langs", str(l5_max_langs)])
     return cmd
 
 
@@ -570,7 +604,8 @@ def _topic_commands(topic: str, use_llm: bool, include_mscore: bool, include_fra
     if mode == "pipeline":
         cmds.append(base + ["analyze", topic])
         cmds.append(_pipeline_cmd(topic, use_llm=use_llm, include_mscore=include_mscore,
-                                  include_framing=include_framing))
+                                  include_framing=include_framing, include_facts=use_llm,
+                                  l5_max_langs=l5_max_langs))
         return cmds, notes
 
     if mode == "attribution":
@@ -584,22 +619,25 @@ def _topic_commands(topic: str, use_llm: bool, include_mscore: bool, include_fra
     if mode == "full":
         cmds.append(base + ["analyze", topic])
         cmds.append(_pipeline_cmd(topic, use_llm=use_llm, include_mscore=include_mscore,
-                                  include_framing=include_framing))
+                                  include_framing=include_framing, include_facts=use_llm,
+                                  l5_max_langs=l5_max_langs))
         if use_llm:
             cmds.append(base + ["crosslingual", topic])
-        cmds.append(base + ["sources", topic])
         cmds.append(base + ["profile", topic])
         return cmds, notes
 
     # mode == fill: run the smallest command set that can cover missing layers.
     missing = required - have
     needs_framing = "framing" in missing
-    needs_upper_layers = needs_framing or bool({"receipts", "stance"} & missing)
+    needs_facts = "factcheck" in missing
+    needs_upper_layers = needs_framing or needs_facts or bool({"receipts", "stance"} & missing)
     if needs_upper_layers:
         cmds.append(base + ["analyze", topic])
-    if needs_framing:
+    if needs_framing or needs_facts:
         cmds.append(_pipeline_cmd(topic, use_llm=use_llm, include_mscore=include_mscore,
-                                  include_framing=include_framing))
+                                  include_framing=needs_framing and include_framing,
+                                  include_facts=needs_facts and use_llm,
+                                  l5_max_langs=l5_max_langs))
 
     if use_llm and {"receipts", "stance"} & missing:
         cmds.append(base + ["crosslingual", topic])

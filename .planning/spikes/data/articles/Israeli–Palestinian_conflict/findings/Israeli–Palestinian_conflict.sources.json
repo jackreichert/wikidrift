@@ -1,174 +1,42 @@
 {
   "article": "Israeli–Palestinian conflict",
   "pivot": "2024-01-01",
-  "span": "2023-01-01 → 2024-07-01  (across the L1 pivot ~2024-01-01)",
-  "before": {
-    "date": "2023-01-01",
-    "refs": 350,
-    "n_domains": 131,
-    "cite_mix": {
-      "web": 47,
-      "news": 34,
-      "book": 15,
-      "journal": 3,
-      "report": 0
-    },
-    "domains": {
-      "news.bbc.co.uk": 15,
-      "brookings.edu": 1,
-      "reuters.com": 3,
-      "aninews.in": 1,
-      "systemicpeace.org": 2,
-      "divinity.duke.edu": 2,
-      "books.google.com": 16,
-      "polisci.columbia.edu": 2,
-      "digitalcommons.iwu.edu": 1,
-      "britannica.com": 1,
-      "international.gc.ca": 2,
-      "siteresources.worldbank.org": 4,
-      "latimes.com": 1,
-      "archive.org": 12,
-      "en.idi.org.il": 2,
-      "jpost.com": 23,
-      "pcpsr.org": 3,
-      "economist.com": 2,
-      "timesofisrael.com": 3,
-      "academia.edu": 1,
-      "pbs.org": 3,
-      "domino.un.org": 6,
-      "umass.edu": 2,
-      "cnn.com": 2,
-      "amnesty.org": 3,
-      "hrw.org": 3,
-      "nytimes.com": 4,
-      "mfa.gov.il": 22,
-      "usatoday.com": 1,
-      "bloomberg.com": 1,
-      "nybooks.com": 6,
-      "monde-diplomatique.fr": 1,
-      "belfercenter.ksg.harvard.edu": 8,
-      "slate.com": 1,
-      "articles.chicagotribune.com": 4,
-      "haaretz.com": 13,
-      "democracynow.org": 1,
-      "washingtontimes.com": 1,
-      "content.time.com": 1,
-      "usembassy-israel.org.il": 2,
-      "aljazeera.com": 5,
-      "ynetnews.com": 11,
-      "worldpolicy.org": 2,
-      "theatlantic.com": 1,
-      "theguardian.com": 6,
-      "independent.co.uk": 4,
-      "bbc.co.uk": 2,
-      "telegraph.co.uk": 2,
-      "ghostarchive.org": 2,
-      "maannews.net": 2,
-      "amp.theguardian.com": 1,
-      "gei.de": 2,
-      "algemeiner.com": 1,
-      "thenational.ae": 3,
-      "forward.com": 1,
-      "almasryalyoum.com": 1,
-      "archive.today": 1,
-      "edition.cnn.com": 1,
-      "news-basics.com": 2,
-      "unispal.un.org": 5,
-      "jiis.org": 2,
-      "cbs.gov.il": 2,
-      "jcpa.org": 5,
-      "worldcat.org": 1,
-      "alarabiya.net": 1,
-      "unrwa.org": 2,
-      "mfa.gov.jo": 1,
-      "jordanembassyus.org": 1,
-      "crimesofwar.org": 2,
-      "icsr.info": 2,
-      "irishtimes.com": 1,
-      "wais.stanford.edu": 2,
-      "sfgate.com": 1,
-      "jewishfederations.org": 2,
-      "commentarymagazine.com": 1,
-      "glin.gov": 2,
-      "law.idf.il": 2,
-      "foxnews.com": 2,
-      "csmonitor.com": 1,
-      "pchrgaza.org": 3,
-      "juragentium.unifi.it": 2,
-      "knesset.gov.il": 1,
-      "fao.org": 2,
-      "un.org": 2,
-      "emwis.org": 1,
-      "unhcr.org": 2,
-      "ajc.org": 4,
-      "azdema.gov": 2,
-      "npr.org": 2,
-      "publications.parliament.uk": 1,
-      "assembly-weu.org": 2,
-      "ue.eu.int": 2,
-      "obamawhitehouse.archives.gov": 1,
-      "theroot.com": 2,
-      "mag.idf.il": 3,
-      "oxfam.org.uk": 2,
-      "fr.jpost.com": 2,
-      "jta.org": 2,
-      "theaustralian.com.au": 1,
-      "thecepr.org": 2,
-      "ctvnews.ca": 1,
-      "weekly.ahram.org.eg": 2,
-      "ochaopt.org": 7,
-      "users.erols.com": 3,
-      "war-memorial.net": 1,
-      "btselem.org": 3,
-      "ict.org.il": 3,
-      "spme.org": 1,
-      "mineaction.org": 2,
-      "repository.library.georgetown.edu": 2,
-      "gaza-sderot.arte.tv": 1,
-      "globalpolitician.com": 1,
-      "mepc.org": 1,
-      "aixgroup.org": 1,
-      "youtube.com": 1,
-      "historyguy.com": 1,
-      "themedialine.org": 1,
-      "onemillionvoices.org": 1,
-      "s-c-g.org": 1,
-      "alhaq.org": 1,
-      "gush-shalom.org": 1,
-      "mideastweb.org": 1,
-      "honestreporting.com": 1,
-      "truepeace.org": 1,
-      "simpletoremember.com": 1,
-      "cactus48.com": 1,
-      "diabolicdigest.net": 2,
-      "israel-palaestina.de": 1,
-      "lib.utexas.edu": 6,
-      "pewresearch.org": 1,
-      "bjpa.org": 1
-    }
+  "span": "rev 1239968080 → rev 1239968974  (exact confirmation, 2024-08-12 → 2024-08-12)",
+  "mode": "pivot_relative",
+  "pivot_window": {
+    "start": "2024-01-01",
+    "end": "2025-01-01",
+    "pwr_mass": 553813,
+    "status": "confirmed",
+    "before_revid": 1239968080,
+    "before_timestamp": "2024-08-12T19:05:51Z",
+    "after_revid": 1239968974,
+    "after_timestamp": "2024-08-12T19:13:55Z",
+    "durable_spine_drop": 0.367616
   },
-  "after": {
-    "date": "2024-07-01",
-    "refs": 435,
-    "n_domains": 130,
+  "before": {
+    "date": "2024-08-12",
+    "rev": 1239968080,
+    "refs": 434,
+    "n_domains": 128,
     "cite_mix": {
-      "news": 38,
-      "book": 37,
+      "news": 40,
+      "book": 34,
       "web": 22,
-      "journal": 3,
-      "report": 0
+      "journal": 4,
+      "report": 1
     },
     "domains": {
-      "ochaopt.org": 9,
-      "books.google.com": 94,
-      "btselem.org": 11,
-      "jpost.com": 41,
-      "pchrgaza.org": 5,
+      "ochaopt.org": 7,
+      "books.google.com": 79,
+      "btselem.org": 9,
+      "jpost.com": 39,
+      "pchrgaza.org": 3,
       "ohchr.org": 1,
       "edition.cnn.com": 3,
       "reuters.com": 9,
-      "barrons.com": 2,
-      "news.bbc.co.uk": 24,
+      "haaretz.com": 33,
+      "news.bbc.co.uk": 20,
       "international.gc.ca": 2,
       "siteresources.worldbank.org": 4,
       "digitalcommons.iwu.edu": 2,
@@ -179,7 +47,7 @@
       "en.idi.org.il": 2,
       "pcpsr.org": 2,
       "economist.com": 4,
-      "timesofisrael.com": 17,
+      "timesofisrael.com": 18,
       "academia.edu": 2,
       "pbs.org": 4,
       "v-scheiner.brunel.ac.uk": 2,
@@ -187,7 +55,7 @@
       "domino.un.org": 6,
       "umass.edu": 2,
       "cnn.com": 5,
-      "amnesty.org": 6,
+      "amnesty.org": 10,
       "hrw.org": 9,
       "nytimes.com": 12,
       "usatoday.com": 2,
@@ -196,7 +64,7 @@
       "washingtonpost.com": 1,
       "bbc.com": 3,
       "news.un.org": 2,
-      "aljazeera.com": 14,
+      "aljazeera.com": 15,
       "icj-cij.org": 3,
       "jusmundi.com": 1,
       "time.com": 2,
@@ -206,50 +74,26 @@
       "washingtontimes.com": 2,
       "content.time.com": 2,
       "usembassy-israel.org.il": 2,
-      "haaretz.com": 27,
-      "ynetnews.com": 18,
+      "unispal.un.org": 8,
+      "ynetnews.com": 14,
       "mideast.blogs.time.com": 1,
       "theguardian.com": 16,
+      "un.org": 5,
+      "972mag.com": 2,
+      "pdfs.semanticscholar.org": 2,
+      "ajc.org": 2,
+      "latimes.com": 2,
+      "azdema.gov": 2,
+      "npr.org": 4,
+      "publications.parliament.uk": 1,
+      "assembly-weu.org": 2,
+      "obamawhitehouse.archives.gov": 2,
+      "theroot.com": 2,
       "independent.co.uk": 4,
       "bbc.co.uk": 4,
       "telegraph.co.uk": 2,
       "ghostarchive.org": 2,
       "maannews.net": 2,
-      "amp.theguardian.com": 2,
-      "gei.de": 2,
-      "algemeiner.com": 2,
-      "thenational.ae": 6,
-      "forward.com": 2,
-      "almasryalyoum.com": 1,
-      "archive.today": 3,
-      "news-basics.com": 2,
-      "knesset.gov.il": 4,
-      "unispal.un.org": 6,
-      "jiis.org": 2,
-      "alarabiya.net": 2,
-      "un.org": 4,
-      "unrwa.org": 3,
-      "crimesofwar.org": 2,
-      "irishtimes.com": 2,
-      "glin.gov": 2,
-      "law.idf.il": 2,
-      "mfa.gov.il": 2,
-      "foxnews.com": 2,
-      "csmonitor.com": 2,
-      "juragentium.unifi.it": 2,
-      "orsam.org.tr": 2,
-      "fao.org": 2,
-      "emwis.org": 2,
-      "unhcr.org": 2,
-      "azdema.gov": 2,
-      "npr.org": 4,
-      "publications.parliament.uk": 1,
-      "assembly-weu.org": 2,
-      "ue.eu.int": 2,
-      "ajc.org": 2,
-      "obamawhitehouse.archives.gov": 2,
-      "theroot.com": 2,
-      "latimes.com": 2,
       "mag.idf.il": 4,
       "amnestyusa.org": 1,
       "oxfam.org.uk": 2,
@@ -257,11 +101,169 @@
       "jta.org": 2,
       "theaustralian.com.au": 2,
       "businessinsider.com": 2,
+      "almasryalyoum.com": 1,
+      "archive.today": 3,
+      "amp.theguardian.com": 2,
+      "gei.de": 2,
+      "algemeiner.com": 2,
+      "thenational.ae": 6,
+      "forward.com": 2,
+      "news-basics.com": 2,
+      "knesset.gov.il": 4,
+      "jiis.org": 2,
+      "alarabiya.net": 2,
+      "unrwa.org": 3,
+      "crimesofwar.org": 2,
+      "irishtimes.com": 2,
+      "glin.gov": 2,
+      "law.idf.il": 2,
+      "mfa.gov.il": 2,
+      "juragentium.unifi.it": 2,
+      "orsam.org.tr": 2,
+      "fao.org": 2,
+      "emwis.org": 2,
       "france24.com": 2,
       "thecepr.org": 2,
+      "csmonitor.com": 2,
       "press.un.org": 2,
       "abcnews.go.com": 2,
-      "users.erols.com": 4,
+      "users.erols.com": 2,
+      "war-memorial.net": 1,
+      "ict.org.il": 2,
+      "mineaction.org": 2,
+      "belfercenter.ksg.harvard.edu": 2,
+      "academic.oup.com": 1,
+      "repository.library.georgetown.edu": 2,
+      "gaza-sderot.arte.tv": 1,
+      "globalpolitician.com": 1,
+      "mepc.org": 1,
+      "aixgroup.org": 1,
+      "youtube.com": 1,
+      "historyguy.com": 1,
+      "themedialine.org": 1,
+      "onemillionvoices.org": 1,
+      "s-c-g.org": 1,
+      "alhaq.org": 2,
+      "gush-shalom.org": 1,
+      "mideastweb.org": 1,
+      "jcpa.org": 1,
+      "honestreporting.com": 1,
+      "truepeace.org": 2,
+      "simpletoremember.com": 1,
+      "cactus48.com": 1,
+      "diabolicdigest.net": 2,
+      "israel-palaestina.de": 1,
+      "lib.utexas.edu": 6,
+      "pewresearch.org": 1
+    }
+  },
+  "after": {
+    "date": "2024-08-12",
+    "rev": 1239968974,
+    "refs": 417,
+    "n_domains": 121,
+    "cite_mix": {
+      "news": 38,
+      "book": 36,
+      "web": 22,
+      "journal": 4,
+      "report": 1
+    },
+    "domains": {
+      "ochaopt.org": 7,
+      "books.google.com": 79,
+      "btselem.org": 9,
+      "jpost.com": 35,
+      "pchrgaza.org": 3,
+      "ohchr.org": 1,
+      "edition.cnn.com": 3,
+      "reuters.com": 9,
+      "haaretz.com": 27,
+      "news.bbc.co.uk": 18,
+      "international.gc.ca": 2,
+      "siteresources.worldbank.org": 4,
+      "digitalcommons.iwu.edu": 2,
+      "britannica.com": 2,
+      "divinity.duke.edu": 2,
+      "polisci.columbia.edu": 2,
+      "archive.org": 12,
+      "en.idi.org.il": 2,
+      "pcpsr.org": 2,
+      "economist.com": 4,
+      "timesofisrael.com": 18,
+      "academia.edu": 2,
+      "pbs.org": 4,
+      "v-scheiner.brunel.ac.uk": 2,
+      "bjpa.org": 2,
+      "domino.un.org": 6,
+      "umass.edu": 2,
+      "cnn.com": 5,
+      "amnesty.org": 12,
+      "hrw.org": 9,
+      "nytimes.com": 10,
+      "usatoday.com": 2,
+      "bloomberg.com": 2,
+      "apnews.com": 4,
+      "washingtonpost.com": 1,
+      "bbc.com": 3,
+      "news.un.org": 2,
+      "aljazeera.com": 13,
+      "icj-cij.org": 3,
+      "jusmundi.com": 1,
+      "time.com": 2,
+      "cnbc.com": 2,
+      "nbcnews.com": 1,
+      "nybooks.com": 6,
+      "washingtontimes.com": 2,
+      "content.time.com": 2,
+      "usembassy-israel.org.il": 2,
+      "unispal.un.org": 8,
+      "ynetnews.com": 14,
+      "mideast.blogs.time.com": 1,
+      "theguardian.com": 14,
+      "un.org": 5,
+      "972mag.com": 2,
+      "pdfs.semanticscholar.org": 2,
+      "ajc.org": 2,
+      "latimes.com": 2,
+      "mag.idf.il": 4,
+      "amnestyusa.org": 1,
+      "oxfam.org.uk": 2,
+      "npr.org": 2,
+      "fr.jpost.com": 2,
+      "jta.org": 2,
+      "theaustralian.com.au": 2,
+      "telegraph.co.uk": 1,
+      "ghostarchive.org": 1,
+      "businessinsider.com": 2,
+      "almasryalyoum.com": 1,
+      "archive.today": 3,
+      "amp.theguardian.com": 2,
+      "gei.de": 2,
+      "algemeiner.com": 2,
+      "thenational.ae": 6,
+      "forward.com": 2,
+      "news-basics.com": 2,
+      "knesset.gov.il": 4,
+      "jiis.org": 2,
+      "alarabiya.net": 2,
+      "unrwa.org": 3,
+      "crimesofwar.org": 2,
+      "irishtimes.com": 2,
+      "glin.gov": 2,
+      "law.idf.il": 2,
+      "mfa.gov.il": 2,
+      "juragentium.unifi.it": 2,
+      "orsam.org.tr": 2,
+      "fao.org": 2,
+      "emwis.org": 2,
+      "france24.com": 2,
+      "thecepr.org": 2,
+      "independent.co.uk": 2,
+      "csmonitor.com": 2,
+      "press.un.org": 2,
+      "abcnews.go.com": 2,
+      "users.erols.com": 2,
       "war-memorial.net": 1,
       "ict.org.il": 2,
       "mineaction.org": 2,
@@ -293,487 +295,1102 @@
   },
   "added": [
     {
-      "domain": "books.google.com",
-      "from": 16,
-      "to": 94
-    },
-    {
-      "domain": "jpost.com",
-      "from": 23,
-      "to": 41
-    },
-    {
-      "domain": "timesofisrael.com",
-      "from": 3,
-      "to": 17
-    },
-    {
-      "domain": "haaretz.com",
-      "from": 13,
-      "to": 27
-    },
-    {
-      "domain": "theguardian.com",
-      "from": 6,
-      "to": 16
-    },
-    {
-      "domain": "news.bbc.co.uk",
-      "from": 15,
-      "to": 24
-    },
-    {
-      "domain": "aljazeera.com",
-      "from": 5,
-      "to": 14
-    },
-    {
-      "domain": "nytimes.com",
-      "from": 4,
-      "to": 12
-    },
-    {
-      "domain": "btselem.org",
-      "from": 3,
-      "to": 11
-    },
-    {
-      "domain": "ynetnews.com",
-      "from": 11,
-      "to": 18
-    },
-    {
-      "domain": "reuters.com",
-      "from": 3,
-      "to": 9
-    },
-    {
-      "domain": "hrw.org",
-      "from": 3,
-      "to": 9
-    },
-    {
-      "domain": "apnews.com",
-      "from": 0,
-      "to": 4
-    },
-    {
-      "domain": "icj-cij.org",
-      "from": 0,
-      "to": 3
-    },
-    {
-      "domain": "thenational.ae",
-      "from": 3,
-      "to": 6
-    },
-    {
-      "domain": "knesset.gov.il",
-      "from": 1,
-      "to": 4
-    },
-    {
-      "domain": "cnn.com",
-      "from": 2,
-      "to": 5
-    },
-    {
-      "domain": "bbc.com",
-      "from": 0,
-      "to": 3
-    },
-    {
       "domain": "amnesty.org",
-      "from": 3,
-      "to": 6
-    },
-    {
-      "domain": "barrons.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "economist.com",
-      "from": 2,
-      "to": 4
-    },
-    {
-      "domain": "archive.today",
-      "from": 1,
-      "to": 3
-    },
-    {
-      "domain": "orsam.org.tr",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "bbc.co.uk",
-      "from": 2,
-      "to": 4
-    },
-    {
-      "domain": "edition.cnn.com",
-      "from": 1,
-      "to": 3
-    },
-    {
-      "domain": "news.un.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "v-scheiner.brunel.ac.uk",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "abcnews.go.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "pchrgaza.org",
-      "from": 3,
-      "to": 5
-    },
-    {
-      "domain": "time.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "france24.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "ochaopt.org",
-      "from": 7,
-      "to": 9
-    },
-    {
-      "domain": "press.un.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "un.org",
-      "from": 2,
-      "to": 4
-    },
-    {
-      "domain": "businessinsider.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "npr.org",
-      "from": 2,
-      "to": 4
-    },
-    {
-      "domain": "cnbc.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "mideast.blogs.time.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "algemeiner.com",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "obamawhitehouse.archives.gov",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "alarabiya.net",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "unispal.un.org",
-      "from": 5,
-      "to": 6
-    },
-    {
-      "domain": "britannica.com",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "ohchr.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "digitalcommons.iwu.edu",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "nbcnews.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "emwis.org",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "unrwa.org",
-      "from": 2,
-      "to": 3
-    },
-    {
-      "domain": "csmonitor.com",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "bjpa.org",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "truepeace.org",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "theaustralian.com.au",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "content.time.com",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "amp.theguardian.com",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "washingtonpost.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "washingtontimes.com",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "bloomberg.com",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "forward.com",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "academia.edu",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "jusmundi.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "academic.oup.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "usatoday.com",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "irishtimes.com",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "latimes.com",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "users.erols.com",
-      "from": 3,
-      "to": 4
-    },
-    {
-      "domain": "amnestyusa.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "pbs.org",
-      "from": 3,
-      "to": 4
-    },
-    {
-      "domain": "alhaq.org",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "mag.idf.il",
-      "from": 3,
-      "to": 4
+      "from": 10,
+      "to": 12
     }
   ],
   "dropped": [
     {
-      "domain": "mfa.gov.il",
-      "from": 22,
+      "domain": "haaretz.com",
+      "from": 33,
+      "to": 27
+    },
+    {
+      "domain": "bbc.co.uk",
+      "from": 4,
+      "to": 0
+    },
+    {
+      "domain": "jpost.com",
+      "from": 39,
+      "to": 35
+    },
+    {
+      "domain": "independent.co.uk",
+      "from": 4,
       "to": 2
     },
     {
-      "domain": "belfercenter.ksg.harvard.edu",
-      "from": 8,
+      "domain": "npr.org",
+      "from": 4,
       "to": 2
     },
     {
-      "domain": "jcpa.org",
-      "from": 5,
+      "domain": "maannews.net",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "theguardian.com",
+      "from": 16,
+      "to": 14
+    },
+    {
+      "domain": "aljazeera.com",
+      "from": 15,
+      "to": 13
+    },
+    {
+      "domain": "obamawhitehouse.archives.gov",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "nytimes.com",
+      "from": 12,
+      "to": 10
+    },
+    {
+      "domain": "azdema.gov",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "theroot.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "news.bbc.co.uk",
+      "from": 20,
+      "to": 18
+    },
+    {
+      "domain": "assembly-weu.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "ghostarchive.org",
+      "from": 2,
       "to": 1
     },
     {
-      "domain": "articles.chicagotribune.com",
-      "from": 4,
-      "to": 0
-    },
-    {
-      "domain": "worldpolicy.org",
+      "domain": "telegraph.co.uk",
       "from": 2,
-      "to": 0
+      "to": 1
     },
     {
-      "domain": "wais.stanford.edu",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "jewishfederations.org",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "weekly.ahram.org.eg",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "ajc.org",
-      "from": 4,
-      "to": 2
-    },
-    {
-      "domain": "systemicpeace.org",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "icsr.info",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "cbs.gov.il",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "commentarymagazine.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "spme.org",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "democracynow.org",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "sfgate.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "worldcat.org",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "monde-diplomatique.fr",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "theatlantic.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "pcpsr.org",
-      "from": 3,
-      "to": 2
-    },
-    {
-      "domain": "mfa.gov.jo",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "ctvnews.ca",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "brookings.edu",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "jordanembassyus.org",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "aninews.in",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "ict.org.il",
-      "from": 3,
-      "to": 2
-    },
-    {
-      "domain": "slate.com",
+      "domain": "publications.parliament.uk",
       "from": 1,
       "to": 0
     }
   ],
-  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD."
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+  "schema_version": 1,
+  "analysis_scope": "confirmed_episodes",
+  "episode_count": 4,
+  "episodes": [
+    {
+      "article": "Israeli–Palestinian conflict",
+      "pivot": "2024-01-01",
+      "span": "rev 1239968080 → rev 1239968974  (exact confirmation, 2024-08-12 → 2024-08-12)",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2024-01-01",
+        "end": "2025-01-01",
+        "pwr_mass": 553813,
+        "status": "confirmed",
+        "before_revid": 1239968080,
+        "before_timestamp": "2024-08-12T19:05:51Z",
+        "after_revid": 1239968974,
+        "after_timestamp": "2024-08-12T19:13:55Z",
+        "durable_spine_drop": 0.367616
+      },
+      "before": {
+        "date": "2024-08-12",
+        "rev": 1239968080,
+        "refs": 434,
+        "n_domains": 128,
+        "cite_mix": {
+          "news": 40,
+          "book": 34,
+          "web": 22,
+          "journal": 4,
+          "report": 1
+        },
+        "domains": {
+          "ochaopt.org": 7,
+          "books.google.com": 79,
+          "btselem.org": 9,
+          "jpost.com": 39,
+          "pchrgaza.org": 3,
+          "ohchr.org": 1,
+          "edition.cnn.com": 3,
+          "reuters.com": 9,
+          "haaretz.com": 33,
+          "news.bbc.co.uk": 20,
+          "international.gc.ca": 2,
+          "siteresources.worldbank.org": 4,
+          "digitalcommons.iwu.edu": 2,
+          "britannica.com": 2,
+          "divinity.duke.edu": 2,
+          "polisci.columbia.edu": 2,
+          "archive.org": 12,
+          "en.idi.org.il": 2,
+          "pcpsr.org": 2,
+          "economist.com": 4,
+          "timesofisrael.com": 18,
+          "academia.edu": 2,
+          "pbs.org": 4,
+          "v-scheiner.brunel.ac.uk": 2,
+          "bjpa.org": 2,
+          "domino.un.org": 6,
+          "umass.edu": 2,
+          "cnn.com": 5,
+          "amnesty.org": 10,
+          "hrw.org": 9,
+          "nytimes.com": 12,
+          "usatoday.com": 2,
+          "bloomberg.com": 2,
+          "apnews.com": 4,
+          "washingtonpost.com": 1,
+          "bbc.com": 3,
+          "news.un.org": 2,
+          "aljazeera.com": 15,
+          "icj-cij.org": 3,
+          "jusmundi.com": 1,
+          "time.com": 2,
+          "cnbc.com": 2,
+          "nbcnews.com": 1,
+          "nybooks.com": 6,
+          "washingtontimes.com": 2,
+          "content.time.com": 2,
+          "usembassy-israel.org.il": 2,
+          "unispal.un.org": 8,
+          "ynetnews.com": 14,
+          "mideast.blogs.time.com": 1,
+          "theguardian.com": 16,
+          "un.org": 5,
+          "972mag.com": 2,
+          "pdfs.semanticscholar.org": 2,
+          "ajc.org": 2,
+          "latimes.com": 2,
+          "azdema.gov": 2,
+          "npr.org": 4,
+          "publications.parliament.uk": 1,
+          "assembly-weu.org": 2,
+          "obamawhitehouse.archives.gov": 2,
+          "theroot.com": 2,
+          "independent.co.uk": 4,
+          "bbc.co.uk": 4,
+          "telegraph.co.uk": 2,
+          "ghostarchive.org": 2,
+          "maannews.net": 2,
+          "mag.idf.il": 4,
+          "amnestyusa.org": 1,
+          "oxfam.org.uk": 2,
+          "fr.jpost.com": 2,
+          "jta.org": 2,
+          "theaustralian.com.au": 2,
+          "businessinsider.com": 2,
+          "almasryalyoum.com": 1,
+          "archive.today": 3,
+          "amp.theguardian.com": 2,
+          "gei.de": 2,
+          "algemeiner.com": 2,
+          "thenational.ae": 6,
+          "forward.com": 2,
+          "news-basics.com": 2,
+          "knesset.gov.il": 4,
+          "jiis.org": 2,
+          "alarabiya.net": 2,
+          "unrwa.org": 3,
+          "crimesofwar.org": 2,
+          "irishtimes.com": 2,
+          "glin.gov": 2,
+          "law.idf.il": 2,
+          "mfa.gov.il": 2,
+          "juragentium.unifi.it": 2,
+          "orsam.org.tr": 2,
+          "fao.org": 2,
+          "emwis.org": 2,
+          "france24.com": 2,
+          "thecepr.org": 2,
+          "csmonitor.com": 2,
+          "press.un.org": 2,
+          "abcnews.go.com": 2,
+          "users.erols.com": 2,
+          "war-memorial.net": 1,
+          "ict.org.il": 2,
+          "mineaction.org": 2,
+          "belfercenter.ksg.harvard.edu": 2,
+          "academic.oup.com": 1,
+          "repository.library.georgetown.edu": 2,
+          "gaza-sderot.arte.tv": 1,
+          "globalpolitician.com": 1,
+          "mepc.org": 1,
+          "aixgroup.org": 1,
+          "youtube.com": 1,
+          "historyguy.com": 1,
+          "themedialine.org": 1,
+          "onemillionvoices.org": 1,
+          "s-c-g.org": 1,
+          "alhaq.org": 2,
+          "gush-shalom.org": 1,
+          "mideastweb.org": 1,
+          "jcpa.org": 1,
+          "honestreporting.com": 1,
+          "truepeace.org": 2,
+          "simpletoremember.com": 1,
+          "cactus48.com": 1,
+          "diabolicdigest.net": 2,
+          "israel-palaestina.de": 1,
+          "lib.utexas.edu": 6,
+          "pewresearch.org": 1
+        }
+      },
+      "after": {
+        "date": "2024-08-12",
+        "rev": 1239968974,
+        "refs": 417,
+        "n_domains": 121,
+        "cite_mix": {
+          "news": 38,
+          "book": 36,
+          "web": 22,
+          "journal": 4,
+          "report": 1
+        },
+        "domains": {
+          "ochaopt.org": 7,
+          "books.google.com": 79,
+          "btselem.org": 9,
+          "jpost.com": 35,
+          "pchrgaza.org": 3,
+          "ohchr.org": 1,
+          "edition.cnn.com": 3,
+          "reuters.com": 9,
+          "haaretz.com": 27,
+          "news.bbc.co.uk": 18,
+          "international.gc.ca": 2,
+          "siteresources.worldbank.org": 4,
+          "digitalcommons.iwu.edu": 2,
+          "britannica.com": 2,
+          "divinity.duke.edu": 2,
+          "polisci.columbia.edu": 2,
+          "archive.org": 12,
+          "en.idi.org.il": 2,
+          "pcpsr.org": 2,
+          "economist.com": 4,
+          "timesofisrael.com": 18,
+          "academia.edu": 2,
+          "pbs.org": 4,
+          "v-scheiner.brunel.ac.uk": 2,
+          "bjpa.org": 2,
+          "domino.un.org": 6,
+          "umass.edu": 2,
+          "cnn.com": 5,
+          "amnesty.org": 12,
+          "hrw.org": 9,
+          "nytimes.com": 10,
+          "usatoday.com": 2,
+          "bloomberg.com": 2,
+          "apnews.com": 4,
+          "washingtonpost.com": 1,
+          "bbc.com": 3,
+          "news.un.org": 2,
+          "aljazeera.com": 13,
+          "icj-cij.org": 3,
+          "jusmundi.com": 1,
+          "time.com": 2,
+          "cnbc.com": 2,
+          "nbcnews.com": 1,
+          "nybooks.com": 6,
+          "washingtontimes.com": 2,
+          "content.time.com": 2,
+          "usembassy-israel.org.il": 2,
+          "unispal.un.org": 8,
+          "ynetnews.com": 14,
+          "mideast.blogs.time.com": 1,
+          "theguardian.com": 14,
+          "un.org": 5,
+          "972mag.com": 2,
+          "pdfs.semanticscholar.org": 2,
+          "ajc.org": 2,
+          "latimes.com": 2,
+          "mag.idf.il": 4,
+          "amnestyusa.org": 1,
+          "oxfam.org.uk": 2,
+          "npr.org": 2,
+          "fr.jpost.com": 2,
+          "jta.org": 2,
+          "theaustralian.com.au": 2,
+          "telegraph.co.uk": 1,
+          "ghostarchive.org": 1,
+          "businessinsider.com": 2,
+          "almasryalyoum.com": 1,
+          "archive.today": 3,
+          "amp.theguardian.com": 2,
+          "gei.de": 2,
+          "algemeiner.com": 2,
+          "thenational.ae": 6,
+          "forward.com": 2,
+          "news-basics.com": 2,
+          "knesset.gov.il": 4,
+          "jiis.org": 2,
+          "alarabiya.net": 2,
+          "unrwa.org": 3,
+          "crimesofwar.org": 2,
+          "irishtimes.com": 2,
+          "glin.gov": 2,
+          "law.idf.il": 2,
+          "mfa.gov.il": 2,
+          "juragentium.unifi.it": 2,
+          "orsam.org.tr": 2,
+          "fao.org": 2,
+          "emwis.org": 2,
+          "france24.com": 2,
+          "thecepr.org": 2,
+          "independent.co.uk": 2,
+          "csmonitor.com": 2,
+          "press.un.org": 2,
+          "abcnews.go.com": 2,
+          "users.erols.com": 2,
+          "war-memorial.net": 1,
+          "ict.org.il": 2,
+          "mineaction.org": 2,
+          "belfercenter.ksg.harvard.edu": 2,
+          "academic.oup.com": 1,
+          "repository.library.georgetown.edu": 2,
+          "gaza-sderot.arte.tv": 1,
+          "globalpolitician.com": 1,
+          "mepc.org": 1,
+          "aixgroup.org": 1,
+          "youtube.com": 1,
+          "historyguy.com": 1,
+          "themedialine.org": 1,
+          "onemillionvoices.org": 1,
+          "s-c-g.org": 1,
+          "alhaq.org": 2,
+          "gush-shalom.org": 1,
+          "mideastweb.org": 1,
+          "jcpa.org": 1,
+          "honestreporting.com": 1,
+          "truepeace.org": 2,
+          "simpletoremember.com": 1,
+          "cactus48.com": 1,
+          "diabolicdigest.net": 2,
+          "israel-palaestina.de": 1,
+          "lib.utexas.edu": 6,
+          "pewresearch.org": 1
+        }
+      },
+      "added": [
+        {
+          "domain": "amnesty.org",
+          "from": 10,
+          "to": 12
+        }
+      ],
+      "dropped": [
+        {
+          "domain": "haaretz.com",
+          "from": 33,
+          "to": 27
+        },
+        {
+          "domain": "bbc.co.uk",
+          "from": 4,
+          "to": 0
+        },
+        {
+          "domain": "jpost.com",
+          "from": 39,
+          "to": 35
+        },
+        {
+          "domain": "independent.co.uk",
+          "from": 4,
+          "to": 2
+        },
+        {
+          "domain": "npr.org",
+          "from": 4,
+          "to": 2
+        },
+        {
+          "domain": "maannews.net",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "theguardian.com",
+          "from": 16,
+          "to": 14
+        },
+        {
+          "domain": "aljazeera.com",
+          "from": 15,
+          "to": 13
+        },
+        {
+          "domain": "obamawhitehouse.archives.gov",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "nytimes.com",
+          "from": 12,
+          "to": 10
+        },
+        {
+          "domain": "azdema.gov",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "theroot.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "news.bbc.co.uk",
+          "from": 20,
+          "to": 18
+        },
+        {
+          "domain": "assembly-weu.org",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "ghostarchive.org",
+          "from": 2,
+          "to": 1
+        },
+        {
+          "domain": "telegraph.co.uk",
+          "from": 2,
+          "to": 1
+        },
+        {
+          "domain": "publications.parliament.uk",
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+      "episode_id": "1239968080-1239968974",
+      "episode_index": 1,
+      "episode_window": {
+        "start": "2024-01-01",
+        "end": "2025-01-01",
+        "pwr_mass": 553813,
+        "status": "confirmed",
+        "before_revid": 1239968080,
+        "before_timestamp": "2024-08-12T19:05:51Z",
+        "after_revid": 1239968974,
+        "after_timestamp": "2024-08-12T19:13:55Z",
+        "durable_spine_drop": 0.367616
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Israeli–Palestinian conflict",
+      "pivot": "2002-07-01",
+      "span": "rev 122726 → rev 125597  (exact confirmation, 2002-07-24 → 2002-07-24)",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2002-07-01",
+        "end": "2005-01-01",
+        "pwr_mass": 18478,
+        "status": "confirmed",
+        "before_revid": 122726,
+        "before_timestamp": "2002-07-24T15:40:25Z",
+        "after_revid": 125597,
+        "after_timestamp": "2002-07-24T16:10:35Z",
+        "durable_spine_drop": 0.936151
+      },
+      "before": {
+        "date": "2002-07-24",
+        "rev": 122726,
+        "refs": 0,
+        "n_domains": 5,
+        "cite_mix": {},
+        "domains": {
+          "usinfo.state.gov": 1,
+          "gov.il": 1,
+          "electronicintifada.net": 1,
+          "nad-plo.org": 1,
+          "nytimes.com": 37
+        }
+      },
+      "after": {
+        "date": "2002-07-24",
+        "rev": 125597,
+        "refs": 0,
+        "n_domains": 4,
+        "cite_mix": {},
+        "domains": {
+          "usinfo.state.gov": 1,
+          "gov.il": 1,
+          "electronicintifada.net": 1,
+          "nad-plo.org": 1
+        }
+      },
+      "added": [],
+      "dropped": [
+        {
+          "domain": "nytimes.com",
+          "from": 37,
+          "to": 0
+        }
+      ],
+      "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+      "episode_id": "122726-125597",
+      "episode_index": 2,
+      "episode_window": {
+        "start": "2002-07-01",
+        "end": "2005-01-01",
+        "pwr_mass": 18478,
+        "status": "confirmed",
+        "before_revid": 122726,
+        "before_timestamp": "2002-07-24T15:40:25Z",
+        "after_revid": 125597,
+        "after_timestamp": "2002-07-24T16:10:35Z",
+        "durable_spine_drop": 0.936151
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Israeli–Palestinian conflict",
+      "pivot": "2008-01-01",
+      "span": "rev 200725946 → rev 200727791  (exact confirmation, 2008-03-25 → 2008-03-25)",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2008-01-01",
+        "end": "2008-07-01",
+        "pwr_mass": 15143,
+        "status": "confirmed",
+        "before_revid": 200725946,
+        "before_timestamp": "2008-03-25T04:47:05Z",
+        "after_revid": 200727791,
+        "after_timestamp": "2008-03-25T05:00:00Z",
+        "durable_spine_drop": 0.376068
+      },
+      "before": {
+        "date": "2008-03-25",
+        "rev": 200725946,
+        "refs": 175,
+        "n_domains": 120,
+        "cite_mix": {
+          "web": 40,
+          "news": 30,
+          "book": 30
+        },
+        "domains": {
+          "onevoicemovement.org": 1,
+          "economist.com": 1,
+          "nybooks.com": 4,
+          "mfa.gov.il": 11,
+          "state.gov": 3,
+          "europa.eu.int": 1,
+          "news.bbc.co.uk": 10,
+          "usip.org": 1,
+          "jewishvirtuallibrary.org": 6,
+          "mideastweb.org": 6,
+          "csmonitor.com": 1,
+          "britannica.com": 1,
+          "yale.edu": 5,
+          "kinghussein.gov.jo": 1,
+          "obermayer.us": 1,
+          "amazon.com": 1,
+          "washingtonpost.com": 1,
+          "fmep.org": 2,
+          "electronicintifada.net": 2,
+          "baltimoresun.com": 1,
+          "cnn.com": 1,
+          "guardian.co.uk": 1,
+          "news.walla.co.il": 1,
+          "terrorism-info.org.il": 2,
+          "ynetnews.com": 7,
+          "jta.org": 1,
+          "iht.com": 1,
+          "boston.com": 1,
+          "nytimes.com": 1,
+          "edition.cnn.com": 8,
+          "bloomberg.com": 1,
+          "haaretz.com": 2,
+          "afp.google.com": 1,
+          "english.aljazeera.net": 2,
+          "usatoday.com": 2,
+          "monde-diplomatique.fr": 1,
+          "caabu.org": 1,
+          "ngo-monitor.org": 2,
+          "jcpa.org": 4,
+          "americanthinker.com": 1,
+          "online.wsj.com": 1,
+          "jordanembassyus.org": 1,
+          "aijac.org.au": 2,
+          "wais.stanford.edu": 1,
+          "fateh.net": 1,
+          "editriceilponte.org": 1,
+          "mondediplo.com": 1,
+          "al-awda.org": 1,
+          "samsonblinded.org": 1,
+          "arabhra.org": 1,
+          "antiwar.com": 1,
+          "domino.un.org": 6,
+          "globalpolicy.org": 1,
+          "jpost.com": 2,
+          "publications.parliament.uk": 1,
+          "assembly-weu.org": 1,
+          "un.org": 3,
+          "geocities.com": 1,
+          "zmag.org": 1,
+          "icahd.org": 1,
+          "euromedrights.net": 1,
+          "ue.eu.int": 1,
+          "tzemachdovid.org": 1,
+          "fco.gov.uk": 1,
+          "hanania.com": 1,
+          "focusonjerusalem.com": 1,
+          "grantjeffrey.com": 1,
+          "fes.org.il": 1,
+          "iris.org.il": 1,
+          "wws.princeton.edu": 1,
+          "palestinefacts.org": 3,
+          "world.std.com": 1,
+          "daccessdds.un.org": 1,
+          "aqsa.org.uk": 1,
+          "palestinemonitor.org": 1,
+          "washtimes.com": 1,
+          "ochaopt.org": 4,
+          "normanfinkelstein.com": 1,
+          "dommartin.cc": 1,
+          "gush-shalom.org": 3,
+          "israelresolution.com": 1,
+          "israelipalestinianprocon.org": 1,
+          "globalpolitician.com": 1,
+          "mepc.org": 1,
+          "washingtoninstitute.org": 1,
+          "aixgroup.org": 1,
+          "historyguy.com": 1,
+          "themedialine.org": 1,
+          "ipsnews.net": 1,
+          "onemillionvoices.org": 1,
+          "s-c-g.org": 1,
+          "hrw.org": 1,
+          "btselem.org": 1,
+          "alhaq.org": 1,
+          "pchrgaza.org": 1,
+          "dinur.org": 1,
+          "ict.org.il": 1,
+          "passia.org": 1,
+          "camera.org": 1,
+          "eretzyisroel.org": 1,
+          "intelligence.org.il": 1,
+          "honestreporting.com": 1,
+          "gamla.org.il": 1,
+          "naamz.org": 1,
+          "truepeace.org": 1,
+          "tcrnews2.com": 1,
+          "palestinecampaign.org": 1,
+          "stopthewall.org": 1,
+          "pacbi.org": 1,
+          "pmwatch.org": 1,
+          "palestinesolidarityproject.org": 1,
+          "otherisrael.home.igc.org": 1,
+          "israelipalestinianpeace.org": 1,
+          "cactus48.com": 1,
+          "wpunj.edu": 1,
+          "kibush.co.il": 1,
+          "libcom.org": 1,
+          "axisglobe.com": 1,
+          "diabolicdigest.net": 2,
+          "israel-palaestina.de": 1
+        }
+      },
+      "after": {
+        "date": "2008-03-25",
+        "rev": 200727791,
+        "refs": 175,
+        "n_domains": 118,
+        "cite_mix": {
+          "web": 40,
+          "news": 30,
+          "book": 30
+        },
+        "domains": {
+          "onevoicemovement.org": 1,
+          "economist.com": 1,
+          "nybooks.com": 4,
+          "mfa.gov.il": 11,
+          "state.gov": 3,
+          "europa.eu.int": 1,
+          "news.bbc.co.uk": 10,
+          "usip.org": 1,
+          "jewishvirtuallibrary.org": 6,
+          "mideastweb.org": 6,
+          "csmonitor.com": 1,
+          "britannica.com": 1,
+          "yale.edu": 5,
+          "kinghussein.gov.jo": 1,
+          "obermayer.us": 1,
+          "amazon.com": 1,
+          "washingtonpost.com": 1,
+          "fmep.org": 2,
+          "electronicintifada.net": 2,
+          "baltimoresun.com": 1,
+          "cnn.com": 1,
+          "guardian.co.uk": 1,
+          "news.walla.co.il": 1,
+          "terrorism-info.org.il": 2,
+          "ynetnews.com": 7,
+          "jta.org": 1,
+          "iht.com": 1,
+          "boston.com": 1,
+          "nytimes.com": 1,
+          "edition.cnn.com": 8,
+          "bloomberg.com": 1,
+          "haaretz.com": 2,
+          "afp.google.com": 1,
+          "english.aljazeera.net": 2,
+          "usatoday.com": 2,
+          "monde-diplomatique.fr": 1,
+          "caabu.org": 1,
+          "ngo-monitor.org": 2,
+          "jcpa.org": 4,
+          "americanthinker.com": 1,
+          "online.wsj.com": 1,
+          "jordanembassyus.org": 1,
+          "aijac.org.au": 2,
+          "wais.stanford.edu": 1,
+          "fateh.net": 1,
+          "editriceilponte.org": 1,
+          "mondediplo.com": 1,
+          "al-awda.org": 1,
+          "samsonblinded.org": 1,
+          "arabhra.org": 1,
+          "antiwar.com": 1,
+          "domino.un.org": 6,
+          "globalpolicy.org": 1,
+          "jpost.com": 2,
+          "publications.parliament.uk": 1,
+          "assembly-weu.org": 1,
+          "un.org": 3,
+          "geocities.com": 1,
+          "zmag.org": 1,
+          "icahd.org": 1,
+          "euromedrights.net": 1,
+          "ue.eu.int": 1,
+          "tzemachdovid.org": 1,
+          "fco.gov.uk": 1,
+          "hanania.com": 1,
+          "focusonjerusalem.com": 1,
+          "grantjeffrey.com": 1,
+          "fes.org.il": 1,
+          "iris.org.il": 1,
+          "wws.princeton.edu": 1,
+          "palestinefacts.org": 3,
+          "world.std.com": 1,
+          "daccessdds.un.org": 1,
+          "aqsa.org.uk": 1,
+          "palestinemonitor.org": 1,
+          "washtimes.com": 1,
+          "ochaopt.org": 4,
+          "israelresolution.com": 1,
+          "israelipalestinianprocon.org": 1,
+          "globalpolitician.com": 1,
+          "mepc.org": 1,
+          "washingtoninstitute.org": 1,
+          "aixgroup.org": 1,
+          "historyguy.com": 1,
+          "themedialine.org": 1,
+          "ipsnews.net": 1,
+          "onemillionvoices.org": 1,
+          "s-c-g.org": 1,
+          "hrw.org": 1,
+          "btselem.org": 1,
+          "alhaq.org": 1,
+          "pchrgaza.org": 1,
+          "dinur.org": 1,
+          "ict.org.il": 1,
+          "passia.org": 1,
+          "camera.org": 1,
+          "eretzyisroel.org": 1,
+          "intelligence.org.il": 1,
+          "honestreporting.com": 1,
+          "gamla.org.il": 1,
+          "naamz.org": 1,
+          "truepeace.org": 1,
+          "tcrnews2.com": 1,
+          "palestinecampaign.org": 1,
+          "stopthewall.org": 1,
+          "pacbi.org": 1,
+          "pmwatch.org": 1,
+          "palestinesolidarityproject.org": 1,
+          "otherisrael.home.igc.org": 1,
+          "israelipalestinianpeace.org": 1,
+          "gush-shalom.org": 2,
+          "cactus48.com": 1,
+          "wpunj.edu": 1,
+          "kibush.co.il": 1,
+          "libcom.org": 1,
+          "axisglobe.com": 1,
+          "diabolicdigest.net": 2,
+          "israel-palaestina.de": 1
+        }
+      },
+      "added": [],
+      "dropped": [
+        {
+          "domain": "dommartin.cc",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "gush-shalom.org",
+          "from": 3,
+          "to": 2
+        },
+        {
+          "domain": "normanfinkelstein.com",
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+      "episode_id": "200725946-200727791",
+      "episode_index": 3,
+      "episode_window": {
+        "start": "2008-01-01",
+        "end": "2008-07-01",
+        "pwr_mass": 15143,
+        "status": "confirmed",
+        "before_revid": 200725946,
+        "before_timestamp": "2008-03-25T04:47:05Z",
+        "after_revid": 200727791,
+        "after_timestamp": "2008-03-25T05:00:00Z",
+        "durable_spine_drop": 0.376068
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Israeli–Palestinian conflict",
+      "pivot": "2006-01-01",
+      "span": "rev 58053984 → rev 58057916  (exact confirmation, 2006-06-11 → 2006-06-11)",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2006-01-01",
+        "end": "2007-07-01",
+        "pwr_mass": 12747,
+        "status": "confirmed",
+        "before_revid": 58053984,
+        "before_timestamp": "2006-06-11T16:41:03Z",
+        "after_revid": 58057916,
+        "after_timestamp": "2006-06-11T17:09:13Z",
+        "durable_spine_drop": 0.71606
+      },
+      "before": {
+        "date": "2006-06-11",
+        "rev": 58053984,
+        "refs": 0,
+        "n_domains": 38,
+        "cite_mix": {},
+        "domains": {
+          "electronicintifada.net": 2,
+          "fmep.org": 1,
+          "cjaed.org.il": 1,
+          "abrahamsvision.org": 1,
+          "normanfinkelstein.com": 1,
+          "infoisrael.net": 1,
+          "nad-plo.org": 2,
+          "mideastweb.org": 2,
+          "zionismontheweb.org": 2,
+          "alertnet.org": 1,
+          "washingtoninstitute.org": 1,
+          "globalpolitician.com": 1,
+          "mepc.org": 1,
+          "honestreporting.com": 1,
+          "libcom.org": 1,
+          "usinfo.state.gov": 1,
+          "gov.il": 1,
+          "jewishvirtuallibrary.org": 2,
+          "intelligence.org.il": 1,
+          "israel.indymedia.org": 1,
+          "jerusalem.indymedia.org": 1,
+          "gush-shalom.org": 1,
+          "jsource.org": 1,
+          "axisglobe.com": 1,
+          "ict.org.il": 1,
+          "cactus48.com": 1,
+          "users.skynet.be": 3,
+          "nytimes.com": 1,
+          "jpost.com": 1,
+          "haaretzdaily.com": 1,
+          "jnewswire.com": 1,
+          "thinking-east.net": 2,
+          "nswas.org": 1,
+          "diplomacymonitor.com": 1,
+          "aixgroup.org": 1,
+          "search.looksmart.com": 1,
+          "dmoz.org": 1,
+          "dir.yahoo.com": 1
+        }
+      },
+      "after": {
+        "date": "2006-06-11",
+        "rev": 58057916,
+        "refs": 0,
+        "n_domains": 18,
+        "cite_mix": {},
+        "domains": {
+          "electronicintifada.net": 1,
+          "fmep.org": 1,
+          "cjaed.org.il": 1,
+          "abrahamsvision.org": 1,
+          "normanfinkelstein.com": 1,
+          "mideastweb.org": 2,
+          "washingtoninstitute.org": 1,
+          "globalpolitician.com": 1,
+          "mepc.org": 1,
+          "libcom.org": 1,
+          "jewishvirtuallibrary.org": 2,
+          "intelligence.org.il": 1,
+          "gush-shalom.org": 1,
+          "jsource.org": 1,
+          "axisglobe.com": 1,
+          "ict.org.il": 1,
+          "cactus48.com": 1,
+          "aixgroup.org": 1
+        }
+      },
+      "added": [],
+      "dropped": [
+        {
+          "domain": "users.skynet.be",
+          "from": 3,
+          "to": 0
+        },
+        {
+          "domain": "nad-plo.org",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "thinking-east.net",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "zionismontheweb.org",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "jnewswire.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "search.looksmart.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "jerusalem.indymedia.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "alertnet.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "diplomacymonitor.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "electronicintifada.net",
+          "from": 2,
+          "to": 1
+        },
+        {
+          "domain": "nytimes.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "dir.yahoo.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "haaretzdaily.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "dmoz.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "usinfo.state.gov",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "israel.indymedia.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "honestreporting.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "jpost.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "gov.il",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "nswas.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "infoisrael.net",
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+      "episode_id": "58053984-58057916",
+      "episode_index": 4,
+      "episode_window": {
+        "start": "2006-01-01",
+        "end": "2007-07-01",
+        "pwr_mass": 12747,
+        "status": "confirmed",
+        "before_revid": 58053984,
+        "before_timestamp": "2006-06-11T16:41:03Z",
+        "after_revid": 58057916,
+        "after_timestamp": "2006-06-11T17:09:13Z",
+        "durable_spine_drop": 0.71606
+      },
+      "analysis_status": "available"
+    }
+  ]
 }

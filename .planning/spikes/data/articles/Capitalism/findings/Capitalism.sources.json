@@ -1,0 +1,889 @@
+{
+  "article": "Capitalism",
+  "pivot": "2006-01-01",
+  "span": "rev 60614567 → rev 60618403  (exact confirmation, 2006-06-26 → 2006-06-26)",
+  "mode": "pivot_relative",
+  "pivot_window": {
+    "start": "2006-01-01",
+    "end": "2007-01-01",
+    "pwr_mass": 22597,
+    "status": "confirmed",
+    "before_revid": 60614567,
+    "before_timestamp": "2006-06-26T06:27:11Z",
+    "after_revid": 60618403,
+    "after_timestamp": "2006-06-26T07:16:34Z",
+    "durable_spine_drop": 0.963999
+  },
+  "before": {
+    "date": "2006-06-26",
+    "rev": 60614567,
+    "refs": 8,
+    "n_domains": 46,
+    "cite_mix": {},
+    "domains": {
+      "en.wikiquote.org": 1,
+      "oecdobserver.org": 1,
+      "britannica.com": 1,
+      "en.wikisource.org": 1,
+      "marxists.org": 1,
+      "economics.about.com": 1,
+      "libertystory.net": 1,
+      "nefer-seba.net": 1,
+      "mises.org": 2,
+      "reason.com": 1,
+      "minneapolisfed.org": 1,
+      "j-bradford-delong.net": 1,
+      "er.uqam.ca": 1,
+      "news.bbc.co.uk": 1,
+      "econlib.org": 2,
+      "heritage.org": 2,
+      "freetheworld.com": 3,
+      "cato.org": 1,
+      "imf.org": 1,
+      "carnegiecouncil.org": 1,
+      "ild.org.pe": 1,
+      "mwhodges.home.att.net": 2,
+      "hooverdigest.org": 1,
+      "business.timesonline.co.uk": 2,
+      "greekshares.com": 1,
+      "usinfo.state.gov": 1,
+      "polyarchy.org": 1,
+      "blackmask.com": 1,
+      "adamsmith.org": 1,
+      "coin.dk": 1,
+      "celebratecapitalism.org": 1,
+      "capitalism.net": 1,
+      "austrianforum.com": 1,
+      "globalpolitician.com": 1,
+      "hoover.org": 1,
+      "capitalism.org": 1,
+      "aynrand.org": 1,
+      "rationalrevolution.net": 1,
+      "reality.gn.apc.org": 1,
+      "personal.psu.edu": 1,
+      "libcom.org": 2,
+      "anti-capitalism.com": 1,
+      "sozialoekonomie.info": 1,
+      "easyweb.easynet.co.uk": 1,
+      "phys.uu.nl": 1,
+      "zmag.org": 1
+    }
+  },
+  "after": {
+    "date": "2006-06-26",
+    "rev": 60618403,
+    "refs": 34,
+    "n_domains": 4,
+    "cite_mix": {},
+    "domains": {
+      "marxists.org": 2,
+      "encarta.msn.com": 1,
+      "concise.britannica.com": 1,
+      "bartleby.com": 1
+    }
+  },
+  "added": [
+    {
+      "domain": "marxists.org",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "domain": "bartleby.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "encarta.msn.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "concise.britannica.com",
+      "from": 0,
+      "to": 1
+    }
+  ],
+  "dropped": [
+    {
+      "domain": "freetheworld.com",
+      "from": 3,
+      "to": 0
+    },
+    {
+      "domain": "heritage.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "libcom.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "mises.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "mwhodges.home.att.net",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "business.timesonline.co.uk",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "econlib.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "nefer-seba.net",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "globalpolitician.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "economics.about.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "capitalism.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "hoover.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "easyweb.easynet.co.uk",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "imf.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "anti-capitalism.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "ild.org.pe",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "reality.gn.apc.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "rationalrevolution.net",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "personal.psu.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "j-bradford-delong.net",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "hooverdigest.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "en.wikisource.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "celebratecapitalism.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "polyarchy.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "er.uqam.ca",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "blackmask.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "carnegiecouncil.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "zmag.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "minneapolisfed.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "phys.uu.nl",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "adamsmith.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "usinfo.state.gov",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "austrianforum.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "libertystory.net",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "news.bbc.co.uk",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "capitalism.net",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "aynrand.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "reason.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "cato.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "greekshares.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "sozialoekonomie.info",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "coin.dk",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "en.wikiquote.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "britannica.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "oecdobserver.org",
+      "from": 1,
+      "to": 0
+    }
+  ],
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+  "schema_version": 1,
+  "analysis_scope": "confirmed_episodes",
+  "episode_count": 2,
+  "episodes": [
+    {
+      "article": "Capitalism",
+      "pivot": "2006-01-01",
+      "span": "rev 60614567 → rev 60618403  (exact confirmation, 2006-06-26 → 2006-06-26)",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2006-01-01",
+        "end": "2007-01-01",
+        "pwr_mass": 22597,
+        "status": "confirmed",
+        "before_revid": 60614567,
+        "before_timestamp": "2006-06-26T06:27:11Z",
+        "after_revid": 60618403,
+        "after_timestamp": "2006-06-26T07:16:34Z",
+        "durable_spine_drop": 0.963999
+      },
+      "before": {
+        "date": "2006-06-26",
+        "rev": 60614567,
+        "refs": 8,
+        "n_domains": 46,
+        "cite_mix": {},
+        "domains": {
+          "en.wikiquote.org": 1,
+          "oecdobserver.org": 1,
+          "britannica.com": 1,
+          "en.wikisource.org": 1,
+          "marxists.org": 1,
+          "economics.about.com": 1,
+          "libertystory.net": 1,
+          "nefer-seba.net": 1,
+          "mises.org": 2,
+          "reason.com": 1,
+          "minneapolisfed.org": 1,
+          "j-bradford-delong.net": 1,
+          "er.uqam.ca": 1,
+          "news.bbc.co.uk": 1,
+          "econlib.org": 2,
+          "heritage.org": 2,
+          "freetheworld.com": 3,
+          "cato.org": 1,
+          "imf.org": 1,
+          "carnegiecouncil.org": 1,
+          "ild.org.pe": 1,
+          "mwhodges.home.att.net": 2,
+          "hooverdigest.org": 1,
+          "business.timesonline.co.uk": 2,
+          "greekshares.com": 1,
+          "usinfo.state.gov": 1,
+          "polyarchy.org": 1,
+          "blackmask.com": 1,
+          "adamsmith.org": 1,
+          "coin.dk": 1,
+          "celebratecapitalism.org": 1,
+          "capitalism.net": 1,
+          "austrianforum.com": 1,
+          "globalpolitician.com": 1,
+          "hoover.org": 1,
+          "capitalism.org": 1,
+          "aynrand.org": 1,
+          "rationalrevolution.net": 1,
+          "reality.gn.apc.org": 1,
+          "personal.psu.edu": 1,
+          "libcom.org": 2,
+          "anti-capitalism.com": 1,
+          "sozialoekonomie.info": 1,
+          "easyweb.easynet.co.uk": 1,
+          "phys.uu.nl": 1,
+          "zmag.org": 1
+        }
+      },
+      "after": {
+        "date": "2006-06-26",
+        "rev": 60618403,
+        "refs": 34,
+        "n_domains": 4,
+        "cite_mix": {},
+        "domains": {
+          "marxists.org": 2,
+          "encarta.msn.com": 1,
+          "concise.britannica.com": 1,
+          "bartleby.com": 1
+        }
+      },
+      "added": [
+        {
+          "domain": "marxists.org",
+          "from": 1,
+          "to": 2
+        },
+        {
+          "domain": "bartleby.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "encarta.msn.com",
+          "from": 0,
+          "to": 1
+        },
+        {
+          "domain": "concise.britannica.com",
+          "from": 0,
+          "to": 1
+        }
+      ],
+      "dropped": [
+        {
+          "domain": "freetheworld.com",
+          "from": 3,
+          "to": 0
+        },
+        {
+          "domain": "heritage.org",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "libcom.org",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "mises.org",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "mwhodges.home.att.net",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "business.timesonline.co.uk",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "econlib.org",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "nefer-seba.net",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "globalpolitician.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "economics.about.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "capitalism.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "hoover.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "easyweb.easynet.co.uk",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "imf.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "anti-capitalism.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "ild.org.pe",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "reality.gn.apc.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "rationalrevolution.net",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "personal.psu.edu",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "j-bradford-delong.net",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "hooverdigest.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "en.wikisource.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "celebratecapitalism.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "polyarchy.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "er.uqam.ca",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "blackmask.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "carnegiecouncil.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "zmag.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "minneapolisfed.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "phys.uu.nl",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "adamsmith.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "usinfo.state.gov",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "austrianforum.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "libertystory.net",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "news.bbc.co.uk",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "capitalism.net",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "aynrand.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "reason.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "cato.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "greekshares.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "sozialoekonomie.info",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "coin.dk",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "en.wikiquote.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "britannica.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "oecdobserver.org",
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+      "episode_id": "60614567-60618403",
+      "episode_index": 1,
+      "episode_window": {
+        "start": "2006-01-01",
+        "end": "2007-01-01",
+        "pwr_mass": 22597,
+        "status": "confirmed",
+        "before_revid": 60614567,
+        "before_timestamp": "2006-06-26T06:27:11Z",
+        "after_revid": 60618403,
+        "after_timestamp": "2006-06-26T07:16:34Z",
+        "durable_spine_drop": 0.963999
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Capitalism",
+      "pivot": "2008-01-01",
+      "span": "rev 195572556 → rev 195604092  (exact confirmation, 2008-03-03 → 2008-03-03)",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2008-01-01",
+        "end": "2016-01-01",
+        "pwr_mass": 22009,
+        "status": "confirmed",
+        "before_revid": 195572556,
+        "before_timestamp": "2008-03-03T16:22:23Z",
+        "after_revid": 195604092,
+        "after_timestamp": "2008-03-03T18:39:21Z",
+        "durable_spine_drop": 0.79045
+      },
+      "before": {
+        "date": "2008-03-03",
+        "rev": 195572556,
+        "refs": 86,
+        "n_domains": 24,
+        "cite_mix": {
+          "book": 63,
+          "web": 28,
+          "journal": 9
+        },
+        "domains": {
+          "marxists.org": 5,
+          "ernestmandel.org": 2,
+          "humanities.mq.edu.au": 1,
+          "xroads.virginia.edu": 1,
+          "federalreserve.gov": 1,
+          "theglobalist.com": 1,
+          "columbia.edu": 1,
+          "minneapolisfed.org": 1,
+          "j-bradford-delong.net": 1,
+          "econlib.org": 1,
+          "capitalism.org": 1,
+          "mises.org": 1,
+          "taemag.com": 1,
+          "vatican.va": 1,
+          "prout.org": 1,
+          "proutworld.org": 1,
+          "historycooperative.org": 1,
+          "imf.org": 1,
+          "mtholyoke.edu": 1,
+          "web.worldbank.org": 1,
+          "foreignaffairs.org": 1,
+          "www10.nytimes.com": 1,
+          "wsu.edu": 1,
+          "cato.org": 1
+        }
+      },
+      "after": {
+        "date": "2008-03-03",
+        "rev": 195604092,
+        "refs": 0,
+        "n_domains": 0,
+        "cite_mix": {},
+        "domains": {}
+      },
+      "added": [],
+      "dropped": [
+        {
+          "domain": "marxists.org",
+          "from": 5,
+          "to": 0
+        },
+        {
+          "domain": "ernestmandel.org",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "historycooperative.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "taemag.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "minneapolisfed.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "humanities.mq.edu.au",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "foreignaffairs.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "proutworld.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "capitalism.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "www10.nytimes.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "prout.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "imf.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "web.worldbank.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "wsu.edu",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "theglobalist.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "vatican.va",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "xroads.virginia.edu",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "mises.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "cato.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "federalreserve.gov",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "mtholyoke.edu",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "columbia.edu",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "j-bradford-delong.net",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "econlib.org",
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+      "episode_id": "195572556-195604092",
+      "episode_index": 2,
+      "episode_window": {
+        "start": "2008-01-01",
+        "end": "2016-01-01",
+        "pwr_mass": 22009,
+        "status": "confirmed",
+        "before_revid": 195572556,
+        "before_timestamp": "2008-03-03T16:22:23Z",
+        "after_revid": 195604092,
+        "after_timestamp": "2008-03-03T18:39:21Z",
+        "durable_spine_drop": 0.79045
+      },
+      "analysis_status": "available"
+    }
+  ]
+}

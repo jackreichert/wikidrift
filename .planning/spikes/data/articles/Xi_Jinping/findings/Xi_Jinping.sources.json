@@ -1,1056 +1,139 @@
 {
   "article": "Xi Jinping",
-  "pivot": "2021-07-01",
-  "span": "2021-07-01 → 2026-07-01  (across the L1 pivot ~2021-07-01)",
+  "pivot": "2006-07-01",
+  "span": "rev 115514713 → rev 115516297  (exact confirmation, 2007-03-16 → 2007-03-16)",
+  "mode": "pivot_relative",
+  "pivot_window": {
+    "start": "2006-07-01",
+    "end": "2008-07-01",
+    "pwr_mass": 8795,
+    "status": "confirmed",
+    "before_revid": 115514713,
+    "before_timestamp": "2007-03-16T08:32:46Z",
+    "after_revid": 115516297,
+    "after_timestamp": "2007-03-16T08:50:39Z",
+    "durable_spine_drop": 0.885563
+  },
   "before": {
-    "date": "2021-07-01",
-    "refs": 383,
-    "n_domains": 148,
-    "cite_mix": {
-      "news": 72,
-      "web": 19,
-      "journal": 5,
-      "book": 4
-    },
+    "date": "2007-03-16",
+    "rev": 115514713,
+    "refs": 0,
+    "n_domains": 21,
+    "cite_mix": {},
     "domains": {
-      "hkilang.org": 2,
-      "giga-hamburg.de": 2,
-      "muse.jhu.edu": 1,
-      "eprints.soas.ac.uk": 1,
-      "theguardian.com": 35,
-      "ft.com": 9,
-      "washingtonpost.com": 20,
-      "eastasiaforum.org": 1,
-      "thetimes.co.uk": 1,
-      "economist.com": 15,
-      "newsweek.com": 3,
-      "dw.com": 2,
-      "cfr.org": 1,
-      "project-syndicate.org": 1,
-      "bloomberg.com": 7,
-      "scmp.com": 42,
-      "foreignpolicy.com": 5,
-      "rferl.org": 2,
-      "news.xinhuanet.com": 10,
-      "book.people.com.cn": 2,
-      "hn.wenweipo.com": 2,
-      "hoover.org": 1,
-      "asia.nikkei.com": 4,
-      "newyorker.com": 7,
-      "wsj.com": 4,
-      "nytimes.com": 44,
-      "v.youku.com": 2,
-      "npr.org": 4,
-      "thestar.com": 2,
-      "cnn.com": 6,
-      "cbc.ca": 4,
-      "docs.google.com": 2,
-      "thestreet.com": 2,
-      "globalsecurity.org": 2,
-      "straitstimes.com": 4,
-      "canyu.org": 2,
-      "en.people.cn": 9,
-      "thediplomat.com": 21,
-      "opinion.dwnews.com": 2,
-      "news.sohu.com": 2,
-      "bbc.com": 17,
-      "boxun.com": 2,
-      "caijing.com.cn": 2,
-      "chinadaily.com.cn": 11,
-      "mfa.gov.cn": 2,
-      "china.blogs.time.com": 2,
-      "theaustralian.com.au": 2,
-      "gov.cn": 1,
-      "china.org.cn": 2,
-      "timesofmalta.com": 1,
-      "news.asiaone.com": 2,
-      "udn.com": 2,
-      "china-un.ch": 1,
-      "southasiaanalysis.org": 2,
-      "reuters.com": 21,
-      "bbc.co.uk": 7,
-      "hindustantimes.com": 5,
-      "edition.cnn.com": 11,
-      "latimes.com": 2,
-      "ndtv.com": 2,
-      "newsinfo.inquirer.net": 2,
-      "jamestown.org": 5,
-      "hndj.gov.cn": 2,
-      "vtibet.cn": 2,
-      "theory.people.com.cn": 2,
-      "hrw.org": 3,
-      "xinhuanet.com": 5,
-      "usnews.com": 2,
-      "csmonitor.com": 4,
-      "afr.com": 5,
-      "cbsnews.com": 2,
-      "businesstoday.in": 1,
-      "independent.co.uk": 5,
-      "independent.ie": 2,
-      "books.google.com": 1,
-      "supchina.com": 1,
-      "apnews.com": 4,
-      "cnbc.com": 4,
-      "brookings.edu": 10,
-      "ibtimes.co.uk": 2,
-      "china.dwnews.com": 2,
-      "chinatopix.com": 2,
-      "columbiatribune.com": 2,
-      "chinanationalnews.com": 2,
-      "china.usc.edu": 1,
-      "aljazeera.com": 4,
-      "pewresearch.org": 1,
-      "korea.net": 2,
-      "carnegieendowment.org": 2,
-      "timesofindia.indiatimes.com": 4,
-      "smh.com.au": 2,
-      "abc.net.au": 5,
-      "multimedia.scmp.com": 2,
-      "royal.uk": 2,
-      "manchestereveningnews.co.uk": 2,
-      "yahoo.com": 2,
-      "cn.nytimes.com": 2,
-      "english.gov.cn": 2,
-      "usa.chinadaily.com.cn": 2,
-      "time.com": 3,
-      "bangkokpost.com": 1,
-      "english.agri.gov.cn": 1,
-      "hongkongfp.com": 1,
-      "ap.ohchr.org": 1,
-      "usun.usmission.gov": 1,
-      "axios.com": 1,
-      "spiegel.de": 1,
-      "climateactiontracker.org": 2,
-      "japantimes.co.jp": 1,
-      "msn.com": 1,
-      "doi.org": 1,
+      "money.cnn.com": 1,
+      "es.news.yahoo.com": 1,
+      "usatoday.com": 1,
+      "ft.com": 2,
+      "iht.com": 1,
+      "washingtonpost.com": 2,
+      "townhall.com": 1,
+      "weeklystandard.com": 1,
+      "usinfo.state.gov": 1,
+      "chinaeconomicreview.com": 1,
+      "english.people.com.cn": 1,
+      "china.org.cn": 3,
+      "chinavitae.com": 3,
       "weforum.org": 1,
-      "iep.berkeley.edu": 1,
-      "aeaweb.org": 1,
-      "telegraph.co.uk": 3,
-      "theatlantic.com": 2,
-      "chinachannel.org": 1,
-      "chinadigitaltimes.net": 3,
-      "articles.latimes.com": 2,
-      "blogs.wsj.com": 2,
-      "rfa.org": 2,
-      "marketplace.org": 2,
-      "news.bbc.co.uk": 2,
-      "sinosphere.blogs.nytimes.com": 2,
-      "today.yougov.com": 2,
-      "forbes.com": 2,
-      "chinaconsulatesf.org": 2,
-      "eubusiness.com": 1,
-      "fmprc.gov.cn": 3,
-      "b92.net": 2,
-      "eng.belta.by": 2,
-      "en.kremlin.ru": 2,
-      "thenational.ae": 2,
-      "infobae.com": 1,
-      "news.ru": 2,
-      "jis.gov.jm": 2,
-      "dailymotion.com": 1,
-      "informador.mx": 1,
-      "co.china-embassy.org": 1,
-      "efe.com": 1,
-      "qiwen.lu": 1,
-      "origins.osu.edu": 1,
-      "cs.brown.edu": 1,
-      "ijol.cikd.ca": 1,
-      "direct.mit.edu": 1,
-      "questia.com": 1,
-      "chinavitae.com": 1,
-      "wikileaks.org": 1
+      "news.xinhuanet.com": 5,
+      "boston.com": 1,
+      "corzinewatch.com": 1,
+      "en.wikipedia.org": 1,
+      "austhink.org": 2,
+      "worldwhoswho.com": 1,
+      "bjpiano.com": 1
     }
   },
   "after": {
-    "date": "2026-07-01",
-    "refs": 484,
-    "n_domains": 134,
-    "cite_mix": {
-      "news": 65,
-      "web": 18,
-      "book": 12,
-      "journal": 4,
-      "press": 0
-    },
+    "date": "2007-03-16",
+    "rev": 115516297,
+    "refs": 1,
+    "n_domains": 2,
+    "cite_mix": {},
     "domains": {
-      "xinhuanet.com": 3,
-      "scmp.com": 67,
-      "theory.people.com.cn": 1,
-      "archive.org": 1,
-      "rferl.org": 2,
-      "news.xinhuanet.com": 12,
-      "asia.nikkei.com": 7,
-      "gapp.gov.cn": 2,
-      "nytimes.com": 71,
-      "v.youku.com": 2,
-      "wsj.com": 34,
-      "chinanews.com.cn": 2,
-      "npr.org": 4,
-      "thestar.com": 2,
-      "cnn.com": 9,
-      "newyorker.com": 6,
-      "opinion.haiwainet.cn": 2,
-      "chinatimes.com": 2,
-      "singtao.ca": 2,
-      "news.cnr.cn": 2,
-      "stdaily.com": 2,
-      "news.cn": 4,
-      "gov.cn": 1,
-      "npc.gov.cn": 2,
-      "thediplomat.com": 24,
-      "opinion.dwnews.com": 2,
-      "reuters.com": 61,
-      "news.sohu.com": 2,
-      "bbc.com": 25,
-      "boxun.com": 2,
-      "caijing.com.cn": 2,
-      "aljazeera.com": 6,
-      "ft.com": 14,
-      "ghostarchive.org": 12,
-      "foreignpolicy.com": 11,
-      "theguardian.com": 41,
-      "world.time.com": 3,
-      "bbc.co.uk": 6,
-      "hindustantimes.com": 2,
-      "edition.cnn.com": 13,
-      "latimes.com": 3,
-      "cbc.ca": 2,
-      "independent.ie": 2,
-      "csmonitor.com": 4,
-      "economist.com": 32,
-      "apnews.com": 7,
-      "chinamediaproject.org": 11,
-      "english.news.cn": 2,
-      "jamestown.org": 7,
-      "bloomberg.com": 38,
-      "prcleader.org": 1,
-      "legaldaily.com.cn": 2,
-      "washingtonpost.com": 15,
-      "usnews.com": 2,
-      "afr.com": 2,
-      "merics.org": 2,
-      "brookings.edu": 11,
-      "cnbc.com": 3,
-      "cfr.org": 1,
-      "en.tsinghua-tj.org": 1,
-      "language.chinadaily.com.cn": 2,
-      "eastasiaforum.org": 1,
-      "guancha.cn": 1,
-      "china.dwnews.com": 2,
-      "independent.co.uk": 4,
-      "axios.com": 4,
-      "data.stats.gov.cn": 1,
-      "imf.org": 2,
-      "data.worldbank.org": 4,
-      "archivemacropolo.org": 1,
-      "qz.com": 4,
-      "ig.ft.com": 1,
-      "atlanticcouncil.org": 2,
-      "caixinglobal.com": 2,
-      "straitstimes.com": 6,
-      "foreignaffairs.com": 1,
-      "thetimes.com": 1,
-      "thetimes.co.uk": 1,
-      "voanews.com": 3,
-      "chinapower.csis.org": 1,
-      "hongkongfp.com": 4,
-      "dw.com": 5,
-      "vox.com": 2,
-      "globaltaiwan.org": 1,
-      "hrw.org": 2,
-      "bangkokpost.com": 2,
-      "npcobserver.com": 1,
-      "youtube.com": 4,
-      "thestar.com.my": 2,
-      "spiegel.de": 2,
-      "chinadaily.com.cn": 2,
-      "climateactiontracker.org": 2,
-      "abc.net.au": 4,
-      "japantimes.co.jp": 1,
-      "theatlantic.com": 3,
-      "telegraph.co.uk": 2,
-      "ex.chinadaily.com.cn": 1,
-      "english.scio.gov.cn": 1,
-      "decodingchina.eu": 1,
-      "chinadigitaltimes.net": 2,
-      "nippon.com": 1,
-      "agendapublica.elpais.com": 1,
-      "articles.latimes.com": 1,
-      "blogs.wsj.com": 2,
-      "time.com": 3,
-      "rfa.org": 2,
-      "marketplace.org": 2,
-      "news.bbc.co.uk": 2,
-      "newsweek.com": 2,
-      "china.blogs.time.com": 1,
-      "theaustralian.com.au": 2,
-      "usfq.edu.ec": 1,
-      "today.yougov.com": 2,
-      "pewresearch.org": 1,
-      "forbes.com": 2,
-      "rsf.org": 1,
-      "nur.kz": 2,
-      "asiaplustj.info": 1,
-      "books.google.com": 27,
-      "ecfr.eu": 2,
-      "academic.oup.com": 1,
-      "muse.jhu.edu": 1,
-      "indsr.org.tw": 1,
-      "eprints.soas.ac.uk": 1,
-      "cnas.org": 2,
-      "hoover.org": 3,
-      "doi.org": 1,
-      "link.springer.com": 1,
-      "wilsoncenter.org": 2,
-      "journalofdemocracy.org": 2,
-      "tnsr.org": 2,
-      "ad-aspi.s3.ap-southeast-2.amazonaws.com": 2,
-      "swp-berlin.org": 1,
-      "inss.ndu.edu": 2
+      "money.cnn.com": 1,
+      "chinavitae.com": 1
     }
   },
-  "added": [
-    {
-      "domain": "reuters.com",
-      "from": 21,
-      "to": 61
-    },
-    {
-      "domain": "bloomberg.com",
-      "from": 7,
-      "to": 38
-    },
-    {
-      "domain": "wsj.com",
-      "from": 4,
-      "to": 34
-    },
-    {
-      "domain": "nytimes.com",
-      "from": 44,
-      "to": 71
-    },
-    {
-      "domain": "books.google.com",
-      "from": 1,
-      "to": 27
-    },
-    {
-      "domain": "scmp.com",
-      "from": 42,
-      "to": 67
-    },
-    {
-      "domain": "economist.com",
-      "from": 15,
-      "to": 32
-    },
-    {
-      "domain": "ghostarchive.org",
-      "from": 0,
-      "to": 12
-    },
-    {
-      "domain": "chinamediaproject.org",
-      "from": 0,
-      "to": 11
-    },
-    {
-      "domain": "bbc.com",
-      "from": 17,
-      "to": 25
-    },
-    {
-      "domain": "theguardian.com",
-      "from": 35,
-      "to": 41
-    },
-    {
-      "domain": "foreignpolicy.com",
-      "from": 5,
-      "to": 11
-    },
-    {
-      "domain": "ft.com",
-      "from": 9,
-      "to": 14
-    },
-    {
-      "domain": "news.cn",
-      "from": 0,
-      "to": 4
-    },
-    {
-      "domain": "qz.com",
-      "from": 0,
-      "to": 4
-    },
-    {
-      "domain": "youtube.com",
-      "from": 0,
-      "to": 4
-    },
-    {
-      "domain": "data.worldbank.org",
-      "from": 0,
-      "to": 4
-    },
-    {
-      "domain": "world.time.com",
-      "from": 0,
-      "to": 3
-    },
-    {
-      "domain": "axios.com",
-      "from": 1,
-      "to": 4
-    },
-    {
-      "domain": "apnews.com",
-      "from": 4,
-      "to": 7
-    },
-    {
-      "domain": "cnn.com",
-      "from": 6,
-      "to": 9
-    },
-    {
-      "domain": "asia.nikkei.com",
-      "from": 4,
-      "to": 7
-    },
-    {
-      "domain": "hongkongfp.com",
-      "from": 1,
-      "to": 4
-    },
-    {
-      "domain": "dw.com",
-      "from": 2,
-      "to": 5
-    },
-    {
-      "domain": "voanews.com",
-      "from": 0,
-      "to": 3
-    },
-    {
-      "domain": "thediplomat.com",
-      "from": 21,
-      "to": 24
-    },
-    {
-      "domain": "ecfr.eu",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "cnas.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "singtao.ca",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "vox.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "imf.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "ad-aspi.s3.ap-southeast-2.amazonaws.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "opinion.haiwainet.cn",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "npc.gov.cn",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "merics.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "stdaily.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "chinanews.com.cn",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "caixinglobal.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "language.chinadaily.com.cn",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "news.cnr.cn",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "english.news.cn",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "legaldaily.com.cn",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "edition.cnn.com",
-      "from": 11,
-      "to": 13
-    },
-    {
-      "domain": "atlanticcouncil.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "nur.kz",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "aljazeera.com",
-      "from": 4,
-      "to": 6
-    },
-    {
-      "domain": "inss.ndu.edu",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "gapp.gov.cn",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "jamestown.org",
-      "from": 5,
-      "to": 7
-    },
-    {
-      "domain": "news.xinhuanet.com",
-      "from": 10,
-      "to": 12
-    },
-    {
-      "domain": "wilsoncenter.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "chinatimes.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "tnsr.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "straitstimes.com",
-      "from": 4,
-      "to": 6
-    },
-    {
-      "domain": "hoover.org",
-      "from": 1,
-      "to": 3
-    },
-    {
-      "domain": "journalofdemocracy.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "thestar.com.my",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "archive.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "thetimes.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "ig.ft.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "globaltaiwan.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "bangkokpost.com",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "prcleader.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "spiegel.de",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "npcobserver.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "foreignaffairs.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "asiaplustj.info",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "link.springer.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "latimes.com",
-      "from": 2,
-      "to": 3
-    },
-    {
-      "domain": "theatlantic.com",
-      "from": 2,
-      "to": 3
-    },
-    {
-      "domain": "agendapublica.elpais.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "usfq.edu.ec",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "data.stats.gov.cn",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "ex.chinadaily.com.cn",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "archivemacropolo.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "english.scio.gov.cn",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "rsf.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "decodingchina.eu",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "academic.oup.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "swp-berlin.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "en.tsinghua-tj.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "brookings.edu",
-      "from": 10,
-      "to": 11
-    },
-    {
-      "domain": "indsr.org.tw",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "guancha.cn",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "nippon.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "chinapower.csis.org",
-      "from": 0,
-      "to": 1
-    }
-  ],
+  "added": [],
   "dropped": [
     {
-      "domain": "chinadaily.com.cn",
-      "from": 11,
-      "to": 2
-    },
-    {
-      "domain": "en.people.cn",
-      "from": 9,
-      "to": 0
-    },
-    {
-      "domain": "washingtonpost.com",
-      "from": 20,
-      "to": 15
-    },
-    {
-      "domain": "timesofindia.indiatimes.com",
-      "from": 4,
-      "to": 0
-    },
-    {
-      "domain": "afr.com",
+      "domain": "news.xinhuanet.com",
       "from": 5,
-      "to": 2
-    },
-    {
-      "domain": "hindustantimes.com",
-      "from": 5,
-      "to": 2
-    },
-    {
-      "domain": "fmprc.gov.cn",
-      "from": 3,
-      "to": 0
-    },
-    {
-      "domain": "cbsnews.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "xinhuanet.com",
-      "from": 5,
-      "to": 3
-    },
-    {
-      "domain": "ndtv.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "thenational.ae",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "giga-hamburg.de",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "hn.wenweipo.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "hndj.gov.cn",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "canyu.org",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "udn.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "chinatopix.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "multimedia.scmp.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "southasiaanalysis.org",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "royal.uk",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "jis.gov.jm",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "korea.net",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "eng.belta.by",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "carnegieendowment.org",
-      "from": 2,
       "to": 0
     },
     {
       "domain": "china.org.cn",
-      "from": 2,
+      "from": 3,
       "to": 0
     },
     {
-      "domain": "newsinfo.inquirer.net",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "english.gov.cn",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "hkilang.org",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "chinaconsulatesf.org",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "vtibet.cn",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "book.people.com.cn",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "manchestereveningnews.co.uk",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "usa.chinadaily.com.cn",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "b92.net",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "en.kremlin.ru",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "sinosphere.blogs.nytimes.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "yahoo.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "mfa.gov.cn",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "news.ru",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "columbiatribune.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "thestreet.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "news.asiaone.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "chinanationalnews.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "smh.com.au",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "cbc.ca",
-      "from": 4,
-      "to": 2
-    },
-    {
-      "domain": "cn.nytimes.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "ibtimes.co.uk",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "globalsecurity.org",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "docs.google.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "infobae.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "businesstoday.in",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "china.blogs.time.com",
-      "from": 2,
+      "domain": "chinavitae.com",
+      "from": 3,
       "to": 1
     },
     {
-      "domain": "independent.co.uk",
-      "from": 5,
-      "to": 4
+      "domain": "austhink.org",
+      "from": 2,
+      "to": 0
     },
     {
-      "domain": "qiwen.lu",
+      "domain": "ft.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "washingtonpost.com",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "usinfo.state.gov",
       "from": 1,
       "to": 0
     },
     {
-      "domain": "newyorker.com",
-      "from": 7,
-      "to": 6
-    },
-    {
-      "domain": "ap.ohchr.org",
+      "domain": "en.wikipedia.org",
       "from": 1,
       "to": 0
     },
     {
-      "domain": "newsweek.com",
-      "from": 3,
-      "to": 2
-    },
-    {
-      "domain": "timesofmalta.com",
+      "domain": "chinaeconomicreview.com",
       "from": 1,
       "to": 0
     },
     {
-      "domain": "bbc.co.uk",
-      "from": 7,
-      "to": 6
-    },
-    {
-      "domain": "cnbc.com",
-      "from": 4,
-      "to": 3
-    },
-    {
-      "domain": "english.agri.gov.cn",
+      "domain": "english.people.com.cn",
       "from": 1,
       "to": 0
     },
     {
-      "domain": "questia.com",
+      "domain": "usatoday.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "boston.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "bjpiano.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "worldwhoswho.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "iht.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "weeklystandard.com",
       "from": 1,
       "to": 0
     },
@@ -1060,135 +143,201 @@
       "to": 0
     },
     {
-      "domain": "ijol.cikd.ca",
+      "domain": "corzinewatch.com",
       "from": 1,
       "to": 0
     },
     {
-      "domain": "direct.mit.edu",
+      "domain": "townhall.com",
       "from": 1,
       "to": 0
     },
     {
-      "domain": "iep.berkeley.edu",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "project-syndicate.org",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "telegraph.co.uk",
-      "from": 3,
-      "to": 2
-    },
-    {
-      "domain": "efe.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "usun.usmission.gov",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "chinadigitaltimes.net",
-      "from": 3,
-      "to": 2
-    },
-    {
-      "domain": "china-un.ch",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "china.usc.edu",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "cs.brown.edu",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "eubusiness.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "supchina.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "aeaweb.org",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "chinachannel.org",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "msn.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "wikileaks.org",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "hrw.org",
-      "from": 3,
-      "to": 2
-    },
-    {
-      "domain": "chinavitae.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "co.china-embassy.org",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "informador.mx",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "theory.people.com.cn",
-      "from": 2,
-      "to": 1
-    },
-    {
-      "domain": "abc.net.au",
-      "from": 5,
-      "to": 4
-    },
-    {
-      "domain": "origins.osu.edu",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "articles.latimes.com",
-      "from": 2,
-      "to": 1
-    },
-    {
-      "domain": "dailymotion.com",
+      "domain": "es.news.yahoo.com",
       "from": 1,
       "to": 0
     }
   ],
-  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD."
+  "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+  "schema_version": 1,
+  "analysis_scope": "confirmed_episodes",
+  "episode_count": 1,
+  "episodes": [
+    {
+      "article": "Xi Jinping",
+      "pivot": "2006-07-01",
+      "span": "rev 115514713 → rev 115516297  (exact confirmation, 2007-03-16 → 2007-03-16)",
+      "mode": "pivot_relative",
+      "pivot_window": {
+        "start": "2006-07-01",
+        "end": "2008-07-01",
+        "pwr_mass": 8795,
+        "status": "confirmed",
+        "before_revid": 115514713,
+        "before_timestamp": "2007-03-16T08:32:46Z",
+        "after_revid": 115516297,
+        "after_timestamp": "2007-03-16T08:50:39Z",
+        "durable_spine_drop": 0.885563
+      },
+      "before": {
+        "date": "2007-03-16",
+        "rev": 115514713,
+        "refs": 0,
+        "n_domains": 21,
+        "cite_mix": {},
+        "domains": {
+          "money.cnn.com": 1,
+          "es.news.yahoo.com": 1,
+          "usatoday.com": 1,
+          "ft.com": 2,
+          "iht.com": 1,
+          "washingtonpost.com": 2,
+          "townhall.com": 1,
+          "weeklystandard.com": 1,
+          "usinfo.state.gov": 1,
+          "chinaeconomicreview.com": 1,
+          "english.people.com.cn": 1,
+          "china.org.cn": 3,
+          "chinavitae.com": 3,
+          "weforum.org": 1,
+          "news.xinhuanet.com": 5,
+          "boston.com": 1,
+          "corzinewatch.com": 1,
+          "en.wikipedia.org": 1,
+          "austhink.org": 2,
+          "worldwhoswho.com": 1,
+          "bjpiano.com": 1
+        }
+      },
+      "after": {
+        "date": "2007-03-16",
+        "rev": 115516297,
+        "refs": 1,
+        "n_domains": 2,
+        "cite_mix": {},
+        "domains": {
+          "money.cnn.com": 1,
+          "chinavitae.com": 1
+        }
+      },
+      "added": [],
+      "dropped": [
+        {
+          "domain": "news.xinhuanet.com",
+          "from": 5,
+          "to": 0
+        },
+        {
+          "domain": "china.org.cn",
+          "from": 3,
+          "to": 0
+        },
+        {
+          "domain": "chinavitae.com",
+          "from": 3,
+          "to": 1
+        },
+        {
+          "domain": "austhink.org",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "ft.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "washingtonpost.com",
+          "from": 2,
+          "to": 0
+        },
+        {
+          "domain": "usinfo.state.gov",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "en.wikipedia.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "chinaeconomicreview.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "english.people.com.cn",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "usatoday.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "boston.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "bjpiano.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "worldwhoswho.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "iht.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "weeklystandard.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "weforum.org",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "corzinewatch.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "townhall.com",
+          "from": 1,
+          "to": 0
+        },
+        {
+          "domain": "es.news.yahoo.com",
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "note": "Reference-agnostic: the article's OWN citation-source change across its L1 pivot, from → to. Structural/editor-declared signals only. No source is rated reliable/biased. A LEAD.",
+      "episode_id": "115514713-115516297",
+      "episode_index": 1,
+      "episode_window": {
+        "start": "2006-07-01",
+        "end": "2008-07-01",
+        "pwr_mass": 8795,
+        "status": "confirmed",
+        "before_revid": 115514713,
+        "before_timestamp": "2007-03-16T08:32:46Z",
+        "after_revid": 115516297,
+        "after_timestamp": "2007-03-16T08:50:39Z",
+        "durable_spine_drop": 0.885563
+      },
+      "analysis_status": "available"
+    }
+  ]
 }

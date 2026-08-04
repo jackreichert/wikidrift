@@ -55,7 +55,7 @@ A **controversy signal** (Yasseri mutual-revert M-score) is context only: it can
 contested topic from a captured one, so a *low* score on an otherwise-flagged article is itself informative
 (the change was made quietly → route to L5).
 
-## 4. The metric that grounds L1 — persistence-weighted loss (PWR)
+## 4. The metric that grounds L1 — persistence-weighted change (PWR)
 
 Drift magnitude is measured as **persistence-weighted content loss**: each token is weighted by how long it
 survived, so destroying 20-year-stable text weighs far more than churning last month's edits. This is grounded
@@ -64,13 +64,22 @@ snapshots. Episodes are **ranked by PWR-mass, age-agnostic** — a *long-standin
 find, never demoted for being old; recency is a descriptor, not a demoter. Robustness: snapshots are taken on
 **persistent** revisions (size ≈ local median) so transient vandalism/blanking never reads as a rewrite.
 
-Candidate detection is deliberately two-pass. The primary pass looks for sharp interval episodes with a peak
-PWR loss of at least 25%. If none of its candidates survives revision-level confirmation, a second pass tests
-direct weighted cohort loss across approximately twelve months, requiring at least 20% loss and 50,000 PWR
-mass. Overlapping rolling windows are reduced to the strongest non-overlapping candidates. The second pass is
-not a weaker verdict: both sources must still show at least a 20% collapse of the durable spine in the
-underlying revisions. This separates candidate recall from confirmation precision and catches sustained
-medium-sized replacement without globally lowering the primary threshold.
+The initial sweep measures every covered interval symmetrically: persistence-weighted loss, standing gain,
+retained mass, and the paired portion of concurrent loss and gain. A paired change is a **replacement lead**,
+not proof that one passage semantically replaced another. Loss or gain at 15%, or paired change at 10%, is
+retained as an anomaly. Absolute PWR mass sets review priority (10,000 review; 50,000 high) but never suppresses
+an anomaly. An extreme percentage can also receive high priority so small articles are not hidden.
+
+The 1,000-token exact-check floor follows from the confirmation test rather than article maturity: the durable
+spine uses the top persistence half and needs at least 500 tokens, so a 1,000-token start is the smallest interval
+that can satisfy that evidence requirement by construction. Smaller intervals remain visible as descriptive
+evidence but cannot receive an exact durable-spine verdict.
+
+Loss confirmation remains two-pass. The primary pass groups sharp intervals with a 25% peak; when none confirms,
+a rolling pass tests direct cohort loss across approximately twelve months at 20%. All candidates are retained
+and checked when evidence permits. PWR mass orders review; it is not a rolling-pass admission rule. Both sources
+must still show at least a 20% collapse of the durable spine in underlying revisions. Gain and replacement leads
+remain provisional until dedicated semantic confirmation exists.
 
 Each candidate sent to revision-level confirmation is retained in the confirmation artifact with its source
 pass, coarse interval, PWR mass, peak loss, exact drop when measurable, decision, and rejection reason. A
@@ -134,6 +143,20 @@ public removal footprint to select additional articles, but each candidate must 
 analysis and reach exact `confirmed` status before appearing in a rewrite-lead list. A coarse `PIVOT?`, graph
 membership, or shared account can never promote an article. Exact confirmation establishes durable content
 change only; it does not establish bias, motive, policy violation, or coordination.
+
+### Analysis across confirmed events
+
+Downstream analysis is event-complete rather than article-singleton. Every fresh confirmed revision pair receives
+its own vocabulary and citation analysis. When requested, framing and fact comparison also run independently for
+every pair. Vocabulary, citations, and framing bind to the exact before and after revisions. Fact comparison asks
+a different question: it compares editions as of the exact post-event timestamp and is not presented as a
+before/after fact change.
+
+Layer artifacts retain one record per event under `episodes`, identified by the exact
+`<before_revid>-<after_revid>` pair. Each record reports whether its evidence is available. Retrieval or model
+failure for one event is retained as unavailable and cannot suppress completed sibling events or another layer.
+Top-level compatibility fields may mirror one available event, but the event collection is authoritative for
+multi-event analysis.
 
 ### Publication and schema backfill
 

@@ -1,301 +1,971 @@
 {
   "article": "Republican Party (United States)",
-  "span": "2025-01-01 -> 2026-01-01 (around L1 pivot ~2025-01-01)",
+  "mode": "pivot_relative",
+  "requested_mode": "pivot_relative",
+  "adequate": true,
+  "adequacy_reason": null,
+  "size_ratio": 1.2235,
+  "interval_source": "exact_confirmation",
+  "span": "rev 1284886106 -> rev 1284887246 (exact confirmation)",
   "pivot": "2025-01-01",
   "before": {
-    "date": "2025-01-01",
-    "rev": 1266540753,
-    "tokens": 10373
+    "date": "2025-04-10",
+    "rev": 1284886106,
+    "tokens": 10766
   },
   "after": {
-    "date": "2026-01-01",
-    "rev": 1330402946,
-    "tokens": 9132
+    "date": "2025-04-10",
+    "rev": 1284887246,
+    "tokens": 8799
   },
-  "js_divergence": 0.0614,
+  "js_divergence": 0.025,
   "overrepresented_after_terms": [
     {
-      "term": "highest",
-      "before": 0,
-      "after": 6,
-      "delta": 6,
-      "log_odds": 2.693
-    },
-    {
-      "term": "counties",
-      "before": 0,
-      "after": 5,
-      "delta": 5,
-      "log_odds": 2.5259
-    },
-    {
-      "term": "incomes",
-      "before": 0,
-      "after": 5,
-      "delta": 5,
-      "log_odds": 2.5259
-    },
-    {
-      "term": "older",
-      "before": 0,
-      "after": 5,
-      "delta": 5,
-      "log_odds": 2.5259
-    },
-    {
-      "term": "antisemitic",
-      "before": 0,
-      "after": 4,
-      "delta": 4,
-      "log_odds": 2.3251
-    },
-    {
-      "term": "correlated",
-      "before": 0,
-      "after": 4,
-      "delta": 4,
-      "log_odds": 2.3251
-    },
-    {
-      "term": "mercantilist",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 2.0737
-    },
-    {
-      "term": "nazi",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 2.0737
-    },
-    {
-      "term": "openly",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 2.0737
-    },
-    {
-      "term": "slurs",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 2.0737
-    },
-    {
-      "term": "aged",
+      "term": "formed",
       "before": 1,
-      "after": 9,
-      "delta": 8,
-      "log_odds": 1.9741
+      "after": 3,
+      "delta": 2,
+      "log_odds": 1.0493
     },
     {
-      "term": "southerners",
+      "term": "very",
       "before": 2,
-      "after": 13,
-      "delta": 11,
-      "log_odds": 1.815
-    },
-    {
-      "term": "attainment",
-      "before": 1,
-      "after": 6,
-      "delta": 5,
-      "log_odds": 1.5943
-    },
-    {
-      "term": "educational",
-      "before": 1,
-      "after": 6,
-      "delta": 5,
-      "log_odds": 1.5943
-    },
-    {
-      "term": "income",
-      "before": 4,
-      "after": 17,
-      "delta": 13,
-      "log_odds": 1.487
-    },
-    {
-      "term": "across",
-      "before": 1,
-      "after": 5,
-      "delta": 4,
-      "log_odds": 1.4271
-    },
-    {
-      "term": "demographic",
-      "before": 1,
-      "after": 5,
-      "delta": 4,
-      "log_odds": 1.4271
-    },
-    {
-      "term": "globalization",
-      "before": 1,
-      "after": 5,
-      "delta": 4,
-      "log_odds": 1.4271
-    },
-    {
-      "term": "narrowly",
-      "before": 1,
-      "after": 5,
-      "delta": 4,
-      "log_odds": 1.4271
-    },
-    {
-      "term": "ideology",
-      "before": 1,
       "after": 4,
-      "delta": 3,
-      "log_odds": 1.2264
+      "delta": 2,
+      "log_odds": 0.7898
+    },
+    {
+      "term": "banking",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.7127
+    },
+    {
+      "term": "enlisted",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.7127
+    },
+    {
+      "term": "identified",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.7127
+    },
+    {
+      "term": "mountain",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.7127
+    },
+    {
+      "term": "originalism",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.7127
+    },
+    {
+      "term": "persisted",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.7127
+    },
+    {
+      "term": "railroads",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.7127
+    },
+    {
+      "term": "reduced",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.7127
+    },
+    {
+      "term": "rejected",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.7127
+    },
+    {
+      "term": "six",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.7127
+    },
+    {
+      "term": "soil",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.7127
+    },
+    {
+      "term": "upright",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.7127
+    },
+    {
+      "term": "areas",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": 0.5384
+    },
+    {
+      "term": "confederate",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": 0.5384
+    },
+    {
+      "term": "cultural",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": 0.5384
+    },
+    {
+      "term": "fight",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": 0.5384
+    },
+    {
+      "term": "presence",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": 0.5384
+    },
+    {
+      "term": "slaves",
+      "before": 2,
+      "after": 3,
+      "delta": 1,
+      "log_odds": 0.5384
     }
   ],
   "underrepresented_after_terms": [
     {
-      "term": "proved",
-      "before": 7,
+      "term": "grant",
+      "before": 8,
       "after": 0,
-      "delta": -7,
-      "log_odds": -2.5813
+      "delta": -8,
+      "log_odds": -2.6322
     },
     {
       "term": "cleveland",
       "before": 6,
       "after": 0,
       "delta": -6,
-      "log_odds": -2.4381
+      "log_odds": -2.3638
     },
     {
       "term": "march",
       "before": 6,
       "after": 0,
       "delta": -6,
-      "log_odds": -2.4381
+      "log_odds": -2.3638
     },
     {
-      "term": "blaine",
+      "term": "hayes",
       "before": 5,
       "after": 0,
       "delta": -5,
-      "log_odds": -2.271
-    },
-    {
-      "term": "gave",
-      "before": 5,
-      "after": 0,
-      "delta": -5,
-      "log_odds": -2.271
-    },
-    {
-      "term": "post",
-      "before": 5,
-      "after": 0,
-      "delta": -5,
-      "log_odds": -2.271
+      "log_odds": -2.1966
     },
     {
       "term": "gingrich",
       "before": 13,
       "after": 1,
       "delta": -12,
-      "log_odds": -2.071
-    },
-    {
-      "term": "hayes",
-      "before": 4,
-      "after": 0,
-      "delta": -4,
-      "log_odds": -2.0702
+      "log_odds": -1.9966
     },
     {
       "term": "illinois",
       "before": 4,
       "after": 0,
       "delta": -4,
-      "log_odds": -2.0702
-    },
-    {
-      "term": "loss",
-      "before": 4,
-      "after": 0,
-      "delta": -4,
-      "log_odds": -2.0702
-    },
-    {
-      "term": "pope",
-      "before": 4,
-      "after": 0,
-      "delta": -4,
-      "log_odds": -2.0702
-    },
-    {
-      "term": "unable",
-      "before": 4,
-      "after": 0,
-      "delta": -4,
-      "log_odds": -2.0702
+      "log_odds": -1.9959
     },
     {
       "term": "ahead",
       "before": 3,
       "after": 0,
       "delta": -3,
-      "log_odds": -1.8188
-    },
-    {
-      "term": "attended",
-      "before": 3,
-      "after": 0,
-      "delta": -3,
-      "log_odds": -1.8188
+      "log_odds": -1.7444
     },
     {
       "term": "august",
       "before": 3,
       "after": 0,
       "delta": -3,
-      "log_odds": -1.8188
+      "log_odds": -1.7444
+    },
+    {
+      "term": "blaine",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.7444
     },
     {
       "term": "bryan",
       "before": 3,
       "after": 0,
       "delta": -3,
-      "log_odds": -1.8188
-    },
-    {
-      "term": "charles",
-      "before": 3,
-      "after": 0,
-      "delta": -3,
-      "log_odds": -1.8188
+      "log_odds": -1.7444
     },
     {
       "term": "contract",
       "before": 3,
       "after": 0,
       "delta": -3,
-      "log_odds": -1.8188
+      "log_odds": -1.7444
     },
     {
       "term": "coolidge",
       "before": 3,
       "after": 0,
       "delta": -3,
-      "log_odds": -1.8188
+      "log_odds": -1.7444
     },
     {
-      "term": "cost",
+      "term": "debt",
       "before": 3,
       "after": 0,
       "delta": -3,
-      "log_odds": -1.8188
+      "log_odds": -1.7444
+    },
+    {
+      "term": "fall",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.7444
+    },
+    {
+      "term": "frémont",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.7444
+    },
+    {
+      "term": "garfield",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.7444
+    },
+    {
+      "term": "harrison",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.7444
+    },
+    {
+      "term": "livingston",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.7444
+    },
+    {
+      "term": "loss",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.7444
+    },
+    {
+      "term": "messaging",
+      "before": 3,
+      "after": 0,
+      "delta": -3,
+      "log_odds": -1.7444
     }
   ],
-  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict.",
+  "schema_version": 1,
+  "analysis_scope": "confirmed_episodes",
+  "episode_count": 3,
+  "episodes": [
+    {
+      "article": "Republican Party (United States)",
+      "mode": "pivot_relative",
+      "requested_mode": "pivot_relative",
+      "adequate": true,
+      "adequacy_reason": null,
+      "size_ratio": 1.2235,
+      "interval_source": "exact_confirmation",
+      "span": "rev 1284886106 -> rev 1284887246 (exact confirmation)",
+      "pivot": "2025-01-01",
+      "before": {
+        "date": "2025-04-10",
+        "rev": 1284886106,
+        "tokens": 10766
+      },
+      "after": {
+        "date": "2025-04-10",
+        "rev": 1284887246,
+        "tokens": 8799
+      },
+      "js_divergence": 0.025,
+      "overrepresented_after_terms": [
+        {
+          "term": "formed",
+          "before": 1,
+          "after": 3,
+          "delta": 2,
+          "log_odds": 1.0493
+        },
+        {
+          "term": "very",
+          "before": 2,
+          "after": 4,
+          "delta": 2,
+          "log_odds": 0.7898
+        },
+        {
+          "term": "banking",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 0.7127
+        },
+        {
+          "term": "enlisted",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 0.7127
+        },
+        {
+          "term": "identified",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 0.7127
+        },
+        {
+          "term": "mountain",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 0.7127
+        },
+        {
+          "term": "originalism",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 0.7127
+        },
+        {
+          "term": "persisted",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 0.7127
+        },
+        {
+          "term": "railroads",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 0.7127
+        },
+        {
+          "term": "reduced",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 0.7127
+        },
+        {
+          "term": "rejected",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 0.7127
+        },
+        {
+          "term": "six",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 0.7127
+        },
+        {
+          "term": "soil",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 0.7127
+        },
+        {
+          "term": "upright",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 0.7127
+        },
+        {
+          "term": "areas",
+          "before": 2,
+          "after": 3,
+          "delta": 1,
+          "log_odds": 0.5384
+        },
+        {
+          "term": "confederate",
+          "before": 2,
+          "after": 3,
+          "delta": 1,
+          "log_odds": 0.5384
+        },
+        {
+          "term": "cultural",
+          "before": 2,
+          "after": 3,
+          "delta": 1,
+          "log_odds": 0.5384
+        },
+        {
+          "term": "fight",
+          "before": 2,
+          "after": 3,
+          "delta": 1,
+          "log_odds": 0.5384
+        },
+        {
+          "term": "presence",
+          "before": 2,
+          "after": 3,
+          "delta": 1,
+          "log_odds": 0.5384
+        },
+        {
+          "term": "slaves",
+          "before": 2,
+          "after": 3,
+          "delta": 1,
+          "log_odds": 0.5384
+        }
+      ],
+      "underrepresented_after_terms": [
+        {
+          "term": "grant",
+          "before": 8,
+          "after": 0,
+          "delta": -8,
+          "log_odds": -2.6322
+        },
+        {
+          "term": "cleveland",
+          "before": 6,
+          "after": 0,
+          "delta": -6,
+          "log_odds": -2.3638
+        },
+        {
+          "term": "march",
+          "before": 6,
+          "after": 0,
+          "delta": -6,
+          "log_odds": -2.3638
+        },
+        {
+          "term": "hayes",
+          "before": 5,
+          "after": 0,
+          "delta": -5,
+          "log_odds": -2.1966
+        },
+        {
+          "term": "gingrich",
+          "before": 13,
+          "after": 1,
+          "delta": -12,
+          "log_odds": -1.9966
+        },
+        {
+          "term": "illinois",
+          "before": 4,
+          "after": 0,
+          "delta": -4,
+          "log_odds": -1.9959
+        },
+        {
+          "term": "ahead",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7444
+        },
+        {
+          "term": "august",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7444
+        },
+        {
+          "term": "blaine",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7444
+        },
+        {
+          "term": "bryan",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7444
+        },
+        {
+          "term": "contract",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7444
+        },
+        {
+          "term": "coolidge",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7444
+        },
+        {
+          "term": "debt",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7444
+        },
+        {
+          "term": "fall",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7444
+        },
+        {
+          "term": "frémont",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7444
+        },
+        {
+          "term": "garfield",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7444
+        },
+        {
+          "term": "harrison",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7444
+        },
+        {
+          "term": "livingston",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7444
+        },
+        {
+          "term": "loss",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7444
+        },
+        {
+          "term": "messaging",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7444
+        }
+      ],
+      "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict.",
+      "episode_id": "1284886106-1284887246",
+      "episode_index": 1,
+      "episode_window": {
+        "start": "2025-01-01",
+        "end": "2026-01-01",
+        "pwr_mass": 143511,
+        "status": "confirmed",
+        "before_revid": 1284886106,
+        "before_timestamp": "2025-04-10T09:52:46Z",
+        "after_revid": 1284887246,
+        "after_timestamp": "2025-04-10T10:08:31Z",
+        "durable_spine_drop": 0.289771
+      },
+      "analysis_status": "available"
+    },
+    {
+      "episode_id": "700687073-700688825",
+      "episode_index": 2,
+      "episode_window": {
+        "start": "2016-01-01",
+        "end": "2017-01-01",
+        "pwr_mass": 56963,
+        "status": "confirmed",
+        "before_revid": 700687073,
+        "before_timestamp": "2016-01-20T00:44:51Z",
+        "after_revid": 700688825,
+        "after_timestamp": "2016-01-20T00:57:25Z",
+        "durable_spine_drop": 0.282159
+      },
+      "analysis_status": "unavailable",
+      "reason": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "article": "Republican Party (United States)",
+      "mode": "pivot_relative",
+      "requested_mode": "pivot_relative",
+      "adequate": true,
+      "adequacy_reason": null,
+      "size_ratio": 1.2711,
+      "interval_source": "exact_confirmation",
+      "span": "rev 9321996 -> rev 9322502 (exact confirmation)",
+      "pivot": "2005-01-01",
+      "before": {
+        "date": "2005-01-12",
+        "rev": 9321996,
+        "tokens": 2377
+      },
+      "after": {
+        "date": "2005-01-12",
+        "rev": 9322502,
+        "tokens": 1870
+      },
+      "js_divergence": 0.0524,
+      "overrepresented_after_terms": [
+        {
+          "term": "information",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "log_odds": 0.7513
+        },
+        {
+          "term": "factions",
+          "before": 2,
+          "after": 3,
+          "delta": 1,
+          "log_odds": 0.5771
+        },
+        {
+          "term": "republican",
+          "before": 66,
+          "after": 63,
+          "delta": -3,
+          "log_odds": 0.1998
+        },
+        {
+          "term": "president",
+          "before": 19,
+          "after": 18,
+          "delta": -1,
+          "log_odds": 0.1888
+        },
+        {
+          "term": "states",
+          "before": 19,
+          "after": 18,
+          "delta": -1,
+          "log_odds": 0.1888
+        },
+        {
+          "term": "senator",
+          "before": 17,
+          "after": 16,
+          "delta": -1,
+          "log_odds": 0.1824
+        },
+        {
+          "term": "democratic",
+          "before": 15,
+          "after": 14,
+          "delta": -1,
+          "log_odds": 0.1743
+        },
+        {
+          "term": "former",
+          "before": 23,
+          "after": 21,
+          "delta": -2,
+          "log_odds": 0.1525
+        },
+        {
+          "term": "governor",
+          "before": 11,
+          "after": 10,
+          "delta": -1,
+          "log_odds": 0.1496
+        },
+        {
+          "term": "secretary",
+          "before": 11,
+          "after": 10,
+          "delta": -1,
+          "log_odds": 0.1496
+        },
+        {
+          "term": "war",
+          "before": 10,
+          "after": 9,
+          "delta": -1,
+          "log_odds": 0.1404
+        },
+        {
+          "term": "congress",
+          "before": 9,
+          "after": 8,
+          "delta": -1,
+          "log_odds": 0.1291
+        },
+        {
+          "term": "presidential",
+          "before": 9,
+          "after": 8,
+          "delta": -1,
+          "log_odds": 0.1291
+        },
+        {
+          "term": "control",
+          "before": 8,
+          "after": 7,
+          "delta": -1,
+          "log_odds": 0.1151
+        },
+        {
+          "term": "however",
+          "before": 8,
+          "after": 7,
+          "delta": -1,
+          "log_odds": 0.1151
+        },
+        {
+          "term": "republicans",
+          "before": 16,
+          "after": 14,
+          "delta": -2,
+          "log_odds": 0.1114
+        },
+        {
+          "term": "first",
+          "before": 7,
+          "after": 6,
+          "delta": -1,
+          "log_odds": 0.097
+        },
+        {
+          "term": "since",
+          "before": 7,
+          "after": 6,
+          "delta": -1,
+          "log_odds": 0.097
+        },
+        {
+          "term": "united",
+          "before": 13,
+          "after": 11,
+          "delta": -2,
+          "log_odds": 0.0799
+        },
+        {
+          "term": "party",
+          "before": 52,
+          "after": 44,
+          "delta": -8,
+          "log_odds": 0.0762
+        }
+      ],
+      "underrepresented_after_terms": [
+        {
+          "term": "conservatives",
+          "before": 8,
+          "after": 0,
+          "delta": -8,
+          "log_odds": -2.5967
+        },
+        {
+          "term": "favor",
+          "before": 6,
+          "after": 0,
+          "delta": -6,
+          "log_odds": -2.3276
+        },
+        {
+          "term": "fiscal",
+          "before": 4,
+          "after": 0,
+          "delta": -4,
+          "log_odds": -1.9591
+        },
+        {
+          "term": "include",
+          "before": 4,
+          "after": 0,
+          "delta": -4,
+          "log_odds": -1.9591
+        },
+        {
+          "term": "religious",
+          "before": 4,
+          "after": 0,
+          "delta": -4,
+          "log_odds": -1.9591
+        },
+        {
+          "term": "right",
+          "before": 4,
+          "after": 0,
+          "delta": -4,
+          "log_odds": -1.9591
+        },
+        {
+          "term": "branch",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7073
+        },
+        {
+          "term": "christian",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7073
+        },
+        {
+          "term": "foreign",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7073
+        },
+        {
+          "term": "libertarian",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7073
+        },
+        {
+          "term": "moderates",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7073
+        },
+        {
+          "term": "prominent",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7073
+        },
+        {
+          "term": "trade",
+          "before": 3,
+          "after": 0,
+          "delta": -3,
+          "log_odds": -1.7073
+        },
+        {
+          "term": "pro",
+          "before": 9,
+          "after": 1,
+          "delta": -8,
+          "log_odds": -1.6092
+        },
+        {
+          "term": "faction",
+          "before": 14,
+          "after": 3,
+          "delta": -11,
+          "log_odds": -1.1858
+        },
+        {
+          "term": "against",
+          "before": 5,
+          "after": 1,
+          "delta": -4,
+          "log_odds": -1.061
+        },
+        {
+          "term": "policy",
+          "before": 5,
+          "after": 1,
+          "delta": -4,
+          "log_odds": -1.061
+        },
+        {
+          "term": "members",
+          "before": 8,
+          "after": 2,
+          "delta": -6,
+          "log_odds": -0.9862
+        },
+        {
+          "term": "social",
+          "before": 7,
+          "after": 2,
+          "delta": -5,
+          "log_odds": -0.8606
+        },
+        {
+          "term": "immigration",
+          "before": 4,
+          "after": 1,
+          "delta": -3,
+          "log_odds": -0.8599
+        }
+      ],
+      "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict.",
+      "episode_id": "9321996-9322502",
+      "episode_index": 3,
+      "episode_window": {
+        "start": "2005-01-01",
+        "end": "2009-01-01",
+        "pwr_mass": 41099,
+        "status": "confirmed",
+        "before_revid": 9321996,
+        "before_timestamp": "2005-01-12T20:55:02Z",
+        "after_revid": 9322502,
+        "after_timestamp": "2005-01-12T22:49:39Z",
+        "durable_spine_drop": 0.92655
+      },
+      "analysis_status": "available"
+    }
+  ]
 }

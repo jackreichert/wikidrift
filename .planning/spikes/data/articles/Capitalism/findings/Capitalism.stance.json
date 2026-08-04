@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "prompt_version": "stance-v3",
+  "model_contract": {
+    "provider": "anthropic",
+    "model": "claude-sonnet-5",
+    "prompt_version": "stance-v3"
+  },
+  "article": "Capitalism",
+  "langs": [
+    "de",
+    "fr",
+    "en"
+  ],
+  "entities": [
+    "Capitalism"
+  ],
+  "editions": {
+    "de": {
+      "focal": {
+        "Capitalism": {
+          "entity": "Capitalism",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.72,
+          "evidence": "Die zentralen Merkmale des Kapitalismus sind in Anbetracht des historischen Wandels und der zahlreichen Kapitalismusdefinitionen sowie ideologischer Unterschiede umstritten.",
+          "evidence_spans": [
+            "Die zentralen Merkmale des Kapitalismus sind in Anbetracht des historischen Wandels und der zahlreichen Kapitalismusdefinitionen sowie ideologischer Unterschiede umstritten.",
+            "Kapitalismus ist ein Essentially Contested Concept",
+            "In der markteuphorischen Wahrnehmung werden Kapitalismus und Marktwirtschaft de facto gleichgesetzt.",
+            "In der marktkritischen Wahrnehmung steht Kapitalismus für ein ausschließlich an einer kapitalistischen Rationalität orientiertes Denken, das auf Profit und die optimierte Verwertung der eingesetzten Produktionsmittel abzielt, ohne dabei Aspekte der Nachhaltigkeit, der Ethik und möglicher sozialer Verwerfungen zu berücksichtigen.",
+            "Die Polarisierung der Gesellschaft durch die Entstehung der „sozialen Frage“ als Folge des ungehemmten „Manchesterkapitalismus“ ist der soziale und wirtschaftliche Hintergrund der wirkungsmächtigen Kapitalismusanalyse von Karl Marx."
+          ]
+        }
+      },
+      "lead": {
+        "Capitalism": {
+          "entity": "Capitalism",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.9,
+          "evidence": "Allgemein wird unter (modernem) Kapitalismus eine Wirtschafts- und Gesellschaftsordnung verstanden, die auf Privateigentum an den Produktionsmitteln ... und einer Steuerung von Produktion und Konsum über den Markt (Marktwirtschaft) beruht.",
+          "evidence_spans": [
+            "Allgemein wird unter (modernem) Kapitalismus eine Wirtschafts- und Gesellschaftsordnung verstanden, die auf Privateigentum an den Produktionsmitteln – auch bezeichnet als Kapital – und einer Steuerung von Produktion und Konsum über den Markt (Marktwirtschaft) beruht.",
+            "Die zentralen Merkmale des Kapitalismus sind in Anbetracht des historischen Wandels und der zahlreichen Kapitalismusdefinitionen sowie ideologischer Unterschiede umstritten.",
+            "bereits dort ist er negativ besetzt."
+          ]
+        }
+      }
+    },
+    "fr": {
+      "focal": {
+        "Capitalism": {
+          "entity": "Capitalism",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.72,
+          "evidence": "Le capitalisme est un système économique et une idéologie politique caractérisée par la propriété privée des moyens de production, la séparation du capital et du travail, et la régulation marchande.",
+          "evidence_spans": [
+            "Le capitalisme est un système économique et une idéologie politique caractérisée par la propriété privée des moyens de production, la séparation du capital et du travail, et la régulation marchande.",
+            "Plusieurs types de critiques ont été faites contre le capitalisme sur le plan de la morale, de la validité des théories économiques, sur le rôle de l'État, le pouvoir des propriétaires du capital, le partage de la valeur ajoutée et du profit",
+            "le mot \"capitalisme\" est généralement employé à ses origines avec une connotation critique ou une volonté de s'opposer à ce système",
+            "le terme capitalisme prend très vite une connotation négative, tandis que ses défenseurs préfèrent alors parler d'« économie de marché »"
+          ]
+        }
+      },
+      "lead": {
+        "Capitalism": {
+          "entity": "Capitalism",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.72,
+          "evidence": "Le capitalisme est un système économique et une idéologie politique caractérisée par la propriété privée des moyens de production, la séparation du capital et du travail, et la régulation marchande.",
+          "evidence_spans": [
+            "Le capitalisme est un système économique et une idéologie politique caractérisée par la propriété privée des moyens de production, la séparation du capital et du travail, et la régulation marchande.",
+            "Les économistes, les sociologues et les historiens ont adopté des perspectives différentes dans leurs analyses du capitalisme et en ont reconnu diverses formes dans la pratique",
+            "Plusieurs types de critiques ont été faites contre le capitalisme sur le plan de la morale, de la validité des théories économiques, sur le rôle de l'État, le pouvoir des propriétaires du capital, le partage de la valeur ajoutée et du profit",
+            "Source de développement économique et de croissance, mais aussi d'inégalités, il a permis l'industrialisation précoce de l'Angleterre et ensuite d'autres pays européens et de l'Amérique du Nord.",
+            "Pour cette raison, le mot \"capitalisme\" est généralement employé à ses origines avec une connotation critique ou une volonté de s'opposer à ce système"
+          ]
+        }
+      }
+    },
+    "en": {
+      "focal": {
+        "Capitalism": {
+          "entity": "Capitalism",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.85,
+          "evidence": "Capitalism is an economic system based on the private ownership of the means of production and its use for the purpose of obtaining profit.",
+          "evidence_spans": [
+            "Capitalism is an economic system based on the private ownership of the means of production and its use for the purpose of obtaining profit.",
+            "Different forms of capitalism feature varying degrees of free markets, public ownership, barriers to free competition, and state-sanctioned social policies.",
+            "There is no universally agreed upon definition of capitalism; it is unclear whether or not capitalism characterizes an entire society, a specific type of social order, or crucial components or elements of a society.",
+            "the term \"capitalism\" itself is a term of disparagement and a misnomer for economic individualism"
+          ]
+        }
+      },
+      "lead": {
+        "Capitalism": {
+          "entity": "Capitalism",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.88,
+          "evidence": "Capitalism is an economic system based on the private ownership of the means of production and its use for the purpose of obtaining profit.",
+          "evidence_spans": [
+            "Capitalism is an economic system based on the private ownership of the means of production and its use for the purpose of obtaining profit.",
+            "Economists, historians, political economists, and sociologists have adopted different perspectives in their analyses of capitalism and have recognized various forms of it in practice.",
+            "The extent to which markets are free and the rules defining private property are matters of politics and policy.",
+            "Due to the word being coined by socialist critics of capitalism, economist and historian Robert Hessen stated that the term \"capitalism\" itself is a term of disparagement and a misnomer for economic individualism."
+          ]
+        }
+      }
+    }
+  }
+}

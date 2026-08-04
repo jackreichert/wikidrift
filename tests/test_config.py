@@ -34,6 +34,17 @@ class Slugify(unittest.TestCase):
             "rolling_drop": config.ROLLING_DROP,
         })
 
+    def test_sweep_thresholds_exposes_additive_recall_contract(self):
+        self.assertEqual(config.sweep_thresholds(), {
+            "min_confirmable_tokens": config.MIN_MATURE,
+            "loss_floor": config.ELEVATED,
+            "gain_floor": config.GAIN_FLOOR,
+            "replacement_floor": config.REPLACEMENT_FLOOR,
+            "extreme_change": config.EXTREME_CHANGE,
+            "review_mass_floor": config.REVIEW_MASS_FLOOR,
+            "high_mass_floor": config.MASS_FLOOR,
+        })
+
 
 class StoragePaths(unittest.TestCase):
     def test_data_dir_environment_override_is_applied_in_a_fresh_process(self):

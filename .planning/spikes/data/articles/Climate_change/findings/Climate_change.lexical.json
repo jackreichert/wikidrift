@@ -1,301 +1,395 @@
 {
   "article": "Climate change",
-  "span": "2018-01-01 -> 2019-01-01 (around L1 pivot ~2018-01-01)",
+  "mode": "pivot_relative",
+  "requested_mode": "pivot_relative",
+  "adequate": true,
+  "adequacy_reason": null,
+  "size_ratio": 1.0059,
+  "interval_source": "exact_confirmation",
+  "span": "rev 840836880 -> rev 841297450 (exact confirmation)",
   "pivot": "2018-01-01",
   "before": {
-    "date": "2018-01-01",
-    "rev": 817863662,
-    "tokens": 5743
+    "date": "2018-05-12",
+    "rev": 840836880,
+    "tokens": 5441
   },
   "after": {
-    "date": "2019-01-01",
-    "rev": 876151281,
-    "tokens": 5497
+    "date": "2018-05-15",
+    "rev": 841297450,
+    "tokens": 5409
   },
-  "js_divergence": 0.0353,
-  "overrepresented_after_terms": [
-    {
-      "term": "amplification",
-      "before": 0,
-      "after": 3,
-      "delta": 3,
-      "log_odds": 1.9902
-    },
-    {
-      "term": "upright",
-      "before": 1,
-      "after": 9,
-      "delta": 8,
-      "log_odds": 1.8911
-    },
-    {
-      "term": "africa",
-      "before": 1,
-      "after": 4,
-      "delta": 3,
-      "log_odds": 1.1429
-    },
-    {
-      "term": "commonly",
-      "before": 1,
-      "after": 3,
-      "delta": 2,
-      "log_odds": 0.8914
-    },
-    {
-      "term": "humans",
-      "before": 1,
-      "after": 3,
-      "delta": 2,
-      "log_odds": 0.8914
-    },
-    {
-      "term": "linked",
-      "before": 1,
-      "after": 3,
-      "delta": 2,
-      "log_odds": 0.8914
-    },
-    {
-      "term": "populations",
-      "before": 1,
-      "after": 3,
-      "delta": 2,
-      "log_odds": 0.8914
-    },
-    {
-      "term": "early",
-      "before": 2,
-      "after": 5,
-      "delta": 3,
-      "log_odds": 0.8328
-    },
-    {
-      "term": "across",
-      "before": 2,
-      "after": 4,
-      "delta": 2,
-      "log_odds": 0.6319
-    },
-    {
-      "term": "almost",
-      "before": 2,
-      "after": 4,
-      "delta": 2,
-      "log_odds": 0.6319
-    },
-    {
-      "term": "reduction",
-      "before": 2,
-      "after": 4,
-      "delta": 2,
-      "log_odds": 0.6319
-    },
-    {
-      "term": "refers",
-      "before": 2,
-      "after": 4,
-      "delta": 2,
-      "log_odds": 0.6319
-    },
-    {
-      "term": "thought",
-      "before": 2,
-      "after": 4,
-      "delta": 2,
-      "log_odds": 0.6319
-    },
-    {
-      "term": "issues",
-      "before": 4,
-      "after": 7,
-      "delta": 3,
-      "log_odds": 0.5552
-    },
-    {
-      "term": "access",
-      "before": 1,
-      "after": 2,
-      "delta": 1,
-      "log_odds": 0.5548
-    },
-    {
-      "term": "actions",
-      "before": 1,
-      "after": 2,
-      "delta": 1,
-      "log_odds": 0.5548
-    },
-    {
-      "term": "actual",
-      "before": 1,
-      "after": 2,
-      "delta": 1,
-      "log_odds": 0.5548
-    },
-    {
-      "term": "adaptive",
-      "before": 1,
-      "after": 2,
-      "delta": 1,
-      "log_odds": 0.5548
-    },
-    {
-      "term": "agents",
-      "before": 1,
-      "after": 2,
-      "delta": 1,
-      "log_odds": 0.5548
-    },
-    {
-      "term": "agricultural",
-      "before": 1,
-      "after": 2,
-      "delta": 1,
-      "log_odds": 0.5548
-    }
-  ],
+  "js_divergence": 0.001,
+  "overrepresented_after_terms": [],
   "underrepresented_after_terms": [
     {
-      "term": "highest",
+      "term": "findings",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.5051
+    },
+    {
+      "term": "january",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.5051
+    },
+    {
+      "term": "requires",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.5051
+    },
+    {
+      "term": "scientist",
+      "before": 2,
+      "after": 1,
+      "delta": -1,
+      "log_odds": -0.5051
+    },
+    {
+      "term": "see",
       "before": 4,
-      "after": 0,
-      "delta": -4,
-      "log_odds": -2.1541
+      "after": 3,
+      "delta": -1,
+      "log_odds": -0.2456
     },
     {
-      "term": "knew",
-      "before": 4,
-      "after": 0,
-      "delta": -4,
-      "log_odds": -2.1541
+      "term": "data",
+      "before": 6,
+      "after": 5,
+      "delta": -1,
+      "log_odds": -0.1613
     },
     {
-      "term": "ghgs",
-      "before": 3,
-      "after": 0,
-      "delta": -3,
-      "log_odds": -1.9027
+      "term": "noaa",
+      "before": 6,
+      "after": 5,
+      "delta": -1,
+      "log_odds": -0.1613
     },
     {
-      "term": "managed",
-      "before": 3,
-      "after": 0,
-      "delta": -3,
-      "log_odds": -1.9027
-    },
-    {
-      "term": "metres",
-      "before": 3,
-      "after": 0,
-      "delta": -3,
-      "log_odds": -1.9027
-    },
-    {
-      "term": "video",
-      "before": 3,
-      "after": 0,
-      "delta": -3,
-      "log_odds": -1.9027
-    },
-    {
-      "term": "attribution",
+      "term": "rising",
       "before": 7,
-      "after": 1,
-      "delta": -6,
-      "log_odds": -1.5667
+      "after": 6,
+      "delta": -1,
+      "log_odds": -0.1374
     },
     {
-      "term": "detection",
-      "before": 7,
-      "after": 1,
-      "delta": -6,
-      "log_odds": -1.5667
+      "term": "oceans",
+      "before": 8,
+      "after": 7,
+      "delta": -1,
+      "log_odds": -0.1194
     },
     {
-      "term": "sustained",
-      "before": 5,
-      "after": 1,
-      "delta": -4,
-      "log_odds": -1.2562
+      "term": "levels",
+      "before": 21,
+      "after": 20,
+      "delta": -1,
+      "log_odds": -0.0419
     },
     {
-      "term": "detected",
-      "before": 4,
-      "after": 1,
-      "delta": -3,
-      "log_odds": -1.0554
+      "term": "chapter",
+      "before": 25,
+      "after": 24,
+      "delta": -1,
+      "log_odds": -0.0343
     },
     {
-      "term": "already",
-      "before": 3,
-      "after": 1,
+      "term": "report",
+      "before": 26,
+      "after": 25,
+      "delta": -1,
+      "log_odds": -0.0327
+    },
+    {
+      "term": "sea",
+      "before": 39,
+      "after": 38,
+      "delta": -1,
+      "log_odds": -0.0199
+    },
+    {
+      "term": "climate",
+      "before": 155,
+      "after": 153,
       "delta": -2,
-      "log_odds": -0.8039
+      "log_odds": -0.0073
     },
     {
-      "term": "among",
-      "before": 3,
-      "after": 1,
-      "delta": -2,
-      "log_odds": -0.8039
+      "term": "change",
+      "before": 90,
+      "after": 89,
+      "delta": -1,
+      "log_odds": -0.0053
     },
     {
-      "term": "decline",
-      "before": 3,
-      "after": 1,
-      "delta": -2,
-      "log_odds": -0.8039
+      "term": "warming",
+      "before": 102,
+      "after": 101,
+      "delta": -1,
+      "log_odds": -0.004
     },
     {
-      "term": "extent",
-      "before": 3,
-      "after": 1,
-      "delta": -2,
-      "log_odds": -0.8039
-    },
-    {
-      "term": "factor",
-      "before": 3,
-      "after": 1,
-      "delta": -2,
-      "log_odds": -0.8039
-    },
-    {
-      "term": "greater",
-      "before": 3,
-      "after": 1,
-      "delta": -2,
-      "log_odds": -0.8039
-    },
-    {
-      "term": "however",
-      "before": 3,
-      "after": 1,
-      "delta": -2,
-      "log_odds": -0.8039
-    },
-    {
-      "term": "infrastructure",
-      "before": 3,
-      "after": 1,
-      "delta": -2,
-      "log_odds": -0.8039
-    },
-    {
-      "term": "particular",
-      "before": 3,
-      "after": 1,
-      "delta": -2,
-      "log_odds": -0.8039
-    },
-    {
-      "term": "rose",
-      "before": 3,
-      "after": 1,
-      "delta": -2,
-      "log_odds": -0.8039
+      "term": "global",
+      "before": 117,
+      "after": 116,
+      "delta": -1,
+      "log_odds": -0.0027
     }
   ],
-  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
+  "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict.",
+  "schema_version": 1,
+  "analysis_scope": "confirmed_episodes",
+  "episode_count": 3,
+  "episodes": [
+    {
+      "article": "Climate change",
+      "mode": "pivot_relative",
+      "requested_mode": "pivot_relative",
+      "adequate": true,
+      "adequacy_reason": null,
+      "size_ratio": 1.0059,
+      "interval_source": "exact_confirmation",
+      "span": "rev 840836880 -> rev 841297450 (exact confirmation)",
+      "pivot": "2018-01-01",
+      "before": {
+        "date": "2018-05-12",
+        "rev": 840836880,
+        "tokens": 5441
+      },
+      "after": {
+        "date": "2018-05-15",
+        "rev": 841297450,
+        "tokens": 5409
+      },
+      "js_divergence": 0.001,
+      "overrepresented_after_terms": [],
+      "underrepresented_after_terms": [
+        {
+          "term": "findings",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": -0.5051
+        },
+        {
+          "term": "january",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": -0.5051
+        },
+        {
+          "term": "requires",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": -0.5051
+        },
+        {
+          "term": "scientist",
+          "before": 2,
+          "after": 1,
+          "delta": -1,
+          "log_odds": -0.5051
+        },
+        {
+          "term": "see",
+          "before": 4,
+          "after": 3,
+          "delta": -1,
+          "log_odds": -0.2456
+        },
+        {
+          "term": "data",
+          "before": 6,
+          "after": 5,
+          "delta": -1,
+          "log_odds": -0.1613
+        },
+        {
+          "term": "noaa",
+          "before": 6,
+          "after": 5,
+          "delta": -1,
+          "log_odds": -0.1613
+        },
+        {
+          "term": "rising",
+          "before": 7,
+          "after": 6,
+          "delta": -1,
+          "log_odds": -0.1374
+        },
+        {
+          "term": "oceans",
+          "before": 8,
+          "after": 7,
+          "delta": -1,
+          "log_odds": -0.1194
+        },
+        {
+          "term": "levels",
+          "before": 21,
+          "after": 20,
+          "delta": -1,
+          "log_odds": -0.0419
+        },
+        {
+          "term": "chapter",
+          "before": 25,
+          "after": 24,
+          "delta": -1,
+          "log_odds": -0.0343
+        },
+        {
+          "term": "report",
+          "before": 26,
+          "after": 25,
+          "delta": -1,
+          "log_odds": -0.0327
+        },
+        {
+          "term": "sea",
+          "before": 39,
+          "after": 38,
+          "delta": -1,
+          "log_odds": -0.0199
+        },
+        {
+          "term": "climate",
+          "before": 155,
+          "after": 153,
+          "delta": -2,
+          "log_odds": -0.0073
+        },
+        {
+          "term": "change",
+          "before": 90,
+          "after": 89,
+          "delta": -1,
+          "log_odds": -0.0053
+        },
+        {
+          "term": "warming",
+          "before": 102,
+          "after": 101,
+          "delta": -1,
+          "log_odds": -0.004
+        },
+        {
+          "term": "global",
+          "before": 117,
+          "after": 116,
+          "delta": -1,
+          "log_odds": -0.0027
+        }
+      ],
+      "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict.",
+      "episode_id": "840836880-841297450",
+      "episode_index": 1,
+      "episode_window": {
+        "start": "2018-01-01",
+        "end": "2022-01-01",
+        "pwr_mass": 358747,
+        "status": "confirmed",
+        "before_revid": 840836880,
+        "before_timestamp": "2018-05-12T14:00:31Z",
+        "after_revid": 841297450,
+        "after_timestamp": "2018-05-15T00:34:18Z",
+        "durable_spine_drop": 0.874049
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Climate change",
+      "mode": "pivot_relative",
+      "requested_mode": "pivot_relative",
+      "adequate": true,
+      "adequacy_reason": null,
+      "size_ratio": 1.0,
+      "interval_source": "exact_confirmation",
+      "span": "rev 281784264 -> rev 281790842 (exact confirmation)",
+      "pivot": "2009-01-01",
+      "before": {
+        "date": "2009-04-04",
+        "rev": 281784264,
+        "tokens": 3650
+      },
+      "after": {
+        "date": "2009-04-04",
+        "rev": 281790842,
+        "tokens": 3650
+      },
+      "js_divergence": 0.0,
+      "overrepresented_after_terms": [],
+      "underrepresented_after_terms": [],
+      "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict.",
+      "episode_id": "281784264-281790842",
+      "episode_index": 2,
+      "episode_window": {
+        "start": "2009-01-01",
+        "end": "2012-01-01",
+        "pwr_mass": 59131,
+        "status": "confirmed",
+        "before_revid": 281784264,
+        "before_timestamp": "2009-04-04T22:19:10Z",
+        "after_revid": 281790842,
+        "after_timestamp": "2009-04-04T22:59:21Z",
+        "durable_spine_drop": 0.687142
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Climate change",
+      "mode": "pivot_relative",
+      "requested_mode": "pivot_relative",
+      "adequate": true,
+      "adequacy_reason": null,
+      "size_ratio": 1.0006,
+      "interval_source": "exact_confirmation",
+      "span": "rev 45496 -> rev 45679 (exact confirmation)",
+      "pivot": "2002-01-01",
+      "before": {
+        "date": "2002-04-05",
+        "rev": 45496,
+        "tokens": 1600
+      },
+      "after": {
+        "date": "2002-04-05",
+        "rev": 45679,
+        "tokens": 1601
+      },
+      "js_divergence": 0.0,
+      "overrepresented_after_terms": [
+        {
+          "term": "satellite",
+          "before": 5,
+          "after": 6,
+          "delta": 1,
+          "log_odds": 0.1671
+        }
+      ],
+      "underrepresented_after_terms": [],
+      "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict.",
+      "episode_id": "45496-45679",
+      "episode_index": 3,
+      "episode_window": {
+        "start": "2002-01-01",
+        "end": "2008-01-01",
+        "pwr_mass": 42687,
+        "status": "confirmed",
+        "before_revid": 45496,
+        "before_timestamp": "2002-04-05T07:24:15Z",
+        "after_revid": 45679,
+        "after_timestamp": "2002-04-05T08:04:42Z",
+        "durable_spine_drop": 0.991564
+      },
+      "analysis_status": "available"
+    }
+  ]
 }

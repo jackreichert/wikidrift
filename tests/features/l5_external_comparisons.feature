@@ -1,77 +1,167 @@
-@layers @l5 @living-documentation
-Feature: Compare an article with evidence outside its English timeline
-  As a researcher
-  I want language, fact, and citation comparisons
-  So that I can investigate differences that historical change detection alone cannot reveal
+@tool @l5
+Feature: L5 external-reference and citation-composition analysis
+  Researchers need to compare independent language editions and citation composition
+  as contextual evidence without treating any edition or source class as ground truth.
 
-  Rule: L5 cross-language stance comparison preserves entity-relative evidence
+  @implemented @network
+  Rule: Cross-language snapshots are independently sourced
 
-    Scenario: Compare stance across language editions
-      Given comparable passages exist in multiple language editions
-      When L5 classifies how each passage treats the named entity
-      Then each label retains its supporting passage and edition
-      And disagreement is reported without declaring which edition is correct
+    Scenario: Every confirmed event receives episode-relative L5 evidence
+      Given fresh L1 state contains multiple confirmed events
+      When citation, framing, and fact analyses run for the article
+      Then each citation and framing result identifies its event's exact before and after revisions
+      And each fact result identifies its event's exact post-event timestamp
+      And every result is retained under its exact revision-pair identity
+      And one unavailable event does not suppress a completed sibling event
 
-    Scenario: Compare change around an English rewrite
-      Given a fresh L1 confirmation supplies an exact temporal anchor
-      When L5 compares language-edition stance around that event
-      Then the comparison identifies the exact English revisions used
-      And it distinguishes a temporal change from a static difference between editions
+    Scenario: Available editions resolve localized titles and revisions
+      Given target languages are requested
+      When edition discovery runs
+      Then each available edition records language, localized title, revision ID, timestamp, and source URL
+      And missing editions remain explicitly unavailable
 
-  Rule: L5 cross-language lead comparison shows concrete claims and omissions
+    Scenario: Temporal selection respects the requested mode
+      Given an exact event timestamp or candidate-relative timestamp exists
+      When language snapshots are selected
+      Then each edition uses the documented at-or-before temporal rule where supported
+      And static latest-snapshot mode is labeled separately
 
-    Scenario: Prefer a fresh exact comparison window
-      Given a fresh L1 confirmation is available
-      When L5 compares article openings across languages
-      Then English is represented by the exact stable before and after versions
-      And the comparison is labeled pivot-relative
+    Scenario: Retrieval failure is not agreement
+      Given one or more required editions cannot be retrieved or parsed
+      When comparison is resolved
+      Then the affected result is unavailable or insufficient evidence
+      And no no-divergence or agreement result is emitted from missing text
 
-    Scenario: Fall back without pretending exact confirmation
-      Given no fresh exact L1 confirmation is available
-      When L5 compares article openings across languages
-      Then it uses a coarse candidate window or current leads when available
-      And it labels the comparison candidate-relative or static
+    Scenario: Language auto-selection is article-derived
+      Given target languages are not supplied
+      When L5 chooses editions
+      Then selection is derived from available article language links and documented limits
+      And chosen and excluded languages are recorded
 
-    Scenario Outline: Preserve a cross-language comparison verdict
-      Given a concrete question was compared across editions
-      And the supported outcome is "<outcome>"
-      When L5 publishes the comparison
-      Then it retains the excerpts supporting "<outcome>"
-      And it does not strengthen the outcome beyond the evidence
+  @implemented @llm
+  Rule: Cross-language stance differences remain auditable
+
+    Scenario: A framing divergence retains quotations
+      Given comparable edition text is available
+      And the configured model returns a valid structured result
+      When stance comparison is persisted
+      Then each divergence identifies the compared languages, focal entity, verdict, explanation, and supporting quotations where present
+      And the prompt, provider, model, and source revisions are recorded
+
+    Scenario: No-divergence requires usable comparisons
+      Given all required edition texts meet adequacy requirements
+      And valid adjudication finds no supported divergence
+      When the result is emitted
+      Then no divergence detected is permitted
+      And the statement remains bounded to the selected editions, snapshots, model, and prompt
+
+    Scenario: Model instability fails closed
+      Given repeated or validated outputs are inconsistent beyond the stability contract
+      When framing results are resolved
+      Then the result is unstable or unavailable
+      And disagreement is preserved for audit
+
+  @implemented @offline
+  Rule: Cross-language lead comparison is deterministic
+
+    Scenario: Leads are extracted from comparable revision text
+      Given two or more usable language snapshots exist locally
+      When lead comparison runs
+      Then each lead boundary and normalized text are retained
+      And deterministic similarity or divergence metrics are computed
+
+    Scenario: Short or empty leads are insufficient
+      Given an edition lead fails minimum adequacy
+      When lead comparison runs
+      Then the pair is insufficient evidence
+      And it is not scored as maximally similar or divergent
+
+    Scenario: Lead difference is not truth difference
+      Given leads differ substantially
+      When the result is reported
+      Then it describes emphasis or vocabulary difference at the selected snapshots
+      And it does not declare either edition more accurate, neutral, or authoritative
+
+  @implemented @llm
+  Rule: Fact divergence preserves a bounded verdict schema
+
+    Scenario Outline: Fact comparison retains its epistemic state
+      Given a supported comparison question is evaluated across usable editions
+      And the valid verdict is <verdict>
+      When the result is persisted
+      Then the verdict remains <verdict>
+      And the question, compared revisions, explanation, and evidence quotations are retained
 
       Examples:
-        | outcome               |
-        | agree                 |
-        | compatible difference |
-        | contradiction         |
-        | insufficient          |
+        | verdict              |
+        | contradiction        |
+        | compatible difference|
+        | agreement            |
+        | insufficient evidence|
 
-  Rule: L5 fact and claim checks are edition-aware and time-aware
+    Scenario: Unsupported claims cannot become contradictions
+      Given the model output lacks adequate evidence in one or more editions
+      When fact comparison is validated
+      Then the verdict is insufficient evidence
+      And contradiction is rejected
 
-    Scenario: Compare a factual claim as of a historical date
-      Given suitable revisions exist for the requested date in multiple editions
-      When L5 checks a factual question
-      Then each answer is tied to its edition and historical revision
-      And agreement, compatible difference, contradiction, and insufficient evidence remain distinct
+    Scenario: An article without configured questions remains citation-only
+      Given no factual comparison questions are configured for an article
+      When L5 fact analysis runs
+      Then citation context is retained for the selected editions
+      And no model-assisted claim extraction or adjudication runs
+      And the empty claim comparison is not presented as agreement
 
-    Scenario: Preserve missing factual evidence
-      Given an edition does not contain enough information to answer a factual question
-      When L5 reports the comparison
-      Then that edition is marked insufficient
-      And silence is not interpreted as disagreement
+  @implemented @offline
+  Rule: Citation-source composition is descriptive
 
-  Rule: L5 citation history reports composition without rating sources
+    Scenario: Citation inventory preserves domains and types
+      Given comparable article snapshots contain citations
+      When citation extraction runs
+      Then before and after domain counts, citation-type counts, additions, and removals are recorded
+      And source URLs remain inspectable where available
 
-    Scenario: Compare citations across a rewrite
-      Given suitable article versions exist before and after a rewrite window
-      When L5 compares the article's citations
-      Then it reports which cited domains or works were added, removed, increased, or decreased
-      And each comparison identifies the versions used
-      And no source receives a reliability, ideology, or quality rating
+    Scenario: Missing citations differ from failed extraction
+      Given one article genuinely has no supported citations and another cannot be parsed
+      When states are resolved
+      Then the first may report an observed empty inventory
+      And the second reports unavailable
 
-    Scenario: Compare citation history without an exact pivot
-      Given no exact rewrite window is available
-      But suitable historical versions exist
-      When L5 compares citations
-      Then it labels the fallback comparison accurately
-      And it does not imply that citation change proves a factual or framing change
+    Scenario: No reliability score is assigned
+      Given citation domains or types change
+      When composition is reported
+      Then the tool describes those changes
+      And it does not classify a source as reliable, unreliable, good, bad, mainstream, or fringe
+
+  @implemented @offline
+  Rule: Controversy context is corroborative
+
+    Scenario: M-score reports observable volatility inputs
+      Given sufficient local revision history exists
+      When M-score is computed
+      Then supported revision, revert, contributor, and age features are recorded under the documented formula
+      And the score is identified as context or pre-ranking
+
+    Scenario: M-score cannot confirm drift
+      Given an article has a high M-score
+      When article status is resolved
+      Then L1 exact evidence remains authoritative
+      And M-score alone cannot produce a rewrite finding
+
+  @policy
+  Rule: Wikipedia editions are comparators rather than ground truth
+
+    Scenario: L5 carries a comparison disclaimer
+      Given any L5 output is printed or published
+      When a researcher reads the comparison
+      Then it states that independent editions and citation composition provide comparison context
+      And it does not determine which account, edition, claim, or source is right
+
+  @gap
+  Rule: External non-Wikipedia reference corpora require a new evidence contract
+
+    Scenario: A future external corpus preserves provenance and temporal comparability
+      Given a non-Wikipedia reference source is proposed
+      When it is admitted to L5
+      Then licensing, retrieval time, source identity, revisionability, quote provenance, and temporal alignment are specified
+      And it is not silently treated as ground truth

@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "prompt_version": "stance-v3",
+  "model_contract": {
+    "provider": "anthropic",
+    "model": "claude-sonnet-5",
+    "prompt_version": "stance-v3"
+  },
+  "article": "Democratic Socialists of America",
+  "langs": [
+    "en",
+    "ja",
+    "es"
+  ],
+  "entities": [
+    "Democratic Socialists of America"
+  ],
+  "editions": {
+    "en": {
+      "focal": {
+        "Democratic Socialists of America": {
+          "entity": "Democratic Socialists of America",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.95,
+          "evidence": "The Democratic Socialists of America (DSA) is a socialist political organization in the United States, and the largest such organization in US history, with more than 120,000 members as of July 2026.",
+          "evidence_spans": [
+            "The Democratic Socialists of America (DSA) is a socialist political organization in the United States, and the largest such organization in US history, with more than 120,000 members as of July 2026.",
+            "The Democratic Socialists of America was formed in 1982 through the merger of two left-wing organizations: the Democratic Socialist Organizing Committee (DSOC) and the New American Movement (NAM)."
+          ]
+        }
+      },
+      "lead": {
+        "Democratic Socialists of America": {
+          "entity": "Democratic Socialists of America",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.85,
+          "evidence": "DSA is described in even, factual, encyclopedic terms covering its history, structure, platform, and growth without evaluative language.",
+          "evidence_spans": [
+            "a socialist political organization in the United States, and the largest such organization in US history",
+            "has a decentralized structure in which local chapters and ideological caucuses have significant autonomy",
+            "This growth gave DSA a much younger and more activist base, who shifted its strategy toward one centered on building an independent political force, though this remains a subject of internal debate"
+          ]
+        }
+      }
+    },
+    "ja": {
+      "focal": {
+        "Democratic Socialists of America": {
+          "entity": "Democratic Socialists of America",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "confidence": 0.72,
+          "evidence": "サンダースと協力関係にあったDSAは組織を挙げて支援を行い、左派のアウトサイダーながらサンダースが躍進する原動力の一つとなった。",
+          "evidence_spans": [
+            "サンダースと協力関係にあったDSAは組織を挙げて支援を行い、左派のアウトサイダーながらサンダースが躍進する原動力の一つとなった",
+            "こうした民主党に飽き足らないサンダース主義者の受け皿としてDSAは急速に党組織を拡大している",
+            "党務の責任者であるのは「民主党の未来を表している」と好意的に評した",
+            "候補者の20%程度しか勝てなかったそれまでの選挙に対して今回は候補者の56%が勝利を収め",
+            "民主党右派の男性で現職候補者だった"
+          ]
+        }
+      },
+      "lead": {
+        "Democratic Socialists of America": {
+          "entity": "Democratic Socialists of America",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "confidence": 0.72,
+          "evidence": "サンダースと協力関係にあったDSAは組織を挙げて支援を行い、左派のアウトサイダーながらサンダースが躍進する原動力の一つとなった",
+          "evidence_spans": [
+            "サンダースと協力関係にあったDSAは組織を挙げて支援を行い、左派のアウトサイダーながらサンダースが躍進する原動力の一つとなった",
+            "最終的に不公平な予備選挙の運営もあってヒラリー・クリントンに敗れた後",
+            "我々にとって選挙とは手段に過ぎず、目的は強固な反企業連合の構築にある",
+            "ハリントンはDSOCを「余り物の中の余り物」と自嘲的に評していたが、結果的には最大の派閥へと成長した"
+          ]
+        }
+      }
+    },
+    "es": {
+      "focal": {
+        "Democratic Socialists of America": {
+          "entity": "Democratic Socialists of America",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.9,
+          "evidence": "es una organización política y activista de ideología socialista democrática y laborista de Estados Unidos",
+          "evidence_spans": [
+            "es una organización política y activista de ideología socialista democrática y laborista de Estados Unidos",
+            "Socialistas Democráticos de América se fundó en 1982 como resultado de la fusión entre el DSOC y el Nuevo Movimiento Americano o NAM"
+          ]
+        }
+      },
+      "lead": {
+        "Democratic Socialists of America": {
+          "entity": "Democratic Socialists of America",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.85,
+          "evidence": "Descriptive historical account of founding, membership growth, and electoral positions without evaluative language",
+          "evidence_spans": [
+            "La DSA tiene sus orígenes en el Partido Socialista de América",
+            "el DSA renunció a formar parte de alguna opción en la elección presidencial",
+            "El joven partido hizo campaña para una ley de pleno empleo y se implicó en la lucha contra el apartheid en Sudáfrica"
+          ]
+        }
+      }
+    }
+  }
+}

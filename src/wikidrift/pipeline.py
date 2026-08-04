@@ -23,11 +23,16 @@ import datetime as dt
 
 import duckdb
 
-from . import config, drift, framing_trajectory, prerank, process_context, stance, lexical, mscore, provenance
+from . import (config, drift, framing_trajectory, l5_factcheck, l5_sources, lexical, mscore,
+               prerank, process_context, provenance, stance)
 from .corpus import Corpus
 
 
 SOURCE_CHECK_MAX_AGE = dt.timedelta(days=7)
+EPISODE_ANALYSIS_SCHEMA_VERSION = 1
+EPISODE_RECORD_FIELDS = {
+    "episode_id", "episode_index", "episode_window", "analysis_status", "reason",
+}
 
 
 def _snap_count(con, article):
@@ -176,33 +181,157 @@ def resolve_l1_state(verdict, confirmation, current_horizon, source_state=None, 
     }
 
 
-def _confirmed_window(confirmation, current_horizon):
-    """Return a confirmed framing window only when its corpus horizon is still current."""
+def _confirmed_windows(confirmation, current_horizon):
+    """Return every exact confirmed window when the corpus horizon is still current."""
     if not confirmation or confirmation.get("status") != "confirmed":
-        return None
+        return []
     if not confirmation_is_fresh(confirmation, current_horizon):
-        return None
+        return []
     episodes = confirmation.get("confirmed_episodes") or []
-    if not episodes:
-        return None
-    top = episodes[0]
+    return [{
+        "start": episode["candidate_start"], "end": episode["candidate_end"],
+        "pwr_mass": episode["pwr_mass"], "status": "confirmed",
+        "before_revid": episode["before_revid"],
+        "before_timestamp": episode["before_timestamp"],
+        "after_revid": episode["after_revid"],
+        "after_timestamp": episode["after_timestamp"],
+        "durable_spine_drop": episode["durable_spine_drop"],
+    } for episode in episodes]
+
+
+def _confirmed_window(confirmation, current_horizon):
+    """Return the primary exact window for compatibility with scalar consumers."""
+    windows = _confirmed_windows(confirmation, current_horizon)
+    return windows[0] if windows else None
+
+
+def _episode_id(window):
+    """Stable identity for one exact event across downstream artifacts."""
+    return f"{window['before_revid']}-{window['after_revid']}"
+
+
+def _episode_record(window, index, result=None, error=None):
+    """Attach exact-event identity and availability; episode indexes are one-based."""
+    record = dict(result or {})
+    record.update({
+        "episode_id": _episode_id(window),
+        "episode_index": index,
+        "episode_window": window,
+        "analysis_status": "unavailable" if error else "available",
+    })
+    if error:
+        record["reason"] = str(error)
+    return record
+
+
+def _episode_artifact(article, records):
+    """Build a plural artifact while retaining primary-result fields for older consumers."""
+    primary = next(
+        (record for record in records if record.get("analysis_status") == "available"),
+        records[0] if records else {},
+    )
+    primary_result = {
+        key: value for key, value in primary.items() if key not in EPISODE_RECORD_FIELDS
+    }
     return {
-        "start": top["candidate_start"], "end": top["candidate_end"],
-        "pwr_mass": top["pwr_mass"], "status": "confirmed",
-        "before_revid": top["before_revid"], "before_timestamp": top["before_timestamp"],
-        "after_revid": top["after_revid"], "after_timestamp": top["after_timestamp"],
-        "durable_spine_drop": top["durable_spine_drop"],
+        **primary_result,
+        "article": article,
+        "schema_version": EPISODE_ANALYSIS_SCHEMA_VERSION,
+        "analysis_scope": "confirmed_episodes",
+        "episode_count": len(records),
+        "episodes": records,
     }
 
 
-def framing_window(article):
-    """Return framing context only when allowed by the authoritative L1 state."""
+def analyze_confirmed_episodes(
+    article,
+    windows,
+    client=None,
+    lexical_layer=True,
+    sources=True,
+    framing=False,
+    facts=False,
+    lexical_options=None,
+    source_options=None,
+    framing_options=None,
+    factcheck_options=None,
+):
+    """Run downstream evidence independently for every exact confirmed episode."""
+    if not windows:
+        return {}
+
+    layer_records = {}
+    if lexical_layer:
+        layer_records["lexical"] = []
+    if sources:
+        layer_records["sources"] = []
+    if framing:
+        layer_records["framing"] = []
+    if facts:
+        layer_records["factcheck"] = []
+    lexical_options = lexical_options or {}
+    source_options = source_options or {}
+    framing_options = framing_options or {}
+    factcheck_options = factcheck_options or {}
+
+    for index, window in enumerate(windows, start=1):
+        lexical_result = None
+
+        def run_layer(layer, analyze):
+            try:
+                result = analyze()
+                if not isinstance(result, dict) or not result:
+                    raise ValueError("analyzer returned no evidence")
+                record = _episode_record(window, index, result=result)
+            except Exception as exc:  # noqa: BLE001 — one event must not suppress its siblings
+                print(f"  {layer} episode {_episode_id(window)} unavailable: {exc}")
+                result = None
+                record = _episode_record(window, index, error=exc)
+            layer_records[layer].append(record)
+            return result
+
+        if lexical_layer:
+            lexical_result = run_layer("lexical", lambda: lexical.lexical_drift(
+                article, mode="pivot_relative", window=window, persist=False,
+                **lexical_options,
+            ))
+        if sources:
+            run_layer("sources", lambda: l5_sources.sources_over_time(
+                article, window=window, persist=False, **source_options,
+            ))
+        if framing:
+            from . import l5_framing_lite
+            run_layer("framing", lambda: l5_framing_lite.framing_lite(
+                article, pivot_window=window, client=client, persist=False,
+                **framing_options,
+            ))
+        if facts:
+            run_layer("factcheck", lambda: l5_factcheck.factcheck(
+                article,
+                ts=window["after_timestamp"],
+                client=client,
+                context={"lexical": lexical_result or {}},
+                persist=False,
+                **factcheck_options,
+            ))
+
+    artifacts = {}
+    slug = config.slugify(article)
+    for layer, records in layer_records.items():
+        artifact = _episode_artifact(article, records)
+        config.write_findings(f"{slug}.{layer}.json", artifact)
+        artifacts[layer] = artifact
+    return artifacts
+
+
+def framing_windows(article):
+    """Return all framing contexts allowed by the authoritative L1 state."""
     if not config.DB.exists():
-        return None
+        return []
     con = duckdb.connect(str(config.DB), read_only=True)
     try:
         if _snap_count(con, article) < 3:
-            return None
+            return []
         corpus = Corpus(con)
         horizon = corpus.latest_snapshot(article)
         confirmation = drift.load_confirmation(article)
@@ -210,12 +339,19 @@ def framing_window(article):
         source_state = provenance.load_source_state(con, article)
         state = resolve_l1_state(verdict, confirmation, horizon, source_state)
         if state["resolved_status"] == "confirmed":
-            return _confirmed_window(confirmation, horizon)
+            return _confirmed_windows(confirmation, horizon)
         if state["resolved_status"] == "candidate":
-            return _pivot_window(verdict)
-        return None
+            candidate = _pivot_window(verdict)
+            return [candidate] if candidate else []
+        return []
     finally:
         con.close()
+
+
+def framing_window(article):
+    """Return the primary framing context for compatibility with scalar consumers."""
+    windows = framing_windows(article)
+    return windows[0] if windows else None
 
 
 def _corroboration(result):
@@ -238,11 +374,15 @@ def _corroboration(result):
     ):
         signals.append("l2_shift")
     lex = result.get("lexical") or {}
-    if (
-        isinstance(lex, dict)
-        and lex.get("mode") == "pivot_relative"
-        and lex.get("adequate") is True
-        and (lex.get("js_divergence") or 0) > 0.05
+    lexical_records = lex.get("episodes") if isinstance(lex, dict) else None
+    lexical_records = lexical_records if isinstance(lexical_records, list) else [lex]
+    if any(
+        isinstance(record, dict)
+        and record.get("analysis_status", "available") == "available"
+        and record.get("mode") == "pivot_relative"
+        and record.get("adequate") is True
+        and (record.get("js_divergence") or 0) > 0.05
+        for record in lexical_records
     ):
         signals.append("lexical_drift")
     m = result.get("mscore") or {}
@@ -252,16 +392,24 @@ def _corroboration(result):
             signals.append("mscore_contested")
     fr = result.get("framing") or result.get("l5") or {}
     if isinstance(fr, dict):
-        if any(d.get("verdict") == "contradict" for d in (fr.get("divergences") or [])):
+        framing_records = fr.get("episodes")
+        framing_records = framing_records if isinstance(framing_records, list) else [fr]
+        divergences = [
+            divergence
+            for record in framing_records
+            if isinstance(record, dict) and record.get("analysis_status", "available") == "available"
+            for divergence in (record.get("divergences") or [])
+        ]
+        if any(d.get("verdict") == "contradict" for d in divergences):
             signals.append("framing_contradict")
         elif any(d.get("verdict") in ("differ", "absent_en", "absent_other")
-                 for d in (fr.get("divergences") or [])):
+                 for d in divergences):
             signals.append("framing_differ")
     return {"count": len(signals), "signals": signals}
 
 
-def run(article, llm=False, corroborate=False, framing=False, additive=False, process=False,
-    provider=None, model=None, base_url=None):
+def run(article, llm=False, corroborate=False, framing=False, facts=False, additive=False, process=False,
+    provider=None, model=None, base_url=None, factcheck_max_langs=None):
     """Orchestrate the layers for one article. Returns a consolidated result dict.
 
     provider/model/base_url select the LLM backend for the opt-in L2 + framing layers (see llm.py).
@@ -272,7 +420,7 @@ def run(article, llm=False, corroborate=False, framing=False, additive=False, pr
     # Build the LLM client ONCE and share it across L2 + L5 (was threaded as 3 loose params into each verb).
     # NB the `llm` parameter here is the bool opt-in flag, so import the module under an alias.
     client = None
-    if llm:
+    if llm or framing or facts:
         from . import llm as llm_backend
         client = llm_backend.make_client(provider, model, base_url)
     print(f"=== WIKIDRIFT PIPELINE — {article} ===")
@@ -290,8 +438,10 @@ def run(article, llm=False, corroborate=False, framing=False, additive=False, pr
     confirmation = drift.load_confirmation(article)
     source_state = provenance.load_source_state(con, article)
     l1_state = resolve_l1_state(verdict, confirmation, horizon, source_state=source_state)
+    confirmed_windows = []
     if l1_state["confirmation_status"] == "confirmed":
-        pivot_window = _confirmed_window(confirmation, horizon)
+        confirmed_windows = _confirmed_windows(confirmation, horizon)
+        pivot_window = confirmed_windows[0] if confirmed_windows else None
     elif l1_state["resolved_status"] == "candidate":
         pivot_window = _pivot_window(verdict)
     else:
@@ -357,29 +507,39 @@ def run(article, llm=False, corroborate=False, framing=False, additive=False, pr
         except Exception as e:                              # noqa: BLE001
             print(f"M-score skipped: {e}")
 
-    # ---- L2.5 lexical drift (offline lead) ----
+    # ---- exact-event downstream evidence ----
     lex = None
-    try:
-        print()
-        lexical_mode = (
-            "pivot_relative" if l1_state["confirmation_status"] == "confirmed"
-            else "not_applicable"
-        )
-        lex = lexical.lexical_drift(article, mode=lexical_mode, window=pivot_window)
-    except Exception as e:                                  # noqa: BLE001
-        print(f"lexical drift skipped: {e}")
-
-    # ---- L5 cross-language lead comparison (opt-in; LLM) ----
-    # Runs regardless of L1 verdict: pivot articles → drift corroborator; healthy articles → static born-bias check.
+    sources_result = None
     framing_result = None
-    if framing:
+    facts_result = None
+    if confirmed_windows:
+        print(f"\n→ analyzing {len(confirmed_windows)} confirmed episode(s) independently:")
+        episode_artifacts = analyze_confirmed_episodes(
+            article, confirmed_windows, client=client, framing=framing, facts=facts,
+            factcheck_options={"max_langs": factcheck_max_langs},
+        )
+        lex = episode_artifacts["lexical"]
+        sources_result = episode_artifacts["sources"]
+        framing_result = episode_artifacts.get("framing")
+        facts_result = episode_artifacts.get("factcheck")
+    else:
         try:
-            from . import l5_framing_lite
-            framing_result = l5_framing_lite.framing_lite(
-                article, pivot_window=pivot_window, client=client
+            print()
+            lex = lexical.lexical_drift(
+                article, mode="not_applicable", window=pivot_window,
             )
         except Exception as e:                              # noqa: BLE001
-            print(f"Cross-language lead comparison skipped: {e}")
+            print(f"lexical drift skipped: {e}")
+
+        # With no confirmed event, framing remains a candidate/static instrument rather than event evidence.
+        if framing:
+            try:
+                from . import l5_framing_lite
+                framing_result = l5_framing_lite.framing_lite(
+                    article, pivot_window=pivot_window, client=client,
+                )
+            except Exception as e:                          # noqa: BLE001
+                print(f"Cross-language lead comparison skipped: {e}")
 
     # ---- consolidated lead ----
     print("\n── CONSOLIDATED LEAD (not a verdict) ──")
@@ -422,6 +582,10 @@ def run(article, llm=False, corroborate=False, framing=False, additive=False, pr
         print(f"  framing  : {n} divergence(s) [{mode}] — see findings/{article.replace(' ','_')}.framing.json")
     else:
         print("  L5 framing: run via `wikidrift framing` or `wikidrift pipeline --framing` (separate instrument)")
+    if sources_result:
+        print(f"  citations : {sources_result.get('episode_count', 1)} exact episode comparison(s)")
+    if facts_result:
+        print(f"  facts     : {facts_result.get('episode_count', 1)} as-of episode check(s)")
     process_receipts = []
     if process:
         for episode in l1_state["confirmed_episodes"]:
@@ -430,7 +594,8 @@ def run(article, llm=False, corroborate=False, framing=False, additive=False, pr
     result = {"article": article, "l1": label, "l1_state": l1_state,
               "leads": leads, "l2_adjudicated": l2_done,
               "l2": l2_summary, "trajectory": trajectory,
-              "mscore": m, "lexical": lex, "l5": framing_result,
+              "mscore": m, "lexical": lex, "sources": sources_result,
+              "l5": framing_result, "facts": facts_result,
               "process_context": process_receipts}
     corr = _corroboration(result)
     print(f"  corroboration: {corr['count']} signal(s) — {corr['signals'] or '(none)'}")

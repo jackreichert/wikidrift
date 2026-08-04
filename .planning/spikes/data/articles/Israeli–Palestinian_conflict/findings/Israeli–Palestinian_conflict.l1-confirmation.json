@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "article": "Israeli–Palestinian conflict",
-  "run_ts": "2026-08-01T22:05:05.153080+00:00",
+  "run_ts": "2026-08-04T20:26:15.201344+00:00",
   "corpus_horizon": {
     "snapshot_date": "2026-01-01",
     "snapshot_revid": 1331426100
@@ -15,15 +15,28 @@
     "rolling_tolerance_days": 35,
     "rolling_drop": 20.0
   },
+  "sweep_thresholds": {
+    "min_confirmable_tokens": 1000,
+    "loss_floor": 15.0,
+    "gain_floor": 15.0,
+    "replacement_floor": 10.0,
+    "extreme_change": 50.0,
+    "review_mass_floor": 10000,
+    "high_mass_floor": 50000
+  },
   "source_state": {
     "article": "Israeli–Palestinian conflict",
     "source_status": "current_complete",
-    "source_checked_at": "2026-08-01T22:05:04.182309+00:00",
-    "source_latest_revid": 1366125955,
+    "source_checked_at": "2026-08-04T20:26:13.515474+00:00",
+    "source_latest_revid": 1367703921,
     "expected_snapshots": 24,
     "loaded_snapshots": 24,
     "reason": null
   },
+  "coverage_status": "complete",
+  "coverage_endpoints_complete": true,
+  "missing_snapshots": [],
+  "excluded_intervals": [],
   "coarse_verdict": "PIVOT?",
   "status": "confirmed",
   "confirmed_episodes": [
@@ -32,30 +45,30 @@
       "candidate_end": "2025-01-01",
       "candidate_before_revid": 1192950462,
       "candidate_after_revid": 1266683280,
-      "before_revid": 1234732724,
-      "before_timestamp": "2024-07-15T21:27:15Z",
-      "after_revid": 1235344618,
-      "after_timestamp": "2024-07-18T20:26:46Z",
+      "before_revid": 1239968080,
+      "before_timestamp": "2024-08-12T19:05:51Z",
+      "after_revid": 1239968974,
+      "after_timestamp": "2024-08-12T19:13:55Z",
       "durable_spine_drop": 0.367616,
       "pwr_mass": 553813,
       "peak_pct": 56.91,
       "source": "interval",
       "status": "confirmed",
-      "duration_seconds": 255571,
+      "duration_seconds": 484,
       "attribution": {
         "schema_version": 3,
         "policy_version": "multi-revision-attribution-v1",
         "article": "Israeli–Palestinian conflict",
-        "before_revid": 1234732724,
-        "before_timestamp": "2024-07-15T21:27:15Z",
-        "after_revid": 1235344618,
-        "after_timestamp": "2024-07-18T20:26:46Z",
+        "before_revid": 1239968080,
+        "before_timestamp": "2024-08-12T19:05:51Z",
+        "after_revid": 1239968974,
+        "after_timestamp": "2024-08-12T19:13:55Z",
         "event_status": "standing",
         "semantic_role": "event_participation_receipt",
         "revisions": [
           {
-            "revision_id": 1234732724,
-            "timestamp": "2024-07-15T21:27:15Z",
+            "revision_id": 1239968080,
+            "timestamp": "2024-08-12T19:05:51Z",
             "account": "DMH223344",
             "account_type": "registered",
             "role": "stable_before",
@@ -64,7 +77,7 @@
             "sha1": null,
             "edit_summary": null,
             "tags": [],
-            "size": 293542,
+            "size": 308032,
             "size_delta": null,
             "gross_removed_tokens": 0,
             "gross_added_tokens": 0,
@@ -73,8 +86,8 @@
             "standing_added_tokens": 0
           },
           {
-            "revision_id": 1235344618,
-            "timestamp": "2024-07-18T20:26:46Z",
+            "revision_id": 1239968974,
+            "timestamp": "2024-08-12T19:13:55Z",
             "account": "DMH223344",
             "account_type": "registered",
             "role": "consolidation",
@@ -83,28 +96,130 @@
             "sha1": null,
             "edit_summary": null,
             "tags": [],
-            "size": 293307,
-            "size_delta": -235,
-            "gross_removed_tokens": 73710,
-            "gross_added_tokens": 0,
+            "size": 296294,
+            "size_delta": -11738,
+            "gross_removed_tokens": 3460,
+            "gross_added_tokens": 226,
             "restored_tokens": 0,
-            "standing_removed_tokens": 73710,
-            "standing_added_tokens": 0
+            "standing_removed_tokens": 3460,
+            "standing_added_tokens": 226
           }
         ],
         "gross": {
-          "removed_tokens": 73710,
-          "added_tokens": 0,
+          "removed_tokens": 3460,
+          "added_tokens": 226,
           "restored_tokens": 0
         },
         "net_standing": {
-          "removed_tokens": 73710,
-          "replacement_tokens": 0
+          "removed_tokens": 3460,
+          "replacement_tokens": 226
         },
         "removals_by_editor": [
           {
             "editor": "DMH223344",
-            "tokens": 73710
+            "tokens": 3460
+          }
+        ],
+        "replacement_by_editor": [
+          {
+            "editor": "DMH223344",
+            "tokens": 226
+          }
+        ],
+        "participation": {
+          "top_removal_share": 1.0,
+          "top_replacement_share": 1.0,
+          "top_two_removal_share": 1.0,
+          "same_top_editor": true
+        },
+        "removed_tokens": 3460,
+        "replacement_tokens": 226,
+        "top_removal_share": 1.0,
+        "top_replacement_share": 1.0,
+        "top_two_removal_share": 1.0,
+        "same_top_editor": true,
+        "note": "Counts describe observable public revision operations and surviving token states; they do not establish identity, coordination, motive, ownership, or misconduct.",
+        "duration_seconds": 484
+      }
+    },
+    {
+      "candidate_start": "2002-07-01",
+      "candidate_end": "2005-01-01",
+      "candidate_before_revid": 60077,
+      "candidate_after_revid": 9277631,
+      "before_revid": 122726,
+      "before_timestamp": "2002-07-24T15:40:25Z",
+      "after_revid": 125597,
+      "after_timestamp": "2002-07-24T16:10:35Z",
+      "durable_spine_drop": 0.936151,
+      "pwr_mass": 18478,
+      "peak_pct": 91.76,
+      "source": "interval",
+      "status": "confirmed",
+      "duration_seconds": 1810,
+      "attribution": {
+        "schema_version": 3,
+        "policy_version": "multi-revision-attribution-v1",
+        "article": "Israeli–Palestinian conflict",
+        "before_revid": 122726,
+        "before_timestamp": "2002-07-24T15:40:25Z",
+        "after_revid": 125597,
+        "after_timestamp": "2002-07-24T16:10:35Z",
+        "event_status": "standing",
+        "semantic_role": "event_participation_receipt",
+        "revisions": [
+          {
+            "revision_id": 122726,
+            "timestamp": "2002-07-24T15:40:25Z",
+            "account": "GrahamN",
+            "account_type": "registered",
+            "role": "stable_before",
+            "restores_revision_id": null,
+            "parent_id": null,
+            "sha1": null,
+            "edit_summary": null,
+            "tags": [],
+            "size": 16413,
+            "size_delta": null,
+            "gross_removed_tokens": 0,
+            "gross_added_tokens": 0,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 0,
+            "standing_added_tokens": 0
+          },
+          {
+            "revision_id": 125597,
+            "timestamp": "2002-07-24T16:10:35Z",
+            "account": "Marknau",
+            "account_type": "registered",
+            "role": "consolidation",
+            "restores_revision_id": null,
+            "parent_id": null,
+            "sha1": null,
+            "edit_summary": null,
+            "tags": [],
+            "size": 1543,
+            "size_delta": -14870,
+            "gross_removed_tokens": 3722,
+            "gross_added_tokens": 0,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 3722,
+            "standing_added_tokens": 0
+          }
+        ],
+        "gross": {
+          "removed_tokens": 3722,
+          "added_tokens": 0,
+          "restored_tokens": 0
+        },
+        "net_standing": {
+          "removed_tokens": 3722,
+          "replacement_tokens": 0
+        },
+        "removals_by_editor": [
+          {
+            "editor": "Marknau",
+            "tokens": 3722
           }
         ],
         "replacement_by_editor": [],
@@ -114,14 +229,14 @@
           "top_two_removal_share": 1.0,
           "same_top_editor": false
         },
-        "removed_tokens": 73710,
+        "removed_tokens": 3722,
         "replacement_tokens": 0,
         "top_removal_share": 1.0,
         "top_replacement_share": null,
         "top_two_removal_share": 1.0,
         "same_top_editor": false,
         "note": "Counts describe observable public revision operations and surviving token states; they do not establish identity, coordination, motive, ownership, or misconduct.",
-        "duration_seconds": 255571
+        "duration_seconds": 1810
       }
     },
     {
@@ -225,6 +340,108 @@
         "note": "Counts describe observable public revision operations and surviving token states; they do not establish identity, coordination, motive, ownership, or misconduct.",
         "duration_seconds": 775
       }
+    },
+    {
+      "candidate_start": "2006-01-01",
+      "candidate_end": "2007-07-01",
+      "candidate_before_revid": 33620738,
+      "candidate_after_revid": 141793441,
+      "before_revid": 58053984,
+      "before_timestamp": "2006-06-11T16:41:03Z",
+      "after_revid": 58057916,
+      "after_timestamp": "2006-06-11T17:09:13Z",
+      "durable_spine_drop": 0.71606,
+      "pwr_mass": 12747,
+      "peak_pct": 40.59,
+      "source": "interval",
+      "status": "confirmed",
+      "duration_seconds": 1690,
+      "attribution": {
+        "schema_version": 3,
+        "policy_version": "multi-revision-attribution-v1",
+        "article": "Israeli–Palestinian conflict",
+        "before_revid": 58053984,
+        "before_timestamp": "2006-06-11T16:41:03Z",
+        "after_revid": 58057916,
+        "after_timestamp": "2006-06-11T17:09:13Z",
+        "event_status": "standing",
+        "semantic_role": "event_participation_receipt",
+        "revisions": [
+          {
+            "revision_id": 58053984,
+            "timestamp": "2006-06-11T16:41:03Z",
+            "account": "George100",
+            "account_type": "registered",
+            "role": "stable_before",
+            "restores_revision_id": null,
+            "parent_id": null,
+            "sha1": null,
+            "edit_summary": null,
+            "tags": [],
+            "size": 21804,
+            "size_delta": null,
+            "gross_removed_tokens": 0,
+            "gross_added_tokens": 0,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 0,
+            "standing_added_tokens": 0
+          },
+          {
+            "revision_id": 58057916,
+            "timestamp": "2006-06-11T17:09:13Z",
+            "account": "Tasc",
+            "account_type": "registered",
+            "role": "consolidation",
+            "restores_revision_id": null,
+            "parent_id": null,
+            "sha1": null,
+            "edit_summary": null,
+            "tags": [],
+            "size": 18851,
+            "size_delta": -2953,
+            "gross_removed_tokens": 841,
+            "gross_added_tokens": 1,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 841,
+            "standing_added_tokens": 1
+          }
+        ],
+        "gross": {
+          "removed_tokens": 841,
+          "added_tokens": 1,
+          "restored_tokens": 0
+        },
+        "net_standing": {
+          "removed_tokens": 841,
+          "replacement_tokens": 1
+        },
+        "removals_by_editor": [
+          {
+            "editor": "Tasc",
+            "tokens": 841
+          }
+        ],
+        "replacement_by_editor": [
+          {
+            "editor": "Tasc",
+            "tokens": 1
+          }
+        ],
+        "participation": {
+          "top_removal_share": 1.0,
+          "top_replacement_share": 1.0,
+          "top_two_removal_share": 1.0,
+          "same_top_editor": true
+        },
+        "removed_tokens": 841,
+        "replacement_tokens": 1,
+        "top_removal_share": 1.0,
+        "top_replacement_share": 1.0,
+        "top_two_removal_share": 1.0,
+        "same_top_editor": true,
+        "note": "Counts describe observable public revision operations and surviving token states; they do not establish identity, coordination, motive, ownership, or misconduct.",
+        "duration_seconds": 1690
+      }
     }
   ],
   "evaluated_candidates": [
@@ -236,11 +453,27 @@
       "source": "interval",
       "pwr_mass": 553813,
       "peak_pct": 56.91,
-      "exact_before_revid": 1234732724,
-      "exact_before_timestamp": "2024-07-15T21:27:15Z",
-      "exact_after_revid": 1235344618,
-      "exact_after_timestamp": "2024-07-18T20:26:46Z",
+      "exact_before_revid": 1239968080,
+      "exact_before_timestamp": "2024-08-12T19:05:51Z",
+      "exact_after_revid": 1239968974,
+      "exact_after_timestamp": "2024-08-12T19:13:55Z",
       "durable_spine_drop": 0.367616,
+      "decision": "confirmed",
+      "rejection_reason": null
+    },
+    {
+      "candidate_start": "2002-07-01",
+      "candidate_end": "2005-01-01",
+      "candidate_before_revid": 60077,
+      "candidate_after_revid": 9277631,
+      "source": "interval",
+      "pwr_mass": 18478,
+      "peak_pct": 91.76,
+      "exact_before_revid": 122726,
+      "exact_before_timestamp": "2002-07-24T15:40:25Z",
+      "exact_after_revid": 125597,
+      "exact_after_timestamp": "2002-07-24T16:10:35Z",
+      "durable_spine_drop": 0.936151,
       "decision": "confirmed",
       "rejection_reason": null
     },
@@ -259,6 +492,22 @@
       "durable_spine_drop": 0.376068,
       "decision": "confirmed",
       "rejection_reason": null
+    },
+    {
+      "candidate_start": "2006-01-01",
+      "candidate_end": "2007-07-01",
+      "candidate_before_revid": 33620738,
+      "candidate_after_revid": 141793441,
+      "source": "interval",
+      "pwr_mass": 12747,
+      "peak_pct": 40.59,
+      "exact_before_revid": 58053984,
+      "exact_before_timestamp": "2006-06-11T16:41:03Z",
+      "exact_after_revid": 58057916,
+      "exact_after_timestamp": "2006-06-11T17:09:13Z",
+      "durable_spine_drop": 0.71606,
+      "decision": "confirmed",
+      "rejection_reason": null
     }
   ],
   "interval_profile": [
@@ -268,7 +517,20 @@
       "size": 3289,
       "pwr_loss": 91.76,
       "pwr_removed": 3018,
-      "mature": false
+      "pwr_gain": 117.3,
+      "pwr_added": 3858,
+      "pwr_retained": 8.24,
+      "replacement_candidate": 91.76,
+      "replacement_pwr": 3018,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "high"
     },
     {
       "start": "2003-01-01",
@@ -276,7 +538,20 @@
       "size": 4129,
       "pwr_loss": 21.41,
       "pwr_removed": 942,
-      "mature": false
+      "pwr_gain": 60.73,
+      "pwr_added": 2672,
+      "pwr_retained": 78.59,
+      "replacement_candidate": 21.41,
+      "replacement_pwr": 942,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "high"
     },
     {
       "start": "2003-07-01",
@@ -284,7 +559,20 @@
       "size": 5901,
       "pwr_loss": 79.81,
       "pwr_removed": 7473,
-      "mature": false
+      "pwr_gain": 39.08,
+      "pwr_added": 3659,
+      "pwr_retained": 20.19,
+      "replacement_candidate": 39.08,
+      "replacement_pwr": 3659,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "high"
     },
     {
       "start": "2004-01-01",
@@ -292,7 +580,20 @@
       "size": 4897,
       "pwr_loss": 44.66,
       "pwr_removed": 3032,
-      "mature": false
+      "pwr_gain": 17.59,
+      "pwr_added": 1194,
+      "pwr_retained": 55.34,
+      "replacement_candidate": 17.59,
+      "replacement_pwr": 1194,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "low"
     },
     {
       "start": "2004-07-01",
@@ -300,7 +601,20 @@
       "size": 3492,
       "pwr_loss": 55.28,
       "pwr_removed": 4013,
-      "mature": false
+      "pwr_gain": 23.02,
+      "pwr_added": 1671,
+      "pwr_retained": 44.72,
+      "replacement_candidate": 23.02,
+      "replacement_pwr": 1671,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "high"
     },
     {
       "start": "2005-01-01",
@@ -308,7 +622,16 @@
       "size": 2971,
       "pwr_loss": 4.09,
       "pwr_removed": 255,
-      "mature": false
+      "pwr_gain": 14.83,
+      "pwr_added": 925,
+      "pwr_retained": 95.91,
+      "replacement_candidate": 4.09,
+      "replacement_pwr": 255,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2005-07-01",
@@ -316,7 +639,18 @@
       "size": 3743,
       "pwr_loss": 12.27,
       "pwr_removed": 1195,
-      "mature": false
+      "pwr_gain": 10.88,
+      "pwr_added": 1060,
+      "pwr_retained": 87.73,
+      "replacement_candidate": 10.88,
+      "replacement_pwr": 1060,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "replacement"
+      ],
+      "priority": "low"
     },
     {
       "start": "2006-01-01",
@@ -324,7 +658,19 @@
       "size": 4241,
       "pwr_loss": 25.4,
       "pwr_removed": 3248,
-      "mature": false
+      "pwr_gain": 10.57,
+      "pwr_added": 1352,
+      "pwr_retained": 74.6,
+      "replacement_candidate": 10.57,
+      "replacement_pwr": 1352,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss",
+        "replacement"
+      ],
+      "priority": "low"
     },
     {
       "start": "2006-07-01",
@@ -332,7 +678,20 @@
       "size": 4602,
       "pwr_loss": 40.59,
       "pwr_removed": 5748,
-      "mature": false
+      "pwr_gain": 24.39,
+      "pwr_added": 3454,
+      "pwr_retained": 59.41,
+      "replacement_candidate": 24.39,
+      "replacement_pwr": 3454,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "low"
     },
     {
       "start": "2007-01-01",
@@ -340,7 +699,20 @@
       "size": 6536,
       "pwr_loss": 24.76,
       "pwr_removed": 3751,
-      "mature": false
+      "pwr_gain": 47.91,
+      "pwr_added": 7259,
+      "pwr_retained": 75.24,
+      "replacement_candidate": 24.76,
+      "replacement_pwr": 3751,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "low"
     },
     {
       "start": "2007-07-01",
@@ -348,7 +720,19 @@
       "size": 11821,
       "pwr_loss": 12.02,
       "pwr_removed": 2815,
-      "mature": false
+      "pwr_gain": 36.81,
+      "pwr_added": 8620,
+      "pwr_retained": 87.98,
+      "replacement_candidate": 12.02,
+      "replacement_pwr": 2815,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "gain",
+        "replacement"
+      ],
+      "priority": "low"
     },
     {
       "start": "2008-01-01",
@@ -356,7 +740,20 @@
       "size": 18293,
       "pwr_loss": 38.79,
       "pwr_removed": 15143,
-      "mature": true
+      "pwr_gain": 29.48,
+      "pwr_added": 11506,
+      "pwr_retained": 61.21,
+      "replacement_candidate": 29.48,
+      "replacement_pwr": 11506,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "review"
     },
     {
       "start": "2008-07-01",
@@ -364,7 +761,16 @@
       "size": 23249,
       "pwr_loss": 4.4,
       "pwr_removed": 2076,
-      "mature": true
+      "pwr_gain": 3.81,
+      "pwr_added": 1798,
+      "pwr_retained": 95.6,
+      "replacement_candidate": 3.81,
+      "replacement_pwr": 1798,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2009-01-01",
@@ -372,7 +778,18 @@
       "size": 23570,
       "pwr_loss": 24.03,
       "pwr_removed": 16517,
-      "mature": true
+      "pwr_gain": 6.24,
+      "pwr_added": 4291,
+      "pwr_retained": 75.97,
+      "replacement_candidate": 6.24,
+      "replacement_pwr": 4291,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss"
+      ],
+      "priority": "review"
     },
     {
       "start": "2009-07-01",
@@ -380,7 +797,16 @@
       "size": 21798,
       "pwr_loss": 1.71,
       "pwr_removed": 1268,
-      "mature": true
+      "pwr_gain": 1.79,
+      "pwr_added": 1327,
+      "pwr_retained": 98.29,
+      "replacement_candidate": 1.71,
+      "replacement_pwr": 1268,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2010-01-01",
@@ -388,7 +814,16 @@
       "size": 22628,
       "pwr_loss": 2.18,
       "pwr_removed": 2085,
-      "mature": true
+      "pwr_gain": 2.33,
+      "pwr_added": 2224,
+      "pwr_retained": 97.82,
+      "replacement_candidate": 2.18,
+      "replacement_pwr": 2085,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2010-07-01",
@@ -396,7 +831,18 @@
       "size": 24089,
       "pwr_loss": 22.97,
       "pwr_removed": 27038,
-      "mature": true
+      "pwr_gain": 8.79,
+      "pwr_added": 10341,
+      "pwr_retained": 77.03,
+      "replacement_candidate": 8.79,
+      "replacement_pwr": 10341,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss"
+      ],
+      "priority": "review"
     },
     {
       "start": "2011-01-01",
@@ -404,7 +850,16 @@
       "size": 28808,
       "pwr_loss": 3.61,
       "pwr_removed": 4324,
-      "mature": true
+      "pwr_gain": 0.4,
+      "pwr_added": 483,
+      "pwr_retained": 96.39,
+      "replacement_candidate": 0.4,
+      "replacement_pwr": 483,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2011-07-01",
@@ -412,7 +867,16 @@
       "size": 27542,
       "pwr_loss": 0.9,
       "pwr_removed": 1294,
-      "mature": true
+      "pwr_gain": 1.42,
+      "pwr_added": 2027,
+      "pwr_retained": 99.1,
+      "replacement_candidate": 0.9,
+      "replacement_pwr": 1294,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2012-01-01",
@@ -420,7 +884,16 @@
       "size": 28921,
       "pwr_loss": 8.39,
       "pwr_removed": 14347,
-      "mature": true
+      "pwr_gain": 4.66,
+      "pwr_added": 7970,
+      "pwr_retained": 91.61,
+      "replacement_candidate": 4.66,
+      "replacement_pwr": 7970,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "review"
     },
     {
       "start": "2012-07-01",
@@ -428,7 +901,16 @@
       "size": 33736,
       "pwr_loss": 2.24,
       "pwr_removed": 4268,
-      "mature": true
+      "pwr_gain": 2.29,
+      "pwr_added": 4354,
+      "pwr_retained": 97.76,
+      "replacement_candidate": 2.24,
+      "replacement_pwr": 4268,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2013-01-01",
@@ -436,7 +918,16 @@
       "size": 36968,
       "pwr_loss": 1.69,
       "pwr_removed": 3782,
-      "mature": true
+      "pwr_gain": 1.57,
+      "pwr_added": 3498,
+      "pwr_retained": 98.31,
+      "replacement_candidate": 1.57,
+      "replacement_pwr": 3498,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2013-07-01",
@@ -444,7 +935,16 @@
       "size": 39540,
       "pwr_loss": 1.23,
       "pwr_removed": 3195,
-      "mature": true
+      "pwr_gain": 0.38,
+      "pwr_added": 993,
+      "pwr_retained": 98.77,
+      "replacement_candidate": 0.38,
+      "replacement_pwr": 993,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2014-01-01",
@@ -452,7 +952,16 @@
       "size": 40070,
       "pwr_loss": 12.64,
       "pwr_removed": 37453,
-      "mature": true
+      "pwr_gain": 1.7,
+      "pwr_added": 5037,
+      "pwr_retained": 87.36,
+      "replacement_candidate": 1.7,
+      "replacement_pwr": 5037,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "review"
     },
     {
       "start": "2014-07-01",
@@ -460,7 +969,16 @@
       "size": 39175,
       "pwr_loss": 2.96,
       "pwr_removed": 8821,
-      "mature": true
+      "pwr_gain": 6.41,
+      "pwr_added": 19117,
+      "pwr_retained": 97.04,
+      "replacement_candidate": 2.96,
+      "replacement_pwr": 8821,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "review"
     },
     {
       "start": "2015-01-01",
@@ -468,7 +986,16 @@
       "size": 42839,
       "pwr_loss": 0.19,
       "pwr_removed": 674,
-      "mature": true
+      "pwr_gain": 0.38,
+      "pwr_added": 1305,
+      "pwr_retained": 99.81,
+      "replacement_candidate": 0.19,
+      "replacement_pwr": 674,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2015-07-01",
@@ -476,7 +1003,16 @@
       "size": 43915,
       "pwr_loss": 0.92,
       "pwr_removed": 3572,
-      "mature": true
+      "pwr_gain": 0.28,
+      "pwr_added": 1085,
+      "pwr_retained": 99.08,
+      "replacement_candidate": 0.28,
+      "replacement_pwr": 1085,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2016-01-01",
@@ -484,7 +1020,16 @@
       "size": 44021,
       "pwr_loss": 4.64,
       "pwr_removed": 19967,
-      "mature": true
+      "pwr_gain": 0.25,
+      "pwr_added": 1066,
+      "pwr_retained": 95.36,
+      "replacement_candidate": 0.25,
+      "replacement_pwr": 1066,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "review"
     },
     {
       "start": "2016-07-01",
@@ -492,7 +1037,16 @@
       "size": 42267,
       "pwr_loss": 1.21,
       "pwr_removed": 5496,
-      "mature": true
+      "pwr_gain": 0.08,
+      "pwr_added": 358,
+      "pwr_retained": 98.79,
+      "replacement_candidate": 0.08,
+      "replacement_pwr": 358,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2017-01-01",
@@ -500,7 +1054,16 @@
       "size": 41932,
       "pwr_loss": 1.35,
       "pwr_removed": 6596,
-      "mature": true
+      "pwr_gain": 0.41,
+      "pwr_added": 2024,
+      "pwr_retained": 98.65,
+      "replacement_candidate": 0.41,
+      "replacement_pwr": 2024,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2017-07-01",
@@ -508,7 +1071,16 @@
       "size": 43246,
       "pwr_loss": 0.48,
       "pwr_removed": 2521,
-      "mature": true
+      "pwr_gain": 0.22,
+      "pwr_added": 1174,
+      "pwr_retained": 99.52,
+      "replacement_candidate": 0.22,
+      "replacement_pwr": 1174,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2018-01-01",
@@ -516,7 +1088,16 @@
       "size": 44061,
       "pwr_loss": 1.18,
       "pwr_removed": 6725,
-      "mature": true
+      "pwr_gain": 0.08,
+      "pwr_added": 447,
+      "pwr_retained": 98.82,
+      "replacement_candidate": 0.08,
+      "replacement_pwr": 447,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2018-07-01",
@@ -524,7 +1105,16 @@
       "size": 43994,
       "pwr_loss": 0.36,
       "pwr_removed": 2158,
-      "mature": true
+      "pwr_gain": 0.06,
+      "pwr_added": 341,
+      "pwr_retained": 99.64,
+      "replacement_candidate": 0.06,
+      "replacement_pwr": 341,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2019-01-01",
@@ -532,7 +1122,16 @@
       "size": 43850,
       "pwr_loss": 0.24,
       "pwr_removed": 1584,
-      "mature": true
+      "pwr_gain": 0.04,
+      "pwr_added": 251,
+      "pwr_retained": 99.76,
+      "replacement_candidate": 0.04,
+      "replacement_pwr": 251,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2019-07-01",
@@ -540,7 +1139,16 @@
       "size": 43922,
       "pwr_loss": 0.16,
       "pwr_removed": 1120,
-      "mature": true
+      "pwr_gain": 0.14,
+      "pwr_added": 975,
+      "pwr_retained": 99.84,
+      "replacement_candidate": 0.14,
+      "replacement_pwr": 975,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2020-01-01",
@@ -548,7 +1156,16 @@
       "size": 44530,
       "pwr_loss": 0.41,
       "pwr_removed": 2972,
-      "mature": true
+      "pwr_gain": 0.1,
+      "pwr_added": 715,
+      "pwr_retained": 99.59,
+      "replacement_candidate": 0.1,
+      "replacement_pwr": 715,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2020-07-01",
@@ -556,7 +1173,16 @@
       "size": 44891,
       "pwr_loss": 0.69,
       "pwr_removed": 5335,
-      "mature": true
+      "pwr_gain": 0.14,
+      "pwr_added": 1091,
+      "pwr_retained": 99.31,
+      "replacement_candidate": 0.14,
+      "replacement_pwr": 1091,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2021-01-01",
@@ -564,7 +1190,16 @@
       "size": 45344,
       "pwr_loss": 0.54,
       "pwr_removed": 4414,
-      "mature": true
+      "pwr_gain": 0.13,
+      "pwr_added": 1034,
+      "pwr_retained": 99.46,
+      "replacement_candidate": 0.13,
+      "replacement_pwr": 1034,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2021-07-01",
@@ -572,7 +1207,16 @@
       "size": 45988,
       "pwr_loss": 0.25,
       "pwr_removed": 2104,
-      "mature": true
+      "pwr_gain": 0.1,
+      "pwr_added": 826,
+      "pwr_retained": 99.75,
+      "replacement_candidate": 0.1,
+      "replacement_pwr": 826,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2022-01-01",
@@ -580,7 +1224,16 @@
       "size": 46656,
       "pwr_loss": 12.26,
       "pwr_removed": 110555,
-      "mature": true
+      "pwr_gain": 0.76,
+      "pwr_added": 6841,
+      "pwr_retained": 87.74,
+      "replacement_candidate": 0.76,
+      "replacement_pwr": 6841,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "high"
     },
     {
       "start": "2022-07-01",
@@ -588,7 +1241,16 @@
       "size": 48056,
       "pwr_loss": 4.53,
       "pwr_removed": 38049,
-      "mature": true
+      "pwr_gain": 0.39,
+      "pwr_added": 3314,
+      "pwr_retained": 95.47,
+      "replacement_candidate": 0.39,
+      "replacement_pwr": 3314,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "review"
     },
     {
       "start": "2023-01-01",
@@ -596,7 +1258,16 @@
       "size": 48788,
       "pwr_loss": 11.65,
       "pwr_removed": 99029,
-      "mature": true
+      "pwr_gain": 1.46,
+      "pwr_added": 12414,
+      "pwr_retained": 88.35,
+      "replacement_candidate": 1.46,
+      "replacement_pwr": 12414,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "high"
     },
     {
       "start": "2023-07-01",
@@ -604,7 +1275,16 @@
       "size": 54628,
       "pwr_loss": 2.51,
       "pwr_removed": 20212,
-      "mature": true
+      "pwr_gain": 1.03,
+      "pwr_added": 8275,
+      "pwr_retained": 97.49,
+      "replacement_candidate": 1.03,
+      "replacement_pwr": 8275,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "review"
     },
     {
       "start": "2024-01-01",
@@ -612,7 +1292,18 @@
       "size": 59886,
       "pwr_loss": 56.91,
       "pwr_removed": 482002,
-      "mature": true
+      "pwr_gain": 2.87,
+      "pwr_added": 24305,
+      "pwr_retained": 43.09,
+      "replacement_candidate": 2.87,
+      "replacement_pwr": 24305,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss"
+      ],
+      "priority": "high"
     },
     {
       "start": "2024-07-01",
@@ -620,7 +1311,20 @@
       "size": 49052,
       "pwr_loss": 17.23,
       "pwr_removed": 71811,
-      "mature": true
+      "pwr_gain": 62.69,
+      "pwr_added": 261291,
+      "pwr_retained": 82.77,
+      "replacement_candidate": 17.23,
+      "replacement_pwr": 71811,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "high"
     },
     {
       "start": "2025-01-01",
@@ -628,7 +1332,263 @@
       "size": 74633,
       "pwr_loss": 2.46,
       "pwr_removed": 15885,
-      "mature": true
+      "pwr_gain": 1.66,
+      "pwr_added": 10708,
+      "pwr_retained": 97.54,
+      "replacement_candidate": 1.66,
+      "replacement_pwr": 10708,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "review"
+    }
+  ],
+  "sweep_candidates": [
+    {
+      "start": "2002-07-01",
+      "end": "2003-01-01",
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "high",
+      "decision": "pending_confirmation",
+      "pwr_loss": 91.76,
+      "pwr_removed": 3018,
+      "pwr_gain": 117.3,
+      "pwr_added": 3858,
+      "replacement_candidate": 91.76,
+      "replacement_pwr": 3018
+    },
+    {
+      "start": "2003-01-01",
+      "end": "2003-07-01",
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "high",
+      "decision": "pending_confirmation",
+      "pwr_loss": 21.41,
+      "pwr_removed": 942,
+      "pwr_gain": 60.73,
+      "pwr_added": 2672,
+      "replacement_candidate": 21.41,
+      "replacement_pwr": 942
+    },
+    {
+      "start": "2003-07-01",
+      "end": "2004-01-01",
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "high",
+      "decision": "pending_confirmation",
+      "pwr_loss": 79.81,
+      "pwr_removed": 7473,
+      "pwr_gain": 39.08,
+      "pwr_added": 3659,
+      "replacement_candidate": 39.08,
+      "replacement_pwr": 3659
+    },
+    {
+      "start": "2004-01-01",
+      "end": "2004-07-01",
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "low",
+      "decision": "pending_confirmation",
+      "pwr_loss": 44.66,
+      "pwr_removed": 3032,
+      "pwr_gain": 17.59,
+      "pwr_added": 1194,
+      "replacement_candidate": 17.59,
+      "replacement_pwr": 1194
+    },
+    {
+      "start": "2004-07-01",
+      "end": "2005-01-01",
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "high",
+      "decision": "pending_confirmation",
+      "pwr_loss": 55.28,
+      "pwr_removed": 4013,
+      "pwr_gain": 23.02,
+      "pwr_added": 1671,
+      "replacement_candidate": 23.02,
+      "replacement_pwr": 1671
+    },
+    {
+      "start": "2005-07-01",
+      "end": "2006-01-01",
+      "anomaly_types": [
+        "replacement"
+      ],
+      "priority": "low",
+      "decision": "pending_confirmation",
+      "pwr_loss": 12.27,
+      "pwr_removed": 1195,
+      "pwr_gain": 10.88,
+      "pwr_added": 1060,
+      "replacement_candidate": 10.88,
+      "replacement_pwr": 1060
+    },
+    {
+      "start": "2006-01-01",
+      "end": "2006-07-01",
+      "anomaly_types": [
+        "loss",
+        "replacement"
+      ],
+      "priority": "low",
+      "decision": "pending_confirmation",
+      "pwr_loss": 25.4,
+      "pwr_removed": 3248,
+      "pwr_gain": 10.57,
+      "pwr_added": 1352,
+      "replacement_candidate": 10.57,
+      "replacement_pwr": 1352
+    },
+    {
+      "start": "2006-07-01",
+      "end": "2007-01-01",
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "low",
+      "decision": "pending_confirmation",
+      "pwr_loss": 40.59,
+      "pwr_removed": 5748,
+      "pwr_gain": 24.39,
+      "pwr_added": 3454,
+      "replacement_candidate": 24.39,
+      "replacement_pwr": 3454
+    },
+    {
+      "start": "2007-01-01",
+      "end": "2007-07-01",
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "low",
+      "decision": "pending_confirmation",
+      "pwr_loss": 24.76,
+      "pwr_removed": 3751,
+      "pwr_gain": 47.91,
+      "pwr_added": 7259,
+      "replacement_candidate": 24.76,
+      "replacement_pwr": 3751
+    },
+    {
+      "start": "2007-07-01",
+      "end": "2008-01-01",
+      "anomaly_types": [
+        "gain",
+        "replacement"
+      ],
+      "priority": "low",
+      "decision": "pending_confirmation",
+      "pwr_loss": 12.02,
+      "pwr_removed": 2815,
+      "pwr_gain": 36.81,
+      "pwr_added": 8620,
+      "replacement_candidate": 12.02,
+      "replacement_pwr": 2815
+    },
+    {
+      "start": "2008-01-01",
+      "end": "2008-07-01",
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "review",
+      "decision": "pending_confirmation",
+      "pwr_loss": 38.79,
+      "pwr_removed": 15143,
+      "pwr_gain": 29.48,
+      "pwr_added": 11506,
+      "replacement_candidate": 29.48,
+      "replacement_pwr": 11506
+    },
+    {
+      "start": "2009-01-01",
+      "end": "2009-07-01",
+      "anomaly_types": [
+        "loss"
+      ],
+      "priority": "review",
+      "decision": "pending_confirmation",
+      "pwr_loss": 24.03,
+      "pwr_removed": 16517,
+      "pwr_gain": 6.24,
+      "pwr_added": 4291,
+      "replacement_candidate": 6.24,
+      "replacement_pwr": 4291
+    },
+    {
+      "start": "2010-07-01",
+      "end": "2011-01-01",
+      "anomaly_types": [
+        "loss"
+      ],
+      "priority": "review",
+      "decision": "pending_confirmation",
+      "pwr_loss": 22.97,
+      "pwr_removed": 27038,
+      "pwr_gain": 8.79,
+      "pwr_added": 10341,
+      "replacement_candidate": 8.79,
+      "replacement_pwr": 10341
+    },
+    {
+      "start": "2024-01-01",
+      "end": "2024-07-01",
+      "anomaly_types": [
+        "loss"
+      ],
+      "priority": "high",
+      "decision": "pending_confirmation",
+      "pwr_loss": 56.91,
+      "pwr_removed": 482002,
+      "pwr_gain": 2.87,
+      "pwr_added": 24305,
+      "replacement_candidate": 2.87,
+      "replacement_pwr": 24305
+    },
+    {
+      "start": "2024-07-01",
+      "end": "2025-01-01",
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "high",
+      "decision": "pending_confirmation",
+      "pwr_loss": 17.23,
+      "pwr_removed": 71811,
+      "pwr_gain": 62.69,
+      "pwr_added": 261291,
+      "replacement_candidate": 17.23,
+      "replacement_pwr": 71811
     }
   ]
 }

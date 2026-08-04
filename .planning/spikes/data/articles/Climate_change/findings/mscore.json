@@ -1,0 +1,17 @@
+{
+  "Climate change": {
+    "raw": {
+      "revs": 26791,
+      "mutual_pairs": 1462,
+      "M": 26932080,
+      "M_per_rev": 1005.27
+    },
+    "refined": {
+      "revs": 23498,
+      "mutual_pairs": 330,
+      "M": 3770892,
+      "M_per_rev": 160.48
+    },
+    "refined_per_rev": 140.75
+  }
+}

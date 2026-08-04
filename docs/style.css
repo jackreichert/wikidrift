@@ -180,6 +180,12 @@ h2.subhead{font-size:1rem;margin:1.4em 0 .45em}
 .candidate-outcomes th:first-child{width:22%}
 .candidate-outcomes th:nth-child(2){width:48%}
 .candidate-outcomes th:last-child{width:30%}
+.candidate-analysis{max-width:68rem;margin:1.5rem 0 1.75rem}
+.candidate-analysis>h3{font-weight:700}
+.candidate-analysis-summary{max-width:52rem;margin:.35rem 0 0;color:var(--faint);font-size:.9rem}
+.candidate-outcome-details{margin-top:1.5rem;padding-top:1.1rem;border-top:1px solid var(--line)}
+.candidate-outcome-details h4{margin:0 0 .35rem;font-size:.88rem}
+.candidate-outcome-details>p{margin:.35rem 0 .75rem;max-width:52rem;font-size:.88rem}
 .evidence-receipt{
   max-width:52rem;margin:1rem 0;padding:.8rem 1rem;border-left:3px solid var(--accent);
   background:var(--surface);
@@ -195,8 +201,9 @@ h2.subhead{font-size:1rem;margin:1.4em 0 .45em}
 /* PWR interval profile */
 .drift-profile{margin:1.5rem 0 1.75rem;max-width:68rem}
 .drift-profile figcaption{display:flex;align-items:baseline;justify-content:space-between;gap:1.5rem}
-.drift-profile figcaption h3{font-weight:700}
+.drift-profile figcaption h3,.drift-profile figcaption h4{font-weight:700}
 .drift-profile figcaption p{margin:0;max-width:42rem;color:var(--faint);font-size:.88rem}
+.candidate-analysis .drift-profile{margin-bottom:0}
 .analysis-path-wrap{margin:1rem 0 1.25rem}
 .analysis-path-wrap h4{margin:0 0 .45rem;font-size:.82rem;color:var(--faint)}
 .analysis-path{
@@ -216,7 +223,7 @@ h2.subhead{font-size:1rem;margin:1.4em 0 .45em}
 .drift-axis span:last-child{text-align:right}
 .drift-plot{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
 .drift-row{
-  display:grid;grid-template-columns:6.5rem minmax(12rem,1fr) 3.75rem 7rem 7.5rem;
+  display:grid;grid-template-columns:6.5rem minmax(10rem,1fr) minmax(15rem,auto) 11rem 9rem;
   gap:1rem;align-items:center;min-height:2.25rem;border-bottom:1px solid var(--line);
   font-size:.82rem;font-variant-numeric:tabular-nums;
 }
@@ -234,6 +241,7 @@ h2.subhead{font-size:1rem;margin:1.4em 0 .45em}
 .drift-row.excluded{color:var(--dim)}
 .drift-value{text-align:right;font-weight:700}
 .drift-mass{text-align:right;color:var(--faint)}
+.drift-row.descriptive .drift-state{color:var(--warn-fg);font-weight:700}
 .drift-state{color:var(--faint)}
 .drift-row.candidate .drift-state{color:var(--warn-fg);font-weight:700}
 .drift-row.candidate-confirmed .drift-state{color:var(--ok-fg)}
@@ -251,11 +259,12 @@ h2.subhead{font-size:1rem;margin:1.4em 0 .45em}
   .analysis-path li+li{padding-left:0;border-left:0;border-top:1px solid var(--line)}
   .drift-axis{display:none}
   .drift-row{
-    grid-template-columns:5.75rem minmax(7rem,1fr) 3.5rem;
+    grid-template-columns:5.75rem minmax(7rem,1fr);
     gap:.65rem;padding:.5rem 0;min-height:3.25rem;
   }
-  .drift-mass{grid-column:2;text-align:left}
-  .drift-state{grid-column:3;grid-row:2;text-align:right;font-size:.75rem}
+  .drift-value{grid-column:1/-1;text-align:left}
+  .drift-mass{grid-column:1/-1;text-align:left}
+  .drift-state{grid-column:1/-1;text-align:left;font-size:.75rem}
   .drift-missing-reason{margin-left:0}
 }
 
@@ -439,6 +448,43 @@ body.dialog-open{overflow:hidden}
 .panel{display:none;padding-top:1.25rem}
 .panel.active{display:block}
 .panel > h2:first-child{margin-top:.25em}
+
+.episode-switcher{
+  min-width:0;padding:12px;margin:0 0 1rem;border:1px solid var(--line-strong);
+  border-radius:var(--r);background:var(--surface);
+}
+.episode-switcher legend{
+  padding:0 5px;color:var(--muted);font-size:.82rem;font-weight:600;
+}
+.episode-options{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));gap:8px;
+}
+.episode-radio{position:absolute;opacity:0;pointer-events:none}
+.episode-option{
+  display:grid;grid-template-columns:1fr auto;align-content:center;column-gap:8px;
+  min-height:52px;padding:8px 10px;border:1px solid var(--line-strong);
+  border-radius:var(--r);background:#fff;color:var(--ink);cursor:pointer;
+}
+.episode-option:hover{border-color:var(--ink)}
+.episode-radio:focus-visible + .episode-option{outline:2px solid var(--ink);outline-offset:2px}
+.episode-radio:checked + .episode-option{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.episode-number{font-size:.82rem;font-weight:700}
+.episode-date{grid-column:1/-1;color:var(--faint);font-size:.78rem;line-height:1.4}
+.episode-state{
+  align-self:center;padding:1px 6px;border-radius:3px;background:var(--warn-bg);
+  color:var(--warn-fg);font-size:.72rem;font-weight:600;
+}
+.episode-count{display:block;margin-top:8px;font-size:.78rem;color:var(--faint)}
+.episode-view[hidden]{display:none}
+.episode-unavailable{
+  border:1px solid var(--line-strong);padding:.7rem .85rem;background:var(--warn-bg);
+  color:var(--warn-fg);
+}
+.article-back{
+  display:inline-block;margin-bottom:.85rem;color:var(--muted);font-size:.9rem;
+  font-weight:600;text-decoration:none;
+}
+.article-back:hover{color:var(--ink);opacity:1;text-decoration:underline;text-underline-offset:3px}
 
 /* —— tables —— */
 .tablewrap{

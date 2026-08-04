@@ -1,0 +1,17 @@
+{
+  "Water": {
+    "raw": {
+      "revs": 7900,
+      "mutual_pairs": 343,
+      "M": 667120,
+      "M_per_rev": 84.45
+    },
+    "refined": {
+      "revs": 5328,
+      "mutual_pairs": 43,
+      "M": 38910,
+      "M_per_rev": 7.3
+    },
+    "refined_per_rev": 4.93
+  }
+}

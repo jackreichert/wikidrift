@@ -1,0 +1,17 @@
+{
+  "Democratic Socialists of America": {
+    "raw": {
+      "revs": 5028,
+      "mutual_pairs": 71,
+      "M": 75300,
+      "M_per_rev": 14.98
+    },
+    "refined": {
+      "revs": 4058,
+      "mutual_pairs": 8,
+      "M": 2100,
+      "M_per_rev": 0.52
+    },
+    "refined_per_rev": 0.42
+  }
+}

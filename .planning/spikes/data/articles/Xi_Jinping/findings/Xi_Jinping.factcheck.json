@@ -1,0 +1,97 @@
+{
+  "article": "Xi Jinping",
+  "asof": "2007-03-16T08:50:39Z",
+  "langs": [
+    "pt",
+    "en",
+    "nl",
+    "de",
+    "es",
+    "fr"
+  ],
+  "citation": {
+    "mean_jaccard": 0.67,
+    "domains_per_edition": {
+      "pt": 0,
+      "en": 2,
+      "nl": 0,
+      "de": 0,
+      "es": 0,
+      "fr": 0
+    }
+  },
+  "claim": {
+    "per_edition": {},
+    "adjudication": []
+  },
+  "diagnostics": {
+    "min_edition_count": 2,
+    "effective_langs": [
+      "pt",
+      "en",
+      "nl",
+      "de",
+      "es",
+      "fr"
+    ],
+    "errors": []
+  },
+  "schema_version": 1,
+  "analysis_scope": "confirmed_episodes",
+  "episode_count": 1,
+  "episodes": [
+    {
+      "article": "Xi Jinping",
+      "asof": "2007-03-16T08:50:39Z",
+      "langs": [
+        "pt",
+        "en",
+        "nl",
+        "de",
+        "es",
+        "fr"
+      ],
+      "citation": {
+        "mean_jaccard": 0.67,
+        "domains_per_edition": {
+          "pt": 0,
+          "en": 2,
+          "nl": 0,
+          "de": 0,
+          "es": 0,
+          "fr": 0
+        }
+      },
+      "claim": {
+        "per_edition": {},
+        "adjudication": []
+      },
+      "diagnostics": {
+        "min_edition_count": 2,
+        "effective_langs": [
+          "pt",
+          "en",
+          "nl",
+          "de",
+          "es",
+          "fr"
+        ],
+        "errors": []
+      },
+      "episode_id": "115514713-115516297",
+      "episode_index": 1,
+      "episode_window": {
+        "start": "2006-07-01",
+        "end": "2008-07-01",
+        "pwr_mass": 8795,
+        "status": "confirmed",
+        "before_revid": 115514713,
+        "before_timestamp": "2007-03-16T08:32:46Z",
+        "after_revid": 115516297,
+        "after_timestamp": "2007-03-16T08:50:39Z",
+        "durable_spine_drop": 0.885563
+      },
+      "analysis_status": "available"
+    }
+  ]
+}

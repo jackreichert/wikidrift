@@ -30,6 +30,7 @@ from . import config, event_attribution as event_ledger, process_context, proven
 from .corpus import Corpus
 from .config import (MIN_COHORT, MIN_MATURE, MAG_FLOOR, CONFIRM_DROP,
                      CREEP_MEAN, DURABLE_Q, RECENT_YEARS, ELEVATED,
+                     GAIN_FLOOR, REPLACEMENT_FLOOR, EXTREME_CHANGE, REVIEW_MASS_FLOOR,
                      MASS_FLOOR, ROLLING_WINDOW_MONTHS, ROLLING_TOLERANCE_DAYS, ROLLING_DROP)
 
 CONFIRMATION_SCHEMA_VERSION = 2
@@ -101,20 +102,74 @@ def _pwr(present, token, k):
     return bisect_right(present[token], k)
 
 
+def _candidate_priority(percentages, masses):
+    """Rank urgency; high mass or an extreme percentage independently earns high priority."""
+    if max(masses, default=0) >= MASS_FLOOR or max(percentages, default=0) >= EXTREME_CHANGE:
+        return "high"
+    if max(masses, default=0) >= REVIEW_MASS_FLOOR:
+        return "review"
+    return "low"
+
+
+def _interval_measurements(snaps, members, present):
+    """Measure retained, removed, and standing-added PWR for every snapshot interval."""
+    for index in range(len(snaps) - 1):
+        start_date, start_revid = snaps[index]
+        end_date, end_revid = snaps[index + 1]
+        at_start, at_end = members[index], members[index + 1]
+        if not at_start:
+            continue
+        removed = at_start - at_end
+        added = at_end - at_start
+        retained = at_start & at_end
+        start_weight = sum(_pwr(present, token, index) for token in at_start)
+        removed_weight = sum(_pwr(present, token, index) for token in removed)
+        added_weight = sum(_pwr(present, token, index + 1) for token in added)
+        retained_weight = sum(_pwr(present, token, index) for token in retained)
+        loss_pct = 100.0 * removed_weight / start_weight if start_weight else 0.0
+        gain_pct = 100.0 * added_weight / start_weight if start_weight else 0.0
+        retained_pct = 100.0 * retained_weight / start_weight if start_weight else 0.0
+        replacement_weight = min(removed_weight, added_weight)
+        replacement_pct = 100.0 * replacement_weight / start_weight if start_weight else 0.0
+        anomaly_types = []
+        if loss_pct >= ELEVATED:
+            anomaly_types.append("loss")
+        if gain_pct >= GAIN_FLOOR:
+            anomaly_types.append("gain")
+        if replacement_pct >= REPLACEMENT_FLOOR:
+            anomaly_types.append("replacement")
+        yield {
+            "start": start_date,
+            "start_revid": start_revid,
+            "end": end_date,
+            "end_revid": end_revid,
+            "size": len(at_start),
+            "pwr_loss": loss_pct,
+            "pwr_removed": removed_weight,
+            "pwr_gain": gain_pct,
+            "pwr_added": added_weight,
+            "pwr_retained": retained_pct,
+            "replacement_candidate": replacement_pct,
+            "replacement_pwr": replacement_weight,
+            "confirmable": len(at_start) >= MIN_MATURE,
+            "anomaly_types": anomaly_types,
+            "priority": _candidate_priority(
+                [loss_pct, gain_pct, replacement_pct],
+                [removed_weight, added_weight, replacement_weight],
+            ),
+        }
+
+
 def _intervals(snaps, members, present):
     """Yield a per-interval PWR-loss record (d0, r0, d1, r1, ratio, size, wlost, mature) for every
     snapshot interval — mature AND immature. The single source the pure `coarse` and its report share."""
-    for k in range(len(snaps) - 1):
-        d0, r0 = snaps[k]; d1, r1 = snaps[k + 1]
-        at0, at1 = members[k], members[k + 1]
-        if not at0:
-            continue
-        lost = at0 - at1
-        w0 = sum(_pwr(present, t, k) for t in at0)
-        wlost = sum(_pwr(present, t, k) for t in lost)
-        ratio = 100.0 * wlost / w0 if w0 else 0.0
-        size = len(at0)
-        yield d0, r0, d1, r1, ratio, size, wlost, size >= MIN_MATURE
+    for measurement in _interval_measurements(snaps, members, present):
+        yield (
+            measurement["start"], measurement["start_revid"],
+            measurement["end"], measurement["end_revid"],
+            measurement["pwr_loss"], measurement["size"],
+            measurement["pwr_removed"], measurement["confirmable"],
+        )
 
 
 def coarse(snaps, members, present, excluded_intervals=None):
@@ -161,19 +216,55 @@ def print_coarse_report(snaps, members, present, excluded_intervals=None):
 def _coarse_profile(snaps, members, present, excluded_intervals=None):
     """Serialize the terminal PWR interval series for downstream visualizations."""
     excluded_intervals = excluded_intervals or set()
-    return [
-        {
-            "start": start_date,
-            "end": end_date,
-            "size": size,
-            "pwr_loss": round(ratio, 2),
-            "pwr_removed": int(weighted_loss),
-            "mature": mature,
-            "eligible": (start_revid, end_revid) not in excluded_intervals,
+    profile = []
+    for measurement in _interval_measurements(snaps, members, present):
+        confirmable = measurement["confirmable"]
+        profile.append({
+            "start": measurement["start"],
+            "end": measurement["end"],
+            "size": measurement["size"],
+            "pwr_loss": round(measurement["pwr_loss"], 2),
+            "pwr_removed": int(measurement["pwr_removed"]),
+            "pwr_gain": round(measurement["pwr_gain"], 2),
+            "pwr_added": int(measurement["pwr_added"]),
+            "pwr_retained": round(measurement["pwr_retained"], 2),
+            "replacement_candidate": round(measurement["replacement_candidate"], 2),
+            "replacement_pwr": int(measurement["replacement_pwr"]),
+            "confirmable": confirmable,
+            "mature": confirmable,  # Legacy artifact alias; new consumers should use confirmable.
+            "eligible": (
+                measurement["start_revid"], measurement["end_revid"]
+            ) not in excluded_intervals,
+            "anomaly_types": measurement["anomaly_types"],
+            "priority": measurement["priority"],
+        })
+    return profile
+
+
+def _sweep_candidates(interval_profile):
+    """Persist every covered anomaly; confidence and mass affect labels, never inclusion."""
+    candidates = []
+    evidence_fields = (
+        "pwr_loss", "pwr_removed", "pwr_gain", "pwr_added",
+        "replacement_candidate", "replacement_pwr",
+    )
+    for interval in interval_profile:
+        anomaly_types = interval.get("anomaly_types") or []
+        if not anomaly_types or interval.get("eligible", True) is False:
+            continue
+        candidate = {
+            "start": interval.get("start"),
+            "end": interval.get("end"),
+            "anomaly_types": list(anomaly_types),
+            "priority": interval.get("priority", "low"),
+            "decision": (
+                "pending_confirmation" if interval.get("confirmable", interval.get("mature", False))
+                else "descriptive_only"
+            ),
         }
-        for start_date, start_revid, end_date, end_revid, ratio, size, weighted_loss, mature
-        in _intervals(snaps, members, present)
-    ]
+        candidate.update({field: interval.get(field, 0) for field in evidence_fields})
+        candidates.append(candidate)
+    return candidates
 
 
 def build_episodes(series, elevated=ELEVATED):
@@ -196,7 +287,7 @@ def build_episodes(series, elevated=ELEVATED):
 
 def rolling_candidates(snaps, members, present, months=ROLLING_WINDOW_MONTHS,
                        tolerance_days=ROLLING_TOLERANCE_DAYS, threshold=ROLLING_DROP,
-                       mass_floor=MASS_FLOOR, min_mature=MIN_MATURE, blocked_dates=None):
+                       mass_floor=0, min_mature=MIN_MATURE, blocked_dates=None):
     """Find direct weighted cohort loss near the target window length.
 
     This second pass catches sustained medium loss that does not cross the high-precision threshold in
@@ -414,7 +505,10 @@ def backfill_interval_profile(article, con=None, persist=True, force=False):
 
         snaps, members, present, _idx_of_rev = load_membership(con, article)
         confirmation["interval_profile"] = _coarse_profile(snaps, members, present)
+        confirmation["sweep_candidates"] = _sweep_candidates(confirmation["interval_profile"])
+        confirmation["sweep_thresholds"] = config.sweep_thresholds()
         confirmation["interval_profile_backfill_ts"] = dt.datetime.now(dt.timezone.utc).isoformat()
+
         if persist:
             config.write_findings(confirmation_name(article), confirmation)
         return {
@@ -729,6 +823,7 @@ def analyze(article, con=None, persist=True):
                 "snapshot_date": horizon[0], "snapshot_revid": horizon[1],
             } if horizon else None,
             "thresholds": config.confirmation_thresholds(),
+            "sweep_thresholds": config.sweep_thresholds(),
             "coarse_verdict": "UNAVAILABLE",
             "status": "unavailable",
             "reason": source_state.get("reason") or "source coverage is incomplete",
@@ -758,6 +853,7 @@ def analyze(article, con=None, persist=True):
     if excluded_intervals:
         analysis = ranked_episodes(con, article, excluded_intervals=excluded_intervals)
     snaps, members, present, idx_of_rev, series, (mean, med, std), episodes = analysis
+    interval_profile = _coarse_profile(snaps, members, present, excluded_intervals)
     result = {
         "schema_version": CONFIRMATION_SCHEMA_VERSION,
         "article": article,
@@ -766,6 +862,7 @@ def analyze(article, con=None, persist=True):
             "snapshot_date": snaps[-1][0], "snapshot_revid": snaps[-1][1],
         } if snaps else None,
         "thresholds": config.confirmation_thresholds(),
+        "sweep_thresholds": config.sweep_thresholds(),
         "source_state": source_state,
         "coverage_status": coverage["status"],
         "coverage_endpoints_complete": coverage["endpoints_complete"],
@@ -777,8 +874,20 @@ def analyze(article, con=None, persist=True):
         "status": "unavailable" if len(snaps) < 3 or not series else "not_confirmed",
         "confirmed_episodes": [],
         "evaluated_candidates": [],
-        "interval_profile": _coarse_profile(snaps, members, present, excluded_intervals),
+        "interval_profile": interval_profile,
+        "sweep_candidates": _sweep_candidates(interval_profile),
     }
+    if result["sweep_candidates"] and not episodes:
+        result["coarse_verdict"] = "ANOMALY?"
+    if len(snaps) >= 3 and not series and result["sweep_candidates"]:
+        result["status"] = "descriptive_anomalies"
+        result["reason"] = "anomalies are below the exact-check floor"
+        print(f"  {result['reason']}")
+        if persist:
+            config.write_findings(confirmation_name(article), result)
+        if owns:
+            con.close()
+        return result
     if len(snaps) < 3 or not series:
         result["reason"] = "too few snapshots" if len(snaps) < 3 else "no mature covered intervals"
         print(f"  {result['reason']}")
@@ -795,7 +904,7 @@ def analyze(article, con=None, persist=True):
         for e in episodes:
             print(f"  {e['start'][0]} → {e['end'][0]}   peak {e['peak']:.0f}%   ~{int(e['abs']):,} PWR   "
                   f"age {e['age']:.1f}yr  [{_recency_tag(e['age'])}]")
-        for e in episodes[:3]:                      # confirm the top few (by PWR-mass) via binary search
+        for e in episodes:
             span = (e["start"][0], e["start"][1], e["end"][0], e["end"][1], e["peak"])
             print(f"\n-- confirming {e['start'][0]} → {e['end'][0]} --")
             conf = refine(article, con, snaps, members, present, idx_of_rev, span)
@@ -811,7 +920,7 @@ def analyze(article, con=None, persist=True):
                 blocked_dates={item["date"] for item in coverage["missing_snapshots"]},
             ),
             blocked=episodes,
-        )[:3]
+        )
         if rolling:
             print("\nrolling second-pass candidates (12-month weighted loss):")
         for e in rolling:
@@ -851,7 +960,7 @@ def analyze(article, con=None, persist=True):
     elif episodes:
         nuance = ("elevated destruction, no episode binary-search-confirmed"
                   if mean > CREEP_MEAN else "candidate episodes not confirmed")
-        print(f"\nVERDICT: {_creep_or_healthy_label(mean)} ({nuance})")
+        print(f"\nVERDICT: ANOMALIES UNCONFIRMED ({nuance})")
     else:
         print(f"\nVERDICT: {_creep_or_healthy_label(mean)}")
     if persist:

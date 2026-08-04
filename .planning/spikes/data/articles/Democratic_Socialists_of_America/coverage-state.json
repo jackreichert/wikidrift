@@ -1,9 +1,28 @@
 {
   "article": "Democratic Socialists of America",
-  "updated_ts": "2026-07-31T17:45:32.159353+00:00",
+  "updated_ts": "2026-08-04T22:26:59.578274+00:00",
   "completed_stages": [
     "analyze",
     "pipeline",
-    "backfill-attribution"
-  ]
+    "backfill-attribution",
+    "crosslingual",
+    "sources",
+    "profile"
+  ],
+  "completed_stage_commands": {
+    "analyze": [
+      "analyze",
+      "Democratic Socialists of America"
+    ],
+    "pipeline": [
+      "pipeline",
+      "Democratic Socialists of America",
+      "--llm",
+      "--mscore",
+      "--framing",
+      "--facts",
+      "--max-langs",
+      "6"
+    ]
+  }
 }

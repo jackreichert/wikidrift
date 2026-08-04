@@ -1,0 +1,58 @@
+{
+  "static": {
+    "Republican Party (United States)": {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "model_contract": {
+        "provider": "anthropic",
+        "model": "claude-sonnet-5",
+        "prompt_version": "stance-v3"
+      },
+      "variants": {
+        "lead": {
+          "divergence": 1.0,
+          "spreads": {
+            "Republican Party (United States)": 1
+          }
+        },
+        "focal": {
+          "divergence": 1.0,
+          "spreads": {
+            "Republican Party (United States)": 1
+          }
+        }
+      }
+    }
+  },
+  "pivot_relative": {
+    "Republican Party (United States)": {
+      "pivot": "2025-01-01",
+      "pivot_source": "confirmed L1",
+      "en_gap_before": 0.0,
+      "en_gap_after": 0.5,
+      "read": "PEELED AWAY",
+      "before": {
+        "de": {
+          "Republican Party (United States)": 0
+        },
+        "en": {
+          "Republican Party (United States)": 0
+        },
+        "es": {
+          "Republican Party (United States)": 0
+        }
+      },
+      "after": {
+        "de": {
+          "Republican Party (United States)": -1
+        },
+        "en": {
+          "Republican Party (United States)": -1
+        },
+        "es": {
+          "Republican Party (United States)": 0
+        }
+      }
+    }
+  }
+}

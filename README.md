@@ -91,7 +91,7 @@ uv run wikidrift framing "Gaza war" --static   # L5 Lite: compare current leads 
 uv run wikidrift crosslingual "Anti-Zionism"   # L5 cross-language stance comparison (needs an LLM key)
 uv run wikidrift factcheck "Warsaw concentration camp" --asof 2018-06-01   # L5 #2: fact divergence (LLM key)
 uv run wikidrift mscore                         # controversy corroborator (metadata only)
-uv run wikidrift pipeline "Hamas" --llm --framing  # L1 → router → L2 + cross-language lead comparison
+uv run wikidrift pipeline "Hamas" --llm --framing --facts  # analyze every confirmed event (LLM key)
 uv run wikidrift pipeline "Hamas" --process-context # opt-in descriptive process metadata for exact events
 uv run wikidrift migrate-shards                # lossless canonical corpus → article-owned DuckDB shards
 uv run python tools/cover_missing_topics.py --all-shards --mode attribution --execute --jobs 3 --no-resume
@@ -121,8 +121,8 @@ Default entity focus for L2/L5 is now **self-determined and controversy-agnostic
 - pipeline and standalone L5 consume that same default (or L2 output when available),
 - no hard-coded controversy focal fallback is used in the default path.
 
-For L5 cross-lingual, pivot-relative comparison currently uses one shared L1 pivot boundary for all
-selected editions in a run (not separate per-language pivot dates).
+For L5 cross-lingual, each confirmed English event supplies one shared pivot boundary for all selected
+editions in that event (not separate per-language pivot dates).
 
 Cross-lingual edition defaults are now auto-selected per topic from established language editions with
 available prose depth (English kept when available for pivot-relative comparability). Pass `--langs` to
@@ -134,19 +134,30 @@ Existing framing JSON does not gain historical evidence automatically after a co
 the cross-language lead result for each published article that needs matched revisions and oldid receipts:
 
 ```bash
-uv run wikidrift analyze "Gaza war"       # one-time: persist exact confirmed pair
+uv run wikidrift analyze "Gaza war"       # one-time: persist all exact confirmed pairs
 uv run wikidrift framing "Gaza war"
 uv run wikidrift analyze "Zionism"
 uv run wikidrift framing "Zionism"
 uv run python viewer/build.py
 ```
 
-`analyze` writes every exactly checked candidate and its decision or rejection reason, plus any confirmed
+`analyze` writes every exactly checked candidate and its decision or rejection reason, plus every confirmed
 revision pair, the corpus horizon, and the thresholds used. `framing` trusts that artifact only while those
-values still match, then fetches exact English revisions and
-timestamp-matched revisions from the other editions. The framing command itself does **not** rerun L1,
-lexical analysis, source analysis, or the other L5 instruments. It does call public Wikipedia APIs and
-the configured LLM.
+values still match, then independently compares every confirmed English pair with timestamp-matched revisions
+from the other editions. The framing command itself does **not** rerun L1, lexical analysis, source analysis,
+or the other L5 instruments. It does call public Wikipedia APIs and the configured LLM.
+
+The pipeline always runs vocabulary and citation analysis for every fresh confirmed event. Add `--framing`
+and `--facts` to run those LLM-backed layers for every event as well. Vocabulary, citations, and framing use
+the exact before/after revision pair. Fact comparison is an as-of cross-edition check, so each event is anchored
+to its exact post-event timestamp rather than described as a temporal diff. Standalone `lexical`, `sources`,
+`framing`, and undated `factcheck` commands follow the same all-confirmed-event rule.
+
+Each layer still writes one `<slug>.<layer>.json`, but confirmed-event artifacts contain an `episodes` array
+keyed by `episode_id` (`<before_revid>-<after_revid>`), plus `episode_count` and
+`analysis_scope: "confirmed_episodes"`. Every episode records `analysis_status`; an unavailable event does not
+erase or suppress successful sibling events. Top-level fields mirror the first available episode for older
+consumers and should not be used when displaying multiple events.
 
 If a fresh confirmation is unavailable, `framing` falls back to the coarse cached candidate and labels
 the result candidate-relative. If L1 has no candidate, it compares current leads in static mode. Use
@@ -188,7 +199,7 @@ stay on that machine. Run the commands above there, then commit and push the tra
 
 Use the helper script to pass an explicit topic list and choose either:
 
-- `--mode full` (always run pipeline + sources + profile), or
+- `--mode full` (always run the episode-aware pipeline + profile), or
 - `--mode fill` (run only what is missing), or
 - `--mode refresh` (rerun stale article-shard rewrite analysis with live tagged output).
 

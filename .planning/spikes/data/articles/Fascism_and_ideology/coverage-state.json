@@ -1,7 +1,9 @@
 {
   "article": "Fascism and ideology",
-  "updated_ts": "2026-07-31T17:45:32.159519+00:00",
+  "updated_ts": "2026-08-04T21:36:37.569658+00:00",
   "completed_stages": [
-    "backfill-attribution"
+    "backfill-attribution",
+    "analyze",
+    "pipeline"
   ]
 }

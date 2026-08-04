@@ -1,6 +1,7 @@
 {
+  "schema_version": 2,
   "article": "Israeli–Palestinian conflict",
-  "run_ts": "2026-07-19T17:37:43.324011+00:00",
+  "run_ts": "2026-08-04T20:00:43.981649+00:00",
   "corpus_horizon": {
     "snapshot_date": "2026-01-01",
     "snapshot_revid": 1331426100
@@ -9,8 +10,33 @@
     "confirm_drop": 0.2,
     "durable_quantile": 0.5,
     "min_cohort": 500,
-    "magnitude_floor": 25.0
+    "magnitude_floor": 25.0,
+    "rolling_window_months": 12,
+    "rolling_tolerance_days": 35,
+    "rolling_drop": 20.0
   },
+  "sweep_thresholds": {
+    "min_confirmable_tokens": 1000,
+    "loss_floor": 15.0,
+    "gain_floor": 15.0,
+    "replacement_floor": 10.0,
+    "extreme_change": 50.0,
+    "review_mass_floor": 10000,
+    "high_mass_floor": 50000
+  },
+  "source_state": {
+    "article": "Israeli–Palestinian conflict",
+    "source_status": "current_complete",
+    "source_checked_at": "2026-08-04T19:52:15.419495+00:00",
+    "source_latest_revid": 1367703921,
+    "expected_snapshots": 24,
+    "loaded_snapshots": 24,
+    "reason": null
+  },
+  "coverage_status": "complete",
+  "coverage_endpoints_complete": true,
+  "missing_snapshots": [],
+  "excluded_intervals": [],
   "coarse_verdict": "PIVOT?",
   "status": "confirmed",
   "confirmed_episodes": [
@@ -23,24 +49,966 @@
       "before_timestamp": "2024-08-12T19:05:51Z",
       "after_revid": 1239968974,
       "after_timestamp": "2024-08-12T19:13:55Z",
-      "durable_spine_drop": 0.367616,
-      "pwr_mass": 553813,
-      "peak_pct": 56.91,
-      "status": "confirmed"
+      "durable_spine_drop": 0.364379,
+      "pwr_mass": 163585,
+      "peak_pct": 37.58,
+      "source": "interval",
+      "status": "confirmed",
+      "duration_seconds": 484,
+      "attribution": {
+        "schema_version": 3,
+        "policy_version": "multi-revision-attribution-v1",
+        "article": "Israeli–Palestinian conflict",
+        "before_revid": 1239968080,
+        "before_timestamp": "2024-08-12T19:05:51Z",
+        "after_revid": 1239968974,
+        "after_timestamp": "2024-08-12T19:13:55Z",
+        "event_status": "standing",
+        "semantic_role": "event_participation_receipt",
+        "revisions": [
+          {
+            "revision_id": 1239968080,
+            "timestamp": "2024-08-12T19:05:51Z",
+            "account": "DMH223344",
+            "account_type": "registered",
+            "role": "stable_before",
+            "restores_revision_id": null,
+            "parent_id": 1239954993,
+            "sha1": "29217aeaf8fc4278dab62750fe39bc18190913bf",
+            "edit_summary": "/* Occupied Palestinian territory */ undue for this section",
+            "tags": [
+              "wikieditor"
+            ],
+            "size": 308032,
+            "size_delta": null,
+            "gross_removed_tokens": 0,
+            "gross_added_tokens": 0,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 0,
+            "standing_added_tokens": 0
+          },
+          {
+            "revision_id": 1239968974,
+            "timestamp": "2024-08-12T19:13:55Z",
+            "account": "DMH223344",
+            "account_type": "registered",
+            "role": "consolidation",
+            "restores_revision_id": null,
+            "parent_id": 1239968080,
+            "sha1": "df6dd36b56c827f4ca3426ea21a00ea6f17c4a18",
+            "edit_summary": "/* Israeli settlements */ removing description of several incremental developments",
+            "tags": [
+              "wikieditor"
+            ],
+            "size": 296294,
+            "size_delta": -11738,
+            "gross_removed_tokens": 3460,
+            "gross_added_tokens": 226,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 3460,
+            "standing_added_tokens": 226
+          }
+        ],
+        "gross": {
+          "removed_tokens": 3460,
+          "added_tokens": 226,
+          "restored_tokens": 0
+        },
+        "net_standing": {
+          "removed_tokens": 3460,
+          "replacement_tokens": 226
+        },
+        "removals_by_editor": [
+          {
+            "editor": "DMH223344",
+            "tokens": 3460
+          }
+        ],
+        "replacement_by_editor": [
+          {
+            "editor": "DMH223344",
+            "tokens": 226
+          }
+        ],
+        "participation": {
+          "top_removal_share": 1.0,
+          "top_replacement_share": 1.0,
+          "top_two_removal_share": 1.0,
+          "same_top_editor": true
+        },
+        "removed_tokens": 3460,
+        "replacement_tokens": 226,
+        "top_removal_share": 1.0,
+        "top_replacement_share": 1.0,
+        "top_two_removal_share": 1.0,
+        "same_top_editor": true,
+        "note": "Counts describe observable public revision operations and surviving token states; they do not establish identity, coordination, motive, ownership, or misconduct.",
+        "duration_seconds": 484
+      }
     },
     {
-      "candidate_start": "2008-01-01",
-      "candidate_end": "2008-07-01",
-      "candidate_before_revid": 181309116,
-      "candidate_after_revid": 223120864,
-      "before_revid": 200725946,
-      "before_timestamp": "2008-03-25T04:47:05Z",
-      "after_revid": 200727791,
-      "after_timestamp": "2008-03-25T05:00:00Z",
-      "durable_spine_drop": 0.376068,
-      "pwr_mass": 15143,
-      "peak_pct": 38.79,
-      "status": "confirmed"
+      "candidate_start": "2006-01-01",
+      "candidate_end": "2011-01-01",
+      "candidate_before_revid": 33620738,
+      "candidate_after_revid": 405720096,
+      "before_revid": 89990629,
+      "before_timestamp": "2006-11-25T08:32:44Z",
+      "after_revid": 89994338,
+      "after_timestamp": "2006-11-25T09:14:27Z",
+      "durable_spine_drop": 0.866417,
+      "pwr_mass": 40147,
+      "peak_pct": 56.0,
+      "source": "interval",
+      "status": "confirmed",
+      "duration_seconds": 2503,
+      "attribution": {
+        "schema_version": 3,
+        "policy_version": "multi-revision-attribution-v1",
+        "article": "Israeli–Palestinian conflict",
+        "before_revid": 89990629,
+        "before_timestamp": "2006-11-25T08:32:44Z",
+        "after_revid": 89994338,
+        "after_timestamp": "2006-11-25T09:14:27Z",
+        "event_status": "standing",
+        "semantic_role": "event_participation_receipt",
+        "revisions": [
+          {
+            "revision_id": 89990629,
+            "timestamp": "2006-11-25T08:32:44Z",
+            "account": "Tasc",
+            "account_type": "registered",
+            "role": "stable_before",
+            "restores_revision_id": null,
+            "parent_id": 89990040,
+            "sha1": "fbfbe3ba338252b5afc9ff07e00b19612baac2ef",
+            "edit_summary": "rv [[Special:Contributions/20.139.83.50|20.139.83.50]] ([[User talk:20.139.83.50|talk]]) to [[Special:Contributions/66.241.83.175|66.241.83.175]] ([[User talk:66.241.83.175|talk]])",
+            "tags": [],
+            "size": 27785,
+            "size_delta": null,
+            "gross_removed_tokens": 0,
+            "gross_added_tokens": 0,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 0,
+            "standing_added_tokens": 0
+          },
+          {
+            "revision_id": 89994338,
+            "timestamp": "2006-11-25T09:14:27Z",
+            "account": "Tasc",
+            "account_type": "registered",
+            "role": "consolidation",
+            "restores_revision_id": null,
+            "parent_id": 89990629,
+            "sha1": "6e19916d6643e15806e4332ef8847552fd6768aa",
+            "edit_summary": "cleanup article, don't you think that it's ridiculous to have toc consisting from see also and external links subsection?",
+            "tags": [],
+            "size": 24117,
+            "size_delta": -3668,
+            "gross_removed_tokens": 1141,
+            "gross_added_tokens": 140,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 1141,
+            "standing_added_tokens": 140
+          }
+        ],
+        "gross": {
+          "removed_tokens": 1141,
+          "added_tokens": 140,
+          "restored_tokens": 0
+        },
+        "net_standing": {
+          "removed_tokens": 1141,
+          "replacement_tokens": 140
+        },
+        "removals_by_editor": [
+          {
+            "editor": "Tasc",
+            "tokens": 1141
+          }
+        ],
+        "replacement_by_editor": [
+          {
+            "editor": "Tasc",
+            "tokens": 140
+          }
+        ],
+        "participation": {
+          "top_removal_share": 1.0,
+          "top_replacement_share": 1.0,
+          "top_two_removal_share": 1.0,
+          "same_top_editor": true
+        },
+        "removed_tokens": 1141,
+        "replacement_tokens": 140,
+        "top_removal_share": 1.0,
+        "top_replacement_share": 1.0,
+        "top_two_removal_share": 1.0,
+        "same_top_editor": true,
+        "note": "Counts describe observable public revision operations and surviving token states; they do not establish identity, coordination, motive, ownership, or misconduct.",
+        "duration_seconds": 2503
+      }
+    },
+    {
+      "candidate_start": "2003-01-01",
+      "candidate_end": "2005-01-01",
+      "candidate_before_revid": 567180,
+      "candidate_after_revid": 9277631,
+      "before_revid": 1937346,
+      "before_timestamp": "2003-12-11T23:49:24Z",
+      "after_revid": 1937381,
+      "after_timestamp": "2003-12-12T05:10:46Z",
+      "durable_spine_drop": 0.925163,
+      "pwr_mass": 7888,
+      "peak_pct": 88.91,
+      "source": "interval",
+      "status": "confirmed",
+      "duration_seconds": 19282,
+      "attribution": {
+        "schema_version": 3,
+        "policy_version": "multi-revision-attribution-v1",
+        "article": "Israeli–Palestinian conflict",
+        "before_revid": 1937346,
+        "before_timestamp": "2003-12-11T23:49:24Z",
+        "after_revid": 1937381,
+        "after_timestamp": "2003-12-12T05:10:46Z",
+        "event_status": "standing",
+        "semantic_role": "event_participation_receipt",
+        "revisions": [
+          {
+            "revision_id": 1937346,
+            "timestamp": "2003-12-11T23:49:24Z",
+            "account": "WhisperToMe",
+            "account_type": "registered",
+            "role": "stable_before",
+            "restores_revision_id": null,
+            "parent_id": 1935273,
+            "sha1": "dcdf88275fe33faef1172110a580f2f791884161",
+            "edit_summary": "+Several more places",
+            "tags": [],
+            "size": 25995,
+            "size_delta": null,
+            "gross_removed_tokens": 0,
+            "gross_added_tokens": 0,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 0,
+            "standing_added_tokens": 0
+          },
+          {
+            "revision_id": 1937381,
+            "timestamp": "2003-12-12T05:10:46Z",
+            "account": "BL~enwiki",
+            "account_type": "registered",
+            "role": "consolidation",
+            "restores_revision_id": null,
+            "parent_id": 1937346,
+            "sha1": "4e47caa750a8bb0fe3ffff98c02348f4e471e460",
+            "edit_summary": "major update",
+            "tags": [],
+            "size": 21108,
+            "size_delta": -4887,
+            "gross_removed_tokens": 3384,
+            "gross_added_tokens": 2457,
+            "restored_tokens": 0,
+            "standing_removed_tokens": 3384,
+            "standing_added_tokens": 2457
+          }
+        ],
+        "gross": {
+          "removed_tokens": 3384,
+          "added_tokens": 2457,
+          "restored_tokens": 0
+        },
+        "net_standing": {
+          "removed_tokens": 3384,
+          "replacement_tokens": 2457
+        },
+        "removals_by_editor": [
+          {
+            "editor": "BL~enwiki",
+            "tokens": 3384
+          }
+        ],
+        "replacement_by_editor": [
+          {
+            "editor": "BL~enwiki",
+            "tokens": 2457
+          }
+        ],
+        "participation": {
+          "top_removal_share": 1.0,
+          "top_replacement_share": 1.0,
+          "top_two_removal_share": 1.0,
+          "same_top_editor": true
+        },
+        "removed_tokens": 3384,
+        "replacement_tokens": 2457,
+        "top_removal_share": 1.0,
+        "top_replacement_share": 1.0,
+        "top_two_removal_share": 1.0,
+        "same_top_editor": true,
+        "note": "Counts describe observable public revision operations and surviving token states; they do not establish identity, coordination, motive, ownership, or misconduct.",
+        "duration_seconds": 19282
+      }
+    }
+  ],
+  "evaluated_candidates": [
+    {
+      "candidate_start": "2024-01-01",
+      "candidate_end": "2025-01-01",
+      "candidate_before_revid": 1192950462,
+      "candidate_after_revid": 1266683280,
+      "source": "interval",
+      "pwr_mass": 163585,
+      "peak_pct": 37.58,
+      "exact_before_revid": 1239968080,
+      "exact_before_timestamp": "2024-08-12T19:05:51Z",
+      "exact_after_revid": 1239968974,
+      "exact_after_timestamp": "2024-08-12T19:13:55Z",
+      "durable_spine_drop": 0.364379,
+      "decision": "confirmed",
+      "rejection_reason": null
+    },
+    {
+      "candidate_start": "2006-01-01",
+      "candidate_end": "2011-01-01",
+      "candidate_before_revid": 33620738,
+      "candidate_after_revid": 405720096,
+      "source": "interval",
+      "pwr_mass": 40147,
+      "peak_pct": 56.0,
+      "exact_before_revid": 89990629,
+      "exact_before_timestamp": "2006-11-25T08:32:44Z",
+      "exact_after_revid": 89994338,
+      "exact_after_timestamp": "2006-11-25T09:14:27Z",
+      "durable_spine_drop": 0.866417,
+      "decision": "confirmed",
+      "rejection_reason": null
+    },
+    {
+      "candidate_start": "2003-01-01",
+      "candidate_end": "2005-01-01",
+      "candidate_before_revid": 567180,
+      "candidate_after_revid": 9277631,
+      "source": "interval",
+      "pwr_mass": 7888,
+      "peak_pct": 88.91,
+      "exact_before_revid": 1937346,
+      "exact_before_timestamp": "2003-12-11T23:49:24Z",
+      "exact_after_revid": 1937381,
+      "exact_after_timestamp": "2003-12-12T05:10:46Z",
+      "durable_spine_drop": 0.925163,
+      "decision": "confirmed",
+      "rejection_reason": null
+    }
+  ],
+  "interval_profile": [
+    {
+      "start": "2003-01-01",
+      "end": "2004-01-01",
+      "size": 4129,
+      "pwr_loss": 88.91,
+      "pwr_removed": 3671,
+      "pwr_gain": 107.51,
+      "pwr_added": 4439,
+      "pwr_retained": 11.09,
+      "replacement_candidate": 88.91,
+      "replacement_pwr": 3671,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "high"
+    },
+    {
+      "start": "2004-01-01",
+      "end": "2005-01-01",
+      "size": 4897,
+      "pwr_loss": 78.75,
+      "pwr_removed": 4217,
+      "pwr_gain": 40.0,
+      "pwr_added": 2142,
+      "pwr_retained": 21.25,
+      "replacement_candidate": 40.0,
+      "replacement_pwr": 2142,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "high"
+    },
+    {
+      "start": "2005-01-01",
+      "end": "2006-01-01",
+      "size": 2971,
+      "pwr_loss": 14.99,
+      "pwr_removed": 616,
+      "pwr_gain": 44.73,
+      "pwr_added": 1838,
+      "pwr_retained": 85.01,
+      "replacement_candidate": 14.99,
+      "replacement_pwr": 616,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "gain",
+        "replacement"
+      ],
+      "priority": "low"
+    },
+    {
+      "start": "2006-01-01",
+      "end": "2007-01-01",
+      "size": 4241,
+      "pwr_loss": 56.0,
+      "pwr_removed": 4331,
+      "pwr_gain": 54.99,
+      "pwr_added": 4253,
+      "pwr_retained": 44.0,
+      "replacement_candidate": 54.99,
+      "replacement_pwr": 4253,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "high"
+    },
+    {
+      "start": "2007-01-01",
+      "end": "2008-01-01",
+      "size": 6536,
+      "pwr_loss": 32.72,
+      "pwr_removed": 3254,
+      "pwr_gain": 142.16,
+      "pwr_added": 14136,
+      "pwr_retained": 67.28,
+      "replacement_candidate": 32.72,
+      "replacement_pwr": 3254,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "high"
+    },
+    {
+      "start": "2008-01-01",
+      "end": "2009-01-01",
+      "size": 18293,
+      "pwr_loss": 39.91,
+      "pwr_removed": 10026,
+      "pwr_gain": 48.73,
+      "pwr_added": 12242,
+      "pwr_retained": 60.09,
+      "replacement_candidate": 39.91,
+      "replacement_pwr": 10026,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "review"
+    },
+    {
+      "start": "2009-01-01",
+      "end": "2010-01-01",
+      "size": 23570,
+      "pwr_loss": 25.2,
+      "pwr_removed": 9749,
+      "pwr_gain": 13.69,
+      "pwr_added": 5294,
+      "pwr_retained": 74.8,
+      "replacement_candidate": 13.69,
+      "replacement_pwr": 5294,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss",
+        "replacement"
+      ],
+      "priority": "low"
+    },
+    {
+      "start": "2010-01-01",
+      "end": "2011-01-01",
+      "size": 22628,
+      "pwr_loss": 24.75,
+      "pwr_removed": 12787,
+      "pwr_gain": 22.98,
+      "pwr_added": 11872,
+      "pwr_retained": 75.25,
+      "replacement_candidate": 22.98,
+      "replacement_pwr": 11872,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "review"
+    },
+    {
+      "start": "2011-01-01",
+      "end": "2012-01-01",
+      "size": 28808,
+      "pwr_loss": 4.56,
+      "pwr_removed": 3090,
+      "pwr_gain": 3.25,
+      "pwr_added": 2200,
+      "pwr_retained": 95.44,
+      "replacement_candidate": 3.25,
+      "replacement_pwr": 2200,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
+    },
+    {
+      "start": "2012-01-01",
+      "end": "2013-01-01",
+      "size": 28921,
+      "pwr_loss": 10.86,
+      "pwr_removed": 10179,
+      "pwr_gain": 12.47,
+      "pwr_added": 11690,
+      "pwr_retained": 89.14,
+      "replacement_candidate": 10.86,
+      "replacement_pwr": 10179,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "replacement"
+      ],
+      "priority": "review"
+    },
+    {
+      "start": "2013-01-01",
+      "end": "2014-01-01",
+      "size": 36968,
+      "pwr_loss": 3.02,
+      "pwr_removed": 3644,
+      "pwr_gain": 3.55,
+      "pwr_added": 4285,
+      "pwr_retained": 96.98,
+      "replacement_candidate": 3.02,
+      "replacement_pwr": 3644,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
+    },
+    {
+      "start": "2014-01-01",
+      "end": "2015-01-01",
+      "size": 40070,
+      "pwr_loss": 10.77,
+      "pwr_removed": 16938,
+      "pwr_gain": 4.61,
+      "pwr_added": 7254,
+      "pwr_retained": 89.23,
+      "replacement_candidate": 4.61,
+      "replacement_pwr": 7254,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "review"
+    },
+    {
+      "start": "2015-01-01",
+      "end": "2016-01-01",
+      "size": 42839,
+      "pwr_loss": 1.02,
+      "pwr_removed": 1877,
+      "pwr_gain": 1.05,
+      "pwr_added": 1918,
+      "pwr_retained": 98.98,
+      "replacement_candidate": 1.02,
+      "replacement_pwr": 1877,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
+    },
+    {
+      "start": "2016-01-01",
+      "end": "2017-01-01",
+      "size": 44021,
+      "pwr_loss": 5.98,
+      "pwr_removed": 13481,
+      "pwr_gain": 0.54,
+      "pwr_added": 1215,
+      "pwr_retained": 94.02,
+      "replacement_candidate": 0.54,
+      "replacement_pwr": 1215,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "review"
+    },
+    {
+      "start": "2017-01-01",
+      "end": "2018-01-01",
+      "size": 41932,
+      "pwr_loss": 1.86,
+      "pwr_removed": 4727,
+      "pwr_gain": 1.21,
+      "pwr_added": 3073,
+      "pwr_retained": 98.14,
+      "replacement_candidate": 1.21,
+      "replacement_pwr": 3073,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
+    },
+    {
+      "start": "2018-01-01",
+      "end": "2019-01-01",
+      "size": 44061,
+      "pwr_loss": 1.49,
+      "pwr_removed": 4379,
+      "pwr_gain": 0.21,
+      "pwr_added": 614,
+      "pwr_retained": 98.51,
+      "replacement_candidate": 0.21,
+      "replacement_pwr": 614,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
+    },
+    {
+      "start": "2019-01-01",
+      "end": "2020-01-01",
+      "size": 43850,
+      "pwr_loss": 0.41,
+      "pwr_removed": 1352,
+      "pwr_gain": 0.33,
+      "pwr_added": 1091,
+      "pwr_retained": 99.59,
+      "replacement_candidate": 0.33,
+      "replacement_pwr": 1091,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
+    },
+    {
+      "start": "2020-01-01",
+      "end": "2021-01-01",
+      "size": 44530,
+      "pwr_loss": 1.08,
+      "pwr_removed": 4051,
+      "pwr_gain": 0.43,
+      "pwr_added": 1615,
+      "pwr_retained": 98.92,
+      "replacement_candidate": 0.43,
+      "replacement_pwr": 1615,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
+    },
+    {
+      "start": "2021-01-01",
+      "end": "2022-01-01",
+      "size": 45344,
+      "pwr_loss": 0.78,
+      "pwr_removed": 3239,
+      "pwr_gain": 0.43,
+      "pwr_added": 1802,
+      "pwr_retained": 99.22,
+      "replacement_candidate": 0.43,
+      "replacement_pwr": 1802,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
+    },
+    {
+      "start": "2022-01-01",
+      "end": "2023-01-01",
+      "size": 46656,
+      "pwr_loss": 16.26,
+      "pwr_removed": 74965,
+      "pwr_gain": 2.02,
+      "pwr_added": 9308,
+      "pwr_retained": 83.74,
+      "replacement_candidate": 2.02,
+      "replacement_pwr": 9308,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss"
+      ],
+      "priority": "high"
+    },
+    {
+      "start": "2023-01-01",
+      "end": "2024-01-01",
+      "size": 48788,
+      "pwr_loss": 13.81,
+      "pwr_removed": 60080,
+      "pwr_gain": 4.36,
+      "pwr_added": 18955,
+      "pwr_retained": 86.19,
+      "replacement_candidate": 4.36,
+      "replacement_pwr": 18955,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "high"
+    },
+    {
+      "start": "2024-01-01",
+      "end": "2025-01-01",
+      "size": 59886,
+      "pwr_loss": 37.58,
+      "pwr_removed": 163585,
+      "pwr_gain": 9.14,
+      "pwr_added": 39776,
+      "pwr_retained": 62.42,
+      "replacement_candidate": 9.14,
+      "replacement_pwr": 39776,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss"
+      ],
+      "priority": "high"
+    },
+    {
+      "start": "2025-01-01",
+      "end": "2026-01-01",
+      "size": 74633,
+      "pwr_loss": 2.46,
+      "pwr_removed": 8578,
+      "pwr_gain": 2.85,
+      "pwr_added": 9925,
+      "pwr_retained": 97.54,
+      "replacement_candidate": 2.46,
+      "replacement_pwr": 8578,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
+    }
+  ],
+  "sweep_candidates": [
+    {
+      "start": "2003-01-01",
+      "end": "2004-01-01",
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "high",
+      "decision": "pending_confirmation",
+      "pwr_loss": 88.91,
+      "pwr_removed": 3671,
+      "pwr_gain": 107.51,
+      "pwr_added": 4439,
+      "replacement_candidate": 88.91,
+      "replacement_pwr": 3671
+    },
+    {
+      "start": "2004-01-01",
+      "end": "2005-01-01",
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "high",
+      "decision": "pending_confirmation",
+      "pwr_loss": 78.75,
+      "pwr_removed": 4217,
+      "pwr_gain": 40.0,
+      "pwr_added": 2142,
+      "replacement_candidate": 40.0,
+      "replacement_pwr": 2142
+    },
+    {
+      "start": "2005-01-01",
+      "end": "2006-01-01",
+      "anomaly_types": [
+        "gain",
+        "replacement"
+      ],
+      "priority": "low",
+      "decision": "pending_confirmation",
+      "pwr_loss": 14.99,
+      "pwr_removed": 616,
+      "pwr_gain": 44.73,
+      "pwr_added": 1838,
+      "replacement_candidate": 14.99,
+      "replacement_pwr": 616
+    },
+    {
+      "start": "2006-01-01",
+      "end": "2007-01-01",
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "high",
+      "decision": "pending_confirmation",
+      "pwr_loss": 56.0,
+      "pwr_removed": 4331,
+      "pwr_gain": 54.99,
+      "pwr_added": 4253,
+      "replacement_candidate": 54.99,
+      "replacement_pwr": 4253
+    },
+    {
+      "start": "2007-01-01",
+      "end": "2008-01-01",
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "high",
+      "decision": "pending_confirmation",
+      "pwr_loss": 32.72,
+      "pwr_removed": 3254,
+      "pwr_gain": 142.16,
+      "pwr_added": 14136,
+      "replacement_candidate": 32.72,
+      "replacement_pwr": 3254
+    },
+    {
+      "start": "2008-01-01",
+      "end": "2009-01-01",
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "review",
+      "decision": "pending_confirmation",
+      "pwr_loss": 39.91,
+      "pwr_removed": 10026,
+      "pwr_gain": 48.73,
+      "pwr_added": 12242,
+      "replacement_candidate": 39.91,
+      "replacement_pwr": 10026
+    },
+    {
+      "start": "2009-01-01",
+      "end": "2010-01-01",
+      "anomaly_types": [
+        "loss",
+        "replacement"
+      ],
+      "priority": "low",
+      "decision": "pending_confirmation",
+      "pwr_loss": 25.2,
+      "pwr_removed": 9749,
+      "pwr_gain": 13.69,
+      "pwr_added": 5294,
+      "replacement_candidate": 13.69,
+      "replacement_pwr": 5294
+    },
+    {
+      "start": "2010-01-01",
+      "end": "2011-01-01",
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "review",
+      "decision": "pending_confirmation",
+      "pwr_loss": 24.75,
+      "pwr_removed": 12787,
+      "pwr_gain": 22.98,
+      "pwr_added": 11872,
+      "replacement_candidate": 22.98,
+      "replacement_pwr": 11872
+    },
+    {
+      "start": "2012-01-01",
+      "end": "2013-01-01",
+      "anomaly_types": [
+        "replacement"
+      ],
+      "priority": "review",
+      "decision": "pending_confirmation",
+      "pwr_loss": 10.86,
+      "pwr_removed": 10179,
+      "pwr_gain": 12.47,
+      "pwr_added": 11690,
+      "replacement_candidate": 10.86,
+      "replacement_pwr": 10179
+    },
+    {
+      "start": "2022-01-01",
+      "end": "2023-01-01",
+      "anomaly_types": [
+        "loss"
+      ],
+      "priority": "high",
+      "decision": "pending_confirmation",
+      "pwr_loss": 16.26,
+      "pwr_removed": 74965,
+      "pwr_gain": 2.02,
+      "pwr_added": 9308,
+      "replacement_candidate": 2.02,
+      "replacement_pwr": 9308
+    },
+    {
+      "start": "2024-01-01",
+      "end": "2025-01-01",
+      "anomaly_types": [
+        "loss"
+      ],
+      "priority": "high",
+      "decision": "pending_confirmation",
+      "pwr_loss": 37.58,
+      "pwr_removed": 163585,
+      "pwr_gain": 9.14,
+      "pwr_added": 39776,
+      "replacement_candidate": 9.14,
+      "replacement_pwr": 39776
     }
   ]
 }

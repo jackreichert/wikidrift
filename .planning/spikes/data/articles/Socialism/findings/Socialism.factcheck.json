@@ -1,0 +1,220 @@
+{
+  "article": "Socialism",
+  "asof": "2006-05-24T12:03:55Z",
+  "langs": [
+    "fr",
+    "pt",
+    "en",
+    "tr",
+    "pl",
+    "ru"
+  ],
+  "citation": {
+    "mean_jaccard": 0.0,
+    "domains_per_edition": {
+      "fr": 2,
+      "pt": 0,
+      "en": 10,
+      "tr": 9,
+      "pl": 4,
+      "ru": 2
+    }
+  },
+  "claim": {
+    "per_edition": {},
+    "adjudication": []
+  },
+  "diagnostics": {
+    "min_edition_count": 2,
+    "effective_langs": [
+      "fr",
+      "pt",
+      "en",
+      "tr",
+      "pl",
+      "ru"
+    ],
+    "errors": []
+  },
+  "schema_version": 1,
+  "analysis_scope": "confirmed_episodes",
+  "episode_count": 4,
+  "episodes": [
+    {
+      "episode_id": "1231127385-1231548542",
+      "episode_index": 1,
+      "episode_window": {
+        "start": "2024-01-01",
+        "end": "2025-01-01",
+        "pwr_mass": 213137,
+        "status": "confirmed",
+        "before_revid": 1231127385,
+        "before_timestamp": "2024-06-26T16:32:06Z",
+        "after_revid": 1231548542,
+        "after_timestamp": "2024-06-28T22:23:33Z",
+        "durable_spine_drop": 0.372196
+      },
+      "analysis_status": "unavailable",
+      "reason": "HTTPSConnectionPool(host='www.wikidata.org', port=443): Read timed out. (read timeout=30)"
+    },
+    {
+      "article": "Socialism",
+      "asof": "2006-05-24T12:03:55Z",
+      "langs": [
+        "fr",
+        "pt",
+        "en",
+        "tr",
+        "pl",
+        "ru"
+      ],
+      "citation": {
+        "mean_jaccard": 0.0,
+        "domains_per_edition": {
+          "fr": 2,
+          "pt": 0,
+          "en": 10,
+          "tr": 9,
+          "pl": 4,
+          "ru": 2
+        }
+      },
+      "claim": {
+        "per_edition": {},
+        "adjudication": []
+      },
+      "diagnostics": {
+        "min_edition_count": 2,
+        "effective_langs": [
+          "fr",
+          "pt",
+          "en",
+          "tr",
+          "pl",
+          "ru"
+        ],
+        "errors": []
+      },
+      "episode_id": "54672691-54876527",
+      "episode_index": 2,
+      "episode_window": {
+        "start": "2005-01-01",
+        "end": "2008-01-01",
+        "pwr_mass": 20844,
+        "status": "confirmed",
+        "before_revid": 54672691,
+        "before_timestamp": "2006-05-23T08:10:15Z",
+        "after_revid": 54876527,
+        "after_timestamp": "2006-05-24T12:03:55Z",
+        "durable_spine_drop": 0.955891
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Socialism",
+      "asof": "2010-10-02T21:49:02Z",
+      "langs": [
+        "fr",
+        "pt",
+        "en",
+        "tr",
+        "pl",
+        "ru"
+      ],
+      "citation": {
+        "mean_jaccard": 0.02,
+        "domains_per_edition": {
+          "fr": 6,
+          "pt": 24,
+          "en": 80,
+          "tr": 1,
+          "pl": 0,
+          "ru": 24
+        }
+      },
+      "claim": {
+        "per_edition": {},
+        "adjudication": []
+      },
+      "diagnostics": {
+        "min_edition_count": 2,
+        "effective_langs": [
+          "fr",
+          "pt",
+          "en",
+          "tr",
+          "pl",
+          "ru"
+        ],
+        "errors": []
+      },
+      "episode_id": "388146182-388354075",
+      "episode_index": 3,
+      "episode_window": {
+        "start": "2010-01-01",
+        "end": "2011-01-01",
+        "pwr_mass": 8329,
+        "status": "confirmed",
+        "before_revid": 388146182,
+        "before_timestamp": "2010-10-01T18:59:27Z",
+        "after_revid": 388354075,
+        "after_timestamp": "2010-10-02T21:49:02Z",
+        "durable_spine_drop": 0.313225
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Socialism",
+      "asof": "2003-07-05T01:55:59Z",
+      "langs": [
+        "fr",
+        "pt",
+        "en",
+        "tr",
+        "pl",
+        "ru"
+      ],
+      "citation": {
+        "mean_jaccard": 1.0,
+        "domains_per_edition": {
+          "fr": 0,
+          "pt": 0,
+          "en": 0,
+          "tr": 0,
+          "pl": 0,
+          "ru": 0
+        }
+      },
+      "claim": {
+        "per_edition": {},
+        "adjudication": []
+      },
+      "diagnostics": {
+        "min_edition_count": 2,
+        "effective_langs": [
+          "fr",
+          "pt",
+          "en",
+          "tr",
+          "pl",
+          "ru"
+        ],
+        "errors": []
+      },
+      "episode_id": "1113767-1114986",
+      "episode_index": 4,
+      "episode_window": {
+        "start": "2003-01-01",
+        "end": "2004-01-01",
+        "pwr_mass": 2388,
+        "status": "confirmed",
+        "before_revid": 1113767,
+        "before_timestamp": "2003-07-03T13:20:49Z",
+        "after_revid": 1114986,
+        "after_timestamp": "2003-07-05T01:55:59Z",
+        "durable_spine_drop": 0.985194
+      },
+      "analysis_status": "available"
+    }
+  ]
+}

@@ -1,9 +1,28 @@
 {
   "article": "Socialism",
-  "updated_ts": "2026-07-31T17:45:32.298884+00:00",
+  "updated_ts": "2026-08-04T22:46:10.249693+00:00",
   "completed_stages": [
     "analyze",
     "pipeline",
-    "backfill-attribution"
-  ]
+    "backfill-attribution",
+    "crosslingual",
+    "sources",
+    "profile"
+  ],
+  "completed_stage_commands": {
+    "analyze": [
+      "analyze",
+      "Socialism"
+    ],
+    "pipeline": [
+      "pipeline",
+      "Socialism",
+      "--llm",
+      "--mscore",
+      "--framing",
+      "--facts",
+      "--max-langs",
+      "6"
+    ]
+  }
 }

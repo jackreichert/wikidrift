@@ -1,0 +1,167 @@
+{
+  "article": "Republican Party (United States)",
+  "asof": "2016-01-20T00:57:25Z",
+  "langs": [
+    "de",
+    "en",
+    "es",
+    "fr",
+    "uk",
+    "it"
+  ],
+  "citation": {
+    "mean_jaccard": 0.02,
+    "domains_per_edition": {
+      "de": 19,
+      "en": 151,
+      "es": 25,
+      "fr": 19,
+      "uk": 3,
+      "it": 5
+    }
+  },
+  "claim": {
+    "per_edition": {},
+    "adjudication": []
+  },
+  "diagnostics": {
+    "min_edition_count": 2,
+    "effective_langs": [
+      "de",
+      "en",
+      "es",
+      "fr",
+      "uk",
+      "it"
+    ],
+    "errors": []
+  },
+  "schema_version": 1,
+  "analysis_scope": "confirmed_episodes",
+  "episode_count": 3,
+  "episodes": [
+    {
+      "episode_id": "1284886106-1284887246",
+      "episode_index": 1,
+      "episode_window": {
+        "start": "2025-01-01",
+        "end": "2026-01-01",
+        "pwr_mass": 143511,
+        "status": "confirmed",
+        "before_revid": 1284886106,
+        "before_timestamp": "2025-04-10T09:52:46Z",
+        "after_revid": 1284887246,
+        "after_timestamp": "2025-04-10T10:08:31Z",
+        "durable_spine_drop": 0.289771
+      },
+      "analysis_status": "unavailable",
+      "reason": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "article": "Republican Party (United States)",
+      "asof": "2016-01-20T00:57:25Z",
+      "langs": [
+        "de",
+        "en",
+        "es",
+        "fr",
+        "uk",
+        "it"
+      ],
+      "citation": {
+        "mean_jaccard": 0.02,
+        "domains_per_edition": {
+          "de": 19,
+          "en": 151,
+          "es": 25,
+          "fr": 19,
+          "uk": 3,
+          "it": 5
+        }
+      },
+      "claim": {
+        "per_edition": {},
+        "adjudication": []
+      },
+      "diagnostics": {
+        "min_edition_count": 2,
+        "effective_langs": [
+          "de",
+          "en",
+          "es",
+          "fr",
+          "uk",
+          "it"
+        ],
+        "errors": []
+      },
+      "episode_id": "700687073-700688825",
+      "episode_index": 2,
+      "episode_window": {
+        "start": "2016-01-01",
+        "end": "2017-01-01",
+        "pwr_mass": 56963,
+        "status": "confirmed",
+        "before_revid": 700687073,
+        "before_timestamp": "2016-01-20T00:44:51Z",
+        "after_revid": 700688825,
+        "after_timestamp": "2016-01-20T00:57:25Z",
+        "durable_spine_drop": 0.282159
+      },
+      "analysis_status": "available"
+    },
+    {
+      "article": "Republican Party (United States)",
+      "asof": "2005-01-12T22:49:39Z",
+      "langs": [
+        "de",
+        "en",
+        "es",
+        "fr",
+        "uk",
+        "it"
+      ],
+      "citation": {
+        "mean_jaccard": 0.67,
+        "domains_per_edition": {
+          "de": 0,
+          "en": 11,
+          "es": 0,
+          "fr": 0,
+          "uk": 0,
+          "it": 0
+        }
+      },
+      "claim": {
+        "per_edition": {},
+        "adjudication": []
+      },
+      "diagnostics": {
+        "min_edition_count": 2,
+        "effective_langs": [
+          "de",
+          "en",
+          "es",
+          "fr",
+          "uk",
+          "it"
+        ],
+        "errors": []
+      },
+      "episode_id": "9321996-9322502",
+      "episode_index": 3,
+      "episode_window": {
+        "start": "2005-01-01",
+        "end": "2009-01-01",
+        "pwr_mass": 41099,
+        "status": "confirmed",
+        "before_revid": 9321996,
+        "before_timestamp": "2005-01-12T20:55:02Z",
+        "after_revid": 9322502,
+        "after_timestamp": "2005-01-12T22:49:39Z",
+        "durable_spine_drop": 0.92655
+      },
+      "analysis_status": "available"
+    }
+  ]
+}
