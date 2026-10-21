@@ -11,7 +11,6 @@ import urllib.parse
 
 from . import config
 
-
 PROCESS_CONTEXT_SCHEMA_VERSION = 1
 PROCESS_CONTEXT_POLICY_VERSION = "editorial-process-context-v1"
 TALK_CONTEXT_WINDOW = dt.timedelta(hours=24)

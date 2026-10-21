@@ -43,3 +43,55 @@ show_missing = true
 # boundary, per the project's testing discipline); the decision/logic modules carry the real coverage.
 # Ratchet this up as logic coverage grows; never let it fall.
 fail_under = 38
+
+[dependency-groups]
+dev = [
+    "ruff>=0.17.1",
+]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+src = ["src"]
+extend-exclude = [
+  ".planning",
+  "docs",
+  "articles",
+]
+
+[tool.ruff.lint]
+select = [
+  "E",   # pycodestyle errors
+  "W",   # pycodestyle warnings
+  "F",   # pyflakes
+  "I",   # isort
+  "UP",  # pyupgrade
+  "B",   # flake8-bugbear
+  "RUF", # ruff-specific
+]
+ignore = [
+  "E501",   # line length: keep existing style; format is optional
+  "E701",   # one-line `if`/`try` colon style used in a few hot paths
+  "E702",   # semicolon one-liners used sparingly in existing code
+  "E731",   # occasional lambda assignment in local helpers
+  "E741",   # ambiguous names (`l`, `m`) are common in this domain code
+  "W191",   # tabs appear in a few committed templates/scripts; don't mass-rewrite
+  "UP017",  # `datetime.UTC` churn across the tree; leave for a dedicated tidy
+  "B008",   # function calls in defaults used by argparse helpers
+  "B904",   # `raise ... from` — intentional local style in many paths
+  "B905",   # zip(..., strict=) — Python 3.10+ nicety; defer
+  "RUF001", # ambiguous unicode in domain strings / docs
+  "RUF002",
+  "RUF003",
+  "RUF005", # list concat style
+  "RUF007", # pairwise() — defer
+  "RUF012", # mutable class defaults in a few schemas
+  "RUF059", # unused unpacked vars in existing unpacks
+  "RUF100", # many `# noqa: BLE001` markers; BLE not selected (intentional broad excepts)
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["B011", "E402"]  # assert False skips; mid-file imports group suites
+"viewer/build.py" = ["E402"]  # sys.path bootstrap before package imports
+"viewer/export_l3.py" = ["E402"]
+"viewer/check_contrast.py" = ["E402"]

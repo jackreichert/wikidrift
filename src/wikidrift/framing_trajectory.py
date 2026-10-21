@@ -17,7 +17,6 @@ import mwparserfromhell
 from . import config
 from .corpus import Corpus
 
-
 TRAJECTORY_SCHEMA_VERSION = 1
 TRAJECTORY_POLICY_VERSION = "framing-trajectory-v1"
 MIN_MATCH_SIMILARITY = 0.9

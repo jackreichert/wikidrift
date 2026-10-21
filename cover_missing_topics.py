@@ -9,6 +9,5 @@ or:
 
 from tools.cover_missing_topics import main
 
-
 if __name__ == "__main__":
     raise SystemExit(main())

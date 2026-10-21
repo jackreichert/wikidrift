@@ -11,9 +11,9 @@ Hosted-coverage gaps (quieter articles, e.g. the Poland-WWII slate) return <3 sn
 """
 import duckdb
 
-from . import config, provenance, drift
-from .corpus import Corpus
+from . import config, drift, provenance
 from .benchmark import ROSTER
+from .corpus import Corpus
 
 
 def run(articles=None):

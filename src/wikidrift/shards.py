@@ -13,7 +13,6 @@ import duckdb
 from . import provenance
 from .config.parsing import slugify
 
-
 _SHARED_SLUG = "_shared"
 _EXPECTED_INDEXES = {
     "ix_rsnap_art_rev",

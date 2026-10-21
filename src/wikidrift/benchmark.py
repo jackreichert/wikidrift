@@ -266,7 +266,7 @@ def run_concentration(articles_dir, as_json=False):
             f"{event['pwr_mass']:>10,} {event['duration_seconds']:>9,} "
             f"{removal if removal is not None else 0:>7.1%} "
             f"{replacement if replacement is not None else 0:>8.1%} "
-            f"{str(event['same_top_editor']):>5}"
+            f"{event['same_top_editor']!s:>5}"
         )
     print("-" * 118)
     print(

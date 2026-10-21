@@ -20,7 +20,6 @@ from . import config
 from .corpus import Corpus
 from .stance import prose_at
 
-
 _STOPWORDS = {
     "a", "an", "and", "are", "as", "at", "be", "by", "for", "from", "has", "he", "in", "is", "it",
     "its", "of", "on", "that", "the", "to", "was", "were", "will", "with", "this", "these", "those", "or",

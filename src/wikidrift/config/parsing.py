@@ -24,8 +24,9 @@ def citation_domains(raw, unwrap_wayback=False):
     """{domain: count} of the external-link citation domains in wikitext ('www.' stripped). Shared by
     l5_factcheck (Jaccard overlap) and l5_sources (composition). unwrap_wayback=True resolves Wayback
     wrappers to the real source and drops bare/unparseable web.archive.org links."""
-    import mwparserfromhell
     import urllib.parse
+
+    import mwparserfromhell
     doms = {}
     for link in mwparserfromhell.parse(raw).filter_external_links():
         url = str(link.url)

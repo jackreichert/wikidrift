@@ -8,7 +8,6 @@ from __future__ import annotations
 import ipaddress
 from collections import defaultdict
 
-
 EVENT_ATTRIBUTION_SCHEMA_VERSION = 3
 EVENT_ATTRIBUTION_POLICY_VERSION = "multi-revision-attribution-v1"
 HIDDEN_ACCOUNT = "<hidden>"

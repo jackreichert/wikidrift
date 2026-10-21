@@ -20,19 +20,34 @@ Verdict ranking: confirmed episodes ranked by PWR-mass (age-agnostic — a long-
 KL Warschau is a primary target, so age must NOT bury it). Recency is a DESCRIPTOR only ("recent retrofit"
 vs "standing distortion"), never a demoter. A tiny old blip (Water 2007) is demoted by small MASS, not age.
 """
-import statistics
 import datetime as dt
+import statistics
 from bisect import bisect_right
 from contextlib import contextmanager
 
 import duckdb
 
-from . import config, event_attribution as event_ledger, process_context, provenance
+from . import config, process_context, provenance
+from . import event_attribution as event_ledger
+from .config import (
+    CONFIRM_DROP,
+    CREEP_MEAN,
+    DURABLE_Q,
+    ELEVATED,
+    EXTREME_CHANGE,
+    GAIN_FLOOR,
+    MAG_FLOOR,
+    MASS_FLOOR,
+    MIN_COHORT,
+    MIN_MATURE,
+    RECENT_YEARS,
+    REPLACEMENT_FLOOR,
+    REVIEW_MASS_FLOOR,
+    ROLLING_DROP,
+    ROLLING_TOLERANCE_DAYS,
+    ROLLING_WINDOW_MONTHS,
+)
 from .corpus import Corpus
-from .config import (MIN_COHORT, MIN_MATURE, MAG_FLOOR, CONFIRM_DROP,
-                     CREEP_MEAN, DURABLE_Q, RECENT_YEARS, ELEVATED,
-                     GAIN_FLOOR, REPLACEMENT_FLOOR, EXTREME_CHANGE, REVIEW_MASS_FLOOR,
-                     MASS_FLOOR, ROLLING_WINDOW_MONTHS, ROLLING_TOLERANCE_DAYS, ROLLING_DROP)
 
 CONFIRMATION_SCHEMA_VERSION = 2
 
@@ -219,7 +234,7 @@ def print_coarse_report(snaps, members, present, excluded_intervals=None):
     print(f"\n{'interval end':>12} | {'size':>7} | {'pwr_loss':>8} | {'pwr_removed':>13}")
     print("-" * 52)
     vals = []
-    for d0, r0, d1, r1, ratio, size, wlost, mature in _intervals(snaps, members, present):
+    for _d0, r0, d1, r1, ratio, size, wlost, mature in _intervals(snaps, members, present):
         covered = (r0, r1) not in excluded_intervals
         flag = (
             "  (coverage gap — excluded)" if not covered
@@ -294,7 +309,7 @@ def build_episodes(series, elevated=ELEVATED):
     """Group time-contiguous intervals with persistence-weighted loss >= `elevated` into episodes.
     `abs` accumulates PWR-mass removed (the ranking key); `peak` is the max interval loss %."""
     episodes, cur = [], None
-    for d0, r0, d1, r1, ratio, size, absd in series:
+    for d0, r0, d1, r1, ratio, _size, absd in series:
         if ratio >= elevated:
             if cur and cur["end"][0] == d0:                 # time-contiguous with the running episode
                 cur["end"] = (d1, r1); cur["abs"] += absd; cur["peak"] = max(cur["peak"], ratio)
@@ -384,7 +399,7 @@ def refine(article, con, snaps, members, present, idx_of_rev, peak):
             lo, flo = mid, fmid
     print(f"\n  binary search on durable spine |C|={len(cohort):,} (w≥{cut}): "
           f"{f_start*100:.0f}% → {f_end*100:.0f}%  (interval decline {interval_drop*100:.0f} pts)")
-    print(f"  path: " + " ".join(f"{d}:{v*100:.0f}%" for d, v in path))
+    print("  path: " + " ".join(f"{d}:{v*100:.0f}%" for d, v in path))
     print(f"  ⇒ dominant drop between rev {revs[lo][0]} ({revs[lo][1][:10]}) and rev {revs[hi][0]} ({revs[hi][1][:10]})")
     return revs[lo], revs[hi], interval_drop
 
@@ -484,6 +499,16 @@ def attribute(article, con, episode, render=True):
     return result
 
 
+def confirmation_horizon_and_thresholds_match(confirmation, current_horizon):
+    """Shared soft check: threshold contract + corpus horizon (schema rules stay local to callers)."""
+    if not confirmation or not current_horizon:
+        return False
+    if (confirmation.get("thresholds") or {}) != config.confirmation_thresholds():
+        return False
+    saved = confirmation.get("corpus_horizon") or {}
+    return (saved.get("snapshot_date"), saved.get("snapshot_revid")) == tuple(current_horizon)
+
+
 def _validate_confirmation_corpus(con, article, confirmation):
     """Require an artifact produced for the current corpus and threshold contract."""
     schema_version = confirmation.get("schema_version", 1)
@@ -492,12 +517,10 @@ def _validate_confirmation_corpus(con, article, confirmation):
             f"{article!r} confirmation schema version {schema_version} is newer than supported "
             f"version {CONFIRMATION_SCHEMA_VERSION}"
         )
-    if (confirmation.get("thresholds") or {}) != config.confirmation_thresholds():
-        raise ValueError(f"{article!r} confirmation threshold contract is stale")
     current_horizon = Corpus(con).latest_snapshot(article)
-    saved_horizon = confirmation.get("corpus_horizon") or {}
-    saved = (saved_horizon.get("snapshot_date"), saved_horizon.get("snapshot_revid"))
-    if not current_horizon or saved != tuple(current_horizon):
+    if not confirmation_horizon_and_thresholds_match(confirmation, current_horizon):
+        if (confirmation.get("thresholds") or {}) != config.confirmation_thresholds():
+            raise ValueError(f"{article!r} confirmation threshold contract is stale")
         raise ValueError(f"{article!r} confirmation corpus horizon is stale")
 
 
@@ -806,7 +829,7 @@ def _confirm_ranked_candidates(
     """Run interval then rolling confirmation passes; append evaluations onto result."""
     confirmed = []
     if episodes:
-        print(f"\ncandidate pivot episodes (ranked by PWR-mass removed; recency = context, NOT a demoter):")
+        print("\ncandidate pivot episodes (ranked by PWR-mass removed; recency = context, NOT a demoter):")
         for e in episodes:
             print(f"  {e['start'][0]} → {e['end'][0]}   peak {e['peak']:.0f}%   ~{int(e['abs']):,} PWR   "
                   f"age {e['age']:.1f}yr  [{_recency_tag(e['age'])}]")

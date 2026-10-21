@@ -157,11 +157,11 @@ def sources_over_time(article, max_snaps=12, persist=True, window=None):
     print(f"  {span}")
     print(f"  refs {pre['refs']} → {now['refs']}    domains {pre['n_domains']} → {now['n_domains']}")
     print(f"  cite-type mix (% of typed cites):  {_mix(pre)}  →  {_mix(now)}")
-    print(f"  sources ADDED / grown (from → to):")
-    for d, dl, e, l in added[:10]:
+    print("  sources ADDED / grown (from → to):")
+    for d, _dl, e, l in added[:10]:
         print(f"    {e:>3} → {l:<3}  {d}")
-    print(f"  sources DROPPED / reduced (from → to):")
-    for d, dl, e, l in (dropped[:10] or [("(none)", 0, 0, 0)]):
+    print("  sources DROPPED / reduced (from → to):")
+    for d, _dl, e, l in (dropped[:10] or [("(none)", 0, 0, 0)]):
         print(f"    {e:>3} → {l:<3}  {d}")
     print("  (the pivot's citation-source change, shown as-is — no source is rated; the reader judges.)")
 

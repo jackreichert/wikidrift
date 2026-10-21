@@ -20,8 +20,7 @@ import mwparserfromhell
 
 from . import config, drift
 from .corpus import Corpus
-from .stance import (STANCE_PROMPT_VERSION, STANCE_SCHEMA_VERSION, STANCE_VAL, classify,
-                     default_entities, focal_passage)
+from .stance import STANCE_PROMPT_VERSION, STANCE_SCHEMA_VERSION, STANCE_VAL, classify, default_entities, focal_passage
 
 _S = config.session()
 MAX_CHARS = 6000
