@@ -19,7 +19,7 @@ on:
   workflow_dispatch:
     inputs:
       topic:
-        description: Wikipedia article title (e.g. Zionism)
+        description: "Wikipedia title or enwiki URL (e.g. Zionism or https://en.wikipedia.org/wiki/Zionism)"
         required: true
         type: string
       mode:
@@ -112,12 +112,33 @@ jobs:
       - name: Sync (all-llm — openai path covers xAI; google optional)
         run: uv sync --extra all-llm
 
+      - name: Normalize topic (title or Wikipedia URL → title)
+        run: |
+          set -euo pipefail
+          # Shared with CLI: config.normalize_article_arg (wiki/… and index.php?title=).
+          # Use stdin so query-string URLs stay intact (no shell quoting hazards).
+          NORMALIZED=$(printf '%s' "$TOPIC" | uv run python -c "
+          import sys
+          from wikidrift import config
+          print(config.normalize_article_arg(sys.stdin.read()), end='')
+          ")
+          if [ -z "$NORMALIZED" ]; then
+            echo "::error::topic input normalized to empty string"
+            exit 1
+          fi
+          echo "TOPIC=$NORMALIZED" >> "$GITHUB_ENV"
+          echo "Normalized topic: $NORMALIZED"
+
       - name: Resolve article slug
         if: env.MODE == 'update'
         id: slug
         run: |
           set -euo pipefail
-          SLUG=$(uv run python -c "from wikidrift import config; print(config.slugify('''$TOPIC'''))")
+          SLUG=$(printf '%s' "$TOPIC" | uv run python -c "
+          import sys
+          from wikidrift import config
+          print(config.slugify(sys.stdin.read()), end='')
+          ")
           echo "slug=$SLUG" >> "$GITHUB_OUTPUT"
           echo "SHARD_DIR=$ARTICLES_ROOT/$SLUG" >> "$GITHUB_ENV"
           echo "Resolved slug=$SLUG → shard dir $ARTICLES_ROOT/$SLUG"
@@ -350,7 +371,12 @@ jobs:
       - name: Verify topic is on the site
         run: |
           set -euo pipefail
-          SLUG=$(uv run python -c "from wikidrift import config; print(config.slugify('''$TOPIC'''))")
+          # TOPIC already normalized (title or URL → title) in an earlier step.
+          SLUG=$(printf '%s' "$TOPIC" | uv run python -c "
+          import sys
+          from wikidrift import config
+          print(config.slugify(sys.stdin.read()), end='')
+          ")
           PAGE="docs/article/${SLUG}.html"
           FINDINGS="docs/findings.html"
           if [ ! -f "$PAGE" ]; then
@@ -386,6 +412,10 @@ jobs:
             echo "No site/findings changes to commit"
             exit 0
           fi
-          SLUG=$(uv run python -c "from wikidrift import config; print(config.slugify('''$TOPIC'''))")
+          SLUG=$(printf '%s' "$TOPIC" | uv run python -c "
+          import sys
+          from wikidrift import config
+          print(config.slugify(sys.stdin.read()), end='')
+          ")
           git commit -m "topic(${MODE}): ${TOPIC} (${SLUG})"
           git push origin "HEAD:${GITHUB_REF_NAME}"

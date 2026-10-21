@@ -7,7 +7,7 @@ the repo-root .env before `providers` reads WIKIDRIFT_LLM_* / provider keys from
 """
 from .findings_store import load_findings, write_findings  # noqa: F401
 from .http import ACTION, UA, WIKIDATA, WIKIWHO, action, get_json_retrying, session  # noqa: F401
-from .parsing import ANON_IP_RE, citation_domains, slugify  # noqa: F401
+from .parsing import ANON_IP_RE, citation_domains, normalize_article_arg, slugify  # noqa: F401
 from .providers import DEFAULT_MODELS, KEY_ENV, LLM_PROVIDER, LLM_PROVIDER_PRIORITY, MODEL  # noqa: F401
 from .storage import (
                       ARTICLES_DIR,
@@ -97,6 +97,7 @@ __all__ = [
                       "get_json_retrying",
                       "load_findings",
                       "missing_corpus_db_message",
+                      "normalize_article_arg",
                       "require_corpus_db",
                       "session",
                       "slugify",

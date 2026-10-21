@@ -23,6 +23,48 @@ class Slugify(unittest.TestCase):
     def test_preserves_unicode_letters(self):
         self.assertEqual(config.slugify("Israeli–Palestinian conflict"), "Israeli–Palestinian_conflict")
 
+
+class NormalizeArticleArg(unittest.TestCase):
+    def test_bare_title_unchanged(self):
+        self.assertEqual(config.normalize_article_arg("Chess"), "Chess")
+        self.assertEqual(config.normalize_article_arg("  Zionism  "), "Zionism")
+
+    def test_wiki_path_url(self):
+        self.assertEqual(
+            config.normalize_article_arg("https://en.wikipedia.org/wiki/Elizabeth_Warren"),
+            "Elizabeth Warren",
+        )
+        self.assertEqual(
+            config.normalize_article_arg("https://en.wikipedia.org/wiki/Zionism"),
+            "Zionism",
+        )
+
+    def test_index_php_title_url(self):
+        self.assertEqual(
+            config.normalize_article_arg(
+                "https://en.wikipedia.org/w/index.php?title=Elizabeth_Warren"
+            ),
+            "Elizabeth Warren",
+        )
+
+    def test_percent_encoded_title(self):
+        self.assertEqual(
+            config.normalize_article_arg(
+                "https://en.wikipedia.org/wiki/Naliboki%20massacre"
+            ),
+            "Naliboki massacre",
+        )
+
+    def test_non_wikipedia_url_left_unchanged(self):
+        raw = "https://example.com/wiki/Not_Wikipedia"
+        self.assertEqual(config.normalize_article_arg(raw), raw)
+
+    def test_slugify_after_url_normalize(self):
+        title = config.normalize_article_arg(
+            "https://en.wikipedia.org/wiki/Elizabeth_Warren"
+        )
+        self.assertEqual(config.slugify(title), "Elizabeth_Warren")
+
     def test_confirmation_thresholds_exposes_persisted_contract(self):
         self.assertEqual(config.confirmation_thresholds(), {
             "confirm_drop": config.CONFIRM_DROP,
