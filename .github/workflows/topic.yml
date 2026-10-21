@@ -5,6 +5,10 @@ name: Topic update / build
 #            compress/upload only that slug, rebuild the static site
 #   build  — rebuild site artifacts from committed findings only (no R2, no reanalyze)
 #
+# Cold-start (slug not in R2 / no local provenance.duckdb):
+#   corpus_backend=ingest  — required; builds snapshot-tokens + wikidrift ingest, then cover
+#   corpus_backend=hosted  — fails with a clear "seed/ingest first" error (no empty-DB WikiWho path)
+#
 # R2 key layout (never history-xml or shared provenance.duckdb):
 #   {R2_PREFIX}articles/<slug>/shard.duckdb.zst
 #   {R2_PREFIX}articles/<slug>/meta.json
@@ -27,7 +31,7 @@ on:
           - build
         default: build
       corpus_backend:
-        description: "update only — hosted WikiWho (default) or local ingest (WikiWho down / coverage gaps)"
+        description: "update only — hosted (delta / seeded shard) or ingest (cold-start + WikiWho gaps)"
         required: false
         type: choice
         options:
@@ -126,9 +130,11 @@ jobs:
         if: env.MODE == 'update'
         run: |
           set -euo pipefail
+          mkdir -p "$SHARD_DIR"
           if [ -z "${R2_ACCOUNT_ID:-}" ] || [ -z "${R2_ACCESS_KEY_ID:-}" ] \
              || [ -z "${R2_SECRET_ACCESS_KEY:-}" ] || [ -z "${R2_BUCKET:-}" ]; then
-            echo "::notice::R2 secrets not fully set on Environment topic-ops; skipping shard restore (cold start OK)"
+            echo "::notice::R2 secrets not fully set on Environment topic-ops; skipping shard restore"
+            echo "Without a local/R2 shard, corpus_backend=ingest is required for cold-start."
             exit 0
           fi
           PREFIX="${R2_PREFIX:-}"
@@ -139,19 +145,46 @@ jobs:
           ENDPOINT="https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com"
           SLUG="${{ steps.slug.outputs.slug }}"
           REMOTE="${PREFIX}articles/${SLUG}"
-          mkdir -p "$SHARD_DIR" /tmp/r2-restore
+          mkdir -p /tmp/r2-restore
           echo "Restoring s3://${R2_BUCKET}/${REMOTE}/shard.duckdb.zst → $SHARD_DIR/provenance.duckdb"
           if aws s3 cp "s3://${R2_BUCKET}/${REMOTE}/shard.duckdb.zst" /tmp/r2-restore/shard.duckdb.zst \
                --endpoint-url "$ENDPOINT" --only-show-errors; then
             zstd -d -f -o "$SHARD_DIR/provenance.duckdb" /tmp/r2-restore/shard.duckdb.zst
             echo "Restored compressed shard ($(du -h "$SHARD_DIR/provenance.duckdb" | cut -f1))"
           else
-            echo "::notice::No shard.duckdb.zst for ${SLUG} in R2 (empty key / cold start); continuing without cache"
+            echo "::notice::No shard.duckdb.zst for ${SLUG} in R2 — cold-start needs corpus_backend=ingest"
           fi
           aws s3 cp "s3://${R2_BUCKET}/${REMOTE}/meta.json" "$SHARD_DIR/r2-meta.json" \
             --endpoint-url "$ENDPOINT" --only-show-errors \
             && echo "Prior meta.json:" && cat "$SHARD_DIR/r2-meta.json" \
             || echo "No prior meta.json (OK)"
+
+      - name: Gate cold-start vs seeded shard
+        if: env.MODE == 'update'
+        run: |
+          set -euo pipefail
+          # Hosted without a shard fails here with a clear seed/ingest message.
+          # Ingest without a shard proceeds (true cold-start for brand-new titles).
+          set +e
+          OUT=$(uv run python tools/topic_shard_gate.py)
+          CODE=$?
+          set -e
+          echo "$OUT"
+          if echo "$OUT" | grep -q '^SHARD_PRESENT=true$'; then
+            echo "SHARD_PRESENT=true" >> "$GITHUB_ENV"
+          else
+            echo "SHARD_PRESENT=false" >> "$GITHUB_ENV"
+          fi
+          if echo "$OUT" | grep -q '^NEED_INGEST=true$'; then
+            echo "NEED_INGEST=true" >> "$GITHUB_ENV"
+          else
+            echo "NEED_INGEST=false" >> "$GITHUB_ENV"
+          fi
+          if [ "$CODE" -ne 0 ]; then
+            # First line is the human plan message; SHARD_PRESENT/NEED_INGEST follow.
+            echo "::error::$(echo "$OUT" | head -n 1)"
+            exit "$CODE"
+          fi
 
       - name: Build snapshot-tokens (ingest backend only)
         if: env.MODE == 'update' && env.CORPUS_BACKEND == 'ingest'
@@ -163,15 +196,24 @@ jobs:
           set -euo pipefail
           (cd tools/snapshot-tokens && cargo build --release)
 
-      - name: Ingest topic into article shard (WikiWho-independent)
+      - name: Ingest topic into article shard (cold-start or WikiWho-independent)
         if: env.MODE == 'update' && env.CORPUS_BACKEND == 'ingest'
         run: |
           set -euo pipefail
-          # Local wikiwho_rs-on-dumps path — use when hosted WikiWho is down or won't cover the article.
-          # No --force: existing rsnap rows in the restored shard are skipped.
+          # Required for brand-new titles with no R2 shard. Also use when hosted WikiWho
+          # is down or won't cover. No --force: existing rsnap rows in a restored shard are skipped.
           export WIKIDRIFT_DATA_DIR="$SHARD_DIR"
           mkdir -p "$SHARD_DIR"
+          if [ "${SHARD_PRESENT:-false}" = "false" ]; then
+            echo "Cold-start ingest for $TOPIC → $SHARD_DIR/provenance.duckdb"
+          else
+            echo "Delta ingest for $TOPIC (skip existing snapshots)"
+          fi
           uv run wikidrift ingest "$TOPIC"
+          if [ ! -f "$SHARD_DIR/provenance.duckdb" ]; then
+            echo "::error::ingest finished but $SHARD_DIR/provenance.duckdb is missing"
+            exit 1
+          fi
 
       - name: Update topic (analyze + pipeline layers)
         if: env.MODE == 'update'
@@ -183,7 +225,8 @@ jobs:
           fi
           # cover_missing_topics sets WIKIDRIFT_DATA_DIR=<articles>/<slug> per topic.
           # No --force: restored DuckDB snapshots are skipped (incremental fetch).
-          # Hosted WikiWho is the default backend; if it fails, re-run with corpus_backend=ingest.
+          # Cold-start must have populated the shard via ingest (gated above).
+          # If hosted WikiWho fails on a seeded shard, re-run with corpus_backend=ingest.
           uv run python tools/cover_missing_topics.py \
             --topics "$TOPIC" \
             --mode full \

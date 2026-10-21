@@ -1,7 +1,8 @@
 # Ops: Topic update / build (`topic-ops`)
 
 Operator checklist for [`.github/workflows/topic.yml`](.github/workflows/topic.yml).
-Ticket: **wikidrift-007**. Design note (Project store): `docs/topic-action.md`.
+Tickets: **wikidrift-007** (ops checklist), **wikidrift-011** (cold-start Action path).
+Design note (Project store): `docs/topic-action.md` / `docs/topic-action-coldstart.md`.
 
 ## 1. GitHub Environment secrets
 
@@ -18,7 +19,7 @@ Create Environment **`topic-ops`** (*Settings → Environments*). The workflow j
 | `ANTHROPIC_API_KEY` / `OPENAI_API_KEY` / `GOOGLE_API_KEY` | Optional | Alternate LLM providers |
 | `WIKIDRIFT_LLM_API_KEY` | Optional | Provider-agnostic override |
 
-Incomplete R2 secrets soft-skip restore/upload (cold start still runs analyze). Missing LLM keys fail layers that need them.
+Incomplete R2 secrets soft-skip restore/upload. Missing LLM keys fail layers that need them. Without a local/R2 shard, cold-start requires `corpus_backend=ingest` (hosted alone is blocked).
 
 ### Account ID and token IP filter
 
@@ -44,41 +45,83 @@ Actions tab → **Topic update / build** → **Run workflow**.
 
 | Input | Values | Notes |
 | --- | --- | --- |
-| `topic` | Wikipedia title | Required (e.g. `Zionism`) |
+| `topic` | Wikipedia title **or** enwiki URL | Required (e.g. `Zionism` or `https://en.wikipedia.org/wiki/Zionism`) |
 | `mode` | `update` \| `build` | `build` = site only (no R2, no reanalyze) |
-| `corpus_backend` | `hosted` \| `ingest` | `update` only; default `hosted` |
+| `corpus_backend` | `hosted` \| `ingest` | `update` only; see §4 |
 | `provider` / `model` | e.g. `xai` / `grok-4.3` | Defaults match repo LLM config |
 | `framing` | bool | L5 Framing Lite on `update` (default on) |
 | `commit` | bool | Commit findings + `docs/` (+ `viewer/data/`) (default on) |
 
-`corpus_backend=ingest` builds `tools/snapshot-tokens` and runs `wikidrift ingest` under the article shard when hosted WikiWho is down or won't cover. Re-run with `ingest` after a hosted failure.
+`topic` accepts a bare title or a Wikipedia URL (`/wiki/…` or `/w/index.php?title=…`). The Action normalizes URLs to a title before slugify / ingest / cover (same helper as the CLI).
 
-## 4. Cold start vs delta
+## 4. Brand-new topic (cold-start) vs update (delta)
+
+Actions runners have **no** Mac parent corpus. A title that is not already under `articles/<slug>/` in R2 must be **ingested** on the runner.
+
+### First run — brand-new Wikipedia title (not in R2)
+
+| Input | Value |
+| --- | --- |
+| `topic` | Exact Wikipedia article title **or** enwiki URL |
+| `mode` | `update` |
+| `corpus_backend` | **`ingest`** (required) |
+| `provider` / `model` | `xai` / `grok-4.3` (or your keys) |
+| `framing` | `true` (typical) |
+| `commit` | `true` (typical) |
+
+What happens:
+
+1. Normalize `topic` (URL → title) and resolve the article slug.
+2. R2 restore soft-skips (no `shard.duckdb.zst` for the slug).
+3. Gate allows proceed only because `corpus_backend=ingest`.
+4. Build `tools/snapshot-tokens` → `wikidrift ingest "<topic>"` under `articles/<slug>/`.
+5. `cover_missing_topics --mode full` (analyze + pipeline layers).
+6. Upload `shard.duckdb.zst` + `meta.json` → seeds R2 for later deltas.
+7. Site build; optional commit of findings/`docs/`.
+
+Needs MediaWiki Action API (history XML). Does **not** need hosted WikiWho. Needs LLM keys for layers that call an LLM.
+
+### Hosted without a shard — blocked
+
+`mode=update` + `corpus_backend=hosted` + no local/R2 `provenance.duckdb` **fails** with a clear error:
+
+> seed with `corpus_backend=ingest`, or seed R2 from a Mac first
+
+Do not use `hosted` for a title that has never been seeded.
+
+### Later runs — delta (slug already in R2)
+
+| Situation | Inputs |
+| --- | --- |
+| Normal incremental | `mode=update`, `corpus_backend=hosted` |
+| WikiWho down / coverage gap | `mode=update`, `corpus_backend=ingest` |
+
+Restore decompresses the prior shard; cover/ingest run **without `--force`** so existing revision snapshots are skipped; upload replaces the slug keys.
+
+`mode=build` never touches R2 (site from committed findings only).
 
 | Situation | Behavior |
 | --- | --- |
-| **Cold start** | No `shard.duckdb.zst` for the slug (or R2 secrets incomplete). Restore soft-skips; analyze fills the local shard; first successful upload seeds R2. |
-| **Delta (after seed)** | Restore decompresses the prior shard; cover/ingest run **without `--force`** so existing revision snapshots are skipped; only new work is fetched; upload replaces the slug keys. |
+| **Cold start** | No R2 shard → must use `ingest`; first successful upload seeds R2 |
+| **Delta** | R2 restore → hosted (default) or ingest → incremental cover → upload |
+| **Hosted + missing shard** | Gate fails; re-run with `ingest` |
 
-`mode=build` never touches R2.
+## 5. Optional Mac seed (existing corpus → R2)
 
-## 5. First-run seed from a Mac (high level)
+Use when the article already lives in a local canonical corpus and you want to seed R2 without a full Actions ingest:
 
-Full automated seed script can wait until the local corpus download finishes. Until then, operators can seed one slug manually after bootstrap + shard migration:
+1. Bootstrap / populate `.planning/spikes/data/` (e.g. `uv run wikidrift bootstrap "<Title>"`).
+2. `uv run wikidrift migrate-shards` → `articles/<slug>/provenance.duckdb`.
+3. Put Environment secrets on `topic-ops` (section 1), R2 with **no IP filter**.
+4. Upload `shard.duckdb.zst` + `meta.json` for that slug (dedicated seed script TBD on **wikidrift-007**, or manual `zstd` + `aws s3 cp`).
+5. Later Actions runs are **delta**: `mode=update` + `corpus_backend=hosted`.
 
-1. **Bootstrap** (or otherwise populate) the canonical corpus under `.planning/spikes/data/` — e.g. `uv run wikidrift bootstrap "<Title>"` or an in-progress download of an existing corpus.
-2. **Migrate shards:** `uv run wikidrift migrate-shards` → article-owned DuckDB under `.planning/spikes/data/articles/<slug>/provenance.duckdb` (canonical DB left intact).
-3. **Confirm** `articles/<slug>/provenance.duckdb` exists for the topic you care about.
-4. **Put Environment secrets** on `topic-ops` (section 1), including R2 with **no IP filter**.
-5. **Seed R2 for that slug** — either:
-   - run Actions → **Topic update / build** with `mode=update` (cold start uploads after analyze), or
-   - after download finishes, use a dedicated seed script / `aws s3 cp` of `shard.duckdb.zst` + `meta.json` to the layout above (script TBD on **wikidrift-007**).
-6. Later runs are **delta**: restore → incremental cover → upload.
-
-Do not upload `history-xml/` or the shared `provenance.duckdb`.
+For a title **not** in the Mac corpus, skip this section — use §4 cold-start (`corpus_backend=ingest`) only. Do not upload `history-xml/` or the shared `provenance.duckdb`.
 
 ## 6. Quick verify
 
 - Environment `topic-ops` lists the secrets above.
 - Cloudflare token: Object Read & Write on the bucket; **Client IP Address Filtering** off.
-- Smoke: `mode=build` for a known topic, then `mode=update` once for a seeded slug and confirm R2 keys appear under `articles/<slug>/`.
+- Smoke: `mode=build` for a known topic.
+- New title: `mode=update` + `corpus_backend=ingest` once (title or URL); confirm R2 keys under `articles/<slug>/`.
+- Next run: `mode=update` + `corpus_backend=hosted` for the same title.
