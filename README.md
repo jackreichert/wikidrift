@@ -324,6 +324,40 @@ CI (`.github/workflows/ci.yml`) runs the test suite and the site build + contras
 PR. It needs no secrets, no token corpus, and no LLM keys — the DB-dependent test auto-skips and the site
 builds from committed findings. Pages **deployment** is intentionally not wired (it stays a manual step).
 
+### Topic update / build Action
+
+[`.github/workflows/topic.yml`](.github/workflows/topic.yml) is a `workflow_dispatch` Action for one
+Wikipedia topic. Run it from the Actions tab → **Topic update / build** → **Run workflow**.
+
+| Input | Meaning |
+| --- | --- |
+| `topic` | Wikipedia article title (required) |
+| `mode` | `update` — `tools/cover_missing_topics.py --mode full --execute` (+ optional `--framing`), then L3 export + site build; `build` — site artifacts only (`viewer/build.py`) |
+| `provider` / `model` | LLM selection via `WIKIDRIFT_LLM_*` (defaults: `xai` / `grok-4.3`) |
+| `framing` | On `update`, pass `--framing` for L5 Framing Lite (default on) |
+| `commit` | Commit findings + `docs/` (+ `viewer/data/`) back to the triggering branch (default on) |
+
+**GitHub Environment:** bind the job to Environment **`topic-ops`**. Create it under
+*Settings → Environments* and add secrets for the providers you use (never commit keys):
+
+| Secret | When needed |
+| --- | --- |
+| `XAI_API_KEY` | Default path (`provider=xai`) |
+| `ANTHROPIC_API_KEY` / `OPENAI_API_KEY` / `GOOGLE_API_KEY` | Alternate providers |
+| `WIKIDRIFT_LLM_API_KEY` | Optional override for any provider |
+
+Push uses the workflow `GITHUB_TOKEN` (`contents: write`). No separate PAT is required unless branch
+protection on the target branch demands one — then add a fine-scoped PAT as an Environment secret and
+swap the checkout token.
+
+**Categories / site wiring:** `viewer/build.py` discovers every article that has renderable findings
+(confirmation / profile / sources / …) — there is no separate roster. Index filters use (1) the curated
+`CATEGORY` map in `viewer/build.py`, then (2) the LLM cache
+`.planning/spikes/data/findings/topic_categories.json` when the Action runs with `--llm-categories`
+(any Environment LLM key present), else **Other**. For a permanent curated placement, add the title to
+`CATEGORY` in a follow-up commit. The Action fails if `docs/article/<slug>.html` is missing or not linked
+from `docs/findings.html`, so orphan findings JSON without site wiring does not silently pass.
+
 ## Status & scope
 
 WikiDrift is a research tool. It surfaces **candidates for a human to adjudicate**; it names *actions* from
