@@ -108,15 +108,38 @@ Restore decompresses the prior shard; cover/ingest run **without `--force`** so 
 
 ## 5. Optional Mac seed (existing corpus → R2)
 
-Use when the article already lives in a local canonical corpus and you want to seed R2 without a full Actions ingest:
+Use when the article already lives in a local canonical corpus and you want to seed R2 without a full Actions ingest.
+
+Requires local `.env` with `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `R2_BUCKET` (optional `R2_PREFIX`), plus `zstd` and the AWS CLI on `PATH`. Never uploads `history-xml/` or the shared monolithic `provenance.duckdb`.
+
+After the corpus pull / migrate finishes:
+
+```bash
+cd ~/dev-env/wikidrift && git pull
+uv run python tools/seed_r2_shards.py --dry-run
+uv run python tools/seed_r2_shards.py
+```
+
+Useful flags:
+
+| Flag | Behavior |
+| --- | --- |
+| `--dry-run` | List what would upload (no compress / R2 writes) |
+| `--force` | Re-upload even when remote `meta.json` + shard look up-to-date |
+| `--topics A B` | Only these Wikipedia titles (slugified) |
+| `--all` | Every article dir under `.planning/spikes/data/articles/` (same as default when `--topics` omitted) |
+
+Default skip heuristic: if both remote keys exist and remote LastModified is ≥ local `provenance.duckdb` mtime, the slug is skipped. Locked DuckDB files (e.g. an in-progress pull) are skipped with a clear message; the loop continues. Missing shard DBs are rematerialized from the parent canonical `provenance.duckdb` via `shards.ensure_article_database` when the article exists there.
+
+One-off / first-time setup path (if shards are not already present):
 
 1. Bootstrap / populate `.planning/spikes/data/` (e.g. `uv run wikidrift bootstrap "<Title>"`).
 2. `uv run wikidrift migrate-shards` → `articles/<slug>/provenance.duckdb`.
 3. Put Environment secrets on `topic-ops` (section 1), R2 with **no IP filter**.
-4. Upload `shard.duckdb.zst` + `meta.json` for that slug (dedicated seed script TBD on **wikidrift-007**, or manual `zstd` + `aws s3 cp`).
+4. Run `tools/seed_r2_shards.py` as above (or a single title with `--topics`).
 5. Later Actions runs are **delta**: `mode=update` + `corpus_backend=hosted`.
 
-For a title **not** in the Mac corpus, skip this section — use §4 cold-start (`corpus_backend=ingest`) only. Do not upload `history-xml/` or the shared `provenance.duckdb`.
+For a title **not** in the Mac corpus, skip this section — use §4 cold-start (`corpus_backend=ingest`) only.
 
 ## 6. Quick verify
 
