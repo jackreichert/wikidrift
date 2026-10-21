@@ -333,7 +333,7 @@ tests/             stdlib unittest suite
 tools/             Rust snapshot-tokens helper for the local wikiwho_rs backend
 .planning/spikes/  frozen experimental record + the (gitignored) data cache + committed findings/
 .github/workflows/ CI — ruff lint + tests (py3.11/3.12) + viewer build + WCAG AA on every push/PR; topic.yml for ops
-OPS-TOPIC.md       operator checklist: topic-ops secrets, R2 layout, cold start / Mac seed
+OPS-TOPIC.md       operator checklist: topic-ops secrets, R2 layout, cold-start vs delta / Mac seed
 METHODOLOGY.md     the design, the layer model, and the epistemic discipline — read this
 ```
 
@@ -344,19 +344,23 @@ site builds from committed findings. Pages **deployment** is intentionally not w
 ### Topic update / build Action
 
 [`.github/workflows/topic.yml`](.github/workflows/topic.yml) is a `workflow_dispatch` Action for one
-Wikipedia topic. **Operator checklist** (secrets, R2 layout, cold start vs delta, Mac first-run seed):
+Wikipedia topic. **Operator checklist** (secrets, R2 layout, cold-start vs delta, Mac seed):
 [`OPS-TOPIC.md`](OPS-TOPIC.md).
 
 Run it from the Actions tab → **Topic update / build** → **Run workflow**.
 
 | Input | Meaning |
 | --- | --- |
-| `topic` | Wikipedia article title (required) |
+| `topic` | Wikipedia article title **or** enwiki URL (required) |
 | `mode` | `update` — per-slug R2 restore → analyze/pipeline → R2 upload → site; `build` — site only (no R2) |
-| `corpus_backend` | `hosted` (default WikiWho) or `ingest` (local dumps path when WikiWho is down / won't cover) |
+| `corpus_backend` | `hosted` (delta / seeded shard) or `ingest` (**required for brand-new titles** + WikiWho gaps) |
 | `provider` / `model` | LLM selection via `WIKIDRIFT_LLM_*` (defaults: `xai` / `grok-4.3`) |
 | `framing` | On `update`, pass `--framing` for L5 Framing Lite (default on) |
 | `commit` | Commit findings + `docs/` (+ `viewer/data/`) back to the triggering branch (default on) |
+
+**Brand-new topic (not in R2):** `mode=update`, `corpus_backend=ingest` (title or URL). Hosted without a
+shard fails with a clear seed/ingest message. After the first successful ingest+upload, later runs use
+`corpus_backend=hosted` (or `ingest` again if WikiWho fails). Details in [`OPS-TOPIC.md`](OPS-TOPIC.md).
 
 **Environment `topic-ops` secrets (summary):** `XAI_API_KEY`; `R2_ACCOUNT_ID` (hex id in
 `https://<id>.r2.cloudflarestorage.com`); `R2_ACCESS_KEY_ID` / `R2_SECRET_ACCESS_KEY` / `R2_BUCKET`;
@@ -364,13 +368,11 @@ optional `R2_PREFIX` and alternate LLM keys. R2 API token must **not** use an IP
 egress is dynamic). Full table in [`OPS-TOPIC.md`](OPS-TOPIC.md).
 
 **R2 layout (`update` only):** `{R2_PREFIX}articles/<slug>/shard.duckdb.zst` + `meta.json` — never
-`history-xml/` or a shared monolithic DuckDB. Cold start soft-skips a missing key; after seed, restore
-is incremental (no `--force`). First Mac seed after `bootstrap` / `migrate-shards` is high-level in
-[`OPS-TOPIC.md`](OPS-TOPIC.md) (dedicated seed script still TBD).
+`history-xml/` or a shared monolithic DuckDB. Missing R2 keys soft-skip restore; cold-start then requires
+`corpus_backend=ingest`. After seed, restore is incremental (no `--force`). Optional Mac seed after
+`bootstrap` / `migrate-shards` is high-level in [`OPS-TOPIC.md`](OPS-TOPIC.md) (seed script still TBD).
 
-If hosted WikiWho fails, re-run with `corpus_backend=ingest`. Push uses `GITHUB_TOKEN`
-(`contents: write`).
-
+Push uses `GITHUB_TOKEN` (`contents: write`).
 **Categories / site wiring:** `viewer/build.py` discovers every article that has renderable findings
 (confirmation / profile / sources / …) — there is no separate roster. Index filters use (1) the curated
 `CATEGORY` map in `viewer/build.py`, then (2) the LLM cache

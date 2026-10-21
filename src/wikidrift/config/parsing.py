@@ -1,9 +1,38 @@
 """Pure text/URL parsing helpers (no I/O) shared across modules."""
 import re
+from urllib.parse import parse_qs, unquote, urlparse
 
 # An unregistered editor = an IPv4/IPv6 username; anon reverts skew disproportionately to vandalism.
 # One definition, shared by mscore (registered-only filter) and l4 (seed-editor filter).
 ANON_IP_RE = re.compile(r"^(\d{1,3}\.){3}\d{1,3}$|^[0-9A-Fa-f:]+:[0-9A-Fa-f:]+$")
+
+
+def normalize_article_arg(value):
+    """Accept either an article title or a Wikipedia URL and return a normalized title.
+
+    Supported URL shapes (CLI + Topic Action share this helper):
+    - https://<lang>.wikipedia.org/wiki/<Title>
+    - https://<lang>.wikipedia.org/w/index.php?title=<Title>
+    """
+    raw = (value or "").strip()
+    if not raw:
+        return raw
+    if not (raw.startswith("http://") or raw.startswith("https://")):
+        return raw
+
+    parsed = urlparse(raw)
+    if "wikipedia.org" not in (parsed.netloc or ""):
+        # Non-Wikipedia URL: leave unchanged so downstream errors remain explicit.
+        return raw
+
+    title = ""
+    if "/wiki/" in parsed.path:
+        title = parsed.path.split("/wiki/", 1)[1]
+    elif parsed.path.endswith("/w/index.php"):
+        title = parse_qs(parsed.query).get("title", [""])[0]
+
+    title = unquote(title).replace("_", " ").strip()
+    return title or raw
 
 
 def slugify(title):
