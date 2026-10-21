@@ -38,10 +38,9 @@ from pathlib import Path
 
 import duckdb
 
-from wikidrift import config
+from wikidrift import config, shards
 from wikidrift.config.parsing import slugify
 from wikidrift.corpus import Corpus
-from wikidrift import shards
 
 DEFAULT_ARTICLES_DIR = Path(".planning/spikes/data/articles")
 _SKIP_DIR_NAMES = {"_shared"}
