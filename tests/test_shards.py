@@ -134,6 +134,27 @@ class ArticleShardMigration(unittest.TestCase):
 
         migrate.assert_called_once_with(self.data_dir, None)
 
+    def test_ensure_article_database_materializes_missing_shard(self):
+        shard_dir = self.data_dir / "articles" / "Alpha"
+        target = shards.ensure_article_database(self.db_path, shard_dir, "Alpha")
+        self.assertEqual(target, shard_dir / "provenance.duckdb")
+        self.assertTrue(target.is_file())
+        con = duckdb.connect(str(target), read_only=True)
+        self.assertEqual(con.execute("SELECT count(*) FROM revisions").fetchone()[0], 1)
+        con.close()
+        # Idempotent when the file already exists.
+        again = shards.ensure_article_database(self.db_path, shard_dir, "Alpha")
+        self.assertEqual(again, target)
+
+    def test_resolve_canonical_database(self):
+        articles = self.data_dir / "articles"
+        articles.mkdir()
+        self.assertEqual(
+            shards.resolve_canonical_database(articles),
+            self.db_path.resolve(),
+        )
+        self.assertIsNone(shards.resolve_canonical_database(pathlib.Path(self._tmp.name) / "empty"))
+
 
 if __name__ == "__main__":
     unittest.main()

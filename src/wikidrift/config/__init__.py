@@ -17,6 +17,8 @@ from .storage import (
                       SNAPSHOT_TOKENS_BIN,
                       XML_CACHE,
                       _load_dotenv,  # noqa: F401
+                      missing_corpus_db_message,
+                      require_corpus_db,
 )
 from .thresholds import (  # noqa: F401
                       ANOMALY_MIN,
@@ -94,6 +96,8 @@ __all__ = [
                       "confirmation_thresholds",
                       "get_json_retrying",
                       "load_findings",
+                      "missing_corpus_db_message",
+                      "require_corpus_db",
                       "session",
                       "slugify",
                       "sweep_thresholds",

@@ -40,7 +40,7 @@ from typing import TextIO
 
 import duckdb
 
-from wikidrift import config, pipeline, provenance
+from wikidrift import config, pipeline, provenance, shards
 from wikidrift.corpus import Corpus
 
 DEFAULT_REQUIRED_LAYERS = ["receipts", "stance", "sources", "profile"]
@@ -386,6 +386,39 @@ def _resume_enabled(mode: str, requested: bool | None) -> bool:
     return mode != "refresh"
 
 
+def _ensure_topic_shard_database(
+    topic: str,
+    articles_dir: Path,
+    *,
+    log: TextIO | None = None,
+    output_lock: threading.Lock | None = None,
+) -> Path:
+    """Ensure articles/<slug>/provenance.duckdb exists before stages that set WIKIDRIFT_DATA_DIR.
+
+    Findings-only shards (migration artifacts without DuckDB) are rematerialized from the parent
+    canonical corpus when available; otherwise raise FileNotFoundError with migrate/R2 guidance.
+    """
+    data_dir = articles_dir / config.slugify(topic)
+    target = data_dir / "provenance.duckdb"
+    if target.is_file():
+        return target
+    canonical = shards.resolve_canonical_database(articles_dir)
+    if canonical is None:
+        raise FileNotFoundError(
+            f"article shard database missing: {target}\n"
+            f"No canonical corpus at {articles_dir.parent / 'provenance.duckdb'} to materialize from.\n"
+            "Run `uv run wikidrift migrate-shards`, restore the slug from R2 "
+            "(shard.duckdb.zst → provenance.duckdb), or bootstrap/ingest into this DATA_DIR."
+        )
+    message = f"materializing shard DB for {topic!r} from {canonical}"
+    if log is not None:
+        log.write(message + "\n")
+        log.flush()
+    if output_lock is not None:
+        _emit_topic_output(topic, message, output_lock)
+    return shards.ensure_article_database(canonical, data_dir, topic)
+
+
 def _run_topic_commands(
     topic: str,
     commands: list[list[str]],
@@ -411,6 +444,24 @@ def _run_topic_commands(
     output_lock = output_lock or threading.Lock()
     with log_path.open("a", encoding="utf-8") as log:
         log.write(f"\n=== coverage run {dt.datetime.now(dt.timezone.utc).isoformat()} ===\n")
+        try:
+            _ensure_topic_shard_database(
+                topic, articles_dir, log=log, output_lock=output_lock,
+            )
+        except FileNotFoundError as exc:
+            log.write(f"ERROR: {exc}\n")
+            log.flush()
+            if runner is None:
+                _emit_topic_output(topic, f"ERROR: {exc}", output_lock)
+            return {
+                "article": topic,
+                "succeeded": False,
+                "analysis_outcome": _analysis_outcome(data_dir, topic),
+                "stages": [],
+                "skipped_stages": [],
+                "log_path": str(log_path),
+                "error": str(exc),
+            }
         for command in commands:
             if cancellation is not None and cancellation.is_set():
                 log.write("CANCEL before next stage\n")

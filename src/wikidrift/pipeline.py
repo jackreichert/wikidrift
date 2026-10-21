@@ -619,6 +619,13 @@ def run(article, llm=False, corroborate=False, framing=False, facts=False, addit
     L1 supplies a candidate window and falls back to a current static comparison otherwise."""
     article = provenance.resolve_article_title(article).canonical_title
 
+    # Fail before LLM client setup when the active DATA_DIR has no DuckDB (common after shard
+    # migrate left findings behind but provenance.duckdb was deleted / never restored from R2).
+    try:
+        config.require_corpus_db()
+    except FileNotFoundError as exc:
+        raise SystemExit(str(exc)) from exc
+
     # Build the LLM client ONCE and share it across L2 + L5 (was threaded as 3 loose params into each verb).
     # NB the `llm` parameter here is the bool opt-in flag, so import the module under an alias.
     client = None

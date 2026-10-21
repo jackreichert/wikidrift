@@ -46,6 +46,14 @@ def _load_cover_missing_topics_module():
 cover_missing_topics = _load_cover_missing_topics_module()
 
 
+def _stub_topic_shard_db(articles_dir: pathlib.Path, topic: str = "Testland") -> pathlib.Path:
+    """Touch a placeholder provenance.duckdb so cover's preflight does not fail in unit tests."""
+    data_dir = articles_dir / config.slugify(topic)
+    data_dir.mkdir(parents=True, exist_ok=True)
+    (data_dir / "provenance.duckdb").write_bytes(b"")
+    return data_dir
+
+
 class Jaccard(unittest.TestCase):
     def test_partial_overlap(self):
         self.assertAlmostEqual(fc._jaccard({"a", "b"}, {"b", "c"}), 1 / 3)
@@ -498,8 +506,7 @@ class ParallelTopicCoverage(unittest.TestCase):
     def test_run_topic_isolates_storage_and_resumes_completed_stages(self):
         with tempfile.TemporaryDirectory() as directory:
             articles_dir = pathlib.Path(directory)
-            data_dir = articles_dir / "Testland"
-            data_dir.mkdir()
+            data_dir = _stub_topic_shard_db(articles_dir)
             (data_dir / "coverage-state.json").write_text(json.dumps({
                 "completed_stages": ["analyze"],
                 "completed_stage_commands": {
@@ -537,8 +544,7 @@ class ParallelTopicCoverage(unittest.TestCase):
     def test_run_topic_reruns_when_command_adds_flag(self):
         with tempfile.TemporaryDirectory() as directory:
             articles_dir = pathlib.Path(directory)
-            data_dir = articles_dir / "Testland"
-            data_dir.mkdir()
+            data_dir = _stub_topic_shard_db(articles_dir)
             (data_dir / "coverage-state.json").write_text(json.dumps({
                 "completed_stages": ["pipeline"],
                 "completed_stage_commands": {
@@ -569,8 +575,7 @@ class ParallelTopicCoverage(unittest.TestCase):
     def test_run_topic_refreshes_legacy_stage_only_checkpoint(self):
         with tempfile.TemporaryDirectory() as directory:
             articles_dir = pathlib.Path(directory)
-            data_dir = articles_dir / "Testland"
-            data_dir.mkdir()
+            data_dir = _stub_topic_shard_db(articles_dir)
             (data_dir / "coverage-state.json").write_text(json.dumps({
                 "completed_stages": ["pipeline"],
             }), encoding="utf-8")
@@ -600,8 +605,7 @@ class ParallelTopicCoverage(unittest.TestCase):
     def test_run_topic_ignores_compatible_state_when_resume_is_disabled(self):
         with tempfile.TemporaryDirectory() as directory:
             articles_dir = pathlib.Path(directory)
-            data_dir = articles_dir / "Testland"
-            data_dir.mkdir()
+            data_dir = _stub_topic_shard_db(articles_dir)
             (data_dir / "coverage-state.json").write_text(json.dumps({
                 "completed_stages": ["analyze"],
                 "completed_stage_commands": {
@@ -624,8 +628,7 @@ class ParallelTopicCoverage(unittest.TestCase):
     def test_run_topic_recovers_from_corrupt_coverage_state(self):
         with tempfile.TemporaryDirectory() as directory:
             articles_dir = pathlib.Path(directory)
-            data_dir = articles_dir / "Testland"
-            data_dir.mkdir()
+            data_dir = _stub_topic_shard_db(articles_dir)
             (data_dir / "coverage-state.json").write_text("{broken", encoding="utf-8")
             runner = Mock(return_value=Mock(returncode=0))
 
@@ -641,9 +644,59 @@ class ParallelTopicCoverage(unittest.TestCase):
             self.assertEqual(result["skipped_stages"], [])
             runner.assert_called_once()
 
+    def test_run_topic_fails_before_stages_when_shard_and_canonical_db_missing(self):
+        with tempfile.TemporaryDirectory() as directory:
+            articles_dir = pathlib.Path(directory) / "articles"
+            articles_dir.mkdir()
+            runner = Mock(return_value=Mock(returncode=0))
+
+            result = cover_missing_topics._run_topic_commands(
+                topic="Testland",
+                commands=[cover_missing_topics._project_command(["pipeline", "Testland"])],
+                articles_dir=articles_dir,
+                resume=True,
+                runner=runner,
+            )
+
+            self.assertFalse(result["succeeded"])
+            self.assertEqual(result["stages"], [])
+            self.assertIn("article shard database missing", result["error"])
+            runner.assert_not_called()
+
+    def test_run_topic_materializes_missing_shard_from_canonical(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = pathlib.Path(directory)
+            data_dir = root / "data"
+            articles_dir = data_dir / "articles"
+            articles_dir.mkdir(parents=True)
+            source_db = data_dir / "provenance.duckdb"
+            con = duckdb.connect(str(source_db))
+            provenance.ensure_schema(con)
+            con.execute("INSERT INTO revisions VALUES ('Testland', 1, '2020-01-01T00:00:00Z', 'Ed')")
+            con.execute("INSERT INTO rsnap VALUES ('Testland', '2020-01-01', 1, 10, 1)")
+            con.close()
+            runner = Mock(return_value=Mock(returncode=0))
+
+            result = cover_missing_topics._run_topic_commands(
+                topic="Testland",
+                commands=[cover_missing_topics._project_command(["pipeline", "Testland"])],
+                articles_dir=articles_dir,
+                resume=False,
+                runner=runner,
+            )
+
+            self.assertTrue(result["succeeded"])
+            shard_db = articles_dir / "Testland" / "provenance.duckdb"
+            self.assertTrue(shard_db.is_file())
+            shard = duckdb.connect(str(shard_db), read_only=True)
+            self.assertEqual(shard.execute("SELECT count(*) FROM revisions").fetchone()[0], 1)
+            shard.close()
+            runner.assert_called_once()
+
     def test_run_topic_stops_and_preserves_state_on_stage_failure(self):
         with tempfile.TemporaryDirectory() as directory:
             articles_dir = pathlib.Path(directory)
+            _stub_topic_shard_db(articles_dir)
             runner = Mock(side_effect=[Mock(returncode=0), Mock(returncode=1)])
 
             result = cover_missing_topics._run_topic_commands(

@@ -47,6 +47,7 @@ class PipelineRunMocked(unittest.TestCase):
         return [
             patch("wikidrift.pipeline.provenance.resolve_article_title",
                   return_value=MagicMock(canonical_title="Testland")),
+            patch("wikidrift.pipeline.config.require_corpus_db", return_value=config.DB),
             patch("wikidrift.pipeline.duckdb.connect", return_value=MagicMock()),
             patch("wikidrift.pipeline._snap_count", return_value=snaps),
             patch("wikidrift.pipeline.drift.verdict_dict", return_value=verdict),
@@ -63,13 +64,12 @@ class PipelineRunMocked(unittest.TestCase):
 
     def test_few_snaps_triggers_analyze(self):
         patches = self._common_patches(snaps=0)
-        patches[2] = patch("wikidrift.pipeline._snap_count", side_effect=[0, 5, 5])
-        with (
-            patches[0], patches[1], patches[2], patches[3], patches[4], patches[5],
-            patches[6], patches[7], patches[8], patches[9],
-            patch("wikidrift.pipeline.drift.analyze") as mock_analyze,
-            contextlib.redirect_stdout(io.StringIO()),
-        ):
+        patches[3] = patch("wikidrift.pipeline._snap_count", side_effect=[0, 5, 5])
+        with contextlib.ExitStack() as stack:
+            for item in patches:
+                stack.enter_context(item)
+            mock_analyze = stack.enter_context(patch("wikidrift.pipeline.drift.analyze"))
+            stack.enter_context(contextlib.redirect_stdout(io.StringIO()))
             result = pipeline.run("Testland")
         mock_analyze.assert_called_once_with("Testland")
         self.assertEqual(result["article"], "Testland")
@@ -78,16 +78,17 @@ class PipelineRunMocked(unittest.TestCase):
     def test_confirmed_windows_use_episode_path(self):
         confirmation = self._fresh_confirmation()
         patches = self._common_patches(confirmation=confirmation, leads=[])
-        with (
-            patches[0], patches[1], patches[2], patches[3], patches[4], patches[5],
-            patches[6], patches[7], patches[8],
-            patch("wikidrift.pipeline.analyze_confirmed_episodes", return_value={
-                "lexical": {"mode": "pivot_relative", "js_divergence": 0.2, "episode_count": 1},
-                "sources": {"episode_count": 1},
-            }) as mock_episodes,
-            patch("wikidrift.pipeline.lexical.lexical_drift") as mock_lexical,
-            contextlib.redirect_stdout(io.StringIO()),
-        ):
+        with contextlib.ExitStack() as stack:
+            for item in patches[:-1]:  # drop lexical; episode path replaces it
+                stack.enter_context(item)
+            mock_episodes = stack.enter_context(patch(
+                "wikidrift.pipeline.analyze_confirmed_episodes", return_value={
+                    "lexical": {"mode": "pivot_relative", "js_divergence": 0.2, "episode_count": 1},
+                    "sources": {"episode_count": 1},
+                },
+            ))
+            mock_lexical = stack.enter_context(patch("wikidrift.pipeline.lexical.lexical_drift"))
+            stack.enter_context(contextlib.redirect_stdout(io.StringIO()))
             result = pipeline.run("Testland")
         mock_episodes.assert_called_once()
         mock_lexical.assert_not_called()
@@ -96,26 +97,38 @@ class PipelineRunMocked(unittest.TestCase):
 
     def test_no_confirm_with_framing_uses_static_path(self):
         patches = self._common_patches(leads=[])
-        with (
-            patches[0], patches[1], patches[2], patches[3], patches[4], patches[5],
-            patches[6], patches[7], patches[8], patches[9],
-            patch("wikidrift.llm.make_client", return_value="client"),
-            patch("wikidrift.l5_framing_lite.framing_lite", return_value={
-                "divergences": [], "pivot_window": None,
-            }) as mock_framing,
-            contextlib.redirect_stdout(io.StringIO()),
-        ):
+        with contextlib.ExitStack() as stack:
+            for item in patches:
+                stack.enter_context(item)
+            stack.enter_context(patch("wikidrift.llm.make_client", return_value="client"))
+            mock_framing = stack.enter_context(patch(
+                "wikidrift.l5_framing_lite.framing_lite",
+                return_value={"divergences": [], "pivot_window": None},
+            ))
+            stack.enter_context(contextlib.redirect_stdout(io.StringIO()))
             result = pipeline.run("Testland", framing=True)
         mock_framing.assert_called_once()
         self.assertEqual(result["l5"], {"divergences": [], "pivot_window": None})
 
+    def test_missing_db_exits_before_llm_client(self):
+        with (
+            patch("wikidrift.pipeline.provenance.resolve_article_title",
+                  return_value=MagicMock(canonical_title="Testland")),
+            patch("wikidrift.pipeline.config.require_corpus_db",
+                  side_effect=FileNotFoundError("token corpus not found: /tmp/missing/provenance.duckdb")),
+            patch("wikidrift.llm.make_client") as mock_client,
+        ):
+            with self.assertRaises(SystemExit) as raised:
+                pipeline.run("Testland", llm=True)
+        self.assertIn("token corpus not found", str(raised.exception))
+        mock_client.assert_not_called()
+
     def test_result_keys_stable(self):
         patches = self._common_patches(leads=[])
-        with (
-            patches[0], patches[1], patches[2], patches[3], patches[4], patches[5],
-            patches[6], patches[7], patches[8], patches[9],
-            contextlib.redirect_stdout(io.StringIO()),
-        ):
+        with contextlib.ExitStack() as stack:
+            for item in patches:
+                stack.enter_context(item)
+            stack.enter_context(contextlib.redirect_stdout(io.StringIO()))
             result = pipeline.run("Testland")
         self.assertEqual(set(result), {
             "article", "l1", "l1_state", "leads", "l2_adjudicated", "l2", "trajectory",
