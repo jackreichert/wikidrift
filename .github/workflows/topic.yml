@@ -1,8 +1,9 @@
 name: Topic update / build
 
 # Manual operator path for one Wikipedia topic:
-#   update — refresh analysis (cover_missing_topics --mode full) then rebuild the static site
-#   build  — rebuild site artifacts from committed findings only (no corpus reanalyze)
+#   update — restore corpus from Cloudflare R2 (if configured), refresh analysis
+#            (cover_missing_topics --mode full), sync corpus back to R2, rebuild site
+#   build  — rebuild site artifacts from committed findings only (no R2, no reanalyze)
 #
 # Secrets come from the GitHub Environment `topic-ops` (not hard-coded). Pages deployment
 # stays out of band — this workflow commits findings + docs when `commit` is true; publish
@@ -68,8 +69,19 @@ jobs:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
       WIKIDRIFT_LLM_API_KEY: ${{ secrets.WIKIDRIFT_LLM_API_KEY }}
+      # Cloudflare R2 (S3-compatible) — corpus persistence for update mode.
+      R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      R2_BUCKET: ${{ secrets.R2_BUCKET }}
+      R2_PREFIX: ${{ secrets.R2_PREFIX }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: auto
+      AWS_EC2_METADATA_DISABLED: "true"
       TOPIC: ${{ github.event.inputs.topic }}
       MODE: ${{ github.event.inputs.mode }}
+      DATA_DIR: .planning/spikes/data
     steps:
       - uses: actions/checkout@v4
         with:
@@ -86,6 +98,40 @@ jobs:
       - name: Sync (LLM extras for xAI / OpenAI-compatible + Gemini)
         run: uv sync --extra all-llm
 
+      - name: Restore corpus from R2
+        if: env.MODE == 'update'
+        run: |
+          set -euo pipefail
+          if [ -z "${R2_ACCOUNT_ID:-}" ] || [ -z "${R2_ACCESS_KEY_ID:-}" ] \
+             || [ -z "${R2_SECRET_ACCESS_KEY:-}" ] || [ -z "${R2_BUCKET:-}" ]; then
+            echo "::notice::R2 secrets not fully set on Environment topic-ops; skipping corpus restore (cold start OK)"
+            exit 0
+          fi
+          PREFIX="${R2_PREFIX:-corpus/}"
+          case "$PREFIX" in
+            */) ;;
+            *) PREFIX="${PREFIX}/" ;;
+          esac
+          ENDPOINT="https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com"
+          mkdir -p "$DATA_DIR"
+          echo "Restoring corpus from s3://${R2_BUCKET}/${PREFIX} (findings excluded — git is source of truth)"
+          # Empty bucket / missing keys: aws exits 0 with nothing copied; treat other failures as soft.
+          aws s3 sync "s3://${R2_BUCKET}/${PREFIX}" "$DATA_DIR/" \
+            --endpoint-url "$ENDPOINT" \
+            --only-show-errors \
+            --exclude "findings/*" \
+            --exclude "*/findings/*" \
+            --exclude "*/logs/*" \
+            --exclude "mscore/*" \
+            --exclude "*/mscore/*" \
+            || echo "::warning::R2 restore soft-failed (empty bucket or network); continuing without cached corpus"
+          if [ -f "$DATA_DIR/provenance.duckdb" ]; then
+            echo "Restored shared provenance.duckdb"
+          else
+            echo "No shared provenance.duckdb in R2 yet (first seed will upload after update)"
+          fi
+          ls -la "$DATA_DIR" 2>/dev/null | head -20 || true
+
       - name: Update topic (analyze + pipeline layers)
         if: env.MODE == 'update'
         run: |
@@ -95,7 +141,8 @@ jobs:
             FRAMING_FLAG=(--framing)
           fi
           # Same operator path as README: full coverage for one explicit topic.
-          # Corpus DuckDB is gitignored and stays on the runner; only findings JSON is committed.
+          # No --force: restored DuckDB snapshots are skipped (incremental fetch).
+          # Corpus DuckDB is gitignored; only findings JSON is committed to git.
           uv run python tools/cover_missing_topics.py \
             --topics "$TOPIC" \
             --mode full \
@@ -111,6 +158,37 @@ jobs:
           uv run python viewer/export_l3.py || {
             echo "::warning::export_l3.py failed; continuing with committed L3 / findings only"
           }
+
+      - name: Upload corpus to R2
+        if: env.MODE == 'update'
+        run: |
+          set -euo pipefail
+          if [ -z "${R2_ACCOUNT_ID:-}" ] || [ -z "${R2_ACCESS_KEY_ID:-}" ] \
+             || [ -z "${R2_SECRET_ACCESS_KEY:-}" ] || [ -z "${R2_BUCKET:-}" ]; then
+            echo "::notice::R2 secrets not fully set; skipping corpus upload"
+            exit 0
+          fi
+          PREFIX="${R2_PREFIX:-corpus/}"
+          case "$PREFIX" in
+            */) ;;
+            *) PREFIX="${PREFIX}/" ;;
+          esac
+          ENDPOINT="https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com"
+          if [ ! -d "$DATA_DIR" ]; then
+            echo "::notice::No $DATA_DIR to upload"
+            exit 0
+          fi
+          echo "Syncing corpus to s3://${R2_BUCKET}/${PREFIX} (findings/logs/mscore excluded)"
+          # First successful update seeds an empty bucket; later runs are incremental syncs.
+          aws s3 sync "$DATA_DIR/" "s3://${R2_BUCKET}/${PREFIX}" \
+            --endpoint-url "$ENDPOINT" \
+            --only-show-errors \
+            --exclude "findings/*" \
+            --exclude "*/findings/*" \
+            --exclude "*/logs/*" \
+            --exclude "mscore/*" \
+            --exclude "*/mscore/*" \
+            || echo "::warning::R2 upload soft-failed; findings/docs commit can still proceed"
 
       - name: Build static site (findings → docs/)
         run: |

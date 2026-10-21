@@ -345,6 +345,20 @@ Wikipedia topic. Run it from the Actions tab → **Topic update / build** → **
 | `XAI_API_KEY` | Default path (`provider=xai`) |
 | `ANTHROPIC_API_KEY` / `OPENAI_API_KEY` / `GOOGLE_API_KEY` | Alternate providers |
 | `WIKIDRIFT_LLM_API_KEY` | Optional override for any provider |
+| `R2_ACCOUNT_ID` | Cloudflare account id (R2 S3 endpoint host) |
+| `R2_ACCESS_KEY_ID` / `R2_SECRET_ACCESS_KEY` | R2 API token (Object Read & Write) |
+| `R2_BUCKET` | R2 bucket name |
+| `R2_PREFIX` | Optional key prefix (workflow defaults to `corpus/` if unset) |
+
+**R2 corpus cache (`update` only):** before analyze, the Action restores
+`.planning/spikes/data/` from R2 (`provenance.duckdb`, `history-xml/`, article-shard DuckDBs —
+findings/logs/mscore excluded). After a successful update it syncs the same paths back. Empty
+bucket or missing R2 secrets are soft-skipped (cold start OK); the first successful `update` with
+credentials **seeds** the bucket. Restored snapshots are reused incrementally (no `--force`).
+`build` mode does not touch R2.
+
+Create the bucket + API token in Cloudflare, then paste the secrets into Environment **`topic-ops`**.
+Endpoint shape: `https://<R2_ACCOUNT_ID>.r2.cloudflarestorage.com`.
 
 Push uses the workflow `GITHUB_TOKEN` (`contents: write`). No separate PAT is required unless branch
 protection on the target branch demands one — then add a fine-scoped PAT as an Environment secret and
