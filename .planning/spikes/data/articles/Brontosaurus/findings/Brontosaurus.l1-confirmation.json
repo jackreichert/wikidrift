@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "article": "Brontosaurus",
-  "run_ts": "2026-08-01T22:32:09.155419+00:00",
+  "run_ts": "2026-10-21T19:20:03.147732+00:00",
   "corpus_horizon": {
     "snapshot_date": "2026-07-01",
     "snapshot_revid": 1362749745
@@ -15,20 +15,83 @@
     "rolling_tolerance_days": 35,
     "rolling_drop": 20.0
   },
-  "coarse_verdict": "UNAVAILABLE",
-  "status": "unavailable",
-  "reason": "loaded 28 of 35 expected snapshots",
+  "sweep_thresholds": {
+    "min_confirmable_tokens": 1000,
+    "loss_floor": 15.0,
+    "gain_floor": 15.0,
+    "replacement_floor": 10.0,
+    "extreme_change": 50.0,
+    "review_mass_floor": 10000,
+    "high_mass_floor": 50000
+  },
   "source_state": {
     "article": "Brontosaurus",
     "source_status": "partial",
-    "source_checked_at": "2026-08-01T22:29:37.569990+00:00",
-    "source_latest_revid": 1362749745,
+    "source_checked_at": "2026-10-21T19:06:34.496336+00:00",
+    "source_latest_revid": 1374721241,
     "expected_snapshots": 35,
     "loaded_snapshots": 28,
     "reason": "loaded 28 of 35 expected snapshots"
   },
+  "coverage_status": "partial",
+  "coverage_endpoints_complete": true,
+  "missing_snapshots": [
+    {
+      "date": "2008-07-01",
+      "revid": 210542665
+    },
+    {
+      "date": "2009-01-01",
+      "revid": 236188576
+    },
+    {
+      "date": "2010-07-01",
+      "revid": 369846144
+    },
+    {
+      "date": "2011-01-01",
+      "revid": 399012384
+    },
+    {
+      "date": "2012-07-01",
+      "revid": 491732949
+    },
+    {
+      "date": "2014-01-01",
+      "revid": 581879062
+    },
+    {
+      "date": "2015-01-01",
+      "revid": 643737958
+    }
+  ],
+  "excluded_intervals": [
+    [
+      181493017,
+      669695101
+    ]
+  ],
+  "coarse_verdict": "PIVOT?",
+  "status": "not_confirmed",
   "confirmed_episodes": [],
-  "evaluated_candidates": [],
+  "evaluated_candidates": [
+    {
+      "candidate_start": "2006-07-01",
+      "candidate_end": "2007-07-01",
+      "candidate_before_revid": 61990399,
+      "candidate_after_revid": 140847391,
+      "source": "interval",
+      "pwr_mass": 2860,
+      "peak_pct": 37.42,
+      "exact_before_revid": 61990399,
+      "exact_before_timestamp": "2006-07-04T08:38:30Z",
+      "exact_after_revid": 63400918,
+      "exact_after_timestamp": "2006-07-12T12:35:49Z",
+      "durable_spine_drop": 0.0,
+      "decision": "rejected",
+      "rejection_reason": "durable_spine_drop_below_threshold"
+    }
+  ],
   "interval_profile": [
     {
       "start": "2006-01-01",
@@ -36,7 +99,16 @@
       "size": 2039,
       "pwr_loss": 8.19,
       "pwr_removed": 167,
-      "mature": false
+      "pwr_gain": 14.96,
+      "pwr_added": 305,
+      "pwr_retained": 91.81,
+      "replacement_candidate": 8.19,
+      "replacement_pwr": 167,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2006-07-01",
@@ -44,7 +116,18 @@
       "size": 2177,
       "pwr_loss": 25.17,
       "pwr_removed": 1019,
-      "mature": false
+      "pwr_gain": 6.62,
+      "pwr_added": 268,
+      "pwr_retained": 74.83,
+      "replacement_candidate": 6.62,
+      "replacement_pwr": 268,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss"
+      ],
+      "priority": "low"
     },
     {
       "start": "2007-01-01",
@@ -52,7 +135,19 @@
       "size": 1886,
       "pwr_loss": 37.42,
       "pwr_removed": 1841,
-      "mature": false
+      "pwr_gain": 10.75,
+      "pwr_added": 529,
+      "pwr_retained": 62.58,
+      "replacement_candidate": 10.75,
+      "replacement_pwr": 529,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "loss",
+        "replacement"
+      ],
+      "priority": "low"
     },
     {
       "start": "2007-07-01",
@@ -60,7 +155,18 @@
       "size": 1696,
       "pwr_loss": 5.53,
       "pwr_removed": 264,
-      "mature": false
+      "pwr_gain": 23.52,
+      "pwr_added": 1123,
+      "pwr_retained": 94.47,
+      "replacement_candidate": 5.53,
+      "replacement_pwr": 264,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [
+        "gain"
+      ],
+      "priority": "low"
     },
     {
       "start": "2008-01-01",
@@ -68,7 +174,20 @@
       "size": 2309,
       "pwr_loss": 78.95,
       "pwr_removed": 5616,
-      "mature": false
+      "pwr_gain": 205.27,
+      "pwr_added": 14601,
+      "pwr_retained": 21.05,
+      "replacement_candidate": 78.95,
+      "replacement_pwr": 5616,
+      "confirmable": true,
+      "mature": true,
+      "eligible": false,
+      "anomaly_types": [
+        "loss",
+        "gain",
+        "replacement"
+      ],
+      "priority": "high"
     },
     {
       "start": "2015-07-01",
@@ -76,7 +195,16 @@
       "size": 14722,
       "pwr_loss": 1.37,
       "pwr_removed": 226,
-      "mature": false
+      "pwr_gain": 2.8,
+      "pwr_added": 462,
+      "pwr_retained": 98.63,
+      "replacement_candidate": 1.37,
+      "replacement_pwr": 226,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2016-01-01",
@@ -84,7 +212,16 @@
       "size": 14926,
       "pwr_loss": 9.33,
       "pwr_removed": 2914,
-      "mature": false
+      "pwr_gain": 1.89,
+      "pwr_added": 590,
+      "pwr_retained": 90.67,
+      "replacement_candidate": 1.89,
+      "replacement_pwr": 590,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2016-07-01",
@@ -92,7 +229,16 @@
       "size": 14049,
       "pwr_loss": 0.96,
       "pwr_removed": 408,
-      "mature": false
+      "pwr_gain": 0.88,
+      "pwr_added": 373,
+      "pwr_retained": 99.04,
+      "replacement_candidate": 0.88,
+      "replacement_pwr": 373,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2017-01-01",
@@ -100,7 +246,16 @@
       "size": 14282,
       "pwr_loss": 1.17,
       "pwr_removed": 657,
-      "mature": false
+      "pwr_gain": 0.11,
+      "pwr_added": 62,
+      "pwr_retained": 98.83,
+      "replacement_candidate": 0.11,
+      "replacement_pwr": 62,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2017-07-01",
@@ -108,7 +263,16 @@
       "size": 14163,
       "pwr_loss": 0.15,
       "pwr_removed": 103,
-      "mature": false
+      "pwr_gain": 0.1,
+      "pwr_added": 70,
+      "pwr_retained": 99.85,
+      "replacement_candidate": 0.1,
+      "replacement_pwr": 70,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2018-01-01",
@@ -116,7 +280,16 @@
       "size": 14195,
       "pwr_loss": 1.1,
       "pwr_removed": 922,
-      "mature": false
+      "pwr_gain": 0.15,
+      "pwr_added": 123,
+      "pwr_retained": 98.9,
+      "replacement_candidate": 0.15,
+      "replacement_pwr": 123,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2018-07-01",
@@ -124,7 +297,16 @@
       "size": 14136,
       "pwr_loss": 1.74,
       "pwr_removed": 1686,
-      "mature": false
+      "pwr_gain": 0.26,
+      "pwr_added": 253,
+      "pwr_retained": 98.26,
+      "replacement_candidate": 0.26,
+      "replacement_pwr": 253,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2019-01-01",
@@ -132,7 +314,16 @@
       "size": 14133,
       "pwr_loss": 0.05,
       "pwr_removed": 53,
-      "mature": false
+      "pwr_gain": 0.08,
+      "pwr_added": 91,
+      "pwr_retained": 99.95,
+      "replacement_candidate": 0.05,
+      "replacement_pwr": 53,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2019-07-01",
@@ -140,7 +331,16 @@
       "size": 14161,
       "pwr_loss": 0.66,
       "pwr_removed": 813,
-      "mature": false
+      "pwr_gain": 0.42,
+      "pwr_added": 520,
+      "pwr_retained": 99.34,
+      "replacement_candidate": 0.42,
+      "replacement_pwr": 520,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2020-01-01",
@@ -148,7 +348,16 @@
       "size": 14276,
       "pwr_loss": 0.31,
       "pwr_removed": 430,
-      "mature": false
+      "pwr_gain": 0.06,
+      "pwr_added": 83,
+      "pwr_retained": 99.69,
+      "replacement_candidate": 0.06,
+      "replacement_pwr": 83,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2020-07-01",
@@ -156,7 +365,16 @@
       "size": 14272,
       "pwr_loss": 0.99,
       "pwr_removed": 1496,
-      "mature": false
+      "pwr_gain": 0.17,
+      "pwr_added": 262,
+      "pwr_retained": 99.01,
+      "replacement_candidate": 0.17,
+      "replacement_pwr": 262,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2021-01-01",
@@ -164,7 +382,16 @@
       "size": 14316,
       "pwr_loss": 0.46,
       "pwr_removed": 761,
-      "mature": false
+      "pwr_gain": 0.08,
+      "pwr_added": 135,
+      "pwr_retained": 99.54,
+      "replacement_candidate": 0.08,
+      "replacement_pwr": 135,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2021-07-01",
@@ -172,7 +399,16 @@
       "size": 14380,
       "pwr_loss": 0.24,
       "pwr_removed": 434,
-      "mature": false
+      "pwr_gain": 0.02,
+      "pwr_added": 35,
+      "pwr_retained": 99.76,
+      "replacement_candidate": 0.02,
+      "replacement_pwr": 35,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2022-01-01",
@@ -180,7 +416,16 @@
       "size": 14378,
       "pwr_loss": 2.48,
       "pwr_removed": 4753,
-      "mature": false
+      "pwr_gain": 1.59,
+      "pwr_added": 3051,
+      "pwr_retained": 97.52,
+      "replacement_candidate": 1.59,
+      "replacement_pwr": 3051,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2022-07-01",
@@ -188,7 +433,16 @@
       "size": 17048,
       "pwr_loss": 0.33,
       "pwr_removed": 664,
-      "mature": true
+      "pwr_gain": 0.22,
+      "pwr_added": 443,
+      "pwr_retained": 99.67,
+      "replacement_candidate": 0.22,
+      "replacement_pwr": 443,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2023-01-01",
@@ -196,7 +450,16 @@
       "size": 17321,
       "pwr_loss": 5.6,
       "pwr_removed": 12362,
-      "mature": true
+      "pwr_gain": 3.49,
+      "pwr_added": 7703,
+      "pwr_retained": 94.4,
+      "replacement_candidate": 3.49,
+      "replacement_pwr": 7703,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "review"
     },
     {
       "start": "2023-07-01",
@@ -204,7 +467,16 @@
       "size": 24074,
       "pwr_loss": 3.44,
       "pwr_removed": 7990,
-      "mature": true
+      "pwr_gain": 0.9,
+      "pwr_added": 2085,
+      "pwr_retained": 96.56,
+      "replacement_candidate": 0.9,
+      "replacement_pwr": 2085,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2024-01-01",
@@ -212,7 +484,16 @@
       "size": 24879,
       "pwr_loss": 0.0,
       "pwr_removed": 4,
-      "mature": true
+      "pwr_gain": 0.01,
+      "pwr_added": 31,
+      "pwr_retained": 100.0,
+      "replacement_candidate": 0.0,
+      "replacement_pwr": 4,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2024-07-01",
@@ -220,7 +501,16 @@
       "size": 24896,
       "pwr_loss": 0.39,
       "pwr_removed": 1072,
-      "mature": true
+      "pwr_gain": 0.07,
+      "pwr_added": 193,
+      "pwr_retained": 99.61,
+      "replacement_candidate": 0.07,
+      "replacement_pwr": 193,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2025-01-01",
@@ -228,7 +518,16 @@
       "size": 25009,
       "pwr_loss": 0.63,
       "pwr_removed": 1893,
-      "mature": true
+      "pwr_gain": 1.09,
+      "pwr_added": 3250,
+      "pwr_retained": 99.37,
+      "replacement_candidate": 0.63,
+      "replacement_pwr": 1893,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2025-07-01",
@@ -236,7 +535,16 @@
       "size": 27127,
       "pwr_loss": 0.99,
       "pwr_removed": 3199,
-      "mature": true
+      "pwr_gain": 0.19,
+      "pwr_added": 627,
+      "pwr_retained": 99.01,
+      "replacement_candidate": 0.19,
+      "replacement_pwr": 627,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     },
     {
       "start": "2026-01-01",
@@ -244,8 +552,64 @@
       "size": 27098,
       "pwr_loss": 0.51,
       "pwr_removed": 1785,
-      "mature": true
+      "pwr_gain": 0.04,
+      "pwr_added": 130,
+      "pwr_retained": 99.49,
+      "replacement_candidate": 0.04,
+      "replacement_pwr": 130,
+      "confirmable": true,
+      "mature": true,
+      "eligible": true,
+      "anomaly_types": [],
+      "priority": "low"
     }
   ],
-  "interval_profile_backfill_ts": "2026-08-03T18:12:03.790342+00:00"
+  "sweep_candidates": [
+    {
+      "start": "2006-07-01",
+      "end": "2007-01-01",
+      "anomaly_types": [
+        "loss"
+      ],
+      "priority": "low",
+      "decision": "pending_confirmation",
+      "pwr_loss": 25.17,
+      "pwr_removed": 1019,
+      "pwr_gain": 6.62,
+      "pwr_added": 268,
+      "replacement_candidate": 6.62,
+      "replacement_pwr": 268
+    },
+    {
+      "start": "2007-01-01",
+      "end": "2007-07-01",
+      "anomaly_types": [
+        "loss",
+        "replacement"
+      ],
+      "priority": "low",
+      "decision": "pending_confirmation",
+      "pwr_loss": 37.42,
+      "pwr_removed": 1841,
+      "pwr_gain": 10.75,
+      "pwr_added": 529,
+      "replacement_candidate": 10.75,
+      "replacement_pwr": 529
+    },
+    {
+      "start": "2007-07-01",
+      "end": "2008-01-01",
+      "anomaly_types": [
+        "gain"
+      ],
+      "priority": "low",
+      "decision": "pending_confirmation",
+      "pwr_loss": 5.53,
+      "pwr_removed": 264,
+      "pwr_gain": 23.52,
+      "pwr_added": 1123,
+      "replacement_candidate": 5.53,
+      "replacement_pwr": 264
+    }
+  ]
 }

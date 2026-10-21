@@ -4,24 +4,24 @@
   "editions": {
     "en": {
       "present": true,
-      "revid": 1362749745,
+      "revid": 1374721241,
       "title": "Brontosaurus",
-      "timestamp": "2026-07-06T00:00:09Z",
-      "prose_chars": 47467
+      "timestamp": "2026-09-13T19:11:39Z",
+      "prose_chars": 47520
     },
-    "he": {
+    "it": {
       "present": true,
-      "revid": 39960717,
-      "title": "ברונטוזאורוס",
-      "timestamp": "2024-11-12T07:58:02Z",
-      "prose_chars": 5231
+      "revid": 152416474,
+      "title": "Brontosaurus",
+      "timestamp": "2026-09-10T23:59:58Z",
+      "prose_chars": 31278
     },
-    "ar": {
+    "es": {
       "present": true,
-      "revid": 69633269,
-      "title": "برنتوصور",
-      "timestamp": "2025-02-19T20:55:02Z",
-      "prose_chars": 464
+      "revid": 174972665,
+      "title": "Brontosaurus",
+      "timestamp": "2026-08-22T13:25:44Z",
+      "prose_chars": 28618
     }
   }
 }

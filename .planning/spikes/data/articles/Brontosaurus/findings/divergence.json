@@ -1,0 +1,28 @@
+{
+  "static": {
+    "Brontosaurus": {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "model_contract": {
+        "provider": "xai",
+        "model": "grok-4.3",
+        "prompt_version": "stance-v3"
+      },
+      "variants": {
+        "lead": {
+          "divergence": 0.0,
+          "spreads": {
+            "Brontosaurus": 0
+          }
+        },
+        "focal": {
+          "divergence": 0.0,
+          "spreads": {
+            "Brontosaurus": 0
+          }
+        }
+      }
+    }
+  },
+  "pivot_relative": {}
+}

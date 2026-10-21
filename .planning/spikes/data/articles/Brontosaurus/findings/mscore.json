@@ -1,0 +1,17 @@
+{
+  "Brontosaurus": {
+    "raw": {
+      "revs": 1085,
+      "mutual_pairs": 4,
+      "M": 592,
+      "M_per_rev": 0.55
+    },
+    "refined": {
+      "revs": 798,
+      "mutual_pairs": 1,
+      "M": 68,
+      "M_per_rev": 0.09
+    },
+    "refined_per_rev": 0.06
+  }
+}

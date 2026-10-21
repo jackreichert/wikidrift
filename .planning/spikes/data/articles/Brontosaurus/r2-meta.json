@@ -1,0 +1,12 @@
+{
+  "title": "Brontosaurus",
+  "slug": "Brontosaurus",
+  "last_revid": 1362749745,
+  "horizon": {
+    "snapshot_date": "2026-07-01",
+    "snapshot_revid": 1362749745
+  },
+  "updated_at": "2026-10-21T18:57:54Z",
+  "source": "smoke-test",
+  "artifact": "shard.duckdb.zst"
+}
