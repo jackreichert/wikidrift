@@ -60,6 +60,15 @@ class StoragePaths(unittest.TestCase):
 
         self.assertEqual(pathlib.Path(output), custom)
 
+    def test_require_corpus_db_message_mentions_migrate_and_r2(self):
+        missing = pathlib.Path("/tmp/wikidrift-no-such/provenance.duckdb")
+        with self.assertRaises(FileNotFoundError) as raised:
+            config.require_corpus_db(missing)
+        text = str(raised.exception)
+        self.assertIn(str(missing), text)
+        self.assertIn("migrate-shards", text)
+        self.assertIn("R2", text)
+
 
 class CitationDomains(unittest.TestCase):
     def test_extracts_and_strips_www(self):

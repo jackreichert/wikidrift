@@ -39,6 +39,26 @@ DATA_DIR = pathlib.Path(os.environ.get(
 DB = DATA_DIR / "provenance.duckdb"
 ARTICLES_DIR = DATA_DIR / "articles"
 
+
+def missing_corpus_db_message(db: pathlib.Path | None = None) -> str:
+    """Human-readable guidance when provenance.duckdb is absent for the active DATA_DIR."""
+    path = pathlib.Path(db) if db is not None else DB
+    return (
+        f"token corpus not found: {path}\n"
+        "Need a local provenance.duckdb for this WIKIDRIFT_DATA_DIR before analyze/pipeline.\n"
+        "Fix: `uv run wikidrift migrate-shards` (or let cover_missing_topics rematerialize from the "
+        "canonical corpus), restore `{slug}/shard.duckdb.zst` from R2 into provenance.duckdb, "
+        "bootstrap/ingest the article, or unset WIKIDRIFT_DATA_DIR to use the canonical data dir."
+    )
+
+
+def require_corpus_db(db: pathlib.Path | None = None) -> pathlib.Path:
+    """Return the corpus path, or raise FileNotFoundError with migrate/bootstrap guidance."""
+    path = pathlib.Path(db) if db is not None else DB
+    if not path.is_file():
+        raise FileNotFoundError(missing_corpus_db_message(path))
+    return path
+
 # The Rust `snapshot-tokens` helper (tools/snapshot-tokens) emits per-token authorship for historical
 # revisions. Build: `cargo build --release` in that dir.
 SNAPSHOT_TOKENS_BIN = pathlib.Path(os.environ.get(

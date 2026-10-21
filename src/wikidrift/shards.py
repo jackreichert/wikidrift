@@ -23,6 +23,41 @@ _EXPECTED_INDEXES = {
 }
 
 
+def resolve_canonical_database(articles_dir: pathlib.Path) -> pathlib.Path | None:
+    """Return parent-dir provenance.duckdb when *articles_dir* is `.../data/articles`."""
+    candidate = pathlib.Path(articles_dir).resolve().parent / "provenance.duckdb"
+    return candidate if candidate.is_file() else None
+
+
+def ensure_article_database(
+    source_db: pathlib.Path,
+    shard_dir: pathlib.Path,
+    article: str,
+    *,
+    force: bool = False,
+) -> pathlib.Path:
+    """Ensure ``shard_dir/provenance.duckdb`` holds this article's rows from *source_db*.
+
+    Findings and other artifacts are left alone — a prior migrate may have copied them while the
+    DuckDB file was later deleted or never restored from R2.
+    """
+    target = pathlib.Path(shard_dir) / "provenance.duckdb"
+    if target.is_file() and not force:
+        return target
+    source_db = pathlib.Path(source_db)
+    if not source_db.is_file():
+        raise FileNotFoundError(f"canonical database not found: {source_db}")
+    shard_dir = pathlib.Path(shard_dir)
+    shard_dir.mkdir(parents=True, exist_ok=True)
+    source_guard = duckdb.connect(str(source_db), read_only=True)
+    try:
+        table_names, _ = _database_inventory(source_guard)
+    finally:
+        source_guard.close()
+    _copy_article_database(source_db, target, table_names, article)
+    return target
+
+
 def migrate_all(data_dir: pathlib.Path, articles_dir: pathlib.Path | None = None) -> dict:
     """Copy every attributable row and artifact into an article-owned shard.
 
