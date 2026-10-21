@@ -332,7 +332,8 @@ Wikipedia topic. Run it from the Actions tab → **Topic update / build** → **
 | Input | Meaning |
 | --- | --- |
 | `topic` | Wikipedia article title (required) |
-| `mode` | `update` — `tools/cover_missing_topics.py --mode full --execute` (+ optional `--framing`), then L3 export + site build; `build` — site artifacts only (`viewer/build.py`) |
+| `mode` | `update` — per-slug R2 restore → analyze/pipeline → R2 upload → site; `build` — site only (no R2) |
+| `corpus_backend` | `hosted` (default WikiWho) or `ingest` (local dumps path when WikiWho is down / won't cover) |
 | `provider` / `model` | LLM selection via `WIKIDRIFT_LLM_*` (defaults: `xai` / `grok-4.3`) |
 | `framing` | On `update`, pass `--framing` for L5 Framing Lite (default on) |
 | `commit` | Commit findings + `docs/` (+ `viewer/data/`) back to the triggering branch (default on) |
@@ -348,17 +349,25 @@ Wikipedia topic. Run it from the Actions tab → **Topic update / build** → **
 | `R2_ACCOUNT_ID` | Cloudflare account id (R2 S3 endpoint host) |
 | `R2_ACCESS_KEY_ID` / `R2_SECRET_ACCESS_KEY` | R2 API token (Object Read & Write) |
 | `R2_BUCKET` | R2 bucket name |
-| `R2_PREFIX` | Optional key prefix (workflow defaults to `corpus/` if unset) |
+| `R2_PREFIX` | Optional key prefix (default empty → keys under `articles/<slug>/`) |
 
-**R2 corpus cache (`update` only):** before analyze, the Action restores
-`.planning/spikes/data/` from R2 (`provenance.duckdb`, `history-xml/`, article-shard DuckDBs —
-findings/logs/mscore excluded). After a successful update it syncs the same paths back. Empty
-bucket or missing R2 secrets are soft-skipped (cold start OK); the first successful `update` with
-credentials **seeds** the bucket. Restored snapshots are reused incrementally (no `--force`).
-`build` mode does not touch R2.
+**R2 per-article shards (`update` only):**
 
-Create the bucket + API token in Cloudflare, then paste the secrets into Environment **`topic-ops`**.
-Endpoint shape: `https://<R2_ACCOUNT_ID>.r2.cloudflarestorage.com`.
+```text
+{R2_PREFIX}articles/<slug>/shard.duckdb.zst
+{R2_PREFIX}articles/<slug>/meta.json
+```
+
+The Action restores **only that slug**, decompresses to
+`.planning/spikes/data/articles/<slug>/provenance.duckdb`, runs coverage with
+`WIKIDRIFT_DATA_DIR` on that shard, then zstd-compresses and uploads **only that slug**
+(staging prefix then promote — never `history-xml/` or a shared monolithic DuckDB). Missing
+secrets or an empty key soft-skip (cold start); the first successful `update` seeds that slug.
+Restored snapshots are reused incrementally (no `--force`). `build` does not touch R2.
+
+If hosted WikiWho fails, re-run with `corpus_backend=ingest` (builds `tools/snapshot-tokens`, then
+`wikidrift ingest`). Create the bucket + API token in Cloudflare, then paste secrets into
+**`topic-ops`**. Endpoint: `https://<R2_ACCOUNT_ID>.r2.cloudflarestorage.com`.
 
 Push uses the workflow `GITHUB_TOKEN` (`contents: write`). No separate PAT is required unless branch
 protection on the target branch demands one — then add a fine-scoped PAT as an Environment secret and
