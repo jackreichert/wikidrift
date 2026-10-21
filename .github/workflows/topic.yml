@@ -1,0 +1,348 @@
+name: Topic update / build
+
+# Manual operator path for one Wikipedia topic:
+#   update — restore that article's R2 shard (if present), analyze under WIKIDRIFT_DATA_DIR,
+#            compress/upload only that slug, rebuild the static site
+#   build  — rebuild site artifacts from committed findings only (no R2, no reanalyze)
+#
+# R2 key layout (never history-xml or shared provenance.duckdb):
+#   {R2_PREFIX}articles/<slug>/shard.duckdb.zst
+#   {R2_PREFIX}articles/<slug>/meta.json
+#
+# Secrets come from the GitHub Environment `topic-ops` (not hard-coded).
+
+on:
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: Wikipedia article title (e.g. Zionism)
+        required: true
+        type: string
+      mode:
+        description: update = reanalyze + site; build = site artifacts only
+        required: true
+        type: choice
+        options:
+          - update
+          - build
+        default: build
+      corpus_backend:
+        description: "update only — hosted WikiWho (default) or local ingest (WikiWho down / coverage gaps)"
+        required: false
+        type: choice
+        options:
+          - hosted
+          - ingest
+        default: hosted
+      provider:
+        description: LLM provider (xai / anthropic / openai / google / grok)
+        required: false
+        type: string
+        default: xai
+      model:
+        description: LLM model id (empty = provider default from repo config)
+        required: false
+        type: string
+        default: grok-4.3
+      framing:
+        description: On update, pass --framing (L5 Framing Lite; needs an LLM key)
+        required: false
+        type: boolean
+        default: true
+      commit:
+        description: Commit findings + docs back to the triggering branch
+        required: false
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: topic-${{ github.event.inputs.topic }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  topic:
+    name: "${{ github.event.inputs.mode }} · ${{ github.event.inputs.topic }}"
+    runs-on: ubuntu-latest
+    environment: topic-ops
+    # Full analyze + pipeline for a hot article can run for hours (WikiWho + LLM).
+    timeout-minutes: 360
+    env:
+      # Provider/model from inputs — never echo secret values.
+      WIKIDRIFT_LLM_PROVIDER: ${{ github.event.inputs.provider }}
+      WIKIDRIFT_LLM_MODEL: ${{ github.event.inputs.model }}
+      # Keys from Environment `topic-ops` (set only the providers you use).
+      XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+      WIKIDRIFT_LLM_API_KEY: ${{ secrets.WIKIDRIFT_LLM_API_KEY }}
+      # Cloudflare R2 (S3-compatible) — per-article shard persistence for update mode.
+      R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      R2_BUCKET: ${{ secrets.R2_BUCKET }}
+      R2_PREFIX: ${{ secrets.R2_PREFIX }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: auto
+      AWS_EC2_METADATA_DISABLED: "true"
+      TOPIC: ${{ github.event.inputs.topic }}
+      MODE: ${{ github.event.inputs.mode }}
+      CORPUS_BACKEND: ${{ github.event.inputs.corpus_backend }}
+      ARTICLES_ROOT: .planning/spikes/data/articles
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+          enable-cache: true
+
+      - name: Sync (all-llm — openai path covers xAI; google optional)
+        run: uv sync --extra all-llm
+
+      - name: Resolve article slug
+        if: env.MODE == 'update'
+        id: slug
+        run: |
+          set -euo pipefail
+          SLUG=$(uv run python -c "from wikidrift import config; print(config.slugify('''$TOPIC'''))")
+          echo "slug=$SLUG" >> "$GITHUB_OUTPUT"
+          echo "SHARD_DIR=$ARTICLES_ROOT/$SLUG" >> "$GITHUB_ENV"
+          echo "Resolved slug=$SLUG → shard dir $ARTICLES_ROOT/$SLUG"
+
+      - name: Install zstd (R2 shard compress/decompress)
+        if: env.MODE == 'update'
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq zstd
+
+      - name: Restore article shard from R2
+        if: env.MODE == 'update'
+        run: |
+          set -euo pipefail
+          if [ -z "${R2_ACCOUNT_ID:-}" ] || [ -z "${R2_ACCESS_KEY_ID:-}" ] \
+             || [ -z "${R2_SECRET_ACCESS_KEY:-}" ] || [ -z "${R2_BUCKET:-}" ]; then
+            echo "::notice::R2 secrets not fully set on Environment topic-ops; skipping shard restore (cold start OK)"
+            exit 0
+          fi
+          PREFIX="${R2_PREFIX:-}"
+          case "$PREFIX" in
+            ""|*/) ;;
+            *) PREFIX="${PREFIX}/" ;;
+          esac
+          ENDPOINT="https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com"
+          SLUG="${{ steps.slug.outputs.slug }}"
+          REMOTE="${PREFIX}articles/${SLUG}"
+          mkdir -p "$SHARD_DIR" /tmp/r2-restore
+          echo "Restoring s3://${R2_BUCKET}/${REMOTE}/shard.duckdb.zst → $SHARD_DIR/provenance.duckdb"
+          if aws s3 cp "s3://${R2_BUCKET}/${REMOTE}/shard.duckdb.zst" /tmp/r2-restore/shard.duckdb.zst \
+               --endpoint-url "$ENDPOINT" --only-show-errors; then
+            zstd -d -f -o "$SHARD_DIR/provenance.duckdb" /tmp/r2-restore/shard.duckdb.zst
+            echo "Restored compressed shard ($(du -h "$SHARD_DIR/provenance.duckdb" | cut -f1))"
+          else
+            echo "::notice::No shard.duckdb.zst for ${SLUG} in R2 (empty key / cold start); continuing without cache"
+          fi
+          aws s3 cp "s3://${R2_BUCKET}/${REMOTE}/meta.json" "$SHARD_DIR/r2-meta.json" \
+            --endpoint-url "$ENDPOINT" --only-show-errors \
+            && echo "Prior meta.json:" && cat "$SHARD_DIR/r2-meta.json" \
+            || echo "No prior meta.json (OK)"
+
+      - name: Build snapshot-tokens (ingest backend only)
+        if: env.MODE == 'update' && env.CORPUS_BACKEND == 'ingest'
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cargo build snapshot-tokens
+        if: env.MODE == 'update' && env.CORPUS_BACKEND == 'ingest'
+        run: |
+          set -euo pipefail
+          (cd tools/snapshot-tokens && cargo build --release)
+
+      - name: Ingest topic into article shard (WikiWho-independent)
+        if: env.MODE == 'update' && env.CORPUS_BACKEND == 'ingest'
+        run: |
+          set -euo pipefail
+          # Local wikiwho_rs-on-dumps path — use when hosted WikiWho is down or won't cover the article.
+          # No --force: existing rsnap rows in the restored shard are skipped.
+          export WIKIDRIFT_DATA_DIR="$SHARD_DIR"
+          mkdir -p "$SHARD_DIR"
+          uv run wikidrift ingest "$TOPIC"
+
+      - name: Update topic (analyze + pipeline layers)
+        if: env.MODE == 'update'
+        run: |
+          set -euo pipefail
+          FRAMING_FLAG=()
+          if [ "${{ github.event.inputs.framing }}" = "true" ]; then
+            FRAMING_FLAG=(--framing)
+          fi
+          # cover_missing_topics sets WIKIDRIFT_DATA_DIR=<articles>/<slug> per topic.
+          # No --force: restored DuckDB snapshots are skipped (incremental fetch).
+          # Hosted WikiWho is the default backend; if it fails, re-run with corpus_backend=ingest.
+          uv run python tools/cover_missing_topics.py \
+            --topics "$TOPIC" \
+            --mode full \
+            --execute \
+            --no-resume \
+            "${FRAMING_FLAG[@]}"
+
+      - name: Export L3 diff/blame (needs local shard corpus)
+        if: env.MODE == 'update'
+        run: |
+          set -euo pipefail
+          export WIKIDRIFT_DATA_DIR="$SHARD_DIR"
+          uv run python viewer/export_l3.py || {
+            echo "::warning::export_l3.py failed; continuing with committed L3 / findings only"
+          }
+
+      - name: Upload article shard to R2
+        if: env.MODE == 'update'
+        run: |
+          set -euo pipefail
+          if [ -z "${R2_ACCOUNT_ID:-}" ] || [ -z "${R2_ACCESS_KEY_ID:-}" ] \
+             || [ -z "${R2_SECRET_ACCESS_KEY:-}" ] || [ -z "${R2_BUCKET:-}" ]; then
+            echo "::notice::R2 secrets not fully set; skipping shard upload"
+            exit 0
+          fi
+          DB="$SHARD_DIR/provenance.duckdb"
+          if [ ! -f "$DB" ]; then
+            echo "::notice::No $DB after update; nothing to upload"
+            exit 0
+          fi
+          PREFIX="${R2_PREFIX:-}"
+          case "$PREFIX" in
+            ""|*/) ;;
+            *) PREFIX="${PREFIX}/" ;;
+          esac
+          ENDPOINT="https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com"
+          SLUG="${{ steps.slug.outputs.slug }}"
+          FINAL="${PREFIX}articles/${SLUG}"
+          STAGING="${FINAL}/_upload_${GITHUB_RUN_ID}"
+          STAGE_DIR=$(mktemp -d)
+          # Compress shard (never upload history-xml or shared monolithic DB).
+          zstd -f -o "$STAGE_DIR/shard.duckdb.zst" "$DB"
+          # meta.json — title, horizon, timestamps (no secrets).
+          export STAGE_DIR SLUG TOPIC CORPUS_BACKEND DB
+          uv run python - <<'PY'
+          import json, os, datetime as dt
+          from pathlib import Path
+          import duckdb
+          from wikidrift.corpus import Corpus
+
+          topic = os.environ["TOPIC"]
+          slug = os.environ["SLUG"]
+          db = Path(os.environ["DB"])
+          stage = Path(os.environ["STAGE_DIR"])
+          source = os.environ.get("CORPUS_BACKEND") or "hosted"
+          horizon = None
+          last_revid = None
+          try:
+              con = duckdb.connect(str(db), read_only=True)
+              try:
+                  row = Corpus(con).latest_snapshot(topic)
+                  if row:
+                      horizon = {"snapshot_date": row[0], "snapshot_revid": int(row[1])}
+                      last_revid = int(row[1])
+              finally:
+                  con.close()
+          except Exception as exc:  # noqa: BLE001 — meta is best-effort
+              print(f"meta horizon unavailable: {type(exc).__name__}: {exc}")
+          meta = {
+              "title": topic,
+              "slug": slug,
+              "last_revid": last_revid,
+              "horizon": horizon,
+              "updated_at": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+              "source": source,
+              "artifact": "shard.duckdb.zst",
+          }
+          (stage / "meta.json").write_text(json.dumps(meta, indent=2) + "\n", encoding="utf-8")
+          print(json.dumps(meta, indent=2))
+          PY
+          echo "Atomic upload via staging prefix s3://${R2_BUCKET}/${STAGING}/ → ${FINAL}/"
+          if aws s3 cp "$STAGE_DIR/shard.duckdb.zst" "s3://${R2_BUCKET}/${STAGING}/shard.duckdb.zst" \
+               --endpoint-url "$ENDPOINT" --only-show-errors \
+            && aws s3 cp "$STAGE_DIR/meta.json" "s3://${R2_BUCKET}/${STAGING}/meta.json" \
+               --endpoint-url "$ENDPOINT" --only-show-errors \
+            && aws s3 cp "s3://${R2_BUCKET}/${STAGING}/shard.duckdb.zst" \
+               "s3://${R2_BUCKET}/${FINAL}/shard.duckdb.zst" \
+               --endpoint-url "$ENDPOINT" --only-show-errors \
+            && aws s3 cp "s3://${R2_BUCKET}/${STAGING}/meta.json" \
+               "s3://${R2_BUCKET}/${FINAL}/meta.json" \
+               --endpoint-url "$ENDPOINT" --only-show-errors; then
+            aws s3 rm "s3://${R2_BUCKET}/${STAGING}/" --recursive \
+              --endpoint-url "$ENDPOINT" --only-show-errors || true
+            echo "Uploaded articles/${SLUG}/shard.duckdb.zst + meta.json"
+          else
+            echo "::warning::R2 shard upload soft-failed; findings/docs commit can still proceed"
+            aws s3 rm "s3://${R2_BUCKET}/${STAGING}/" --recursive \
+              --endpoint-url "$ENDPOINT" --only-show-errors || true
+          fi
+
+      - name: Build static site (findings → docs/)
+        run: |
+          set -euo pipefail
+          BUILD_ARGS=()
+          if [ -n "${XAI_API_KEY:-}" ] || [ -n "${ANTHROPIC_API_KEY:-}" ] \
+             || [ -n "${OPENAI_API_KEY:-}" ] || [ -n "${GOOGLE_API_KEY:-}" ] \
+             || [ -n "${WIKIDRIFT_LLM_API_KEY:-}" ]; then
+            BUILD_ARGS+=(--llm-categories)
+            if [ -n "${WIKIDRIFT_LLM_PROVIDER:-}" ]; then
+              BUILD_ARGS+=(--provider "$WIKIDRIFT_LLM_PROVIDER")
+            fi
+            if [ -n "${WIKIDRIFT_LLM_MODEL:-}" ]; then
+              BUILD_ARGS+=(--model "$WIKIDRIFT_LLM_MODEL")
+            fi
+          else
+            echo "No LLM key in Environment topic-ops; using curated CATEGORY + topic_categories.json cache only"
+          fi
+          uv run python viewer/build.py "${BUILD_ARGS[@]}"
+          uv run python viewer/check_contrast.py
+
+      - name: Verify topic is on the site
+        run: |
+          set -euo pipefail
+          SLUG=$(uv run python -c "from wikidrift import config; print(config.slugify('''$TOPIC'''))")
+          PAGE="docs/article/${SLUG}.html"
+          FINDINGS="docs/findings.html"
+          if [ ! -f "$PAGE" ]; then
+            echo "::error::Missing $PAGE — topic did not land as a first-class article page"
+            echo "Findings must include confirmation/profile/sources/etc. so viewer/build.py discovers the article."
+            exit 1
+          fi
+          if ! grep -q "$SLUG" "$FINDINGS"; then
+            echo "::error::$SLUG not linked from findings index ($FINDINGS)"
+            exit 1
+          fi
+          echo "OK: $PAGE present and linked from findings index"
+          CACHE=".planning/spikes/data/findings/topic_categories.json"
+          if [ -f "$CACHE" ] && grep -F -q "\"$TOPIC\"" "$CACHE"; then
+            echo "topic_categories.json has an entry for $TOPIC"
+          else
+            echo "::notice::If $TOPIC is not in viewer/build.py CATEGORY, it filters as Other until --llm-categories caches it or you edit the curated map."
+          fi
+
+      - name: Commit findings + docs
+        if: github.event.inputs.commit == 'true'
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            .planning/spikes/data/findings \
+            .planning/spikes/data/articles \
+            docs \
+            viewer/data \
+            || true
+          if git diff --cached --quiet; then
+            echo "No site/findings changes to commit"
+            exit 0
+          fi
+          SLUG=$(uv run python -c "from wikidrift import config; print(config.slugify('''$TOPIC'''))")
+          git commit -m "topic(${MODE}): ${TOPIC} (${SLUG})"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

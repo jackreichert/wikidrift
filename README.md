@@ -340,6 +340,63 @@ CI (`.github/workflows/ci.yml`) runs ruff lint, the test suite, and the site bui
 push and PR. It needs no secrets, no token corpus, and no LLM keys — the DB-dependent test auto-skips and the
 site builds from committed findings. Pages **deployment** is intentionally not wired (it stays a manual step).
 
+### Topic update / build Action
+
+[`.github/workflows/topic.yml`](.github/workflows/topic.yml) is a `workflow_dispatch` Action for one
+Wikipedia topic. Run it from the Actions tab → **Topic update / build** → **Run workflow**.
+
+| Input | Meaning |
+| --- | --- |
+| `topic` | Wikipedia article title (required) |
+| `mode` | `update` — per-slug R2 restore → analyze/pipeline → R2 upload → site; `build` — site only (no R2) |
+| `corpus_backend` | `hosted` (default WikiWho) or `ingest` (local dumps path when WikiWho is down / won't cover) |
+| `provider` / `model` | LLM selection via `WIKIDRIFT_LLM_*` (defaults: `xai` / `grok-4.3`) |
+| `framing` | On `update`, pass `--framing` for L5 Framing Lite (default on) |
+| `commit` | Commit findings + `docs/` (+ `viewer/data/`) back to the triggering branch (default on) |
+
+**GitHub Environment:** bind the job to Environment **`topic-ops`**. Create it under
+*Settings → Environments* and add secrets for the providers you use (never commit keys):
+
+| Secret | When needed |
+| --- | --- |
+| `XAI_API_KEY` | Default path (`provider=xai`) |
+| `ANTHROPIC_API_KEY` / `OPENAI_API_KEY` / `GOOGLE_API_KEY` | Alternate providers |
+| `WIKIDRIFT_LLM_API_KEY` | Optional override for any provider |
+| `R2_ACCOUNT_ID` | Cloudflare account id (R2 S3 endpoint host) |
+| `R2_ACCESS_KEY_ID` / `R2_SECRET_ACCESS_KEY` | R2 API token (Object Read & Write) |
+| `R2_BUCKET` | R2 bucket name |
+| `R2_PREFIX` | Optional key prefix (default empty → keys under `articles/<slug>/`) |
+
+**R2 per-article shards (`update` only):**
+
+```text
+{R2_PREFIX}articles/<slug>/shard.duckdb.zst
+{R2_PREFIX}articles/<slug>/meta.json
+```
+
+The Action restores **only that slug**, decompresses to
+`.planning/spikes/data/articles/<slug>/provenance.duckdb`, runs coverage with
+`WIKIDRIFT_DATA_DIR` on that shard, then zstd-compresses and uploads **only that slug**
+(staging prefix then promote — never `history-xml/` or a shared monolithic DuckDB). Missing
+secrets or an empty key soft-skip (cold start); the first successful `update` seeds that slug.
+Restored snapshots are reused incrementally (no `--force`). `build` does not touch R2.
+
+If hosted WikiWho fails, re-run with `corpus_backend=ingest` (builds `tools/snapshot-tokens`, then
+`wikidrift ingest`). Create the bucket + API token in Cloudflare, then paste secrets into
+**`topic-ops`**. Endpoint: `https://<R2_ACCOUNT_ID>.r2.cloudflarestorage.com`.
+
+Push uses the workflow `GITHUB_TOKEN` (`contents: write`). No separate PAT is required unless branch
+protection on the target branch demands one — then add a fine-scoped PAT as an Environment secret and
+swap the checkout token.
+
+**Categories / site wiring:** `viewer/build.py` discovers every article that has renderable findings
+(confirmation / profile / sources / …) — there is no separate roster. Index filters use (1) the curated
+`CATEGORY` map in `viewer/build.py`, then (2) the LLM cache
+`.planning/spikes/data/findings/topic_categories.json` when the Action runs with `--llm-categories`
+(any Environment LLM key present), else **Other**. For a permanent curated placement, add the title to
+`CATEGORY` in a follow-up commit. The Action fails if `docs/article/<slug>.html` is missing or not linked
+from `docs/findings.html`, so orphan findings JSON without site wiring does not silently pass.
+
 ## Status & scope
 
 WikiDrift is a research tool. It surfaces **candidates for a human to adjudicate**; it names *actions* from
