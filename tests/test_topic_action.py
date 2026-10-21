@@ -9,7 +9,8 @@ import unittest
 from pathlib import Path
 from unittest import mock
 
-from wikidrift.topic_action import plan_update_corpus
+from wikidrift import provenance
+from wikidrift.topic_action import plan_update_corpus, resolve_topic_for_action
 
 
 def _load_topic_shard_gate():
@@ -60,6 +61,68 @@ class PlanUpdateCorpusTests(unittest.TestCase):
     def test_unknown_backend_raises(self):
         with self.assertRaises(ValueError):
             plan_update_corpus(shard_present=True, corpus_backend="wikiwho")
+
+
+class ResolveTopicForActionTests(unittest.TestCase):
+    def test_resolve_then_slugify_follows_redirect(self):
+        resolved = provenance.ResolvedArticle(
+            "Iran War", "List of wars involving Iran", 4242,
+        )
+
+        def fake_resolve(title):
+            self.assertEqual(title, "Iran War")
+            return resolved
+
+        out = resolve_topic_for_action("Iran War", resolver=fake_resolve)
+        self.assertEqual(out["requested_title"], "Iran War")
+        self.assertEqual(out["canonical_title"], "List of wars involving Iran")
+        self.assertEqual(out["slug"], "List_of_wars_involving_Iran")
+        self.assertEqual(out["page_id"], 4242)
+        self.assertTrue(out["redirected"])
+
+    def test_url_normalize_then_resolve_then_slugify(self):
+        resolved = provenance.ResolvedArticle(
+            "Iran War", "List of wars involving Iran", 4242,
+        )
+
+        def fake_resolve(title):
+            self.assertEqual(title, "Iran War")
+            return resolved
+
+        out = resolve_topic_for_action(
+            "https://en.wikipedia.org/wiki/Iran_War",
+            resolver=fake_resolve,
+        )
+        self.assertEqual(out["requested_title"], "Iran War")
+        self.assertEqual(out["canonical_title"], "List of wars involving Iran")
+        self.assertEqual(out["slug"], "List_of_wars_involving_Iran")
+        self.assertTrue(out["redirected"])
+
+    def test_no_redirect_not_flagged(self):
+        resolved = provenance.ResolvedArticle("Zionism", "Zionism", 99)
+
+        out = resolve_topic_for_action("Zionism", resolver=lambda _t: resolved)
+        self.assertEqual(out["slug"], "Zionism")
+        self.assertFalse(out["redirected"])
+
+    def test_underscore_vs_space_not_redirect(self):
+        # URL form vs display form of the same title should not count as a redirect.
+        resolved = provenance.ResolvedArticle(
+            "List of wars involving Iran",
+            "List of wars involving Iran",
+            1,
+        )
+        out = resolve_topic_for_action(
+            "List_of_wars_involving_Iran",
+            resolver=lambda _t: resolved,
+            normalize=lambda value: value.replace("_", " ").strip(),
+        )
+        self.assertFalse(out["redirected"])
+        self.assertEqual(out["slug"], "List_of_wars_involving_Iran")
+
+    def test_empty_after_normalize_raises(self):
+        with self.assertRaises(ValueError):
+            resolve_topic_for_action("   ", resolver=lambda _t: None)
 
 
 class TopicShardGateTests(unittest.TestCase):

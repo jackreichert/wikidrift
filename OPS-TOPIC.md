@@ -52,7 +52,7 @@ Actions tab → **Topic update / build** → **Run workflow**.
 | `framing` | bool | L5 Framing Lite on `update` (default on) |
 | `commit` | bool | Commit findings + `docs/` (+ `viewer/data/`) (default on) |
 
-`topic` accepts a bare title or a Wikipedia URL (`/wiki/…` or `/w/index.php?title=…`). The Action normalizes URLs to a title before slugify / ingest / cover (same helper as the CLI).
+`topic` accepts a bare title or a Wikipedia URL (`/wiki/…` or `/w/index.php?title=…`). The Action normalizes URLs to a title, then follows MediaWiki redirects to the **canonical** title before slugify / R2 keys / ingest / cover (same resolve as `provenance.resolve_article_title`). Redirects change the slug — e.g. `Iran War` → `List of wars involving Iran` → `List_of_wars_involving_Iran`. Prefer the canonical title as input, or expect the Action to rewrite `TOPIC`/`SLUG` when a redirect is logged (`resolved redirect: … -> …`).
 
 ## 4. Brand-new topic (cold-start) vs update (delta)
 
@@ -71,7 +71,7 @@ Actions runners have **no** Mac parent corpus. A title that is not already under
 
 What happens:
 
-1. Normalize `topic` (URL → title) and resolve the article slug.
+1. Normalize `topic` (URL → title → MediaWiki canonical) and resolve the article slug.
 2. R2 restore soft-skips (no `shard.duckdb.zst` for the slug).
 3. Gate allows proceed only because `corpus_backend=ingest`.
 4. Build `tools/snapshot-tokens` → `wikidrift ingest "<topic>"` under `articles/<slug>/`.

@@ -112,33 +112,46 @@ jobs:
       - name: Sync (all-llm — openai path covers xAI; google optional)
         run: uv sync --extra all-llm
 
-      - name: Normalize topic (title or Wikipedia URL → title)
+      - name: Normalize topic (URL → title → MediaWiki canonical)
+        id: topic
         run: |
           set -euo pipefail
-          # Shared with CLI: config.normalize_article_arg (wiki/… and index.php?title=).
+          # 1) URL → title (config.normalize_article_arg)
+          # 2) MediaWiki redirects → canonical title (provenance.resolve_article_title)
+          # 3) slugify(canonical) so SHARD_DIR / R2 / ingest / cover share one slug
           # Use stdin so query-string URLs stay intact (no shell quoting hazards).
-          NORMALIZED=$(printf '%s' "$TOPIC" | uv run python -c "
-          import sys
-          from wikidrift import config
-          print(config.normalize_article_arg(sys.stdin.read()), end='')
+          RESULT=$(printf '%s' "$TOPIC" | uv run python -c "
+          import json, sys
+          from wikidrift.topic_action import resolve_topic_for_action
+          print(json.dumps(resolve_topic_for_action(sys.stdin.read())))
           ")
-          if [ -z "$NORMALIZED" ]; then
-            echo "::error::topic input normalized to empty string"
+          REQUESTED=$(printf '%s' "$RESULT" | uv run python -c "import json,sys; print(json.load(sys.stdin)['requested_title'], end='')")
+          CANONICAL=$(printf '%s' "$RESULT" | uv run python -c "import json,sys; print(json.load(sys.stdin)['canonical_title'], end='')")
+          SLUG=$(printf '%s' "$RESULT" | uv run python -c "import json,sys; print(json.load(sys.stdin)['slug'], end='')")
+          REDIRECTED=$(printf '%s' "$RESULT" | uv run python -c "import json,sys; print('true' if json.load(sys.stdin)['redirected'] else 'false', end='')")
+          if [ -z "$CANONICAL" ] || [ -z "$SLUG" ]; then
+            echo "::error::topic resolved to empty canonical title or slug"
             exit 1
           fi
-          echo "TOPIC=$NORMALIZED" >> "$GITHUB_ENV"
-          echo "Normalized topic: $NORMALIZED"
+          if [ "$REDIRECTED" = "true" ]; then
+            echo "resolved redirect: ${REQUESTED} -> ${CANONICAL}"
+          else
+            echo "Normalized topic: ${CANONICAL}"
+          fi
+          # Export canonical TOPIC + SLUG for every later step (ingest, cover, R2, verify).
+          {
+            echo "TOPIC=$CANONICAL"
+            echo "SLUG=$SLUG"
+          } >> "$GITHUB_ENV"
+          echo "slug=$SLUG" >> "$GITHUB_OUTPUT"
+          echo "Canonical topic=${CANONICAL} slug=${SLUG}"
 
-      - name: Resolve article slug
+      - name: Resolve article shard dir
         if: env.MODE == 'update'
         id: slug
         run: |
           set -euo pipefail
-          SLUG=$(printf '%s' "$TOPIC" | uv run python -c "
-          import sys
-          from wikidrift import config
-          print(config.slugify(sys.stdin.read()), end='')
-          ")
+          # SLUG already set from canonical title; only wire SHARD_DIR for update mode.
           echo "slug=$SLUG" >> "$GITHUB_OUTPUT"
           echo "SHARD_DIR=$ARTICLES_ROOT/$SLUG" >> "$GITHUB_ENV"
           echo "Resolved slug=$SLUG → shard dir $ARTICLES_ROOT/$SLUG"
@@ -371,12 +384,7 @@ jobs:
       - name: Verify topic is on the site
         run: |
           set -euo pipefail
-          # TOPIC already normalized (title or URL → title) in an earlier step.
-          SLUG=$(printf '%s' "$TOPIC" | uv run python -c "
-          import sys
-          from wikidrift import config
-          print(config.slugify(sys.stdin.read()), end='')
-          ")
+          # TOPIC + SLUG already canonical (URL → title → MediaWiki redirect) earlier.
           PAGE="docs/article/${SLUG}.html"
           FINDINGS="docs/findings.html"
           if [ ! -f "$PAGE" ]; then
@@ -412,10 +420,6 @@ jobs:
             echo "No site/findings changes to commit"
             exit 0
           fi
-          SLUG=$(printf '%s' "$TOPIC" | uv run python -c "
-          import sys
-          from wikidrift import config
-          print(config.slugify(sys.stdin.read()), end='')
-          ")
+          # TOPIC + SLUG already canonical from the normalize/resolve step.
           git commit -m "topic(${MODE}): ${TOPIC} (${SLUG})"
           git push origin "HEAD:${GITHUB_REF_NAME}"

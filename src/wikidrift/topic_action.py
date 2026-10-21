@@ -4,6 +4,8 @@ Keeps cold-start vs delta decisions out of shell so they stay unit-tested and do
 """
 from __future__ import annotations
 
+from . import config, provenance
+
 
 def plan_update_corpus(*, shard_present: bool, corpus_backend: str) -> dict:
     """Decide how an Action ``update`` should proceed given shard presence and backend.
@@ -52,4 +54,42 @@ def plan_update_corpus(*, shard_present: bool, corpus_backend: str) -> dict:
             "Re-run with corpus_backend=ingest for a true cold-start, "
             "or seed R2 from a Mac (bootstrap / migrate-shards + upload) first."
         ),
+    }
+
+
+def _title_key(title: str) -> str:
+    """Compare titles ignoring underscore/space (URL vs display form)."""
+    return (title or "").strip().replace("_", " ")
+
+
+def resolve_topic_for_action(
+    raw_topic: str,
+    *,
+    resolver=None,
+    normalize=config.normalize_article_arg,
+    slugify=config.slugify,
+) -> dict:
+    """URL-normalize then MediaWiki-canonicalize before slugify / shard keys.
+
+    Same MediaWiki redirect follow as ``provenance.resolve_article_title``, so ingest,
+    R2 keys, SHARD_DIR, and cover_missing_topics all agree on one slug.
+
+    Returns:
+      requested_title, canonical_title, slug, page_id, redirected
+    """
+    requested = normalize(raw_topic)
+    if not requested:
+        raise ValueError("topic input normalized to empty string")
+    resolve = resolver or provenance.resolve_article_title
+    resolved = resolve(requested)
+    canonical = resolved.canonical_title
+    if not (canonical or "").strip():
+        raise ValueError(f"MediaWiki resolved empty canonical title for {requested!r}")
+    redirected = _title_key(requested) != _title_key(canonical)
+    return {
+        "requested_title": requested,
+        "canonical_title": canonical,
+        "slug": slugify(canonical),
+        "page_id": int(resolved.page_id),
+        "redirected": redirected,
     }
