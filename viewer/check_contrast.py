@@ -12,7 +12,6 @@ Exit code 1 if any AA gate fails.
 from __future__ import annotations
 
 import math
-import re
 import sys
 
 # --- Tokens as authored in site/style.css :root ---------------------------------
@@ -125,7 +124,7 @@ def main() -> int:
     print("-" * 92)
     if fails:
         print(f"\n{len(fails)} FAIL(s):")
-        for fg, bg, kind, note, r, need in fails:
+        for fg, bg, _kind, note, r, need in fails:
             print(f"  {fg} / {bg}: {r:.2f} < {need} ({note})")
         return 1
     print("\nAll pairs pass WCAG 2.1 AA.")

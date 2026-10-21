@@ -20,24 +20,62 @@ Verdict ranking: confirmed episodes ranked by PWR-mass (age-agnostic — a long-
 KL Warschau is a primary target, so age must NOT bury it). Recency is a DESCRIPTOR only ("recent retrofit"
 vs "standing distortion"), never a demoter. A tiny old blip (Water 2007) is demoted by small MASS, not age.
 """
-import statistics
 import datetime as dt
+import statistics
 from bisect import bisect_right
+from contextlib import contextmanager
 
 import duckdb
 
-from . import config, event_attribution as event_ledger, process_context, provenance
+from . import config, process_context, provenance
+from . import event_attribution as event_ledger
+from .config import (
+    CONFIRM_DROP,
+    CREEP_MEAN,
+    DURABLE_Q,
+    ELEVATED,
+    EXTREME_CHANGE,
+    GAIN_FLOOR,
+    MAG_FLOOR,
+    MASS_FLOOR,
+    MIN_COHORT,
+    MIN_MATURE,
+    RECENT_YEARS,
+    REPLACEMENT_FLOOR,
+    REVIEW_MASS_FLOOR,
+    ROLLING_DROP,
+    ROLLING_TOLERANCE_DAYS,
+    ROLLING_WINDOW_MONTHS,
+)
 from .corpus import Corpus
-from .config import (MIN_COHORT, MIN_MATURE, MAG_FLOOR, CONFIRM_DROP,
-                     CREEP_MEAN, DURABLE_Q, RECENT_YEARS, ELEVATED,
-                     GAIN_FLOOR, REPLACEMENT_FLOOR, EXTREME_CHANGE, REVIEW_MASS_FLOOR,
-                     MASS_FLOOR, ROLLING_WINDOW_MONTHS, ROLLING_TOLERANCE_DAYS, ROLLING_DROP)
 
 CONFIRMATION_SCHEMA_VERSION = 2
 
 
 def confirmation_name(article):
     return f"{config.slugify(article)}.l1-confirmation.json"
+
+
+@contextmanager
+def _owned_db(con=None, *, read_only=True):
+    """Yield a DuckDB connection, opening/closing only when the caller did not supply one."""
+    owns = con is None
+    if owns:
+        con = duckdb.connect(str(config.DB), read_only=read_only)
+    try:
+        yield con
+    finally:
+        if owns:
+            con.close()
+
+
+def _finalize_confirmation(result, *, persist, owns, con):
+    """Persist a confirmation artifact when requested, then close an owned connection."""
+    if persist:
+        config.write_findings(confirmation_name(result["article"]), result)
+    if owns:
+        con.close()
+    return result
 
 
 def load_confirmation(article):
@@ -196,7 +234,7 @@ def print_coarse_report(snaps, members, present, excluded_intervals=None):
     print(f"\n{'interval end':>12} | {'size':>7} | {'pwr_loss':>8} | {'pwr_removed':>13}")
     print("-" * 52)
     vals = []
-    for d0, r0, d1, r1, ratio, size, wlost, mature in _intervals(snaps, members, present):
+    for _d0, r0, d1, r1, ratio, size, wlost, mature in _intervals(snaps, members, present):
         covered = (r0, r1) not in excluded_intervals
         flag = (
             "  (coverage gap — excluded)" if not covered
@@ -271,7 +309,7 @@ def build_episodes(series, elevated=ELEVATED):
     """Group time-contiguous intervals with persistence-weighted loss >= `elevated` into episodes.
     `abs` accumulates PWR-mass removed (the ranking key); `peak` is the max interval loss %."""
     episodes, cur = [], None
-    for d0, r0, d1, r1, ratio, size, absd in series:
+    for d0, r0, d1, r1, ratio, _size, absd in series:
         if ratio >= elevated:
             if cur and cur["end"][0] == d0:                 # time-contiguous with the running episode
                 cur["end"] = (d1, r1); cur["abs"] += absd; cur["peak"] = max(cur["peak"], ratio)
@@ -361,7 +399,7 @@ def refine(article, con, snaps, members, present, idx_of_rev, peak):
             lo, flo = mid, fmid
     print(f"\n  binary search on durable spine |C|={len(cohort):,} (w≥{cut}): "
           f"{f_start*100:.0f}% → {f_end*100:.0f}%  (interval decline {interval_drop*100:.0f} pts)")
-    print(f"  path: " + " ".join(f"{d}:{v*100:.0f}%" for d, v in path))
+    print("  path: " + " ".join(f"{d}:{v*100:.0f}%" for d, v in path))
     print(f"  ⇒ dominant drop between rev {revs[lo][0]} ({revs[lo][1][:10]}) and rev {revs[hi][0]} ({revs[hi][1][:10]})")
     return revs[lo], revs[hi], interval_drop
 
@@ -461,6 +499,16 @@ def attribute(article, con, episode, render=True):
     return result
 
 
+def confirmation_horizon_and_thresholds_match(confirmation, current_horizon):
+    """Shared soft check: threshold contract + corpus horizon (schema rules stay local to callers)."""
+    if not confirmation or not current_horizon:
+        return False
+    if (confirmation.get("thresholds") or {}) != config.confirmation_thresholds():
+        return False
+    saved = confirmation.get("corpus_horizon") or {}
+    return (saved.get("snapshot_date"), saved.get("snapshot_revid")) == tuple(current_horizon)
+
+
 def _validate_confirmation_corpus(con, article, confirmation):
     """Require an artifact produced for the current corpus and threshold contract."""
     schema_version = confirmation.get("schema_version", 1)
@@ -469,12 +517,10 @@ def _validate_confirmation_corpus(con, article, confirmation):
             f"{article!r} confirmation schema version {schema_version} is newer than supported "
             f"version {CONFIRMATION_SCHEMA_VERSION}"
         )
-    if (confirmation.get("thresholds") or {}) != config.confirmation_thresholds():
-        raise ValueError(f"{article!r} confirmation threshold contract is stale")
     current_horizon = Corpus(con).latest_snapshot(article)
-    saved_horizon = confirmation.get("corpus_horizon") or {}
-    saved = (saved_horizon.get("snapshot_date"), saved_horizon.get("snapshot_revid"))
-    if not current_horizon or saved != tuple(current_horizon):
+    if not confirmation_horizon_and_thresholds_match(confirmation, current_horizon):
+        if (confirmation.get("thresholds") or {}) != config.confirmation_thresholds():
+            raise ValueError(f"{article!r} confirmation threshold contract is stale")
         raise ValueError(f"{article!r} confirmation corpus horizon is stale")
 
 
@@ -489,10 +535,7 @@ def _validate_confirmation_for_backfill(con, article, confirmation):
 
 def backfill_interval_profile(article, con=None, persist=True, force=False):
     """Add interval-level PWR receipts to a current confirmation without rerunning L1."""
-    owns_connection = con is None
-    if owns_connection:
-        con = duckdb.connect(str(config.DB), read_only=True)
-    try:
+    with _owned_db(con, read_only=True) as con:
         confirmation = load_confirmation(article)
         _validate_confirmation_corpus(con, article, confirmation)
         existing_profile = confirmation.get("interval_profile")
@@ -516,17 +559,11 @@ def backfill_interval_profile(article, con=None, persist=True, force=False):
             "interval_count": len(confirmation["interval_profile"]),
             "skipped": False,
         }
-    finally:
-        if owns_connection:
-            con.close()
 
 
 def backfill_attribution(article, con=None, persist=True, force=False):
     """Add exact-event attribution to a current confirmation artifact without rerunning L1."""
-    owns_connection = con is None
-    if owns_connection:
-        con = duckdb.connect(str(config.DB), read_only=True)
-    try:
+    with _owned_db(con, read_only=True) as con:
         confirmation = load_confirmation(article)
         _validate_confirmation_for_backfill(con, article, confirmation)
         updated = 0
@@ -559,17 +596,11 @@ def backfill_attribution(article, con=None, persist=True, force=False):
             "skipped_episodes": skipped,
             "failed_episodes": failed,
         }
-    finally:
-        if owns_connection:
-            con.close()
 
 
 def backfill_process_context(article, con=None, persist=True, force=False):
     """Attach neutral process receipts to current exact episodes without rerunning L1."""
-    owns_connection = con is None
-    if owns_connection:
-        con = duckdb.connect(str(config.DB), read_only=True)
-    try:
+    with _owned_db(con, read_only=True) as con:
         confirmation = load_confirmation(article)
         _validate_confirmation_for_backfill(con, article, confirmation)
         updated = 0
@@ -597,10 +628,6 @@ def backfill_process_context(article, con=None, persist=True, force=False):
             "skipped_episodes": skipped,
             "failed_episodes": failed,
         }
-    finally:
-        if owns_connection:
-            con.close()
-
 
 def _age_years(end_date, horizon):
     """Years from an episode's end to the analysis horizon (article's last snapshot) — deterministic,
@@ -796,6 +823,47 @@ def _confirmed_episode(evaluation):
     }
 
 
+def _confirm_ranked_candidates(
+    article, con, snaps, members, present, idx_of_rev, episodes, result, missing_snapshots,
+):
+    """Run interval then rolling confirmation passes; append evaluations onto result."""
+    confirmed = []
+    if episodes:
+        print("\ncandidate pivot episodes (ranked by PWR-mass removed; recency = context, NOT a demoter):")
+        for e in episodes:
+            print(f"  {e['start'][0]} → {e['end'][0]}   peak {e['peak']:.0f}%   ~{int(e['abs']):,} PWR   "
+                  f"age {e['age']:.1f}yr  [{_recency_tag(e['age'])}]")
+        for e in episodes:
+            span = (e["start"][0], e["start"][1], e["end"][0], e["end"][1], e["peak"])
+            print(f"\n-- confirming {e['start'][0]} → {e['end'][0]} --")
+            conf = refine(article, con, snaps, members, present, idx_of_rev, span)
+            evaluation = _candidate_evaluation(e, conf)
+            result["evaluated_candidates"].append(evaluation)
+            if evaluation["decision"] == "confirmed":
+                confirmed.append((e, span, _confirmed_episode(evaluation)))
+
+    if not confirmed:
+        rolling = non_overlapping_candidates(
+            rolling_candidates(
+                snaps, members, present,
+                blocked_dates={item["date"] for item in missing_snapshots},
+            ),
+            blocked=episodes,
+        )
+        if rolling:
+            print("\nrolling second-pass candidates (12-month weighted loss):")
+        for e in rolling:
+            span = (e["start"][0], e["start"][1], e["end"][0], e["end"][1], e["peak"])
+            print(f"\n-- confirming rolling {e['start'][0]} → {e['end'][0]} "
+                  f"({e['peak']:.0f}%, ~{int(e['abs']):,} PWR) --")
+            conf = refine(article, con, snaps, members, present, idx_of_rev, span)
+            evaluation = _candidate_evaluation(e, conf)
+            result["evaluated_candidates"].append(evaluation)
+            if evaluation["decision"] == "confirmed":
+                confirmed.append((e, span, _confirmed_episode(evaluation)))
+    return confirmed
+
+
 def analyze(article, con=None, persist=True):
     """Full L1 pipeline for one article, with confirmation + attribution.
 
@@ -833,11 +901,7 @@ def analyze(article, con=None, persist=True):
             "interval_profile": [],
         }
         print(f"  unavailable: {result['reason']}")
-        if persist:
-            config.write_findings(confirmation_name(article), result)
-        if owns:
-            con.close()
-        return result
+        return _finalize_confirmation(result, persist=persist, owns=owns, con=con)
     analysis = ranked_episodes(con, article)
     coverage = (
         _coverage_plan(provenance.snapshot_picks(con, article), analysis[0])
@@ -883,55 +947,18 @@ def analyze(article, con=None, persist=True):
         result["status"] = "descriptive_anomalies"
         result["reason"] = "anomalies are below the exact-check floor"
         print(f"  {result['reason']}")
-        if persist:
-            config.write_findings(confirmation_name(article), result)
-        if owns:
-            con.close()
-        return result
+        return _finalize_confirmation(result, persist=persist, owns=owns, con=con)
     if len(snaps) < 3 or not series:
         result["reason"] = "too few snapshots" if len(snaps) < 3 else "no mature covered intervals"
         print(f"  {result['reason']}")
-        if persist:
-            config.write_findings(confirmation_name(article), result)
-        if owns: con.close()
-        return result
+        return _finalize_confirmation(result, persist=persist, owns=owns, con=con)
     print(f"  {len(snaps)} persistent snapshots {snaps[0][0]}..{snaps[-1][0]}", flush=True)
     print_coarse_report(snaps, members, present, excluded_intervals)
 
-    confirmed = []
-    if episodes:
-        print(f"\ncandidate pivot episodes (ranked by PWR-mass removed; recency = context, NOT a demoter):")
-        for e in episodes:
-            print(f"  {e['start'][0]} → {e['end'][0]}   peak {e['peak']:.0f}%   ~{int(e['abs']):,} PWR   "
-                  f"age {e['age']:.1f}yr  [{_recency_tag(e['age'])}]")
-        for e in episodes:
-            span = (e["start"][0], e["start"][1], e["end"][0], e["end"][1], e["peak"])
-            print(f"\n-- confirming {e['start'][0]} → {e['end'][0]} --")
-            conf = refine(article, con, snaps, members, present, idx_of_rev, span)
-            evaluation = _candidate_evaluation(e, conf)
-            result["evaluated_candidates"].append(evaluation)
-            if evaluation["decision"] == "confirmed":
-                confirmed.append((e, span, _confirmed_episode(evaluation)))
-
-    if not confirmed:
-        rolling = non_overlapping_candidates(
-            rolling_candidates(
-                snaps, members, present,
-                blocked_dates={item["date"] for item in coverage["missing_snapshots"]},
-            ),
-            blocked=episodes,
-        )
-        if rolling:
-            print("\nrolling second-pass candidates (12-month weighted loss):")
-        for e in rolling:
-            span = (e["start"][0], e["start"][1], e["end"][0], e["end"][1], e["peak"])
-            print(f"\n-- confirming rolling {e['start'][0]} → {e['end'][0]} "
-                  f"({e['peak']:.0f}%, ~{int(e['abs']):,} PWR) --")
-            conf = refine(article, con, snaps, members, present, idx_of_rev, span)
-            evaluation = _candidate_evaluation(e, conf)
-            result["evaluated_candidates"].append(evaluation)
-            if evaluation["decision"] == "confirmed":
-                confirmed.append((e, span, _confirmed_episode(evaluation)))
+    confirmed = _confirm_ranked_candidates(
+        article, con, snaps, members, present, idx_of_rev,
+        episodes, result, coverage["missing_snapshots"],
+    )
 
     if confirmed:
         confirmed.sort(key=lambda item: -item[0]["abs"])
@@ -963,8 +990,4 @@ def analyze(article, con=None, persist=True):
         print(f"\nVERDICT: ANOMALIES UNCONFIRMED ({nuance})")
     else:
         print(f"\nVERDICT: {_creep_or_healthy_label(mean)}")
-    if persist:
-        config.write_findings(confirmation_name(article), result)
-    if owns:
-        con.close()
-    return result
+    return _finalize_confirmation(result, persist=persist, owns=owns, con=con)

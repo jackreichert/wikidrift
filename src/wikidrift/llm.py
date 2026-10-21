@@ -341,7 +341,7 @@ class Client:
         backend = self._openai if self.provider in ("openai", "xai") else getattr(self, f"_{self.provider}")
         try:
             return backend(schema, prompt, max_tokens)
-        except json.JSONDecodeError as exc:
+        except json.JSONDecodeError:
             retry_tokens = min(max_tokens * 2, 8192)
             if retry_tokens <= max_tokens:
                 raise

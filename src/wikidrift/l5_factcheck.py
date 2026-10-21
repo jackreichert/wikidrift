@@ -13,7 +13,7 @@ A CONTRADICT verdict is a LEAD for a researcher, never a verdict. Needs an LLM k
 pick a cheaper/local backend via --provider/--model/--base-url or WIKIDRIFT_LLM_* env — see llm.py).
 """
 from . import config
-from .l5_crosslingual import sitelinks, fetch_asof, _select_established_langs, SLATE
+from .l5_crosslingual import SLATE, _select_established_langs, fetch_asof, sitelinks
 
 MAX_CHARS = 8000
 MIN_EDITION_COUNT = 2

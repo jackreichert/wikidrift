@@ -11,7 +11,7 @@ from unittest import mock
 
 import duckdb
 
-from wikidrift import benchmark, cli, config, event_attribution, provenance, drift, l4, prerank, trust
+from wikidrift import benchmark, cli, config, drift, event_attribution, l4, prerank, provenance, trust
 from wikidrift.corpus import Corpus
 
 
@@ -205,7 +205,8 @@ class EngineOnSyntheticCorpus(unittest.TestCase):
 
     def test_print_coarse_report_emits_the_interval_table(self):
         # the presentation half split out of coarse still prints the header + footer-stats lines.
-        import io, contextlib
+        import contextlib
+        import io
         snaps, members, present, _ = drift.load_membership(self.con, "SynthPivot")
         buf = io.StringIO()
         with contextlib.redirect_stdout(buf):

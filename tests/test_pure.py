@@ -1,6 +1,6 @@
 """Unit tests for pure engine functions (no network, no DB, no LLM)."""
-import importlib.util
 import datetime as dt
+import importlib.util
 import io
 import json
 import pathlib
@@ -12,21 +12,23 @@ from unittest.mock import Mock, patch
 
 import duckdb
 
-from wikidrift import l5_factcheck as fc
+from wikidrift import (
+    benchmark,
+    cli,
+    config,
+    drift,
+    framing_trajectory,
+    l4,
+    lexical,
+    mscore,
+    pipeline,
+    process_context,
+    provenance,
+    stance,
+)
 from wikidrift import l5_crosslingual as xl
-from wikidrift import mscore
-from wikidrift import l4
+from wikidrift import l5_factcheck as fc
 from wikidrift import l5_sources as src
-from wikidrift import lexical
-from wikidrift import drift
-from wikidrift import benchmark
-from wikidrift import cli
-from wikidrift import stance
-from wikidrift import pipeline
-from wikidrift import config
-from wikidrift import provenance
-from wikidrift import framing_trajectory
-from wikidrift import process_context
 from wikidrift.registry import focal_entities
 
 

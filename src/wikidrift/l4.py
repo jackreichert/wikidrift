@@ -28,9 +28,9 @@ from datetime import date
 import duckdb
 
 from . import config, drift
-from .corpus import Corpus
 from .benchmark import ROSTER
 from .config import MASS_FLOOR
+from .corpus import Corpus
 from .pipeline import confirmation_is_fresh
 
 # --- L4 knobs (a first, deliberately NARROW probe; widen once the signal is trusted) ----------------
@@ -382,7 +382,7 @@ def discover(article="Zionism", top_n=SEED_TOP_N, limit=CANDIDATE_LIMIT):
 
     findings = _build_findings(article, top_n, limit, ep, meta, editors, ranked, results, cls, retrofit, born)
     config.write_findings("l4_discovery.json", _jsonable(findings))
-    print(f"\nwrote findings/l4_discovery.json")
+    print("\nwrote findings/l4_discovery.json")
     return findings
 
 

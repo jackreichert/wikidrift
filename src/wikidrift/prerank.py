@@ -14,15 +14,14 @@ analog of 005's persistent-revision snapshot.
 RECALL-oriented pre-filter, not a verdict: rank true candidates high enough to never skip them; false
 positives are fine (the PWR engine confirms precision). Necessary, not sufficient — a candidate is a lead.
 """
-import statistics
 import datetime as dt
+import statistics
 
 import duckdb
 
 from . import config
+from .config import ANOMALY_MIN, BIN_DAYS, CHURN_ANOMALY, CHURN_MIN_BYTES, GROWTH_RATIO, LEAD_FLOOR, MIN_REVS, SMOOTH_K
 from .corpus import Corpus
-from .config import (BIN_DAYS, MIN_REVS, SMOOTH_K, LEAD_FLOOR, ANOMALY_MIN, GROWTH_RATIO,
-                     CHURN_ANOMALY, CHURN_MIN_BYTES)
 
 
 def _bin_index(ts_iso, t0):
@@ -126,7 +125,7 @@ def run(targets=None):
         below = [r["article"] for r in healthy if r["removed"] >= min_pivot]
         print("-" * 120)
         print(f"lowest known-PIVOT removed_bytes: {min_pivot:,}  "
-              f"({[r['article'] for r in pivots if r['removed']==min_pivot][0]})")
+              f"({next(r['article'] for r in pivots if r['removed'] == min_pivot)})")
         print(f"known-HEALTHY at/above that floor (acceptable false positives for a recall filter): {below or 'none'}")
     addition_leads = [r["article"] for r in results if "addition→L2" in r["leads"]]
     print(f"addition→L2 leads (reframe-by-addition candidates the removal metric would miss): {addition_leads or 'none'}")

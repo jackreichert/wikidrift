@@ -16,6 +16,7 @@ from collections import Counter
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "src"))
 import duckdb  # noqa: E402
+
 from wikidrift import config, drift, provenance, trust  # noqa: E402
 from wikidrift.corpus import Corpus  # noqa: E402
 from wikidrift.l5_crosslingual import fetch_asof  # noqa: E402

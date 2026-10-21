@@ -212,6 +212,19 @@ def _lead_from_wikitext(raw: str) -> str:
     return (sections[0].strip_code() if sections else "").strip()
 
 
+def _lead_receipt_from_revision(revision, title: str) -> dict | None:
+    """Build a capped lead receipt from one Action API revision payload."""
+    lead = _lead_from_wikitext(revision["slots"]["main"]["content"])
+    if not lead:
+        return None
+    return {
+        "revid": revision["revid"],
+        "timestamp": revision["timestamp"],
+        "title": title,
+        "lead": lead[:MAX_LEAD_CHARS],
+    }
+
+
 def _fetch_lead_revision(lang: str, title: str, timestamp: str, after: bool = False) -> dict | None:
     """Fetch the last revision <= timestamp, or the first revision >= it, with an oldid receipt."""
     params = {
@@ -224,16 +237,7 @@ def _fetch_lead_revision(lang: str, title: str, timestamp: str, after: bool = Fa
     try:
         response = _S.get(config.action(lang), params=params, timeout=30).json()
         revision = response["query"]["pages"][0]["revisions"][0]
-        raw = revision["slots"]["main"]["content"]
-        lead = _lead_from_wikitext(raw)
-        if not lead:
-            return None
-        return {
-            "revid": revision["revid"],
-            "timestamp": revision["timestamp"],
-            "title": title,
-            "lead": lead[:MAX_LEAD_CHARS],
-        }
+        return _lead_receipt_from_revision(revision, title)
     except Exception:  # noqa: BLE001 — one unavailable edition must not abort the whole comparison
         return None
 
@@ -247,14 +251,7 @@ def _fetch_lead_by_revid(lang: str, title: str, revid: int) -> dict | None:
     try:
         response = _S.get(config.action(lang), params=params, timeout=30).json()
         revision = response["query"]["pages"][0]["revisions"][0]
-        raw = revision["slots"]["main"]["content"]
-        lead = _lead_from_wikitext(raw)
-        if not lead:
-            return None
-        return {
-            "revid": revision["revid"], "timestamp": revision["timestamp"],
-            "title": title, "lead": lead[:MAX_LEAD_CHARS],
-        }
+        return _lead_receipt_from_revision(revision, title)
     except Exception:  # noqa: BLE001 — unavailable receipt degrades this edition only
         return None
 

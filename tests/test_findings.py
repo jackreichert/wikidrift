@@ -3,7 +3,8 @@ import pathlib
 import tempfile
 import unittest
 
-from wikidrift import config, l5_crosslingual as xl
+from wikidrift import config
+from wikidrift import l5_crosslingual as xl
 
 
 class FindingsIO(unittest.TestCase):

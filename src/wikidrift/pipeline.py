@@ -23,10 +23,20 @@ import datetime as dt
 
 import duckdb
 
-from . import (config, drift, framing_trajectory, l5_factcheck, l5_sources, lexical, mscore,
-               prerank, process_context, provenance, stance)
+from . import (
+    config,
+    drift,
+    framing_trajectory,
+    l5_factcheck,
+    l5_sources,
+    lexical,
+    mscore,
+    prerank,
+    process_context,
+    provenance,
+    stance,
+)
 from .corpus import Corpus
-
 
 SOURCE_CHECK_MAX_AGE = dt.timedelta(days=7)
 EPISODE_ANALYSIS_SCHEMA_VERSION = 1
@@ -71,10 +81,7 @@ def confirmation_is_fresh(confirmation, current_horizon):
         return False
     if schema_version is None and confirmation.get("run_ts"):
         return False
-    if (confirmation.get("thresholds") or {}) != config.confirmation_thresholds():
-        return False
-    saved = confirmation.get("corpus_horizon") or {}
-    return (saved.get("snapshot_date"), saved.get("snapshot_revid")) == tuple(current_horizon)
+    return drift.confirmation_horizon_and_thresholds_match(confirmation, current_horizon)
 
 
 def _source_adequacy(source_state, current_horizon, now=None):
@@ -277,7 +284,7 @@ def analyze_confirmed_episodes(
     for index, window in enumerate(windows, start=1):
         lexical_result = None
 
-        def run_layer(layer, analyze):
+        def run_layer(layer, analyze, *, window=window, index=index):
             try:
                 result = analyze()
                 if not isinstance(result, dict) or not result:
@@ -291,29 +298,41 @@ def analyze_confirmed_episodes(
             return result
 
         if lexical_layer:
-            lexical_result = run_layer("lexical", lambda: lexical.lexical_drift(
-                article, mode="pivot_relative", window=window, persist=False,
-                **lexical_options,
-            ))
+            lexical_result = run_layer(
+                "lexical",
+                lambda window=window: lexical.lexical_drift(
+                    article, mode="pivot_relative", window=window, persist=False,
+                    **lexical_options,
+                ),
+            )
         if sources:
-            run_layer("sources", lambda: l5_sources.sources_over_time(
-                article, window=window, persist=False, **source_options,
-            ))
+            run_layer(
+                "sources",
+                lambda window=window: l5_sources.sources_over_time(
+                    article, window=window, persist=False, **source_options,
+                ),
+            )
         if framing:
             from . import l5_framing_lite
-            run_layer("framing", lambda: l5_framing_lite.framing_lite(
-                article, pivot_window=window, client=client, persist=False,
-                **framing_options,
-            ))
+            run_layer(
+                "framing",
+                lambda window=window: l5_framing_lite.framing_lite(
+                    article, pivot_window=window, client=client, persist=False,
+                    **framing_options,
+                ),
+            )
         if facts:
-            run_layer("factcheck", lambda: l5_factcheck.factcheck(
-                article,
-                ts=window["after_timestamp"],
-                client=client,
-                context={"lexical": lexical_result or {}},
-                persist=False,
-                **factcheck_options,
-            ))
+            run_layer(
+                "factcheck",
+                lambda window=window, lexical_result=lexical_result: l5_factcheck.factcheck(
+                    article,
+                    ts=window["after_timestamp"],
+                    client=client,
+                    context={"lexical": lexical_result or {}},
+                    persist=False,
+                    **factcheck_options,
+                ),
+            )
 
     artifacts = {}
     slug = config.slugify(article)
@@ -408,24 +427,8 @@ def _corroboration(result):
     return {"count": len(signals), "signals": signals}
 
 
-def run(article, llm=False, corroborate=False, framing=False, facts=False, additive=False, process=False,
-    provider=None, model=None, base_url=None, factcheck_max_langs=None):
-    """Orchestrate the layers for one article. Returns a consolidated result dict.
-
-    provider/model/base_url select the LLM backend for the opt-in L2 + framing layers (see llm.py).
-    The cross-language lead comparison (L5) is opt-in via --framing. It uses matched historical revisions when
-    L1 supplies a candidate window and falls back to a current static comparison otherwise."""
-    article = provenance.resolve_article_title(article).canonical_title
-
-    # Build the LLM client ONCE and share it across L2 + L5 (was threaded as 3 loose params into each verb).
-    # NB the `llm` parameter here is the bool opt-in flag, so import the module under an alias.
-    client = None
-    if llm or framing or facts:
-        from . import llm as llm_backend
-        client = llm_backend.make_client(provider, model, base_url)
-    print(f"=== WIKIDRIFT PIPELINE — {article} ===")
-
-    # ---- L1 drift (offline from cache; else full analyze fetches + builds) ----
+def _run_l1(article):
+    """Load or fetch L1 evidence and resolve the authoritative state for one article."""
     con = duckdb.connect(str(config.DB), read_only=True)
     if _snap_count(con, article) < 3:
         con.close()
@@ -455,8 +458,17 @@ def run(article, llm=False, corroborate=False, framing=False, facts=False, addit
         reason = l1_state["reason"] or "insufficient cached evidence"
         label = f"UNAVAILABLE — {reason}"
     print(f"\nL1 drift verdict: {label}")
+    return {
+        "con": con,
+        "label": label,
+        "l1_state": l1_state,
+        "confirmed_windows": confirmed_windows,
+        "pivot_window": pivot_window,
+    }
 
-    # ---- pre-rank router (metadata-only) ----
+
+def _route(con, article, l1_state):
+    """Run the metadata pre-rank router when L1 evidence is available."""
     leads = []
     if l1_state["analysis_status"] == "unavailable":
         print(f"router: unavailable ({l1_state['reason'] or 'L1 evidence unavailable'})")
@@ -465,11 +477,13 @@ def run(article, llm=False, corroborate=False, framing=False, facts=False, addit
             leads = prerank.prerank(con, article).get("leads", [])
         except Exception as e:                              # noqa: BLE001 — degrade if metadata missing
             print(f"router: unavailable ({e})")
-    con.close()
     print(f"router leads: {', '.join(leads) if leads else '(no structural anomaly)'}")
+    return leads
 
-    # ---- adjudicate the routed L2 leads (the gap this pipeline closes) ----
-    l2_leads = [l for l in leads if l.endswith("→L2")]
+
+def _adjudicate_l2(article, leads, *, llm, additive, client):
+    """Trace additive trajectories and optionally adjudicate L2 stance for routed leads."""
+    l2_leads = [lead for lead in leads if lead.endswith("→L2")]
     trajectory = None
     if additive and "addition→L2" in l2_leads:
         print("\n→ tracing persistent additions across exact stable revisions:\n")
@@ -492,22 +506,21 @@ def run(article, llm=False, corroborate=False, framing=False, facts=False, addit
         if llm:
             print(f"\n→ adjudicating routed lead(s) {l2_leads} with L2 stance:\n")
             try:
-                l2_summary = stance.stance_over_time(article, entities=_pipeline_entities(article, None), client=client)
+                l2_summary = stance.stance_over_time(
+                    article, entities=_pipeline_entities(article, None), client=client,
+                )
                 l2_done = True
             except Exception as e:                          # noqa: BLE001
                 print(f"  L2 skipped: {e}")
         else:
             print(f"→ routed to L2 {l2_leads}: re-run with --llm to adjudicate (needs an LLM key).")
+    return l2_leads, l2_done, l2_summary, trajectory
 
-    # ---- M-score corroborator (opt-in; no LLM) ----
-    m = None
-    if corroborate:
-        try:
-            m = mscore.run([article]).get(article)
-        except Exception as e:                              # noqa: BLE001
-            print(f"M-score skipped: {e}")
 
-    # ---- exact-event downstream evidence ----
+def _run_confirmed_downstream(
+    article, confirmed_windows, pivot_window, *, client, framing, facts, factcheck_max_langs,
+):
+    """Collect lexical/sources/framing/facts evidence for confirmed episodes or the fallback path."""
     lex = None
     sources_result = None
     framing_result = None
@@ -522,26 +535,33 @@ def run(article, llm=False, corroborate=False, framing=False, facts=False, addit
         sources_result = episode_artifacts["sources"]
         framing_result = episode_artifacts.get("framing")
         facts_result = episode_artifacts.get("factcheck")
-    else:
+        return lex, sources_result, framing_result, facts_result
+
+    try:
+        print()
+        lex = lexical.lexical_drift(
+            article, mode="not_applicable", window=pivot_window,
+        )
+    except Exception as e:                              # noqa: BLE001
+        print(f"lexical drift skipped: {e}")
+
+    # With no confirmed event, framing remains a candidate/static instrument rather than event evidence.
+    if framing:
         try:
-            print()
-            lex = lexical.lexical_drift(
-                article, mode="not_applicable", window=pivot_window,
+            from . import l5_framing_lite
+            framing_result = l5_framing_lite.framing_lite(
+                article, pivot_window=pivot_window, client=client,
             )
-        except Exception as e:                              # noqa: BLE001
-            print(f"lexical drift skipped: {e}")
+        except Exception as e:                          # noqa: BLE001
+            print(f"Cross-language lead comparison skipped: {e}")
+    return lex, sources_result, framing_result, facts_result
 
-        # With no confirmed event, framing remains a candidate/static instrument rather than event evidence.
-        if framing:
-            try:
-                from . import l5_framing_lite
-                framing_result = l5_framing_lite.framing_lite(
-                    article, pivot_window=pivot_window, client=client,
-                )
-            except Exception as e:                          # noqa: BLE001
-                print(f"Cross-language lead comparison skipped: {e}")
 
-    # ---- consolidated lead ----
+def _print_consolidated(
+    article, label, leads, l2_leads, l2_done, l2_summary, trajectory, m,
+    lex, framing_result, sources_result, facts_result, process_receipts, *, process=False,
+):
+    """Print the researcher-facing consolidated lead summary."""
     print("\n── CONSOLIDATED LEAD (not a verdict) ──")
     print(f"  L1 drift : {label}")
     print(f"  router   : {', '.join(leads) if leads else 'no structural anomaly'}")
@@ -586,11 +606,63 @@ def run(article, llm=False, corroborate=False, framing=False, facts=False, addit
         print(f"  citations : {sources_result.get('episode_count', 1)} exact episode comparison(s)")
     if facts_result:
         print(f"  facts     : {facts_result.get('episode_count', 1)} as-of episode check(s)")
+    if process:
+        print(f"  process   : {len(process_receipts)} exact-event receipt(s) [descriptive only]")
+
+
+def run(article, llm=False, corroborate=False, framing=False, facts=False, additive=False, process=False,
+    provider=None, model=None, base_url=None, factcheck_max_langs=None):
+    """Orchestrate the layers for one article. Returns a consolidated result dict.
+
+    provider/model/base_url select the LLM backend for the opt-in L2 + framing layers (see llm.py).
+    The cross-language lead comparison (L5) is opt-in via --framing. It uses matched historical revisions when
+    L1 supplies a candidate window and falls back to a current static comparison otherwise."""
+    article = provenance.resolve_article_title(article).canonical_title
+
+    # Build the LLM client ONCE and share it across L2 + L5 (was threaded as 3 loose params into each verb).
+    # NB the `llm` parameter here is the bool opt-in flag, so import the module under an alias.
+    client = None
+    if llm or framing or facts:
+        from . import llm as llm_backend
+        client = llm_backend.make_client(provider, model, base_url)
+    print(f"=== WIKIDRIFT PIPELINE — {article} ===")
+
+    l1 = _run_l1(article)
+    con = l1["con"]
+    label = l1["label"]
+    l1_state = l1["l1_state"]
+    confirmed_windows = l1["confirmed_windows"]
+    pivot_window = l1["pivot_window"]
+
+    leads = _route(con, article, l1_state)
+    con.close()
+
+    l2_leads, l2_done, l2_summary, trajectory = _adjudicate_l2(
+        article, leads, llm=llm, additive=additive, client=client,
+    )
+
+    m = None
+    if corroborate:
+        try:
+            m = mscore.run([article]).get(article)
+        except Exception as e:                              # noqa: BLE001
+            print(f"M-score skipped: {e}")
+
+    lex, sources_result, framing_result, facts_result = _run_confirmed_downstream(
+        article, confirmed_windows, pivot_window,
+        client=client, framing=framing, facts=facts, factcheck_max_langs=factcheck_max_langs,
+    )
+
     process_receipts = []
     if process:
         for episode in l1_state["confirmed_episodes"]:
             process_receipts.append(process_context.retrieve_process_context(article, episode))
-        print(f"  process   : {len(process_receipts)} exact-event receipt(s) [descriptive only]")
+
+    _print_consolidated(
+        article, label, leads, l2_leads, l2_done, l2_summary, trajectory, m,
+        lex, framing_result, sources_result, facts_result, process_receipts,
+        process=process,
+    )
     result = {"article": article, "l1": label, "l1_state": l1_state,
               "leads": leads, "l2_adjudicated": l2_done,
               "l2": l2_summary, "trajectory": trajectory,

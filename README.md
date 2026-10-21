@@ -302,15 +302,20 @@ To recompute all cached categories:
 uv run python viewer/build.py --llm-categories --refresh-categories
 ```
 
-## Tests
+## Tests & lint
 
 ```bash
+uv sync --group dev
+uv run ruff check src tests viewer tools cover_missing_topics.py
 uv run python -m unittest discover -s tests
 ```
 
 Stdlib `unittest`, no extra deps. Pure-function units, findings-shape checks, viewer AA-contrast regression,
 a synthetic-corpus L1 engine test (runs in CI without the corpus), and a golden-verdict L1 regression
 (auto-skips if the token corpus is absent). See the tool README for what each suite covers.
+
+Lint is **ruff** (`[tool.ruff]` in `pyproject.toml`). CI runs `ruff check` on every push/PR. Optional local
+format (not enforced yet — would reflow a large surface): `uv run ruff format src tests viewer tools`.
 
 Coverage is enforced in CI via `coverage` with a regression floor (`fail_under` in `pyproject.toml`):
 
@@ -327,13 +332,13 @@ docs/              the built site (committed; GitHub Pages)
 tests/             stdlib unittest suite
 tools/             Rust snapshot-tokens helper for the local wikiwho_rs backend
 .planning/spikes/  frozen experimental record + the (gitignored) data cache + committed findings/
-.github/workflows/ CI — tests (py3.11/3.12) + viewer build + WCAG AA on every push/PR
+.github/workflows/ CI — ruff lint + tests (py3.11/3.12) + viewer build + WCAG AA on every push/PR
 METHODOLOGY.md     the design, the layer model, and the epistemic discipline — read this
 ```
 
-CI (`.github/workflows/ci.yml`) runs the test suite and the site build + contrast check on every push and
-PR. It needs no secrets, no token corpus, and no LLM keys — the DB-dependent test auto-skips and the site
-builds from committed findings. Pages **deployment** is intentionally not wired (it stays a manual step).
+CI (`.github/workflows/ci.yml`) runs ruff lint, the test suite, and the site build + contrast check on every
+push and PR. It needs no secrets, no token corpus, and no LLM keys — the DB-dependent test auto-skips and the
+site builds from committed findings. Pages **deployment** is intentionally not wired (it stays a manual step).
 
 ## Status & scope
 
