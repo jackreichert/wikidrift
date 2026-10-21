@@ -332,7 +332,8 @@ docs/              the built site (committed; GitHub Pages)
 tests/             stdlib unittest suite
 tools/             Rust snapshot-tokens helper for the local wikiwho_rs backend
 .planning/spikes/  frozen experimental record + the (gitignored) data cache + committed findings/
-.github/workflows/ CI — ruff lint + tests (py3.11/3.12) + viewer build + WCAG AA on every push/PR
+.github/workflows/ CI — ruff lint + tests (py3.11/3.12) + viewer build + WCAG AA on every push/PR; topic.yml for ops
+OPS-TOPIC.md       operator checklist: topic-ops secrets, R2 layout, cold start / Mac seed
 METHODOLOGY.md     the design, the layer model, and the epistemic discipline — read this
 ```
 
@@ -343,7 +344,10 @@ site builds from committed findings. Pages **deployment** is intentionally not w
 ### Topic update / build Action
 
 [`.github/workflows/topic.yml`](.github/workflows/topic.yml) is a `workflow_dispatch` Action for one
-Wikipedia topic. Run it from the Actions tab → **Topic update / build** → **Run workflow**.
+Wikipedia topic. **Operator checklist** (secrets, R2 layout, cold start vs delta, Mac first-run seed):
+[`OPS-TOPIC.md`](OPS-TOPIC.md).
+
+Run it from the Actions tab → **Topic update / build** → **Run workflow**.
 
 | Input | Meaning |
 | --- | --- |
@@ -354,40 +358,18 @@ Wikipedia topic. Run it from the Actions tab → **Topic update / build** → **
 | `framing` | On `update`, pass `--framing` for L5 Framing Lite (default on) |
 | `commit` | Commit findings + `docs/` (+ `viewer/data/`) back to the triggering branch (default on) |
 
-**GitHub Environment:** bind the job to Environment **`topic-ops`**. Create it under
-*Settings → Environments* and add secrets for the providers you use (never commit keys):
+**Environment `topic-ops` secrets (summary):** `XAI_API_KEY`; `R2_ACCOUNT_ID` (hex id in
+`https://<id>.r2.cloudflarestorage.com`); `R2_ACCESS_KEY_ID` / `R2_SECRET_ACCESS_KEY` / `R2_BUCKET`;
+optional `R2_PREFIX` and alternate LLM keys. R2 API token must **not** use an IP allowlist (Actions
+egress is dynamic). Full table in [`OPS-TOPIC.md`](OPS-TOPIC.md).
 
-| Secret | When needed |
-| --- | --- |
-| `XAI_API_KEY` | Default path (`provider=xai`) |
-| `ANTHROPIC_API_KEY` / `OPENAI_API_KEY` / `GOOGLE_API_KEY` | Alternate providers |
-| `WIKIDRIFT_LLM_API_KEY` | Optional override for any provider |
-| `R2_ACCOUNT_ID` | Cloudflare account id (R2 S3 endpoint host) |
-| `R2_ACCESS_KEY_ID` / `R2_SECRET_ACCESS_KEY` | R2 API token (Object Read & Write) |
-| `R2_BUCKET` | R2 bucket name |
-| `R2_PREFIX` | Optional key prefix (default empty → keys under `articles/<slug>/`) |
+**R2 layout (`update` only):** `{R2_PREFIX}articles/<slug>/shard.duckdb.zst` + `meta.json` — never
+`history-xml/` or a shared monolithic DuckDB. Cold start soft-skips a missing key; after seed, restore
+is incremental (no `--force`). First Mac seed after `bootstrap` / `migrate-shards` is high-level in
+[`OPS-TOPIC.md`](OPS-TOPIC.md) (dedicated seed script still TBD).
 
-**R2 per-article shards (`update` only):**
-
-```text
-{R2_PREFIX}articles/<slug>/shard.duckdb.zst
-{R2_PREFIX}articles/<slug>/meta.json
-```
-
-The Action restores **only that slug**, decompresses to
-`.planning/spikes/data/articles/<slug>/provenance.duckdb`, runs coverage with
-`WIKIDRIFT_DATA_DIR` on that shard, then zstd-compresses and uploads **only that slug**
-(staging prefix then promote — never `history-xml/` or a shared monolithic DuckDB). Missing
-secrets or an empty key soft-skip (cold start); the first successful `update` seeds that slug.
-Restored snapshots are reused incrementally (no `--force`). `build` does not touch R2.
-
-If hosted WikiWho fails, re-run with `corpus_backend=ingest` (builds `tools/snapshot-tokens`, then
-`wikidrift ingest`). Create the bucket + API token in Cloudflare, then paste secrets into
-**`topic-ops`**. Endpoint: `https://<R2_ACCOUNT_ID>.r2.cloudflarestorage.com`.
-
-Push uses the workflow `GITHUB_TOKEN` (`contents: write`). No separate PAT is required unless branch
-protection on the target branch demands one — then add a fine-scoped PAT as an Environment secret and
-swap the checkout token.
+If hosted WikiWho fails, re-run with `corpus_backend=ingest`. Push uses `GITHUB_TOKEN`
+(`contents: write`).
 
 **Categories / site wiring:** `viewer/build.py` discovers every article that has renderable findings
 (confirmation / profile / sources / …) — there is no separate roster. Index filters use (1) the curated
