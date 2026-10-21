@@ -72,8 +72,8 @@ def _migrate_shards(args):
           f"{args.articles_dir or source_dir / 'articles'}")
 
 
-def main(argv=None):
-    argv = list(sys.argv[1:] if argv is None else argv)
+def _build_parser():
+    """Build the argparse tree for every wikidrift verb."""
     p = argparse.ArgumentParser(prog="wikidrift", description="editor-agnostic Wikipedia narrative-drift detector")
     sub = p.add_subparsers(dest="cmd", required=True)
 
@@ -233,6 +233,12 @@ def main(argv=None):
                     help="destination directory (default: <source>/articles)")
     sp.set_defaults(handler=_migrate_shards)
 
+    return p
+
+
+def main(argv=None):
+    argv = list(sys.argv[1:] if argv is None else argv)
+    p = _build_parser()
     args = p.parse_args(argv)
 
     if hasattr(args, "handler"):
