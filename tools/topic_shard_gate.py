@@ -29,9 +29,9 @@ def main(argv: list[str] | None = None) -> int:
     prefix = f"topic={topic!r} shard={shard_path} backend={backend} kind={plan['kind']}"
     print(f"{prefix}: {plan['message']}")
     if present:
-        print(f"SHARD_PRESENT=true")
+        print("SHARD_PRESENT=true")
     else:
-        print(f"SHARD_PRESENT=false")
+        print("SHARD_PRESENT=false")
     print(f"NEED_INGEST={'true' if plan['need_ingest'] else 'false'}")
     return 0 if plan["ok"] else 1
 
