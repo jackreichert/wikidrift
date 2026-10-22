@@ -148,15 +148,16 @@ def run_helper(xml_path, rev_ids):
     """snapshot-tokens <xml> <csv rev ids> -> {rev_id: [(uid, origin_id), ...]}.
 
     Streams stdout line-by-line (never `capture_output` of the full token dump). An empty
-    rev_ids list is a no-op — the helper treats empty CSV as empty, not "all".
+    rev_ids list is a no-op — the helper treats empty CSV as empty, not "all". Check emptiness
+    before requiring the binary so CI (no cargo build) can still unit-test the guard.
     """
+    rev_ids = list(rev_ids)
+    if not rev_ids:
+        return {}
     binp = config.SNAPSHOT_TOKENS_BIN
     if not binp.exists():
         raise SystemExit(f"snapshot-tokens helper not built: {binp}\n"
                          f"  build it with: (cd tools/snapshot-tokens && cargo build --release)")
-    rev_ids = list(rev_ids)
-    if not rev_ids:
-        return {}
     csv = ",".join(str(r) for r in rev_ids)
     proc = subprocess.Popen(
         [str(binp), str(xml_path), csv],
@@ -189,7 +190,7 @@ def run_helper(xml_path, rev_ids):
 def iter_helper_rows(xml_path, article, picks_batch):
     """Yield rsnap row tuples for one pick batch without buffering all tokens.
 
-    picks_batch: list of (dstr, rev_id).
+    picks_batch: list of (dstr, rev_id). Empty batch is a no-op (no binary required).
     """
     rev_ids = [r for _, r in picks_batch]
     if not rev_ids:

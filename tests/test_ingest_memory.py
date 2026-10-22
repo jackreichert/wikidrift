@@ -56,8 +56,11 @@ class HelperParseAndBatch(unittest.TestCase):
             self.assertEqual(ingest._snap_batch_size(), 1)
 
     def test_run_helper_empty_rev_ids_is_noop(self):
-        # Must not invoke the binary with an empty CSV (historically meant "all").
-        with patch("wikidrift.ingest.subprocess.Popen") as popen:
+        # Must not invoke the binary with an empty CSV (historically meant "all"),
+        # and must not require the binary to exist (CI has no cargo build).
+        missing_bin = Path("/nonexistent/snapshot-tokens-ci-guard")
+        with patch.object(ingest.config, "SNAPSHOT_TOKENS_BIN", missing_bin), \
+             patch("wikidrift.ingest.subprocess.Popen") as popen:
             self.assertEqual(ingest.run_helper(Path("x.xml"), []), {})
             popen.assert_not_called()
 
