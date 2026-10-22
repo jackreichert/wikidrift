@@ -1,7 +1,7 @@
 # Ops: Topic update / build (`topic-ops`)
 
 Operator checklist for [`.github/workflows/topic.yml`](.github/workflows/topic.yml).
-Tickets: **wikidrift-007** (ops checklist), **wikidrift-011** (cold-start Action path).
+Tickets: **wikidrift-007** (ops checklist), **wikidrift-011** (cold-start Action path), **wikidrift-013** (Actions RAM-safe ingest).
 Design note (Project store): `docs/topic-action.md` / `docs/topic-action-coldstart.md`.
 
 ## 1. GitHub Environment secrets
@@ -105,6 +105,18 @@ Restore decompresses the prior shard; cover/ingest run **without `--force`** so 
 | **Cold start** | No R2 shard → must use `ingest`; first successful upload seeds R2 |
 | **Delta** | R2 restore → hosted (default) or ingest → incremental cover → upload |
 | **Hosted + missing shard** | Gate fails; re-run with `ingest` |
+
+### Large-article cold-start on Actions (`ubuntu-latest` ~7GB)
+
+Free runners OOM when `snapshot-tokens` loads a multi‑GB full-history dump and Python buffers every snap’s token lines at once (seen on **2026 Iran war**: XML OK → runner killed during extract). Ingest is now memory-bounded:
+
+- Incomplete XML caches (killed mid-write, no `</mediawiki>`) are discarded and re-fetched.
+- `snapshot-tokens` drops each revision’s dump text after analysis, truncates after the newest requested pick, and treats an empty target list as a no-op (never “all”).
+- Python streams helper stdout and stages `rsnap` in pick batches (`WIKIDRIFT_INGEST_SNAP_BATCH`, default **1**) so the full token universe is never held in RAM.
+
+**Retry Iran war (or similar) after merge:** Actions → Topic update / build → `topic=https://en.wikipedia.org/wiki/2026_Iran_war` (or canonical title), `mode=update`, `corpus_backend=ingest`. Prefer the canonical title if a redirect rewrites the slug. One workflow_dispatch is enough — no multi-job split.
+
+**Still Mac-first when:** the history XML alone is multi‑GB *and* Actions still dies after this path (peak is still “wikiwho graph up through the latest pick”). Seed with `uv run wikidrift ingest "…"` locally, then `tools/seed_r2_shards.py --topics "…"`, then Actions `hosted` deltas.
 
 ## 5. Optional Mac seed (existing corpus → R2)
 
