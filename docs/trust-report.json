@@ -1,22 +1,13 @@
 {
   "counts": {
-    "legacy_incompatible": 209,
-    "published": 1,
+    "legacy_incompatible": 210,
+    "published": 0,
     "quarantined": 0,
     "stale": 0,
     "unstable": 0,
-    "withheld": 209
+    "withheld": 210
   },
-  "published": [
-    {
-      "article": "Brontosaurus",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": "stable-endpoint-v1",
-      "path": "Brontosaurus.l1-confirmation.json",
-      "reason": null,
-      "status": "published"
-    }
-  ],
+  "published": [],
   "withheld": [
     {
       "article": "Bar Kokhba Revolt",
@@ -295,7 +286,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Brontosaurus.stance.json",
-      "reason": "stance artifact lacks revision evidence",
+      "reason": "stable endpoint receipt is missing",
       "status": "legacy_incompatible"
     },
     {
@@ -839,7 +830,7 @@
       "artifact_kind": "lexical",
       "endpoint_policy_version": null,
       "path": "Brontosaurus.lexical.json",
-      "reason": "lexical artifact lacks revision evidence",
+      "reason": "stable endpoint receipt is missing",
       "status": "legacy_incompatible"
     },
     {
@@ -1399,6 +1390,14 @@
       "artifact_kind": "l1-confirmation",
       "endpoint_policy_version": null,
       "path": "Bar_Kokhba_Revolt.l1-confirmation.json",
+      "reason": "stable endpoint receipt is missing",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "Brontosaurus",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": null,
+      "path": "Brontosaurus.l1-confirmation.json",
       "reason": "stable endpoint receipt is missing",
       "status": "legacy_incompatible"
     },
