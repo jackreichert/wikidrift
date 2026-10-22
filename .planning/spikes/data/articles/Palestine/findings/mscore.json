@@ -1,0 +1,17 @@
+{
+  "Palestine": {
+    "raw": {
+      "revs": 5673,
+      "mutual_pairs": 111,
+      "M": 167134,
+      "M_per_rev": 29.46
+    },
+    "refined": {
+      "revs": 4995,
+      "mutual_pairs": 13,
+      "M": 6795,
+      "M_per_rev": 1.36
+    },
+    "refined_per_rev": 1.2
+  }
+}

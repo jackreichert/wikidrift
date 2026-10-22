@@ -1,9 +1,16 @@
 {
+  "schema_version": 1,
+  "prompt_version": "stance-v3",
+  "model_contract": {
+    "provider": "xai",
+    "model": "grok-4",
+    "prompt_version": "stance-v3"
+  },
   "article": "Abortion",
   "langs": [
     "de",
-    "sv",
-    "en"
+    "en",
+    "sv"
   ],
   "entities": [
     "Abortion"
@@ -15,7 +22,13 @@
           "entity": "Abortion",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "Ein Schwangerschaftsabbruch (auch Abtreibung; ... ist die vorzeitige Beendigung einer Schwangerschaft, die das Ungeborene gewolltermaßen nicht überlebt."
+          "confidence": 0.85,
+          "evidence": "Biologisch beginnt eine Schwangerschaft mit der Befruchtung einer Eizelle und endet mit dem Einsetzen der Eröffnungswehen.",
+          "evidence_spans": [
+            "Biologisch beginnt eine Schwangerschaft mit der Befruchtung einer Eizelle und endet mit dem Einsetzen der Eröffnungswehen.",
+            "Die Absaugmethode ist mit 52,1 Prozent (Stand 2021) die in Deutschland am häufigsten angewandte Methode des Schwangerschaftsabbruchs.",
+            "Beide kamen unabhängig voneinander zum Schluss, dass die qualitativ besten Studien die These widerlegen, wonach ein Schwangerschaftsabbruch psychische Probleme verursache."
+          ]
         }
       },
       "lead": {
@@ -23,25 +36,12 @@
           "entity": "Abortion",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "Die Zulässigkeit von Schwangerschaftsabbrüchen ist seit der Antike heftig umstritten... reichen von weitgehender Entscheidungsfreiheit der Schwangeren bis zu völligen Verboten mit harten Strafen."
-        }
-      }
-    },
-    "sv": {
-      "focal": {
-        "Abortion": {
-          "entity": "Abortion",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "Laglig abort är mycket säkert och riskfritt oavsett när i graviditeten man gör den... Legala aborter är idag mycket säkra och de flesta komplikationer beror på en obehandlad sexuellt överförbar infektion."
-        }
-      },
-      "lead": {
-        "Abortion": {
-          "entity": "Abortion",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "Vilken abortmetod som används beror på vad som är bäst för patienten, och den väljs alltid i samråd med patienten så långt det är möjligt."
+          "confidence": 0.85,
+          "evidence": "Die Zulässigkeit von Schwangerschaftsabbrüchen ist seit der Antike heftig umstritten. Im Widerstreit stehen dabei religiöse und ethische Vorstellungen, gesellschaftliche Ansprüche sowie die widerstreitenden Postulate des Selbstbestimmungsrechts der Schwangeren und des Lebensrechts des menschlichen Embryos bzw. Fötus.",
+          "evidence_spans": [
+            "Die Zulässigkeit von Schwangerschaftsabbrüchen ist seit der Antike heftig umstritten.",
+            "Im Widerstreit stehen dabei religiöse und ethische Vorstellungen, gesellschaftliche Ansprüche sowie die widerstreitenden Postulate des Selbstbestimmungsrechts der Schwangeren und des Lebensrechts des menschlichen Embryos bzw. Fötus."
+          ]
         }
       }
     },
@@ -51,15 +51,54 @@
           "entity": "Abortion",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "Abortion laws and views of the procedure are different around the world... there remains debate with regard to moral, religious, ethical, and legal issues"
+          "confidence": 0.95,
+          "evidence": "Abortion is the termination of a pregnancy by removal or expulsion of an embryo or fetus.",
+          "evidence_spans": [
+            "Those who oppose abortion often argue that an embryo or fetus is a person with a right to life, and thus equate abortion with murder. Those who support abortion's legality often argue that it is a woman's reproductive right.",
+            "Public health data show that making safe abortion legal and accessible reduces maternal deaths."
+          ]
         }
       },
       "lead": {
         "Abortion": {
           "entity": "Abortion",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "an induced abortion does not increase the risk of long-term mental or physical problems... Public health data show that making safe abortion legal and accessible reduces maternal deaths."
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.9,
+          "evidence": "Abortion is the termination of a pregnancy by removal or expulsion of an embryo or fetus.",
+          "evidence_spans": [
+            "Abortion is the termination of a pregnancy by removal or expulsion of an embryo or fetus.",
+            "Those who oppose abortion often argue that an embryo or fetus is a person with a right to life, and thus equate abortion with murder. Those who support abortion's legality often argue that it is a woman's reproductive right."
+          ]
+        }
+      }
+    },
+    "sv": {
+      "focal": {
+        "Abortion": {
+          "entity": "Abortion",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.9,
+          "evidence": "Abort (äldre svenska fosterfördrivning), avbrytande av graviditet, betecknar inom medicinsk terminologi varje avbruten graviditet, och uppdelas i spontan abort (missfall) och provocerad abort alternativt inducerad abort.",
+          "evidence_spans": [
+            "Laglig abort är mycket säkert och riskfritt oavsett när i graviditeten man gör den",
+            "Legala aborter är idag mycket säkra och de flesta komplikationer beror på en obehandlad sexuellt överförbar infektion",
+            "Demoniserande karikatyr av abortören \"Madame Restell\""
+          ]
+        }
+      },
+      "lead": {
+        "Abortion": {
+          "entity": "Abortion",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.9,
+          "evidence": "Abort (äldre svenska fosterfördrivning), avbrytande av graviditet, betecknar inom medicinsk terminologi varje avbruten graviditet, och uppdelas i spontan abort (missfall) och provocerad abort alternativt inducerad abort.",
+          "evidence_spans": [
+            "Vilken abortmetod som används beror på vad som är bäst för patienten, och den väljs alltid i samråd med patienten så långt det är möjligt.",
+            "Laglig abort är mycket säkert och riskfritt oavsett när i graviditeten man gör den"
+          ]
         }
       }
     }

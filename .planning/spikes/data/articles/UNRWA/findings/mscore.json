@@ -1,0 +1,17 @@
+{
+  "UNRWA": {
+    "raw": {
+      "revs": 1877,
+      "mutual_pairs": 56,
+      "M": 13414,
+      "M_per_rev": 7.15
+    },
+    "refined": {
+      "revs": 1665,
+      "mutual_pairs": 14,
+      "M": 1573,
+      "M_per_rev": 0.94
+    },
+    "refined_per_rev": 0.84
+  }
+}

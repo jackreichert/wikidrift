@@ -1,21 +1,92 @@
 {
+  "schema_version": 1,
+  "prompt_version": "stance-v3",
+  "model_contract": {
+    "provider": "xai",
+    "model": "grok-4",
+    "prompt_version": "stance-v3"
+  },
   "article": "Climate change",
   "langs": [
-    "en",
-    "he",
-    "ar"
+    "pt",
+    "id",
+    "en"
   ],
   "entities": [
     "Climate change"
   ],
   "editions": {
+    "pt": {
+      "focal": {
+        "Climate change": {
+          "entity": "Climate change",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.9,
+          "evidence": "Praticamente todos os países do mundo são partes signatárias da Convenção-Quadro das Nações Unidas sobre a Mudança do Clima (UNFCCC, na sigla em inglês) de 1994.",
+          "evidence_spans": [
+            "Convenção-Quadro das Nações Unidas sobre a Mudança do Clima (UNFCCC, na sigla em inglês) de 1994",
+            "Política Nacional sobre Mudança do Clima (PNMC) em 2009"
+          ]
+        }
+      },
+      "lead": {
+        "Climate change": {
+          "entity": "Climate change",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.9,
+          "evidence": "A mudança climática contemporânea inclui tanto o aquecimento global – o aumento contínuo da temperatura média global – quanto os seus efeitos mais amplos no sistema climático da Terra.",
+          "evidence_spans": [
+            "A mudança climática contemporânea inclui tanto o aquecimento global – o aumento contínuo da temperatura média global – quanto os seus efeitos mais amplos no sistema climático da Terra.",
+            "A atual elevação das temperaturas globais é impulsionada por atividades humanas, especialmente a queima de combustíveis fósseis"
+          ]
+        }
+      }
+    },
+    "id": {
+      "focal": {
+        "Climate change": {
+          "entity": "Climate change",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.9,
+          "evidence": "Perubahan iklim membawa dampak yang kian besar terhadap lingkungan... Perubahan iklim mengancam kehidupan manusia melalui peningkatan banjir, panas ekstrem...",
+          "evidence_spans": [
+            "Perubahan iklim membawa dampak yang kian besar terhadap lingkungan.",
+            "Perubahan iklim mengancam kehidupan manusia melalui peningkatan banjir, panas ekstrem, kelangkaan pangan dan air, penyebaran penyakit, serta kerugian ekonomi.",
+            "Atmosfer Bumi saat ini mengandung sekitar 50% lebih banyak karbon dioksida"
+          ]
+        }
+      },
+      "lead": {
+        "Climate change": {
+          "entity": "Climate change",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.85,
+          "evidence": "Perubahan iklim masa kini mencakup pemanasan global, yaitu peningkatan suhu rata-rata global yang terus berlanjut, serta dampak yang lebih luas terhadap sistem iklim Bumi.",
+          "evidence_spans": [
+            "Kenaikan suhu global pada era modern didorong oleh aktivitas manusia, terutama pembakaran bahan bakar fosil",
+            "Perubahan iklim membawa dampak yang kian besar terhadap lingkungan.",
+            "Perubahan iklim mengancam kehidupan manusia melalui peningkatan banjir, panas ekstrem, kelangkaan pangan dan air"
+          ]
+        }
+      }
+    },
     "en": {
       "focal": {
         "Climate change": {
           "entity": "Climate change",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "Passage presents scientific consensus and IPCC-sourced findings in standard encyclopedic terms describing causes, effects, and terminology of climate change without advocacy language beyond established scientific framing."
+          "confidence": 0.95,
+          "evidence": "Present-day climate change includes both global warming—the ongoing increase in global average temperature—and its wider effects on Earth's climate system.",
+          "evidence_spans": [
+            "Present-day climate change includes both global warming—the ongoing increase in global average temperature—and its wider effects on Earth's climate system.",
+            "Climate change has an increasingly large impact on the environment.",
+            "Climate change threatens people with increased flooding, extreme heat, increased food and water scarcity, more disease, and economic loss."
+          ]
         }
       },
       "lead": {
@@ -23,43 +94,13 @@
           "entity": "Climate change",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "describes causes, impacts, and mitigation using scientific consensus language (IPCC citations) consistent with standard encyclopedic treatment of a well-established scientific phenomenon"
-        }
-      }
-    },
-    "he": {
-      "focal": {
-        "Climate change": {
-          "entity": "Climate change",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "שינוי אקלים הוא שינוי ארוך טווח ומשמעותי באקלים ובמזג האוויר בכדור הארץ כתוצאה משינויים טבעיים או כתוצאה מפעילות אנושית"
-        }
-      },
-      "lead": {
-        "Climate change": {
-          "entity": "Climate change",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "בסבירות גבוהה מאוד (על פי הערכות נאס\"א, סבירות של יותר מ-95%) תוצאה של פעילות אנושית מאז אמצע המאה ה-20"
-        }
-      }
-    },
-    "ar": {
-      "focal": {
-        "Climate change": {
-          "entity": "Climate change",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "يخلف آثارا خطيرة من تغيرات في مستوى سطح البحر وحياة النبات وعمليات الانقراض الجماعي، كما يؤثر على المجتمعات البشرية... ترتفع نسبة الأنواع المعرضة للانقراض من 20% إلى الثلث"
-        }
-      },
-      "lead": {
-        "Climate change": {
-          "entity": "Climate change",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "يودي بحياة 150 ألف شخص سنويًا... سبق أن حكم على 20% من الأنواع الحياة البرية بالانقراض مع حلول العام 2050... لكن ما حدث ويحدث ليس بهول ما قد يأتي في المستقبل"
+          "confidence": 0.9,
+          "evidence": "Present-day climate change includes both global warming—the ongoing increase in global average temperature—and its wider effects on Earth's climate system.",
+          "evidence_spans": [
+            "The modern-day rise in global temperatures is driven by human activities, especially fossil fuel (coal, oil and natural gas) burning since the Industrial Revolution.",
+            "Climate change has an increasingly large impact on the environment.",
+            "Climate change threatens people with increased flooding, extreme heat, increased food and water scarcity, more disease, and economic loss."
+          ]
         }
       }
     }

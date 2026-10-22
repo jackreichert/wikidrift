@@ -4,24 +4,24 @@
   "editions": {
     "en": {
       "present": true,
-      "revid": 1357159391,
+      "revid": 1380343364,
       "title": "Rafah offensive",
-      "timestamp": "2026-06-01T02:12:34Z",
+      "timestamp": "2026-10-15T04:10:06Z",
       "prose_chars": 138834
+    },
+    "de": {
+      "present": true,
+      "revid": 263256784,
+      "title": "Rafah-Offensive",
+      "timestamp": "2026-01-11T22:00:00Z",
+      "prose_chars": 52425
     },
     "he": {
       "present": true,
-      "revid": 43466530,
+      "revid": 44050024,
       "title": "קרב רפיח (2024)",
-      "timestamp": "2026-06-21T11:28:33Z",
+      "timestamp": "2026-10-10T20:13:13Z",
       "prose_chars": 24271
-    },
-    "ar": {
-      "present": true,
-      "revid": 74208236,
-      "title": "هجوم رفح 2024",
-      "timestamp": "2026-04-08T18:04:03Z",
-      "prose_chars": 18997
     }
   }
 }

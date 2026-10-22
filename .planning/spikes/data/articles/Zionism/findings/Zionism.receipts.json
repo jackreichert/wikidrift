@@ -4,38 +4,38 @@
   "editions": {
     "en": {
       "present": true,
-      "revid": 1363952845,
+      "revid": 1381381315,
       "title": "Zionism",
-      "timestamp": "2026-07-13T14:43:53Z",
-      "prose_chars": 135213
+      "timestamp": "2026-10-22T01:58:32Z",
+      "prose_chars": 131105
     },
     "he": {
       "present": true,
-      "revid": 43580123,
+      "revid": 44041095,
       "title": "ציונות",
-      "timestamp": "2026-07-12T11:22:00Z",
-      "prose_chars": 51235
+      "timestamp": "2026-10-08T17:51:40Z",
+      "prose_chars": 51427
     },
     "ar": {
       "present": true,
-      "revid": 75814026,
+      "revid": 76912407,
       "title": "صهيونية",
-      "timestamp": "2026-07-05T18:00:54Z",
-      "prose_chars": 52571
+      "timestamp": "2026-10-07T08:22:40Z",
+      "prose_chars": 52632
+    },
+    "fa": {
+      "present": true,
+      "revid": 44787104,
+      "title": "صهیونیسم",
+      "timestamp": "2026-10-20T13:53:46Z",
+      "prose_chars": 89562
     },
     "de": {
       "present": true,
-      "revid": 267549613,
+      "revid": 271506676,
       "title": "Zionismus",
-      "timestamp": "2026-05-31T13:45:43Z",
-      "prose_chars": 83922
-    },
-    "ja": {
-      "present": true,
-      "revid": 109895270,
-      "title": "シオニズム",
-      "timestamp": "2026-06-11T14:12:10Z",
-      "prose_chars": 55778
+      "timestamp": "2026-10-21T12:04:48Z",
+      "prose_chars": 85841
     }
   }
 }

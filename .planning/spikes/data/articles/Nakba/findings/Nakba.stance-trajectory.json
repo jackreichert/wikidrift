@@ -1,0 +1,811 @@
+{
+  "schema_version": 1,
+  "prompt_version": "stance-v3",
+  "article": "Nakba",
+  "entities": [
+    "Nakba"
+  ],
+  "repeated_run_policy": {
+    "runs_near_apparent_transition": 3,
+    "agreement_floor": 0.8,
+    "text_similarity_floor": 0.98
+  },
+  "revisions": [
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Nakba",
+      "revision_id": 1027206324,
+      "timestamp": "2021-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Nakba&oldid=1027206324",
+      "passage_hash": "sha256:6c9129267fed0cb54473fa570ce194381f23415f896ad4fe641ef3f29bcad45d",
+      "passage": "The Nakba (), also known as the Palestinian Catastrophe, was the destruction of Palestinian society and homeland in 1948, and the permanent displacement of a majority of the Palestinian people. World Conference Against Racism, Racial Discrimination, Xenophobia, and Related Intolerances: \"a nation in captivity held hostage to an ongoing Nakba, as the most intricate and pervasive expression of persistent colonialism, \"apartheid, racism, and victimization\" (original emphasis).Saeb Erekat, 15 May 2016, Haaretz, Israel Must Recognize Its Responsibility for the Nakba, the Palestinian Tragedy, \"The two-part makeup of the Nakba was borne through the destruction of Palestine and the construction of Israel. For Palestinians worldwide, the Nakba was not merely a day in history 68 years ago, but an entire system of daily forced subjugation and dispossession culminating in today’s Apartheid regime.\"\n\nThe foundational events of the Nakba took place during and shortly after the 1947–1949 Palestine war, including 78% of the geopolitical entity then known as Palestine  being declared as Israel, the exodus of 700,000 Palestinians, the related depopulation and destruction of over 500 Palestinian villages and subsequent geographical erasure, the denial of the Palestinian right of return, the creation of permanent Palestinian refugees and the \"shattering of Palestinian society\".Khalidi, Rashid I. JSTOR, www.jstor.org/stable/2537217 \"Only by understanding the centrality of the catastrophe of politicide and expulsion that befell the Palestinian people - al-nakba in Arabic - is it possible to understand the Palestinians' sense of the right of retum\"\n\nIn 1998, Yasser Arafat proposed that Palestinians should mark the 50th anniversary of the Nakba declaring May 15, the day after Israeli independence in 1948, as Nakba Day, formalizing a date that had been unofficially used as early as 1949. As Israel marks events by the Hebrew calendar, Israeli Independence Day usually does not fall on the same day as Nakba Day.Bowker, Robert (2003). The Nakba greatly influenced the Palestinian culture and is a foundational symbol of Palestinian identity, together with \"Handala\", the keffiyeh and the symbolic key. Countless books, songs and poems have been written about the Nakba. Palestinian poet Mahmoud Darwish described the Nakba as \"an extended present that promises to continue in the future.\"\n\nComponents\nThe Nakba encompasses the displacement, dispossession, statelessness and fracturing of Palestinian society. 923 (2000-2001)\n\nStatelessness and denationalization\nThe creation of Palestinian statelessness is a central component of the Nakba and continues to be a feature of Palestinian national life to the present day. All Arab Palestinians became immediately stateless as a result of the Nakba, although some took on other nationalities. doi: https://doi.org/10.1163/1571810054301004\n\nFracturing of society\n\nThe Nakba was the primary cause of the Palestinian diaspora; at the same time Israel was created as a Jewish homeland, the Palestinians were turned into a \"refugee nation\" with a \"wandering identity\". Terminology\nthumb|right|Constantin Zureiq's 1948 book Ma'na al-Nakba, which coined use of the term. The term Nakba was first applied to the events of 1948 by Constantin Zureiq, a professor of history at the American University of Beirut, in his 1948 book Macnā an-Nakba (The Meaning of the Disaster). Zureiq wrote that \"the tragic aspect of the Nakba is related to the fact that it is not a regular misfortune or a temporal evil, but a Disaster in the very essence of the word, one of the most difficult that Arabs have ever known over their long history.\" Prior to 1948, the \"Year of the Catastrophe\" among Arabs referred to 1920, when European colonial powers partitioned the Ottoman Empire into a series of separate states along lines of their own choosing. Zureiq's students subsequently founded the Arab Nationalist Movement in 1952, one of the first post-Nakba Palestinian political movements. In a six-volume encyclopedia Al-Nakba: Nakbat Bayt al-Maqdis Wal-Firdaws al-Mafqud (The Catastrophe: The Catastrophe of Jerusalem and the Lost Paradise) published between 1958-60, Aref al-Aref wrote: \"How Can I call it but Nakba? When we the Arab people generally and the Palestinians particularly, faced such a disaster (Nakba) that we never faced like it along the centuries, our homeland was sealed, we [were] expelled from our country, and we lost many of our beloved sons.\" Muhammad Nimr al-Hawari also used the term Nakba in the title of his book Sir al Nakba (The Secret behind the Disaster) written in 1955. Initially, the use of the term Nakba among Palestinians was not universal. Nakba narratives were avoided by the leadership of the Palestine Liberation Organization (PLO) in Lebanon in the 1970s, in favor of a narrative of revolution and renewal. Interest in the Nakba by organizations representing refugees in Lebanon surged in the 1990s due to the perception that the refugees' right of return might be negotiated away in exchange for Palestinian statehood, and the desire was to send a clear message to the international community that this right was non-negotiable. Israeli perspectives\nIsraeli narrative\nThe period of the Nakba is the \"other side of the coin\" of the period which many Jewish Israelis refer to as the birth of the state of Israel and their \"War of Independence\". Prohibition on Nakba commemoration\nIn May 2009 Yisrael Beiteinu introduced a bill that would outlaw all Nakba commemorations, with a three-year prison sentence for such acts of remembrance.Boudreaux, Richard. The implementation of the new law unintentionally promoted knowledge of the Nakba within Israeli society, an example of the Streisand effect. Long term implications\nThe most important long-term implications of the Nakba for the Palestinian people were the loss of their homeland, the fragmentation and marginalization of their national community, and their transformation int",
+      "has_focal_prose": true,
+      "entities": [
+        "Nakba"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-10-22T01:45:06.216273+00:00",
+          "provider": "xai",
+          "model": "grok-4",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Nakba",
+              "stance": "sympathetic",
+              "npov_departure": true,
+              "confidence": 0.85,
+              "evidence": "the destruction of Palestinian society and homeland in 1948, and the permanent displacement of a majority of the Palestinian people",
+              "evidence_spans": [
+                "the destruction of Palestinian society and homeland in 1948, and the permanent displacement of a majority of the Palestinian people",
+                "a nation in captivity held hostage to an ongoing Nakba, as the most intricate and pervasive expression of persistent colonialism, \"apartheid, racism, and victimization\"",
+                "the shattering of Palestinian society"
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Nakba": {
+          "label": "sympathetic",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "sympathetic": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.85
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Nakba",
+      "revision_id": 1061920846,
+      "timestamp": "2022-01-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Nakba&oldid=1061920846",
+      "passage_hash": "sha256:dd1e8f18e3019e29a60c2bb6fec3b81b6e20823b0c35b763f03c564936fbf7bd",
+      "passage": "The Nakba (), also known as the Palestinian Catastrophe, was the destruction of Palestinian society and homeland in 1948, and the permanent displacement of a majority of the Palestinian Arabs. World Conference Against Racism, Racial Discrimination, Xenophobia, and Related Intolerances: \"a nation in captivity held hostage to an ongoing Nakba, as the most intricate and pervasive expression of persistent colonialism, \"apartheid, racism, and victimization\" (original emphasis).Saeb Erekat, 15 May 2016, Haaretz, Israel Must Recognize Its Responsibility for the Nakba, the Palestinian Tragedy, \"The two-part makeup of the Nakba was borne through the destruction of Palestine and the construction of Israel. For Palestinians worldwide, the Nakba was not merely a day in history 68 years ago, but an entire system of daily forced subjugation and dispossession culminating in today’s Apartheid regime.\"\n\nThe foundational events of the Nakba took place during and shortly after the 1947–1949 Palestine war, including 78% of Mandatory Palestine  being declared as Israel, the exodus of 700,000 Palestinians, the related depopulation and destruction of over 500 Palestinian villages and subsequent geographical erasure, the denial of the Palestinian right of return, the creation of permanent Palestinian refugees and the \"shattering of Palestinian society\".Khalidi, Rashid I. JSTOR, www.jstor.org/stable/2537217 \"Only by understanding the centrality of the catastrophe of politicide and expulsion that befell the Palestinian people - al-nakba in Arabic - is it possible to understand the Palestinians' sense of the right of retum\"\n\nIn 1998, Yasser Arafat proposed that Palestinians should mark the 50th anniversary of the Nakba declaring May 15, the day after Israeli independence in 1948, as Nakba Day, formalizing a date that had been unofficially used as early as 1949. As Israel marks events by the Hebrew calendar, Israeli Independence Day usually does not fall on the same day as Nakba Day.Bowker, Robert (2003). The Nakba greatly influenced the Palestinian culture and is a foundational symbol of Palestinian identity, together with \"Handala\", the keffiyeh and the symbolic key. Countless books, songs and poems have been written about the Nakba. Palestinian poet Mahmoud Darwish described the Nakba as \"an extended present that promises to continue in the future.\"\n\nComponents\nThe Nakba encompasses the displacement, dispossession, statelessness and fracturing of Palestinian society. 923 (2000-2001)\n\nStatelessness and denationalization\nThe creation of Palestinian statelessness is a central component of the Nakba and continues to be a feature of Palestinian national life to the present day. All Arab Palestinians became immediately stateless as a result of the Nakba, although some took on other nationalities. Fracturing of society\n\nThe Nakba was the primary cause of the Palestinian diaspora; at the same time Israel was created as a Jewish homeland, the Palestinians were turned into a \"refugee nation\" with a \"wandering identity\". Terminology\nthumb|right|Constantin Zureiq's 1948 book Ma'na al-Nakba, which coined use of the term. The term Nakba was first applied to the events of 1948 by Constantin Zureiq, a professor of history at the American University of Beirut, in his 1948 book Macnā an-Nakba (The Meaning of the Disaster). Zureiq wrote that \"the tragic aspect of the Nakba is related to the fact that it is not a regular misfortune or a temporal evil, but a Disaster in the very essence of the word, one of the most difficult that Arabs have ever known over their long history.\" Prior to 1948, the \"Year of the Catastrophe\" among Arabs referred to 1920, when European colonial powers partitioned the Ottoman Empire into a series of separate states along lines of their own choosing. Zureiq's students subsequently founded the Arab Nationalist Movement in 1952, one of the first post-Nakba Palestinian political movements. In a six-volume encyclopedia Al-Nakba: Nakbat Bayt al-Maqdis Wal-Firdaws al-Mafqud (The Catastrophe: The Catastrophe of Jerusalem and the Lost Paradise) published between 1958-60, Aref al-Aref wrote: \"How Can I call it but Nakba? When we the Arab people generally and the Palestinians particularly, faced such a disaster (Nakba) that we never faced like it along the centuries, our homeland was sealed, we [were] expelled from our country, and we lost many of our beloved sons.\" Muhammad Nimr al-Hawari also used the term Nakba in the title of his book Sir al Nakba (The Secret behind the Disaster) written in 1955. Initially, the use of the term Nakba among Palestinians was not universal. Nakba narratives were avoided by the leadership of the Palestine Liberation Organization (PLO) in Lebanon in the 1970s, in favor of a narrative of revolution and renewal. Interest in the Nakba by organizations representing refugees in Lebanon surged in the 1990s due to the perception that the refugees' right of return might be negotiated away in exchange for Palestinian statehood, and the desire was to send a clear message to the international community that this right was non-negotiable. Israeli perspectives\nIsraeli narrative\nThe period of the Nakba is the \"other side of the coin\" of the period which many Jewish Israelis refer to as the birth of the state of Israel and their \"War of Independence\". Prohibition on Nakba commemoration\nIn May 2009 Yisrael Beiteinu introduced a bill that would outlaw all Nakba commemorations, with a three-year prison sentence for such acts of remembrance.Boudreaux, Richard. The implementation of the new law unintentionally promoted knowledge of the Nakba within Israeli society, an example of the Streisand effect. Long term implications\nThe most important long-term implications of the Nakba for the Palestinian people were the loss of their homeland, the fragmentation and marginalization of their national community, and their transformation into a stateless people. Postnational memory: Narrating the Holocaust and the N",
+      "has_focal_prose": true,
+      "entities": [
+        "Nakba"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-10-22T01:45:09.991016+00:00",
+          "provider": "xai",
+          "model": "grok-4",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Nakba",
+              "stance": "sympathetic",
+              "npov_departure": true,
+              "confidence": 0.85,
+              "evidence": "The Nakba (), also known as the Palestinian Catastrophe, was the destruction of Palestinian society and homeland in 1948, and the permanent displacement of a majority of the Palestinian Arabs.",
+              "evidence_spans": [
+                "also known as the Palestinian Catastrophe, was the destruction of Palestinian society and homeland in 1948, and the permanent displacement of a majority of the Palestinian Arabs",
+                "a nation in captivity held hostage to an ongoing Nakba, as the most intricate and pervasive expression of persistent colonialism, \"apartheid, racism, and victimization\"",
+                "Israel Must Recognize Its Responsibility for the Nakba, the Palestinian Tragedy"
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Nakba": {
+          "label": "sympathetic",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "sympathetic": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.85
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Nakba",
+      "revision_id": 1095453582,
+      "timestamp": "2022-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Nakba&oldid=1095453582",
+      "passage_hash": "sha256:e409a828bc626aa3dc6d577adf64a485cb1a6e685589b50254e40d9363293770",
+      "passage": "The Nakba (), also known as the Palestinian Catastrophe, was the destruction of Palestinian society and homeland in 1948, and the permanent displacement of a majority of the Palestinian Arabs. World Conference Against Racism, Racial Discrimination, Xenophobia, and Related Intolerances: \"a nation in captivity held hostage to an ongoing Nakba, as the most intricate and pervasive expression of persistent colonialism, \"apartheid, racism, and victimization\" (original emphasis).Saeb Erekat, 15 May 2016, Haaretz, Israel Must Recognize Its Responsibility for the Nakba, the Palestinian Tragedy, \"The two-part makeup of the Nakba was borne through the destruction of Palestine and the construction of Israel. For Palestinians worldwide, the Nakba was not merely a day in history 68 years ago, but an entire system of daily forced subjugation and dispossession culminating in today’s Apartheid regime.\"\n\nThe foundational events of the Nakba took place during and shortly after the 1947–1949 Palestine war, including 78% of Mandatory Palestine being declared as Israel, the exodus of 700,000 Palestinians, the related depopulation and destruction of over 500 Palestinian villages and subsequent geographical erasure, the denial of the Palestinian right of return, the creation of permanent Palestinian refugees and the \"shattering of Palestinian society\". In 1998, Yasser Arafat proposed that Palestinians should mark the 50th anniversary of the Nakba declaring 15 May, the day after Israeli independence in 1948, as Nakba Day, formalizing a date that had been unofficially used as early as 1949. As Israel marks events by the Hebrew calendar, Israeli Independence Day usually does not fall on the same day as Nakba Day.Bowker, Robert (2003). The Nakba greatly influenced the Palestinian culture and is a foundational symbol of Palestinian identity, together with \"Handala\", the keffiyeh and the symbolic key. Countless books, songs and poems have been written about the Nakba. Palestinian poet Mahmoud Darwish described the Nakba as \"an extended present that promises to continue in the future.\"\n\nComponents\nThe Nakba encompasses the displacement, dispossession, statelessness and fracturing of Palestinian society. 923 (2000–2001)\n\nStatelessness and denationalization\nThe creation of Palestinian statelessness is a central component of the Nakba and continues to be a feature of Palestinian national life to the present day. All Arab Palestinians became immediately stateless as a result of the Nakba, although some took on other nationalities. Fracturing of society\n\nThe Nakba was the primary cause of the Palestinian diaspora; at the same time Israel was created as a Jewish homeland, the Palestinians were turned into a \"refugee nation\" with a \"wandering identity\". Terminology\nthumb|right|Constantin Zureiq's 1948 book Ma'na al-Nakba, which coined use of the term. The term Nakba was first applied to the events of 1948 by Constantin Zureiq, a professor of history at the American University of Beirut, in his 1948 book Macnā an-Nakba (The Meaning of the Disaster). Zureiq wrote that \"the tragic aspect of the Nakba is related to the fact that it is not a regular misfortune or a temporal evil, but a Disaster in the very essence of the word, one of the most difficult that Arabs have ever known over their long history.\" Prior to 1948, the \"Year of the Catastrophe\" among Arabs referred to 1920, when European colonial powers partitioned the Ottoman Empire into a series of separate states along lines of their own choosing. Zureiq's students subsequently founded the Arab Nationalist Movement in 1952, one of the first post-Nakba Palestinian political movements. In a six-volume encyclopedia Al-Nakba: Nakbat Bayt al-Maqdis Wal-Firdaws al-Mafqud (The Catastrophe: The Catastrophe of Jerusalem and the Lost Paradise) published between 1958–60, Aref al-Aref wrote: \"How Can I call it but Nakba? When we the Arab people generally and the Palestinians particularly, faced such a disaster (Nakba) that we never faced like it along the centuries, our homeland was sealed, we [were] expelled from our country, and we lost many of our beloved sons.\" Muhammad Nimr al-Hawari also used the term Nakba in the title of his book Sir al Nakba (The Secret behind the Disaster) written in 1955. Initially, the use of the term Nakba among Palestinians was not universal. Nakba narratives were avoided by the leadership of the Palestine Liberation Organization (PLO) in Lebanon in the 1970s, in favor of a narrative of revolution and renewal. Interest in the Nakba by organizations representing refugees in Lebanon surged in the 1990s due to the perception that the refugees' right of return might be negotiated away in exchange for Palestinian statehood, and the desire was to send a clear message to the international community that this right was non-negotiable. Omar Jabary Salamanca and coauthors write that a settler colonial analysis results in understanding the Nakba not as an event in 1948 but an ongoing process that continues to the present day. Israeli perspectives\nIsraeli narrative\nThe period of the Nakba is the \"other side of the coin\" of the period which many Jewish Israelis refer to as the birth of the state of Israel and their \"War of Independence\". State funding penalties for Nakba commemoration \nIn May 2009, Yisrael Beiteinu introduced a bill that would outlaw all Nakba commemorations, with a three-year prison sentence for such acts of remembrance. The implementation of the new law unintentionally promoted knowledge of the Nakba within Israeli society, an example of the Streisand effect. Long-term implications\nThe most important long-term implications of the Nakba for the Palestinian people were the loss of their homeland, the fragmentation and marginalization of their national community, and their transformation into a stateless people.",
+      "has_focal_prose": true,
+      "entities": [
+        "Nakba"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-10-22T01:45:18.199936+00:00",
+          "provider": "xai",
+          "model": "grok-4",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Nakba",
+              "stance": "sympathetic",
+              "npov_departure": true,
+              "confidence": 0.85,
+              "evidence": "The Nakba (), also known as the Palestinian Catastrophe, was the destruction of Palestinian society and homeland in 1948, and the permanent displacement of a majority of the Palestinian Arabs.",
+              "evidence_spans": [
+                "The Nakba (), also known as the Palestinian Catastrophe, was the destruction of Palestinian society and homeland in 1948, and the permanent displacement of a majority of the Palestinian Arabs.",
+                "a nation in captivity held hostage to an ongoing Nakba, as the most intricate and pervasive expression of persistent colonialism, \"apartheid, racism, and victimization\"",
+                "The Nakba greatly influenced the Palestinian culture and is a foundational symbol of Palestinian identity"
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Nakba": {
+          "label": "sympathetic",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "sympathetic": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.85
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Nakba",
+      "revision_id": 1130332141,
+      "timestamp": "2023-01-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Nakba&oldid=1130332141",
+      "passage_hash": "sha256:74e409a5794acbbf3935c69d0ee59daaa47633ce68e9466073c162eb36044e41",
+      "passage": "The Nakba (), also known as the Palestinian Catastrophe, was the destruction of Palestinian society and homeland in 1948, and the permanent displacement of a majority of the Palestinian Arabs. World Conference Against Racism, Racial Discrimination, Xenophobia, and Related Intolerances: \"a nation in captivity held hostage to an ongoing Nakba, as the most intricate and pervasive expression of persistent colonialism, \"apartheid, racism, and victimization\" (original emphasis).Saeb Erekat, 15 May 2016, Haaretz, Israel Must Recognize Its Responsibility for the Nakba, the Palestinian Tragedy , \"The two-part makeup of the Nakba was borne through the destruction of Palestine and the construction of Israel. For Palestinians worldwide, the Nakba was not merely a day in history 68 years ago, but an entire system of daily forced subjugation and dispossession culminating in today’s Apartheid regime.\"\n\nThe foundational events of the Nakba took place during and shortly after the 1948 Palestine war, including 78% of Mandatory Palestine being declared as Israel, the exodus of 700,000 Palestinians, the related depopulation and destruction of over 500 Palestinian villages and subsequent geographical erasure, the denial of the Palestinian right of return, the creation of permanent Palestinian refugees and the \"shattering of Palestinian society\". In 1998, Yasser Arafat proposed that Palestinians should mark the 50th anniversary of the Nakba declaring 15 May, the day after Israeli independence in 1948, as Nakba Day, formalizing a date that had been unofficially used as early as 1949. The Nakba greatly influenced the Palestinian culture and is a foundational symbol of Palestinian identity, together with \"Handala\", the keffiyeh and the symbolic key. Countless books, songs and poems have been written about the Nakba. Palestinian poet Mahmoud Darwish described the Nakba as \"an extended present that promises to continue in the future.\"\n\nComponents\nThe Nakba encompasses the displacement, dispossession, statelessness and fracturing of Palestinian society. Sa'di, Lila Abu-Lughod (eds.), Nakba: Palestine, 1948, and the Claims of Memory,   Columbia University Press 2007   pp.285-313 pp.290-291. 923 (2000–2001)\n\nStatelessness and denationalization\nThe creation of Palestinian statelessness is a central component of the Nakba and continues to be a feature of Palestinian national life to the present day. All Arab Palestinians became immediately stateless as a result of the Nakba, although some took on other nationalities. Fracturing of society\n\nThe Nakba was the primary cause of the Palestinian diaspora; at the same time Israel was created as a Jewish homeland, the Palestinians were turned into a \"refugee nation\" with a \"wandering identity\". Terminology\nthumb|right|Constantin Zureiq's 1948 book Ma'na al-Nakba, which coined use of the term. The term Nakba was first applied to the events of 1948 by Constantin Zureiq, a professor of history at the American University of Beirut, in his 1948 book Macnā an-Nakba (The Meaning of the Disaster). Zureiq wrote that \"the tragic aspect of the Nakba is related to the fact that it is not a regular misfortune or a temporal evil, but a Disaster in the very essence of the word, one of the most difficult that Arabs have ever known over their long history.\" Prior to 1948, the \"Year of the Catastrophe\" among Arabs referred to 1920, when European colonial powers partitioned the Ottoman Empire into a series of separate states along lines of their own choosing. Zureiq's students subsequently founded the Arab Nationalist Movement in 1952, one of the first post-Nakba Palestinian political movements. In a six-volume encyclopedia Al-Nakba: Nakbat Bayt al-Maqdis Wal-Firdaws al-Mafqud (The Catastrophe: The Catastrophe of Jerusalem and the Lost Paradise) published between 1958–60, Aref al-Aref wrote: \"How Can I call it but Nakba? When we the Arab people generally and the Palestinians particularly, faced such a disaster (Nakba) that we never faced like it along the centuries, our homeland was sealed, we [were] expelled from our country, and we lost many of our beloved sons.\" Muhammad Nimr al-Hawari also used the term Nakba in the title of his book Sir al Nakba (The Secret behind the Disaster) written in 1955. Initially, the use of the term Nakba among Palestinians was not universal. Nakba narratives were avoided by the leadership of the Palestine Liberation Organization (PLO) in Lebanon in the 1970s, in favor of a narrative of revolution and renewal. Interest in the Nakba by organizations representing refugees in Lebanon surged in the 1990s due to the perception that the refugees' right of return might be negotiated away in exchange for Palestinian statehood, and the desire was to send a clear message to the international community that this right was non-negotiable. Since the late 1990s, the phrase “ongoing Nakba” () has emerged to describe the \"continuous experience of violence and dispossession\" experienced by the Palestinian people. This term enjoins the understanding of the Nakba not as an event in 1948, but as an ongoing process that continues through to the present day. Israeli perspectives\nIsraeli narrative\nThe period of the Nakba is the \"other side of the coin\" of the period which many Jewish Israelis refer to as the birth of the state of Israel and their \"War of Independence\". As one paper on the subject puts it: \"Silence on the Nakba is also part of everyday life in Israel.\"\n\nState funding penalties for Nakba commemoration\nIn May 2009, Yisrael Beiteinu introduced a bill that would outlaw all Nakba commemorations, with a three-year prison sentence for such acts of remembrance. The implementation of the new law unintentionally promoted knowledge of the Nakba within Israeli society, an example of the Streisand effect. In films and literature\nFarha, a film about the Nakba directed by Jordanian director Darin Sallam, was chosen as Jordan’s official submission for the 2023 Academy Awards Internationa",
+      "has_focal_prose": true,
+      "entities": [
+        "Nakba"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-10-22T01:45:22.116066+00:00",
+          "provider": "xai",
+          "model": "grok-4",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Nakba",
+              "stance": "sympathetic",
+              "npov_departure": true,
+              "confidence": 0.85,
+              "evidence": "The Nakba (), also known as the Palestinian Catastrophe, was the destruction of Palestinian society and homeland in 1948, and the permanent displacement of a majority of the Palestinian Arabs.",
+              "evidence_spans": [
+                "destruction of Palestinian society and homeland in 1948, and the permanent displacement of a majority of the Palestinian Arabs",
+                "a nation in captivity held hostage to an ongoing Nakba, as the most intricate and pervasive expression of persistent colonialism, \"apartheid, racism, and victimization\"",
+                "an entire system of daily forced subjugation and dispossession culminating in today’s Apartheid regime",
+                "the shattering of Palestinian society"
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Nakba": {
+          "label": "sympathetic",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "sympathetic": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.85
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Nakba",
+      "revision_id": 1166181333,
+      "timestamp": "2023-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Nakba&oldid=1166181333",
+      "passage_hash": "sha256:b3c8b1a22819a5aa2f4112d7b7ccd9a6d3ce49f99177db62e8512158068fd0ec",
+      "passage": "The Nakba (), also known as the Palestinian Catastrophe, was the destruction of Palestinian society and homeland in 1948, and the permanent displacement of a majority of the Palestinian Arabs. World Conference Against Racism, Racial Discrimination, Xenophobia, and Related Intolerances: \"a nation in captivity held hostage to an ongoing Nakba, as the most intricate and pervasive expression of persistent colonialism, \"apartheid, racism, and victimization\" (original emphasis).Saeb Erekat, 15 May 2016, Haaretz, Israel Must Recognize Its Responsibility for the Nakba, the Palestinian Tragedy , \"The two-part makeup of the Nakba was borne through the destruction of Palestine and the construction of Israel. For Palestinians worldwide, the Nakba was not merely a day in history 68 years ago, but an entire system of daily forced subjugation and dispossession culminating in today’s Apartheid regime.\"\n\nThe foundational events of the Nakba took place during and shortly after the 1948 Palestine war, including 78% of Mandatory Palestine being declared as Israel, the expulsion and flight of 700,000 Palestinians, the related depopulation and destruction of over 500 Palestinian villages by Zionist militias and subsequent geographical erasure, the denial of the Palestinian right of return, the creation of permanent Palestinian refugees and the \"shattering of Palestinian society\". Winter 2004\n\nIn 1998, Yasser Arafat proposed that Palestinians should mark the 50th anniversary of the Nakba declaring 15 May, the day after Israeli independence in 1948, as Nakba Day, formalizing a date that had been unofficially used as early as 1949. The Nakba greatly influenced the Palestinian culture and is a foundational symbol of Palestinian identity, together with \"Handala\", the keffiyeh and the symbolic key. Countless books, songs and poems have been written about the Nakba. Palestinian poet Mahmoud Darwish described the Nakba as \"an extended present that promises to continue in the future.\"\n\n Components \nThe Nakba encompasses the displacement, dispossession, statelessness and fracturing of Palestinian society. Sa'di, Lila Abu-Lughod (eds.), Nakba: Palestine, 1948, and the Claims of Memory,   Columbia University Press 2007   pp.285-313 pp.290-291. 923 (2000–2001)\n\n Statelessness and denationalization \nThe creation of Palestinian statelessness is a central component of the Nakba and continues to be a feature of Palestinian national life to the present day. All Arab Palestinians became immediately stateless as a result of the Nakba, although some took on other nationalities. Fracturing of society \n\nThe Nakba was the primary cause of the Palestinian diaspora; at the same time Israel was created as a Jewish homeland, the Palestinians were turned into a \"refugee nation\" with a \"wandering identity\". Terminology \n\nThe term Nakba was first applied to the events of 1948 by Constantin Zureiq, a professor of history at the American University of Beirut, in his 1948 book Macnā an-Nakba (The Meaning of the Disaster). Zureiq wrote that \"the tragic aspect of the Nakba is related to the fact that it is not a regular misfortune or a temporal evil, but a Disaster in the very essence of the word, one of the most difficult that Arabs have ever known over their long history.\" Prior to 1948, the \"Year of the Catastrophe\" among Arabs referred to 1920, when European colonial powers partitioned the Ottoman Empire into a series of separate states along lines of their own choosing. Zureiq's students subsequently founded the Arab Nationalist Movement in 1952, one of the first post-Nakba Palestinian political movements. In a six-volume encyclopedia Al-Nakba: Nakbat Bayt al-Maqdis Wal-Firdaws al-Mafqud (The Catastrophe: The Catastrophe of Jerusalem and the Lost Paradise) published between 1958–60, Aref al-Aref wrote: \"How Can I call it but Nakba? When we the Arab people generally and the Palestinians particularly, faced such a disaster (Nakba) that we never faced like it along the centuries, our homeland was sealed, we [were] expelled from our country, and we lost many of our beloved sons.\" Muhammad Nimr al-Hawari also used the term Nakba in the title of his book Sir al Nakba (The Secret behind the Disaster) written in 1955. Initially, the use of the term Nakba among Palestinians was not universal. Nakba narratives were avoided by the leadership of the Palestine Liberation Organization (PLO) in Lebanon in the 1970s, in favor of a narrative of revolution and renewal. Interest in the Nakba by organizations representing refugees in Lebanon surged in the 1990s due to the perception that the refugees' right of return might be negotiated away in exchange for Palestinian statehood, and the desire was to send a clear message to the international community that this right was non-negotiable. Since the late 1990s, the phrase “ongoing Nakba” () has emerged to describe the \"continuous experience of violence and dispossession\" experienced by the Palestinian people. This term enjoins the understanding of the Nakba not as an event in 1948, but as an ongoing process that continues through to the present day. In 2009, the Israeli Education Ministry  banned using 'nakba' in Palestinian textbooks for children. According to Neve Gordon, a school ceremony memoralizing the nakba would, under the 2011 law, have to respond to charges that it incited to racism, violence and terrorism, and denied Israel's democratic character, in doing so.Neve Gordon, Israel Denies the Nakba While Perpetuating It CounterPunch 15 May 2023 In 2023, after the United Nations instituted a commemoration day for the Nakba on 15 May, the Israeli ambassador Gilad Erdan remonstrated that the event itself was antisemitic.Michael Arria,   https://mondoweiss.net/2023/05/israeli-and-us-officials-push-to-have-nakba-events-stopped/ 'Israeli and US officials push to have Nakba events stopped,' Mondoweiss 15  May  2023 \n\n Israeli narrative \nMany Jewish Israelis refer to the period of the Nakba as the birth of the ",
+      "has_focal_prose": true,
+      "entities": [
+        "Nakba"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-10-22T01:45:27.527124+00:00",
+          "provider": "xai",
+          "model": "grok-4",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Nakba",
+              "stance": "sympathetic",
+              "npov_departure": true,
+              "confidence": 0.85,
+              "evidence": "The Nakba (), also known as the Palestinian Catastrophe, was the destruction of Palestinian society and homeland in 1948, and the permanent displacement of a majority of the Palestinian Arabs.",
+              "evidence_spans": [
+                "The Nakba (), also known as the Palestinian Catastrophe, was the destruction of Palestinian society and homeland in 1948, and the permanent displacement of a majority of the Palestinian Arabs.",
+                "a nation in captivity held hostage to an ongoing Nakba, as the most intricate and pervasive expression of persistent colonialism, \"apartheid, racism, and victimization\"",
+                "the expulsion and flight of 700,000 Palestinians, the related depopulation and destruction of over 500 Palestinian villages by Zionist militias",
+                "the \"shattering of Palestinian society\"",
+                "Since the late 1990s, the phrase “ongoing Nakba” () has emerged to describe the \"continuous experience of violence and dispossession\""
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Nakba": {
+          "label": "sympathetic",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "sympathetic": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.85
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Nakba",
+      "revision_id": 1193067338,
+      "timestamp": "2024-01-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Nakba&oldid=1193067338",
+      "passage_hash": "sha256:278995450f45fb64762d5c49a8863a4317b580802655edf29f68d7b1c6ff36f9",
+      "passage": "The Nakba ( , ) is the violent displacement and dispossession of the Palestinian people, along with the destruction of their society, culture, identity, political rights, and national aspirations. The beginning of the Nakba encompasses the 1948 Palestinian expulsion and flight and the 1949–1956 Palestinian expulsions. In the initial Nakba of 1948, approximately 750,000 Palestinian Arabs (about half of Palestine's Arab population) fled from their homes or were expelled by Zionist militias and later the Israeli army in what is now Israel proper, which covers 78% of the total land area of the former Mandatory Palestine. As a whole, the Nakba covers the long-running rejection of the Palestinian right of return, the creation of permanent Palestinian refugees, and the \"shattering of Palestinian society\" for the establishment of a Jewish state. Many scholars, including Israeli historian Ilan Pappé, describe the events of the Nakba (e.g., 1948) as an instance of ethnic cleansing,; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;  but this categorization has been disputed by other scholars, such as Israeli historian Benny Morris. The Palestinian national narrative views the Nakba as a collective trauma that defines their national identity and political aspirations, whereas the Israeli national narrative views the same events in terms of the war of independence that established Jewish aspirations for statehood and sovereignty. To this end, the Palestinians observe 15 May as Nakba Day, commemorating the war's events one day after Israel's Independence Day. The Nakba has greatly influenced Palestinian culture and is a foundational symbol of the current Palestinian national identity, together with the political cartoon character Handala, the Palestinian keffiyeh, and the Palestinian 1948 keys. Countless books, songs, and poems have been written about the Nakba. Palestinian poet Mahmoud Darwish described the Nakba as \"an extended present that promises to continue in the future\" as the Israeli–Palestinian peace process falters. History \n\n Prior to 1948 \n\nThe roots of the Nakba are traced to the arrival of Zionists and their purchase of land in Ottoman Palestine in the late 19th century. The UN partition plan allocated about 55% of the land to Israel and about 45% to Palestine, with an internationally-governed Jerusalem and Bethlehem.;\n;\n;\n;\n;\n;\n;\n;\n\n 1948 \n\nthumb|1948 expulsion of the Tantura women and children to Furaydis\nThe central facts of the Nakba in 1948 are not disputed. 1949–1966 \nThe Nakba continued after the end of the war in 1949.; ; ; ; ; ; ; ; ; ; \nFrom 1948 to 1966, Palestinians in Israel lived under martial law and needed a permit to move from one village to another. In 2011, Israel passed the Nakba Law, which denies government funding to institutions that commemorate the Nakba. These fears were exacerbated when Israeli Agricultural Minister Avi Dichter said that the war would end with \"Gaza Nakba 2023.\" Dichter was rebuked by Prime Minister Benjamin Netanyahu. Components \nThe Nakba encompasses the violent displacement and dispossession of Palestinians, along with the destruction of their society, culture, identity, political rights, and national aspirations.; ; ; ; ; ; ; ; ; ; ; ; ; ; ; \n\n Displacement \n\nDuring the 1947–49 Palestine war, an estimated 700,000 Palestinians fled or were expelled, comprising around 80% of the Palestinian Arab inhabitants of what became Israel.Masalha, Nur (1992). The Nakba is described as ethnic cleansing by many scholars, including Palestinian scholars such as \nRashid Khalidi,\nAdel Manna,\nNur Masalha,\nNadim Rouhana,\nAhmad H. Frantzman, disagree that the Nakba constitutes an ethnic cleansing. Statelessness and denationalization \nThe creation of Palestinian statelessness is a central component of the Nakba and continues to be a feature of Palestinian national life to the present day. All Arab Palestinians became immediately stateless as a result of the Nakba, although some took on other nationalities. \"International Law Reports 1950\" (London: Butterworth & Co., 1956), p.111\n\n Fracturing of society \n\nThe Nakba was the primary cause of the Palestinian diaspora; at the same time Israel was created as a Jewish homeland, the Palestinians were turned into a \"refugee nation\" with a \"wandering identity\". Long-term implications and \"ongoing Nakba\" \nThe most important long-term implications of the Nakba for the Palestinian people were the loss of their homeland, the fragmentation and marginalization of their national community, and their transformation into a stateless people. Since the late 1990s, the phrase \"ongoing Nakba\" () has emerged to describe the \"continuous experience of violence and dispossession\" experienced by the Palestinian people. This term enjoins the understanding of the Nakba not as an event in 1948, but as an ongoing process that continues through to the present day. \"It's the 2023 Gaza Nakba.\"\n\nTerminology\nThe term Nakba was first applied to the events of 1948 by Constantin Zureiq, a professor of history at the American University of Beirut, in his 1948 book Macnā an-Nakba (The Meaning of the Disaster). Zureiq wrote that \"the tragic aspect of the Nakba is related to the fact that it is not a regular misfortune or a temporal evil, but a Disaster in the very essence of the word, one of the most difficult that Arabs have ever known over their long history.\" Prior to 1948, the \"Year of the Catastrophe\" among Arabs referred to 1920, when European colonial powers partitioned the Ottoman Empire into a series of separate states along lines of their own choosing. Zureiq's students subsequently founded the Arab Nationalist Movement in 1952, one of the first post-Nakba Palestinian political movements. In a six-volume encyclopedia Al-Nakba: Nakbat Bayt al-Maqdis Wal-Firdaws al-Mafqud (The Catastrophe: The Catastrophe of Jerusalem and the Lost Paradise) published between 1958–60, Aref al-Aref wrote: \"How Can I call it but Nakba? When we the Arab people g",
+      "has_focal_prose": true,
+      "entities": [
+        "Nakba"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-10-22T01:45:33.419474+00:00",
+          "provider": "xai",
+          "model": "grok-4",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Nakba",
+              "stance": "sympathetic",
+              "npov_departure": true,
+              "confidence": 0.85,
+              "evidence": "The Nakba ( , ) is the violent displacement and dispossession of the Palestinian people, along with the destruction of their society, culture, identity, political rights, and national aspirations.",
+              "evidence_spans": [
+                "The Nakba ( , ) is the violent displacement and dispossession of the Palestinian people, along with the destruction of their society, culture, identity, political rights, and national aspirations.",
+                "Many scholars, including Israeli historian Ilan Pappé, describe the events of the Nakba (e.g., 1948) as an instance of ethnic cleansing",
+                "The Palestinian national narrative views the Nakba as a collective trauma that defines their national identity and political aspirations",
+                "Since the late 1990s, the phrase \"ongoing Nakba\" () has emerged to describe the \"continuous experience of violence and dispossession\" experienced by the Palestinian people."
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Nakba": {
+          "label": "sympathetic",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "sympathetic": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.85
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Nakba",
+      "revision_id": 1232110798,
+      "timestamp": "2024-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Nakba&oldid=1232110798",
+      "passage_hash": "sha256:30f14a542343c4410ee16ce7f1dbeb6566d70b9674989cec109ce3693faba630",
+      "passage": "The Nakba ( , ) is the ethnic cleansing; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;  of Palestinians through their violent displacement and dispossession of land, property, and belongings, along with the destruction of their society and the suppression of their culture, identity, political rights, and national aspirations. As a whole, it covers the fracturing of Palestinian society and the long-running rejection of the right of return for Palestinian refugees and their descendants.; ; \n\nDuring the foundational events of the Nakba in 1948, approximately half of Palestine's predominantly Arab population, or around 750,000 people, were expelled from their homes or made to flee through various violent means, at first by Zionist paramilitaries, and after the establishment of the State of Israel, by its military. The Palestinian national narrative views the Nakba as a collective trauma that defines their national identity and political aspirations. The Israeli national narrative views the Nakba as a component of the War of Independence that established Israel's statehood and sovereignty. Nakba denial has been increasingly challenged since the 1970s in Israeli society, particularly by the New Historians, although the official narrative has not changed.Khalidi, Walid (1961)\n \nPalestinians observe 15 May as Nakba Day, commemorating the war's events one day after Israel's Independence Day. The Nakba has greatly influenced Palestinian culture and is a foundational symbol of the current Palestinian national identity, together with the political cartoon character Handala, the Palestinian keffiyeh, and the Palestinian 1948 keys. Many books, songs, and poems have been written about the Nakba. Ottoman and British Mandate periods (prior to 1948) \nthumb|The UN Partition Plan for Palestine in 1947\nThe roots of the Nakba are traced to the arrival of Zionists and their purchase of land in Ottoman Palestine in the late 19th century.;\n;\n;\n;\n;\n;\n;\n;\n; Zionists wanted to create a Jewish state in Palestine with as much land, as many Jews, and as few Palestinian Arabs as possible.;\n;\n;\n;\n;\n;\n;\n;\n; By the time the British announced their official support for Zionism in the 1917 Balfour Declaration during World War I,;\n;\n;\n;\n; the population of Palestine was about 750,000, approximately 94% Arab and 6% Jewish. 723\n\n The 1948 Nakba \nThe central facts of the Nakba during the 1948 Palestine war are not disputed. During the two truces, Palestinians who returned to their homes or crops, labelled \"infiltrators\" by the Israelis, were killed or expelled.;\n;\n\n Oct 1948 – Jul 1949 \n\nExpulsions, massacres, and Israeli expansion continued in the autumn of 1948,;\n;\n;\n;\n;\n;\nincluding the depopulation of Beersheba (21 October),;\n;\nthe al-Dawayima massacre (29 October),\nand the Safsaf massacre (also 29 October).;\n;\n;\n;\n;\n;\n;\n;\n;\nThat month, Israel converted the ad hoc military governates ruling over Palestinian Arabs in Israel into a formal military government that controlled nearly all aspects of their lives, including curfews, travel restrictions, employment and other economic restrictions, arbitrary detention and other punishments, and political control.;\n;\n;\n;\n;\n;\n;\nMartial law assisted Israeli efforts to find and expel or kill \"infiltrators\" in order to prevent Palestinians from repopulating their villages.;\n;\n;\n\nMost of the fighting between Israel and the Arab states ended by the winter of 1948.;\n;\nOn 11 December 1948, the UN passed Resolution 194, resolving that Palestinians should be permitted to return to their homes and be compensated for lost or damaged property, and establishing the United Nations Conciliation Commission.;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n;\nArmistices formally ending the war were signed between February and July 1949,;\n;\n;\n;\nbut massacres and expulsions of Palestinians continued in 1949 and beyond.;\n;\n\nBy the end of the war, Palestine was divided and Palestinians were scattered.;\n;\n;\n;\nIsrael held about 78% of Palestine,;\n;\n;\n;\n;\n;\n;\nincluding the 55% allocated to it by the UN partition plan and about half of the land allocated for a Palestinian state.;\n;\n;\n;\n;\n;\n;\n;\n;\nThe West Bank and Gaza Strip comprised the remaining half, and were now held by Jordan and Egypt, respectively.;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n;\nThe internationally-governed corpus separatum was divided between an Israeli-held West Jerusalem and a Jordanian-held East Jerusalem.;\n;\nIsrael with its expanded borders was admitted as a member to the United Nations in May 1949.;\n;\nAbout 156,000 Palestinians remained under military rule in Israel, including many internally displaced persons.;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n;\nThe approximately 750,000 Palestinians who were expelled or fled from their homes were now living in refugee camps in the West Bank, Gaza Strip, Jordan, Syria, and Lebanon.;\n;\n;\n;\n;\n;\nNone were allowed to return.;\n;\n;\n;\n;\n;\n;\n;\nNo Palestinian state was created.;\n;\n;\n;\n;\n\n Post-1948 Nakba \n\n Martial law period (1949–1966) \nthumb|right|upright|alt=Map comparing the borders of the 1947 partition plan and the Armistice Demarcation Lines of 1949.|\nThe Nakba continued after the end of the war in 1949.;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n;\nIsrael prevented Palestinian refugees outside of Israel from returning.;\n;\n;\n;\n;\n;\n;\n;\nPalestinians continued to be expelled, and more Palestinian towns and villages were destroyed, with new Israeli settlements established in their place.;\n;\n;\n;\n;\n;\n;\n;\nPalestinian place names and the name \"Palestine\" itself were removed from maps and books. In 2011, Israel passed the Nakba Law, which denies government funding to institutions that commemorate the Nakba. These fears were exacerbated when Israeli Agricultural Minister Avi Dichter said that the war would end with \"Gaza Nakba 2023.\" Dichter was rebuked by Prime Minister Benjamin Netanyahu. Components \nThe Nakba encompasses the violent displacement and dispossession of Palestinians, along with the destruction of their society, culture, identity, political rights, and national aspirations.; ",
+      "has_focal_prose": true,
+      "entities": [
+        "Nakba"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-10-22T01:45:43.649499+00:00",
+          "provider": "xai",
+          "model": "grok-4",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Nakba",
+              "stance": "sympathetic",
+              "npov_departure": true,
+              "confidence": 0.85,
+              "evidence": "The Nakba ( , ) is the ethnic cleansing; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;  of Palestinians through their violent displacement and dispossession of land, property, and belongings, along with the destruction of their society and the suppression of their culture, identity, political rights, and national aspirations.",
+              "evidence_spans": [
+                "The Nakba ( , ) is the ethnic cleansing",
+                "The Palestinian national narrative views the Nakba as a collective trauma that defines their national identity and political aspirations.",
+                "The Nakba has greatly influenced Palestinian culture and is a foundational symbol of the current Palestinian national identity"
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Nakba": {
+          "label": "sympathetic",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "sympathetic": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.85
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Nakba",
+      "revision_id": 1267127780,
+      "timestamp": "2025-01-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Nakba&oldid=1267127780",
+      "passage_hash": "sha256:f8efef6b8cd7af36f1f070aeefd630bdeb5c6bd926415e6254d2a8b581c36c1b",
+      "passage": "The Nakba () is the ethnic cleansing; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;  of Palestinian Arabs through their violent displacement and dispossession of land, property, and belongings, along with the destruction of their society and the suppression of their culture, identity, political rights, and national aspirations. As a whole, it covers the fracturing of Palestinian society and the long-running rejection of the right of return for Palestinian refugees and their descendants.; ; \n\nDuring the foundational events of the Nakba in 1948, approximately half of Palestine's predominantly Arab population, or around 750,000 people, were expelled from their homes or made to flee through various violent means, at first by Zionist paramilitaries, and after the establishment of the State of Israel, by its military. The Palestinian national narrative views the Nakba as a collective trauma that defines their national identity and political aspirations. The Israeli national narrative views the Nakba as a component of the War of Independence that established Israel's statehood and sovereignty. Nakba denial has been increasingly challenged since the 1970s in Israeli society, particularly by the New Historians, although the official narrative has not changed.Khalidi, Walid (1961)\n \nPalestinians observe 15 May as Nakba Day, commemorating the war's events one day after Israel's Independence Day. The Nakba has greatly influenced Palestinian culture and is a foundational symbol of the current Palestinian national identity, together with the political cartoon character Handala, the Palestinian keffiyeh, and the Palestinian 1948 keys. Many books, songs, and poems have been written about the Nakba. Ottoman and British Mandate periods (prior to 1948) \nthumb|The UN Partition Plan for Palestine in 1947\nThe roots of the Nakba are traced to the arrival of Zionists and their purchase of land in Ottoman Palestine in the late 19th century.;\n;\n;\n;\n;\n;\n;\n;\n; Zionists wanted to create a Jewish state in Palestine with as much land, as many Jews, and as few Palestinian Arabs as possible. 723\n\n The 1948 Nakba \nThe central facts of the Nakba during the 1948 Palestine war are not disputed. During the two truces, Palestinians who returned to their homes or crops, labelled \"infiltrators\" by the Israelis, were killed or expelled.;\n;\n\n Oct 1948 – Jul 1949 \n\nExpulsions, massacres, and Israeli expansion continued in the autumn of 1948,;\n;\n;\n;\n;\n;\nincluding the depopulation of Beersheba (21 October),;\n;\nthe al-Dawayima massacre (29 October),\nand the Safsaf massacre (also 29 October).;\n;\n;\n;\n;\n;\n;\n;\n;\nThat month, Israel converted the ad hoc military governates ruling over Palestinian Arabs in Israel into a formal military government that controlled nearly all aspects of their lives, including curfews, travel restrictions, employment and other economic restrictions, arbitrary detention and other punishments, and political control.;\n;\n;\n;\n;\n;\n;\nMartial law assisted Israeli efforts to find and expel or kill \"infiltrators\" in order to prevent Palestinians from repopulating their villages.;\n;\n;\n\nMost of the fighting between Israel and the Arab states ended by the winter of 1948.;\n;\nOn 11 December 1948, the UN passed Resolution 194, resolving that Palestinians should be permitted to return to their homes and be compensated for lost or damaged property, and establishing the United Nations Conciliation Commission.;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n;\nArmistices formally ending the war were signed between February and July 1949,;\n;\n;\n;\nbut massacres and expulsions of Palestinians continued in 1949 and beyond.;\n;\n\nBy the end of the war, Palestine was divided and Palestinians were scattered.;\n;\n;\n;\nIsrael held about 78% of Palestine,;\n;\n;\n;\n;\n;\n;\nincluding the 55% allocated to it by the UN partition plan and about half of the land allocated for a Palestinian state.;\n;\n;\n;\n;\n;\n;\n;\n;\nThe West Bank and Gaza Strip comprised the remaining half, and were now held by Jordan and Egypt, respectively.;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n;\nThe internationally governed corpus separatum was divided between an Israeli-held West Jerusalem and a Jordanian-held East Jerusalem.;\n;\nIsrael with its expanded borders was admitted as a member to the United Nations in May 1949.;\n;\nAbout 156,000 Palestinians remained under military rule in Israel, including many internally displaced persons.;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n;\nThe approximately 750,000 Palestinians who were expelled or fled from their homes were now living in refugee camps in the West Bank, Gaza Strip, Jordan, Syria, and Lebanon.;\n;\n;\n;\n;\n;\nNone were allowed to return.;\n;\n;\n;\n;\n;\n;\n;\nNo Palestinian state was created.;\n;\n;\n;\n;\n\n Post-1948 Nakba \n\n Martial law period (1949–1966) \nthumb|right|upright|alt=Map comparing the borders of the 1947 partition plan and the Armistice Demarcation Lines of 1949.|\nThe Nakba continued after the end of the war in 1949.;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n;\nIsrael prevented Palestinian refugees outside of Israel from returning.;\n;\n;\n;\n;\n;\n;\n;\nPalestinians continued to be expelled, and more Palestinian towns and villages were destroyed, with new Israeli settlements established in their place.;\n;\n;\n;\n;\n;\n;\n;\nPalestinian place names and the name \"Palestine\" itself were removed from maps and books. In 2011, Israel passed the Nakba Law, which denies government funding to institutions that commemorate the Nakba. These fears were exacerbated when Israeli Agricultural Minister Avi Dichter said that the war would end with \"Gaza Nakba 2023.\" Dichter was rebuked by Prime Minister Benjamin Netanyahu. Components \nThe Nakba encompasses the violent displacement and dispossession of Palestinians, along with the destruction of their society, culture, identity, political rights, and national aspirations.; ; ; ; ; ; ; ; ; ; ; ; ; ; ; \n\n Displacement \n\nthumb|left|Nahr al-Bared refugee camp in Lebanon, 1952\n\nDuring the 1947–49 Palestine war, an estimated 750,000 Palestinians fled or were expelled, comprising around 80% of the Palestin",
+      "has_focal_prose": true,
+      "entities": [
+        "Nakba"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-10-22T01:45:50.407022+00:00",
+          "provider": "xai",
+          "model": "grok-4",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Nakba",
+              "stance": "sympathetic",
+              "npov_departure": true,
+              "confidence": 0.85,
+              "evidence": "The Nakba () is the ethnic cleansing",
+              "evidence_spans": [
+                "The Nakba () is the ethnic cleansing; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;  of Palestinian Arabs through their violent displacement and dispossession of land, property, and belongings, along with the destruction of their society and the suppression of their culture, identity, political rights, and national aspirations.",
+                "The Palestinian national narrative views the Nakba as a collective trauma that defines their national identity and political aspirations.",
+                "The Nakba continued after the end of the war in 1949."
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Nakba": {
+          "label": "sympathetic",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "sympathetic": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.85
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Nakba",
+      "revision_id": 1299522995,
+      "timestamp": "2025-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Nakba&oldid=1299522995",
+      "passage_hash": "sha256:5b544da27a17d6dc8015a2d2939ab2ea082ebb57353882d716392c0466ee383f",
+      "passage": "The Nakba () is the ethnic cleansing \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n  of Palestinian Arabs through their violent displacement and dispossession of land, property, and belongings, along with the destruction of their society and the suppression of their culture, identity, political rights, and national aspirations. As a whole, it covers the fracturing of Palestinian society and the long-running rejection of the right of return for Palestinian refugees and their descendants.; ; \n\nDuring the foundational events of the Nakba in 1948, approximately half of Palestine's predominantly Arab population, or around 750,000 people, were expelled from their homes or made to flee through various violent means, at first by Zionist paramilitaries, and after the establishment of the State of Israel, by its military. The Palestinian national narrative views the Nakba as a collective trauma that defines Palestinians' national identity and political aspirations. The Israeli national narrative views the Nakba as a component of the War of Independence that established Israel's statehood and sovereignty. Nakba denial has been increasingly challenged since the 1970s in Israeli society, particularly by the New Historians, although the official narrative has not changed.Khalidi, Walid (1961)\n \nPalestinians observe 15 May as Nakba Day, commemorating the war's events one day after Israel's Independence Day. The Nakba has greatly influenced Palestinian culture and is a foundational symbol of the current Palestinian national identity, together with the political cartoon character Handala, the Palestinian keffiyeh, and the Palestinian 1948 keys. Many books, songs, and poems have been written about the Nakba. Ottoman and British Mandate periods (prior to 1948) \nthumb|The UN Partition Plan for Palestine in 1947\nThe roots of the Nakba are traced to the arrival of Zionists and their purchase of land in Ottoman Palestine in the late 19th century.;\n;\n;\n;\n;\n;\n;\n;\n; Zionists wanted to create a Jewish state in Palestine with as much land, as many Jews, and as few Palestinian Arabs as possible. 723\n\n The 1948 Nakba \nThe central facts of what happened in the Nakba during the 1948 Palestine war are well established, documented, and widely agreed upon by most Israeli, Palestinian, and other historians. The Resolution also established the United Nations Conciliation Commission.;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n;\nArmistices formally ending the war were signed between February and July 1949,;\n;\n;\n;\nbut massacres and expulsions of Palestinians continued in 1949 and beyond.;\n;\n\nBy the end of the war, Palestine was divided and Palestinians were scattered.;\n;\n;\n;\nIsrael held about 78% of Palestine,;\n;\n;\n;\n;\n;\n;\nincluding the 55% allocated to it by the UN partition plan and about half of the land allocated for a Palestinian state.;\n;\n;\n;\n;\n;\n;\n;\n;\nThe West Bank and Gaza Strip comprised the remaining half, and were now held by Jordan and Egypt, respectively.;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n;\nThe capital that was meant to be governed internationally (corpus separatum) was now divided  between an Israeli-held West Jerusalem and a Jordanian-held East Jerusalem.;\n;\nIsrael with its expanded borders was admitted as a member to the United Nations in May 1949.;\n;\nAbout 156,000 Palestinians remained under military rule in Israel, including many internally displaced persons.;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n;\nThe approximately 750,000 Palestinians who were expelled or fled from their homes were now living in refugee camps in the West Bank, Gaza Strip, Jordan, Syria, and Lebanon.;\n;\n;\n;\n;\n;\nNone were allowed to return.;\n;\n;\n;\n;\n;\n;\n;\nNo Palestinian state was created.;\n;\n;\n;\n;\n\n Post-1948 Nakba \n\n Martial law period (1949–1966) \nthumb|right|upright|alt=Map comparing the borders of the 1947 partition plan and the Armistice Demarcation Lines of 1949.|\nThe Nakba continued after the end of the war in 1949.;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n;\nIsrael prevented Palestinian refugees outside of Israel from returning.;\n;\n;\n;\n;\n;\n;\n;\nPalestinians continued to be expelled, and more Palestinian towns and villages were destroyed, with new Israeli settlements established in their place.;\n;\n;\n;\n;\n;\n;\n;\nPalestinian place names and the name \"Palestine\" itself were removed from maps and books. In 2011, Israel passed the Nakba Law, which denies government funding to institutions that commemorate the Nakba. These fears were exacerbated when Israeli Agricultural Minister Avi Dichter said that the war would end with \"Gaza Nakba 2023.\" Dichter was rebuked by Prime Minister Benjamin Netanyahu. Components \nThe Nakba encompasses the violent displacement and dispossession of Palestinians, along with the destruction of their society, culture, identity, political rights, and national aspirations.; ; ; ; ; ; ; ; ; ; ; ; ; ; ; \n\n Displacement \n\nthumb|left|Nahr al-Bared refugee camp in Lebanon, 1952\n\nDuring the 1947–49 Palestine war, an estimated 750,000 Palestinians fled or were expelled, comprising around 80% of the Palestinian Arab inhabitants of what became Israel. The Nakba is described as ethnic cleansing by many scholars.; \n; \n; \n; \n; \n; \n; \nThey include Palestinian scholars such as \nSaleh Abd al-Jawad,\nBeshara Doumani,\nRashid Khalidi,\nAdel Manna,\nNur Masalha,\nNadim Rouhana,\nAhmad H. Frantzman, disagree that the Nakba constitutes an ethnic cleansing. Statelessness and denationalization \n\nThe creation of Palestinian statelessness is a central component of the Nakba and continues to be a feature of Palestinian national life to the present day. All Arab Palestinians became immediately stateless as a result of the Nakba, although some took on other nationalities. \"International Law Reports 1950\" (London: Butterworth & Co., 1956), p.111\n\n Fracturing of society \n\nThe Nakba was the primary cause of the Palestinian diaspora. Long-term implications and \"ongoing Nakba\" \nThe most important long-term implications of the Nakba for the Palestinian people were the loss of their homeland, the fragmentation and marginali",
+      "has_focal_prose": true,
+      "entities": [
+        "Nakba"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-10-22T01:45:58.228480+00:00",
+          "provider": "xai",
+          "model": "grok-4",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Nakba",
+              "stance": "sympathetic",
+              "npov_departure": true,
+              "confidence": 0.85,
+              "evidence": "The Nakba () is the ethnic cleansing of Palestinian Arabs through their violent displacement and dispossession of land, property, and belongings, along with the destruction of their society and the suppression of their culture, identity, political rights, and national aspirations.",
+              "evidence_spans": [
+                "The Nakba () is the ethnic cleansing of Palestinian Arabs through their violent displacement and dispossession of land, property, and belongings, along with the destruction of their society and the suppression of their culture, identity, political rights, and national aspirations.",
+                "The Nakba is described as ethnic cleansing by many scholars."
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Nakba": {
+          "label": "sympathetic",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "sympathetic": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.85
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Nakba",
+      "revision_id": 1330432938,
+      "timestamp": "2026-01-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Nakba&oldid=1330432938",
+      "passage_hash": "sha256:e66d484e8b01aa73216ae3c262692e238c50b566e5b05bca198fce6428304615",
+      "passage": "The Nakba () is the ethnic cleansing \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n  by Israel of Palestinian Arabs through their violent displacement and dispossession of land, property, and belongings, along with the destruction of their society and the suppression of their culture, identity, political rights, and national aspirations. As a whole, it covers the fracturing of Palestinian society and the longstanding rejection of the right of return for Palestinian refugees and their descendants.; ; \n\nDuring the foundational events of the Nakba in 1948, about half of Palestine's predominantly Arab populationaround 750,000 peoplewere expelled from their homes or made to flee through various violent means, at first by Zionist paramilitaries, and after the establishment of the State of Israel, by the IDF. The Palestinian national narrative views the Nakba as a collective trauma that defines Palestinians' national identity and political aspirations. The Israeli national narrative views the Nakba as a component of the War of Independence that established Israel's statehood and sovereignty. Nakba denial has been increasingly challenged since the 1970s in Israeli society, particularly by the New Historians, but the official narrative has not changed.Khalidi, Walid (1961)\n \nPalestinians observe 15 May as Nakba Day, commemorating the war's events one day after Israel's Independence Day. The Nakba has greatly influenced Palestinian culture and is a foundational symbol of Palestinian national identity, together with the political cartoon character Handala, the Palestinian keffiyeh, and the Palestinian 1948 keys. Many books, songs, and poems have been written about the Nakba. Ottoman and British Mandate periods (prior to 1948) \nthumb|The UN Partition Plan for Palestine in 1947\nThe roots of the Nakba are traced to the arrival of Zionists and their purchase of land in Ottoman Palestine in the late 19th century.;\n;\n;\n;\n;\n;\n;\n;\n; Zionists wanted to create a Jewish state in Palestine with as much land, as many Jews, and as few Palestinian Arabs as possible. 723\n\n The 1948 Nakba \nThe central facts of what happened in the Nakba during the 1948 Palestine war are well established, documented, and widely agreed upon by most Israeli, Palestinian, and other historians. The Resolution also established the United Nations Conciliation Commission.;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n; Armistices formally ending the war were signed between February and July 1949,;\n;\n;\n; but massacres and expulsions of Palestinians continued in 1949 and beyond.;\n;\n\nBy the end of the war, Palestine was divided and Palestinians were scattered.;\n;\n;\n; Israel held about 78% of Palestine,;\n;\n;\n;\n;\n;\n; including the 55% allocated to it by the UN partition plan and about half of the land allocated for a Palestinian state.;\n;\n;\n;\n;\n;\n;\n;\n; The West Bank and Gaza Strip comprised the remaining half, and were held by Jordan and Egypt, respectively.;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n; The capital that was meant to be governed internationally (corpus separatum) was divided  between an Israeli-held West Jerusalem and a Jordanian-held East Jerusalem.;\n; Israel, with its expanded borders, was admitted as a member to the United Nations in May 1949.;\n; About 156,000 Palestinians remained under military rule in Israel, including many internally displaced persons.;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n; The approximately 750,000 Palestinians who were expelled or fled from their homes were living in refugee camps in the West Bank, Gaza Strip, Jordan, Syria, and Lebanon.;\n;\n;\n;\n;\n; None were allowed to return.;\n;\n;\n;\n;\n;\n;\n; No Palestinian state was created.;\n;\n;\n;\n;\n\n Post-1948 Nakba \n\n Martial law period (1949–1966) \nthumb|right|upright|alt=Map comparing the borders of the 1947 partition plan and the Armistice Demarcation Lines of 1949.|\nThe Nakba continued after the end of the war in 1949.;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n; Israel prevented Palestinian refugees outside Israel from returning.;\n;\n;\n;\n;\n;\n;\n; Palestinians continued to be expelled, and more Palestinian towns and villages were destroyed, with new Israeli settlements established in their place.;\n;\n;\n;\n;\n;\n;\n; Palestinian place names and the name \"Palestine\" itself were removed from maps and books. In 2011, Israel passed the Nakba Law, which denies government funding to institutions that commemorate the Nakba. This fear was exacerbated when Israeli Agricultural Minister Avi Dichter said that the war would end with \"Gaza Nakba 2023\". Components \nThe Nakba encompasses the violent displacement and dispossession of Palestinians, along with the destruction of their society, culture, identity, political rights, and national aspirations.; ; ; ; ; ; ; ; ; ; ; ; ; ; ; \n\n Displacement \n\nthumb|left|Nahr al-Bared refugee camp in Lebanon, 1952\n\nDuring the 1947–49 Palestine war, an estimated 750,000 Palestinians fled or were expelled, comprising around 80% of the Palestinian Arab inhabitants of what became Israel. The Nakba is described as ethnic cleansing by many scholars.; \n; \n; \n; \n; \n; \n; \nThey include Palestinian scholars such as \nSaleh Abd al-Jawad,\nBeshara Doumani,\nRashid Khalidi,\nAdel Manna,\nNur Masalha,\nNadim Rouhana,\nAhmad H. Frantzman, disagree that the Nakba constitutes an ethnic cleansing. Statelessness and denationalization \n\nThe creation of Palestinian statelessness is a central component of the Nakba and continues to be a feature of Palestinian national life to the present day. All Arab Palestinians became immediately stateless as a result of the Nakba, although some took on other nationalities. \"International Law Reports 1950\" (London: Butterworth & Co., 1956), p.111\n\n Fracturing of society \n\nThe Nakba was the primary cause of the Palestinian diaspora. Long-term implications and \"ongoing Nakba\" \nThe most important long-term implications of the Nakba for the Palestinian people were the loss of their homeland, the fragmentation and marginalization of their national community, and their transformation into a stateless people. Since the late ",
+      "has_focal_prose": true,
+      "entities": [
+        "Nakba"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-10-22T01:46:03.307225+00:00",
+          "provider": "xai",
+          "model": "grok-4",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Nakba",
+              "stance": "sympathetic",
+              "npov_departure": true,
+              "confidence": 0.85,
+              "evidence": "The Nakba () is the ethnic cleansing by Israel of Palestinian Arabs through their violent displacement and dispossession of land, property, and belongings, along with the destruction of their society and the suppression of their culture, identity, political rights, and national aspirations.",
+              "evidence_spans": [
+                "The Nakba () is the ethnic cleansing by Israel of Palestinian Arabs through their violent displacement and dispossession of land, property, and belongings, along with the destruction of their society and the suppression of their culture, identity, political rights, and national aspirations.",
+                "The Palestinian national narrative views the Nakba as a collective trauma that defines Palestinians' national identity and political aspirations.",
+                "The Nakba has greatly influenced Palestinian culture and is a foundational symbol of Palestinian national identity"
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Nakba": {
+          "label": "sympathetic",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "sympathetic": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.85
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Nakba",
+      "revision_id": 1362168059,
+      "timestamp": "2026-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Nakba&oldid=1362168059",
+      "passage_hash": "sha256:ed73ca8339450cc9836670659597cc5c7320a380f64e608712291e2e783043d9",
+      "passage": "The Nakba () is the ethnic cleansing \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n  of Palestinian Arabs by Israel through their 1948 Palestinian expulsion displacement and dispossession of land, property, and belongings, along with the destruction of their society and the suppression of their culture, identity, political rights, and national aspirations. As a whole, it covers the fracturing of Palestinian society and the longstanding rejection of the right of return for Palestinian refugees and their descendants.; ; \n\nDuring the foundational events of the Nakba in 1948, about half of Palestine's predominantly Arab populationaround 750,000 peoplewere expelled from their homes or made to flee through various violent means, at first by Zionist paramilitaries, and after the establishment of the State of Israel, by the IDF. The Palestinian national narrative views the Nakba as a collective trauma that defines Palestinians' national identity and political aspirations. The Israeli national narrative views the Nakba as a component of the War of Independence that established Israel's statehood and sovereignty. Nakba denial has been increasingly challenged since the 1970s in Israeli society, particularly by the New Historians, but the official narrative has not changed.Khalidi, Walid (1961)\n \nPalestinians observe 15 May as Nakba Day, commemorating the war's events one day after Israel's Independence Day. The Nakba has greatly influenced Palestinian culture and is a foundational symbol of Palestinian national identity, together with the political cartoon character Handala, the Palestinian keffiyeh, and the Palestinian 1948 keys. Many books, songs, and poems have been written about the Nakba. The first usage of  for the Zionist conquest of Palestine is attributed to Constantin Zureiq, a professor of history at the American University of Beirut, in his 1948 book Ma'na an-Nakba ( [The Meaning of the Disaster]). Zureiq wrote, \"the tragic aspect of the Nakba is related to the fact that it is not a regular misfortune or a temporal evil, but a Disaster in the very essence of the word, one of the most difficult that Arabs have ever known over their long history.\" Until 1948, the \"Year of the Catastrophe\" among Arabs referred to 1920, when European colonial powers partitioned the Ottoman Empire into a series of separate states along lines of their own choosing. In a six-volume encyclopedia  ( [The Catastrophe: The Catastrophe of Jerusalem and the Lost Paradise]) published between 1958 and 1960, Aref al-Aref wrote: \"How can I call it but Nakba? When we the Arab people generally and the Palestinians particularly, faced such a disaster (Nakba) that we never faced like it along the centuries, our homeland was sealed, we [were] expelled from our country, and we lost many of our beloved sons.\" Muhammad Nimr al-Hawari also used the term in the title of his book  ( [The Secret behind the Disaster]), written in 1955. In the 1970s, Nakba narratives were avoided by the leadership of the Palestine Liberation Organization (PLO) in Lebanon in favor of a narrative of revolution and renewal. Interest in the Nakba by organizations representing refugees in Lebanon surged in the 1990s due to the perception that the refugees' right of return might be negotiated away in exchange for Palestinian statehood, and the desire was to send a clear message to the international community that this right was non-negotiable. Ottoman and British Mandate periods (prior to 1948) \nthumb|The UN Partition Plan for Palestine in 1947\nThe roots of the Nakba are traced to the arrival of Zionists and their purchase of land in Ottoman Palestine in the late 19th century.;\n;\n;\n;\n;\n;\n;\n;\n; Zionists wanted to create a Jewish state in Palestine with as much land, as many Jews, and as few Palestinian Arabs as possible. 723\n\n The 1948 Nakba \nThe central facts of what happened in the Nakba during the 1948 Palestine war are well established, documented, and widely agreed upon by most Israeli, Palestinian, and other historians. The Resolution also established the United Nations Conciliation Commission.;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n; Armistices formally ending the war were signed between February and July 1949,;\n;\n;\n; but massacres and expulsions of Palestinians continued in 1949 and beyond.;\n;\n\nBy the end of the war, Palestine was divided and Palestinians were scattered.;\n;\n;\n; Israel held about 78% of Palestine,;\n;\n;\n;\n;\n;\n; including the 55% allocated to it by the UN partition plan and about half of the land allocated for a Palestinian state.;\n;\n;\n;\n;\n;\n;\n;\n; The West Bank and Gaza Strip comprised the remaining half, and were held by Jordan and Egypt, respectively.;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n; The capital that was meant to be governed internationally (corpus separatum) was divided  between an Israeli-held West Jerusalem and a Jordanian-held East Jerusalem.;\n; Israel, with its expanded borders, was admitted as a member to the United Nations in May 1949.;\n; About 156,000 Palestinians remained under military rule in Israel, including many internally displaced persons.;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n; The approximately 750,000 Palestinians who were expelled or fled from their homes were living in refugee camps in the West Bank, Gaza Strip, Jordan, Syria, and Lebanon.;\n;\n;\n;\n;\n; None were allowed to return.;\n;\n;\n;\n;\n;\n;\n; No Palestinian state was created.;\n;\n;\n;\n;\n\n Post-1948 Nakba \n\n Martial law period (1949–1966) \nthumb|right|upright|alt=Map comparing the borders of the 1947 partition plan and the Armistice Demarcation Lines of 1949.|\nThe Nakba continued after the end of the war in 1949.;\n;\n;\n;\n;\n;\n;\n;\n;\n;\n; Israel prevented Palestinian refugees outside Israel from returning.;\n;\n;\n;\n;\n;\n;\n; Palestinians continued to be expelled, and more Palestinian towns and villages were destroyed, with new Israeli settlements established in their place.;\n;\n;\n;\n;\n;\n;\n; Palestinian place names and the name \"Palestine\" itself were removed from maps and books. In 2011, Israel passed the Nakba",
+      "has_focal_prose": true,
+      "entities": [
+        "Nakba"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-10-22T01:46:10.888810+00:00",
+          "provider": "xai",
+          "model": "grok-4",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Nakba",
+              "stance": "sympathetic",
+              "npov_departure": true,
+              "confidence": 0.85,
+              "evidence": "The Nakba () is the ethnic cleansing of Palestinian Arabs by Israel through their 1948 Palestinian expulsion displacement and dispossession of land, property, and belongings, along with the destruction of their society and the suppression of their culture, identity, political rights, and national aspirations.",
+              "evidence_spans": [
+                "The Nakba () is the ethnic cleansing of Palestinian Arabs by Israel",
+                "The Palestinian national narrative views the Nakba as a collective trauma that defines Palestinians' national identity and political aspirations.",
+                "The Nakba has greatly influenced Palestinian culture and is a foundational symbol of Palestinian national identity"
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Nakba": {
+          "label": "sympathetic",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "sympathetic": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.85
+        }
+      }
+    }
+  ],
+  "transitions": [
+    {
+      "before_revision_id": 1027206324,
+      "after_revision_id": 1061920846,
+      "entities": {
+        "Nakba": {
+          "state": "no_change",
+          "entity": "Nakba",
+          "text_similarity": 0.985,
+          "text_changed": false,
+          "label_changed": false,
+          "before_label": "sympathetic",
+          "after_label": "sympathetic",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    },
+    {
+      "before_revision_id": 1061920846,
+      "after_revision_id": 1095453582,
+      "entities": {
+        "Nakba": {
+          "state": "text_changed",
+          "entity": "Nakba",
+          "text_similarity": 0.9258,
+          "text_changed": true,
+          "label_changed": false,
+          "before_label": "sympathetic",
+          "after_label": "sympathetic",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    },
+    {
+      "before_revision_id": 1095453582,
+      "after_revision_id": 1130332141,
+      "entities": {
+        "Nakba": {
+          "state": "text_changed",
+          "entity": "Nakba",
+          "text_similarity": 0.8922,
+          "text_changed": true,
+          "label_changed": false,
+          "before_label": "sympathetic",
+          "after_label": "sympathetic",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    },
+    {
+      "before_revision_id": 1130332141,
+      "after_revision_id": 1166181333,
+      "entities": {
+        "Nakba": {
+          "state": "text_changed",
+          "entity": "Nakba",
+          "text_similarity": 0.8497,
+          "text_changed": true,
+          "label_changed": false,
+          "before_label": "sympathetic",
+          "after_label": "sympathetic",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    },
+    {
+      "before_revision_id": 1166181333,
+      "after_revision_id": 1193067338,
+      "entities": {
+        "Nakba": {
+          "state": "text_changed",
+          "entity": "Nakba",
+          "text_similarity": 0.2082,
+          "text_changed": true,
+          "label_changed": false,
+          "before_label": "sympathetic",
+          "after_label": "sympathetic",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    },
+    {
+      "before_revision_id": 1193067338,
+      "after_revision_id": 1232110798,
+      "entities": {
+        "Nakba": {
+          "state": "text_changed",
+          "entity": "Nakba",
+          "text_similarity": 0.1273,
+          "text_changed": true,
+          "label_changed": false,
+          "before_label": "sympathetic",
+          "after_label": "sympathetic",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    },
+    {
+      "before_revision_id": 1232110798,
+      "after_revision_id": 1267127780,
+      "entities": {
+        "Nakba": {
+          "state": "text_changed",
+          "entity": "Nakba",
+          "text_similarity": 0.9607,
+          "text_changed": true,
+          "label_changed": false,
+          "before_label": "sympathetic",
+          "after_label": "sympathetic",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    },
+    {
+      "before_revision_id": 1267127780,
+      "after_revision_id": 1299522995,
+      "entities": {
+        "Nakba": {
+          "state": "text_changed",
+          "entity": "Nakba",
+          "text_similarity": 0.7555,
+          "text_changed": true,
+          "label_changed": false,
+          "before_label": "sympathetic",
+          "after_label": "sympathetic",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    },
+    {
+      "before_revision_id": 1299522995,
+      "after_revision_id": 1330432938,
+      "entities": {
+        "Nakba": {
+          "state": "text_changed",
+          "entity": "Nakba",
+          "text_similarity": 0.9533,
+          "text_changed": true,
+          "label_changed": false,
+          "before_label": "sympathetic",
+          "after_label": "sympathetic",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    },
+    {
+      "before_revision_id": 1330432938,
+      "after_revision_id": 1362168059,
+      "entities": {
+        "Nakba": {
+          "state": "text_changed",
+          "entity": "Nakba",
+          "text_similarity": 0.7043,
+          "text_changed": true,
+          "label_changed": false,
+          "before_label": "sympathetic",
+          "after_label": "sympathetic",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    }
+  ],
+  "shifts": {
+    "Nakba": {
+      "start": 1,
+      "end": 1,
+      "shifted": false,
+      "n": 11,
+      "audited_transition_count": 0,
+      "transition_states": [
+        "no_change",
+        "text_changed",
+        "text_changed",
+        "text_changed",
+        "text_changed",
+        "text_changed",
+        "text_changed",
+        "text_changed",
+        "text_changed",
+        "text_changed"
+      ]
+    }
+  },
+  "since": null
+}

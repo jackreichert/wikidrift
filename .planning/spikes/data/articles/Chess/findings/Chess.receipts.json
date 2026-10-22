@@ -2,26 +2,26 @@
   "article": "Chess",
   "qid": "Q718",
   "editions": {
+    "fr": {
+      "present": true,
+      "revid": 240428508,
+      "title": "Échecs",
+      "timestamp": "2026-10-16T14:21:04Z",
+      "prose_chars": 103632
+    },
+    "it": {
+      "present": true,
+      "revid": 152656469,
+      "title": "Scacchi",
+      "timestamp": "2026-09-28T13:34:17Z",
+      "prose_chars": 95194
+    },
     "en": {
       "present": true,
-      "revid": 1363948440,
+      "revid": 1381252359,
       "title": "Chess",
-      "timestamp": "2026-07-13T14:01:55Z",
-      "prose_chars": 81282
-    },
-    "he": {
-      "present": true,
-      "revid": 43585683,
-      "title": "שחמט",
-      "timestamp": "2026-07-13T00:13:54Z",
-      "prose_chars": 60984
-    },
-    "ar": {
-      "present": true,
-      "revid": 75672078,
-      "title": "شطرنج",
-      "timestamp": "2026-06-26T08:14:48Z",
-      "prose_chars": 30493
+      "timestamp": "2026-10-21T01:07:57Z",
+      "prose_chars": 81422
     }
   }
 }

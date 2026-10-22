@@ -117,19 +117,14 @@
       "to": 3
     },
     {
-      "domain": "mohrsiebeck.com",
-      "from": 1,
-      "to": 3
-    },
-    {
       "domain": "yalebooks.yale.edu",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "hup.harvard.edu",
-      "from": 0,
-      "to": 1
+      "domain": "mohrsiebeck.com",
+      "from": 1,
+      "to": 3
     },
     {
       "domain": "d1wqtxts1xzle7.cloudfront.net",
@@ -147,7 +142,7 @@
       "to": 1
     },
     {
-      "domain": "ruj.uj.edu.pl",
+      "domain": "hup.harvard.edu",
       "from": 0,
       "to": 1
     },
@@ -158,6 +153,11 @@
     },
     {
       "domain": "books.google.co.il",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "ruj.uj.edu.pl",
       "from": 0,
       "to": 1
     },
@@ -189,22 +189,12 @@
       "to": 0
     },
     {
-      "domain": "rsy-netzer.org.uk",
+      "domain": "jpost.com",
       "from": 2,
       "to": 0
     },
     {
       "domain": "fordham.edu",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "halakhah.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "mechon-mamre.org",
       "from": 2,
       "to": 0
     },
@@ -219,17 +209,7 @@
       "to": 0
     },
     {
-      "domain": "jpost.com",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "sefaria.org",
-      "from": 2,
-      "to": 0
-    },
-    {
-      "domain": "archive.today",
+      "domain": "rsy-netzer.org.uk",
       "from": 2,
       "to": 0
     },
@@ -239,62 +219,27 @@
       "to": 0
     },
     {
-      "domain": "ceeol.com",
-      "from": 1,
+      "domain": "sefaria.org",
+      "from": 2,
       "to": 0
     },
     {
-      "domain": "archive.org",
-      "from": 3,
-      "to": 2
+      "domain": "mechon-mamre.org",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "archive.today",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "domain": "halakhah.com",
+      "from": 2,
+      "to": 0
     },
     {
       "domain": "knesset.gov.il",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "israelhayom.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "haaretz.com",
-      "from": 2,
-      "to": 1
-    },
-    {
-      "domain": "nrg.co.il",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "penelope.uchicago.edu",
-      "from": 2,
-      "to": 1
-    },
-    {
-      "domain": "bbc.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "israelnationalnews.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "sunburst.usd.edu",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "sacred-texts.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "steinsaltz.org",
       "from": 1,
       "to": 0
     },
@@ -304,17 +249,7 @@
       "to": 0
     },
     {
-      "domain": "hebrewbooks.org",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "cnn.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "instonebrewer.com",
+      "domain": "europeana.eu",
       "from": 1,
       "to": 0
     },
@@ -324,7 +259,72 @@
       "to": 0
     },
     {
-      "domain": "europeana.eu",
+      "domain": "sunburst.usd.edu",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "archive.org",
+      "from": 3,
+      "to": 2
+    },
+    {
+      "domain": "israelnationalnews.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "bbc.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "instonebrewer.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "ceeol.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "hebrewbooks.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "sacred-texts.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "israelhayom.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "cnn.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "steinsaltz.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "penelope.uchicago.edu",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "haaretz.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "nrg.co.il",
       "from": 1,
       "to": 0
     }

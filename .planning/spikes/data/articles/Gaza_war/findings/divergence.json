@@ -1,0 +1,70 @@
+{
+  "static": {
+    "Gaza war": {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "model_contract": {
+        "provider": "xai",
+        "model": "grok-4",
+        "prompt_version": "stance-v3"
+      },
+      "variants": {
+        "lead": {
+          "divergence": 2.0,
+          "spreads": {
+            "Gaza war": 2
+          }
+        },
+        "focal": {
+          "divergence": 1.0,
+          "spreads": {
+            "Gaza war": 1
+          }
+        }
+      }
+    }
+  },
+  "pivot_relative": {
+    "Gaza war": {
+      "pivot": "2024-01-01",
+      "pivot_source": "confirmed L1",
+      "en_gap_before": 0.0,
+      "en_gap_after": 0.5,
+      "read": "PEELED AWAY",
+      "before": {
+        "en": {
+          "Gaza war": 0
+        },
+        "he": {
+          "Gaza war": 1
+        },
+        "ar": {
+          "Gaza war": 0
+        },
+        "es": {
+          "Gaza war": -1
+        },
+        "de": {
+          "Gaza war": 0
+        }
+      },
+      "after": {
+        "en": {
+          "Gaza war": 0
+        },
+        "he": {
+          "Gaza war": 0
+        },
+        "ar": {
+          "Gaza war": -1
+        },
+        "es": {
+          "Gaza war": -1
+        },
+        "de": {
+          "Gaza war": 0
+        }
+      }
+    }
+  }
+}

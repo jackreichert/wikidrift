@@ -2,8 +2,8 @@
   "schema_version": 1,
   "prompt_version": "stance-v3",
   "model_contract": {
-    "provider": "anthropic",
-    "model": "claude-sonnet-5",
+    "provider": "xai",
+    "model": "grok-4",
     "prompt_version": "stance-v3"
   },
   "article": "Water",
@@ -22,12 +22,11 @@
           "entity": "Water",
           "stance": "neutral",
           "npov_departure": false,
-          "confidence": 0.97,
-          "evidence": "El agua es un elemento esencial para mantener la vida.",
+          "confidence": 0.95,
+          "evidence": "El agua (del latín aqua) es un compuesto inorgánico cuya molécula está constituida por dos átomos de hidrógeno y uno de oxígeno (H2O) unidos por un enlace covalente.",
           "evidence_spans": [
-            "El agua es un elemento esencial para mantener la vida.",
             "El agua (del latín aqua) es un compuesto inorgánico cuya molécula está constituida por dos átomos de hidrógeno y uno de oxígeno (H2O) unidos por un enlace covalente.",
-            "El agua como tal no tiene olor, ni color ni sabor"
+            "El agua cubre el 71% de la superficie de la corteza terrestre."
           ]
         }
       },
@@ -36,13 +35,12 @@
           "entity": "Water",
           "stance": "neutral",
           "npov_departure": false,
-          "confidence": 0.97,
-          "evidence": "El agua cubre el 71% de la superficie de la corteza terrestre... Es indispensable para el origen y sustento de la vida.",
+          "confidence": 0.95,
+          "evidence": "El agua (del latín aqua) es un compuesto inorgánico cuya molécula está constituida por dos átomos de hidrógeno y uno de oxígeno (H2O)",
           "evidence_spans": [
+            "El agua (del latín aqua) es un compuesto inorgánico cuya molécula está constituida por dos átomos de hidrógeno y uno de oxígeno (H2O)",
             "Es indispensable para el origen y sustento de la vida.",
-            "El agua cubre el 71% de la superficie de la corteza terrestre.",
-            "El agua es un elemento esencial para mantener la vida.",
-            "El agua es una sustancia que químicamente se formula como H2O"
+            "El agua cubre el 71% de la superficie de la corteza terrestre."
           ]
         }
       }
@@ -53,13 +51,12 @@
           "entity": "Water",
           "stance": "neutral",
           "npov_departure": false,
-          "confidence": 0.97,
-          "evidence": "Water is an inorganic compound with the chemical formula. Water is also the fluid of all known living organisms, in which it acts as a solvent.",
+          "confidence": 0.95,
+          "evidence": "Water is an inorganic compound with the chemical formula . Water is also the fluid of all known living organisms, in which it acts as a solvent.",
           "evidence_spans": [
             "Water is an inorganic compound with the chemical formula .",
             "Water is also the fluid of all known living organisms, in which it acts as a solvent.",
-            "Water plays an important role in the world economy.",
-            "Water is one of the few common substances that expands and becomes less dense as it cools within certain temperature ranges"
+            "Water, being a polar molecule, undergoes strong intermolecular hydrogen bonding which is a large contributor to its physical and chemical properties."
           ]
         }
       },
@@ -69,13 +66,11 @@
           "stance": "neutral",
           "npov_departure": false,
           "confidence": 0.95,
-          "evidence": "Water is an inorganic compound with the chemical formula. It is a transparent, tasteless, odorless, and nearly colorless chemical substance.",
+          "evidence": "Water is an inorganic compound with the chemical formula . It is a transparent, tasteless, odorless, and nearly colorless chemical substance.",
           "evidence_spans": [
-            "Water is an inorganic compound with the chemical formula",
-            "It is a transparent, tasteless, odorless, and nearly colorless chemical substance",
-            "It is vital for all known forms of life, despite not providing food energy or being an organic micronutrient",
-            "Water plays an important role in the world economy",
-            "These unusual thermal properties have important consequences for life on earth"
+            "Water is an inorganic compound with the chemical formula . It is a transparent, tasteless, odorless, and nearly colorless chemical substance.",
+            "It is vital for all known forms of life, despite not providing food energy or being an organic micronutrient.",
+            "Water plays an important role in the world economy. Approximately 70% of the fresh water used by humans goes to agriculture."
           ]
         }
       }
@@ -86,12 +81,11 @@
           "entity": "Water",
           "stance": "neutral",
           "npov_departure": false,
-          "confidence": 0.97,
-          "evidence": "L'acqua è un composto chimico di formula molecolare H2O... si presenta come un sistema bifase, costituito da un liquido incolore e insapore",
+          "confidence": 0.95,
+          "evidence": "Lacqua è un composto chimico di formula molecolare H2O, in cui i due atomi di idrogeno sono legati all'atomo di ossigeno con legame covalente polare.",
           "evidence_spans": [
-            "L'acqua è un composto chimico di formula molecolare H2O",
-            "è alla base di tutte le forme di vita conosciute, compreso l'essere umano",
-            "copre il 71% della superficie del pianeta, è un elemento climatico fondamentale ed è il principale costituente del corpo umano"
+            "Lacqua è un composto chimico di formula molecolare H2O, in cui i due atomi di idrogeno sono legati all'atomo di ossigeno con legame covalente polare.",
+            "L'acqua in natura è tra i principali costituenti degli ecosistemi ed è alla base di tutte le forme di vita conosciute"
           ]
         }
       },
@@ -101,11 +95,11 @@
           "stance": "neutral",
           "npov_departure": false,
           "confidence": 0.95,
-          "evidence": "L'acqua in natura è tra i principali costituenti degli ecosistemi ed è alla base di tutte le forme di vita conosciute",
+          "evidence": "Lacqua è un composto chimico di formula molecolare H2O... Si presenta allo stato solido (detto ghiaccio)... L'acqua in natura è tra i principali costituenti degli ecosistemi...",
           "evidence_spans": [
-            "è un composto chimico di formula molecolare H2O",
-            "L'acqua in natura è tra i principali costituenti degli ecosistemi ed è alla base di tutte le forme di vita conosciute, compreso l'essere umano",
-            "l'uomo ha riconosciuto sin da tempi antichissimi la sua importanza, identificandola come uno dei principali elementi costitutivi dell'universo e attribuendole un profondo valore simbolico"
+            "Lacqua è un composto chimico di formula molecolare H2O, in cui i due atomi di idrogeno sono legati all'atomo di ossigeno con legame covalente polare.",
+            "Essendo l'acqua un ottimo solvente, le acque naturali contengono disciolte moltissime altre sostanze",
+            "L'acqua in natura è tra i principali costituenti degli ecosistemi ed è alla base di tutte le forme di vita conosciute"
           ]
         }
       }

@@ -1,0 +1,17 @@
+{
+  "Israeli–Palestinian conflict": {
+    "raw": {
+      "revs": 9420,
+      "mutual_pairs": 220,
+      "M": 757170,
+      "M_per_rev": 80.38
+    },
+    "refined": {
+      "revs": 7287,
+      "mutual_pairs": 36,
+      "M": 57874,
+      "M_per_rev": 7.94
+    },
+    "refined_per_rev": 6.14
+  }
+}

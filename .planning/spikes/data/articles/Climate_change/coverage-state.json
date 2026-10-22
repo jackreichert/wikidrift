@@ -1,8 +1,11 @@
 {
   "article": "Climate change",
-  "updated_ts": "2026-08-04T21:43:56.802677+00:00",
+  "updated_ts": "2026-10-22T00:50:52.967451+00:00",
   "completed_stages": [
     "analyze",
-    "pipeline"
+    "pipeline",
+    "crosslingual",
+    "sources",
+    "profile"
   ]
 }

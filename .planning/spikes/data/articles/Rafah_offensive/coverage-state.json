@@ -1,0 +1,11 @@
+{
+  "article": "Rafah offensive",
+  "updated_ts": "2026-10-22T02:47:56.306492+00:00",
+  "completed_stages": [
+    "analyze",
+    "pipeline",
+    "crosslingual",
+    "sources",
+    "profile"
+  ]
+}

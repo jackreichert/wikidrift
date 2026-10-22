@@ -1,0 +1,17 @@
+{
+  "Gaza war": {
+    "raw": {
+      "revs": 20314,
+      "mutual_pairs": 24,
+      "M": 120714,
+      "M_per_rev": 5.94
+    },
+    "refined": {
+      "revs": 20285,
+      "mutual_pairs": 0,
+      "M": 0,
+      "M_per_rev": 0.0
+    },
+    "refined_per_rev": 0.0
+  }
+}

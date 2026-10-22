@@ -4,24 +4,38 @@
   "editions": {
     "en": {
       "present": true,
-      "revid": 1357185096,
+      "revid": 1379943823,
       "title": "UNRWA",
-      "timestamp": "2026-06-01T05:49:43Z",
-      "prose_chars": 70518
+      "timestamp": "2026-10-12T21:11:24Z",
+      "prose_chars": 72277
     },
     "he": {
       "present": true,
-      "revid": 43537608,
+      "revid": 43897317,
       "title": "אונר\"א",
-      "timestamp": "2026-07-05T10:14:25Z",
+      "timestamp": "2026-09-11T11:40:24Z",
       "prose_chars": 28151
     },
     "ar": {
       "present": true,
-      "revid": 75516004,
+      "revid": 76578098,
       "title": "وكالة الأمم المتحدة لإغاثة وتشغيل اللاجئين الفلسطينيين",
-      "timestamp": "2026-06-15T12:07:13Z",
-      "prose_chars": 14323
+      "timestamp": "2026-09-15T02:21:18Z",
+      "prose_chars": 14919
+    },
+    "es": {
+      "present": true,
+      "revid": 175643351,
+      "title": "Agencia de Naciones Unidas para los Refugiados de Palestina en Oriente Próximo",
+      "timestamp": "2026-10-03T18:27:40Z",
+      "prose_chars": 48658
+    },
+    "de": {
+      "present": true,
+      "revid": 270040364,
+      "title": "Hilfswerk der Vereinten Nationen für Palästina-Flüchtlinge im Nahen Osten",
+      "timestamp": "2026-08-28T09:24:43Z",
+      "prose_chars": 40608
     }
   }
 }

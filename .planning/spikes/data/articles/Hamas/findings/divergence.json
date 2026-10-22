@@ -1,0 +1,28 @@
+{
+  "static": {
+    "Hamas": {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "model_contract": {
+        "provider": "xai",
+        "model": "grok-4",
+        "prompt_version": "stance-v3"
+      },
+      "variants": {
+        "lead": {
+          "divergence": 2.0,
+          "spreads": {
+            "Hamas": 2
+          }
+        },
+        "focal": {
+          "divergence": 2.0,
+          "spreads": {
+            "Hamas": 2
+          }
+        }
+      }
+    }
+  },
+  "pivot_relative": {}
+}

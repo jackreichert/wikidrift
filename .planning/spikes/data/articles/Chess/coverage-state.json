@@ -1,0 +1,11 @@
+{
+  "article": "Chess",
+  "updated_ts": "2026-10-21T23:31:20.508920+00:00",
+  "completed_stages": [
+    "analyze",
+    "pipeline",
+    "crosslingual",
+    "sources",
+    "profile"
+  ]
+}

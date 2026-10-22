@@ -4,24 +4,38 @@
   "editions": {
     "en": {
       "present": true,
-      "revid": 1363861156,
+      "revid": 1381315628,
       "title": "Gaza war",
-      "timestamp": "2026-07-12T23:04:32Z",
-      "prose_chars": 73295
+      "timestamp": "2026-10-21T15:19:50Z",
+      "prose_chars": 80021
     },
     "he": {
       "present": true,
-      "revid": 43556327,
+      "revid": 44062532,
       "title": "זירת רצועת עזה במלחמת חרבות ברזל",
-      "timestamp": "2026-07-08T11:25:57Z",
-      "prose_chars": 85083
+      "timestamp": "2026-10-13T10:37:47Z",
+      "prose_chars": 87854
     },
     "ar": {
       "present": true,
-      "revid": 75802537,
+      "revid": 76975153,
       "title": "الحرب الفلسطينية الإسرائيلية (2023–الآن)",
-      "timestamp": "2026-07-04T12:44:09Z",
-      "prose_chars": 109966
+      "timestamp": "2026-10-15T07:06:27Z",
+      "prose_chars": 110048
+    },
+    "es": {
+      "present": true,
+      "revid": 175936834,
+      "title": "Guerra de Gaza",
+      "timestamp": "2026-10-21T18:43:19Z",
+      "prose_chars": 405028
+    },
+    "de": {
+      "present": true,
+      "revid": 271458138,
+      "title": "Krieg in Israel und Gaza seit 2023",
+      "timestamp": "2026-10-19T10:32:49Z",
+      "prose_chars": 265880
     }
   }
 }

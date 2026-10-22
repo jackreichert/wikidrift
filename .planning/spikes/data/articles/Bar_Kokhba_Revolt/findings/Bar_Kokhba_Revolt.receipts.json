@@ -4,17 +4,31 @@
   "editions": {
     "en": {
       "present": true,
-      "revid": 1362794282,
+      "revid": 1379543813,
       "title": "Bar Kokhba Revolt",
-      "timestamp": "2026-07-06T06:32:40Z",
-      "prose_chars": 77950
+      "timestamp": "2026-10-10T16:21:59Z",
+      "prose_chars": 78343
     },
     "he": {
       "present": true,
-      "revid": 43513628,
+      "revid": 43694013,
       "title": "מרד בר כוכבא",
-      "timestamp": "2026-07-01T00:44:55Z",
-      "prose_chars": 72256
+      "timestamp": "2026-08-02T07:08:14Z",
+      "prose_chars": 72258
+    },
+    "de": {
+      "present": true,
+      "revid": 269257443,
+      "title": "Bar-Kochba-Aufstand",
+      "timestamp": "2026-08-01T05:14:02Z",
+      "prose_chars": 89405
+    },
+    "ar": {
+      "present": true,
+      "revid": 76521979,
+      "title": "ثورة بار كوخبا",
+      "timestamp": "2026-09-11T10:57:33Z",
+      "prose_chars": 70321
     }
   }
 }

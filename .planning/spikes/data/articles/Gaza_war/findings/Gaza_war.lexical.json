@@ -1,6 +1,12 @@
 {
   "article": "Gaza war",
-  "span": "2024-01-01 -> 2025-01-01 (around L1 pivot ~2024-01-01)",
+  "mode": "pivot_relative",
+  "requested_mode": "pivot_relative",
+  "adequate": true,
+  "adequacy_reason": null,
+  "size_ratio": 1.0015,
+  "interval_source": "exact_confirmation",
+  "span": "rev 1192910451 -> rev 1192916451 (exact confirmation)",
   "pivot": "2024-01-01",
   "before": {
     "date": "2024-01-01",
@@ -8,294 +14,104 @@
     "tokens": 12621
   },
   "after": {
-    "date": "2025-01-01",
-    "rev": 1266523456,
-    "tokens": 10899
+    "date": "2024-01-01",
+    "rev": 1192916451,
+    "tokens": 12640
   },
-  "js_divergence": 0.1633,
+  "js_divergence": 0.0002,
   "overrepresented_after_terms": [
     {
-      "term": "april",
-      "before": 0,
-      "after": 19,
-      "delta": 19,
-      "log_odds": 3.812
-    },
-    {
-      "term": "nuseirat",
-      "before": 0,
-      "after": 14,
-      "delta": 14,
-      "log_odds": 3.5153
-    },
-    {
-      "term": "yunis",
-      "before": 0,
-      "after": 14,
-      "delta": 14,
-      "log_odds": 3.5153
-    },
-    {
-      "term": "lahia",
-      "before": 0,
-      "after": 11,
-      "delta": 11,
-      "log_odds": 3.2832
-    },
-    {
-      "term": "adwan",
-      "before": 0,
-      "after": 9,
-      "delta": 9,
-      "log_odds": 3.0919
-    },
-    {
-      "term": "polio",
-      "before": 0,
-      "after": 9,
-      "delta": 9,
-      "log_odds": 3.0919
-    },
-    {
-      "term": "serving",
-      "before": 0,
-      "after": 8,
-      "delta": 8,
-      "log_odds": 2.9806
-    },
-    {
-      "term": "vaccination",
-      "before": 0,
-      "after": 8,
-      "delta": 8,
-      "log_odds": 2.9806
-    },
-    {
-      "term": "july",
+      "term": "change",
       "before": 1,
-      "after": 22,
-      "delta": 21,
-      "log_odds": 2.8567
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.5094
     },
     {
-      "term": "conditions",
-      "before": 0,
-      "after": 7,
-      "delta": 7,
-      "log_odds": 2.8554
-    },
-    {
-      "term": "kitchen",
-      "before": 0,
-      "after": 7,
-      "delta": 7,
-      "log_odds": 2.8554
-    },
-    {
-      "term": "mawasi",
-      "before": 0,
-      "after": 7,
-      "delta": 7,
-      "log_odds": 2.8554
-    },
-    {
-      "term": "commission",
-      "before": 0,
-      "after": 6,
-      "delta": 6,
-      "log_odds": 2.7122
-    },
-    {
-      "term": "port",
-      "before": 0,
-      "after": 6,
-      "delta": 6,
-      "log_odds": 2.7122
-    },
-    {
-      "term": "january",
+      "term": "hijacked",
       "before": 1,
-      "after": 18,
-      "delta": 17,
-      "log_odds": 2.6606
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.5094
     },
     {
-      "term": "home",
+      "term": "thirds",
+      "before": 1,
+      "after": 2,
+      "delta": 1,
+      "log_odds": 0.5094
+    },
+    {
+      "term": "instead",
       "before": 2,
-      "after": 27,
-      "delta": 25,
-      "log_odds": 2.5469
+      "after": 3,
+      "delta": 1,
+      "log_odds": 0.335
     },
     {
-      "term": "august",
-      "before": 1,
-      "after": 16,
-      "delta": 15,
-      "log_odds": 2.546
+      "term": "majority",
+      "before": 5,
+      "after": 7,
+      "delta": 2,
+      "log_odds": 0.3088
     },
     {
-      "term": "iaf",
-      "before": 0,
-      "after": 5,
-      "delta": 5,
-      "log_odds": 2.545
+      "term": "vote",
+      "before": 3,
+      "after": 4,
+      "delta": 1,
+      "log_odds": 0.2499
     },
     {
-      "term": "radwan",
-      "before": 0,
-      "after": 5,
-      "delta": 5,
-      "log_odds": 2.545
+      "term": "passed",
+      "before": 6,
+      "after": 7,
+      "delta": 1,
+      "log_odds": 0.1417
     },
     {
-      "term": "vicinity",
-      "before": 0,
-      "after": 5,
-      "delta": 5,
-      "log_odds": 2.545
-    }
-  ],
-  "underrepresented_after_terms": [
-    {
-      "term": "expressed",
-      "before": 14,
-      "after": 0,
-      "delta": -14,
-      "log_odds": -3.2217
-    },
-    {
-      "term": "assembly",
+      "term": "ambassador",
       "before": 11,
-      "after": 0,
-      "delta": -11,
-      "log_odds": -2.9897
+      "after": 12,
+      "delta": 1,
+      "log_odds": 0.082
     },
     {
-      "term": "social",
-      "before": 9,
-      "after": 0,
-      "delta": -9,
-      "log_odds": -2.7985
+      "term": "stating",
+      "before": 12,
+      "after": 13,
+      "delta": 1,
+      "log_odds": 0.0755
     },
     {
-      "term": "unsc",
-      "before": 9,
-      "after": 0,
-      "delta": -9,
-      "log_odds": -2.7985
+      "term": "criticized",
+      "before": 14,
+      "after": 15,
+      "delta": 1,
+      "log_odds": 0.0653
     },
     {
-      "term": "blood",
-      "before": 7,
-      "after": 0,
-      "delta": -7,
-      "log_odds": -2.5619
+      "term": "time",
+      "before": 18,
+      "after": 19,
+      "delta": 1,
+      "log_odds": 0.0512
     },
     {
-      "term": "having",
-      "before": 7,
-      "after": 0,
-      "delta": -7,
-      "log_odds": -2.5619
+      "term": "due",
+      "before": 21,
+      "after": 22,
+      "delta": 1,
+      "log_odds": 0.044
     },
     {
-      "term": "spokesman",
-      "before": 7,
-      "after": 0,
-      "delta": -7,
-      "log_odds": -2.5619
-    },
-    {
-      "term": "votes",
-      "before": 7,
-      "after": 0,
-      "delta": -7,
-      "log_odds": -2.5619
-    },
-    {
-      "term": "cited",
-      "before": 6,
-      "after": 0,
-      "delta": -6,
-      "log_odds": -2.4187
-    },
-    {
-      "term": "community",
-      "before": 6,
-      "after": 0,
-      "delta": -6,
-      "log_odds": -2.4187
-    },
-    {
-      "term": "letter",
-      "before": 6,
-      "after": 0,
-      "delta": -6,
-      "log_odds": -2.4187
-    },
-    {
-      "term": "position",
-      "before": 6,
-      "after": 0,
-      "delta": -6,
-      "log_odds": -2.4187
-    },
-    {
-      "term": "survey",
-      "before": 6,
-      "after": 0,
-      "delta": -6,
-      "log_odds": -2.4187
-    },
-    {
-      "term": "warning",
-      "before": 6,
-      "after": 0,
-      "delta": -6,
-      "log_odds": -2.4187
-    },
-    {
-      "term": "abstentions",
-      "before": 5,
-      "after": 0,
-      "delta": -5,
-      "log_odds": -2.2516
-    },
-    {
-      "term": "accusations",
-      "before": 5,
-      "after": 0,
-      "delta": -5,
-      "log_odds": -2.2516
-    },
-    {
-      "term": "atrocities",
-      "before": 5,
-      "after": 0,
-      "delta": -5,
-      "log_odds": -2.2516
-    },
-    {
-      "term": "beheaded",
-      "before": 5,
-      "after": 0,
-      "delta": -5,
-      "log_odds": -2.2516
-    },
-    {
-      "term": "believe",
-      "before": 5,
-      "after": 0,
-      "delta": -5,
-      "log_odds": -2.2516
-    },
-    {
-      "term": "decapitated",
-      "before": 5,
-      "after": 0,
-      "delta": -5,
-      "log_odds": -2.2516
+      "term": "israeli",
+      "before": 224,
+      "after": 225,
+      "delta": 1,
+      "log_odds": 0.003
     }
   ],
+  "underrepresented_after_terms": [],
   "note": "Lexical drift is a lead-strengthening signal (term distribution/context change), not a verdict."
 }

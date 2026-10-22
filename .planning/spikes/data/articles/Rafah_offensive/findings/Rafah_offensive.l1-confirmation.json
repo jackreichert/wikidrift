@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "article": "Rafah offensive",
-  "run_ts": "2026-08-01T22:24:00.707450+00:00",
+  "run_ts": "2026-10-22T02:46:09.828230+00:00",
   "corpus_horizon": {
     "snapshot_date": "2026-07-01",
     "snapshot_revid": 1357159391
@@ -18,8 +18,8 @@
   "source_state": {
     "article": "Rafah offensive",
     "source_status": "current_complete",
-    "source_checked_at": "2026-08-01T22:24:00.364659+00:00",
-    "source_latest_revid": 1357159391,
+    "source_checked_at": "2026-10-22T02:46:09.445260+00:00",
+    "source_latest_revid": 1380343364,
     "expected_snapshots": 5,
     "loaded_snapshots": 5,
     "reason": null

@@ -1,0 +1,58 @@
+{
+  "static": {
+    "Chess": {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "model_contract": {
+        "provider": "xai",
+        "model": "grok-4",
+        "prompt_version": "stance-v3"
+      },
+      "variants": {
+        "lead": {
+          "divergence": 0.0,
+          "spreads": {
+            "Chess": 0
+          }
+        },
+        "focal": {
+          "divergence": 0.0,
+          "spreads": {
+            "Chess": 0
+          }
+        }
+      }
+    }
+  },
+  "pivot_relative": {
+    "Chess": {
+      "pivot": "2023-10-01",
+      "pivot_source": "fallback (L1=HEALTHY — addition-side growth)",
+      "en_gap_before": 0.5,
+      "en_gap_after": 0.0,
+      "read": "converged",
+      "before": {
+        "fr": {
+          "Chess": 1
+        },
+        "it": {
+          "Chess": 0
+        },
+        "en": {
+          "Chess": 0
+        }
+      },
+      "after": {
+        "fr": {
+          "Chess": 0
+        },
+        "it": {
+          "Chess": 0
+        },
+        "en": {
+          "Chess": 0
+        }
+      }
+    }
+  }
+}

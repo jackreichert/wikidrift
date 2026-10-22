@@ -4,23 +4,23 @@
   "editions": {
     "es": {
       "present": true,
-      "revid": 174667244,
+      "revid": 175834856,
       "title": "Agua",
-      "timestamp": "2026-08-02T22:44:17Z",
-      "prose_chars": 84573
+      "timestamp": "2026-10-15T06:39:49Z",
+      "prose_chars": 84761
     },
     "en": {
       "present": true,
-      "revid": 1366569788,
+      "revid": 1379351727,
       "title": "Water",
-      "timestamp": "2026-07-28T20:01:23Z",
-      "prose_chars": 68666
+      "timestamp": "2026-10-09T12:35:14Z",
+      "prose_chars": 68791
     },
     "it": {
       "present": true,
-      "revid": 151214249,
+      "revid": 152992062,
       "title": "Acqua",
-      "timestamp": "2026-06-20T03:21:06Z",
+      "timestamp": "2026-10-20T16:47:36Z",
       "prose_chars": 63714
     }
   }

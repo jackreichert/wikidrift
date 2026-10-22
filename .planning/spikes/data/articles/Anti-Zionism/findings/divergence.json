@@ -1,0 +1,70 @@
+{
+  "static": {
+    "Anti-Zionism": {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "model_contract": {
+        "provider": "xai",
+        "model": "grok-4",
+        "prompt_version": "stance-v3"
+      },
+      "variants": {
+        "lead": {
+          "divergence": 1.0,
+          "spreads": {
+            "Anti-Zionism": 1
+          }
+        },
+        "focal": {
+          "divergence": 2.0,
+          "spreads": {
+            "Anti-Zionism": 2
+          }
+        }
+      }
+    }
+  },
+  "pivot_relative": {
+    "Anti-Zionism": {
+      "pivot": "2023-10-01",
+      "pivot_source": "fallback (L1=HEALTHY — addition-side growth)",
+      "en_gap_before": 0.0,
+      "en_gap_after": 0.5,
+      "read": "PEELED AWAY",
+      "before": {
+        "en": {
+          "Anti-Zionism": 0
+        },
+        "he": {
+          "Anti-Zionism": 0
+        },
+        "ar": {
+          "Anti-Zionism": 1
+        },
+        "fr": {
+          "Anti-Zionism": 0
+        },
+        "de": {
+          "Anti-Zionism": -1
+        }
+      },
+      "after": {
+        "en": {
+          "Anti-Zionism": 0
+        },
+        "he": {
+          "Anti-Zionism": 0
+        },
+        "ar": {
+          "Anti-Zionism": 1
+        },
+        "fr": {
+          "Anti-Zionism": 1
+        },
+        "de": {
+          "Anti-Zionism": 0
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "Anti-Zionism": {
+    "raw": {
+      "revs": 5721,
+      "mutual_pairs": 201,
+      "M": 529533,
+      "M_per_rev": 92.56
+    },
+    "refined": {
+      "revs": 5157,
+      "mutual_pairs": 35,
+      "M": 40026,
+      "M_per_rev": 7.76
+    },
+    "refined_per_rev": 7.0
+  }
+}

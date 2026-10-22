@@ -1,0 +1,17 @@
+{
+  "Bar Kokhba Revolt": {
+    "raw": {
+      "revs": 2428,
+      "mutual_pairs": 22,
+      "M": 8215,
+      "M_per_rev": 3.38
+    },
+    "refined": {
+      "revs": 1995,
+      "mutual_pairs": 2,
+      "M": 344,
+      "M_per_rev": 0.17
+    },
+    "refined_per_rev": 0.14
+  }
+}

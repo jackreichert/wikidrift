@@ -1,7 +1,7 @@
 {
   "article": "Photosynthesis",
   "pivot": null,
-  "span": "2002-01-01 → 2026-07-01  (no L1 pivot — whole history)",
+  "span": "2002-01-01 → 2012-07-01  (no L1 pivot — whole history)",
   "before": {
     "date": "2002-01-01",
     "refs": 0,
@@ -10,151 +10,49 @@
     "domains": {}
   },
   "after": {
-    "date": "2026-07-01",
-    "refs": 133,
-    "n_domains": 30,
+    "date": "2012-07-01",
+    "refs": 45,
+    "n_domains": 19,
     "cite_mix": {
-      "journal": 66,
-      "book": 24,
-      "web": 7,
-      "news": 3
+      "journal": 54,
+      "book": 33,
+      "web": 13
     },
     "domains": {
-      "lexico.com": 2,
-      "cambridge.org": 2,
-      "archive.org": 6,
-      "life.illinois.edu": 5,
-      "books.google.com": 16,
-      "eia.doe.gov": 2,
-      "escholarship.org": 2,
-      "doi.org": 1,
-      "bio-medicine.org": 2,
-      "phschool.com": 2,
+      "eia.doe.gov": 1,
+      "bio-medicine.org": 1,
+      "phschool.com": 1,
+      "lbl.gov": 1,
+      "books.google.com": 1,
+      "nrcresearchpress.com": 1,
       "fao.org": 1,
-      "research.wur.nl": 1,
-      "bbc.com": 2,
-      "pbs.org": 2,
-      "newscientist.com": 4,
-      "astrobio.net": 2,
-      "cbc.ca": 1,
-      "scholarworks.montana.edu": 1,
+      "life.uiuc.edu": 4,
+      "newscientist.com": 2,
       "ucmp.berkeley.edu": 1,
-      "biodiversitylibrary.org": 2,
-      "nobelprize.org": 2,
-      "zfn.mpdl.mpg.de": 2,
-      "etymonline.com": 2,
-      "perseus.tufts.edu": 4,
-      "garfield.library.upenn.edu": 2,
-      "life.uiuc.edu": 3,
+      "nobelprize.org": 1,
       "scienceaid.co.uk": 1,
       "biochemweb.org": 1,
       "chemsoc.org": 1,
-      "bcs.whfreeman.com": 1
+      "juliantrubin.com": 1,
+      "bcs.whfreeman.com": 1,
+      "news.discovery.com": 1,
+      "biology-innovation.co.uk": 1,
+      "khanacademy.org": 1
     }
   },
   "added": [
     {
-      "domain": "books.google.com",
-      "from": 0,
-      "to": 16
-    },
-    {
-      "domain": "archive.org",
-      "from": 0,
-      "to": 6
-    },
-    {
-      "domain": "life.illinois.edu",
-      "from": 0,
-      "to": 5
-    },
-    {
-      "domain": "perseus.tufts.edu",
+      "domain": "life.uiuc.edu",
       "from": 0,
       "to": 4
     },
     {
       "domain": "newscientist.com",
       "from": 0,
-      "to": 4
-    },
-    {
-      "domain": "life.uiuc.edu",
-      "from": 0,
-      "to": 3
-    },
-    {
-      "domain": "zfn.mpdl.mpg.de",
-      "from": 0,
       "to": 2
     },
     {
-      "domain": "bio-medicine.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "lexico.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "eia.doe.gov",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "escholarship.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "bbc.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "etymonline.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "phschool.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "astrobio.net",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "biodiversitylibrary.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "nobelprize.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "cambridge.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "pbs.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "garfield.library.upenn.edu",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "research.wur.nl",
+      "domain": "khanacademy.org",
       "from": 0,
       "to": 1
     },
@@ -164,17 +62,17 @@
       "to": 1
     },
     {
-      "domain": "bcs.whfreeman.com",
+      "domain": "eia.doe.gov",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "fao.org",
+      "domain": "phschool.com",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "cbc.ca",
+      "domain": "nrcresearchpress.com",
       "from": 0,
       "to": 1
     },
@@ -184,12 +82,42 @@
       "to": 1
     },
     {
-      "domain": "doi.org",
+      "domain": "news.discovery.com",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "scholarworks.montana.edu",
+      "domain": "biology-innovation.co.uk",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "books.google.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "bio-medicine.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "bcs.whfreeman.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "lbl.gov",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "juliantrubin.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "chemsoc.org",
       "from": 0,
       "to": 1
     },
@@ -199,7 +127,12 @@
       "to": 1
     },
     {
-      "domain": "chemsoc.org",
+      "domain": "nobelprize.org",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "fao.org",
       "from": 0,
       "to": 1
     }

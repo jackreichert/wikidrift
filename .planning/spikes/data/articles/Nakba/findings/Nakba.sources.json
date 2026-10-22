@@ -125,14 +125,14 @@
       "to": 5
     },
     {
-      "domain": "haaretz.com",
-      "from": 2,
-      "to": 6
-    },
-    {
       "domain": "mondoweiss.net",
       "from": 0,
       "to": 4
+    },
+    {
+      "domain": "haaretz.com",
+      "from": 2,
+      "to": 6
     },
     {
       "domain": "jpost.com",
@@ -145,87 +145,17 @@
       "to": 4
     },
     {
-      "domain": "jstor.org",
-      "from": 4,
-      "to": 7
-    },
-    {
       "domain": "theguardian.com",
       "from": 0,
       "to": 3
     },
     {
-      "domain": "law.haifa.ac.il",
-      "from": 0,
-      "to": 2
+      "domain": "jstor.org",
+      "from": 4,
+      "to": 7
     },
     {
-      "domain": "columbialawreview.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "repository.kulib.kyoto-u.ac.jp",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "archive.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "link.springer.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "undocs.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "nytimes.com",
-      "from": 2,
-      "to": 4
-    },
-    {
-      "domain": "journals.sagepub.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "journals.library.mun.ca",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "taylorfrancis.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "online.ucpress.edu",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "amnesty.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "kalw.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "counterpunch.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "plands.org",
+      "domain": "pchrgaza.org",
       "from": 0,
       "to": 2
     },
@@ -235,14 +165,34 @@
       "to": 2
     },
     {
-      "domain": "pchrgaza.org",
+      "domain": "undocs.org",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "dx.doi.org",
+      "domain": "apnews.com",
       "from": 0,
       "to": 2
+    },
+    {
+      "domain": "nbcnews.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "plands.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "amnesty.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "nytimes.com",
+      "from": 2,
+      "to": 4
     },
     {
       "domain": "arabianews24.net",
@@ -255,7 +205,12 @@
       "to": 2
     },
     {
-      "domain": "cairo24.com",
+      "domain": "counterpunch.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "link.springer.com",
       "from": 0,
       "to": 2
     },
@@ -265,7 +220,7 @@
       "to": 2
     },
     {
-      "domain": "apnews.com",
+      "domain": "law.haifa.ac.il",
       "from": 0,
       "to": 2
     },
@@ -275,12 +230,57 @@
       "to": 2
     },
     {
-      "domain": "nbcnews.com",
+      "domain": "taylorfrancis.com",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "papers.ssrn.com",
+      "domain": "cairo24.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "online.ucpress.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "archive.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "journals.library.mun.ca",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "columbialawreview.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "kalw.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "journals.sagepub.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "repository.kulib.kyoto-u.ac.jp",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "dx.doi.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "nla.gov.au",
       "from": 0,
       "to": 1
     },
@@ -290,7 +290,17 @@
       "to": 1
     },
     {
+      "domain": "lib.cet.ac.il",
+      "from": 1,
+      "to": 2
+    },
+    {
       "domain": "vox.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "papers.ssrn.com",
       "from": 0,
       "to": 1
     },
@@ -300,27 +310,12 @@
       "to": 2
     },
     {
-      "domain": "ssrn.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "nla.gov.au",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "unrwa.org",
+      "domain": "badil.org",
       "from": 1,
       "to": 2
     },
     {
-      "domain": "jewishcurrents.org",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "insidehighered.com",
+      "domain": "luminosoa.org",
       "from": 0,
       "to": 1
     },
@@ -330,14 +325,9 @@
       "to": 1
     },
     {
-      "domain": "lib.cet.ac.il",
-      "from": 1,
-      "to": 2
-    },
-    {
-      "domain": "badil.org",
-      "from": 1,
-      "to": 2
+      "domain": "oikoumene.org",
+      "from": 0,
+      "to": 1
     },
     {
       "domain": "news.bbc.co.uk",
@@ -345,9 +335,14 @@
       "to": 1
     },
     {
-      "domain": "qna.org.qa",
+      "domain": "insidehighered.com",
       "from": 0,
       "to": 1
+    },
+    {
+      "domain": "unrwa.org",
+      "from": 1,
+      "to": 2
     },
     {
       "domain": "acri.org.il",
@@ -355,12 +350,22 @@
       "to": 2
     },
     {
+      "domain": "qna.org.qa",
+      "from": 0,
+      "to": 1
+    },
+    {
       "domain": "aljazeera.com",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "oikoumene.org",
+      "domain": "ssrn.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "jewishcurrents.org",
       "from": 0,
       "to": 1
     },
@@ -368,16 +373,16 @@
       "domain": "adalah.org",
       "from": 1,
       "to": 2
-    },
-    {
-      "domain": "luminosoa.org",
-      "from": 0,
-      "to": 1
     }
   ],
   "dropped": [
     {
-      "domain": "i-p-o.org",
+      "domain": "articles.latimes.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "core.ac.uk",
       "from": 1,
       "to": 0
     },
@@ -392,12 +397,7 @@
       "to": 1
     },
     {
-      "domain": "core.ac.uk",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "articles.latimes.com",
+      "domain": "i-p-o.org",
       "from": 1,
       "to": 0
     }

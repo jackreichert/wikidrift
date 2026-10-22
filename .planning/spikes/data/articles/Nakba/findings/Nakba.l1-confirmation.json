@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "article": "Nakba",
-  "run_ts": "2026-08-01T22:44:19.103928+00:00",
+  "run_ts": "2026-10-22T01:44:56.252152+00:00",
   "corpus_horizon": {
     "snapshot_date": "2026-07-01",
     "snapshot_revid": 1362168059
@@ -18,8 +18,8 @@
   "source_state": {
     "article": "Nakba",
     "source_status": "current_complete",
-    "source_checked_at": "2026-08-01T22:44:18.787187+00:00",
-    "source_latest_revid": 1365853369,
+    "source_checked_at": "2026-10-22T01:44:55.918429+00:00",
+    "source_latest_revid": 1380825371,
     "expected_snapshots": 11,
     "loaded_snapshots": 11,
     "reason": null

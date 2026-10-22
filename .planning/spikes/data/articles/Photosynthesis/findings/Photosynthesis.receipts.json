@@ -4,24 +4,38 @@
   "editions": {
     "en": {
       "present": true,
-      "revid": 1358838651,
+      "revid": 1379238357,
       "title": "Photosynthesis",
-      "timestamp": "2026-06-11T08:28:10Z",
-      "prose_chars": 51773
+      "timestamp": "2026-10-08T19:44:08Z",
+      "prose_chars": 51347
     },
     "he": {
       "present": true,
-      "revid": 43535123,
+      "revid": 44051339,
       "title": "פוטוסינתזה",
-      "timestamp": "2026-07-04T21:40:21Z",
-      "prose_chars": 17372
+      "timestamp": "2026-10-11T06:38:42Z",
+      "prose_chars": 17382
     },
     "ar": {
       "present": true,
-      "revid": 75016379,
+      "revid": 76808234,
       "title": "تركيب ضوئي",
-      "timestamp": "2026-06-04T21:45:54Z",
-      "prose_chars": 8299
+      "timestamp": "2026-09-29T14:48:05Z",
+      "prose_chars": 8296
+    },
+    "pt": {
+      "present": true,
+      "revid": 73032270,
+      "title": "Fotossíntese",
+      "timestamp": "2026-09-22T14:33:52Z",
+      "prose_chars": 126557
+    },
+    "de": {
+      "present": true,
+      "revid": 271344923,
+      "title": "Photosynthese",
+      "timestamp": "2026-10-14T22:11:42Z",
+      "prose_chars": 100464
     }
   }
 }

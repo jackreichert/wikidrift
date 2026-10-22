@@ -1,9 +1,11 @@
 {
   "article": "Water",
-  "updated_ts": "2026-08-04T21:48:02.789922+00:00",
+  "updated_ts": "2026-10-22T03:36:07.701147+00:00",
   "completed_stages": [
     "analyze",
+    "pipeline",
     "crosslingual",
-    "pipeline"
+    "sources",
+    "profile"
   ]
 }

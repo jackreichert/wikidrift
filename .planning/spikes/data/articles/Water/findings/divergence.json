@@ -4,8 +4,8 @@
       "schema_version": 1,
       "prompt_version": "stance-v3",
       "model_contract": {
-        "provider": "anthropic",
-        "model": "claude-sonnet-5",
+        "provider": "xai",
+        "model": "grok-4",
         "prompt_version": "stance-v3"
       },
       "variants": {
@@ -24,35 +24,5 @@
       }
     }
   },
-  "pivot_relative": {
-    "Water": {
-      "pivot": "2007-07-01",
-      "pivot_source": "confirmed L1",
-      "en_gap_before": 0.5,
-      "en_gap_after": 0.0,
-      "read": "converged",
-      "before": {
-        "es": {
-          "Water": 1
-        },
-        "en": {
-          "Water": 0
-        },
-        "it": {
-          "Water": 0
-        }
-      },
-      "after": {
-        "es": {
-          "Water": 0
-        },
-        "en": {
-          "Water": 0
-        },
-        "it": {
-          "Water": 0
-        }
-      }
-    }
-  }
+  "pivot_relative": {}
 }

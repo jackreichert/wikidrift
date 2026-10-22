@@ -1,9 +1,18 @@
 {
+  "schema_version": 1,
+  "prompt_version": "stance-v3",
+  "model_contract": {
+    "provider": "xai",
+    "model": "grok-4",
+    "prompt_version": "stance-v3"
+  },
   "article": "Hamas",
   "langs": [
     "en",
     "he",
-    "ar"
+    "ar",
+    "fr",
+    "de"
   ],
   "entities": [
     "Hamas"
@@ -15,7 +24,13 @@
           "entity": "Hamas",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "The passage presents historical, political, and diplomatic details—founding, elections, charter changes, and international designations—largely in descriptive terms, while also noting attacks on civilians and terrorist designations without editorializing."
+          "confidence": 0.85,
+          "evidence": "Hamas has since governed the territory separately from the Palestinian National Authority, and many countries and nongovernmental organizations have criticized it for human rights violations",
+          "evidence_spans": [
+            "Hamas has attacked Israeli civilians, including through suicide bombings as well as launching rockets at Israeli cities. Several countries have designated Hamas as a terrorist organisation.",
+            "In 2017, Hamas released a new charter that supported a Palestinian state within the 1967 borders without recognizing Israel.",
+            "While the 1988 Hamas charter was widely described as antisemitic, Hamas's 2017 charter removed the antisemitic language"
+          ]
         }
       },
       "lead": {
@@ -23,7 +38,13 @@
           "entity": "Hamas",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "a Sunni Islamist Palestinian nationalist political organisation with a military wing known as the al-Qassam Brigades... has been criticized for human rights violations... Hamas has attacked Israeli civilians, including through suicide bombings... designated Hamas as a terrorist organisation"
+          "confidence": 0.75,
+          "evidence": "The Islamic Resistance Movement, abbreviated Hamas... is a Sunni Islamist Palestinian nationalist political organisation with a military wing... It has governed the Israeli-occupied Gaza Strip since 2007.",
+          "evidence_spans": [
+            "The Islamic Resistance Movement, abbreviated Hamas (an acronym from the ), is a Sunni Islamist Palestinian nationalist political organisation with a military wing known as the al-Qassam Brigades.",
+            "It has governed the Israeli-occupied Gaza Strip since 2007.",
+            "Hamas has attacked Israeli civilians, including through suicide bombings as well as launching rockets at Israeli cities. Several countries have designated Hamas as a terrorist organisation."
+          ]
         }
       }
     },
@@ -33,7 +54,14 @@
           "entity": "Hamas",
           "stance": "critical",
           "npov_departure": true,
-          "evidence": "מטיפים לדמוניזציה של העם היהודי כולו ומתירים פגיעה בו... מתקפה אשר כללה שכללה פשעי מלחמה, פשעים נגד האנושות, אלימות מינית וחטיפת אזרחים המוחזקים כבני ערובה"
+          "confidence": 0.9,
+          "evidence": "מבצע פיגועים, ירי רקטות, חטיפות ופעולות טרור אחרות; קוראת להשמדת מדינת ישראל, כוללת ביטויים אנטישמיים חריפים; פשעי מלחמה, פשעים נגד האנושות, אלימות מינית וחטיפת אזרחים; דמוניזציה של העם היהודי כולו",
+          "evidence_spans": [
+            "מבצע פיגועים, ירי רקטות, חטיפות ופעולות טרור אחרות נגד אזרחים וחיילים ישראלים",
+            "קוראת להשמדת מדינת ישראל, כוללת ביטויים אנטישמיים חריפים",
+            "פשעי מלחמה, פשעים נגד האנושות, אלימות מינית וחטיפת אזרחים",
+            "דמוניזציה של העם היהודי כולו ומתירים פגיעה בו"
+          ]
         }
       },
       "lead": {
@@ -41,7 +69,15 @@
           "entity": "Hamas",
           "stance": "critical",
           "npov_departure": true,
-          "evidence": "הארגון הוקם בעזה בשנת 1987... הוא מבצע פיגועים, ירי רקטות, חטיפות ופעולות טרור אחרות נגד אזרחים וחיילים ישראלים... מתקפה אשר כללה שכללה פשעי מלחמה, פשעים נגד האנושות, אלימות מינית וחטיפת אזרחים המוחזקים כבני ערובה"
+          "confidence": 0.9,
+          "evidence": "חַמַאס (בערבית: حماس) הוא ארגון טרור פלסטיני אסלאמיסטי-סוני",
+          "evidence_spans": [
+            "חַמַאס (בערבית: حماس) הוא ארגון טרור פלסטיני אסלאמיסטי-סוני",
+            "ארגון הטרור הוקם בעזה",
+            "מבצע פיגועים, ירי רקטות, חטיפות ופעולות טרור אחרות",
+            "כוללת ביטויים אנטישמיים חריפים",
+            "מתקפה אשר כללה שכללה פשעי מלחמה, פשעים נגד האנושות, אלימות מינית וחטיפת אזרחים"
+          ]
         }
       }
     },
@@ -51,7 +87,14 @@
           "entity": "Hamas",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "وتعرف نفسها على أنها حركة تحرر وطني ذات فكر إسلامي وسطي معتدل... تعمل على توفير الظروف الملائمة لتحقيق تحرر الشعب الفلسطيني وتحرير أرضه من الاحتلال الإسرائيلي"
+          "confidence": 0.75,
+          "evidence": "تعرف نفسها على أنها حركة تحرر وطني ذات فكر إسلامي وسطي معتدل... تعمل على توفير الظروف الملائمة لتحقيق تحرر الشعب الفلسطيني وتحرير أرضه من الاحتلال الإسرائيلي",
+          "evidence_spans": [
+            "تعرف نفسها على أنها حركة تحرر وطني ذات فكر إسلامي وسطي معتدل",
+            "الجهاد فرض عين على كل مسلم",
+            "حاملة المشروع المقاوم",
+            "المشروع الصهيوني المدعوم من قبل قوى الاستعمار الحديث"
+          ]
         }
       },
       "lead": {
@@ -59,7 +102,75 @@
           "entity": "Hamas",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "وتعرف نفسها على أنها حركة تحرر وطني ذات فكر إسلامي وسطي معتدل، تحصر نضالها وعملها في قضية فلسطين، ولا تتدخل في شؤون الآخرين... والتصدي للمشروع الصهيوني المدعوم من قبل قوى الاستعمار الحديث"
+          "confidence": 0.8,
+          "evidence": "هي حركة فلسطينية، مقاومة، شعبية، إسلامية، وطنية. ... تعرف نفسها على أنها حركة تحرر وطني ذات فكر إسلامي وسطي معتدل",
+          "evidence_spans": [
+            "هي حركة فلسطينية، مقاومة، شعبية، إسلامية، وطنية",
+            "تعرف نفسها على أنها حركة تحرر وطني ذات فكر إسلامي وسطي معتدل",
+            "تحصر نضالها وعملها في قضية فلسطين"
+          ]
+        }
+      }
+    },
+    "fr": {
+      "focal": {
+        "Hamas": {
+          "entity": "Hamas",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.8,
+          "evidence": "Le Hamas est classé comme organisation terroriste par la quasi-totalité des pays occidentaux",
+          "evidence_spans": [
+            "Le Hamas est classé comme organisation terroriste par la quasi-totalité des pays occidentaux",
+            "Les militants du Hamas, dont ceux des brigades Izz al-Din al-Qassam, prennent pour cibles aussi bien les militaires que les civils israéliens.",
+            "Selon sa charte fondatrice (1988)., qui prône la destruction d'Israël"
+          ]
+        }
+      },
+      "lead": {
+        "Hamas": {
+          "entity": "Hamas",
+          "stance": "critical",
+          "npov_departure": true,
+          "confidence": 0.7,
+          "evidence": "classé comme organisation terroriste par la quasi-totalité des pays occidentaux... harcelé... organisant plusieurs dizaines d'attentats-suicides visant essentiellement des civils... organise une attaque contre Israël... causant la mort de près de 1 200 personnes",
+          "evidence_spans": [
+            "classé comme organisation terroriste par la quasi-totalité des pays occidentaux",
+            "harcelé, lors des périodes de guerre avec Israel, les agglomérations israéliennes",
+            "organise plusieurs dizaines d'attentats-suicides visant essentiellement des civils",
+            "organise une attaque contre Israël... causant la mort de près de 1 200 personnes"
+          ]
+        }
+      }
+    },
+    "de": {
+      "focal": {
+        "Hamas": {
+          "entity": "Hamas",
+          "stance": "critical",
+          "npov_departure": true,
+          "confidence": 0.85,
+          "evidence": "Die Hamas ... ist eine palästinensische sunnitisch-islamistische Organisation, die international von 41 Staaten als terroristische Vereinigung eingestuft wird.",
+          "evidence_spans": [
+            "die international von 41 Staaten als terroristische Vereinigung eingestuft wird",
+            "Seit 1989 greift die Hamas Israel immer wieder durch Terrorakte an, darunter Morde, Selbstmordanschläge und Beschuss mit Qassam-Raketen",
+            "Deshalb stufen Historiker und Politikwissenschaftler, die Europäische Union, die USA und weitere Staaten die Hamas als Terrororganisation ein",
+            "Wie die ägyptische Muslimbruderschaft vertrat die Hamas wiederholt öffentlich die Holocaustleugnung"
+          ]
+        }
+      },
+      "lead": {
+        "Hamas": {
+          "entity": "Hamas",
+          "stance": "critical",
+          "npov_departure": true,
+          "confidence": 0.85,
+          "evidence": "international von 41 Staaten als terroristische Vereinigung eingestuft wird... Seit 1989 greift die Hamas Israel immer wieder durch Terrorakte an... Bei ihrem Terrorangriff auf Israel am 7. Oktober 2023 ermordete sie mindestens 1139 Menschen",
+          "evidence_spans": [
+            "international von 41 Staaten als terroristische Vereinigung eingestuft wird",
+            "greift die Hamas Israel immer wieder durch Terrorakte an, darunter Morde, Selbstmordanschläge und Beschuss mit Qassam-Raketen",
+            "Bei ihrem Terrorangriff auf Israel am 7. Oktober 2023 ermordete sie mindestens 1139 Menschen"
+          ]
         }
       }
     }

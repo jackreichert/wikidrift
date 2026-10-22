@@ -3,7 +3,7 @@
   "prompt_version": "stance-v3",
   "model_contract": {
     "provider": "xai",
-    "model": "grok-4.3",
+    "model": "grok-4",
     "prompt_version": "stance-v3"
   },
   "article": "Brontosaurus",
@@ -25,9 +25,9 @@
           "confidence": 0.9,
           "evidence": "Brontosaurus is a genus of herbivorous sauropod dinosaur that lived in present-day United States during the Late Jurassic period.",
           "evidence_spans": [
-            "Brontosaurus is a genus of herbivorous sauropod dinosaur that lived in present-day United States during the Late Jurassic period.",
-            "the status of Brontosaurus is still uncertain, with some paleontologists still considering it a synonym of Apatosaurus.",
-            "In 2015, an extensive study of diplodocid relationships by Emanuel Tschopp, Octavio Mateus, and Roger Benson concluded that Brontosaurus was indeed a valid genus of sauropod distinct from Apatosaurus."
+            "Brontosaurus is a genus of herbivorous sauropod dinosaur",
+            "the status of Brontosaurus is still uncertain, with some paleontologists still considering it a synonym of Apatosaurus",
+            "an extensive study of diplodocid relationships by Emanuel Tschopp, Octavio Mateus, and Roger Benson concluded that Brontosaurus was indeed a valid genus of sauropod distinct from Apatosaurus"
           ]
         }
       },
@@ -37,9 +37,11 @@
           "stance": "neutral",
           "npov_departure": false,
           "confidence": 0.95,
-          "evidence": "Brontosaurus ( ; literally , from the Greek words  , , and  , ) is a genus of herbivorous sauropod dinosaur that lived in present-day United States during the Late Jurassic period.",
+          "evidence": "Brontosaurus is a genus of herbivorous sauropod dinosaur... the status of Brontosaurus is still uncertain, with some paleontologists still considering it a synonym of Apatosaurus.",
           "evidence_spans": [
-            "a 2015 study by Emmanuel Tschopp and colleagues found it to be distinct. ... However, the status of Brontosaurus is still uncertain, with some paleontologists still considering it a synonym of Apatosaurus."
+            "Brontosaurus ( ; literally , from the Greek words  , , and  , ) is a genus of herbivorous sauropod dinosaur",
+            "For decades, the animal was thought to have been a taxonomic synonym of its close relative Apatosaurus, but a 2015 study... found it to be distinct.",
+            "However, the status of Brontosaurus is still uncertain, with some paleontologists still considering it a synonym of Apatosaurus."
           ]
         }
       }
@@ -51,11 +53,10 @@
           "stance": "neutral",
           "npov_departure": false,
           "confidence": 0.9,
-          "evidence": "uno studio sui sauropodi del 2015... ha concluso che Brontosaurus è da considerarsi come un genere a sé stante di sauropode, distinto da Apatosaurus",
+          "evidence": "Brontosaurus (, il cui nome significa letteralmente \"lucertola del tuono\"",
           "evidence_spans": [
             "Brontosaurus (, il cui nome significa letteralmente \"lucertola del tuono\"",
-            "uno studio sui sauropodi del 2015... ha concluso che Brontosaurus è da considerarsi come un genere a sé stante",
-            "Il genere Brontosaurus comprende le tre seguenti specie"
+            "uno studio sui sauropodi del 2015... ha concluso che Brontosaurus è da considerarsi come un genere a sé stante"
           ]
         }
       },
@@ -65,11 +66,10 @@
           "stance": "neutral",
           "npov_departure": false,
           "confidence": 0.9,
-          "evidence": "Brontosaurus (, il cui nome significa letteralmente \"lucertola del tuono\" ... è un genere estinto di dinosauro sauropode.",
+          "evidence": "Brontosaurus (, il cui nome significa letteralmente \"lucertola del tuono\" ... Tuttavia, non tutti i paleontologi concordano con questa scissione.",
           "evidence_spans": [
-            "Brontosaurus ... è un genere estinto di dinosauro sauropode",
-            "non tutti i paleontologi concordano con questa scissione",
-            "il brontosauro è uno dei dinosauri più conosciuti e famosi, nonostante la confusione tassonomica con l'apatosauro"
+            "Brontosaurus (, il cui nome significa letteralmente \"lucertola del tuono\" - dal greco βροντή, brontē= tuono e σαῦρος, sauros= lucertola), conosciuto anche come brontosauro, è un genere estinto di dinosauro sauropode.",
+            "Tuttavia, uno studio sui sauropodi del 2015... ha concluso che Brontosaurus è da considerarsi come un genere a sé stante... Tuttavia, non tutti i paleontologi concordano con questa scissione."
           ]
         }
       }
@@ -81,11 +81,10 @@
           "stance": "neutral",
           "npov_departure": false,
           "confidence": 0.9,
-          "evidence": "Brontosaurus (gr. Brontosaurus fue originalmente nombrado por su descubridor Othniel Charles Marsh en 1879.",
+          "evidence": "un extenso estudio publicado en 2015 concluyó que Brontosaurus es un género válido de saurópodo y distinto de Apatosaurus",
           "evidence_spans": [
-            "un extenso estudio publicado en 2015 concluyó que Brontosaurus es un género válido de saurópodo y distinto de Apatosaurus",
-            "sin embargo, un extenso estudio publicado en 2015 por el equipo de investigación conjunto británico-portugués concluyó que Brontosaurus era un género de saurópodo válido y distinto de Apatosaurus",
-            "Sin embargo, no todos los paleontólogos están de acuerdo con esta división"
+            "Brontosaurus (gr. Brontosaurus fue originalmente nombrado por su descubridor Othniel Charles Marsh en 1879.",
+            "un extenso estudio publicado en 2015 concluyó que Brontosaurus es un género válido de saurópodo y distinto de Apatosaurus."
           ]
         }
       },
@@ -97,7 +96,7 @@
           "confidence": 0.95,
           "evidence": "Brontosaurus fue originalmente nombrado por su descubridor Othniel Charles Marsh en 1879.",
           "evidence_spans": [
-            "Brontosaurus (gr. ,  «trueno» y ,  «lagarto»; «lagarto trueno»), o brontosaurio en español, es un género de dinosaurio saurópodo diplodócido",
+            "Brontosaurus fue originalmente nombrado por su descubridor Othniel Charles Marsh en 1879.",
             "Sin embargo, un extenso estudio publicado en 2015 concluyó que Brontosaurus es un género válido de saurópodo y distinto de Apatosaurus."
           ]
         }

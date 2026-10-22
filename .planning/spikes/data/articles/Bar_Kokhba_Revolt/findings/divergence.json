@@ -1,0 +1,64 @@
+{
+  "static": {
+    "Bar Kokhba Revolt": {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "model_contract": {
+        "provider": "xai",
+        "model": "grok-4",
+        "prompt_version": "stance-v3"
+      },
+      "variants": {
+        "lead": {
+          "divergence": 0.0,
+          "spreads": {
+            "Bar Kokhba Revolt": 0
+          }
+        },
+        "focal": {
+          "divergence": 1.0,
+          "spreads": {
+            "Bar Kokhba Revolt": 1
+          }
+        }
+      }
+    }
+  },
+  "pivot_relative": {
+    "Bar Kokhba Revolt": {
+      "pivot": "2025-01-01",
+      "pivot_source": "confirmed L1",
+      "en_gap_before": 0.0,
+      "en_gap_after": 0.0,
+      "read": "no net change",
+      "before": {
+        "en": {
+          "Bar Kokhba Revolt": 0
+        },
+        "he": {
+          "Bar Kokhba Revolt": 0
+        },
+        "de": {
+          "Bar Kokhba Revolt": 0
+        },
+        "ar": {
+          "Bar Kokhba Revolt": 0
+        }
+      },
+      "after": {
+        "en": {
+          "Bar Kokhba Revolt": 0
+        },
+        "he": {
+          "Bar Kokhba Revolt": 0
+        },
+        "de": {
+          "Bar Kokhba Revolt": 0
+        },
+        "ar": {
+          "Bar Kokhba Revolt": 0
+        }
+      }
+    }
+  }
+}

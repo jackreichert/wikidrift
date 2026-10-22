@@ -1,0 +1,17 @@
+{
+  "Chess": {
+    "raw": {
+      "revs": 11400,
+      "mutual_pairs": 202,
+      "M": 676820,
+      "M_per_rev": 59.37
+    },
+    "refined": {
+      "revs": 8958,
+      "mutual_pairs": 21,
+      "M": 27404,
+      "M_per_rev": 3.06
+    },
+    "refined_per_rev": 2.4
+  }
+}

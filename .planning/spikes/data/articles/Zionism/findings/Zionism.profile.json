@@ -1,10 +1,10 @@
 {
   "article": "Zionism",
-  "horizon": "2026-07-01",
-  "n_tokens": 88598,
-  "median_age_yrs": 1.4,
-  "pct_recent": 89.1,
+  "horizon": "2026-01-01",
+  "n_tokens": 79344,
+  "median_age_yrs": 1.0,
+  "pct_recent": 87.7,
   "recent_years": 3.0,
-  "top10_editor_share": 74.6,
-  "distinct_editors": 404
+  "top10_editor_share": 73.0,
+  "distinct_editors": 376
 }

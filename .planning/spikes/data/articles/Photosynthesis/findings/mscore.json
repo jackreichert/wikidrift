@@ -1,0 +1,17 @@
+{
+  "Photosynthesis": {
+    "raw": {
+      "revs": 5177,
+      "mutual_pairs": 255,
+      "M": 341909,
+      "M_per_rev": 66.04
+    },
+    "refined": {
+      "revs": 3016,
+      "mutual_pairs": 26,
+      "M": 14784,
+      "M_per_rev": 4.9
+    },
+    "refined_per_rev": 2.86
+  }
+}

@@ -1,9 +1,18 @@
 {
+  "schema_version": 1,
+  "prompt_version": "stance-v3",
+  "model_contract": {
+    "provider": "xai",
+    "model": "grok-4",
+    "prompt_version": "stance-v3"
+  },
   "article": "Anti-Zionism",
   "langs": [
     "en",
     "he",
-    "ar"
+    "ar",
+    "fr",
+    "de"
   ],
   "entities": [
     "Anti-Zionism"
@@ -15,7 +24,13 @@
           "entity": "Anti-Zionism",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "Anti-Zionism comes in various forms. The relationship between anti-Zionism and antisemitism is debated, with some academics and organizations rejecting the linkage as unfounded... while others... argue that anti-Zionism is inherently antisemitic"
+          "confidence": 0.8,
+          "evidence": "Anti-Zionism is opposition to Zionism.",
+          "evidence_spans": [
+            "Anti-Zionism is opposition to Zionism.",
+            "The relationship between anti-Zionism and antisemitism is debated, with some academics and organizations rejecting the linkage as unfounded and a form of weaponization of antisemitism used to stifle criticism of Israel and its policies... while others, particularly supporters of Zionism, argue that anti-Zionism is inherently antisemitic or constitutes new antisemitism.",
+            "According to Anthony Julius, anti-Zionism, a highly heterogeneous phenomenon, and Palestinian nationalism are separate ideologies"
+          ]
         }
       },
       "lead": {
@@ -23,7 +38,12 @@
           "entity": "Anti-Zionism",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "Anti-Zionism is opposition to Zionism... a heterogeneous phenomenon, all its proponents agree that the creation of the State of Israel in 1948... was flawed or unjust in some way."
+          "confidence": 0.85,
+          "evidence": "Anti-Zionism is opposition to Zionism. Although anti-Zionism is a heterogeneous phenomenon, all its proponents agree that the creation of the State of Israel in 1948, and the movement to create a sovereign Jewish state in the region of Palestine—a region partly coinciding with the biblical Land of Israel—was flawed or unjust in some way.",
+          "evidence_spans": [
+            "Anti-Zionism is opposition to Zionism. Although anti-Zionism is a heterogeneous phenomenon",
+            "The relationship between anti-Zionism and antisemitism is debated, with some academics and organizations rejecting the linkage as unfounded and a form of weaponization of antisemitism used to stifle criticism of Israel and its policies, including the Israeli occupation of the West Bank and blockade of the Gaza Strip, while others, particularly supporters of Zionism, argue that anti-Zionism is inherently antisemitic or constitutes new antisemitism."
+          ]
         }
       }
     },
@@ -33,7 +53,13 @@
           "entity": "Anti-Zionism",
           "stance": "critical",
           "npov_departure": true,
-          "evidence": "גל זה של אנטישמיות, שהגדיר את עצמו כ'אנטי-ציונות' כונה האנטישמיות החדשה... ומצהירה באופן חזק וברור שאנטי-ציונות היא אנטישמיות"
+          "confidence": 0.75,
+          "evidence": "גל זה של אנטישמיות, שהגדיר את עצמו כ\"אנטי-ציונות\" כונה האנטישמיות החדשה",
+          "evidence_spans": [
+            "אנטי-ציונות כאנטישמיות",
+            "פרלמנטים במערב קובעים שאנטי-ציונות שווה לאנטישמיות",
+            "גל זה של אנטישמיות, שהגדיר את עצמו כ\"אנטי-ציונות\" כונה האנטישמיות החדשה"
+          ]
         }
       },
       "lead": {
@@ -41,7 +67,12 @@
           "entity": "Anti-Zionism",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "אנטי-ציונות הוא מונח מורכב ורב-פנים, שמשמעותו התנגדות לתנועה הציונית"
+          "confidence": 0.85,
+          "evidence": "אנטי-ציונות הוא מונח מורכב ורב-פנים, שמשמעותו התנגדות לתנועה הציונית.",
+          "evidence_spans": [
+            "אנטי-ציונות הוא מונח מורכב ורב-פנים, שמשמעותו התנגדות לתנועה הציונית.",
+            "אנטי-ציונות, ממקורות שונים ומסוגים שונים, התקיימה כתפיסה מודעת לעצמה החל מראשיתה של התנועה הציונית בשלהי המאה ה-19."
+          ]
         }
       }
     },
@@ -51,7 +82,12 @@
           "entity": "Anti-Zionism",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "ويرى آخرون أن الحكومة الإسرائيلية ومؤيدوها يخلطون عمداً بين معاداة الصهيونية ومعاداة السامية بغرض استخدام معاداة السامية كسلاح لتجنب الانتقادات الموجهة لإسرائيل وسياساتها"
+          "confidence": 0.75,
+          "evidence": "قاومتها الدول العربية ... باعتبارها مشروعا استعماريا ... يرى آخرون أن الحكومة الإسرائيلية ومؤيدوها يخلطون عمداً بين معاداة الصهيونية ومعاداة السامية بغرض استخدام معاداة السامية كسلاح لتجنب الانتقادات",
+          "evidence_spans": [
+            "قاومتها الدول العربية ... باعتبارها مشروعا استعماريا",
+            "يرى آخرون أن الحكومة الإسرائيلية ومؤيدوها يخلطون عمداً بين معاداة الصهيونية ومعاداة السامية بغرض استخدام معاداة السامية كسلاح لتجنب الانتقادات"
+          ]
         }
       },
       "lead": {
@@ -59,7 +95,74 @@
           "entity": "Anti-Zionism",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "معاداة الصهيونية آلة يقوم بخيرها الاستعمار العالمى لمصالحه على حساب اليهود والعرب معا، وتعتبر الصهيونية هؤلاء المناهضين لها من اليهود اشد خطرا عليها من ايه جهه أخرى"
+          "confidence": 0.8,
+          "evidence": "تختلف معاداة الصهيونية عن معاداة اليهود، أو اللاسامية الأوروبية التي تعادي اليهود لذاتهم.",
+          "evidence_spans": [
+            "تختلف معاداة الصهيونية عن معاداة اليهود، أو اللاسامية الأوروبية",
+            "يرى آخرون أن الحكومة الإسرائيلية ومؤيدوها يخلطون عمداً بين معاداة الصهيونية ومعاداة السامية بغرض استخدام معاداة السامية كسلاح لتجنب الانتقادات",
+            "رفضت الدولة العثمانية الصهيونية من ناحية رغبتها في إقامة دولة يهودية في فلسطين، وقاومتها الدول العربية ... باعتبارها مشروعا استعماريا"
+          ]
+        }
+      }
+    },
+    "fr": {
+      "focal": {
+        "Anti-Zionism": {
+          "entity": "Anti-Zionism",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.85,
+          "evidence": "L'antisionisme (ou anti-sionisme) est l'opposition au sionisme.",
+          "evidence_spans": [
+            "L'antisionisme (ou anti-sionisme) est l'opposition au sionisme.",
+            "Depuis 1948, l’antisionisme peut renvoyer à des positions allant de la critique de l’idéologie sioniste ou de politiques israéliennes à la contestation de la légitimité de l’État d’Israël",
+            "l'antisionisme est parfois dénoncé comme un nouvel antisémitisme, tandis que cette critique est rejetée par d'autres qui y voient une tentative d'empêcher la critique d’Israël."
+          ]
+        }
+      },
+      "lead": {
+        "Anti-Zionism": {
+          "entity": "Anti-Zionism",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "confidence": 0.75,
+          "evidence": "Notamment, les prises de position antisionistes s'opposant à la politique expansionniste israélienne sont souvent accusées de néo-antisémites par Israël et ses partisans dans le but de délégitimer la critique des exactions israéliennes dans les territoires occupés.",
+          "evidence_spans": [
+            "Notamment, les prises de position antisionistes s'opposant à la politique expansionniste israélienne sont souvent accusées de néo-antisémites par Israël et ses partisans dans le but de délégitimer la critique des exactions israéliennes dans les territoires occupés.",
+            "l'opposition à la politique de colonisation des territoires palestiniens occupés, basée sur l'opinion selon laquelle Israël et certains groupements se réclamant du sionisme y appliqueraient une politique expansionniste",
+            "la condamnation de la situation des Arabes israéliens et des Palestiniens, qui subissent des discriminations, parfois jugées proches de l'apartheid"
+          ]
+        }
+      }
+    },
+    "de": {
+      "focal": {
+        "Anti-Zionism": {
+          "entity": "Anti-Zionism",
+          "stance": "critical",
+          "npov_departure": true,
+          "confidence": 0.85,
+          "evidence": "enthält oft Elemente des europäischen Antisemitismus. ... Die Übergänge dieser als „Antizionismus“ ausgegebenen Politik zu manifestem Antisemitismus waren fließend.",
+          "evidence_spans": [
+            "enthält oft Elemente des europäischen Antisemitismus",
+            "Die Übergänge dieser als „Antizionismus“ ausgegebenen Politik zu manifestem Antisemitismus waren fließend",
+            "Jean Améry betrachtete den Antizionismus der Linken als banalen Antisemitismus",
+            "der Antizionismus, der „von Kreisen, die sich für sehr fortschrittlich halten“, ausgehe, habe „unabhängig davon ... auch die Funktion, antijüdische Vorurteile wach zu erhalten“"
+          ]
+        }
+      },
+      "lead": {
+        "Anti-Zionism": {
+          "entity": "Anti-Zionism",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.75,
+          "evidence": "Antizionismus ist ein Sammelbegriff für gegen (griechisch antí) den Zionismus gerichtete politische Ideologien.",
+          "evidence_spans": [
+            "Antizionismus ist ein Sammelbegriff für gegen (griechisch antí) den Zionismus gerichtete politische Ideologien.",
+            "Nach Einschätzung einer Reihe von Wissenschaftlern bestehen häufig Zusammenhänge mit dem Antisemitismus, andere Wissenschaftler bestreiten diesen Zusammenhang.",
+            "Viele Juden lehnten den im 19. Jahrhundert entstandenen politischen Zionismus ab, da er ihren Zielen der Emanzipation, innerstaatlichen Gleichberechtigung, Assimilation und sozialen Integration widersprach"
+          ]
         }
       }
     }

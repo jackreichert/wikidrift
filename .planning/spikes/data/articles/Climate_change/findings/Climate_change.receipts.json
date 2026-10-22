@@ -2,26 +2,26 @@
   "article": "Climate change",
   "qid": "Q125928",
   "editions": {
+    "pt": {
+      "present": true,
+      "revid": 73115640,
+      "title": "Mudança do clima",
+      "timestamp": "2026-10-03T18:47:01Z",
+      "prose_chars": 108050
+    },
+    "id": {
+      "present": true,
+      "revid": 30087361,
+      "title": "Perubahan iklim",
+      "timestamp": "2026-10-19T07:56:35Z",
+      "prose_chars": 92750
+    },
     "en": {
       "present": true,
-      "revid": 1363907785,
+      "revid": 1377826917,
       "title": "Climate change",
-      "timestamp": "2026-07-13T06:24:39Z",
-      "prose_chars": 82710
-    },
-    "he": {
-      "present": true,
-      "revid": 43520022,
-      "title": "שינוי אקלים",
-      "timestamp": "2026-07-02T00:47:33Z",
-      "prose_chars": 21734
-    },
-    "ar": {
-      "present": true,
-      "revid": 75703810,
-      "title": "تغير المناخ",
-      "timestamp": "2026-06-28T08:56:09Z",
-      "prose_chars": 13299
+      "timestamp": "2026-10-01T10:04:24Z",
+      "prose_chars": 82764
     }
   }
 }

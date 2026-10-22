@@ -1,9 +1,18 @@
 {
+  "schema_version": 1,
+  "prompt_version": "stance-v3",
+  "model_contract": {
+    "provider": "xai",
+    "model": "grok-4",
+    "prompt_version": "stance-v3"
+  },
   "article": "Nakba",
   "langs": [
     "en",
     "he",
-    "ar"
+    "ar",
+    "es",
+    "de"
   ],
   "entities": [
     "Nakba"
@@ -15,7 +24,13 @@
           "entity": "Nakba",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "The Nakba () is the ethnic cleansing of Palestinian Arabs by Zionists through their violent displacement and dispossession of land, property, and belongings"
+          "confidence": 0.95,
+          "evidence": "The Nakba () is the ethnic cleansing of Palestinian Arabs by Zionists through their violent displacement and dispossession of land, property, and belongings, along with the destruction of their society and the suppression of their culture, identity, political rights, and national aspirations.",
+          "evidence_spans": [
+            "The Nakba () is the ethnic cleansing",
+            "by Zionists through their violent displacement",
+            "The Palestinian national narrative views the Nakba as a collective trauma that defines Palestinians' national identity and political aspirations."
+          ]
         }
       },
       "lead": {
@@ -23,7 +38,13 @@
           "entity": "Nakba",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "The Nakba () is the ethnic cleansing ... of Palestinian Arabs by Zionists through their violent displacement and dispossession of land, property, and belongings"
+          "confidence": 0.9,
+          "evidence": "The Nakba () is the ethnic cleansing of Palestinian Arabs by Zionists through their violent displacement and dispossession of land, property, and belongings, along with the destruction of their society and the suppression of their culture, identity, political rights, and national aspirations.",
+          "evidence_spans": [
+            "The Nakba () is the ethnic cleansing of Palestinian Arabs by Zionists through their violent displacement and dispossession of land, property, and belongings, along with the destruction of their society and the suppression of their culture, identity, political rights, and national aspirations.",
+            "Dozens of massacres targeted Palestinian Arabs, and over 500 Arab-majority towns, villages, and urban neighborhoods were depopulated.",
+            "Israel employed biological warfare against Palestinians by poisoning village wells."
+          ]
         }
       }
     },
@@ -31,17 +52,27 @@
       "focal": {
         "Nakba": {
           "entity": "Nakba",
-          "stance": "critical",
+          "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "הנכבה של פלסטין היא תהליך של טיהור אתני המלווה בחורבן ובעקירה חמושה ושיטתית של עם מארצו... שלקחו בה חלק מדינות גדולות – והביאה לטרגדיה הגדולה שפקדה את העם הפלסטיני; the passage juxtaposes this strong pro-Palestinian framing with critical Israeli commentary (ימיני, אבינרי) questioning the Nakba narrative's motives, and details the 'Nakba Law' restricting its commemoration, creating a contested rather than purely neutral presentation"
+          "confidence": 0.85,
+          "evidence": "הנכבה של פלסטין היא תהליך של טיהור אתני המלווה בחורבן ובעקירה חמושה ושיטתית של עם מארצו... הנכבה הפלסטינית התרחשה כחלק מתוכנית צבאית דקדקנית מעשה ידי אדם... והביאה לטרגדיה הגדולה שפקדה את העם הפלסטיני",
+          "evidence_spans": [
+            "הנכבה של פלסטין היא תהליך של טיהור אתני המלווה בחורבן ובעקירה חמושה ושיטתית של עם מארצו",
+            "הנכבה הפלסטינית התרחשה כחלק מתוכנית צבאית דקדקנית מעשה ידי אדם... והביאה לטרגדיה הגדולה שפקדה את העם הפלסטיני"
+          ]
         }
       },
       "lead": {
         "Nakba": {
           "entity": "Nakba",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "מנגד, ההיסטוריוגרפיה הפלסטינית וחוקרים בגישה הביקורתית רואים באירועים תהליך שיטתי ומכוון של טיהור אתני... ולהרוס את החברה הפלסטינית מן היסוד כדי להבטיח רוב יהודי מוצק"
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.9,
+          "evidence": "הגורמים לעזיבת האוכלוסייה הם נושא למחלוקת היסטוריוגרפית עמוקה הנחלקת בין גישות שונות",
+          "evidence_spans": [
+            "הגורמים לעזיבת האוכלוסייה הם נושא למחלוקת היסטוריוגרפית עמוקה הנחלקת בין גישות שונות המפרשות באופן שונה את שאלת האחריות לאירועים.",
+            "לפי הנרטיב הציוני-ממסדי, מרבית העזיבה הייתה בריחה מרצון... מנגד, ההיסטוריוגרפיה הפלסטינית וחוקרים בגישה הביקורתית רואים... לצד גישות אלו, חוקרים המזוהים עם זרם ההיסטוריונים החדשים טוענים"
+          ]
         }
       }
     },
@@ -51,7 +82,15 @@
           "entity": "Nakba",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "وطرد ما يربو على 750 ألف فلسطيني وتحويلهم إلى لاجئين، كما تشمل الأحداث عشرات المجازر والفظائع وأعمال النهب ضد الفلسطينيين... ومحاولة تدمير الهوية الفلسطينية"
+          "confidence": 0.9,
+          "evidence": "النكبة مصطلح فلسطيني يعبر عن المأساة الإنسانية المتعلقة بتشريد عدد كبير من الشعب الفلسطيني... عشرات المجازر والفظائع... تطهير عرقي... عصابات صهيونية إرهابية",
+          "evidence_spans": [
+            "النكبة مصطلح فلسطيني يعبر عن المأساة الإنسانية",
+            "تشمل أحداث النكبة... طرد ما يربو على 750 ألف فلسطيني",
+            "عشرات المجازر والفظائع وأعمال النهب",
+            "تطهير العرقي في عام 1947",
+            "عصابات صهيونية إرهابية قرىً وبلدات ومدن فلسطينية بهدف إبادتها"
+          ]
         }
       },
       "lead": {
@@ -59,7 +98,76 @@
           "entity": "Nakba",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "وهو الاسم الذي يطلقه الفلسطينيون على تهجيرهم وهدم معظم معالم مجتمعهم السياسية والاقتصادية والحضارية في حرب التطهير العرقي لفلسطين 1947–48"
+          "confidence": 0.85,
+          "evidence": "النكبة مصطلح فلسطيني يعبر عن المأساة الإنسانية المتعلقة بتشريد عدد كبير من الشعب الفلسطيني",
+          "evidence_spans": [
+            "النكبة مصطلح فلسطيني يعبر عن المأساة الإنسانية",
+            "حرب التطهير العرقي لفلسطين",
+            "عصابات صهيونية إرهابية"
+          ]
+        }
+      }
+    },
+    "es": {
+      "focal": {
+        "Nakba": {
+          "entity": "Nakba",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "confidence": 0.85,
+          "evidence": "utilizado para designar al éxodo palestino... la expulsión y huida de 700.000 palestinos, la despoblación y destrucción de más de 500 pueblos... como una limpieza étnica... Negacionismo de la Nakba... la postura oficial del gobierno israelí es la negación de la Nakba",
+          "evidence_spans": [
+            "utilizado para designar al éxodo palestino",
+            "la expulsión y huida de 700.000 palestinos, la despoblación y destrucción de más de 500 pueblos",
+            "como una limpieza étnica",
+            "Negacionismo de la Nakba",
+            "la postura oficial del gobierno israelí es la negación de la Nakba"
+          ]
+        }
+      },
+      "lead": {
+        "Nakba": {
+          "entity": "Nakba",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "confidence": 0.85,
+          "evidence": "fue la destrucción de la sociedad y la patria palestina entre 1947 y 1948, y el desplazamiento permanente de la mayoría de los árabes palestinos",
+          "evidence_spans": [
+            "fue la destrucción de la sociedad y la patria palestina entre 1947 y 1948, y el desplazamiento permanente de la mayoría de los árabes palestinos",
+            "la expulsión y huida de 700.000 palestinos, la despoblación y destrucción de más de 500 pueblos palestinos por las fuerzas armadas israelíes",
+            "ha sido descrita desde entonces por algunos historiadores... como una limpieza étnica"
+          ]
+        }
+      }
+    },
+    "de": {
+      "focal": {
+        "Nakba": {
+          "entity": "Nakba",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "confidence": 0.75,
+          "evidence": "Mai 1948: Zionistische Haganah Miliz vertreibt Palästinenser aus ihrer Heimat",
+          "evidence_spans": [
+            "Mai 1948: Zionistische Haganah Miliz vertreibt Palästinenser aus ihrer Heimat",
+            "als von Anfang an geplante ethnische Säuberung durch das israelische Militär und paramilitärische zionistische Gruppen beschrieben",
+            "„Die fortlaufende Nakba“ ... als ein noch entstehendes und sich weiter entfaltendes Phänomen interpretiert"
+          ]
+        }
+      },
+      "lead": {
+        "Nakba": {
+          "entity": "Nakba",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "confidence": 0.75,
+          "evidence": "Die Nakba ... bezeichnet die Vertreibung und Flucht arabischer Palästinenser ... sowie die Enteignung ihres Landes, Eigentums und Besitzes ... Sie umfasst in einem weiteren Sinne auch die Zerstörung der Gesellschaft, Kultur, Identität, politischen Rechte und nationalen Bestrebungen der Palästinenser.",
+          "evidence_spans": [
+            "Vertreibung und Flucht arabischer Palästinenser",
+            "Enteignung ihres Landes, Eigentums und Besitzes",
+            "Zerstörung der Gesellschaft, Kultur, Identität, politischen Rechte und nationalen Bestrebungen der Palästinenser",
+            "Zionisten strebten danach ... mit so viel Land, so vielen Juden und so wenigen Arabern wie möglich"
+          ]
         }
       }
     }

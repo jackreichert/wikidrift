@@ -87,11 +87,6 @@
   },
   "added": [
     {
-      "domain": "ghostarchive.org",
-      "from": 0,
-      "to": 5
-    },
-    {
       "domain": "svpow.com",
       "from": 0,
       "to": 5
@@ -102,14 +97,9 @@
       "to": 5
     },
     {
-      "domain": "evolbiol.ru",
+      "domain": "ghostarchive.org",
       "from": 0,
-      "to": 4
-    },
-    {
-      "domain": "nytimes.com",
-      "from": 0,
-      "to": 4
+      "to": 5
     },
     {
       "domain": "time.com",
@@ -117,7 +107,17 @@
       "to": 4
     },
     {
+      "domain": "evolbiol.ru",
+      "from": 0,
+      "to": 4
+    },
+    {
       "domain": "doc.rero.ch",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "domain": "nytimes.com",
       "from": 0,
       "to": 4
     },
@@ -132,21 +132,6 @@
       "to": 3
     },
     {
-      "domain": "collections.peabody.yale.edu",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "ajsonline.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "connection.ebscohost.com",
-      "from": 0,
-      "to": 2
-    },
-    {
       "domain": "lexico.com",
       "from": 0,
       "to": 2
@@ -157,7 +142,7 @@
       "to": 2
     },
     {
-      "domain": "biodiversitylibrary.org",
+      "domain": "qeios.com",
       "from": 0,
       "to": 2
     },
@@ -167,27 +152,7 @@
       "to": 2
     },
     {
-      "domain": "sinclairoil.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "cambridge.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "perezhilton.com",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "carnegiemuseums.org",
-      "from": 0,
-      "to": 2
-    },
-    {
-      "domain": "econtent.unm.edu",
+      "domain": "sdnhm.org",
       "from": 0,
       "to": 2
     },
@@ -197,12 +162,32 @@
       "to": 2
     },
     {
-      "domain": "qeios.com",
+      "domain": "ajsonline.org",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "nature.com",
+      "domain": "geol.umd.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "cambridge.org",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "connection.ebscohost.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "econtent.unm.edu",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "biodiversitylibrary.org",
       "from": 0,
       "to": 2
     },
@@ -222,42 +207,32 @@
       "to": 2
     },
     {
-      "domain": "sdnhm.org",
+      "domain": "carnegiemuseums.org",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "geol.umd.edu",
+      "domain": "sinclairoil.com",
       "from": 0,
       "to": 2
     },
     {
-      "domain": "scienceblogs.com",
+      "domain": "nature.com",
       "from": 0,
-      "to": 1
+      "to": 2
     },
     {
-      "domain": "sciencedaily.com",
+      "domain": "perezhilton.com",
       "from": 0,
-      "to": 1
+      "to": 2
     },
     {
-      "domain": "latin-dictionary.net",
+      "domain": "collections.peabody.yale.edu",
       "from": 0,
-      "to": 1
+      "to": 2
     },
     {
-      "domain": "smithsonianmag.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "eoas.ubc.ca",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "archive.today",
+      "domain": "theguardian.com",
       "from": 0,
       "to": 1
     },
@@ -267,17 +242,7 @@
       "to": 1
     },
     {
-      "domain": "allmusic.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "books.google.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "slate.com",
+      "domain": "scienceblogs.com",
       "from": 0,
       "to": 1
     },
@@ -287,22 +252,17 @@
       "to": 1
     },
     {
-      "domain": "dinosours.wordpress.com",
+      "domain": "archive.today",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "uspostalbulletins.com",
+      "domain": "slate.com",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "sciencedirect.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "theguardian.com",
+      "domain": "books.google.com",
       "from": 0,
       "to": 1
     },
@@ -312,12 +272,12 @@
       "to": 1
     },
     {
-      "domain": "newyorker.com",
+      "domain": "uspostalbulletins.com",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "arca.museus.ul.pt",
+      "domain": "latin-dictionary.net",
       "from": 0,
       "to": 1
     },
@@ -327,12 +287,52 @@
       "to": 1
     },
     {
-      "domain": "palaeo-electronica.org",
+      "domain": "smithsonianmag.com",
       "from": 0,
       "to": 1
     },
     {
       "domain": "skeptic.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "sciencedaily.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "arca.museus.ul.pt",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "dinosours.wordpress.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "sciencedirect.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "eoas.ubc.ca",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "allmusic.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "newyorker.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "palaeo-electronica.org",
       "from": 0,
       "to": 1
     }
@@ -344,32 +344,7 @@
       "to": 0
     },
     {
-      "domain": "dinoruss.org",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "angelfire.com",
-      "from": 1,
-      "to": 0
-    },
-    {
       "domain": "britannica.com",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "unmuseum.org",
-      "from": 1,
-      "to": 0
-    },
-    {
-      "domain": "imdb.com",
-      "from": 2,
-      "to": 1
-    },
-    {
-      "domain": "lhl.lib.mo.us",
       "from": 1,
       "to": 0
     },
@@ -379,7 +354,32 @@
       "to": 0
     },
     {
+      "domain": "imdb.com",
+      "from": 2,
+      "to": 1
+    },
+    {
+      "domain": "unmuseum.org",
+      "from": 1,
+      "to": 0
+    },
+    {
       "domain": "en.wiktionary.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "angelfire.com",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "dinoruss.org",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "lhl.lib.mo.us",
       "from": 1,
       "to": 0
     }

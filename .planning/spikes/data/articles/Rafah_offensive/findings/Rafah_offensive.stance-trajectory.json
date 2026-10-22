@@ -1,0 +1,381 @@
+{
+  "schema_version": 1,
+  "prompt_version": "stance-v3",
+  "article": "Rafah offensive",
+  "entities": [
+    "Rafah offensive"
+  ],
+  "repeated_run_policy": {
+    "runs_near_apparent_transition": 3,
+    "agreement_floor": 0.8,
+    "text_similarity_floor": 0.98
+  },
+  "revisions": [
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Rafah offensive",
+      "revision_id": 1231948158,
+      "timestamp": "2024-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Rafah_offensive&oldid=1231948158",
+      "passage_hash": "sha256:5ae0186aea07b777bc72d0b4805b47715045009863403708c1d87f497f26c673",
+      "passage": "The American secretary of state Antony Blinken stated that Israel had no \"credible plan\" for safeguarding civilians in Rafah and risked creating an insurgency, while the Israeli National Security Advisor Tzachi Hanegbi said that Israel was taking the U.S.' concerns into account about the Rafah offensive after they were raised by his American counterpart Jake Sullivan. Qatari Prime Minister Mohammed bin Abdulrahman bin Jassim Al Thani stated that Israel's Rafah offensive had lowered the chances of a ceasefire agreement. The foreign ministers of 13 Western countries signed a joint letter to Israel urging it to call off a large-scale Rafah offensive. The International Court of Justice rejected a request by South Africa for additional provision measures preventing a Rafah offensive but urged Israel to adhere to existing provisional measures while expressing concern over a \"humanitarian nightmare\". On 24 May 2024, the court ruled that the Rafah offensive constituted a violation of the Palestinians' right for safety and therefore must cease immediately. Volker Turk, the UN human rights chief, stated a Rafah offensive \"would take the nightmare being inflicted on people in Gaza into a new, dystopian, dimension\".",
+      "has_focal_prose": true,
+      "entities": [
+        "Rafah offensive"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-10-22T02:46:22.412847+00:00",
+          "provider": "xai",
+          "model": "grok-4",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Rafah offensive",
+              "stance": "critical",
+              "npov_departure": true,
+              "confidence": 0.8,
+              "evidence": "the Rafah offensive constituted a violation of the Palestinians' right for safety and therefore must cease immediately",
+              "evidence_spans": [
+                "Israel had no \"credible plan\" for safeguarding civilians in Rafah and risked creating an insurgency",
+                "lowered the chances of a ceasefire agreement",
+                "urging it to call off a large-scale Rafah offensive",
+                "humanitarian nightmare",
+                "constituted a violation of the Palestinians' right for safety and therefore must cease immediately",
+                "take the nightmare being inflicted on people in Gaza into a new, dystopian, dimension"
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Rafah offensive": {
+          "label": "critical",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "critical": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.8
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Rafah offensive",
+      "revision_id": 1266459636,
+      "timestamp": "2025-01-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Rafah_offensive&oldid=1266459636",
+      "passage_hash": "sha256:21749e54f4c72cdfd9f43e78cefb497a3004dac1cb017c801db094e0d9417d6e",
+      "passage": "The American secretary of state Antony Blinken stated that Israel had no \"credible plan\" for safeguarding civilians in Rafah and risked creating an insurgency, while the Israeli National Security Advisor Tzachi Hanegbi said that Israel was taking the U.S.' concerns into account about the Rafah offensive after they were raised by his American counterpart Jake Sullivan. Qatari Prime Minister Mohammed bin Abdulrahman bin Jassim Al Thani stated that Israel's Rafah offensive had lowered the chances of a ceasefire agreement. The foreign ministers of 13 Western countries signed a joint letter to Israel urging it to call off a large-scale Rafah offensive. On July 25, Israeli Prime Minister Benjamin Netanyahu said \"practically none\" of the civilians had been killed in Israel's Rafah offensive, except the 45 killed in the Tel al-Sultan attack. The International Court of Justice rejected a request by South Africa for additional provision measures preventing a Rafah offensive but urged Israel to adhere to existing provisional measures while expressing concern over a \"humanitarian nightmare\". On 24 May 2024, the court ruled that the Rafah offensive constituted a violation of the Palestinians' right for safety and therefore must cease immediately. Volker Türk, the UN human rights chief, stated a Rafah offensive \"would take the nightmare being inflicted on people in Gaza into a new, dystopian, dimension\".",
+      "has_focal_prose": true,
+      "entities": [
+        "Rafah offensive"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-10-22T02:46:31.596001+00:00",
+          "provider": "xai",
+          "model": "grok-4",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Rafah offensive",
+              "stance": "critical",
+              "npov_departure": true,
+              "confidence": 0.85,
+              "evidence": "The International Court of Justice rejected a request by South Africa for additional provision measures preventing a Rafah offensive but urged Israel to adhere to existing provisional measures while expressing concern over a \"humanitarian nightmare\". On 24 May 2024, the court ruled that the Rafah offensive constituted a violation of the Palestinians' right for safety and therefore must cease immediately. Volker Türk, the UN human rights chief, stated a Rafah offensive \"would take the nightmare being inflicted on people in Gaza into a new, dystopian, dimension\".",
+              "evidence_spans": [
+                "Israel had no \"credible plan\" for safeguarding civilians in Rafah and risked creating an insurgency",
+                "Israel's Rafah offensive had lowered the chances of a ceasefire agreement",
+                "urging it to call off a large-scale Rafah offensive",
+                "the Rafah offensive constituted a violation of the Palestinians' right for safety and therefore must cease immediately",
+                "a Rafah offensive \"would take the nightmare being inflicted on people in Gaza into a new, dystopian, dimension\""
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Rafah offensive": {
+          "label": "critical",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "critical": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.85
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Rafah offensive",
+      "revision_id": 1298349194,
+      "timestamp": "2025-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Rafah_offensive&oldid=1298349194",
+      "passage_hash": "sha256:21749e54f4c72cdfd9f43e78cefb497a3004dac1cb017c801db094e0d9417d6e",
+      "passage": "The American secretary of state Antony Blinken stated that Israel had no \"credible plan\" for safeguarding civilians in Rafah and risked creating an insurgency, while the Israeli National Security Advisor Tzachi Hanegbi said that Israel was taking the U.S.' concerns into account about the Rafah offensive after they were raised by his American counterpart Jake Sullivan. Qatari Prime Minister Mohammed bin Abdulrahman bin Jassim Al Thani stated that Israel's Rafah offensive had lowered the chances of a ceasefire agreement. The foreign ministers of 13 Western countries signed a joint letter to Israel urging it to call off a large-scale Rafah offensive. On July 25, Israeli Prime Minister Benjamin Netanyahu said \"practically none\" of the civilians had been killed in Israel's Rafah offensive, except the 45 killed in the Tel al-Sultan attack. The International Court of Justice rejected a request by South Africa for additional provision measures preventing a Rafah offensive but urged Israel to adhere to existing provisional measures while expressing concern over a \"humanitarian nightmare\". On 24 May 2024, the court ruled that the Rafah offensive constituted a violation of the Palestinians' right for safety and therefore must cease immediately. Volker Türk, the UN human rights chief, stated a Rafah offensive \"would take the nightmare being inflicted on people in Gaza into a new, dystopian, dimension\".",
+      "has_focal_prose": true,
+      "entities": [
+        "Rafah offensive"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-10-22T02:46:37.626758+00:00",
+          "provider": "xai",
+          "model": "grok-4",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Rafah offensive",
+              "stance": "critical",
+              "npov_departure": true,
+              "confidence": 0.85,
+              "evidence": "Israel had no \"credible plan\" for safeguarding civilians in Rafah and risked creating an insurgency",
+              "evidence_spans": [
+                "Israel had no \"credible plan\" for safeguarding civilians in Rafah and risked creating an insurgency",
+                "Israel's Rafah offensive had lowered the chances of a ceasefire agreement",
+                "urging it to call off a large-scale Rafah offensive",
+                "a Rafah offensive \"would take the nightmare being inflicted on people in Gaza into a new, dystopian, dimension\"",
+                "the Rafah offensive constituted a violation of the Palestinians' right for safety and therefore must cease immediately"
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Rafah offensive": {
+          "label": "critical",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "critical": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.85
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Rafah offensive",
+      "revision_id": 1331020213,
+      "timestamp": "2026-01-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Rafah_offensive&oldid=1331020213",
+      "passage_hash": "sha256:e698c3579485d126e31a18b007f4d5cda6e5d9b6453b989c70b3cc1db37a75d0",
+      "passage": "The Rafah offensive was an Israeli military offensive in and around the city of Rafah, beginning on 6 May 2024 as part of Israel's invasion of the Gaza Strip during the Gaza war. The American secretary of state Antony Blinken stated that Israel had no \"credible plan\" for safeguarding civilians in Rafah and risked creating an insurgency, while the Israeli National Security Advisor Tzachi Hanegbi said that Israel was taking the U.S.' concerns into account about the Rafah offensive after they were raised by his American counterpart Jake Sullivan. Qatari Prime Minister Mohammed bin Abdulrahman bin Jassim Al Thani stated that Israel's Rafah offensive had lowered the chances of a ceasefire agreement. The foreign ministers of 13 Western countries signed a joint letter to Israel urging it to call off a large-scale Rafah offensive. On July 25, Israeli Prime Minister Benjamin Netanyahu said \"practically none\" of the civilians had been killed in Israel's Rafah offensive, except the 45 killed in the Tel al-Sultan attack. Razing of Rafah\nA feature of the Rafah offensive is the systematic razing of Rafah by the IDF. In April 2024, after months of war but before the start of the Rafah offensive and the razing operations, 34% of buildings in Rafah were damaged to some degree, a lower percentage than in other cities of the Gaza Strip. The International Court of Justice rejected a request by South Africa for additional provision measures preventing a Rafah offensive but urged Israel to adhere to existing provisional measures while expressing concern over a \"humanitarian nightmare\". On 24 May 2024, the court ruled that the Rafah offensive constituted a violation of the Palestinians' right for safety and therefore must cease immediately. Volker Türk, the UN human rights chief, stated a Rafah offensive \"would take the nightmare being inflicted on people in Gaza into a new, dystopian, dimension\".",
+      "has_focal_prose": true,
+      "entities": [
+        "Rafah offensive"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-10-22T02:46:44.200258+00:00",
+          "provider": "xai",
+          "model": "grok-4",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Rafah offensive",
+              "stance": "critical",
+              "npov_departure": true,
+              "confidence": 0.75,
+              "evidence": "Antony Blinken stated that Israel had no \"credible plan\" for safeguarding civilians in Rafah and risked creating an insurgency",
+              "evidence_spans": [
+                "Antony Blinken stated that Israel had no \"credible plan\" for safeguarding civilians in Rafah and risked creating an insurgency",
+                "Qatari Prime Minister Mohammed bin Abdulrahman bin Jassim Al Thani stated that Israel's Rafah offensive had lowered the chances of a ceasefire agreement",
+                "The foreign ministers of 13 Western countries signed a joint letter to Israel urging it to call off a large-scale Rafah offensive",
+                "the court ruled that the Rafah offensive constituted a violation of the Palestinians' right for safety and therefore must cease immediately",
+                "Volker Türk, the UN human rights chief, stated a Rafah offensive \"would take the nightmare being inflicted on people in Gaza into a new, dystopian, dimension\""
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Rafah offensive": {
+          "label": "critical",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "critical": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.75
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "article": "Rafah offensive",
+      "revision_id": 1357159391,
+      "timestamp": "2026-07-01",
+      "oldid_url": "https://en.wikipedia.org/w/index.php?title=Rafah_offensive&oldid=1357159391",
+      "passage_hash": "sha256:2db78a16dfb36ac1e333b3d8d208d93ece33ea3d31161078bc1114b90a075a31",
+      "passage": "The Rafah offensive was an Israeli military offensive in and around the city of Rafah, beginning on 6 May 2024 as part of Israel's invasion of the Gaza Strip during the Gaza war. The American secretary of state Antony Blinken stated that Israel had no \"credible plan\" for safeguarding civilians in Rafah and risked creating an insurgency, while the Israeli National Security Advisor Tzachi Hanegbi said that Israel was taking the U.S.' concerns into account about the Rafah offensive after they were raised by his American counterpart Jake Sullivan. Qatari Prime Minister Mohammed bin Abdulrahman bin Jassim Al Thani stated that Israel's Rafah offensive had lowered the chances of a ceasefire agreement. The foreign ministers of 13 Western countries signed a joint letter to Israel urging it to call off a large-scale Rafah offensive. On 25 July, Israeli Prime Minister Benjamin Netanyahu said \"practically none\" of the civilians had been killed in Israel's Rafah offensive, except the 45 killed in the Tel al-Sultan attack. Razing of Rafah\nA feature of the Rafah offensive is the systematic razing of Rafah by the IDF. In April 2024, after months of war but before the start of the Rafah offensive and the razing operations, 34% of buildings in Rafah were damaged to some degree, a lower percentage than in other cities of the Gaza Strip. The International Court of Justice rejected a request by South Africa for additional provision measures preventing a Rafah offensive but urged Israel to adhere to existing provisional measures while expressing concern over a \"humanitarian nightmare\". On 24 May 2024, the court ruled that the Rafah offensive constituted a violation of the Palestinians' right for safety and therefore must cease immediately. Volker Türk, the UN human rights chief, stated a Rafah offensive \"would take the nightmare being inflicted on people in Gaza into a new, dystopian, dimension\".",
+      "has_focal_prose": true,
+      "entities": [
+        "Rafah offensive"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "run_timestamp": "2026-10-22T02:46:52.577389+00:00",
+          "provider": "xai",
+          "model": "grok-4",
+          "prompt_version": "stance-v3",
+          "entities": [
+            {
+              "entity": "Rafah offensive",
+              "stance": "critical",
+              "npov_departure": true,
+              "confidence": 0.8,
+              "evidence": "The International Court of Justice ... ruled that the Rafah offensive constituted a violation ... Volker Türk ... stated a Rafah offensive 'would take the nightmare being inflicted on people in Gaza into a new, dystopian, dimension'.",
+              "evidence_spans": [
+                "Antony Blinken stated that Israel had no \"credible plan\" for safeguarding civilians in Rafah and risked creating an insurgency",
+                "Qatari Prime Minister ... stated that Israel's Rafah offensive had lowered the chances of a ceasefire agreement",
+                "The foreign ministers of 13 Western countries signed a joint letter to Israel urging it to call off a large-scale Rafah offensive",
+                "the court ruled that the Rafah offensive constituted a violation of the Palestinians' right for safety and therefore must cease immediately",
+                "Volker Türk ... stated a Rafah offensive \"would take the nightmare being inflicted on people in Gaza into a new, dystopian, dimension\""
+              ]
+            }
+          ]
+        }
+      ],
+      "summaries": {
+        "Rafah offensive": {
+          "label": "critical",
+          "agreement": 1.0,
+          "runs": 1,
+          "label_counts": {
+            "critical": 1
+          },
+          "evidence_coverage": 1.0,
+          "mean_confidence": 0.8
+        }
+      }
+    }
+  ],
+  "transitions": [
+    {
+      "before_revision_id": 1231948158,
+      "after_revision_id": 1266459636,
+      "entities": {
+        "Rafah offensive": {
+          "state": "text_changed",
+          "entity": "Rafah offensive",
+          "text_similarity": 0.9272,
+          "text_changed": true,
+          "label_changed": false,
+          "before_label": "critical",
+          "after_label": "critical",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    },
+    {
+      "before_revision_id": 1266459636,
+      "after_revision_id": 1298349194,
+      "entities": {
+        "Rafah offensive": {
+          "state": "no_change",
+          "entity": "Rafah offensive",
+          "text_similarity": 1.0,
+          "text_changed": false,
+          "label_changed": false,
+          "before_label": "critical",
+          "after_label": "critical",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    },
+    {
+      "before_revision_id": 1298349194,
+      "after_revision_id": 1331020213,
+      "entities": {
+        "Rafah offensive": {
+          "state": "text_changed",
+          "entity": "Rafah offensive",
+          "text_similarity": 0.6994,
+          "text_changed": true,
+          "label_changed": false,
+          "before_label": "critical",
+          "after_label": "critical",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    },
+    {
+      "before_revision_id": 1331020213,
+      "after_revision_id": 1357159391,
+      "entities": {
+        "Rafah offensive": {
+          "state": "no_change",
+          "entity": "Rafah offensive",
+          "text_similarity": 0.9974,
+          "text_changed": false,
+          "label_changed": false,
+          "before_label": "critical",
+          "after_label": "critical",
+          "before_agreement": 1.0,
+          "after_agreement": 1.0,
+          "before_evidence_coverage": 1.0,
+          "after_evidence_coverage": 1.0,
+          "agreement_floor": 0.8,
+          "evidence_coverage_floor": 1.0,
+          "text_similarity_floor": 0.98,
+          "audited_shift": false
+        }
+      }
+    }
+  ],
+  "shifts": {
+    "Rafah offensive": {
+      "start": -1,
+      "end": -1,
+      "shifted": false,
+      "n": 5,
+      "audited_transition_count": 0,
+      "transition_states": [
+        "text_changed",
+        "no_change",
+        "text_changed",
+        "no_change"
+      ]
+    }
+  },
+  "since": null
+}

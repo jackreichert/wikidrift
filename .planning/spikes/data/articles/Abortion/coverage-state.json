@@ -1,8 +1,12 @@
 {
   "article": "Abortion",
-  "updated_ts": "2026-07-31T17:45:31.878940+00:00",
+  "updated_ts": "2026-10-21T21:40:43.702344+00:00",
   "completed_stages": [
     "analyze",
-    "backfill-attribution"
+    "backfill-attribution",
+    "pipeline",
+    "crosslingual",
+    "sources",
+    "profile"
   ]
 }

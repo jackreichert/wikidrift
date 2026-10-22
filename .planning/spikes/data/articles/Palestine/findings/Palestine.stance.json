@@ -1,9 +1,18 @@
 {
+  "schema_version": 1,
+  "prompt_version": "stance-v3",
+  "model_contract": {
+    "provider": "xai",
+    "model": "grok-4",
+    "prompt_version": "stance-v3"
+  },
   "article": "Palestine",
   "langs": [
     "en",
     "he",
-    "ar"
+    "ar",
+    "fr",
+    "it"
   ],
   "entities": [
     "Palestine"
@@ -15,7 +24,12 @@
           "entity": "Palestine",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "The 1948 Palestine war saw the forcible displacement of a majority of the Arab population... referred to by Palestinians as the Nakba ('catastrophe')."
+          "confidence": 0.75,
+          "evidence": "these acts have been recognised as constituting genocide against the Palestinian people by a growing scholarly consensus",
+          "evidence_spans": [
+            "the 1948 Palestine war saw the forcible displacement of a majority of the Arab population... referred to by Palestinians as the Nakba ('catastrophe')",
+            "these acts have been recognised as constituting genocide against the Palestinian people by a growing scholarly consensus"
+          ]
         }
       },
       "lead": {
@@ -23,25 +37,44 @@
           "entity": "Palestine",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "the forcible displacement of a majority of the Arab population... these acts have been recognised as constituting genocide against the Palestinian people by a growing scholarly consensus"
+          "confidence": 0.75,
+          "evidence": "these acts have been recognised as constituting genocide against the Palestinian people by a growing scholarly consensus",
+          "evidence_spans": [
+            "these acts have been recognised as constituting genocide against the Palestinian people by a growing scholarly consensus",
+            "The Gaza Strip has long been subject to Israeli military occupation and an illegal blockade",
+            "these events are referred to by Palestinians as the Nakba ('catastrophe')"
+          ]
         }
       }
     },
     "he": {
       "focal": {
-        "Palestine (Palestinian statehood)": {
-          "entity": "Palestine (Palestinian statehood)",
+        "Palestine": {
+          "entity": "Palestine",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "מדינה ששואפים להקים חלק ניכר מהפלסטינים... הקמה של מדינה פלסטינית היא אבן יסוד לסכסוך הישראלי-פלסטיני"
+          "confidence": 0.9,
+          "evidence": "היא מדינה ששואפים להקים חלק ניכר מהפלסטינים",
+          "evidence_spans": [
+            "היא מדינה ששואפים להקים חלק ניכר מהפלסטינים",
+            "הקמה של מדינה פלסטינית היא אבן יסוד ל",
+            "במרץ 2002 קבלה מועצת הביטחון של האומות המאוחדות את החלטה 1397 המאשרת את חזון הקמת מדינה פלסטינית לצד מדינת ישראל"
+          ]
         }
       },
       "lead": {
         "Palestine": {
           "entity": "Palestine",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "הפלסטינים ששללו את ההחלטה, פתחו במתקפה על היישוב היהודי בארץ, מתקפה שהסלימה והתפתחה למלחמה"
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.85,
+          "evidence": "הקמה של מדינה פלסטינית היא אבן יסוד ל",
+          "evidence_spans": [
+            "מדינה פלסטינית או \"מדינת פלסטין\"",
+            "הרשות הפלסטינית הכריזה על עצמה כמדינה ריבונית",
+            "הניסיון הראשון להקמת מדינה פלסטינית אירע בספטמבר 1948",
+            "ב-15 בנובמבר 1988 הכריז ראש אש\"ף יאסר ערפאת ... על הקמתה של מדינת פלסטין"
+          ]
         }
       }
     },
@@ -51,7 +84,13 @@
           "entity": "Palestine",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "تنقسم دولة فلسطين إلى ستة عشر قسماً إدارياً... تدار فلسطين بنظام حكم مركزي وشبه رئاسي"
+          "confidence": 0.85,
+          "evidence": "أعلن ياسر عرفات، رئيس منظمة التحرير الفلسطينية، إنشاء دولة فلسطين. اعترف بدولة فلسطين 157 من أصل 193 عضوًا في الأمم المتحدة",
+          "evidence_spans": [
+            "أعلن ياسر عرفات، رئيس منظمة التحرير الفلسطينية، إنشاء دولة فلسطين",
+            "اعترف بدولة فلسطين 157 من أصل 193 عضوًا في الأمم المتحدة",
+            "تُدار فلسطين بنظام حكم مركزي وشبه رئاسي"
+          ]
         }
       },
       "lead": {
@@ -59,7 +98,73 @@
           "entity": "Palestine",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "هي بحكم القانون دولة ذات سيادة في غرب آسيا، وتحكمها رسميًا منظمة التحرير الفلسطينية وتطالب بالضفة الغربية وقطاع غزة"
+          "confidence": 0.85,
+          "evidence": "هي بحكم القانون دولة ذات سيادة في غرب آسيا، وتحكمها رسميًا منظمة التحرير الفلسطينية وتطالب بالضفة الغربية وقطاع غزة. ومع ذلك، احتلت إسرائيل الأراضي الفلسطينية منذ حرب 1967",
+          "evidence_spans": [
+            "هي بحكم القانون دولة ذات سيادة في غرب آسيا",
+            "احتلت إسرائيل الأراضي الفلسطينية منذ حرب 1967",
+            "تبنت الأمم المتحدة خطة التقسيم لفلسطين الانتدابية حيث أوصت بإنشاء دولتين مستقلتين عربية ويهودية",
+            "وافق اليهود على خطة التقسيم ورفضها العرب"
+          ]
+        }
+      }
+    },
+    "fr": {
+      "focal": {
+        "Palestine": {
+          "entity": "Palestine",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "confidence": 0.7,
+          "evidence": "les Palestiniens émergent comme peuple expulsé ou dépendant ayant vocation à disposer d'un État",
+          "evidence_spans": [
+            "les Palestiniens émergent comme peuple expulsé ou dépendant ayant vocation à disposer d'un État à la suite du plan de partage de la Palestine en 1947, de la déclaration d'indépendance de l'État d'Israël en 1948, et de la guerre israélo-arabe de 1948-1949"
+          ]
+        }
+      },
+      "lead": {
+        "Palestine": {
+          "entity": "Palestine",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.75,
+          "evidence": "est un État souverain de jure ... et un proto-État de facto (occupation israélienne, défaut de souveraineté territoriale, absence de monnaie)",
+          "evidence_spans": [
+            "est un État souverain de jure (loi palestinienne, siège d'État observateur à l'ONU, large reconnaissance internationale) et un proto-État de facto (occupation israélienne, défaut de souveraineté territoriale, absence de monnaie)",
+            "peuple expulsé ou dépendant ayant vocation à disposer d'un État",
+            "C'est l'un des États les plus controversés au monde"
+          ]
+        }
+      }
+    },
+    "it": {
+      "focal": {
+        "Palestine": {
+          "entity": "Palestine",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.85,
+          "evidence": "La Palestina ... è uno Stato a riconoscimento limitato situato nel Medio Oriente, osservatore permanente presso le Nazioni Unite, de facto in gran parte occupato da Israele.",
+          "evidence_spans": [
+            "de facto in gran parte occupato da Israele",
+            "Lo Stato di Palestina rivendica sovranità sui territori palestinesi",
+            "rimane sotto occupazione militare di Israele"
+          ]
+        }
+      },
+      "lead": {
+        "Palestine": {
+          "entity": "Palestine",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.85,
+          "evidence": "La Palestina (, nel dialetto locale ), ufficialmente Stato di Palestina (), è uno Stato a riconoscimento limitato situato nel Medio Oriente, osservatore permanente presso le Nazioni Unite, de facto in gran parte occupato da Israele.",
+          "evidence_spans": [
+            "ufficialmente Stato di Palestina",
+            "osservatore permanente presso le Nazioni Unite",
+            "rivendica sovranità sui territori palestinesi",
+            "L'ONU ha riconosciuto la Palestina come Stato non membro con status di osservatore permanente"
+          ]
         }
       }
     }

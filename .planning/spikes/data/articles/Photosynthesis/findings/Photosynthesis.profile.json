@@ -1,10 +1,10 @@
 {
   "article": "Photosynthesis",
-  "horizon": "2026-07-01",
-  "n_tokens": 27158,
-  "median_age_yrs": 9.2,
-  "pct_recent": 26.7,
+  "horizon": "2012-07-01",
+  "n_tokens": 603,
+  "median_age_yrs": 3.0,
+  "pct_recent": 46.3,
   "recent_years": 3.0,
-  "top10_editor_share": 42.8,
-  "distinct_editors": 428
+  "top10_editor_share": 84.9,
+  "distinct_editors": 39
 }

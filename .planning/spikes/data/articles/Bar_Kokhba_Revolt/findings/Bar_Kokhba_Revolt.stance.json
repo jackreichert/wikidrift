@@ -1,8 +1,17 @@
 {
+  "schema_version": 1,
+  "prompt_version": "stance-v3",
+  "model_contract": {
+    "provider": "xai",
+    "model": "grok-4",
+    "prompt_version": "stance-v3"
+  },
   "article": "Bar Kokhba Revolt",
   "langs": [
     "en",
-    "he"
+    "he",
+    "de",
+    "ar"
   ],
   "entities": [
     "Bar Kokhba Revolt"
@@ -14,25 +23,13 @@
           "entity": "Bar Kokhba Revolt",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "was the last and most devastating of three major Jewish rebellions against the Roman Empire"
-        }
-      },
-      "lead": {
-        "Bar Kokhba Revolt": {
-          "entity": "Bar Kokhba Revolt",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "leading to the near-total depopulation of Judea proper, along with mass killings, enslavement, and displacement... The consequences of the revolt were disastrous for Judea's Jewish population"
-        }
-      }
-    },
-    "he": {
-      "focal": {
-        "Bar Kokhba Revolt": {
-          "entity": "Bar Kokhba Revolt",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "למרד בר כוכבא נודעו השלכות הרסניות עבור היישוב היהודי בארץ ישראל, שהיו חמורות בהרבה מזה של המרד הגדול... ועד היום לא נמצא אפילו כפר אחד שלא חרב במרד זה"
+          "confidence": 0.85,
+          "evidence": "The Bar Kokhba Revolt (132–136 CE), also known as the Bar Kokhba War, the War of Betar, and the Third (or Second) Jewish–Roman War, was the last and most devastating of three major Jewish rebellions against the Roman Empire.",
+          "evidence_spans": [
+            "the last and most devastating of three major Jewish rebellions against the Roman Empire",
+            "Reconstructing the Bar Kokhba Revolt is difficult, owing to the fragmentary and scattered character of the surviving evidence",
+            "Most scholars agree that Galilee, a Jewish-majority district in northern Judaea, did not participate in the Bar Kokhba Revolt"
+          ]
         }
       },
       "lead": {
@@ -40,7 +37,100 @@
           "entity": "Bar Kokhba Revolt",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "מרד בר כוכבא... היה המרד הגדול האחרון של יהודי ארץ ישראל נגד שלטון האימפריה הרומית... בין השנים 132–136 לספירה"
+          "confidence": 0.85,
+          "evidence": "The Bar Kokhba Revolt (132–136 CE), also known as the Bar Kokhba War, the War of Betar, and the Third (or Second) Jewish–Roman War, was the last and most devastating of three major Jewish rebellions against the Roman Empire.",
+          "evidence_spans": [
+            "was the last and most devastating of three major Jewish rebellions against the Roman Empire",
+            "leading to the near-total depopulation of Judea proper, along with mass killings, enslavement, and displacement",
+            "The consequences of the revolt were disastrous for Judea's Jewish population"
+          ]
+        }
+      }
+    },
+    "he": {
+      "focal": {
+        "Bar Kokhba Revolt": {
+          "entity": "Bar Kokhba Revolt",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.85,
+          "evidence": "מרד בר כוכבא היה המרד היהודי השלישי באימפריה הרומית בטווח של כשישים שנה.",
+          "evidence_spans": [
+            "רבים אימצו את טענתו של הרכבי כי מרד בר כוכבא אכן היה הרפתקה משיחית חסרת אחריות",
+            "כל הכפרים ששרידיהם נחפרו עד כה באזור יהודה – נהרסו בעקבות מרד בר כוכבא",
+            "הדעה המקובלת במחקר התפרסמה משום שהתנועה הציונית אימצה דעה זו"
+          ]
+        }
+      },
+      "lead": {
+        "Bar Kokhba Revolt": {
+          "entity": "Bar Kokhba Revolt",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.85,
+          "evidence": "מרד בר כוכבא ... היה המרד הגדול האחרון של יהודי ארץ ישראל נגד שלטון האימפריה הרומית",
+          "evidence_spans": [
+            "מרד בר כוכבא ... היה המרד הגדול האחרון",
+            "במסורת חז\"ל, נחשב בר כוכבא כמלך כושל ... התהפכה בהשקפת הלאומיות היהודית המודרנית",
+            "קמו עוררין על השקפה ציונית מודרנית זו, בעיקר בעקבות מאמריו של יהושפט הרכבי"
+          ]
+        }
+      }
+    },
+    "de": {
+      "focal": {
+        "Bar Kokhba Revolt": {
+          "entity": "Bar Kokhba Revolt",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.9,
+          "evidence": "Der Bar-Kochba-Aufstand war ein jüdischer Aufstand gegen das Römische Reich von 132 bis 136 n.",
+          "evidence_spans": [
+            "Der Bar-Kochba-Aufstand war ein jüdischer Aufstand gegen das Römische Reich von 132 bis 136 n.",
+            "Die Gründung von Aelia Capitolina war wahrscheinlich mit Hadrians Besuch im Jahr 130 verbunden und gehört damit in die Vorgeschichte, nicht zu den Folgen, des Bar-Kochba-Aufstandes."
+          ]
+        }
+      },
+      "lead": {
+        "Bar Kokhba Revolt": {
+          "entity": "Bar Kokhba Revolt",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.95,
+          "evidence": "Der Bar-Kochba-Aufstand war ein jüdischer Aufstand gegen das Römische Reich von 132 bis 136 n. Chr. unter Führung von Simon bar Kochba.",
+          "evidence_spans": [
+            "Der Bar-Kochba-Aufstand war ein jüdischer Aufstand gegen das Römische Reich von 132 bis 136 n. Chr. unter Führung von Simon bar Kochba.",
+            "Die Forschung ist in einer Reihe von Fragen nicht zu einem Konsens gelangt"
+          ]
+        }
+      }
+    },
+    "ar": {
+      "focal": {
+        "Bar Kokhba Revolt": {
+          "entity": "Bar Kokhba Revolt",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "confidence": 0.7,
+          "evidence": "حديثًا، أصبحت ثورة بار كوخبا رمزًا للمقاومة الوطنية الشجاعة.",
+          "evidence_spans": [
+            "حديثًا، أصبحت ثورة بار كوخبا رمزًا للمقاومة الوطنية الشجاعة.",
+            "ثورة بار كوخبا  هي تمرد مسلح واسع النطاق بدأه يهود المقاطعة اليهودية بقيادة شمعون بار كوخبا ضد الإمبراطورية الرومانية سنة 132م"
+          ]
+        }
+      },
+      "lead": {
+        "Bar Kokhba Revolt": {
+          "entity": "Bar Kokhba Revolt",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.85,
+          "evidence": "ثورة بار كوخبا هي تمرد مسلح واسع النطاق بدأه يهود المقاطعة اليهودية بقيادة شمعون بار كوخبا ضد الإمبراطورية الرومانية سنة 132م",
+          "evidence_spans": [
+            "ثورة بار كوخبا هي تمرد مسلح واسع النطاق",
+            "انتهت ثورة بار كوخبا بهزيمة يهودية كاملة",
+            "لم يلق الحكم الروماني في المقاطعة اليهودية استحسانًا بين السكان اليهود"
+          ]
         }
       }
     }

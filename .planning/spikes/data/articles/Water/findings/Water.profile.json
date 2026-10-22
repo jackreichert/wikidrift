@@ -1,10 +1,10 @@
 {
   "article": "Water",
-  "horizon": "2026-07-01",
-  "n_tokens": 48369,
-  "median_age_yrs": 7.7,
-  "pct_recent": 15.3,
+  "horizon": "2026-01-01",
+  "n_tokens": 47485,
+  "median_age_yrs": 7.2,
+  "pct_recent": 15.1,
   "recent_years": 3.0,
-  "top10_editor_share": 39.1,
-  "distinct_editors": 725
+  "top10_editor_share": 40.0,
+  "distinct_editors": 706
 }

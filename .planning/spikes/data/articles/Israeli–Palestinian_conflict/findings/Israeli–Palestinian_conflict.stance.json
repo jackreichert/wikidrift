@@ -1,9 +1,18 @@
 {
+  "schema_version": 1,
+  "prompt_version": "stance-v3",
+  "model_contract": {
+    "provider": "xai",
+    "model": "grok-4",
+    "prompt_version": "stance-v3"
+  },
   "article": "Israeli–Palestinian conflict",
   "langs": [
     "en",
     "he",
-    "ar"
+    "ar",
+    "es",
+    "sv"
   ],
   "entities": [
     "Israeli–Palestinian conflict"
@@ -15,7 +24,12 @@
           "entity": "Israeli–Palestinian conflict",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "The Israeli–Palestinian conflict began in the late 19th and early 20th centuries, with the development of political Zionism and the arrival of Zionist settlers to Palestine."
+          "confidence": 0.85,
+          "evidence": "The Israeli–Palestinian conflict began in the late 19th and early 20th centuries, with the development of political Zionism and the arrival of Zionist settlers to Palestine.",
+          "evidence_spans": [
+            "The Israeli–Palestinian conflict began in the late 19th and early 20th centuries, with the development of political Zionism and the arrival of Zionist settlers to Palestine.",
+            "Studies provide aggregated casualty data for the Israeli–Palestinian conflict."
+          ]
         }
       },
       "lead": {
@@ -23,7 +37,13 @@
           "entity": "Israeli–Palestinian conflict",
           "stance": "critical",
           "npov_departure": true,
-          "evidence": "Israel constructing illegal settlements there, creating a system of institutionalized discrimination against Palestinians under its occupation referred to as Israeli apartheid"
+          "confidence": 0.75,
+          "evidence": "referred to as Israeli apartheid... This discrimination includes Israel's denial of Palestinian refugees from their right of return... Israel has also drawn international condemnation for violating the human rights of the Palestinians... Israeli policy reflecting an interest in maintaining the occupation, rather than seeking a permanent resolution to the conflict.",
+          "evidence_spans": [
+            "referred to as Israeli apartheid.Human Rights Watch, \"A Threshold Crossed: Israeli Authorities and the Crimes of Apartheid and Persecution,\" 27 April 2021, hrw.org; Amnesty International, \"Israel's Apartheid Against Palestinians: Cruel System of Domination and Crime Against Humanity,\" 1 February 2022, amnesty.org; Michael Sfard, The Israeli Occupation of the West Bank and the Crime of Apartheid: Legal Opinion (Yesh Din, June 2022), yesh-din.org; B'Tselem, \"A Regime of Jewish Supremacy from the Jordan River to the Mediterranean Sea: This Is Apartheid,\" position paper, 12 January 2021, btselem.org",
+            "This discrimination includes Israel's denial of Palestinian refugees from their right of return and right to their lost properties. Israel has also drawn international condemnation for violating the human rights of the Palestinians.",
+            "In recent years, public support for a two-state solution has decreased, with Israeli policy reflecting an interest in maintaining the occupation, rather than seeking a permanent resolution to the conflict."
+          ]
         }
       }
     },
@@ -33,7 +53,13 @@
           "entity": "Israeli–Palestinian conflict",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "הסכסוך הישראלי-פלסטיני, כחלק מהסכסוך היהודי-ערבי, נחלק לשבע תקופות, שונות מהותית זו מזו"
+          "confidence": 0.75,
+          "evidence": "מורחבת כיום משמעות הביטוי \"הסכסוך הישראלי-פלסטיני\" אף לתחילתו של הסכסוך בין היהודים לערבים בארץ ישראל",
+          "evidence_spans": [
+            "מורחבת כיום משמעות הביטוי \"הסכסוך הישראלי-פלסטיני\" אף לתחילתו של הסכסוך בין היהודים לערבים בארץ ישראל",
+            "על ציר הזמן, הסכסוך הישראלי-פלסטיני, כחלק מהסכסוך היהודי-ערבי, נחלק לשבע תקופות",
+            "נטען כי סיקור הסכסוך הישראלי-פלסטיני לוקה לעיתים קרובות בהטיה בטרמינולוגיה"
+          ]
         }
       },
       "lead": {
@@ -41,19 +67,13 @@
           "entity": "Israeli–Palestinian conflict",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "הוא סכסוך בין תושביה היהודים של ארץ ישראל... לבין ערביי ארץ ישראל (פלסטינים)"
-        },
-        "Israel": {
-          "entity": "Israel",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "ישראל רואה באלימות נגד חיילים ואזרחים ישראלים כפעולות טרור"
-        },
-        "Palestinians": {
-          "entity": "Palestinians",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "בעוד הפלסטינים רואים את הכיבוש הישראלי כפסול"
+          "confidence": 0.85,
+          "evidence": "סכסוך זה בין שני חלקי האוכלוסייה היושבים בארץ ישראל, יהודים וערבים, החל לפני הקמת מדינת ישראל, והמשיך בעוז לאחריה.",
+          "evidence_spans": [
+            "ישראל רואה באלימות נגד חיילים ואזרחים ישראלים כפעולות טרור, בעוד הפלסטינים רואים את הכיבוש הישראלי כפסול.",
+            "הסכסוך הוביל לאורך השנים למספר רב של הרוגים בקרב האוכלוסייה האזרחית בשני הצדדים.",
+            "הניסיונות לא צלחו בשל חילוקי דעות בתחומים רבים על אופי הפתרון וכן בשל אי אמון הדדי בין הצדדים."
+          ]
         }
       }
     },
@@ -61,9 +81,15 @@
       "focal": {
         "Israeli–Palestinian conflict": {
           "entity": "Israeli–Palestinian conflict",
-          "stance": "sympathetic",
+          "stance": "critical",
           "npov_departure": true,
-          "evidence": "قضية اللاجئين الفلسطينيين وشرعية دولة إسرائيل واحتلالها للأراضي الفلسطينية بعدة مراحل"
+          "confidence": 0.8,
+          "evidence": "احتلالها للأراضي الفلسطينية بعدة مراحل... فصائل المقاومة الأخرى",
+          "evidence_spans": [
+            "احتلالها للأراضي الفلسطينية",
+            "فصائل المقاومة الأخرى",
+            "بعد سنوات من الإهمال السياسي"
+          ]
         }
       },
       "lead": {
@@ -71,7 +97,69 @@
           "entity": "Israeli–Palestinian conflict",
           "stance": "critical",
           "npov_departure": true,
-          "evidence": "وما نتج عن ذلك من ارتكابها للمجازر بحق الفلسطينيين وعمليات المقاومة ضد الدولة العبرية... لاقى هذا المشروع الصهيوني غضباً شعبياً عم كل فلسطين، ورفضاً قاطعاً"
+          "confidence": 0.9,
+          "evidence": "واحتلالها للأراضي الفلسطينية بعدة مراحل. وما نتج عن ذلك من ارتكابها للمجازر بحق الفلسطينيين وعمليات المقاومة ضد الدولة العبرية",
+          "evidence_spans": [
+            "واحتلالها للأراضي الفلسطينية بعدة مراحل. وما نتج عن ذلك من ارتكابها للمجازر بحق الفلسطينيين وعمليات المقاومة ضد الدولة العبرية",
+            "لاقى هذا المشروع الصهيوني غضباً شعبياً عم كل فلسطين، ورفضاً قاطعاً",
+            "إلا أن بريطانيا نقضت عهدها للعرب، وتمت المصادقة على اتفاقية سايكس بيكو ومن ثم وعد بلفور لتكريس الوجود الصهيوني في فلسطين"
+          ]
+        }
+      }
+    },
+    "es": {
+      "focal": {
+        "Israeli–Palestinian conflict": {
+          "entity": "Israeli–Palestinian conflict",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.75,
+          "evidence": "El conflicto israelí-palestino es el conflicto social y armado en curso entre israelíes y palestinos por el control de la región histórica de Palestina",
+          "evidence_spans": [
+            "El conflicto israelí-palestino es el conflicto social y armado en curso entre israelíes y palestinos por el control de la región histórica de Palestina",
+            "Desde el el conflicto israelí-palestino, comenzó a internacionalizase, debido al auge del movimiento sionista y a las sucesivas migraciones masivas de población judía (aliá) a territorio Palestino.",
+            "Desde 1970 se han mantenido conversaciones intermitentes y propuestas varias partes con la intención de resolver el Conflicto israelí-palestino."
+          ]
+        }
+      },
+      "lead": {
+        "Israeli–Palestinian conflict": {
+          "entity": "Israeli–Palestinian conflict",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.75,
+          "evidence": "El conflicto israelí-palestino es el conflicto social y armado en curso entre israelíes y palestinos por el control de la región histórica de Palestina",
+          "evidence_spans": [
+            "Los judíos aceptaron el plan de partición, mientras que los árabes lo rechazaron.",
+            "Tradicionalmente se han identificado cuatro escollos principales para la resolución del conflicto: el establecimiento de fronteras seguras y definidas, el control de Jerusalén, los asentamientos israelíes y el derecho de retorno de los refugiados palestinos, a los que deben sumarse otras claves como el reconocimiento mutuo, los derechos sobre los recursos hídricos, los asesinatos de civiles palestinos, el terrorismo palestino, la libertad de movimiento palestino, la seguridad israelí y otros problemas de derechos humanos."
+          ]
+        }
+      }
+    },
+    "sv": {
+      "focal": {
+        "Israeli–Palestinian conflict": {
+          "entity": "Israeli–Palestinian conflict",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.85,
+          "evidence": "Israel–Palestina-konflikten är en aspekt av den arab-israeliska konflikten och åsyftar de motsättningar som uppstått mellan den judiska staten Israel och dess judiska befolkningsmajoritet å ena sidan och de palestinska araberna å andra sidan.",
+          "evidence_spans": [
+            "motsättningar som uppstått mellan den judiska staten Israel och dess judiska befolkningsmajoritet å ena sidan och de palestinska araberna å andra sidan"
+          ]
+        }
+      },
+      "lead": {
+        "Israeli–Palestinian conflict": {
+          "entity": "Israeli–Palestinian conflict",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.85,
+          "evidence": "Israel–Palestina-konflikten är en aspekt av den arab-israeliska konflikten och åsyftar de motsättningar som uppstått mellan den judiska staten Israel och dess judiska befolkningsmajoritet å ena sidan och de palestinska araberna å andra sidan.",
+          "evidence_spans": [
+            "Konflikten har sin grund i att både judar och araber gör anspråk på samma territorium.",
+            "Sionisterna strävade efter att skapa ett nationellt hem för det judiska folket i den historiska regionen Palestina. Detta anspråk på området mötte starkt motstånd från de icke judiska delarna av befolkningen"
+          ]
         }
       }
     }

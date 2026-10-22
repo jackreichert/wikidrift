@@ -1,55 +1,49 @@
 {
+  "schema_version": 1,
+  "prompt_version": "stance-v3",
+  "model_contract": {
+    "provider": "xai",
+    "model": "grok-4",
+    "prompt_version": "stance-v3"
+  },
   "article": "UNRWA",
   "langs": [
     "en",
     "he",
-    "ar"
+    "ar",
+    "es",
+    "de"
   ],
   "entities": [
-    "UNRWA",
-    "Israel",
-    "Palestinians"
+    "UNRWA"
   ],
   "editions": {
     "en": {
       "focal": {
         "UNRWA": {
           "entity": "UNRWA",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "UNRWA has received praise and recognition for its work by various governments, public figures, and independent monitors... the ICJ found that 'Israel has not substantiated its allegations that a significant part of UNRWA's employees are members of Hamas'"
-        },
-        "Israel": {
-          "entity": "Israel",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "Israel's parliament passed a bill designating UNRWA as a terrorist group and prohibiting it from operating within the country... has long opposed the Palestinian right of return"
-        },
-        "Palestinians": {
-          "entity": "Palestinians",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "the 1948 Palestinian expulsion and flight, which displaced approximately 750,000 Palestinian Arabs"
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.75,
+          "evidence": "UNRWA has received praise and recognition for its work by various governments, public figures, and independent monitors. ... the International Court of Justice (ICJ) found that \"Israel has not substantiated its allegations\"",
+          "evidence_spans": [
+            "UNRWA has received praise and recognition for its work by various governments, public figures, and independent monitors.",
+            "the International Court of Justice (ICJ) found that \"Israel has not substantiated its allegations that a significant part of UNRWA’s employees are ‘members of Hamas… or other terrorist factions’\"."
+          ]
         }
       },
       "lead": {
         "UNRWA": {
           "entity": "UNRWA",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "UNRWA has received praise and recognition for its work by various governments, public figures, and independent monitors... ICJ found that 'Israel has not substantiated its allegations that a significant part of UNRWA's employees are members of Hamas'"
-        },
-        "Israel": {
-          "entity": "Israel",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "Israel's parliament passed a bill designating UNRWA as a terrorist group and prohibiting it from operating within the country... ICJ: Israel has not backed up claims"
-        },
-        "Palestinians": {
-          "entity": "Palestinians",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "which displaced approximately 750,000 Palestinian Arabs...to provide relief to all refugees resulting from the 1948 conflict"
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.85,
+          "evidence": "UNRWA is a UN agency that supports the relief and human development of Palestinian refugees.",
+          "evidence_spans": [
+            "UNRWA is a UN agency that supports the relief and human development of Palestinian refugees.",
+            "UNRWA has received praise and recognition for its work by various governments, public figures, and independent monitors. It has also been subject to controversy related to its operations, role in the Gaza Strip, relationship with Hamas and terrorism, and textbook content.",
+            "the International Court of Justice (ICJ) found that \"Israel has not substantiated its allegations that a significant part of UNRWA’s employees are ‘members of Hamas… or other terrorist factions’\""
+          ]
         }
       }
     },
@@ -59,39 +53,24 @@
           "entity": "UNRWA",
           "stance": "critical",
           "npov_departure": true,
-          "evidence": "עדויות שונות המצביעות על שיתוף פעולה בין מספר עובדי אונר\"א לבין פעילות הטרור הרצחנית של חמאס... חומר הלימוד של הארגון מעודד הסתה וכולל את הצגת ישראל כישות זמנית שיש לסלקה, תוכן בעייתי הכולל הסתה לאלימות, גלוריפיקציה של טרוריסטים"
-        },
-        "Israel": {
-          "entity": "Israel",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "בתמיכת מדינת ישראל ומדינות ערב... ממשלת ישראל תקל על משימתה של אונר\"א כמיטב יכולתה"
-        },
-        "Palestinians": {
-          "entity": "Palestinians",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "פליטים פלסטינים... עד לשנת 1952 אונר\"א סיפקה גם את צורכיהם של קהילות יהודיות שנעקרו במהלך המלחמה"
+          "confidence": 0.75,
+          "evidence": "הציג דובר צה\"ל עדויות שונות המצביעות על שיתוף פעולה בין מספר עובדי אונר\"א לבין פעילות הטרור הרצחנית של חמאס",
+          "evidence_spans": [
+            "הציג דובר צה\"ל עדויות שונות המצביעות על שיתוף פעולה בין מספר עובדי אונר\"א לבין פעילות הטרור הרצחנית של חמאס",
+            "אונר\"א הכחישה את רוב הטענות וטענה לדיסאינפורמציה"
+          ]
         }
       },
       "lead": {
         "UNRWA": {
           "entity": "UNRWA",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "היא גוף מטעם האומות המאוחדות שעוסק במתן שירותים לפליטים פלסטינים"
-        },
-        "Israel": {
-          "entity": "Israel",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "ב-8 בדצמבר 1949 אישרה עצרת האו\"ם את הקמת אונר\"א בהחלטה בתמיכת מדינת ישראל ומדינות ערב"
-        },
-        "Palestinians": {
-          "entity": "Palestinians",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "נכון לשנת 2023, נכללים בהגדרה זו 5.9 מיליון פליטים"
+          "stance": "critical",
+          "npov_departure": true,
+          "confidence": 0.75,
+          "evidence": "הציג דובר צה\"ל עדויות שונות המצביעות על שיתוף פעולה בין מספר עובדי אונר\"א לבין פעילות הטרור הרצחנית של חמאס",
+          "evidence_spans": [
+            "הציג דובר צה\"ל עדויות שונות המצביעות על שיתוף פעולה בין מספר עובדי אונר\"א לבין פעילות הטרור הרצחנית של חמאס. אונר\"א הכחישה את רוב הטענות וטענה לדיסאינפורמציה."
+          ]
         }
       }
     },
@@ -99,21 +78,14 @@
       "focal": {
         "UNRWA": {
           "entity": "UNRWA",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "حذر فيليب لازاريني... من أن الوكالة التابعة للأمم المتحدة 'مهددة بالموت ومعرضة لخطر التفكيك' بعد أن أوقف عدة مانحين تمويلهم بسبب مزاعم إسرائيلية"
-        },
-        "Israel": {
-          "entity": "Israel",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "إسرائيل تعمل على شل قدرة المنظمات غير الحكومية ومنظمات حقوق الإنسان... من خلال تشويه وتهديد وتعذيب عمال الإغاثة"
-        },
-        "Palestinians": {
-          "entity": "Palestinians",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "الأطفال في قطاع غزة 'يتجمدون حتى الموت' بسبب الطقس البارد الشديد"
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.9,
+          "evidence": "فيليب لازاريني، مفوض وكالة الأمم المتحدة لإغاثة وتشغيل اللاجئين الفلسطينيين (الأونروا)، حذر من أن الأطفال في قطاع غزة \"يتجمدون حتى الموت\"",
+          "evidence_spans": [
+            "وكالة الأمم المتحدة لإغاثة وتشغيل اللاجئين الفلسطينيين في الشرق الأدنى، واختصارًا أونروا",
+            "فيليب لازاريني، مفوض وكالة الأمم المتحدة لإغاثة وتشغيل اللاجئين الفلسطينيين (الأونروا)، حذر من أن الأطفال في قطاع غزة \"يتجمدون حتى الموت\" بسبب الطقس البارد الشديد"
+          ]
         }
       },
       "lead": {
@@ -121,19 +93,72 @@
           "entity": "UNRWA",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "مؤكدا أن ذلك من شأنه أن يفاقم المجاعة في قطاع غزة... 'إسرائيل تحاول من خلال حملة شعواء تصوير الوكالة على أنها منشأة إرهابية'"
-        },
-        "Israel": {
-          "entity": "Israel",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "إسرائيل تعمل على شل قدرة المنظمات غير الحكومية ومنظمات حقوق الإنسان... من خلال تشويه وتهديد وتعذيب عمال الإغاثة الحاليين"
-        },
-        "Palestinians": {
-          "entity": "Palestinians",
+          "confidence": 0.85,
+          "evidence": "وفي 18 مارس 2024 أعلنت الأونروا ومصر أن السلطات الإسرائيلية رفضت السماح للمدير العام للوكالة فيليب لازاريني بدخول قطاع غزة، ووصفتا الخطوة بأنها غير مسبوقة... وفي 22 مارس 2024 أكد مسؤول السياسة الخارجية بالاتحاد الأوروبي جوزيب بوريل على أهمية الدور الذي تلعبة الأونروا مؤكدا أنه لا يمكن الاستغناء عنه باعتبارها شريان الحياة للمدنيين المحاصرين في قطاع غزة... وفي 22 أبريل 2024 خصلت مراجعة أممية... أن إسرائيل لم تقدم أدلة داعمة لمزاعمها... وفي 19 مايو 2024 كشفت الأونروا أن إسرائيل تعمل على شل قدرة المنظمات غير الحكومية... من خلال تشويه وتهديد وتعذيب عمال الإغاثة",
+          "evidence_spans": [
+            "رفضت السماح للمدير العام للوكالة فيليب لازاريني بدخول قطاع غزة، ووصفتا الخطوة بأنها غير مسبوقة",
+            "لا يمكن الاستغناء عنه باعتبارها شريان الحياة للمدنيين المحاصرين",
+            "إسرائيل لم تقدم أدلة داعمة لمزاعمها",
+            "إسرائيل تعمل على شل قدرة المنظمات غير الحكومية... من خلال تشويه وتهديد وتعذيب عمال الإغاثة"
+          ]
+        }
+      }
+    },
+    "es": {
+      "focal": {
+        "UNRWA": {
+          "entity": "UNRWA",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.85,
+          "evidence": "es una organización de las Naciones Unidas que proporciona y atiende el desarrollo, la educación, la salud, los servicios sociales y la ayuda de emergencia a más de cinco millones de refugiados palestinos",
+          "evidence_spans": [
+            "es una organización de las Naciones Unidas que proporciona y atiende el desarrollo, la educación, la salud, los servicios sociales y la ayuda de emergencia a más de cinco millones de refugiados palestinos que viven en Jordania, Líbano, Siria, Cisjordania y la Franja de Gaza, siendo la principal organización en acometer dicho compromiso.",
+            "En enero de 2026 las autoridades israelíes demolieron la sede de la Agencia de Naciones Unidas para los Refugiados de Palestina en Oriente Próximo (UNRWA) en Jerusalén Este."
+          ]
+        }
+      },
+      "lead": {
+        "UNRWA": {
+          "entity": "UNRWA",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "لقرابة 5.6 مليون لاجئ فلسطيني مسجَّلين لديها... إلى أن تنتهيَ معاناتهم"
+          "confidence": 0.75,
+          "evidence": "afirmación desmentida por una investigación internacional independiente... que descartaba vínculos con el terrorismo. El secretario general de la ONU, António Guterres, aseguró que las acusaciones contra la Agencia son «falsas» y que «no tienen fundamento». En octubre de 2025, la Corte Internacional de Justicia (CIJ) concluyó que Israel no ha probado los vínculos",
+          "evidence_spans": [
+            "lleva muchos años siendo objeto de controversias y acusaciones por el gobierno de Israel y medios afines",
+            "afirmación desmentida por una investigación internacional independiente realizada por la exministra de Exteriores francesa Catherine Colonna que descartaba vínculos con el terrorismo",
+            "El secretario general de la ONU, António Guterres, aseguró que las acusaciones contra la Agencia son «falsas» y que «no tienen fundamento»",
+            "la Corte Internacional de Justicia (CIJ) concluyó que Israel no ha probado los vínculos que alega entre la UNRWA y Hamás, ni la supuesta falta de neutralidad de la organización"
+          ]
+        }
+      }
+    },
+    "de": {
+      "focal": {
+        "UNRWA": {
+          "entity": "UNRWA",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.9,
+          "evidence": "ist ein temporäres Hilfsprogramm der Vereinten Nationen (UN), das seit seiner Gründung 1949",
+          "evidence_spans": [
+            "ist ein temporäres Hilfsprogramm der Vereinten Nationen (UN), das seit seiner Gründung 1949"
+          ]
+        }
+      },
+      "lead": {
+        "UNRWA": {
+          "entity": "UNRWA",
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "confidence": 0.75,
+          "evidence": "wies der Gerichtshof die Vorwürfe Israels gegen UNRWA hinsichtlich der angeblichen Unparteilichkeit und/oder Nichtneutralität zurück und führte an, dass für die Behauptung, wonach das Hilfswerk „von der Hamas unterwandert“ sei, keine ausreichenden Beweise vorgelegt wurden. Darüber hinaus stellt der IGH fest, dass Israel verpflichtet ist, die derzeitigen Beschränkungen für die Tätigkeit der UNRWA aufzuheben und ihr die Arbeit nicht nur zu ermöglichen, sondern diese auch bestmöglich zu unterstützen.",
+          "evidence_spans": [
+            "wies der Gerichtshof die Vorwürfe Israels gegen UNRWA hinsichtlich der angeblichen Unparteilichkeit und/oder Nichtneutralität zurück",
+            "keine ausreichenden Beweise vorgelegt wurden",
+            "Israel verpflichtet ist, die derzeitigen Beschränkungen für die Tätigkeit der UNRWA aufzuheben und ihr die Arbeit nicht nur zu ermöglichen, sondern diese auch bestmöglich zu unterstützen"
+          ]
         }
       }
     }

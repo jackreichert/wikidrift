@@ -237,19 +237,9 @@
       "to": 16
     },
     {
-      "domain": "haaretz.com",
-      "from": 8,
-      "to": 12
-    },
-    {
       "domain": "washingtonpost.com",
       "from": 10,
       "to": 14
-    },
-    {
-      "domain": "nytimes.com",
-      "from": 16,
-      "to": 20
     },
     {
       "domain": "france24.com",
@@ -257,27 +247,32 @@
       "to": 8
     },
     {
+      "domain": "nytimes.com",
+      "from": 16,
+      "to": 20
+    },
+    {
+      "domain": "haaretz.com",
+      "from": 8,
+      "to": 12
+    },
+    {
       "domain": "newarab.com",
       "from": 1,
       "to": 4
     },
     {
-      "domain": "edition.cnn.com",
-      "from": 5,
-      "to": 7
-    },
-    {
-      "domain": "israelnationalnews.com",
-      "from": 2,
-      "to": 4
-    },
-    {
-      "domain": "middleeasteye.net",
-      "from": 2,
-      "to": 4
+      "domain": "cnn.com",
+      "from": 9,
+      "to": 11
     },
     {
       "domain": "acleddata.com",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "domain": "allisrael.com",
       "from": 0,
       "to": 2
     },
@@ -287,9 +282,14 @@
       "to": 4
     },
     {
-      "domain": "allisrael.com",
-      "from": 0,
-      "to": 2
+      "domain": "middleeasteye.net",
+      "from": 2,
+      "to": 4
+    },
+    {
+      "domain": "israelnationalnews.com",
+      "from": 2,
+      "to": 4
     },
     {
       "domain": "shafaq.com",
@@ -297,29 +297,9 @@
       "to": 2
     },
     {
-      "domain": "cnn.com",
-      "from": 9,
-      "to": 11
-    },
-    {
-      "domain": "dailynewsegypt.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "english.alarabiya.net",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "news.sky.com",
-      "from": 3,
-      "to": 4
-    },
-    {
-      "domain": "middleeastmonitor.com",
-      "from": 0,
-      "to": 1
+      "domain": "edition.cnn.com",
+      "from": 5,
+      "to": 7
     },
     {
       "domain": "theguardian.com",
@@ -327,17 +307,17 @@
       "to": 8
     },
     {
-      "domain": "longwarjournal.org",
+      "domain": "aljazeeramubasher.net",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "timesofindia.indiatimes.com",
+      "domain": "stripes.com",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "khaleejtimes.com",
+      "domain": "israelhayom.com",
       "from": 0,
       "to": 1
     },
@@ -352,27 +332,27 @@
       "to": 1
     },
     {
-      "domain": "israelhayom.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "stripes.com",
-      "from": 0,
-      "to": 1
-    },
-    {
-      "domain": "tps.co.il",
-      "from": 0,
-      "to": 1
-    },
-    {
       "domain": "semafor.com",
       "from": 0,
       "to": 1
     },
     {
-      "domain": "aljazeeramubasher.net",
+      "domain": "timesofindia.indiatimes.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "english.alarabiya.net",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "middleeastmonitor.com",
+      "from": 0,
+      "to": 1
+    },
+    {
+      "domain": "dailynewsegypt.com",
       "from": 0,
       "to": 1
     },
@@ -380,26 +360,46 @@
       "domain": "misbar.com",
       "from": 0,
       "to": 1
-    }
-  ],
-  "dropped": [
+    },
     {
-      "domain": "amp.theguardian.com",
-      "from": 2,
+      "domain": "news.sky.com",
+      "from": 3,
+      "to": 4
+    },
+    {
+      "domain": "longwarjournal.org",
+      "from": 0,
       "to": 1
     },
     {
-      "domain": "aje.io",
-      "from": 1,
-      "to": 0
+      "domain": "khaleejtimes.com",
+      "from": 0,
+      "to": 1
     },
+    {
+      "domain": "tps.co.il",
+      "from": 0,
+      "to": 1
+    }
+  ],
+  "dropped": [
     {
       "domain": "wsj.com",
       "from": 5,
       "to": 4
     },
     {
+      "domain": "amp.theguardian.com",
+      "from": 2,
+      "to": 1
+    },
+    {
       "domain": "archive.is",
+      "from": 1,
+      "to": 0
+    },
+    {
+      "domain": "aje.io",
       "from": 1,
       "to": 0
     }

@@ -1,0 +1,17 @@
+{
+  "Nakba": {
+    "raw": {
+      "revs": 1175,
+      "mutual_pairs": 0,
+      "M": 0,
+      "M_per_rev": 0.0
+    },
+    "refined": {
+      "revs": 1174,
+      "mutual_pairs": 0,
+      "M": 0,
+      "M_per_rev": 0.0
+    },
+    "refined_per_rev": 0.0
+  }
+}

@@ -1,9 +1,16 @@
 {
+  "schema_version": 1,
+  "prompt_version": "stance-v3",
+  "model_contract": {
+    "provider": "xai",
+    "model": "grok-4",
+    "prompt_version": "stance-v3"
+  },
   "article": "Rafah offensive",
   "langs": [
     "en",
-    "he",
-    "ar"
+    "de",
+    "he"
   ],
   "entities": [
     "Rafah offensive"
@@ -15,7 +22,15 @@
           "entity": "Rafah offensive",
           "stance": "critical",
           "npov_departure": true,
-          "evidence": "the systematic razing of Rafah by the IDF... constituted a violation of the Palestinians' right for safety... would take the nightmare being inflicted on people in Gaza into a new, dystopian, dimension"
+          "confidence": 0.85,
+          "evidence": "The International Court of Justice ... ruled that the Rafah offensive constituted a violation of the Palestinians' right for safety and therefore must cease immediately. Volker Türk, the UN human rights chief, stated a Rafah offensive \"would take the nightmare being inflicted on people in Gaza into a new, dystopian, dimension\".",
+          "evidence_spans": [
+            "The American secretary of state Antony Blinken stated that Israel had no \"credible plan\" for safeguarding civilians in Rafah and risked creating an insurgency",
+            "Qatari Prime Minister ... stated that Israel's Rafah offensive had lowered the chances of a ceasefire agreement. The foreign ministers of 13 Western countries signed a joint letter to Israel urging it to call off a large-scale Rafah offensive.",
+            "A feature of the Rafah offensive is the systematic razing of Rafah by the IDF.",
+            "On 24 May 2024, the court ruled that the Rafah offensive constituted a violation of the Palestinians' right for safety and therefore must cease immediately.",
+            "Volker Türk, the UN human rights chief, stated a Rafah offensive \"would take the nightmare being inflicted on people in Gaza into a new, dystopian, dimension\"."
+          ]
         }
       },
       "lead": {
@@ -23,7 +38,40 @@
           "entity": "Rafah offensive",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "The Rafah offensive was an Israeli military offensive in and around the city of Rafah, beginning on 6 May 2024 as part of Israel's invasion of the Gaza Strip during the Gaza war."
+          "confidence": 0.85,
+          "evidence": "The Rafah offensive was an Israeli military offensive in and around the city of Rafah, beginning on 6 May 2024 as part of Israel's invasion of the Gaza Strip during the Gaza war.",
+          "evidence_spans": [
+            "The Rafah offensive was an Israeli military offensive in and around the city of Rafah, beginning on 6 May 2024 as part of Israel's invasion of the Gaza Strip during the Gaza war.",
+            "The operation focused on the Rafah Governorate along the Egypt–Gaza border, with Israeli officials saying the goals were to defeat remaining Hamas forces in the area and to secure the border corridor and the Rafah crossing with Egypt."
+          ]
+        }
+      }
+    },
+    "de": {
+      "focal": {
+        "Rafah offensive": {
+          "entity": "Rafah offensive",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.8,
+          "evidence": "Die Rafah-Offensive ist eine seit dem 6. Mai",
+          "evidence_spans": [
+            "Das französische Außenministerium sprach sich in einer Erklärung entschieden gegen eine Rafah-Offensive aus und bezeichnete die erzwungene Vertreibung einer Zivilbevölkerung als Kriegsverbrechen.",
+            "Matthew Miller, Sprecher des US-Außenministeriums, teilte wenige Stunden nach dem Aufruf zur Evakuierung mit, dass die derzeit von Israel geplante Rafah-Offensive von den USA nicht unterstützt werde."
+          ]
+        }
+      },
+      "lead": {
+        "Rafah offensive": {
+          "entity": "Rafah offensive",
+          "stance": "critical",
+          "npov_departure": true,
+          "confidence": 0.75,
+          "evidence": "rief das israelische Vorgehen allgemeine Ablehnung und heftige Kritik der internationalen Staatengemeinschaft, darunter der EU und USA, hervor. Südafrika brachte aufgrund der Offensive einen Antrag gegen Israel aufgrund des Verdachts des Verstoßes gegen die Völkermordkonvention beim Internationalen Gerichtshof ein. Das Gericht wies Israel am 24. Mai 2024 an, seinen Militärangriff auf die Stadt Rafah einzustellen. Trotz dieser Anordnung setzte Israel die Offensive fort.",
+          "evidence_spans": [
+            "rief das israelische Vorgehen allgemeine Ablehnung und heftige Kritik der internationalen Staatengemeinschaft, darunter der EU und USA, hervor",
+            "Das Gericht wies Israel am 24. Mai 2024 an, seinen Militärangriff auf die Stadt Rafah einzustellen. Trotz dieser Anordnung setzte Israel die Offensive fort"
+          ]
         }
       }
     },
@@ -33,7 +81,13 @@
           "entity": "Rafah offensive",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "עד אוגוסט הוכרעה חטיבת רפיח של חמאס. עד 12 בספטמבר 2024, צה\"ל הרג יותר מ-2,000 מחבלים והשמיד 13 ק\"מ של מנהרות טרור ותוואי תת-קרקעי — framing centers on IDF operational success and terror infrastructure destruction, alongside detailed accounts of humanitarian preparations (tents, evacuation coordination), presenting the offensive as carefully planned and justified rather than critically examining civilian harm."
+          "confidence": 0.75,
+          "evidence": "צה\"ל פתח במבצע במזרח העיר וכבש את מעבר רפיח. עד אוגוסט הוכרעה חטיבת רפיח של חמאס. עד 12 בספטמבר 2024, צה\"ל הרג יותר מ-2,000 מחבלים",
+          "evidence_spans": [
+            "צה\"ל פתח במבצע במזרח העיר וכבש את מעבר רפיח. עד אוגוסט הוכרעה חטיבת רפיח של חמאס. עד 12 בספטמבר 2024, צה\"ל הרג יותר מ-2,000 מחבלים",
+            "ארגוני הטרור הפלסטינים",
+            "הוכרעה חטיבת רפיח של חמאס"
+          ]
         }
       },
       "lead": {
@@ -41,25 +95,13 @@
           "entity": "Rafah offensive",
           "stance": "sympathetic",
           "npov_departure": true,
-          "evidence": "עד אוגוסט הוכרעה חטיבת רפיח של חמאס... צה\"ל הרג יותר מ-2,000 מחבלים והשמיד 13 ק\"מ של מנהרות טרור; text frames the operation via IDF military achievements and humanitarian preparations (tents, evacuation coordination) while attributing civilian risk to Hamas's fighters hiding among displaced population and to international pressure, rather than critically examining IDF conduct itself."
-        }
-      }
-    },
-    "ar": {
-      "focal": {
-        "Rafah offensive": {
-          "entity": "Rafah offensive",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "حذّر المجتمع الدولي من أزمة إنسانية إذا إستمر الهجوم... وحذروا من أن الأمر بإخلاء رفح قد يرقى إلى مستوى جريمة حرب"
-        }
-      },
-      "lead": {
-        "Rafah offensive": {
-          "entity": "Rafah offensive",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "حذر اللاجئون في المنطقة من أن المنطقة مكتظة ولا تزال تفتقر إلى الإمدادات... حذروا من أن الأمر بإخلاء رفح قد يرقى إلى مستوى جريمة حرب"
+          "confidence": 0.75,
+          "evidence": "קרב רפיח היה קרב בין צה\"ל לארגוני הטרור הפלסטינים",
+          "evidence_spans": [
+            "ארגוני הטרור הפלסטינים",
+            "צה\"ל הרג יותר מ-2,000 מחבלים והשמיד 13 ק\"מ של מנהרות טרור",
+            "טבח שבעה באוקטובר"
+          ]
         }
       }
     }

@@ -1,9 +1,18 @@
 {
+  "schema_version": 1,
+  "prompt_version": "stance-v3",
+  "model_contract": {
+    "provider": "xai",
+    "model": "grok-4",
+    "prompt_version": "stance-v3"
+  },
   "article": "Gaza war",
   "langs": [
     "en",
     "he",
-    "ar"
+    "ar",
+    "es",
+    "de"
   ],
   "entities": [
     "Gaza war"
@@ -15,7 +24,12 @@
           "entity": "Gaza war",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "The Gaza war is an armed conflict in the Gaza Strip and Israel, fought as part of the unresolved Israeli–Palestinian and Gaza–Israel conflicts."
+          "confidence": 0.85,
+          "evidence": "The Gaza war is an armed conflict in the Gaza Strip and Israel, fought as part of the unresolved Israeli–Palestinian and Gaza–Israel conflicts.",
+          "evidence_spans": [
+            "The Gaza war is an armed conflict in the Gaza Strip and Israel, fought as part of the unresolved Israeli–Palestinian and Gaza–Israel conflicts.",
+            "There has been extensive environmental damage caused by the Gaza war, By March 2024, nearly half of the farmland in Gaza had been destroyed, and by the following January 80% of the tree cover had been destroyed."
+          ]
         }
       },
       "lead": {
@@ -23,7 +37,13 @@
           "entity": "Gaza war",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "The Gaza war is an armed conflict in the Gaza Strip and Israel, fought as part of the unresolved Israeli–Palestinian and Gaza–Israel conflicts."
+          "confidence": 0.85,
+          "evidence": "The Gaza war is an armed conflict in the Gaza Strip and Israel, fought as part of the unresolved Israeli–Palestinian and Gaza–Israel conflicts.",
+          "evidence_spans": [
+            "The Gaza war is an armed conflict in the Gaza Strip and Israel, fought as part of the unresolved Israeli–Palestinian and Gaza–Israel conflicts.",
+            "The war began on 7 October 2023, when Palestinian militant group Hamas led an attack on Israel, in which 1,195 Israelis and foreign nationals were killed and 251 were taken hostage.",
+            "Since the start of the Israeli offensive that followed, over 74,000 Palestinians in Gaza have been killed; several studies in The Lancet indicate this figure is likely a significant undercount."
+          ]
         }
       }
     },
@@ -33,15 +53,24 @@
           "entity": "Gaza war",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "זירת רצועת עזה במלחמת חרבות ברזל (המכונה גם מלחמת עזה) היא זירת הלחימה ברצועת עזה במלחמת חרבות ברזל, שהייתה הזירה המרכזית לאורך רוב חודשי המלחמה"
+          "confidence": 0.9,
+          "evidence": "זירת רצועת עזה במלחמת חרבות ברזל (המכונה גם מלחמת עזה) היא זירת הלחימה ברצועת עזה במלחמת חרבות ברזל, שהייתה הזירה המרכזית והעיקרית",
+          "evidence_spans": [
+            "זירת רצועת עזה במלחמת חרבות ברזל (המכונה גם מלחמת עזה) היא זירת הלחימה ברצועת עזה במלחמת חרבות ברזל, שהייתה הזירה המרכזית והעיקרית"
+          ]
         }
       },
       "lead": {
         "Gaza war": {
           "entity": "Gaza war",
-          "stance": "neutral",
-          "npov_departure": false,
-          "evidence": "היא זירת הלחימה ברצועת עזה במלחמת חרבות ברזל, שהייתה הזירה המרכזית לאורך רוב חודשי המלחמה"
+          "stance": "sympathetic",
+          "npov_departure": true,
+          "confidence": 0.75,
+          "evidence": "על הלחימה בזירת עזה הכריזה מדינת ישראל בעקבות טבח שבעה באוקטובר שבוצע על ידי ארגוני הטרור מרצועת עזה בהובלת חמאס, ארגון טרור אסלאמיסטי-פלסטיני",
+          "evidence_spans": [
+            "על הלחימה בזירת עזה הכריזה מדינת ישראל בעקבות טבח שבעה באוקטובר שבוצע על ידי ארגוני הטרור מרצועת עזה בהובלת חמאס, ארגון טרור אסלאמיסטי-פלסטיני",
+            "מבקריה של ישראל טוענים כי היא ביצעה אלפי פשעי מלחמה"
+          ]
         }
       }
     },
@@ -51,7 +80,15 @@
           "entity": "Gaza war",
           "stance": "critical",
           "npov_departure": true,
-          "evidence": "وبحلول أوائل عام 2025، تسبّبت إسرائيل في دمار غير مسبوق في غزة وجعلت أجزاء كبيرة منها غير صالحة للسكن... حيث يعتبر هذا تهجيراً قسرياً من شأنه أن يرقى إلى جريمة حرب"
+          "confidence": 0.85,
+          "evidence": "العدوان الإسرائيلي على غزة; مجزرة مستشفى المعمداني; استشهاد; الاحتلال الإسرائيلي; سياسة التجويع",
+          "evidence_spans": [
+            "العدوان الإسرائيلي على غزة",
+            "مجزرة مستشفى المعمداني",
+            "استشهاد ما لا يقلُّ عن 50 ألف فلسطيني",
+            "الاحتلال الإسرائيلي",
+            "سياسة التجويع"
+          ]
         }
       },
       "lead": {
@@ -59,7 +96,77 @@
           "entity": "Gaza war",
           "stance": "critical",
           "npov_departure": true,
-          "evidence": "وبحلول أوائل عام 2025، تسبّبت إسرائيل في دمار غير مسبوق في غزة وجعلت أجزاء كبيرة منها غير صالحة للسكن... وقد صرّح خبراء ومنظمات حقوق الإنسان بأن إسرائيل وحماس ارتكبتا جرائم حرب وأن الأحداث في غزة كانت إبادة جماعية"
+          "confidence": 0.9,
+          "evidence": "العدوان الإسرائيلي على غزة ... المقاومة الفلسطينية ... استشهاد ... مجزرة ... سياسة التجويع ... تهجيراً قسرياً ... جريمة حرب ... التطهير العرقي الجماعي",
+          "evidence_spans": [
+            "العدوان الإسرائيلي على غزة",
+            "فصائل المقاومة الفلسطينية",
+            "استشهاد ما لا يقلُّ عن 50 ألف فلسطيني",
+            "مجزرة مستشفى المعمداني",
+            "سياسة التجويع",
+            "تهجيراً قسرياً من شأنه أن يرقى إلى جريمة حرب",
+            "خطر التطهير العرقي الجماعي للشعب الفلسطيني"
+          ]
+        }
+      }
+    },
+    "es": {
+      "focal": {
+        "Gaza war": {
+          "entity": "Gaza war",
+          "stance": "critical",
+          "npov_departure": true,
+          "confidence": 0.9,
+          "evidence": "ha desencadenado un genocidio en Gaza por parte de Israel contra la población civil palestina",
+          "evidence_spans": [
+            "ha desencadenado un genocidio en Gaza por parte de Israel contra la población civil palestina",
+            "Genocidio palestino en Gaza",
+            "asesinando a 296 personas",
+            "el número de periodistas asesinados en los últimos dos meses en la guerra de Gaza"
+          ]
+        }
+      },
+      "lead": {
+        "Gaza war": {
+          "entity": "Gaza war",
+          "stance": "critical",
+          "npov_departure": true,
+          "confidence": 0.9,
+          "evidence": "La Guerra de Gaza es un conflicto armado en curso que comenzó con un ataque de represalia realizado por Hamás y otras milicias contra Israel el 7 de octubre de 2023 y que ha desencadenado un genocidio en Gaza por parte de Israel contra la población civil palestina.",
+          "evidence_spans": [
+            "ha desencadenado un genocidio en Gaza por parte de Israel contra la población civil palestina",
+            "han dado forma al actual genocidio",
+            "la ONU había declarado oficialmente una hambruna en la ciudad de Gaza causada deliberadamente por Israel",
+            "el número de calorías diarias que consumieron los gazatíes en el mes de mayo de 2025 era netamente inferior al que recibieron las víctimas del campo de exterminio nazi de Auschwitz"
+          ]
+        }
+      }
+    },
+    "de": {
+      "focal": {
+        "Gaza war": {
+          "entity": "Gaza war",
+          "stance": "critical",
+          "npov_departure": true,
+          "confidence": 0.85,
+          "evidence": "Terrororganisation Hamas",
+          "evidence_spans": [
+            "Terrororganisation Hamas"
+          ]
+        }
+      },
+      "lead": {
+        "Gaza war": {
+          "entity": "Gaza war",
+          "stance": "critical",
+          "npov_departure": true,
+          "confidence": 0.85,
+          "evidence": "der Terrororganisation Hamas sowie den mit ihr verbündeten militanten Gruppierungen",
+          "evidence_spans": [
+            "der Terrororganisation Hamas sowie den mit ihr verbündeten militanten Gruppierungen",
+            "Terrorangriff auf Israel am 7. Oktober 2023",
+            "ermordeten Terroristen der Hamas"
+          ]
         }
       }
     }

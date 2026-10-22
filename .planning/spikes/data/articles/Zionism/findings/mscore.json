@@ -1,0 +1,17 @@
+{
+  "Zionism": {
+    "raw": {
+      "revs": 12074,
+      "mutual_pairs": 385,
+      "M": 1674562,
+      "M_per_rev": 138.69
+    },
+    "refined": {
+      "revs": 9987,
+      "mutual_pairs": 64,
+      "M": 131747,
+      "M_per_rev": 13.19
+    },
+    "refined_per_rev": 10.91
+  }
+}

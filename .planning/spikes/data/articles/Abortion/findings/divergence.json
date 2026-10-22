@@ -1,0 +1,58 @@
+{
+  "static": {
+    "Abortion": {
+      "schema_version": 1,
+      "prompt_version": "stance-v3",
+      "model_contract": {
+        "provider": "xai",
+        "model": "grok-4",
+        "prompt_version": "stance-v3"
+      },
+      "variants": {
+        "lead": {
+          "divergence": 0.0,
+          "spreads": {
+            "Abortion": 0
+          }
+        },
+        "focal": {
+          "divergence": 0.0,
+          "spreads": {
+            "Abortion": 0
+          }
+        }
+      }
+    }
+  },
+  "pivot_relative": {
+    "Abortion": {
+      "pivot": "2010-01-01",
+      "pivot_source": "confirmed L1",
+      "en_gap_before": 0.0,
+      "en_gap_after": 0.0,
+      "read": "no net change",
+      "before": {
+        "de": {
+          "Abortion": 0
+        },
+        "en": {
+          "Abortion": 0
+        },
+        "sv": {
+          "Abortion": 0
+        }
+      },
+      "after": {
+        "de": {
+          "Abortion": 0
+        },
+        "en": {
+          "Abortion": 0
+        },
+        "sv": {
+          "Abortion": 0
+        }
+      }
+    }
+  }
+}

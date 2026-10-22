@@ -1,0 +1,17 @@
+{
+  "Rafah offensive": {
+    "raw": {
+      "revs": 2238,
+      "mutual_pairs": 1,
+      "M": 550,
+      "M_per_rev": 0.25
+    },
+    "refined": {
+      "revs": 2238,
+      "mutual_pairs": 0,
+      "M": 0,
+      "M_per_rev": 0.0
+    },
+    "refined_per_rev": 0.0
+  }
+}

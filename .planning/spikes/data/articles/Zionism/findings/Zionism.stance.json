@@ -1,11 +1,18 @@
 {
+  "schema_version": 1,
+  "prompt_version": "stance-v3",
+  "model_contract": {
+    "provider": "xai",
+    "model": "grok-4",
+    "prompt_version": "stance-v3"
+  },
   "article": "Zionism",
   "langs": [
     "en",
     "he",
     "ar",
-    "de",
-    "ja"
+    "fa",
+    "de"
   ],
   "entities": [
     "Zionism"
@@ -17,7 +24,13 @@
           "entity": "Zionism",
           "stance": "critical",
           "npov_departure": true,
-          "evidence": "He argues that \"transfer\" was \"inevitable and inbuilt into Zionism\" and that a land that was primarily Arab could not be transformed into a Jewish state without displacing the Arab population."
+          "confidence": 0.75,
+          "evidence": "Zionism is an ethnic nationalist movement that emerged in late 19th-century Europe to establish and support a Jewish homeland through colonization in the region of Palestine",
+          "evidence_spans": [
+            "through colonization in the region of Palestine",
+            "Opponents of Zionism often characterize it as a supremacist, colonialist, or racist ideology, or as a settler colonialist movement.",
+            "the idea of transfer played a large role in Zionist ideology from the inception of the movement and was seen as the main method of maintaining the \"Jewishness\" of the Zionist's state."
+          ]
         }
       },
       "lead": {
@@ -25,7 +38,13 @@
           "entity": "Zionism",
           "stance": "critical",
           "npov_departure": true,
-          "evidence": "Zionists wanted to create a Jewish state in Palestine with as much land, as many Jews, and as few Palestinian Arabs as possible."
+          "confidence": 0.8,
+          "evidence": "Zionism is an ethnic nationalist movement that emerged in late 19th-century Europe to establish and support a Jewish homeland through colonization in the region of Palestine",
+          "evidence_spans": [
+            "Zionism is an ethnic nationalist movement that emerged in late 19th-century Europe to establish and support a Jewish homeland through colonization in the region of Palestine",
+            "Zionists wanted to create a Jewish state in Palestine with as much land, as many Jews, and as few Palestinian Arabs as possible.",
+            "Zionists justified their claim to Palestine by invoking a perceived historical right to it and widely asserted that this right outweighed that of the Palestinian Arab population."
+          ]
         }
       }
     },
@@ -33,17 +52,27 @@
       "focal": {
         "Zionism": {
           "entity": "Zionism",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "הציונות היא מסכת רעיונות רחבה, שבה כלולה לא רק השאיפה לשטח מדיני מובטח כחוק בשביל העם היהודי, אלא גם השאיפה לשלמות מוסרית ורוחנית"
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.9,
+          "evidence": "שורשי הציונות נעוצים במניעים ובערכים עתיקי-יומין, הטבועים בהיסטוריה של העם היהודי",
+          "evidence_spans": [
+            "שורשי הציונות נעוצים במניעים ובערכים עתיקי-יומין",
+            "הציונות שואפת להקים בית מולדת לעם ישראל בארץ ישראל"
+          ]
         }
       },
       "lead": {
         "Zionism": {
           "entity": "Zionism",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "מטרתה קיום בית לאומי לעם היהודי בארץ ישראל ושמירה על קיומו... שאיפה לשלמות מוסרית ורוחנית"
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.85,
+          "evidence": "צִיּוֹנוּת היא תנועה לאומית ואידאולוגיה שמטרתה קיום בית לאומי לעם היהודי בארץ ישראל ושמירה על קיומו.",
+          "evidence_spans": [
+            "צִיּוֹנוּת היא תנועה לאומית ואידאולוגיה שמטרתה קיום בית לאומי לעם היהודי בארץ ישראל ושמירה על קיומו.",
+            "שורשי הציונות נעוצים במניעים ובערכים עתיקי-יומין, הטבועים בהיסטוריה של העם היהודי, במסורתו הדתית, ובאידאולוגיות הלאומיות שפרחו באירופה במאה ה-19."
+          ]
         }
       }
     },
@@ -53,7 +82,12 @@
           "entity": "Zionism",
           "stance": "critical",
           "npov_departure": true,
-          "evidence": "سعت لإنشاء دولة قومية خاصّة لهم باستعمار بلاد خارج اوروبا، ومضت عبر حرب التطهير العرقي لفلسطين 1947–1948 لإنشاء إثنوقراطية يهودية في فلسطين"
+          "confidence": 0.9,
+          "evidence": "سعت لإنشاء دولة قومية خاصّة لهم باستعمار بلاد خارج اوروبا، ومضت عبر حرب التطهير العرقي لفلسطين 1947–1948 لإنشاء إثنوقراطية يهودية في فلسطين",
+          "evidence_spans": [
+            "سعت لإنشاء دولة قومية خاصّة لهم باستعمار بلاد خارج اوروبا، ومضت عبر حرب التطهير العرقي لفلسطين 1947–1948 لإنشاء إثنوقراطية يهودية في فلسطين",
+            "يرى منتقدو الصهيونية أنها أيديولوجية استعمارية"
+          ]
         }
       },
       "lead": {
@@ -61,7 +95,42 @@
           "entity": "Zionism",
           "stance": "critical",
           "npov_departure": true,
-          "evidence": "سعت لإنشاء دولة قومية خاصّة لهم باستعمار بلاد خارج اوروبا، ومضت عبر حرب التطهير العرقي لفلسطين 1947–1948 لإنشاء إثنوقراطية يهودية في فلسطين"
+          "confidence": 0.9,
+          "evidence": "سعت لإنشاء دولة قومية خاصّة لهم باستعمار بلاد خارج اوروبا، ومضت عبر حرب التطهير العرقي لفلسطين 1947–1948 لإنشاء إثنوقراطية يهودية في فلسطين",
+          "evidence_spans": [
+            "سعت لإنشاء دولة قومية خاصّة لهم باستعمار بلاد خارج اوروبا، ومضت عبر حرب التطهير العرقي لفلسطين 1947–1948 لإنشاء إثنوقراطية يهودية في فلسطين",
+            "بينما يرى منتقدو الصهيونية أنها أيديولوجية استعمارية",
+            "عنصرية",
+            "قادت أتباعها إلى استخدام العنف خلال الانتداب البريطاني على فلسطين، وتسببت في نزوح العديد من الفلسطينيين"
+          ]
+        }
+      }
+    },
+    "fa": {
+      "focal": {
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.9,
+          "evidence": "مدافعان صهیونیسم آن را به عنوان یک جنبش آزادی‌بخش ملی برای بازگرداندن مردمی بومی... می‌دانند. مخالفان صهیونیسم اغلب آن را به عنوان یک ایدئولوژی برتری‌طلب، استعمارگر، یا نژادپرست... توصیف می‌کنند.",
+          "evidence_spans": [
+            "مدافعان صهیونیسم آن را به عنوان یک جنبش آزادی‌بخش ملی برای بازگرداندن مردمی بومی (که در معرض آزار و اذیت قرار داشتند و از طریق آگاهی ملی دارای یک هویت ملی مشترک هستند) به میهن نیاکانشان می‌دانند. مخالفان صهیونیسم اغلب آن را به عنوان یک ایدئولوژی برتری‌طلب، استعمارگر، یا نژادپرست، و یا به عنوان یک جنبش استعمار شهرک‌نشین توصیف می‌کنند."
+          ]
+        }
+      },
+      "lead": {
+        "Zionism": {
+          "entity": "Zionism",
+          "stance": "critical",
+          "npov_departure": true,
+          "confidence": 0.75,
+          "evidence": "صهیونیست‌ها می‌خواستند یک دولت یهود در فلسطین با بیشترین میزان زمین، بیشترین تعداد یهودیان و کمترین تعداد مردم عرب فلسطین ایجاد کنند.",
+          "evidence_spans": [
+            "از طریق مستعمره‌سازی در منطقه فلسطین",
+            "صهیونیست‌ها می‌خواستند یک دولت یهود در فلسطین با بیشترین میزان زمین، بیشترین تعداد یهودیان و کمترین تعداد مردم عرب فلسطین ایجاد کنند",
+            "مخالفان صهیونیسم اغلب آن را به عنوان یک ایدئولوژی برتری‌طلب، استعمارگر، یا نژادپرست، یا به عنوان یک جنبش استعمار شهرک‌نشین توصیف می‌کنند"
+          ]
         }
       }
     },
@@ -71,7 +140,13 @@
           "entity": "Zionism",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "Die historische Bewertung des Zionismus ist abhängig von der Sprecherposition."
+          "confidence": 0.85,
+          "evidence": "Der Zionismus () ist eine jüdische National- und Freiheitsbewegung",
+          "evidence_spans": [
+            "Der Zionismus () ist eine jüdische National- und Freiheitsbewegung, die im 19. Vor dem Hintergrund des Antisemitismus in Europa und in Teilen der islamisch geprägten Welt verfolgte der politische Zionismus das Ziel, die nationale und kulturelle Selbstbestimmung, politische Freiheit und rechtliche Gleichberechtigung des jüdischen Volkes durch weitere Ansiedlung in Palästina zu verwirklichen.",
+            "Die historische Bewertung des Zionismus ist Gegenstand politischer und wissenschaftlicher Kontroversen.",
+            "Im Laufe der Zeit differenzierte sich der Zionismus in unterschiedliche politische Richtungen, deren einzige Gemeinsamkeit das Ziel einer Heimstätte für die Juden im Land Israel war."
+          ]
         }
       },
       "lead": {
@@ -79,25 +154,13 @@
           "entity": "Zionism",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "Der Zionismus war eine ethnonationalistische Bewegung, die Ende des 19. Jahrhunderts in Reaktion auf Antisemitismus und Verfolgung in Europa entstand."
-        }
-      }
-    },
-    "ja": {
-      "focal": {
-        "Zionism": {
-          "entity": "Zionism",
-          "stance": "sympathetic",
-          "npov_departure": true,
-          "evidence": "シオニズム運動とは、迫害の対象であり国民的同一性を共有する先住民族を、古代史に記されているように祖先の故郷の地に帰還させるための民族解放運動である"
-        }
-      },
-      "lead": {
-        "Zionism": {
-          "entity": "Zionism",
-          "stance": "critical",
-          "npov_departure": true,
-          "evidence": "シオニズムにも多くの側面があり、植民地主義、人種差別主義...などの、を通じたイデオロギーや運動としてのシオニズム批判がある"
+          "confidence": 0.85,
+          "evidence": "Der Zionismus () ist eine jüdische National- und Freiheitsbewegung, die im 19. Jahrhundert entstand. Vor dem Hintergrund des Antisemitismus in Europa...",
+          "evidence_spans": [
+            "Der Zionismus () ist eine jüdische National- und Freiheitsbewegung",
+            "verfolgte der politische Zionismus das Ziel, die nationale und kulturelle Selbstbestimmung, politische Freiheit und rechtliche Gleichberechtigung",
+            "Während seine Befürworter insbesondere die jüdische Emanzipation, den Schutz vor Verfolgung und das Recht auf Freiheit, Sicherheit und Selbstbestimmung hervorheben, konzentriert sich die Kritik vor allem auf die Auswirkungen auf die arabischstämmige Bevölkerung der Region."
+          ]
         }
       }
     }

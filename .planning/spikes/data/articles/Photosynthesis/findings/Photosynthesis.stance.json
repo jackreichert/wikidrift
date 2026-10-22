@@ -1,9 +1,18 @@
 {
+  "schema_version": 1,
+  "prompt_version": "stance-v3",
+  "model_contract": {
+    "provider": "xai",
+    "model": "grok-4",
+    "prompt_version": "stance-v3"
+  },
   "article": "Photosynthesis",
   "langs": [
     "en",
     "he",
-    "ar"
+    "ar",
+    "pt",
+    "de"
   ],
   "entities": [
     "Photosynthesis"
@@ -15,7 +24,12 @@
           "entity": "Photosynthesis",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "a system of biological processes by which photopigment-bearing autotrophic organisms... convert light energy... into the chemical energy necessary to fuel their metabolism"
+          "confidence": 0.95,
+          "evidence": "Photosynthesis is a system of biological processes by which photopigment-bearing autotrophic organisms, such as most plants, algae and cyanobacteria, convert light energy—typically from sunlight—into the chemical energy necessary to fuel their metabolism.",
+          "evidence_spans": [
+            "Photosynthesis is a system of biological processes by which photopigment-bearing autotrophic organisms, such as most plants, algae and cyanobacteria, convert light energy—typically from sunlight—into the chemical energy necessary to fuel their metabolism.",
+            "Photosynthesis plays a critical role in producing and maintaining the oxygen content of the Earth's atmosphere, and it supplies most of the biological energy necessary for complex life on Earth."
+          ]
         }
       },
       "lead": {
@@ -23,7 +37,12 @@
           "entity": "Photosynthesis",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "Photosynthesis is a system of biological processes by which photopigment-bearing autotrophic organisms... convert light energy... into the chemical energy necessary to fuel their metabolism."
+          "confidence": 0.95,
+          "evidence": "Photosynthesis is a system of biological processes by which photopigment-bearing autotrophic organisms, such as most plants, algae and cyanobacteria, convert light energy—typically from sunlight—into the chemical energy necessary to fuel their metabolism.",
+          "evidence_spans": [
+            "Photosynthesis is a system of biological processes by which photopigment-bearing autotrophic organisms, such as most plants, algae and cyanobacteria, convert light energy—typically from sunlight—into the chemical energy necessary to fuel their metabolism.",
+            "Photosynthesis plays a critical role in producing and maintaining the oxygen content of the Earth's atmosphere, and it supplies most of the biological energy necessary for complex life on Earth."
+          ]
         }
       }
     },
@@ -33,7 +52,12 @@
           "entity": "Photosynthesis",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "היא תהליך ביולוגי המתקיים ביצורים פוטוסינתטיים... הממירים את אנרגיית האור... לאנרגיה הכימית הנחוצה כדי לתדלק את חילוף החומרים שלהם."
+          "confidence": 0.95,
+          "evidence": "פוטוסינתזה – הטמעה, (מקור השם: יוונית עתיקה – פוטו שפירושה \"אור\", סינתזה שפירושה \"הרכבה\"), היא תהליך ביולוגי המתקיים ביצורים פוטוסינתטיים",
+          "evidence_spans": [
+            "פוטוסינתזה – הטמעה, (מקור השם: יוונית עתיקה – פוטו שפירושה \"אור\", סינתזה שפירושה \"הרכבה\"), היא תהליך ביולוגי המתקיים ביצורים פוטוסינתטיים",
+            "תהליך הפוטוסינתזה הוא הבסיס לקיומם של כמעט כל היצורים החיים כיום בכדור הארץ"
+          ]
         }
       },
       "lead": {
@@ -41,7 +65,12 @@
           "entity": "Photosynthesis",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "תהליך ביולוגי המתקיים ביצורים פוטוסינתטיים... הממירים את אנרגיית האור... לאנרגיה הכימית הנחוצה כדי לתדלק את חילוף החומרים שלהם"
+          "confidence": 0.95,
+          "evidence": "פוטוסינתזה – הטמעה, (מקור השם: יוונית עתיקה – פוטו שפירושה \"אור\", סינתזה שפירושה \"הרכבה\"), היא תהליך ביולוגי המתקיים ביצורים פוטוסינתטיים",
+          "evidence_spans": [
+            "פוטוסינתזה – הטמעה, (מקור השם: יוונית עתיקה – פוטו שפירושה \"אור\", סינתזה שפירושה \"הרכבה\"), היא תהליך ביולוגי המתקיים ביצורים פוטוסינתטיים",
+            "תהליך הפוטוסינתזה הוא הבסיס לקיומם של כמעט כל היצורים החיים כיום בכדור הארץ"
+          ]
         }
       }
     },
@@ -51,7 +80,12 @@
           "entity": "Photosynthesis",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "هو عملية تستخدمها النباتات وبعض الكائنات الحية الأخرى لتحويل الطاقة الضوئية إلى طاقة كيميائية - a standard encyclopedic scientific description without evaluative framing"
+          "confidence": 0.95,
+          "evidence": "هو عملية تستخدمها النباتات وبعض الكائنات الحية الأخرى لتحويل الطاقة الضوئية إلى طاقة كيميائية",
+          "evidence_spans": [
+            "هو عملية تستخدمها النباتات وبعض الكائنات الحية الأخرى لتحويل الطاقة الضوئية إلى طاقة كيميائية",
+            "يُعتبر التركيب الضوئي مسؤولًا بدرجة كبيرة عن إنتاج محتوى الأكسجين الموجود في الغلاف الجوي للأرض والحفاظ عليه"
+          ]
         }
       },
       "lead": {
@@ -59,7 +93,69 @@
           "entity": "Photosynthesis",
           "stance": "neutral",
           "npov_departure": false,
-          "evidence": "هو عملية تستخدمها النباتات وبعض الكائنات الحية الأخرى لتحويل الطاقة الضوئية إلى طاقة كيميائية"
+          "confidence": 0.95,
+          "evidence": "التركيب الضوئي أو الاصطناع الضوئي أو التخليق الضوئي أو البناء الضوئي () هو عملية تستخدمها النباتات وبعض الكائنات الحية الأخرى لتحويل الطاقة الضوئية إلى طاقة كيميائية",
+          "evidence_spans": [
+            "التركيب الضوئي أو الاصطناع الضوئي أو التخليق الضوئي أو البناء الضوئي () هو عملية تستخدمها النباتات وبعض الكائنات الحية الأخرى لتحويل الطاقة الضوئية إلى طاقة كيميائية يمكن من خلال التنفس الخلوي، تحريرها لاحقًا لتغذية أنشطة الكائن الحي.",
+            "يُعتبر التركيب الضوئي مسؤولًا بدرجة كبيرة عن إنتاج محتوى الأكسجين الموجود في الغلاف الجوي للأرض والحفاظ عليه، ويوفر معظم الطاقة اللازمة للحياة على الأرض."
+          ]
+        }
+      }
+    },
+    "pt": {
+      "focal": {
+        "Photosynthesis": {
+          "entity": "Photosynthesis",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 1.0,
+          "evidence": "Fotossíntese é o processo pelo qual plantas, algas e algumas bactérias captam parte da energia da luz e a guardam em substâncias orgânicas.",
+          "evidence_spans": [
+            "Fotossíntese é o processo pelo qual plantas, algas e algumas bactérias captam parte da energia da luz e a guardam em substâncias orgânicas.",
+            "Quando o CO2 é o material inicial, as reações da fotossíntese podem ser expressas pelas equações gerais simplificadas abaixo."
+          ]
+        }
+      },
+      "lead": {
+        "Photosynthesis": {
+          "entity": "Photosynthesis",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.95,
+          "evidence": "Fotossíntese é o processo pelo qual plantas, algas e algumas bactérias captam parte da energia da luz e a guardam em substâncias orgânicas.",
+          "evidence_spans": [
+            "Fotossíntese é o processo pelo qual plantas, algas e algumas bactérias captam parte da energia da luz e a guardam em substâncias orgânicas.",
+            "Ao produzir matéria orgânica, a fotossíntese sustenta a maior parte dos ecossistemas e participa dos ciclos do carbono e do oxigênio."
+          ]
+        }
+      }
+    },
+    "de": {
+      "focal": {
+        "Photosynthesis": {
+          "entity": "Photosynthesis",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.95,
+          "evidence": "Die Photosynthese ... ist ein physiologischer Prozess zur Erzeugung energiereicher Biomoleküle aus energieärmeren Stoffen mit Hilfe von Lichtenergie.",
+          "evidence_spans": [
+            "Die Photosynthese ( und , auch Fotosynthese geschrieben) ist ein physiologischer Prozess zur Erzeugung energiereicher Biomoleküle aus energieärmeren Stoffen mit Hilfe von Lichtenergie.",
+            "Die Photosynthese ist der wichtigste biochemische Prozess, bei dem Lichtenergie, meistens Sonnenlicht, in chemisch gebundene Energie umgewandelt wird (Phototrophie).",
+            "Photoautotrophe treiben mit ihrem Photosynthese-Stoffwechsel (direkt und indirekt) nahezu alle bestehenden Ökosysteme an"
+          ]
+        }
+      },
+      "lead": {
+        "Photosynthesis": {
+          "entity": "Photosynthesis",
+          "stance": "neutral",
+          "npov_departure": false,
+          "confidence": 0.95,
+          "evidence": "Die Photosynthese ( und , auch Fotosynthese geschrieben) ist ein physiologischer Prozess zur Erzeugung energiereicher Biomoleküle aus energieärmeren Stoffen mit Hilfe von Lichtenergie.",
+          "evidence_spans": [
+            "Die Photosynthese ( und , auch Fotosynthese geschrieben) ist ein physiologischer Prozess zur Erzeugung energiereicher Biomoleküle aus energieärmeren Stoffen mit Hilfe von Lichtenergie.",
+            "Die Photosynthese ist der wichtigste biochemische Prozess, bei dem Lichtenergie, meistens Sonnenlicht, in chemisch gebundene Energie umgewandelt wird (Phototrophie)."
+          ]
         }
       }
     }

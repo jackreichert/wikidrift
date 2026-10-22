@@ -4,24 +4,38 @@
   "editions": {
     "en": {
       "present": true,
-      "revid": 1362789734,
+      "revid": 1380825371,
       "title": "Nakba",
-      "timestamp": "2026-07-06T05:29:43Z",
-      "prose_chars": 37505
+      "timestamp": "2026-10-18T04:17:52Z",
+      "prose_chars": 37494
     },
     "he": {
       "present": true,
-      "revid": 43391910,
+      "revid": 44037280,
       "title": "הנכבה",
-      "timestamp": "2026-06-09T13:36:50Z",
-      "prose_chars": 19606
+      "timestamp": "2026-10-07T23:56:20Z",
+      "prose_chars": 19574
     },
     "ar": {
       "present": true,
-      "revid": 75889902,
+      "revid": 76509203,
       "title": "النكبة",
-      "timestamp": "2026-07-13T08:01:50Z",
-      "prose_chars": 55014
+      "timestamp": "2026-09-10T17:41:10Z",
+      "prose_chars": 55005
+    },
+    "es": {
+      "present": true,
+      "revid": 175169508,
+      "title": "Nakba",
+      "timestamp": "2026-09-03T03:51:42Z",
+      "prose_chars": 60800
+    },
+    "de": {
+      "present": true,
+      "revid": 270281191,
+      "title": "Nakba",
+      "timestamp": "2026-09-06T20:34:52Z",
+      "prose_chars": 46775
     }
   }
 }

@@ -1,0 +1,17 @@
+{
+  "Hamas": {
+    "raw": {
+      "revs": 14131,
+      "mutual_pairs": 350,
+      "M": 2012540,
+      "M_per_rev": 142.42
+    },
+    "refined": {
+      "revs": 11983,
+      "mutual_pairs": 78,
+      "M": 260864,
+      "M_per_rev": 21.77
+    },
+    "refined_per_rev": 18.46
+  }
+}

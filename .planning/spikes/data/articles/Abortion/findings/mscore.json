@@ -1,0 +1,17 @@
+{
+  "Abortion": {
+    "raw": {
+      "revs": 13570,
+      "mutual_pairs": 697,
+      "M": 5635686,
+      "M_per_rev": 415.3
+    },
+    "refined": {
+      "revs": 10560,
+      "mutual_pairs": 138,
+      "M": 601640,
+      "M_per_rev": 56.97
+    },
+    "refined_per_rev": 44.34
+  }
+}

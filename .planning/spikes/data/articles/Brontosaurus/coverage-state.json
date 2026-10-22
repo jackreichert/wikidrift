@@ -1,34 +1,11 @@
 {
   "article": "Brontosaurus",
-  "updated_ts": "2026-10-21T19:36:23.860653+00:00",
+  "updated_ts": "2026-10-21T21:30:52.720732+00:00",
   "completed_stages": [
     "analyze",
     "pipeline",
     "crosslingual",
+    "sources",
     "profile"
-  ],
-  "completed_stage_commands": {
-    "analyze": [
-      "analyze",
-      "Brontosaurus"
-    ],
-    "pipeline": [
-      "pipeline",
-      "Brontosaurus",
-      "--llm",
-      "--mscore",
-      "--framing",
-      "--facts",
-      "--max-langs",
-      "6"
-    ],
-    "crosslingual": [
-      "crosslingual",
-      "Brontosaurus"
-    ],
-    "profile": [
-      "profile",
-      "Brontosaurus"
-    ]
-  }
+  ]
 }

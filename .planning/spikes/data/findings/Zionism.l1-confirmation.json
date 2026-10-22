@@ -1,46 +1,258 @@
 {
+  "schema_version": 2,
   "article": "Zionism",
-  "run_ts": "2026-07-19T17:54:28.780264+00:00",
+  "run_ts": "2026-10-21T16:11:35.587520+00:00",
   "corpus_horizon": {
-    "snapshot_date": "2026-07-01",
-    "snapshot_revid": 1362081133
+    "snapshot_date": "2026-01-01",
+    "snapshot_revid": 1331245446
   },
   "thresholds": {
     "confirm_drop": 0.2,
     "durable_quantile": 0.5,
     "min_cohort": 500,
-    "magnitude_floor": 25.0
+    "magnitude_floor": 25.0,
+    "rolling_window_months": 12,
+    "rolling_tolerance_days": 35,
+    "rolling_drop": 20.0
+  },
+  "source_state": {
+    "article": "Zionism",
+    "source_status": "current_complete",
+    "source_checked_at": "2026-10-21T16:11:34.991385+00:00",
+    "source_latest_revid": 1380839425,
+    "expected_snapshots": 25,
+    "loaded_snapshots": 25,
+    "reason": null
   },
   "coarse_verdict": "PIVOT?",
-  "status": "confirmed",
-  "confirmed_episodes": [
+  "status": "not_confirmed",
+  "confirmed_episodes": [],
+  "evaluated_candidates": [
     {
-      "candidate_start": "2024-07-01",
+      "candidate_start": "2024-01-01",
       "candidate_end": "2026-01-01",
-      "candidate_before_revid": 1231996457,
+      "candidate_before_revid": 1192984753,
       "candidate_after_revid": 1331245446,
-      "before_revid": 1269542024,
-      "before_timestamp": "2025-01-15T05:43:30Z",
-      "after_revid": 1269542260,
-      "after_timestamp": "2025-01-15T05:46:03Z",
-      "durable_spine_drop": 0.739749,
-      "pwr_mass": 824017,
-      "peak_pct": 68.39,
-      "status": "confirmed"
+      "source": "interval",
+      "pwr_mass": 333303,
+      "peak_pct": 58.99,
+      "exact_before_revid": 1192984753,
+      "exact_before_timestamp": "2024-01-01T12:19:19Z",
+      "exact_after_revid": 1193834186,
+      "exact_after_timestamp": "2024-01-05T22:15:41Z",
+      "durable_spine_drop": 0.0,
+      "decision": "rejected",
+      "rejection_reason": "durable_spine_drop_below_threshold"
     },
     {
-      "candidate_start": "2007-07-01",
-      "candidate_end": "2008-07-01",
-      "candidate_before_revid": 141706140,
-      "candidate_after_revid": 222805573,
-      "before_revid": 169585709,
-      "before_timestamp": "2007-11-06T12:17:16Z",
-      "after_revid": 169587235,
-      "after_timestamp": "2007-11-06T12:31:50Z",
-      "durable_spine_drop": 0.884852,
-      "pwr_mass": 69903,
-      "peak_pct": 70.12,
-      "status": "confirmed"
+      "candidate_start": "2007-01-01",
+      "candidate_end": "2009-01-01",
+      "candidate_before_revid": 98192328,
+      "candidate_after_revid": 261218323,
+      "source": "interval",
+      "pwr_mass": 44663,
+      "peak_pct": 76.14,
+      "exact_before_revid": 98181837,
+      "exact_before_timestamp": "2007-01-03T14:48:13Z",
+      "exact_after_revid": 98188216,
+      "exact_after_timestamp": "2007-01-03T15:26:10Z",
+      "durable_spine_drop": 0.0,
+      "decision": "rejected",
+      "rejection_reason": "durable_spine_drop_below_threshold"
+    }
+  ],
+  "interval_profile": [
+    {
+      "start": "2002-01-01",
+      "end": "2003-01-01",
+      "size": 1836,
+      "pwr_loss": 59.15,
+      "pwr_removed": 1086,
+      "mature": false
+    },
+    {
+      "start": "2003-01-01",
+      "end": "2004-01-01",
+      "size": 3658,
+      "pwr_loss": 92.67,
+      "pwr_removed": 4085,
+      "mature": false
+    },
+    {
+      "start": "2004-01-01",
+      "end": "2005-01-01",
+      "size": 7551,
+      "pwr_loss": 10.64,
+      "pwr_removed": 838,
+      "mature": false
+    },
+    {
+      "start": "2005-01-01",
+      "end": "2006-01-01",
+      "size": 9205,
+      "pwr_loss": 15.19,
+      "pwr_removed": 2467,
+      "mature": false
+    },
+    {
+      "start": "2006-01-01",
+      "end": "2007-01-01",
+      "size": 12388,
+      "pwr_loss": 36.55,
+      "pwr_removed": 9566,
+      "mature": false
+    },
+    {
+      "start": "2007-01-01",
+      "end": "2008-01-01",
+      "size": 15983,
+      "pwr_loss": 49.14,
+      "pwr_removed": 16022,
+      "mature": true
+    },
+    {
+      "start": "2008-01-01",
+      "end": "2009-01-01",
+      "size": 20996,
+      "pwr_loss": 76.14,
+      "pwr_removed": 28641,
+      "mature": true
+    },
+    {
+      "start": "2009-01-01",
+      "end": "2010-01-01",
+      "size": 9394,
+      "pwr_loss": 48.02,
+      "pwr_removed": 8848,
+      "mature": false
+    },
+    {
+      "start": "2010-01-01",
+      "end": "2011-01-01",
+      "size": 10989,
+      "pwr_loss": 22.18,
+      "pwr_removed": 4806,
+      "mature": false
+    },
+    {
+      "start": "2011-01-01",
+      "end": "2012-01-01",
+      "size": 17303,
+      "pwr_loss": 2.26,
+      "pwr_removed": 777,
+      "mature": true
+    },
+    {
+      "start": "2012-01-01",
+      "end": "2013-01-01",
+      "size": 20714,
+      "pwr_loss": 4.91,
+      "pwr_removed": 2675,
+      "mature": true
+    },
+    {
+      "start": "2013-01-01",
+      "end": "2014-01-01",
+      "size": 22463,
+      "pwr_loss": 5.11,
+      "pwr_removed": 3795,
+      "mature": true
+    },
+    {
+      "start": "2014-01-01",
+      "end": "2015-01-01",
+      "size": 23045,
+      "pwr_loss": 3.75,
+      "pwr_removed": 3509,
+      "mature": true
+    },
+    {
+      "start": "2015-01-01",
+      "end": "2016-01-01",
+      "size": 25966,
+      "pwr_loss": 5.39,
+      "pwr_removed": 6260,
+      "mature": true
+    },
+    {
+      "start": "2016-01-01",
+      "end": "2017-01-01",
+      "size": 30630,
+      "pwr_loss": 2.39,
+      "pwr_removed": 3353,
+      "mature": true
+    },
+    {
+      "start": "2017-01-01",
+      "end": "2018-01-01",
+      "size": 34317,
+      "pwr_loss": 3.26,
+      "pwr_removed": 5591,
+      "mature": true
+    },
+    {
+      "start": "2018-01-01",
+      "end": "2019-01-01",
+      "size": 35078,
+      "pwr_loss": 2.08,
+      "pwr_removed": 4180,
+      "mature": true
+    },
+    {
+      "start": "2019-01-01",
+      "end": "2020-01-01",
+      "size": 36608,
+      "pwr_loss": 1.83,
+      "pwr_removed": 4286,
+      "mature": true
+    },
+    {
+      "start": "2020-01-01",
+      "end": "2021-01-01",
+      "size": 38167,
+      "pwr_loss": 2.62,
+      "pwr_removed": 7018,
+      "mature": true
+    },
+    {
+      "start": "2021-01-01",
+      "end": "2022-01-01",
+      "size": 43919,
+      "pwr_loss": 3.03,
+      "pwr_removed": 9236,
+      "mature": true
+    },
+    {
+      "start": "2022-01-01",
+      "end": "2023-01-01",
+      "size": 46031,
+      "pwr_loss": 6.54,
+      "pwr_removed": 22347,
+      "mature": true
+    },
+    {
+      "start": "2023-01-01",
+      "end": "2024-01-01",
+      "size": 50087,
+      "pwr_loss": 11.5,
+      "pwr_removed": 42517,
+      "mature": true
+    },
+    {
+      "start": "2024-01-01",
+      "end": "2025-01-01",
+      "size": 55369,
+      "pwr_loss": 36.42,
+      "pwr_removed": 139507,
+      "mature": true
+    },
+    {
+      "start": "2025-01-01",
+      "end": "2026-01-01",
+      "size": 83878,
+      "pwr_loss": 58.99,
+      "pwr_removed": 193796,
+      "mature": true
     }
   ]
 }

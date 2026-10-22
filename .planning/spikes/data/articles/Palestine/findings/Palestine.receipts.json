@@ -4,24 +4,38 @@
   "editions": {
     "en": {
       "present": true,
-      "revid": 1363921684,
+      "revid": 1381327561,
       "title": "Palestine",
-      "timestamp": "2026-07-13T08:52:53Z",
-      "prose_chars": 90463
+      "timestamp": "2026-10-21T17:16:25Z",
+      "prose_chars": 59270
     },
     "he": {
       "present": true,
-      "revid": 43569763,
+      "revid": 44018072,
       "title": "מדינה פלסטינית",
-      "timestamp": "2026-07-10T16:22:44Z",
-      "prose_chars": 21727
+      "timestamp": "2026-10-04T11:54:25Z",
+      "prose_chars": 22178
     },
     "ar": {
       "present": true,
-      "revid": 75877174,
+      "revid": 76966609,
       "title": "دولة فلسطين",
-      "timestamp": "2026-07-12T15:13:08Z",
-      "prose_chars": 98420
+      "timestamp": "2026-10-13T16:37:41Z",
+      "prose_chars": 97745
+    },
+    "fr": {
+      "present": true,
+      "revid": 240549944,
+      "title": "Palestine (État)",
+      "timestamp": "2026-10-20T14:44:48Z",
+      "prose_chars": 167829
+    },
+    "it": {
+      "present": true,
+      "revid": 152965731,
+      "title": "Stato di Palestina",
+      "timestamp": "2026-10-19T00:47:31Z",
+      "prose_chars": 74262
     }
   }
 }
