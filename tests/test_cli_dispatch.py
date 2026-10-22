@@ -171,6 +171,12 @@ class SimpleHandlerDispatch(unittest.TestCase):
             cli.main(["ingest", "A", "--force"])
         mock_ingest.assert_called_once_with(["A"], force=True)
 
+    def test_ingest_normalizes_wiki_url_before_invoke(self):
+        url = "https://en.wikipedia.org/wiki/2026_Iran_war"
+        with patch("wikidrift.cli.ingest.ingest_articles") as mock_ingest:
+            cli.main(["ingest", url])
+        mock_ingest.assert_called_once_with(["2026 Iran war"], force=False)
+
 
 if __name__ == "__main__":
     unittest.main()

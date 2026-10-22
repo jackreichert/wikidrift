@@ -181,7 +181,11 @@ def _cmd_mscore(args):
 
 
 def _cmd_ingest(args):
-    ingest.ingest_articles(args.articles, force=args.force)
+    # Same URL→title path as analyze/pipeline; ingest's resolve_article_title
+    # then MediaWiki-canonicalizes (redirects). Passing a raw /wiki/ URL as
+    # titles= misses the page (e.g. .../wiki/2026_Iran_war).
+    articles = [_normalize_article_arg(a) for a in args.articles]
+    ingest.ingest_articles(articles, force=args.force)
 
 
 def _cmd_audit_snapshots(args):
