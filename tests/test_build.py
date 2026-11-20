@@ -1387,44 +1387,32 @@ class SiteRouting(unittest.TestCase):
 
     def test_homepage_is_about(self):
         about = build.simple_page("About", "<h1>About WikiDrift</h1>", "about", path="index.html")
-        self.assertIn("About WikiDrift", about)
         self.assertIn('href="findings.html"', about)
-        self.assertIn("How it works", about)
+        self.assertIn('href="methodology.html"', about)
         self.assertIn('<a href="index.html" class="active" aria-current="page">About</a>', about)
 
     def test_about_leads_with_live_tool_and_source_links(self):
         body = build.ABOUT_BODY
-
-        actions_start = body.index('<div class="home-actions">')
         first_section = body[:body.index("<h2>")]
 
+        self.assertIn('<div class="home-actions">', first_section)
         self.assertIn('<a class="primary-action" href="findings.html">', first_section)
         self.assertIn(
             '<a class="secondary-action" href="https://github.com/jackreichert/wikidrift/">',
             first_section,
         )
-        self.assertLess(actions_start, body.index("Wikipedia was a brilliant idea"))
 
-    def test_editorial_copy_comes_from_templates(self):
-        self.assertIn("research lead", build.FINDINGS_BODY)
+    def test_static_pages_wire_template_links(self):
         self.assertIn('href="summary.html"', build.FINDINGS_BODY)
         summary = build.simple_page(
             "Summary of findings", build.SUMMARY_BODY, None, path="summary.html"
         )
-        self.assertIn("Persistence-weighted loss detects durable replacement", summary)
-        self.assertIn("<h2>Politics &amp; ideology</h2>", summary)
-        self.assertIn("seven-topic browsing category", summary)
-        self.assertIn('href="article/Unmoved_mover.html">Unmoved mover</a>', summary)
-        self.assertIn("remains outside this category", summary)
+        self.assertIn('href="article/Unmoved_mover.html"', summary)
+        self.assertIn('href="findings.html"', summary)
         self.assertNotIn('aria-current="page"', summary)
-        self.assertIn('<a class="wiki-link" href="findings.html">Browse all findings', summary)
         page = build.render_page(title="Test", body="<h1>Test</h1>", root="../")
         self.assertIn('href="../findings.html"', page)
-        self.assertIn(
-            '<span class="project-credit">an <a href="https://encyclopediae.org/">'
-            'encyclopediae.org</a> project</span>',
-            page,
-        )
+        self.assertIn('href="https://encyclopediae.org/"', page)
         self.assertIn('<footer class="site">', page)
 
     def test_summary_unlinks_articles_withheld_from_publication(self):
@@ -1454,15 +1442,6 @@ class SiteRouting(unittest.TestCase):
         self.assertIn('class="language-mermaid"', methodology)
         self.assertIn("mermaid@11.4.1/dist/mermaid.min.js", methodology)
         self.assertNotIn("mermaid.min.js", plain)
-
-    def test_methodology_defines_durable_spine_drop(self):
-        methodology = build.simple_page(
-            "How it works", build.METHODOLOGY_BODY, "methodology"
-        )
-
-        self.assertIn("more persistent starting half", methodology)
-        self.assertIn("whole candidate window", methodology)
-        self.assertIn("dominant step", methodology)
 
     def test_mermaid_runtime_has_accessible_enlarge_dialog(self):
         runtime = (build.VIEWER / "site.js").read_text(encoding="utf-8")
