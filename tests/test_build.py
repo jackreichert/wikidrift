@@ -1403,7 +1403,7 @@ class SiteRouting(unittest.TestCase):
             '<a class="secondary-action" href="https://github.com/jackreichert/wikidrift/">',
             first_section,
         )
-        self.assertLess(actions_start, body.index("Wikipedia was briliant idea"))
+        self.assertLess(actions_start, body.index("Wikipedia was a brilliant idea"))
 
     def test_editorial_copy_comes_from_templates(self):
         self.assertIn("research lead", build.FINDINGS_BODY)
