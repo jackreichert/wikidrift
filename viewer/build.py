@@ -1458,7 +1458,7 @@ def _candidate_decision(candidate, required_drop):
             f'below the required {100 * required_drop:.1f}%'
         )
     if reason == "insufficient_revision_evidence":
-        return "Rejected: insufficient revisions to resolve an exact pair"
+        return "Rejected: insufficient revision evidence to resolve an exact pair"
     return f'Rejected: {str(reason or "exact threshold not met").replace("_", " ")}'
 
 
