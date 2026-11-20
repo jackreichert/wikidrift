@@ -9,7 +9,7 @@ WikiDrift lets you inspect how Wikipedia articles changed over time, compare the
 
 <p class="home-action-note">Start with the live, published analyses. The open-source command-line tool can analyze any English Wikipedia article.</p>
 
-Wikipedia was briliant idea. It was a platform for the world to collaborate together to build a single corpus of human knowledge, and it worked a little too well. Due to it's success the competition went out of buisness leaving only one place for disagreement to happen. 
+Wikipedia was a brilliant idea. It was a platform for the world to collaborate together to build a single corpus of human knowledge, and it worked a little too well. Due to its success, the competition went out of business, leaving only one place for disagreement to happen.
 
 It also became the source of truth for most people. Google weighs it at the top of search rankings, so every time someone searches, they get the Wikipedia version. AIs are trained off its text, so every time someone asks a question, the answer they get has been weighted towards that "truth" as well.
 
@@ -17,13 +17,13 @@ The nature of Wikipedia's governing body makes it easy for capture as well. Beca
 
 **I built WikiDrift as a forensic analysis tool to help shine a light on what is happening.**
 
-Some of the criticism against [organizations calling this out](https://www.adl.org/resources/press-release/new-adl-report-finds-evidence-biased-coordinated-campaign-wikipedia-related) has been that they themselves are partial. 
+Some of the criticism against [organizations calling this out](https://www.adl.org/resources/press-release/new-adl-report-finds-evidence-biased-coordinated-campaign-wikipedia-related) has been that they themselves are partial.
 
 So I started with the question: Is there a way to discover bias in an article from its own history? Can an impartial analysis uncover bad actors?
 
-WikiDrift is a result of that quesiton.
+WikiDrift is a result of that question.
 
-To do this the tool itself had to be impartial. It doesn't uncover bias; it *does*, however, find patterns that may or may not indicate suspicious behavior. Addionally, a lot of brilliant people have been working on this problem, so once I proved that I could discover these patterns I built into the tool that research. 
+To do this, the tool itself had to be impartial. It doesn't uncover bias; it *does*, however, find patterns that may or may not indicate suspicious behavior. Additionally, a lot of brilliant people have been working on this problem, so once I proved that I could discover these patterns, I built that research into the tool.
 
 *WikiDrift is an [open-source research tool](https://github.com/jackreichert/wikidrift/) from [encyclopediae.org](https://encyclopediae.org).*
 
