@@ -775,6 +775,55 @@ class RefineBinarySearch(unittest.TestCase):
         self.con.execute("DELETE FROM revisions WHERE rev_id IN (12, 13, 14, 15)")   # leaves only rev 11 in-window
         self.assertIsNone(self._run({11: set(range(1, 9))}))
 
+    def test_empty_wikiwho_falls_back_to_rsnap_endpoints(self):
+        # Zionism-class failure: hosted WikiWho returns [] for every revision. Empty payloads must not
+        # become a 0.0 durable-spine drop / below-threshold rejection when local rsnap still shows collapse.
+        end_members = {1, 2}
+        self.members = [set(range(1, 9)), end_members]
+        self.present = {token: [0] + ([1] if token in end_members else []) for token in range(1, 9)}
+        self.idx_of_rev = {10: 0, 20: 1}
+        before, after, drop = self._run({rev: set() for rev in (11, 12, 13, 14, 15)})
+        self.assertEqual((before[0], after[0]), (10, 20))
+        self.assertAlmostEqual(drop, 0.75)
+        self.assertGreaterEqual(drop, drift.CONFIRM_DROP)
+        evaluation = drift._candidate_evaluation(
+            {"start": ("2021-01-01", 10), "end": ("2021-07-01", 20), "abs": 1000, "peak": 50.0},
+            (before, after, drop),
+        )
+        self.assertEqual(evaluation["decision"], "confirmed")
+        self.assertIsNone(evaluation["rejection_reason"])
+
+    def test_empty_wikiwho_without_rsnap_endpoints_is_insufficient_evidence(self):
+        # No end snapshot in idx_of_rev ⇒ cannot invent a below-threshold measurement from empty tokens.
+        self.assertIsNone(self._run({rev: set() for rev in (11, 12, 13, 14, 15)}))
+        evaluation = drift._candidate_evaluation(
+            {"start": ("2021-01-01", 10), "end": ("2021-07-01", 20), "abs": 1000, "peak": 50.0},
+            None,
+        )
+        self.assertEqual(evaluation["decision"], "rejected")
+        self.assertEqual(evaluation["rejection_reason"], "insufficient_revision_evidence")
+        self.assertNotIn("durable_spine_drop", evaluation)
+
+    def test_mid_window_empty_wikiwho_falls_back_to_rsnap(self):
+        # Endpoints resolve, but a mid-window probe fails ⇒ still refuse silent zero-drop localization.
+        end_members = {1, 2}
+        self.members = [set(range(1, 9)), end_members]
+        self.present = {token: [0] + ([1] if token in end_members else []) for token in range(1, 9)}
+        self.idx_of_rev = {10: 0, 20: 1}
+
+        def fake_tokens_at(art, rev, io=False):
+            if rev in {12, 13, 14}:
+                return []
+            return [{"token_id": t} for t in range(1, 9)]
+
+        with mock.patch.object(provenance, "tokens_at", fake_tokens_at), \
+             mock.patch.object(drift, "MIN_COHORT", 3):
+            before, after, drop = drift.refine(
+                "A", self.con, [], self.members, self.present, self.idx_of_rev, self.peak,
+            )
+        self.assertEqual((before[0], after[0]), (10, 20))
+        self.assertAlmostEqual(drop, 0.75)
+
 
 class AnalyzeConfirmationContract(unittest.TestCase):
     def test_evaluates_every_primary_candidate(self):

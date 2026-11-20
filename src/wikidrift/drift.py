@@ -372,6 +372,40 @@ def non_overlapping_candidates(candidates, blocked=()):
     return selected
 
 
+def _cohort_survival(tokens, cohort):
+    """Fraction of `cohort` present in a tokens_at payload.
+
+    Empty/failed WikiWho payloads must not be treated as zero survival: that would make
+    interval_drop look like 0.0 and produce false below-threshold rejections.
+    """
+    if not tokens:
+        return None
+    return len({token["token_id"] for token in tokens} & cohort) / len(cohort)
+
+
+def _rsnap_refine(members, idx_of_rev, peak, cohort, cut):
+    """Confirm durable-spine decline from local snapshot membership when WikiWho is unavailable.
+
+    Uses the candidate window's start/end snapshot revisions as the exact pair. The reported
+    drop is still the whole-window cohort decline; localization is coarser than binary search.
+    """
+    d0, r0, d1, r1, _ = peak
+    start_index = idx_of_rev.get(r0)
+    end_index = idx_of_rev.get(r1)
+    if start_index is None or end_index is None or not cohort:
+        print("  (WikiWho tokens unavailable and rsnap endpoints missing — cannot refine)")
+        return None
+    f_start = len(cohort & members[start_index]) / len(cohort)
+    f_end = len(cohort & members[end_index]) / len(cohort)
+    interval_drop = f_start - f_end
+    before = (r0, f"{d0}T00:00:00Z")
+    after = (r1, f"{d1}T00:00:00Z")
+    print(f"\n  rsnap fallback on durable spine |C|={len(cohort):,} (w≥{cut}): "
+          f"{f_start * 100:.0f}% → {f_end * 100:.0f}%  (interval decline {interval_drop * 100:.0f} pts)")
+    print(f"  ⇒ snapshot endpoints rev {before[0]} ({d0}) and rev {after[0]} ({d1})")
+    return before, after, interval_drop
+
+
 def refine(article, con, snaps, members, present, idx_of_rev, peak):
     d0, r0, d1, r1, _ = peak
     k = idx_of_rev.get(r0)
@@ -386,13 +420,25 @@ def refine(article, con, snaps, members, present, idx_of_rev, peak):
     revs = Corpus(con).revisions_between(article, d0 + "T00:00:00Z", d1 + "T00:00:00Z")
     if len(cohort) < MIN_COHORT or len(revs) < 3:
         print("  (interval too small to refine)"); return None
-    f = lambda i: len({t["token_id"] for t in provenance.tokens_at(article, revs[i][0])} & cohort) / len(cohort)
-    f_start, f_end = f(0), f(len(revs) - 1)
+
+    def survival_at(index):
+        return _cohort_survival(provenance.tokens_at(article, revs[index][0]), cohort)
+
+    f_start, f_end = survival_at(0), survival_at(len(revs) - 1)
+    if f_start is None or f_end is None:
+        print("  (WikiWho token fetch empty/failed — falling back to local rsnap endpoints)")
+        return _rsnap_refine(members, idx_of_rev, peak, cohort, cut)
+
     interval_drop = f_start - f_end   # durable-spine survival decline across the whole interval
     lo, hi, flo, fhi = 0, len(revs) - 1, f_start, f_end
     path = []
     while hi - lo > 1:
-        mid = (lo + hi) // 2; fmid = f(mid); path.append((revs[mid][1][:10], fmid))
+        mid = (lo + hi) // 2
+        fmid = survival_at(mid)
+        if fmid is None:
+            print("  (WikiWho token fetch empty mid-window — falling back to local rsnap endpoints)")
+            return _rsnap_refine(members, idx_of_rev, peak, cohort, cut)
+        path.append((revs[mid][1][:10], fmid))
         if flo - fmid >= fmid - fhi:
             hi, fhi = mid, fmid
         else:
