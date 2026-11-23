@@ -55,6 +55,23 @@ class SeedR2ShardsHelpersTest(unittest.TestCase):
             )
             self.assertEqual(pairs, [("Climate_change", "Climate change")])
 
+    def test_aws_fail_detail_prefers_stderr(self):
+        result = type(
+            "R",
+            (),
+            {
+                "stderr": "GetObjectTagging not implemented\n",
+                "stdout": "ignored\n",
+            },
+        )()
+        detail = seed._aws_fail_detail(result)
+        self.assertIn("GetObjectTagging", detail)
+        self.assertIn("ignored", detail)
+
+    def test_aws_fail_detail_empty(self):
+        result = type("R", (), {"stderr": "", "stdout": ""})()
+        self.assertEqual(seed._aws_fail_detail(result), "(no aws stderr/stdout)")
+
 
 if __name__ == "__main__":
     unittest.main()

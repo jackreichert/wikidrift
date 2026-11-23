@@ -243,6 +243,16 @@ def _aws_env(r2: dict[str, str]) -> dict[str, str]:
     return env
 
 
+def _aws_fail_detail(result: subprocess.CompletedProcess[str]) -> str:
+    """Surface stderr/stdout from a failed aws CLI call (secrets never included)."""
+    parts = [
+        chunk.strip()
+        for chunk in (result.stderr or "", result.stdout or "")
+        if chunk and chunk.strip()
+    ]
+    return " | ".join(parts) if parts else "(no aws stderr/stdout)"
+
+
 def _aws_s3(
     args: list[str],
     r2: dict[str, str],
@@ -250,13 +260,56 @@ def _aws_s3(
     check: bool = True,
 ) -> subprocess.CompletedProcess[str]:
     cmd = ["aws", "s3", *args, "--endpoint-url", r2["endpoint"], "--only-show-errors"]
-    return subprocess.run(
+    result = subprocess.run(
         cmd,
         env=_aws_env(r2),
-        check=check,
+        check=False,
         text=True,
         capture_output=True,
     )
+    if check and result.returncode != 0:
+        raise RuntimeError(
+            f"aws s3 {args[0]} failed (exit {result.returncode}): {_aws_fail_detail(result)}"
+        )
+    return result
+
+
+def _aws_copy_object(r2: dict[str, str], src_key: str, dest_key: str) -> None:
+    """Server-side promote via s3api copy-object (R2-safe; avoids aws s3 cp tagging).
+
+    Cloudflare R2 does not implement GetObjectTagging / x-amz-tagging-directive.
+    AWS CLI ``s3 cp`` s3→s3 therefore fails on recent CLI versions; ``copy-object``
+    with ``MetadataDirective=COPY`` works.
+    """
+    cmd = [
+        "aws",
+        "s3api",
+        "copy-object",
+        "--bucket",
+        r2["bucket"],
+        "--copy-source",
+        f"{r2['bucket']}/{src_key}",
+        "--key",
+        dest_key,
+        "--metadata-directive",
+        "COPY",
+        "--endpoint-url",
+        r2["endpoint"],
+        "--output",
+        "json",
+    ]
+    result = subprocess.run(
+        cmd,
+        env=_aws_env(r2),
+        check=False,
+        text=True,
+        capture_output=True,
+    )
+    if result.returncode != 0:
+        raise RuntimeError(
+            f"aws s3api copy-object {src_key} → {dest_key} failed "
+            f"(exit {result.returncode}): {_aws_fail_detail(result)}"
+        )
 
 
 def _head_last_modified(r2: dict[str, str], key: str) -> dt.datetime | None:
@@ -347,22 +400,9 @@ def _upload_pair(
     try:
         _aws_s3(["cp", str(zst_path), f"s3://{r2['bucket']}/{staging}/shard.duckdb.zst"], r2)
         _aws_s3(["cp", str(meta_path), f"s3://{r2['bucket']}/{staging}/meta.json"], r2)
-        _aws_s3(
-            [
-                "cp",
-                f"s3://{r2['bucket']}/{staging}/shard.duckdb.zst",
-                f"s3://{r2['bucket']}/{final_prefix}/shard.duckdb.zst",
-            ],
-            r2,
-        )
-        _aws_s3(
-            [
-                "cp",
-                f"s3://{r2['bucket']}/{staging}/meta.json",
-                f"s3://{r2['bucket']}/{final_prefix}/meta.json",
-            ],
-            r2,
-        )
+        # Promote with s3api copy-object — not ``aws s3 cp`` s3→s3 (R2 tagging gap).
+        _aws_copy_object(r2, f"{staging}/shard.duckdb.zst", f"{final_prefix}/shard.duckdb.zst")
+        _aws_copy_object(r2, f"{staging}/meta.json", f"{final_prefix}/meta.json")
     finally:
         subprocess.run(
             [

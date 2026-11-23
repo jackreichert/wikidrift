@@ -36,7 +36,7 @@ Per article only — **never** sync `history-xml/` or a shared monolithic `prove
 ```
 
 - Restore: download `.zst` → decompress to `.planning/spikes/data/articles/<slug>/provenance.duckdb`
-- Upload: zstd compress → stage under `articles/<slug>/_upload_<run_id>/` → promote to final keys → delete staging
+- Upload: zstd compress → stage under `articles/<slug>/_upload_<run_id>/` → promote to final keys with `aws s3api copy-object` (`MetadataDirective=COPY`) → delete staging. Do **not** use `aws s3 cp` for s3→s3 on R2 (CLI tagging / `GetObjectTagging` is NotImplemented).
 - `meta.json`: title, slug, last_revid, horizon, updated_at, source (no secrets)
 
 ## 3. Run the Action
