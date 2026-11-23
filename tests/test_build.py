@@ -331,6 +331,44 @@ class FindingsDiscoveryMore(unittest.TestCase):
             set(build.CATEGORY_OPTIONS),
         )
 
+    def test_topics_docx_titles_are_curated_for_findings_filters(self):
+        """Topics.docx set (69) must sit in CATEGORY so findings.html filter chips resolve."""
+        topics_docx = [
+            "Zionism", "Anti-Zionism", "History of Zionism",
+            "Racial conceptions of Jewish identity in Zionism",
+            "Genetic studies of Jews", "Israeli–Palestinian conflict", "Palestine",
+            "Nakba", "Gaza war", "Gaza genocide", "Rafah offensive", "Hamas",
+            "Palestinian political violence", "UNRWA",
+            "United Nations General Assembly observers", "Bar Kokhba Revolt",
+            "Jedwabne pogrom", "Collaboration in German-occupied Poland",
+            "Rescue of Jews by Poles during the Holocaust", "Naliboki massacre",
+            "Warsaw concentration camp",
+            "Democratic Party (United States)", "Republican Party (United States)",
+            "Democratic Socialists of America", "Elizabeth Warren", "Ilhan Omar",
+            "Xi Jinping", "Capitalism", "Socialism", "Fascism and ideology",
+            "Abortion", "Climate change", "Genocide of indigenous peoples",
+            "Ainu people", "Photosynthesis", "Chess", "Brontosaurus", "Water",
+            "Ted Cruz", "Marjorie Taylor Greene", "Boris Johnson", "Jeremy Corbyn",
+            "Narendra Modi", "Rahul Gandhi", "Jair Bolsonaro",
+            "Luiz Inácio Lula da Silva",
+            "Russo-Ukrainian war (2022–present)", "Kashmir conflict",
+            "Nagorno-Karabakh conflict", "The Troubles", "Western Sahara conflict",
+            "Catholic Church", "Islam", "Scientology", "Falun Gong",
+            "Tesla, Inc.", "ExxonMobil", "Purdue Pharma",
+            "COVID-19 lab leak theory", "Genetically modified food controversies",
+            "Nuclear power debate",
+            "Christopher Columbus", "Winston Churchill", "Che Guevara", "Holodomor",
+            "Mitochondria", "Jupiter", "Violin", "Pythagorean theorem",
+        ]
+        missing = [t for t in topics_docx if t not in build.CATEGORY]
+        self.assertEqual(missing, [], msg=f"uncategorized Topics.docx titles: {missing}")
+        categories = build.resolve_categories(topics_docx)
+        self.assertEqual(categories["Ted Cruz"], "Politics & ideology")
+        self.assertEqual(categories["Tesla, Inc."], "Cross-domain")
+        self.assertEqual(categories["Mitochondria"], "Science (control)")
+        self.assertEqual(categories["Ainu people"], "Other")
+        self.assertEqual(categories["Kashmir conflict"], "Politics & ideology")
+
         rendered = build.index_page(
             ["Xi Jinping"],
             build.Findings(),

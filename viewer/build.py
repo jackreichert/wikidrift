@@ -152,16 +152,41 @@ CATEGORY = {
     "Naliboki massacre": "Holocaust in Poland",
     "Rescue of Jews by Poles during the Holocaust": "Holocaust in Poland",
     "Collaboration in German-occupied Poland": "Holocaust in Poland",
-    # Political figures, parties, and ideology
+    # Political figures, parties, ideology, and territorial conflicts
     "Xi Jinping": "Politics & ideology", "Ilhan Omar": "Politics & ideology",
     "Elizabeth Warren": "Politics & ideology",
     "Democratic Party (United States)": "Politics & ideology",
     "Republican Party (United States)": "Politics & ideology",
     "Democratic Socialists of America": "Politics & ideology",
     "Socialism": "Politics & ideology", "Capitalism": "Politics & ideology",
-    # Controls / cross-domain (mostly off-site, kept for when they gain findings)
+    "Fascism and ideology": "Politics & ideology",
+    "United Nations General Assembly observers": "Politics & ideology",
+    "Genocide of indigenous peoples": "Politics & ideology",
+    "Ted Cruz": "Politics & ideology", "Marjorie Taylor Greene": "Politics & ideology",
+    "Boris Johnson": "Politics & ideology", "Jeremy Corbyn": "Politics & ideology",
+    "Narendra Modi": "Politics & ideology", "Rahul Gandhi": "Politics & ideology",
+    "Jair Bolsonaro": "Politics & ideology", "Luiz Inácio Lula da Silva": "Politics & ideology",
+    "Russo-Ukrainian war (2022–present)": "Politics & ideology",
+    "Kashmir conflict": "Politics & ideology",
+    "Nagorno-Karabakh conflict": "Politics & ideology",
+    "The Troubles": "Politics & ideology",
+    "Western Sahara conflict": "Politics & ideology",
+    "Christopher Columbus": "Politics & ideology", "Winston Churchill": "Politics & ideology",
+    "Che Guevara": "Politics & ideology", "Holodomor": "Politics & ideology",
+    # Contested religion / industry / public-health (same filter chip as Abortion / Climate)
+    "Abortion": "Cross-domain", "Climate change": "Cross-domain",
+    "Catholic Church": "Cross-domain", "Islam": "Cross-domain",
+    "Scientology": "Cross-domain", "Falun Gong": "Cross-domain",
+    "Tesla, Inc.": "Cross-domain", "ExxonMobil": "Cross-domain", "Purdue Pharma": "Cross-domain",
+    "COVID-19 lab leak theory": "Cross-domain",
+    "Genetically modified food controversies": "Cross-domain",
+    "Nuclear power debate": "Cross-domain",
+    # Quiet controls (+ Ainu kept as Other to match prior LLM cache)
     "Photosynthesis": "Science (control)", "Water": "Science (control)", "Chess": "Science (control)",
-    "Brontosaurus": "Science (control)", "Abortion": "Cross-domain", "Climate change": "Cross-domain",
+    "Brontosaurus": "Science (control)",
+    "Mitochondria": "Science (control)", "Jupiter": "Science (control)",
+    "Violin": "Science (control)", "Pythagorean theorem": "Science (control)",
+    "Ainu people": "Other",
 }
 DEFAULT_CATEGORY = "Other"
 CATEGORY_CACHE = FIND / "topic_categories.json"
