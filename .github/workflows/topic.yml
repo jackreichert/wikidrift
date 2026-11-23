@@ -342,16 +342,25 @@ jobs:
           print(json.dumps(meta, indent=2))
           PY
           echo "Atomic upload via staging prefix s3://${R2_BUCKET}/${STAGING}/ → ${FINAL}/"
+          # Promote with s3api copy-object (MetadataDirective=COPY). Do not use
+          # ``aws s3 cp`` s3→s3: recent AWS CLI copies tags via GetObjectTagging /
+          # x-amz-tagging-directive, which Cloudflare R2 does not implement.
           if aws s3 cp "$STAGE_DIR/shard.duckdb.zst" "s3://${R2_BUCKET}/${STAGING}/shard.duckdb.zst" \
                --endpoint-url "$ENDPOINT" --only-show-errors \
             && aws s3 cp "$STAGE_DIR/meta.json" "s3://${R2_BUCKET}/${STAGING}/meta.json" \
                --endpoint-url "$ENDPOINT" --only-show-errors \
-            && aws s3 cp "s3://${R2_BUCKET}/${STAGING}/shard.duckdb.zst" \
-               "s3://${R2_BUCKET}/${FINAL}/shard.duckdb.zst" \
-               --endpoint-url "$ENDPOINT" --only-show-errors \
-            && aws s3 cp "s3://${R2_BUCKET}/${STAGING}/meta.json" \
-               "s3://${R2_BUCKET}/${FINAL}/meta.json" \
-               --endpoint-url "$ENDPOINT" --only-show-errors; then
+            && aws s3api copy-object \
+               --bucket "${R2_BUCKET}" \
+               --copy-source "${R2_BUCKET}/${STAGING}/shard.duckdb.zst" \
+               --key "${FINAL}/shard.duckdb.zst" \
+               --metadata-directive COPY \
+               --endpoint-url "$ENDPOINT" --output json \
+            && aws s3api copy-object \
+               --bucket "${R2_BUCKET}" \
+               --copy-source "${R2_BUCKET}/${STAGING}/meta.json" \
+               --key "${FINAL}/meta.json" \
+               --metadata-directive COPY \
+               --endpoint-url "$ENDPOINT" --output json; then
             aws s3 rm "s3://${R2_BUCKET}/${STAGING}/" --recursive \
               --endpoint-url "$ENDPOINT" --only-show-errors || true
             echo "Uploaded articles/${SLUG}/shard.duckdb.zst + meta.json"
