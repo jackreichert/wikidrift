@@ -2033,6 +2033,96 @@ class FramingLiteEditionSelect(unittest.TestCase):
         self.assertNotIn("fa", matched_editions)
         self.assertNotIn("vi", matched_editions)
 
+    def test_edition_candidate_order_appends_length_sorted_remainder(self):
+        links = {
+            "en": "Testland", "fa": "FA", "vi": "VI", "pt": "PT", "fr": "FR",
+        }
+        lengths = {"fa": 5000, "vi": 4000, "pt": 3000, "fr": 2500}
+
+        order = fl._edition_candidate_order("general", links, lengths)
+
+        self.assertEqual(order[:3], ["en", "fa", "vi"])
+        self.assertEqual(order[3:], ["pt", "fr"])
+
+    def test_temporal_widen_skips_two_failing_editions_to_third(self):
+        """Early top-length picks all fail before; third remainder edition still matches."""
+        links = {
+            "en": "Testland",
+            "fa": "Testland FA",
+            "vi": "Testland VI",
+            "ar": "Testland AR",
+            "pt": "Testland PT",
+        }
+        lengths = {"fa": 5000, "vi": 4000, "ar": 3500, "pt": 3000}
+
+        def fake_revision(lang, title, timestamp, after=False):
+            if lang in {"fa", "vi", "ar"} and not after:
+                return None
+            return {
+                "revid": hash((lang, timestamp, after)) % 10_000,
+                "timestamp": timestamp,
+                "title": title,
+                "lead": f"{lang}-{'after' if after else 'before'}",
+            }
+
+        with patch.object(fl, "_fetch_lead_revision", side_effect=fake_revision), \
+             patch.object(fl, "_fetch_lead_by_revid") as by_revid:
+            by_revid.side_effect = lambda lang, title, revid: {
+                "revid": revid, "timestamp": "2020-01-01T00:00:00Z",
+                "title": title, "lead": f"en-{revid}",
+            }
+            _snapshots, matched_editions = fl._temporal_lead_snapshots(
+                "Testland", links,
+                {"start": "2020-01-01", "end": "2021-01-01", "status": "confirmed",
+                 "candidate_before_revid": 1, "candidate_after_revid": 2},
+                "general", lengths,
+            )
+
+        self.assertEqual(matched_editions[:2], ["en", "pt"])
+        self.assertNotIn("fa", matched_editions)
+        self.assertNotIn("vi", matched_editions)
+        self.assertNotIn("ar", matched_editions)
+
+    def test_temporal_framing_insufficient_when_fewer_than_two_editions_match(self):
+        class Client:
+            model = "m"
+            usage_records = []
+
+            def complete_json(self, _schema, _prompt, max_tokens=0):
+                raise AssertionError("LLM must not run when editions are insufficient")
+
+        def fake_revision(lang, title, timestamp, after=False):
+            if lang != "en":
+                return None
+            return {
+                "revid": 9, "timestamp": timestamp, "title": title,
+                "lead": f"en-{'after' if after else 'before'}",
+            }
+
+        with patch.object(fl, "_categorize", return_value={"category": "general", "confidence": 1.0}), \
+             patch.object(fl, "sitelinks", return_value=("Q1", {
+                 "en": "Testland", "fa": "FA", "vi": "VI",
+             })), \
+             patch.object(fl, "_edition_lengths", return_value={"fa": 5000, "vi": 4000}), \
+             patch.object(fl, "_fetch_lead_revision", side_effect=fake_revision), \
+             patch.object(fl, "_fetch_lead_by_revid", side_effect=lambda lang, title, revid: {
+                 "revid": revid, "timestamp": "2020-01-01T00:00:00Z",
+                 "title": title, "lead": f"en-{revid}",
+             }), \
+             patch.object(fl.config, "write_findings"):
+            result = fl.framing_lite(
+                "Testland",
+                pivot_window={
+                    "start": "2020-01-01", "end": "2021-01-01", "status": "confirmed",
+                    "candidate_before_revid": 1, "candidate_after_revid": 2,
+                },
+                client=Client(),
+            )
+
+        self.assertEqual(result["summary"], "Insufficient matched historical content.")
+        self.assertEqual(result["editions_compared"], ["en"])
+        self.assertEqual(result["divergences"], [])
+
     def test_early_exit_persists_current_usage_instead_of_leaving_stale_finding(self):
         client = type("Client", (), {"model": "m", "usage_records": []})()
         record = {

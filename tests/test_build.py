@@ -945,6 +945,82 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn('aria-label="View redline for candidate 2003-01-01 to 2004-01-01"', out)
         self.assertNotIn("Redline unavailable", out)
 
+    def test_rejected_candidate_with_matching_pivot_links_redline(self):
+        candidates = [{
+            "candidate_start": "2024-01-01",
+            "candidate_end": "2025-01-01",
+            "candidate_before_revid": 90,
+            "candidate_after_revid": 110,
+            "decision": "rejected",
+            "rejection_reason": "durable_spine_drop_below_threshold",
+            "durable_spine_drop": 0.1,
+            "peak_pct": 42.0,
+            "pwr_mass": 500,
+        }]
+        pivots = {
+            "pivots": [{
+                "start": "2024-01-01",
+                "end": "2025-01-01",
+                "before_rev": 90,
+                "after_rev": 110,
+                "status": "rejected",
+            }]
+        }
+
+        out = build._candidate_evaluations_receipt(
+            {"evaluated_candidates": candidates, "thresholds": {"confirm_drop": 0.2}},
+            pivots,
+            "Example",
+            [],
+        )
+
+        self.assertIn('href="Example.p0.html"', out)
+        self.assertIn(">View redline</a>", out)
+        self.assertIn("Rejected:", out)
+        self.assertNotIn("Redline unavailable", out)
+
+    def test_confirmed_candidates_link_distinct_redlines_by_window(self):
+        candidates = [
+            {
+                "candidate_start": "2010-01-01",
+                "candidate_end": "2012-01-01",
+                "candidate_before_revid": 10,
+                "candidate_after_revid": 20,
+                "decision": "confirmed",
+                "durable_spine_drop": 0.5,
+                "peak_pct": 40.0,
+                "pwr_mass": 100,
+            },
+            {
+                "candidate_start": "2015-01-01",
+                "candidate_end": "2017-01-01",
+                "candidate_before_revid": 30,
+                "candidate_after_revid": 40,
+                "decision": "confirmed",
+                "durable_spine_drop": 0.6,
+                "peak_pct": 50.0,
+                "pwr_mass": 200,
+            },
+        ]
+        pivots = {
+            "pivots": [
+                {"start": "2010-01-01", "end": "2012-01-01", "before_rev": 10, "after_rev": 20},
+                {"start": "2015-01-01", "end": "2017-01-01", "before_rev": 30, "after_rev": 40},
+            ]
+        }
+
+        out = build._candidate_evaluations_receipt(
+            {"evaluated_candidates": candidates, "thresholds": {"confirm_drop": 0.2}},
+            pivots,
+            "Testland",
+            [],
+        )
+
+        self.assertEqual(out.count(">View redline</a>"), 2)
+        self.assertIn('href="Testland.p0.html"', out)
+        self.assertIn('href="Testland.p1.html"', out)
+        self.assertNotIn("Redline unavailable", out)
+
     def test_confirmation_episode_without_matching_pivot_marks_redline_unavailable(self):
         out = build.confirmation_section(
             {
