@@ -2169,30 +2169,28 @@ def _framing_record_has_comparison(record):
 
 def _framing_result_available(fr):
     """A file records an available comparison only after inference produced a result."""
-    records = _framing_records(fr)
-    if records:
-        return any(_framing_record_has_comparison(record) for record in records)
-    return _framing_record_has_comparison(fr)
+    if not fr:
+        return False
+    return any(_framing_record_has_comparison(record) for record in _framing_records(fr))
 
 
 def _framing_tab_has_content(fr):
     """Whether the framing tab should render (including honest insufficient receipts)."""
-    records = _framing_records(fr)
-    if records:
-        return any(record.get("analysis_status", "available") == "available" for record in records)
-    return bool(fr)
+    if not fr:
+        return False
+    return any(
+        record.get("analysis_status", "available") == "available"
+        for record in _framing_records(fr)
+    )
 
 
 def _framing_divergences(fr):
-    records = _framing_records(fr)
-    divergences = []
-    for record in records:
-        if not _framing_record_has_comparison(record):
-            continue
-        divergences.extend(record.get("divergences") or [])
-    if not records:
-        divergences.extend((fr or {}).get("divergences") or [])
-    return divergences
+    return [
+        divergence
+        for record in _framing_records(fr)
+        if _framing_record_has_comparison(record)
+        for divergence in (record.get("divergences") or [])
+    ]
 
 
 def _framing_insufficient_note(fr):
@@ -2240,7 +2238,7 @@ def framing_lite_block(fr):
     """Extra cross-language opening comparisons (when present)."""
     if not fr:
         return ""
-    divs = fr.get("divergences") or []
+    divs = _framing_divergences(fr)
     editions = fr.get("editions_compared") or []
     summary = fr.get("summary") or ""
     pivot = fr.get("pivot_window")

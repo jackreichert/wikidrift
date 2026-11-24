@@ -352,9 +352,9 @@ def _temporal_lead_snapshots(
     endpoint_before = pivot_window.get("candidate_before_revid")
     endpoint_after = pivot_window.get("candidate_after_revid")
     snapshots: dict = {"before": {}, "after": {}}
-    complete: list[str] = []
+    matched_editions: list[str] = []
     for lang in _edition_candidate_order(category, links, lengths):
-        if len(complete) >= MAX_EDITIONS:
+        if len(matched_editions) >= MAX_EDITIONS:
             break
         title = links.get(lang, article) if lang != "en" else article
         before, after = _lead_snapshot(
@@ -366,9 +366,9 @@ def _temporal_lead_snapshots(
         if after:
             snapshots["after"][lang] = after
         print(f"  {lang}: before={'yes' if before else 'missing'}, after={'yes' if after else 'missing'}")
-        if before and after and lang not in complete:
-            complete.append(lang)
-    return snapshots, complete
+        if before and after and lang not in matched_editions:
+            matched_editions.append(lang)
+    return snapshots, matched_editions
 
 
 def _compare_leads(article: str, lead_texts: dict[str, str], pivot_window: dict | None, client) -> dict:
@@ -554,15 +554,15 @@ def framing_lite(
     mode = "static"
     if pivot_window:
         mode = "pivot_relative" if pivot_window.get("status") == "confirmed" else "candidate_relative"
-        snapshots, complete = _temporal_lead_snapshots(
+        snapshots, matched_editions = _temporal_lead_snapshots(
             article, links, pivot_window, category, lengths,
         )
-        if "en" not in complete or len(complete) < 2:
+        if "en" not in matched_editions or len(matched_editions) < 2:
             print("  fewer than 2 editions have matched historical leads — skipping comparison")
             return finish({"article": article, "mode": mode, "pivot_window": pivot_window,
-                           "editions_compared": complete, "snapshots": snapshots,
+                           "editions_compared": matched_editions, "snapshots": snapshots,
                            "divergences": [], "summary": "Insufficient matched historical content."})
-        editions = complete
+        editions = matched_editions
         try:
             comparison = _compare_temporal_leads(article, snapshots, pivot_window, client)
         except Exception as exc:

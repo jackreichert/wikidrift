@@ -2021,17 +2021,17 @@ class FramingLiteEditionSelect(unittest.TestCase):
                 "revid": revid, "timestamp": "2020-01-01T00:00:00Z",
                 "title": title, "lead": f"en-{revid}",
             }
-            snapshots, complete = fl._temporal_lead_snapshots(
+            snapshots, matched_editions = fl._temporal_lead_snapshots(
                 "Testland", links,
                 {"start": "2020-01-01", "end": "2021-01-01", "status": "confirmed",
                  "candidate_before_revid": 1, "candidate_after_revid": 2},
                 "general", lengths,
             )
 
-        self.assertIn("en", complete)
-        self.assertIn("pt", complete)
-        self.assertNotIn("fa", complete)
-        self.assertNotIn("vi", complete)
+        self.assertIn("en", matched_editions)
+        self.assertIn("pt", matched_editions)
+        self.assertNotIn("fa", matched_editions)
+        self.assertNotIn("vi", matched_editions)
 
     def test_early_exit_persists_current_usage_instead_of_leaving_stale_finding(self):
         client = type("Client", (), {"model": "m", "usage_records": []})()
