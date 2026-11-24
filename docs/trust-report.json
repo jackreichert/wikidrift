@@ -1,66 +1,66 @@
 {
   "counts": {
-    "legacy_incompatible": 186,
-    "published": 17,
+    "legacy_incompatible": 223,
+    "published": 44,
     "quarantined": 0,
-    "stale": 1,
+    "stale": 0,
     "unstable": 6,
-    "withheld": 193
+    "withheld": 229
   },
   "published": [
     {
-      "article": "Hamas",
+      "article": "Elizabeth Warren",
       "artifact_kind": "lexical",
       "endpoint_policy_version": "stable-endpoint-v1",
-      "path": "Hamas.lexical.json",
+      "path": "Elizabeth_Warren.lexical.json",
       "reason": null,
       "status": "published"
     },
     {
-      "article": "Zionism",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": "stable-endpoint-v1",
-      "path": "Zionism.lexical.json",
-      "reason": null,
-      "status": "published"
-    },
-    {
-      "article": "Israeli\u2013Palestinian conflict",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": "stable-endpoint-v1",
-      "path": "Israeli\u2013Palestinian_conflict.lexical.json",
-      "reason": null,
-      "status": "published"
-    },
-    {
-      "article": "Anti-Zionism",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": "stable-endpoint-v1",
-      "path": "Anti-Zionism.lexical.json",
-      "reason": null,
-      "status": "published"
-    },
-    {
-      "article": "Hamas",
+      "article": "Boris Johnson",
       "artifact_kind": "l1-confirmation",
       "endpoint_policy_version": "stable-endpoint-v1",
-      "path": "Hamas.l1-confirmation.json",
+      "path": "Boris_Johnson.l1-confirmation.json",
       "reason": null,
       "status": "published"
     },
     {
-      "article": "Zionism",
+      "article": "Brontosaurus",
       "artifact_kind": "l1-confirmation",
       "endpoint_policy_version": "stable-endpoint-v1",
-      "path": "Zionism.l1-confirmation.json",
+      "path": "Brontosaurus.l1-confirmation.json",
       "reason": null,
       "status": "published"
     },
     {
-      "article": "Israeli\u2013Palestinian conflict",
+      "article": "COVID-19 lab leak theory",
       "artifact_kind": "l1-confirmation",
       "endpoint_policy_version": "stable-endpoint-v1",
-      "path": "Israeli\u2013Palestinian_conflict.l1-confirmation.json",
+      "path": "COVID-19_lab_leak_theory.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Catholic Church",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Catholic_Church.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Che Guevara",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Che_Guevara.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Christopher Columbus",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Christopher_Columbus.l1-confirmation.json",
       "reason": null,
       "status": "published"
     },
@@ -73,10 +73,58 @@
       "status": "published"
     },
     {
+      "article": "Elizabeth Warren",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Elizabeth_Warren.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "ExxonMobil",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "ExxonMobil.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Falun Gong",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Falun_Gong.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Genetically modified food controversies",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Genetically_modified_food_controversies.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
       "article": "Hamas",
       "artifact_kind": "l1-confirmation",
       "endpoint_policy_version": "stable-endpoint-v1",
       "path": "Hamas.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Holodomor",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Holodomor.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Islam",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Islam.l1-confirmation.json",
       "reason": null,
       "status": "published"
     },
@@ -89,10 +137,90 @@
       "status": "published"
     },
     {
+      "article": "Jair Bolsonaro",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Jair_Bolsonaro.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Jeremy Corbyn",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Jeremy_Corbyn.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Jupiter",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Jupiter.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Kashmir conflict",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Kashmir_conflict.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Luiz In\u00e1cio Lula da Silva",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Luiz_In\u00e1cio_Lula_da_Silva.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Marjorie Taylor Greene",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Marjorie_Taylor_Greene.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Mitochondria",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Mitochondria.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Nagorno-Karabakh conflict",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Nagorno-Karabakh_conflict.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
       "article": "Nakba",
       "artifact_kind": "l1-confirmation",
       "endpoint_policy_version": "stable-endpoint-v1",
       "path": "Nakba.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Narendra Modi",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Narendra_Modi.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Nuclear power debate",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Nuclear_power_debate.l1-confirmation.json",
       "reason": null,
       "status": "published"
     },
@@ -113,10 +241,74 @@
       "status": "published"
     },
     {
+      "article": "Purdue Pharma",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Purdue_Pharma.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Pythagorean theorem",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Pythagorean_theorem.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
       "article": "Rafah offensive",
       "artifact_kind": "l1-confirmation",
       "endpoint_policy_version": "stable-endpoint-v1",
       "path": "Rafah_offensive.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Rahul Gandhi",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Rahul_Gandhi.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Russo-Ukrainian war (2022\u2013present)",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Russo-Ukrainian_war_(2022\u2013present).l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Scientology",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Scientology.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Ted Cruz",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Ted_Cruz.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Tesla, Inc.",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Tesla,_Inc..l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "The Troubles",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "The_Troubles.l1-confirmation.json",
       "reason": null,
       "status": "published"
     },
@@ -129,10 +321,34 @@
       "status": "published"
     },
     {
+      "article": "Violin",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Violin.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
       "article": "Water",
       "artifact_kind": "l1-confirmation",
       "endpoint_policy_version": "stable-endpoint-v1",
       "path": "Water.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Western Sahara conflict",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Western_Sahara_conflict.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Winston Churchill",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Winston_Churchill.l1-confirmation.json",
       "reason": null,
       "status": "published"
     },
@@ -191,7 +407,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Zionism.stance.json",
-      "reason": "stance artifact lacks revision evidence",
+      "reason": "stable endpoint receipt is missing",
       "status": "legacy_incompatible"
     },
     {
@@ -255,7 +471,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Hamas.stance.json",
-      "reason": "stance artifact lacks revision evidence",
+      "reason": "stable endpoint receipt is missing",
       "status": "legacy_incompatible"
     },
     {
@@ -327,7 +543,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Anti-Zionism.stance.json",
-      "reason": "stance artifact lacks revision evidence",
+      "reason": "stable endpoint receipt is missing",
       "status": "legacy_incompatible"
     },
     {
@@ -367,7 +583,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Israeli\u2013Palestinian_conflict.stance.json",
-      "reason": "stance artifact lacks revision evidence",
+      "reason": "stable endpoint receipt is missing",
       "status": "legacy_incompatible"
     },
     {
@@ -419,11 +635,27 @@
       "status": "legacy_incompatible"
     },
     {
+      "article": "Boris Johnson",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Boris_Johnson.stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
       "article": "Brontosaurus",
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Brontosaurus.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "COVID-19 lab leak theory",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "COVID-19_lab_leak_theory.stance.json",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -435,12 +667,36 @@
       "status": "legacy_incompatible"
     },
     {
+      "article": "Catholic Church",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Catholic_Church.stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "Che Guevara",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Che_Guevara.stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
       "article": "Chess",
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Chess.stance.json",
       "reason": "current endpoint is unstable",
       "status": "unstable"
+    },
+    {
+      "article": "Christopher Columbus",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Christopher_Columbus.stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
     },
     {
       "article": "Climate change",
@@ -472,6 +728,30 @@
       "endpoint_policy_version": null,
       "path": "Democratic_Socialists_of_America.stance.json",
       "reason": "stable endpoint receipt is missing",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "Elizabeth Warren",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Elizabeth_Warren.stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "ExxonMobil",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "ExxonMobil.stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "Falun Gong",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Falun_Gong.stance.json",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -507,6 +787,14 @@
       "status": "legacy_incompatible"
     },
     {
+      "article": "Genetically modified food controversies",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Genetically_modified_food_controversies.stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
       "article": "Genocide of indigenous peoples",
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
@@ -531,11 +819,27 @@
       "status": "legacy_incompatible"
     },
     {
+      "article": "Holodomor",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Holodomor.stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
       "article": "Ilhan Omar",
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Ilhan_Omar.stance.json",
       "reason": "stable endpoint receipt is missing",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "Islam",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Islam.stance.json",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -547,11 +851,75 @@
       "status": "legacy_incompatible"
     },
     {
+      "article": "Jair Bolsonaro",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Jair_Bolsonaro.stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
       "article": "Jedwabne pogrom",
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Jedwabne_pogrom.stance.json",
       "reason": "stable endpoint receipt is missing",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "Jeremy Corbyn",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Jeremy_Corbyn.stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "Jupiter",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Jupiter.stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "Kashmir conflict",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Kashmir_conflict.stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "Luiz In\u00e1cio Lula da Silva",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Luiz_In\u00e1cio_Lula_da_Silva.stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "Marjorie Taylor Greene",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Marjorie_Taylor_Greene.stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "Mitochondria",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Mitochondria.stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "Nagorno-Karabakh conflict",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Nagorno-Karabakh_conflict.stance.json",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -568,6 +936,22 @@
       "endpoint_policy_version": null,
       "path": "Naliboki_massacre.stance.json",
       "reason": "stable endpoint receipt is missing",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "Narendra Modi",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Narendra_Modi.stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "Nuclear power debate",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Nuclear_power_debate.stance.json",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -595,6 +979,22 @@
       "status": "legacy_incompatible"
     },
     {
+      "article": "Purdue Pharma",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Purdue_Pharma.stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "Pythagorean theorem",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Pythagorean_theorem.stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
       "article": "Racial conceptions of Jewish identity in Zionism",
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
@@ -607,6 +1007,14 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Rafah_offensive.stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "Rahul Gandhi",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Rahul_Gandhi.stance.json",
       "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
@@ -627,6 +1035,22 @@
       "status": "legacy_incompatible"
     },
     {
+      "article": "Russo-Ukrainian war (2022\u2013present)",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Russo-Ukrainian_war_(2022\u2013present).stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "Scientology",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Scientology.stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
       "article": "Socialism",
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
@@ -635,10 +1059,42 @@
       "status": "legacy_incompatible"
     },
     {
+      "article": "Ted Cruz",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Ted_Cruz.stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "Tesla, Inc.",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Tesla,_Inc..stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "The Troubles",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "The_Troubles.stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
       "article": "UNRWA",
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "UNRWA.stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "Violin",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Violin.stance.json",
       "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
@@ -655,6 +1111,22 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Water.stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "Western Sahara conflict",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Western_Sahara_conflict.stance.json",
+      "reason": "stance artifact lacks revision evidence",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "Winston Churchill",
+      "artifact_kind": "stance",
+      "endpoint_policy_version": null,
+      "path": "Winston_Churchill.stance.json",
       "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
@@ -755,6 +1227,22 @@
       "status": "legacy_incompatible"
     },
     {
+      "article": "Hamas",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": null,
+      "path": "Hamas.lexical.json",
+      "reason": "stable endpoint receipt is missing",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "Zionism",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": null,
+      "path": "Zionism.lexical.json",
+      "reason": "stable endpoint receipt is missing",
+      "status": "legacy_incompatible"
+    },
+    {
       "article": "Ainu people",
       "artifact_kind": "lexical",
       "endpoint_policy_version": null,
@@ -827,6 +1315,14 @@
       "status": "legacy_incompatible"
     },
     {
+      "article": "Israeli\u2013Palestinian conflict",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": null,
+      "path": "Israeli\u2013Palestinian_conflict.lexical.json",
+      "reason": "stable endpoint receipt is missing",
+      "status": "legacy_incompatible"
+    },
+    {
       "article": "Brontosaurus",
       "artifact_kind": "lexical",
       "endpoint_policy_version": null,
@@ -863,6 +1359,14 @@
       "artifact_kind": "lexical",
       "endpoint_policy_version": null,
       "path": "Rafah_offensive.lexical.json",
+      "reason": "stable endpoint receipt is missing",
+      "status": "legacy_incompatible"
+    },
+    {
+      "article": "Anti-Zionism",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": null,
+      "path": "Anti-Zionism.lexical.json",
       "reason": "stable endpoint receipt is missing",
       "status": "legacy_incompatible"
     },
@@ -935,7 +1439,7 @@
       "artifact_kind": "lexical",
       "endpoint_policy_version": null,
       "path": "Brontosaurus.lexical.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "lexical artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -983,14 +1487,6 @@
       "artifact_kind": "lexical",
       "endpoint_policy_version": null,
       "path": "Democratic_Socialists_of_America.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Elizabeth Warren",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Elizabeth_Warren.lexical.json",
       "reason": "stable endpoint receipt is missing",
       "status": "legacy_incompatible"
     },
@@ -1259,6 +1755,14 @@
       "status": "legacy_incompatible"
     },
     {
+      "article": "Hamas",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": null,
+      "path": "Hamas.l1-confirmation.json",
+      "reason": "stable endpoint receipt is missing",
+      "status": "legacy_incompatible"
+    },
+    {
       "article": "Genocide of indigenous peoples",
       "artifact_kind": "l1-confirmation",
       "endpoint_policy_version": null,
@@ -1347,6 +1851,14 @@
       "status": "legacy_incompatible"
     },
     {
+      "article": "Zionism",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": null,
+      "path": "Zionism.l1-confirmation.json",
+      "reason": "stable endpoint receipt is missing",
+      "status": "legacy_incompatible"
+    },
+    {
       "article": "Ilhan Omar",
       "artifact_kind": "l1-confirmation",
       "endpoint_policy_version": null,
@@ -1371,6 +1883,14 @@
       "status": "legacy_incompatible"
     },
     {
+      "article": "Israeli\u2013Palestinian conflict",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": null,
+      "path": "Israeli\u2013Palestinian_conflict.l1-confirmation.json",
+      "reason": "stable endpoint receipt is missing",
+      "status": "legacy_incompatible"
+    },
+    {
       "article": "Chess",
       "artifact_kind": "l1-confirmation",
       "endpoint_policy_version": null,
@@ -1383,8 +1903,8 @@
       "artifact_kind": "l1-confirmation",
       "endpoint_policy_version": null,
       "path": "Anti-Zionism.l1-confirmation.json",
-      "reason": "artifact endpoint does not match selected stable endpoint",
-      "status": "stale"
+      "reason": "stable endpoint receipt is missing",
+      "status": "legacy_incompatible"
     },
     {
       "article": "Gaza war",
@@ -1475,14 +1995,6 @@
       "status": "legacy_incompatible"
     },
     {
-      "article": "Brontosaurus",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Brontosaurus.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
       "article": "Capitalism",
       "artifact_kind": "l1-confirmation",
       "endpoint_policy_version": null,
@@ -1527,14 +2039,6 @@
       "artifact_kind": "l1-confirmation",
       "endpoint_policy_version": null,
       "path": "Democratic_Socialists_of_America.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Elizabeth Warren",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Elizabeth_Warren.l1-confirmation.json",
       "reason": "stable endpoint receipt is missing",
       "status": "legacy_incompatible"
     },
