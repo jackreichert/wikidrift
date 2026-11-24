@@ -1,18 +1,34 @@
 {
   "counts": {
-    "legacy_incompatible": 223,
-    "published": 44,
+    "legacy_incompatible": 221,
+    "published": 46,
     "quarantined": 0,
     "stale": 0,
     "unstable": 6,
-    "withheld": 229
+    "withheld": 227
   },
   "published": [
+    {
+      "article": "Abortion",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Abortion.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
     {
       "article": "Elizabeth Warren",
       "artifact_kind": "lexical",
       "endpoint_policy_version": "stable-endpoint-v1",
       "path": "Elizabeth_Warren.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Abortion",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Abortion.l1-confirmation.json",
       "reason": null,
       "status": "published"
     },
@@ -607,7 +623,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Abortion.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -1403,14 +1419,6 @@
       "status": "legacy_incompatible"
     },
     {
-      "article": "Abortion",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Abortion.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
       "article": "Ainu people",
       "artifact_kind": "lexical",
       "endpoint_policy_version": null,
@@ -1959,14 +1967,6 @@
       "artifact_kind": "l1-confirmation",
       "endpoint_policy_version": null,
       "path": "Jedwabne_pogrom.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Abortion",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Abortion.l1-confirmation.json",
       "reason": "stable endpoint receipt is missing",
       "status": "legacy_incompatible"
     },

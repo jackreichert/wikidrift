@@ -9,66 +9,85 @@
     "fr"
   ],
   "lead_chars": {
-    "en": 1363,
+    "en": 889,
     "ko": 482,
     "fr": 1630
   },
   "snapshots": null,
   "divergences": [
     {
-      "topic": "specific non-member states named",
+      "topic": "non-member state observers",
       "editions_differ": [
-        "EN"
+        "EN",
+        "KO",
+        "FR"
       ],
-      "en_says": "Names the two non-member observer states explicitly as the Holy See and the State of Palestine",
-      "other_says": "KO and FR refer generically to non-member sovereign states without naming which ones currently hold this status",
-      "verdict": "differ",
-      "evidence_en": "granted observer status to two non-member states (the Holy See and the State of Palestine)",
+      "en_says": "two non-member states (the Holy See and the State of Palestine) have been granted this status",
+      "other_says": "not mentioned",
+      "verdict": "absent_other",
+      "evidence_en": "As of 2026, two non-member states (the Holy See and the State of Palestine) have been granted this status",
       "evidence_other": null
     },
     {
-      "topic": "non-state observers composition detail",
+      "topic": "granting mechanism",
       "editions_differ": [
+        "EN",
+        "KO",
         "FR"
       ],
-      "en_says": "Describes non-state observers simply as international organizations and other entities, without subdividing further",
-      "other_says": "FR specifies that non-state observers include both intergovernmental organizations and non-governmental organizations, plus other entities",
+      "en_says": "not mentioned",
+      "other_says": "granted by UNGA resolution; permanent status based on Assembly practice with no Charter provision",
       "verdict": "absent_en",
-      "evidence_en": "Non-state observers are the international organizations and other entities.",
-      "evidence_other": "Les observateurs non étatiques sont des organisations internationales, tant les organisations intergouvernementales que les organisations non gouvernementales, et d’autres entités."
+      "evidence_en": null,
+      "evidence_other": "옵서버 자격은 유엔 총회 결의에 의해 부여될 수 있다. 상설 옵서버의 지위는 순수하게 총회의 관례에 기초하며, 유엔 헌장에는 이에 대한 규정이 없다."
     },
     {
-      "topic": "EU enhanced rights uniqueness qualifier",
+      "topic": "state vs non-state observers",
       "editions_differ": [
-        "KO"
+        "EN",
+        "KO",
+        "FR"
       ],
-      "en_says": "States 'As of May 2011, the EU is the only international organization to hold these enhanced rights', explicitly time-stamping the claim",
-      "other_says": "KO also includes the May 2011 timestamp similarly, while FR states the EU is the only organization without the explicit date qualifier",
-      "verdict": "differ",
-      "evidence_en": "As of May 2011, the EU is the only international organization to hold these enhanced rights",
-      "evidence_other": "L'UE est la seule organisation internationale à détenir ces droits renforcés"
+      "en_says": "not mentioned",
+      "other_says": "practice distinguishes between state observers and non-state observers",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": "관례상 국가 옵서버와 비국가 옵서버를 구분한다."
+    },
+    {
+      "topic": "eligibility for non-member states",
+      "editions_differ": [
+        "EN",
+        "KO",
+        "FR"
+      ],
+      "en_says": "not mentioned",
+      "other_says": "non-member states must be members of one or more specialized agencies to apply for permanent observer status",
+      "verdict": "absent_en",
+      "evidence_en": null,
+      "evidence_other": "비회원국은 하나 이상의 유엔 전문 기구의 회원이며, 상설 옵서버 국가 지위를 신청할 수 있다."
     }
   ],
-  "summary": "The three editions are largely aligned in structure and core content regarding UNGA observer status, the 1986 treaty conference, and the EU's exceptional 2011 rights grant. The main divergences are: EN uniquely names the two specific non-member observer states (Holy See and State of Palestine), which KO and FR leave unspecified; FR adds more granularity by distinguishing intergovernmental from non-governmental organizations among non-state observers, a detail absent in EN and KO; and there is a minor difference in whether the 'as of May 2011' temporal qualifier is retained when describing the EU's uniqueness, with FR omitting it while EN and KO include it.",
-  "run_ts": "2026-07-19T17:51:43.899483+00:00",
-  "model": "claude-sonnet-5",
+  "summary": "EN uniquely specifies the two non-member state observers by name and date. KO and FR add procedural details absent from EN: granting via resolution, basis in Assembly practice rather than the Charter, explicit state/non-state distinction, and eligibility requirements for non-member states.",
+  "run_ts": "2026-11-24T10:44:04.814391+00:00",
+  "model": "grok-4",
   "llm_usage": {
     "calls": 1,
-    "input_tokens": 2532,
-    "output_tokens": 833,
+    "input_tokens": 1496,
+    "output_tokens": 541,
     "estimated_usd": null,
     "all_calls_priced": false,
     "records": [
       {
-        "provider": "anthropic",
-        "model": "claude-sonnet-5",
-        "input_tokens": 2532,
-        "output_tokens": 833,
+        "provider": "xai",
+        "model": "grok-4",
+        "input_tokens": 1496,
+        "output_tokens": 541,
         "estimated_usd": null,
         "pricing_key": null,
         "pricing_usd_per_million": null
       }
     ]
   },
-  "elapsed_seconds": 17.941
+  "elapsed_seconds": 28.922
 }

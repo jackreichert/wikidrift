@@ -1,33 +1,33 @@
 {
   "article": "Abortion",
-  "run_ts": "2026-07-19T16:58:39.360281+00:00",
+  "run_ts": "2026-11-24T10:28:21.089049+00:00",
   "workflow": "confirmed_framing_refresh",
   "succeeded": true,
-  "elapsed_seconds": 227.076,
+  "elapsed_seconds": 422.943,
   "stages": [
     {
       "command": "analyze",
-      "elapsed_seconds": 160.885,
+      "elapsed_seconds": 148.356,
       "exit_code": 0
     },
     {
       "command": "framing",
-      "elapsed_seconds": 66.191,
+      "elapsed_seconds": 274.587,
       "exit_code": 0
     }
   ],
   "llm_usage": {
     "calls": 1,
-    "input_tokens": 5759,
-    "output_tokens": 1355,
+    "input_tokens": 3637,
+    "output_tokens": 950,
     "estimated_usd": null,
     "all_calls_priced": false,
     "records": [
       {
-        "provider": "anthropic",
-        "model": "claude-sonnet-5",
-        "input_tokens": 5759,
-        "output_tokens": 1355,
+        "provider": "xai",
+        "model": "grok-4",
+        "input_tokens": 3637,
+        "output_tokens": 950,
         "estimated_usd": null,
         "pricing_key": null,
         "pricing_usd_per_million": null

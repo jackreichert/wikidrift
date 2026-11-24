@@ -16,102 +16,89 @@
   "snapshots": null,
   "divergences": [
     {
-      "topic": "discovery details",
-      "editions_differ": [
-        "EN",
-        "MK",
-        "IT"
-      ],
-      "en_says": "type species B. excelsus based on partial skeleton lacking skull from Como Bluff, Wyoming",
-      "other_says": "not mentioned",
-      "verdict": "absent_other",
-      "evidence_en": "based on a partial skeleton lacking a skull found in Como Bluff, Wyoming",
-      "evidence_other": null
-    },
-    {
-      "topic": "species naming dates",
-      "editions_differ": [
-        "EN",
-        "MK",
-        "IT"
-      ],
-      "en_says": "B. parvus in 1902 and B. yahnahpin in 1994",
-      "other_says": "not mentioned",
-      "verdict": "absent_other",
-      "evidence_en": "two more species of Brontosaurus were named: B. parvus in 1902 and B. yahnahpin in 1994",
-      "evidence_other": null
-    },
-    {
-      "topic": "2015 study attribution and consensus",
+      "topic": "2015 study attribution",
       "editions_differ": [
         "EN",
         "IT"
       ],
-      "en_says": "2015 study by Emmanuel Tschopp and colleagues; some paleontologists still consider it a synonym",
-      "other_says": "2015 study by joint England-Portugal group; not all paleontologists agree",
+      "en_says": "2015 study by Emmanuel Tschopp and colleagues",
+      "other_says": "studio sui sauropodi del 2015, condotto da un gruppo di ricerca congiunto tra Inghilterra e Portogallo",
       "verdict": "differ",
-      "evidence_en": null,
+      "evidence_en": "a 2015 study by Emmanuel Tschopp and colleagues found it to be distinct",
+      "evidence_other": "uno studio sui sauropodi del 2015, condotto da un gruppo di ricerca congiunto tra Inghilterra e Portogallo"
+    },
+    {
+      "topic": "ongoing taxonomic disagreement",
+      "editions_differ": [
+        "EN",
+        "IT",
+        "MK"
+      ],
+      "en_says": "status of Brontosaurus is still uncertain, with some paleontologists still considering it a synonym",
+      "other_says": "non tutti i paleontologi concordano con questa scissione",
+      "verdict": "absent_en",
+      "evidence_en": "However, the status of Brontosaurus is still uncertain, with some paleontologists still considering it a synonym of Apatosaurus",
+      "evidence_other": "Tuttavia, non tutti i paleontologi concordano con questa scissione"
+    },
+    {
+      "topic": "coexisting taxa in Morrison Formation",
+      "editions_differ": [
+        "EN",
+        "MK",
+        "IT"
+      ],
+      "en_says": "coexisted with Diplodocus, Barosaurus, Brachiosaurus, Stegosaurus, Dryosaurus, Camptosaurus, Allosaurus, Marshosaurus and Ceratosaurus",
+      "other_says": "not mentioned",
+      "verdict": "absent_other",
+      "evidence_en": "Brontosaurus coexisted with a menagerie of other taxa such as the sauropods Diplodocus, Barosaurus, and Brachiosaurus",
       "evidence_other": null
     },
     {
-      "topic": "time period precision",
+      "topic": "species size estimates",
       "editions_differ": [
         "EN",
         "MK"
       ],
-      "en_says": "156 to 146 million years ago during the Kimmeridgian and Tithonian ages",
-      "other_says": "Late Jurassic... extinct by end of Jurassic",
-      "verdict": "differ",
-      "evidence_en": "lived about 156 to 146 million years ago (mya) during the Kimmeridgian and Tithonian ages",
-      "evidence_other": null
-    },
-    {
-      "topic": "detailed anatomy and size estimates",
-      "editions_differ": [
-        "EN",
-        "MK",
-        "IT"
-      ],
-      "en_says": "robust cervical vertebrae, forelimbs short and stout, hindlimbs elongated; B. excelsus 21–23 m and 15–20 t, B. parvus 19 m",
-      "other_says": "long thin neck... up to 15 tons and 22 metres long",
+      "en_says": "B. excelsus 21–23 m, 15–20 t; B. parvus 19 m",
+      "other_says": "fino a 15 toni e 22 metri",
       "verdict": "differ",
       "evidence_en": null,
       "evidence_other": null
     },
     {
-      "topic": "Morrison Formation fauna",
+      "topic": "1903 synonymy detail",
       "editions_differ": [
+        "IT",
         "EN",
-        "MK",
-        "IT"
+        "MK"
       ],
-      "en_says": "coexisted with Diplodocus, Barosaurus, Brachiosaurus, Stegosaurus, Allosaurus and others",
-      "other_says": "not mentioned",
-      "verdict": "absent_other",
+      "en_says": "not mentioned",
+      "other_says": "nel 1903, la specie tipo di Brontosaurus, B. excelsus fu riclassificata come A. excelsus",
+      "verdict": "absent_en",
       "evidence_en": null,
-      "evidence_other": null
+      "evidence_other": "nel 1903, la specie tipo di Brontosaurus, B. excelsus fu riclassificata come A. excelsus"
     }
   ],
-  "summary": "EN provides more specifics on discovery location, naming dates, anatomy/sizes, coexisting taxa, and study details than MK or IT. IT and EN both note ongoing taxonomic debate but differ on study team description; MK omits the debate entirely. Time ranges are more precise in EN/IT than MK.",
-  "run_ts": "2026-10-21T19:35:44.287676+00:00",
-  "model": "grok-4.3",
+  "summary": "EN provides more anatomical, size, ecological and classificatory detail than MK or IT. IT uniquely notes the 1903 synonymy and study team origin while EN and IT both flag lingering disagreement (absent in MK). MK is shortest and omits uncertainty and co-occurrence data.",
+  "run_ts": "2026-11-24T11:09:15.704364+00:00",
+  "model": "grok-4",
   "llm_usage": {
     "calls": 1,
     "input_tokens": 2530,
-    "output_tokens": 931,
+    "output_tokens": 766,
     "estimated_usd": null,
     "all_calls_priced": false,
     "records": [
       {
         "provider": "xai",
-        "model": "grok-4.3",
+        "model": "grok-4",
         "input_tokens": 2530,
-        "output_tokens": 931,
+        "output_tokens": 766,
         "estimated_usd": null,
         "pricing_key": null,
         "pricing_usd_per_million": null
       }
     ]
   },
-  "elapsed_seconds": 18.213
+  "elapsed_seconds": 37.348
 }
