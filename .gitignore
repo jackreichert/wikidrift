@@ -16,7 +16,19 @@ target/
 .planning/spikes/data/articles/**/provenance.duckdb*
 .planning/spikes/data/articles/**/logs/
 
-# Re-downloadable caches under the data dir (NOT findings — see below)
+# Per-article local corpus (DuckDBs, coverage/logs, shards staging) — keep out of PRs
+.planning/spikes/data/articles/
+
+# Local findings / coverage-state dumps (ops machine state)
+.planning/spikes/data/findings/
+
+# Orphaned article staging
+.planning/spikes/data/_orphans/
+
+# Local one-off operator scripts (e.g. pull-topics-from-doc.sh)
+scripts/
+
+# Re-downloadable caches under the data dir
 .planning/spikes/data/history-xml/
 .planning/spikes/data/mscore/
 .planning/spikes/data/articles/**/mscore/
@@ -47,8 +59,8 @@ ssm-*.json
 .DS_Store
 
 # --- intentionally TRACKED (small, valuable) ---
-#   .planning/spikes/data/findings/   the tool's canonical results (the whole point)
 #   .planning/spikes/*/out/           frozen spike findings (JSON + prose) — the viewer's data
 #   docs/                             the built site GitHub Pages serves
 #   viewer/data/*.json                L3 diff/pivot exports
 #   tools/snapshot-tokens/Cargo.lock  pins the reproducible build
+#   src/ viewer/ tools/*.py tests/    project source — never ignore
