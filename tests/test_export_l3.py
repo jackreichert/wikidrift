@@ -213,6 +213,83 @@ class CandidatePivotExport(unittest.TestCase):
         self.assertEqual(exported["pivots"][0]["authors_before"], {})
         self.assertEqual(exported["pivots"][0]["authors_after"], {})
 
+    def test_exact_pivot_uses_candidate_window_for_indexing(self):
+        confirmation = {
+            "article": "Example",
+            "status": "confirmed",
+            "corpus_horizon": {"snapshot_date": "2026-01-01", "snapshot_revid": 900},
+            "thresholds": export_l3.config.confirmation_thresholds(),
+            "confirmed_episodes": [{
+                "candidate_start": "2010-01-01",
+                "candidate_end": "2012-01-01",
+                "before_revid": 101,
+                "before_timestamp": "2010-04-02T23:34:38Z",
+                "after_revid": 102,
+                "after_timestamp": "2010-04-02T23:49:39Z",
+                "durable_spine_drop": 0.64,
+                "pwr_mass": 500,
+            }],
+        }
+        with tempfile.TemporaryDirectory() as temp_dir, \
+                mock.patch.object(export_l3, "DATA", pathlib.Path(temp_dir)), \
+                mock.patch.object(export_l3.drift, "load_confirmation", return_value=confirmation), \
+                mock.patch.object(export_l3, "_confirmation_trust", return_value={
+                    "status": "published", "reason": None,
+                }), \
+                mock.patch.object(export_l3, "_current_horizon", return_value=("2026-01-01", 900)), \
+                mock.patch.object(export_l3.provenance, "tokens_at", return_value=[]), \
+                mock.patch.object(export_l3, "prose_at", side_effect=lambda revision: f"text {revision}"), \
+                mock.patch.object(export_l3, "_revision_authors", return_value={}):
+            export_l3.export_pivots("Example")
+            exported = json.loads(
+                (pathlib.Path(temp_dir) / "Example.pivots.json").read_text(encoding="utf-8")
+            )
+
+        pivot = exported["pivots"][0]
+        self.assertEqual(pivot["start"], "2010-01-01")
+        self.assertEqual(pivot["end"], "2012-01-01")
+        self.assertEqual(pivot["before_rev"], 101)
+        self.assertEqual(pivot["after_rev"], 102)
+
+    def test_confirmed_candidate_falls_back_to_exact_revision_pair(self):
+        confirmation = {
+            "article": "Example",
+            "status": "confirmed",
+            "corpus_horizon": {"snapshot_date": "2026-01-01", "snapshot_revid": 900},
+            "thresholds": export_l3.config.confirmation_thresholds(),
+            "evaluated_candidates": [{
+                "candidate_start": "2024-01-01",
+                "candidate_end": "2025-01-01",
+                "candidate_before_revid": 90,
+                "candidate_after_revid": 110,
+                "exact_before_revid": 101,
+                "exact_after_revid": 102,
+                "decision": "confirmed",
+                "durable_spine_drop": 0.75,
+                "peak_pct": 42.0,
+                "pwr_mass": 500,
+            }],
+        }
+        with tempfile.TemporaryDirectory() as temp_dir, \
+                mock.patch.object(export_l3, "DATA", pathlib.Path(temp_dir)), \
+                mock.patch.object(export_l3.drift, "load_confirmation", return_value=confirmation), \
+                mock.patch.object(export_l3, "_confirmation_trust", return_value={
+                    "status": "published", "reason": None,
+                }), \
+                mock.patch.object(export_l3, "_current_horizon", return_value=("2026-01-01", 900)), \
+                mock.patch.object(export_l3.provenance, "tokens_at", return_value=[]), \
+                mock.patch.object(export_l3, "prose_at", side_effect=lambda rev: "" if rev in (90, 110) else f"text {rev}"), \
+                mock.patch.object(export_l3, "_revision_authors", return_value={}):
+            status = export_l3.export_pivots("Example")
+            exported = json.loads(
+                (pathlib.Path(temp_dir) / "Example.pivots.json").read_text(encoding="utf-8")
+            )
+
+        self.assertEqual(status["state"], "finding")
+        self.assertEqual(exported["pivots"][0]["before_rev"], 101)
+        self.assertEqual(exported["pivots"][0]["after_rev"], 102)
+        self.assertEqual(exported["pivots"][0]["start"], "2024-01-01")
+
     def test_withheld_confirmation_removes_existing_export(self):
         confirmation = {"article": "Example", "status": "confirmed"}
         with tempfile.TemporaryDirectory() as temp_dir, \

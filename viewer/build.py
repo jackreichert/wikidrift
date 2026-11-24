@@ -1444,6 +1444,39 @@ def _revision_link(revid, timestamp, label):
     )
 
 
+def _pivot_link_indexes(pivots):
+    """Map candidate windows and revision pairs to pivot page indexes."""
+    by_window = {}
+    by_rev = {}
+    for index, pivot in enumerate((pivots or {}).get("pivots") or []):
+        start, end = pivot.get("start"), pivot.get("end")
+        if start and end:
+            by_window[(start, end)] = index
+        before_rev, after_rev = pivot.get("before_rev"), pivot.get("after_rev")
+        if before_rev is not None and after_rev is not None:
+            by_rev[(before_rev, after_rev)] = index
+    return by_window, by_rev
+
+
+def _resolve_pivot_index(pivots, *, window=None, before_revid=None, after_revid=None):
+    """Resolve a redline page index from a candidate window and/or revision pair."""
+    by_window, by_rev = _pivot_link_indexes(pivots)
+    if window and window in by_window:
+        return by_window[window]
+    if before_revid is not None and after_revid is not None:
+        return by_rev.get((before_revid, after_revid))
+    return None
+
+
+def _redline_evidence_link(slug, pivot_index, aria_label):
+    if slug is None or pivot_index is None:
+        return '<span class="muted">Redline unavailable</span>'
+    return (
+        f'<a href="{slug}.p{pivot_index}.html" aria-label="{aria_label}">'
+        'View redline</a>'
+    )
+
+
 def _confirmation_episode_row(episode, pivots=None, slug=None):
     before_revid = episode.get("before_revid")
     after_revid = episode.get("after_revid")
@@ -1451,16 +1484,19 @@ def _confirmation_episode_row(episode, pivots=None, slug=None):
     after = _revision_link(after_revid, episode.get("after_timestamp"), "After")
     drop = 100 * (episode.get("durable_spine_drop") or 0)
     duration = _format_duration(episode.get("duration_seconds"))
-    pivot_index = next((
-        index for index, pivot in enumerate((pivots or {}).get("pivots") or [])
-        if (pivot.get("before_rev"), pivot.get("after_rev")) == (before_revid, after_revid)
-    ), None)
-    evidence = (
-        f'<a href="{slug}.p{pivot_index}.html" '
-        f'aria-label="View redline for exact revisions {esc(before_revid)} to {esc(after_revid)}">'
-        'View redline</a>'
-        if slug and pivot_index is not None
-        else '<span class="muted">Redline unavailable</span>'
+    window = (episode.get("candidate_start"), episode.get("candidate_end"))
+    if not window[0] or not window[1]:
+        window = None
+    pivot_index = _resolve_pivot_index(
+        pivots,
+        window=window,
+        before_revid=before_revid,
+        after_revid=after_revid,
+    )
+    evidence = _redline_evidence_link(
+        slug,
+        pivot_index,
+        f'View redline for exact revisions {esc(before_revid)} to {esc(after_revid)}',
     )
     return (
         f'<tr><td>{before}</td><td>{after}</td><td>{drop:.1f}% durable-spine drop</td>'
@@ -1527,21 +1563,34 @@ def _candidate_evaluations_receipt(confirmation, pivots=None, slug=None, episode
     )
     episodes = episodes or []
     required_drop = (confirmation.get("thresholds") or {}).get("confirm_drop", 0.2)
-    pivot_indexes = {
-        (pivot.get("start"), pivot.get("end")): index
-        for index, pivot in enumerate((pivots or {}).get("pivots") or [])
-    }
     rows = []
     for candidate in candidates:
         source = "rolling second pass" if candidate.get("source") == "rolling" else "coarse interval"
         window = (candidate.get("candidate_start"), candidate.get("candidate_end"))
-        pivot_index = pivot_indexes.get(window)
+        episode = next((
+            item for item in episodes
+            if window[0]
+            and window == (item.get("candidate_start"), item.get("candidate_end"))
+        ), {})
+        pivot_index = _resolve_pivot_index(
+            pivots,
+            window=window,
+            before_revid=(
+                candidate.get("exact_before_revid")
+                or episode.get("before_revid")
+                or candidate.get("candidate_before_revid")
+            ),
+            after_revid=(
+                candidate.get("exact_after_revid")
+                or episode.get("after_revid")
+                or candidate.get("candidate_after_revid")
+            ),
+        )
         window_label = f'{candidate.get("candidate_start")} to {candidate.get("candidate_end")}'
-        evidence = (
-            f'<a href="{slug}.p{pivot_index}.html" '
-            f'aria-label="View redline for candidate {esc(window_label)}">View redline</a>'
-            if slug and pivot_index is not None
-            else '<span class="muted">Redline unavailable</span>'
+        evidence = _redline_evidence_link(
+            slug,
+            pivot_index,
+            f'View redline for candidate {esc(window_label)}',
         )
         decision = esc(_candidate_decision(candidate, required_drop))
         exact_pair = _candidate_exact_pair(candidate, episodes)
