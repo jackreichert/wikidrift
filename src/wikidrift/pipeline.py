@@ -198,6 +198,10 @@ def _confirmed_windows(confirmation, current_horizon):
     return [{
         "start": episode["candidate_start"], "end": episode["candidate_end"],
         "pwr_mass": episode["pwr_mass"], "status": "confirmed",
+        # Coarse window endpoints for lead/framing comparison (often years apart).
+        "candidate_before_revid": episode.get("candidate_before_revid"),
+        "candidate_after_revid": episode.get("candidate_after_revid"),
+        # Exact rewrite burst where the durable spine collapsed (often minutes).
         "before_revid": episode["before_revid"],
         "before_timestamp": episode["before_timestamp"],
         "after_revid": episode["after_revid"],
