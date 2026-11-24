@@ -2490,9 +2490,9 @@ def index_page(articles, f, categories=None):
         'placeholder="Search by title…" aria-label="Search findings">'
         f'<div class="filters" role="group" aria-label="Filter by topic">{chips}</div>'
         '<label class="sortlab">Sort <select id="sort" class="sortsel" aria-label="Sort findings">'
-        '<option value="pwr" selected>Largest rewrite first</option>'
+        '<option value="pwr">Largest rewrite first</option>'
         '<option value="lex">Biggest wording shift</option>'
-        '<option value="az">A–Z</option>'
+        '<option value="az" selected>A–Z</option>'
         '<option value="cat">Topic</option></select></label>'
         '<span id="count" class="count" role="status" aria-live="polite"></span></div>'
     )

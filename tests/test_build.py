@@ -1227,6 +1227,8 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("Testland", idx)
         self.assertIn('href="article/Testland.html"', idx)
         self.assertIn("Largest rewrite first", idx)
+        self.assertIn('<option value="az" selected>A–Z</option>', idx)
+        self.assertNotIn('<option value="pwr" selected>', idx)
 
     def test_rewrite_terms_link_to_accessible_glossary_tooltips(self):
         rendered = build.article_page("Unexported", build.Findings())
