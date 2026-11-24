@@ -857,6 +857,22 @@ class ShortExactPairGuard(unittest.TestCase):
         self.idx_of_rev = {10: 0}
         self.peak = ("2010-01-01", 10, "2012-01-01", 20, 64.0)
 
+    def test_localized_pair_unresolvable_boundaries(self):
+        cases = [
+            ("2010-01-01", "2012-01-01", 299, True),
+            ("2010-01-01", "2012-01-01", 300, False),
+            ("2015-09-24", "2015-09-25", 0, False),
+            ("2010-01-01", "2010-01-30", 0, False),   # 29d coarse < 30d floor
+            ("2010-01-01", "2010-01-31", 299, True),  # exactly 30d coarse + micro pair
+            ("2010-01-01", "2010-01-31", 300, False),
+        ]
+        for start, end, pair_span, expected in cases:
+            with self.subTest(start=start, end=end, pair_span=pair_span):
+                self.assertEqual(
+                    drift._localized_pair_unresolvable(start, end, pair_span),
+                    expected,
+                )
+
     def test_seconds_long_pair_in_multi_year_window_is_insufficient(self):
         full = set(range(1, 9))
         collapsed = {1, 2}
@@ -871,13 +887,18 @@ class ShortExactPairGuard(unittest.TestCase):
              mock.patch.object(drift, "MIN_COHORT", 3):
             result = drift.refine("A", self.con, [], self.members, self.present, self.idx_of_rev, self.peak)
 
-        self.assertIsNone(result)
+        self.assertIsInstance(result, dict)
+        self.assertTrue(result.get("unresolvable"))
         evaluation = drift._candidate_evaluation(
             {"start": ("2010-01-01", 10), "end": ("2012-01-01", 20), "abs": 42000, "peak": 64.0},
             result,
         )
         self.assertEqual(evaluation["decision"], "rejected")
         self.assertEqual(evaluation["rejection_reason"], "insufficient_revision_evidence")
+        self.assertIn("exact_pair_drop", evaluation)
+        self.assertGreater(evaluation["exact_pair_drop"], 0)
+        self.assertEqual(evaluation["exact_before_revid"], 13)
+        self.assertEqual(evaluation["exact_after_revid"], 14)
 
     def test_short_pair_same_day_coarse_window_still_resolves(self):
         peak = ("2015-09-24", 10, "2015-09-25", 20, 72.0)
@@ -901,6 +922,7 @@ class ShortExactPairGuard(unittest.TestCase):
             )
 
         self.assertIsNotNone(result)
+        self.assertIsInstance(result, tuple)
         before, after, interval_drop, _pair_drop = result
         self.assertEqual((before[0], after[0]), (52, 53))
         self.assertGreaterEqual(interval_drop, drift.CONFIRM_DROP)

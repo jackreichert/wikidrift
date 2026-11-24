@@ -472,7 +472,14 @@ def refine(article, con, snaps, members, present, idx_of_rev, peak):
             f"  (exact pair spans {pair_span:.0f}s inside a {coarse_span / 86400:.0f}d coarse window "
             f"— cannot localize meaningfully)"
         )
-        return None
+        # Keep the measured micro-pair drop on the receipt even though we refuse confirmation.
+        return {
+            "unresolvable": True,
+            "before": revs[lo],
+            "after": revs[hi],
+            "interval_drop": interval_drop,
+            "pair_drop": pair_drop,
+        }
     print(f"  ⇒ dominant drop between rev {revs[lo][0]} ({revs[lo][1][:10]}) and rev {revs[hi][0]} ({revs[hi][1][:10]})")
     print(f"    localized pair drop {pair_drop * 100:.0f} pts across {pair_span:.0f}s")
     return revs[lo], revs[hi], interval_drop, pair_drop
@@ -860,6 +867,19 @@ def _candidate_evaluation(candidate, confirmation):
     if confirmation is None:
         return {
             **evaluation,
+            "decision": "rejected",
+            "rejection_reason": "insufficient_revision_evidence",
+        }
+    if isinstance(confirmation, dict) and confirmation.get("unresolvable"):
+        before, after = confirmation["before"], confirmation["after"]
+        return {
+            **evaluation,
+            "exact_before_revid": before[0],
+            "exact_before_timestamp": before[1],
+            "exact_after_revid": after[0],
+            "exact_after_timestamp": after[1],
+            "durable_spine_drop": round(confirmation["interval_drop"], 6),
+            "exact_pair_drop": round(confirmation["pair_drop"], 6),
             "decision": "rejected",
             "rejection_reason": "insufficient_revision_evidence",
         }
