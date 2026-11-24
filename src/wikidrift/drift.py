@@ -38,8 +38,10 @@ from .config import (
     GAIN_FLOOR,
     MAG_FLOOR,
     MASS_FLOOR,
+    MIN_COARSE_SPAN_SECONDS,
     MIN_COHORT,
     MIN_MATURE,
+    MIN_PAIR_SECONDS,
     RECENT_YEARS,
     REPLACEMENT_FLOOR,
     REVIEW_MASS_FLOOR,
@@ -403,7 +405,13 @@ def _rsnap_refine(members, idx_of_rev, peak, cohort, cut):
     print(f"\n  rsnap fallback on durable spine |C|={len(cohort):,} (w≥{cut}): "
           f"{f_start * 100:.0f}% → {f_end * 100:.0f}%  (interval decline {interval_drop * 100:.0f} pts)")
     print(f"  ⇒ snapshot endpoints rev {before[0]} ({d0}) and rev {after[0]} ({d1})")
-    return before, after, interval_drop
+    return before, after, interval_drop, interval_drop
+
+
+def _coarse_span_seconds(start_date, end_date):
+    start = dt.datetime.fromisoformat(start_date)
+    end = dt.datetime.fromisoformat(end_date)
+    return max(0, int((end - start).total_seconds()))
 
 
 def refine(article, con, snaps, members, present, idx_of_rev, peak):
@@ -446,8 +454,18 @@ def refine(article, con, snaps, members, present, idx_of_rev, peak):
     print(f"\n  binary search on durable spine |C|={len(cohort):,} (w≥{cut}): "
           f"{f_start*100:.0f}% → {f_end*100:.0f}%  (interval decline {interval_drop*100:.0f} pts)")
     print("  path: " + " ".join(f"{d}:{v*100:.0f}%" for d, v in path))
+    pair_drop = flo - fhi
+    pair_span = (_timestamp(revs[hi][1]) - _timestamp(revs[lo][1])).total_seconds()
+    coarse_span = _coarse_span_seconds(d0, d1)
+    if coarse_span >= MIN_COARSE_SPAN_SECONDS and pair_span < MIN_PAIR_SECONDS:
+        print(
+            f"  (exact pair spans {pair_span:.0f}s inside a {coarse_span / 86400:.0f}d coarse window "
+            f"— cannot localize meaningfully)"
+        )
+        return None
     print(f"  ⇒ dominant drop between rev {revs[lo][0]} ({revs[lo][1][:10]}) and rev {revs[hi][0]} ({revs[hi][1][:10]})")
-    return revs[lo], revs[hi], interval_drop
+    print(f"    localized pair drop {pair_drop * 100:.0f} pts across {pair_span:.0f}s")
+    return revs[lo], revs[hi], interval_drop, pair_drop
 
 
 def removal_attribution(article, con, peak):
@@ -836,7 +854,11 @@ def _candidate_evaluation(candidate, confirmation):
             "rejection_reason": "insufficient_revision_evidence",
         }
 
-    before, after, decline = confirmation
+    if len(confirmation) == 3:
+        before, after, decline = confirmation
+        pair_drop = decline
+    else:
+        before, after, decline, pair_drop = confirmation
     confirmed = decline >= CONFIRM_DROP
     return {
         **evaluation,
@@ -845,6 +867,7 @@ def _candidate_evaluation(candidate, confirmation):
         "exact_after_revid": after[0],
         "exact_after_timestamp": after[1],
         "durable_spine_drop": round(decline, 6),
+        "exact_pair_drop": round(pair_drop, 6),
         "decision": "confirmed" if confirmed else "rejected",
         "rejection_reason": None if confirmed else "durable_spine_drop_below_threshold",
     }

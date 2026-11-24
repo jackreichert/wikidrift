@@ -757,18 +757,21 @@ class RefineBinarySearch(unittest.TestCase):
 
     def test_binary_search_locates_the_durable_spine_collapse(self):
         # spine intact through rev 13, collapses to 2 of 8 at rev 14 → the confirmed drop is between 13 and 14.
-        lo, hi, drop = self._run({11: set(range(1, 9)), 12: set(range(1, 9)), 13: set(range(1, 9)),
-                                  14: {1, 2}, 15: {1, 2}})
+        lo, hi, interval_drop, pair_drop = self._run({
+            11: set(range(1, 9)), 12: set(range(1, 9)), 13: set(range(1, 9)),
+            14: {1, 2}, 15: {1, 2},
+        })
         self.assertEqual((lo[0], hi[0]), (13, 14))
-        self.assertAlmostEqual(drop, 0.75)
-        self.assertGreaterEqual(drop, drift.CONFIRM_DROP)     # ≥ threshold ⇒ a confirmed pivot
+        self.assertAlmostEqual(interval_drop, 0.75)
+        self.assertAlmostEqual(pair_drop, 0.75)
+        self.assertGreaterEqual(interval_drop, drift.CONFIRM_DROP)     # ≥ threshold ⇒ a confirmed pivot
 
     def test_stable_spine_is_not_confirmed(self):
         # the durable spine survives the whole window ⇒ interval_drop ≈ 0, below CONFIRM_DROP: a change that
         # did NOT destroy the established spine is not a confirmed pivot (the false-positive guard).
-        _, _, drop = self._run({r: set(range(1, 9)) for r in (11, 12, 13, 14, 15)})
-        self.assertAlmostEqual(drop, 0.0)
-        self.assertLess(drop, drift.CONFIRM_DROP)
+        _, _, interval_drop, _ = self._run({r: set(range(1, 9)) for r in (11, 12, 13, 14, 15)})
+        self.assertAlmostEqual(interval_drop, 0.0)
+        self.assertLess(interval_drop, drift.CONFIRM_DROP)
 
     def test_too_few_in_window_revisions_returns_none(self):
         # <3 revisions inside the window can't be binary-searched ⇒ None (guard fires before any WikiWho call).
@@ -782,13 +785,13 @@ class RefineBinarySearch(unittest.TestCase):
         self.members = [set(range(1, 9)), end_members]
         self.present = {token: [0] + ([1] if token in end_members else []) for token in range(1, 9)}
         self.idx_of_rev = {10: 0, 20: 1}
-        before, after, drop = self._run({rev: set() for rev in (11, 12, 13, 14, 15)})
+        before, after, interval_drop, _ = self._run({rev: set() for rev in (11, 12, 13, 14, 15)})
         self.assertEqual((before[0], after[0]), (10, 20))
-        self.assertAlmostEqual(drop, 0.75)
-        self.assertGreaterEqual(drop, drift.CONFIRM_DROP)
+        self.assertAlmostEqual(interval_drop, 0.75)
+        self.assertGreaterEqual(interval_drop, drift.CONFIRM_DROP)
         evaluation = drift._candidate_evaluation(
             {"start": ("2021-01-01", 10), "end": ("2021-07-01", 20), "abs": 1000, "peak": 50.0},
-            (before, after, drop),
+            (before, after, interval_drop, interval_drop),
         )
         self.assertEqual(evaluation["decision"], "confirmed")
         self.assertIsNone(evaluation["rejection_reason"])
@@ -818,11 +821,89 @@ class RefineBinarySearch(unittest.TestCase):
 
         with mock.patch.object(provenance, "tokens_at", fake_tokens_at), \
              mock.patch.object(drift, "MIN_COHORT", 3):
-            before, after, drop = drift.refine(
+            before, after, interval_drop, _ = drift.refine(
                 "A", self.con, [], self.members, self.present, self.idx_of_rev, self.peak,
             )
         self.assertEqual((before[0], after[0]), (10, 20))
-        self.assertAlmostEqual(drop, 0.75)
+        self.assertAlmostEqual(interval_drop, 0.75)
+
+
+class ShortExactPairGuard(unittest.TestCase):
+    """Reject absurdly short exact pairs inside multi-year coarse windows (short_exact_pair_high_drop QA)."""
+
+    def setUp(self):
+        self.con = duckdb.connect(":memory:")
+        provenance.ensure_schema(self.con)
+        revision_rows = [
+            ("A", 11, "2010-02-01T00:00:00Z", "u"),
+            ("A", 12, "2010-04-01T00:00:00Z", "u"),
+            ("A", 13, "2010-06-15T19:36:58Z", "u"),
+            ("A", 14, "2010-06-15T19:37:47Z", "RemovingEditor"),
+            ("A", 15, "2011-01-01T00:00:00Z", "u"),
+            ("A", 16, "2012-01-01T00:00:00Z", "u"),
+        ]
+        self.con.executemany("INSERT INTO revisions VALUES (?,?,?,?)", revision_rows)
+        self.con.execute(
+            "INSERT INTO revisions VALUES (?,?,?,?)",
+            ["A", 5, "2009-12-01T00:00:00Z", "before"],
+        )
+        self.con.execute(
+            "INSERT INTO revisions VALUES (?,?,?,?)",
+            ["A", 30, "2012-06-01T00:00:00Z", "after"],
+        )
+        self.addCleanup(self.con.close)
+        self.members = [set(range(1, 9))]
+        self.present = {token: [0] for token in range(1, 9)}
+        self.idx_of_rev = {10: 0}
+        self.peak = ("2010-01-01", 10, "2012-01-01", 20, 64.0)
+
+    def test_seconds_long_pair_in_multi_year_window_is_insufficient(self):
+        full = set(range(1, 9))
+        collapsed = {1, 2}
+        toksets = {
+            11: full, 12: full, 13: full, 14: collapsed, 15: collapsed, 16: collapsed,
+        }
+
+        def fake_tokens_at(art, rev, io=False):
+            return [{"token_id": token} for token in toksets[rev]]
+
+        with mock.patch.object(provenance, "tokens_at", fake_tokens_at), \
+             mock.patch.object(drift, "MIN_COHORT", 3):
+            result = drift.refine("A", self.con, [], self.members, self.present, self.idx_of_rev, self.peak)
+
+        self.assertIsNone(result)
+        evaluation = drift._candidate_evaluation(
+            {"start": ("2010-01-01", 10), "end": ("2012-01-01", 20), "abs": 42000, "peak": 64.0},
+            result,
+        )
+        self.assertEqual(evaluation["decision"], "rejected")
+        self.assertEqual(evaluation["rejection_reason"], "insufficient_revision_evidence")
+
+    def test_short_pair_same_day_coarse_window_still_resolves(self):
+        peak = ("2015-09-24", 10, "2015-09-25", 20, 72.0)
+        self.con.executemany("INSERT INTO revisions VALUES (?,?,?,?)", [
+            ("B", 51, "2015-09-24T22:10:00Z", "u"),
+            ("B", 52, "2015-09-24T22:12:56Z", "u"),
+            ("B", 53, "2015-09-24T22:15:04Z", "u"),
+        ])
+        full = set(range(1, 9))
+        collapsed = {1}
+        toksets = {51: full, 52: full, 53: collapsed}
+
+        def fake_tokens_at(art, rev, io=False):
+            return [{"token_id": token} for token in toksets[rev]]
+
+        with mock.patch.object(provenance, "tokens_at", fake_tokens_at), \
+             mock.patch.object(drift, "MIN_COHORT", 3):
+            result = drift.refine(
+                "B", self.con, [], [full], {t: [0] for t in full}, {10: 0},
+                peak,
+            )
+
+        self.assertIsNotNone(result)
+        before, after, interval_drop, pair_drop = result
+        self.assertEqual((before[0], after[0]), (52, 53))
+        self.assertGreaterEqual(interval_drop, drift.CONFIRM_DROP)
 
 
 class AnalyzeConfirmationContract(unittest.TestCase):
@@ -932,7 +1013,7 @@ class AnalyzeConfirmationContract(unittest.TestCase):
             (4.0, 2.0, 1.0), [episode],
         )
         confirmation = ((111, "2020-06-01T00:00:00Z", "Before"),
-                        (112, "2020-06-02T00:00:00Z", "After"), 0.4)
+                        (112, "2020-06-02T00:00:00Z", "After"), 0.4, 0.4)
         attribution = {
             "duration_seconds": 86400,
             "removed_tokens": 10,
@@ -996,9 +1077,9 @@ class AnalyzeConfirmationContract(unittest.TestCase):
             (9.0, 2.0, 1.0), [primary],
         )
         primary_result = ((111, "2021-06-01T00:00:00Z", "Before"),
-                          (112, "2021-06-02T00:00:00Z", "After"), 0.1)
+                          (112, "2021-06-02T00:00:00Z", "After"), 0.1, 0.1)
         rolling_result = ((211, "2023-06-01T00:00:00Z", "Before"),
-                          (212, "2023-06-02T00:00:00Z", "After"), 0.3)
+                          (212, "2023-06-02T00:00:00Z", "After"), 0.3, 0.3)
 
         with mock.patch.object(provenance, "ensure_sizes"), \
              mock.patch.object(provenance, "ensure_indexes"), \
@@ -1029,6 +1110,7 @@ class AnalyzeConfirmationContract(unittest.TestCase):
                 "exact_after_revid": 112,
                 "exact_after_timestamp": "2021-06-02T00:00:00Z",
                 "durable_spine_drop": 0.1,
+                "exact_pair_drop": 0.1,
                 "decision": "rejected",
                 "rejection_reason": "durable_spine_drop_below_threshold",
             },
@@ -1045,6 +1127,7 @@ class AnalyzeConfirmationContract(unittest.TestCase):
                 "exact_after_revid": 212,
                 "exact_after_timestamp": "2023-06-02T00:00:00Z",
                 "durable_spine_drop": 0.3,
+                "exact_pair_drop": 0.3,
                 "decision": "confirmed",
                 "rejection_reason": None,
             },
