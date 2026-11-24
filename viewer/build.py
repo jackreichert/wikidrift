@@ -1146,7 +1146,7 @@ def headline(article, f):
             bits.append(f"{n_differ} questions out of {n_tot} have compatible detail differences")
 
     fr = f.framings.get(article) or {}
-    divs = fr.get("divergences") or []
+    divs = _framing_divergences(fr)
     if divs:
         if any(d.get("verdict") == "contradict" for d in divs):
             bits.append("language openings contradict each other on something important")
@@ -1331,7 +1331,7 @@ def _signal_cards(article, f):
         )
 
     fr = f.framings.get(article) or {}
-    divs = fr.get("divergences") or []
+    divs = _framing_divergences(fr)
     if divs:
         n_c = sum(1 for d in divs if d.get("verdict") == "contradict")
         cards.append(
@@ -2151,12 +2151,70 @@ def profile_line(prof):
     )
 
 
+def _framing_records(fr):
+    if not fr:
+        return []
+    episodes = fr.get("episodes")
+    if isinstance(episodes, list):
+        return episodes
+    return [fr]
+
+
+def _framing_record_has_comparison(record):
+    if not record or record.get("error"):
+        return False
+    calls = (record.get("llm_usage") or {}).get("calls", 0)
+    return bool(record.get("divergences")) or calls > 0
+
+
 def _framing_result_available(fr):
     """A file records an available comparison only after inference produced a result."""
-    if not fr or fr.get("error"):
-        return False
-    calls = (fr.get("llm_usage") or {}).get("calls", 0)
-    return bool(fr.get("divergences") or calls)
+    records = _framing_records(fr)
+    if records:
+        return any(_framing_record_has_comparison(record) for record in records)
+    return _framing_record_has_comparison(fr)
+
+
+def _framing_tab_has_content(fr):
+    """Whether the framing tab should render (including honest insufficient receipts)."""
+    records = _framing_records(fr)
+    if records:
+        return any(record.get("analysis_status", "available") == "available" for record in records)
+    return bool(fr)
+
+
+def _framing_divergences(fr):
+    records = _framing_records(fr)
+    divergences = []
+    for record in records:
+        if not _framing_record_has_comparison(record):
+            continue
+        divergences.extend(record.get("divergences") or [])
+    if not records:
+        divergences.extend((fr or {}).get("divergences") or [])
+    return divergences
+
+
+def _framing_insufficient_note(fr):
+    """Explain missing before/after lead receipts when comparison was skipped."""
+    snapshots = fr.get("snapshots") or {}
+    before = set(snapshots.get("before") or {})
+    after = set(snapshots.get("after") or {})
+    tried = sorted(before | after)
+    if not tried:
+        return ""
+    gaps = []
+    for lang in tried:
+        if lang not in before:
+            gaps.append(f"{lang}: no lead revision at or before the window start")
+        elif lang not in after:
+            gaps.append(f"{lang}: no lead revision at or after the window end")
+    note = (
+        "Fewer than two language editions had usable opening text at both ends of this window."
+    )
+    if gaps:
+        note += " Partial receipts: " + "; ".join(gaps) + "."
+    return note
 
 
 def _temporal_change_cell(before_text, after_text, before_evidence, after_evidence):
@@ -2226,6 +2284,9 @@ def framing_lite_block(fr):
         if receipt_bits:
             head += f'<p class="muted">Version receipts: {" · ".join(receipt_bits)}</p>'
     if not _framing_result_available(fr):
+        insufficient = _framing_insufficient_note(fr)
+        if insufficient:
+            return head + f'<p class="muted">{esc(insufficient)}</p>'
         return head + '<p class="muted">No comparison result is available for this run.</p>'
     if not divs:
         return head + '<p class="muted">No clear differences were recorded in this check.</p>'
@@ -2323,7 +2384,7 @@ def _layer_flags(article, f):
     rewrite_state = _rewrite_state(article, f)
     has_src = article in f.sources
     framing = f.framings.get(article) or {}
-    has_framing = _framing_result_available(framing)
+    has_framing = _framing_result_available(framing) or _framing_tab_has_content(framing)
     has_facts = bool(f.factchecks.get(article))
     has_rev = bool(_version_records(f.receipts.get(article), framing))
     return [
@@ -2428,8 +2489,9 @@ def signal_badges(article, f, score=None):
         badges.append(f'<span class="sig fact">{fact_lbl}</span>')
 
     fr = f.framings.get(article) or {}
-    if fr.get("divergences"):
-        has_contradict = any(d.get("verdict") == "contradict" for d in fr["divergences"])
+    framing_divs = _framing_divergences(fr)
+    if framing_divs:
+        has_contradict = any(d.get("verdict") == "contradict" for d in framing_divs)
         badge_cls = "sig framing-c" if has_contradict else "sig framing"
         label = "openings contradict" if has_contradict else "openings differ"
         badges.append(f'<span class="{badge_cls}">{label}</span>')

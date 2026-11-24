@@ -1237,6 +1237,23 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("No comparison result is available", block)
         self.assertNotIn("No clear differences", block)
 
+    def test_insufficient_framing_explains_partial_receipts(self):
+        framing = {
+            "mode": "pivot_relative",
+            "summary": "Insufficient matched historical content.",
+            "divergences": [],
+            "llm_usage": {"calls": 0},
+            "snapshots": {
+                "before": {"en": {"revid": 1, "lead": "a"}},
+                "after": {"en": {"revid": 2, "lead": "b"}, "vi": {"revid": 3, "lead": "c"}},
+            },
+        }
+
+        block = build.framing_lite_block(framing)
+
+        self.assertIn("Fewer than two language editions", block)
+        self.assertIn("vi: no lead revision at or before the window start", block)
+
     def test_completed_empty_framing_is_a_valid_no_difference_result(self):
         framing = {
             "summary": "The supplied openings are substantively aligned.",
