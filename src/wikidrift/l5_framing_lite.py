@@ -299,6 +299,78 @@ def _select_editions(category: str, links: dict[str, str], lengths: dict[str, in
     return result[:MAX_EDITIONS]
 
 
+def _edition_candidate_order(category: str, links: dict[str, str], lengths: dict[str, int]) -> list[str]:
+    """Languages to try for temporal lead comparison, best-first but exhaustible.
+
+    Static comparison caps at MAX_EDITIONS. Temporal mode walks this list until enough
+    editions have matched lead revisions at both window endpoints.
+    """
+    seen: set[str] = set()
+    ordered: list[str] = []
+    for lang in _select_editions(category, links, lengths):
+        if lang in links and lang not in seen:
+            seen.add(lang)
+            ordered.append(lang)
+    for lang, length in sorted(
+        ((lang, lengths.get(lang, 0)) for lang in links if lang not in seen),
+        key=lambda item: -item[1],
+    ):
+        if length >= MIN_EDITION_BYTES:
+            seen.add(lang)
+            ordered.append(lang)
+    return ordered
+
+
+def _lead_snapshot(
+    lang: str,
+    title: str,
+    *,
+    before_ts: str,
+    after_ts: str,
+    endpoint_before: int | None,
+    endpoint_after: int | None,
+) -> tuple[dict | None, dict | None]:
+    if lang == "en" and endpoint_before is not None and endpoint_after is not None:
+        before = _fetch_lead_by_revid(lang, title, endpoint_before)
+        after = _fetch_lead_by_revid(lang, title, endpoint_after)
+    else:
+        before = _fetch_lead_revision(lang, title, before_ts)
+        after = _fetch_lead_revision(lang, title, after_ts, after=True)
+    return before, after
+
+
+def _temporal_lead_snapshots(
+    article: str,
+    links: dict[str, str],
+    pivot_window: dict,
+    category: str,
+    lengths: dict[str, int],
+) -> tuple[dict, list[str]]:
+    """Fetch before/after lead receipts, widening edition selection when early picks lack history."""
+    before_ts = f"{pivot_window['start']}T00:00:00Z"
+    after_ts = f"{pivot_window['end']}T00:00:00Z"
+    endpoint_before = pivot_window.get("candidate_before_revid")
+    endpoint_after = pivot_window.get("candidate_after_revid")
+    snapshots: dict = {"before": {}, "after": {}}
+    matched_editions: list[str] = []
+    for lang in _edition_candidate_order(category, links, lengths):
+        if len(matched_editions) >= MAX_EDITIONS:
+            break
+        title = links.get(lang, article) if lang != "en" else article
+        before, after = _lead_snapshot(
+            lang, title, before_ts=before_ts, after_ts=after_ts,
+            endpoint_before=endpoint_before, endpoint_after=endpoint_after,
+        )
+        if before:
+            snapshots["before"][lang] = before
+        if after:
+            snapshots["after"][lang] = after
+        print(f"  {lang}: before={'yes' if before else 'missing'}, after={'yes' if after else 'missing'}")
+        if before and after and lang not in matched_editions:
+            matched_editions.append(lang)
+    return snapshots, matched_editions
+
+
 def _compare_leads(article: str, lead_texts: dict[str, str], pivot_window: dict | None, client) -> dict:
     """LLM divergence analysis across lead sections."""
     pivot_note = ""
@@ -482,31 +554,15 @@ def framing_lite(
     mode = "static"
     if pivot_window:
         mode = "pivot_relative" if pivot_window.get("status") == "confirmed" else "candidate_relative"
-        snapshots = {"before": {}, "after": {}}
-        before_ts = f"{pivot_window['start']}T00:00:00Z"
-        after_ts = f"{pivot_window['end']}T00:00:00Z"
-        endpoint_before = pivot_window.get("candidate_before_revid")
-        endpoint_after = pivot_window.get("candidate_after_revid")
-        for lang in editions:
-            title = links.get(lang, article) if lang != "en" else article
-            if lang == "en" and endpoint_before is not None and endpoint_after is not None:
-                before = _fetch_lead_by_revid(lang, title, endpoint_before)
-                after = _fetch_lead_by_revid(lang, title, endpoint_after)
-            else:
-                before = _fetch_lead_revision(lang, title, before_ts)
-                after = _fetch_lead_revision(lang, title, after_ts, after=True)
-            if before:
-                snapshots["before"][lang] = before
-            if after:
-                snapshots["after"][lang] = after
-            print(f"  {lang}: before={'yes' if before else 'missing'}, after={'yes' if after else 'missing'}")
-        complete = set(snapshots["before"]) & set(snapshots["after"])
-        if "en" not in complete or len(complete) < 2:
+        snapshots, matched_editions = _temporal_lead_snapshots(
+            article, links, pivot_window, category, lengths,
+        )
+        if "en" not in matched_editions or len(matched_editions) < 2:
             print("  fewer than 2 editions have matched historical leads — skipping comparison")
             return finish({"article": article, "mode": mode, "pivot_window": pivot_window,
-                           "editions_compared": sorted(complete), "snapshots": snapshots,
+                           "editions_compared": matched_editions, "snapshots": snapshots,
                            "divergences": [], "summary": "Insufficient matched historical content."})
-        editions = [lang for lang in editions if lang in complete]
+        editions = matched_editions
         try:
             comparison = _compare_temporal_leads(article, snapshots, pivot_window, client)
         except Exception as exc:

@@ -1999,6 +1999,40 @@ class FramingLiteEditionSelect(unittest.TestCase):
         self.assertNotIn(("time", "fr", "2020-06-01T12:00:00Z", False), fetched)
         self.assertNotIn(("time", "fr", "2020-06-01T12:05:00Z", True), fetched)
 
+    def test_temporal_edition_selection_widens_when_top_length_editions_lack_history(self):
+        links = {
+            "en": "Testland", "fa": "Testland FA", "vi": "Testland VI", "pt": "Testland PT",
+        }
+        lengths = {"fa": 3000, "vi": 2100, "pt": 2500}
+
+        def fake_revision(lang, title, timestamp, after=False):
+            if lang in {"fa", "vi"} and not after:
+                return None
+            return {
+                "revid": hash((lang, timestamp, after)) % 10_000,
+                "timestamp": timestamp,
+                "title": title,
+                "lead": f"{lang}-{'after' if after else 'before'}",
+            }
+
+        with patch.object(fl, "_fetch_lead_revision", side_effect=fake_revision), \
+             patch.object(fl, "_fetch_lead_by_revid") as by_revid:
+            by_revid.side_effect = lambda lang, title, revid: {
+                "revid": revid, "timestamp": "2020-01-01T00:00:00Z",
+                "title": title, "lead": f"en-{revid}",
+            }
+            snapshots, matched_editions = fl._temporal_lead_snapshots(
+                "Testland", links,
+                {"start": "2020-01-01", "end": "2021-01-01", "status": "confirmed",
+                 "candidate_before_revid": 1, "candidate_after_revid": 2},
+                "general", lengths,
+            )
+
+        self.assertIn("en", matched_editions)
+        self.assertIn("pt", matched_editions)
+        self.assertNotIn("fa", matched_editions)
+        self.assertNotIn("vi", matched_editions)
+
     def test_early_exit_persists_current_usage_instead_of_leaving_stale_finding(self):
         client = type("Client", (), {"model": "m", "usage_records": []})()
         record = {
