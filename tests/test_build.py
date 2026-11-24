@@ -907,6 +907,44 @@ class ArticlePageRendering(unittest.TestCase):
                 out,
             )
 
+    def test_candidate_redline_links_by_exact_revision_when_window_keys_differ(self):
+        candidates = [{
+            "candidate_start": "2003-01-01",
+            "candidate_end": "2004-01-01",
+            "exact_before_revid": 11,
+            "exact_after_revid": 12,
+            "decision": "confirmed",
+            "durable_spine_drop": 0.9,
+            "peak_pct": 50.0,
+            "pwr_mass": 400,
+        }]
+        episodes = [{
+            "candidate_start": "2003-01-01",
+            "candidate_end": "2004-01-01",
+            "before_revid": 11,
+            "after_revid": 12,
+            "durable_spine_drop": 0.9,
+        }]
+        pivots = {
+            "pivots": [{
+                "start": "2003-06-15",
+                "end": "2003-06-15",
+                "before_rev": 11,
+                "after_rev": 12,
+            }]
+        }
+
+        out = build._candidate_evaluations_receipt(
+            {"evaluated_candidates": candidates, "thresholds": {"confirm_drop": 0.2}},
+            pivots,
+            "Abortion",
+            episodes,
+        )
+
+        self.assertIn('href="Abortion.p0.html"', out)
+        self.assertIn('aria-label="View redline for candidate 2003-01-01 to 2004-01-01"', out)
+        self.assertNotIn("Redline unavailable", out)
+
     def test_confirmation_episode_without_matching_pivot_marks_redline_unavailable(self):
         out = build.confirmation_section(
             {

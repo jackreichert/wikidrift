@@ -187,8 +187,8 @@ def _exact_pivots(article, confirmation, database=None):
         _report_missing_authorship(article, before_revid, before_tokens)
         _report_missing_authorship(article, after_revid, after_tokens)
         pivots.append({
-            "start": episode.get("before_timestamp", "")[:10],
-            "end": episode.get("after_timestamp", "")[:10],
+            "start": episode.get("candidate_start") or episode.get("before_timestamp", "")[:10],
+            "end": episode.get("candidate_end") or episode.get("after_timestamp", "")[:10],
             "peak_pct": round(100 * (episode.get("durable_spine_drop") or 0), 2),
             "pwr_mass": episode.get("pwr_mass"),
             "before_rev": before_revid,
@@ -206,16 +206,29 @@ def _exact_pivots(article, confirmation, database=None):
     return pivots, unavailable_pairs
 
 
+def _materialize_candidate_revision_pair(candidate):
+    """Fetch revision ids and prose, retrying exact ids when a confirmed coarse pair is empty."""
+    before_revid = candidate.get("candidate_before_revid")
+    after_revid = candidate.get("candidate_after_revid")
+    before_text = prose_at(before_revid)
+    after_text = prose_at(after_revid)
+    if (not before_text or not after_text) and candidate.get("decision") == "confirmed":
+        exact_before = candidate.get("exact_before_revid")
+        exact_after = candidate.get("exact_after_revid")
+        if exact_before and exact_after and (exact_before, exact_after) != (before_revid, after_revid):
+            before_revid, after_revid = exact_before, exact_after
+            before_text = prose_at(before_revid)
+            after_text = prose_at(after_revid)
+    return before_revid, after_revid, before_text, after_text
+
+
 def _candidate_pivots(article, confirmation, database=None):
     """Materialize each evaluated coarse candidate as an inspectable redline."""
     authors = _revision_authors(article, database)
     pivots = []
     unavailable_pairs = []
     for candidate in confirmation.get("evaluated_candidates") or []:
-        before_revid = candidate.get("candidate_before_revid")
-        after_revid = candidate.get("candidate_after_revid")
-        before_text = prose_at(before_revid)
-        after_text = prose_at(after_revid)
+        before_revid, after_revid, before_text, after_text = _materialize_candidate_revision_pair(candidate)
         if not before_text or not after_text:
             unavailable_pairs.append(f"{before_revid}→{after_revid}")
             continue
