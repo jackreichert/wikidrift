@@ -352,10 +352,11 @@ usable "before" lead and a usable "after" lead around the English timestamps. An
 side is dropped. The current implementation does not backfill another language after that point, so the
 published comparison can contain fewer than five editions even when the initial candidate set was full.
 
-The lead comparison first looks for a fresh L1 confirmation artifact. If one exists, English uses the exact
-revision pair where the durable text collapsed. Every other edition uses the last revision at or
-before the confirmed English "before" timestamp and the first revision at or after its "after"
-timestamp. This mode is labeled **pivot-relative**.
+The lead comparison first looks for a fresh L1 confirmation artifact. If one exists, it samples leads at the
+coarse candidate window endpoints that surround the confirmed rewrite (English prefers the recorded
+candidate snapshot revisions; other editions match the window start and end dates). It does **not** use the
+short exact revision pair where the durable spine collapsed — that burst is the rewrite receipt, and leads
+usually do not change inside it. This mode is labeled **pivot-relative**.
 
 The confirmation artifact records the corpus horizon and L1 thresholds used to create it. If either
 has changed, the lead comparison ignores the artifact rather than silently reusing stale evidence. It then

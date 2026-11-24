@@ -1178,9 +1178,36 @@ class ArticlePageRendering(unittest.TestCase):
         out = build.framing_lite_block(framing)
 
         self.assertIn("confirmed rewrite", out)
+        self.assertIn("endpoints of the confirmed rewrite", out)
         self.assertIn("oldid=111", out)
         self.assertIn("oldid=112", out)
         self.assertNotIn("L1 candidate window", out)
+
+    def test_temporal_framing_collapses_identical_before_after(self):
+        framing = {
+            "mode": "pivot_relative",
+            "divergences": [{
+                "topic": "definition",
+                "verdict": "differ",
+                "temporal_read": "difference_persisted",
+                "editions_differ": ["DE"],
+                "en_before": "Same English lead.",
+                "en_after": "Same English lead.",
+                "other_before": "Same German lead.",
+                "other_after": "Same German lead.",
+                "evidence_en_before": "Same English lead.",
+                "evidence_en_after": "Same English lead.",
+                "evidence_other_before": "Same German lead.",
+                "evidence_other_after": "Same German lead.",
+            }],
+        }
+
+        out = build.framing_lite_block(framing)
+
+        self.assertIn("<b>Unchanged:</b> Same English lead.", out)
+        self.assertIn("<b>Unchanged:</b> Same German lead.", out)
+        self.assertNotIn("<b>Before:</b>", out)
+        self.assertNotIn("<b>After:</b>", out)
 
     def test_failed_framing_is_unavailable_not_a_no_difference_result(self):
         framing = {

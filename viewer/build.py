@@ -2159,6 +2159,25 @@ def _framing_result_available(fr):
     return bool(fr.get("divergences") or calls)
 
 
+def _temporal_change_cell(before_text, after_text, before_evidence, after_evidence):
+    """Render before/after lead text; collapse when the pair is identical."""
+    before = before_text or "not stated"
+    after = after_text or "not stated"
+    before_quote = before_evidence or "no quotation"
+    after_quote = after_evidence or "no quotation"
+    if before == after and before_quote == after_quote:
+        return (
+            f'<b>Unchanged:</b> {esc(before)}<br>'
+            f'<span class="muted">&ldquo;{esc(before_quote)}&rdquo;</span>'
+        )
+    return (
+        f'<b>Before:</b> {esc(before)}<br>'
+        f'<span class="muted">&ldquo;{esc(before_quote)}&rdquo;</span><br>'
+        f'<b>After:</b> {esc(after)}<br>'
+        f'<span class="muted">&ldquo;{esc(after_quote)}&rdquo;</span>'
+    )
+
+
 def framing_lite_block(fr):
     """Extra cross-language opening comparisons (when present)."""
     if not fr:
@@ -2173,8 +2192,8 @@ def framing_lite_block(fr):
     if pivot:
         window_label = "confirmed rewrite" if mode == "pivot_relative" else "L1 candidate window"
         pivot_note = (
-            f'<p class="muted">Compared matched historical revisions around the {window_label} from '
-            f'{esc(pivot.get("start", "?"))} to {esc(pivot.get("end", "?"))}.</p>'
+            f'<p class="muted">Compared matched historical lead revisions at the endpoints of the '
+            f'{window_label} from {esc(pivot.get("start", "?"))} to {esc(pivot.get("end", "?"))}.</p>'
         )
     head = (
         f'<h3 class="col-h">Cross-language lead comparison</h3>'
@@ -2242,17 +2261,13 @@ def framing_lite_block(fr):
         if temporal:
             temporal_read = d.get("temporal_read", "unclear")
             cls = temporal_cls.get(temporal_read, "v-i")
-            en_says = (
-                f'<b>Before:</b> {esc(d.get("en_before") or "not stated")}<br>'
-                f'<span class="muted">&ldquo;{esc(d.get("evidence_en_before") or "no quotation")}&rdquo;</span><br>'
-                f'<b>After:</b> {esc(d.get("en_after") or "not stated")}<br>'
-                f'<span class="muted">&ldquo;{esc(d.get("evidence_en_after") or "no quotation")}&rdquo;</span>'
+            en_says = _temporal_change_cell(
+                d.get("en_before"), d.get("en_after"),
+                d.get("evidence_en_before"), d.get("evidence_en_after"),
             )
-            other_says = (
-                f'<b>Before:</b> {esc(d.get("other_before") or "not stated")}<br>'
-                f'<span class="muted">&ldquo;{esc(d.get("evidence_other_before") or "no quotation")}&rdquo;</span><br>'
-                f'<b>After:</b> {esc(d.get("other_after") or "not stated")}<br>'
-                f'<span class="muted">&ldquo;{esc(d.get("evidence_other_after") or "no quotation")}&rdquo;</span>'
+            other_says = _temporal_change_cell(
+                d.get("other_before"), d.get("other_after"),
+                d.get("evidence_other_before"), d.get("evidence_other_after"),
             )
         else:
             cls = verdict_cls.get(v, "v-i")

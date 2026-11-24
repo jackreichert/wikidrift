@@ -47,7 +47,7 @@ upper layers add language and meaning. **All are leads.**
 | **L2a — additive trajectory** | Which sentence-level claims were added, removed, retained, or relocated across exact stable revisions, and which additions remained standing? | internal — `wikidrift framing-trajectory`; deterministic research lead |
 | **L4 — discovery** | Where else to look? Use a confirmed article's actors as a *search prior* → re-test each candidate by its own content. | prior → internal |
 | **L5 cross-language stance comparison** | Does entity-relative stance differ across editions, and did English *peel away* around the pivot? | **external** — standalone instrument (`wikidrift crosslingual`) |
-| **L5 cross-language lead comparison** | Which concrete claims, omissions, or contradictions differ across edition leads? Prefer the exact pair from a fresh persisted L1 confirmation, then fall back to the coarse candidate or current leads. | **external** — `wikidrift framing` or `pipeline --framing`; category slate + top-2 by length; pivot-relative, candidate-relative, or static |
+| **L5 cross-language lead comparison** | Which concrete claims, omissions, or contradictions differ across edition leads? Prefer the coarse L1 window endpoints from a fresh confirmation (not the short exact rewrite burst), then fall back to the coarse candidate or current leads. | **external** — `wikidrift framing` or `pipeline --framing`; category slate + top-2 by length; pivot-relative, candidate-relative, or static |
 | **L5 #2 — fact/claim** | Do the editions disagree on load-bearing *facts* (as-of aware)? | **external** — standalone instrument (`wikidrift factcheck`) |
 | **L5 #3b — citation-source change** | What did the article's *own citations* change **from → to** across the pivot? Reference-agnostic; **rates no source.** | internal (own refs) |
 
@@ -148,9 +148,10 @@ change only; it does not establish bias, motive, policy violation, or coordinati
 
 Downstream analysis is event-complete rather than article-singleton. Every fresh confirmed revision pair receives
 its own vocabulary and citation analysis. When requested, framing and fact comparison also run independently for
-every pair. Vocabulary, citations, and framing bind to the exact before and after revisions. Fact comparison asks
-a different question: it compares editions as of the exact post-event timestamp and is not presented as a
-before/after fact change.
+every pair. Vocabulary and citations bind to the exact before and after revisions of the spine-collapse burst.
+Framing compares leads at the coarse candidate window endpoints that surround that burst — openings rarely move
+inside a minutes-long confirmation pair. Fact comparison asks a different question: it compares editions as of
+the exact post-event timestamp and is not presented as a before/after fact change.
 
 Layer artifacts retain one record per event under `episodes`, identified by the exact
 `<before_revid>-<after_revid>` pair. Each record reports whether its evidence is available. Retrieval or model

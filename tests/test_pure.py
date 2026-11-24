@@ -1948,6 +1948,57 @@ class FramingLiteEditionSelect(unittest.TestCase):
         self.assertEqual(record["revid"], 456)
         self.assertEqual(mock_get.call_args.kwargs["params"]["revids"], 456)
 
+    def test_pivot_relative_framing_samples_candidate_endpoints_not_exact_burst(self):
+        """Confirmed windows keep exact burst ids for provenance; leads use window endpoints."""
+        fetched = []
+
+        def fake_by_revid(lang, title, revid):
+            fetched.append(("revid", lang, revid))
+            return {
+                "revid": revid, "timestamp": "2020-01-01T00:00:00Z",
+                "title": title, "lead": f"lead-{revid}",
+            }
+
+        def fake_by_time(lang, title, timestamp, after=False):
+            fetched.append(("time", lang, timestamp, after))
+            return {
+                "revid": 999, "timestamp": timestamp,
+                "title": title, "lead": f"lead-{lang}-{'after' if after else 'before'}",
+            }
+
+        class Client:
+            model = "m"
+            usage_records = []
+
+            def complete_json(self, _schema, _prompt, max_tokens=0):
+                return {"divergences": [], "summary": "aligned"}
+
+        window = {
+            "start": "2020-01-01", "end": "2021-01-01", "pwr_mass": 1000,
+            "status": "confirmed",
+            "candidate_before_revid": 90, "candidate_after_revid": 190,
+            "before_revid": 111, "before_timestamp": "2020-06-01T12:00:00Z",
+            "after_revid": 112, "after_timestamp": "2020-06-01T12:05:00Z",
+        }
+        with patch.object(fl, "_categorize", return_value={"category": "general", "confidence": 1.0}), \
+             patch.object(fl, "sitelinks", return_value=("Q1", {"en": "Testland", "fr": "Testland"})), \
+             patch.object(fl, "_edition_lengths", return_value={"fr": 5000}), \
+             patch.object(fl, "_fetch_lead_by_revid", side_effect=fake_by_revid), \
+             patch.object(fl, "_fetch_lead_revision", side_effect=fake_by_time), \
+             patch.object(fl.config, "write_findings"):
+            result = fl.framing_lite("Testland", pivot_window=window, client=Client())
+
+        self.assertEqual(result["mode"], "pivot_relative")
+        self.assertIn(("revid", "en", 90), fetched)
+        self.assertIn(("revid", "en", 190), fetched)
+        self.assertNotIn(("revid", "en", 111), fetched)
+        self.assertNotIn(("revid", "en", 112), fetched)
+        self.assertIn(("time", "fr", "2020-01-01T00:00:00Z", False), fetched)
+        self.assertIn(("time", "fr", "2021-01-01T00:00:00Z", True), fetched)
+        # Must not pin other editions to the minutes-long exact burst timestamps.
+        self.assertNotIn(("time", "fr", "2020-06-01T12:00:00Z", False), fetched)
+        self.assertNotIn(("time", "fr", "2020-06-01T12:05:00Z", True), fetched)
+
     def test_early_exit_persists_current_usage_instead_of_leaving_stale_finding(self):
         client = type("Client", (), {"model": "m", "usage_records": []})()
         record = {
@@ -2019,6 +2070,7 @@ class PipelinePivotWindow(unittest.TestCase):
             "thresholds": config.confirmation_thresholds(),
             "confirmed_episodes": [{
                 "candidate_start": "2020-01-01", "candidate_end": "2021-01-01",
+                "candidate_before_revid": 90, "candidate_after_revid": 190,
                 "before_revid": 111, "before_timestamp": "2020-06-01T00:00:00Z",
                 "after_revid": 112, "after_timestamp": "2020-06-02T00:00:00Z",
                 "durable_spine_drop": 0.4, "pwr_mass": 42000,
@@ -2027,6 +2079,10 @@ class PipelinePivotWindow(unittest.TestCase):
         window = pipeline._confirmed_window(confirmation, ("2024-01-01", 900))
         self.assertEqual(window["status"], "confirmed")
         self.assertEqual((window["before_revid"], window["after_revid"]), (111, 112))
+        self.assertEqual(
+            (window["candidate_before_revid"], window["candidate_after_revid"]),
+            (90, 190),
+        )
 
     def test_fresh_confirmation_supplies_every_exact_pivot_pair(self):
         confirmation = {

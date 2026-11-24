@@ -1,8 +1,10 @@
 """L5 cross-language lead comparison.
 
-With an L1 candidate window, compares matched historical revisions before and after the window. Without
-one, compares current leads as a static born-framing check. Either mode produces research leads, not a
-judgment about which edition is correct.
+With an L1 candidate window, compares matched historical lead revisions at the window endpoints
+(candidate start/end), not at the short exact rewrite burst that confirmed the durable-spine drop.
+Leads rarely change inside that burst; sampling the endpoints answers how openings drifted across the
+window. Without a window, compares current leads as a static born-framing check. Either mode produces
+research leads, not a judgment about which edition is correct.
 
 Compares lead sections directly; distinct from the entity-stance comparison in l5_crosslingual.
 
@@ -472,6 +474,9 @@ def framing_lite(
     print(f"  comparing: {editions}")
 
     # 5. Fetch comparable lead sections, preserving historical revision receipts when pivot context exists.
+    # Sample the coarse L1 window endpoints (start/end). The exact spine-collapse burst stays on
+    # pivot_window as event provenance for rewrite/attribution panels, but it usually does not move
+    # the lead — using it here produced identical before/after openings on most articles.
     snapshots = None
     lead_texts: dict[str, str] = {}
     mode = "static"
@@ -480,16 +485,16 @@ def framing_lite(
         snapshots = {"before": {}, "after": {}}
         before_ts = f"{pivot_window['start']}T00:00:00Z"
         after_ts = f"{pivot_window['end']}T00:00:00Z"
+        endpoint_before = pivot_window.get("candidate_before_revid")
+        endpoint_after = pivot_window.get("candidate_after_revid")
         for lang in editions:
             title = links.get(lang, article) if lang != "en" else article
-            if lang == "en" and mode == "pivot_relative":
-                before = _fetch_lead_by_revid(lang, title, pivot_window["before_revid"])
-                after = _fetch_lead_by_revid(lang, title, pivot_window["after_revid"])
+            if lang == "en" and endpoint_before is not None and endpoint_after is not None:
+                before = _fetch_lead_by_revid(lang, title, endpoint_before)
+                after = _fetch_lead_by_revid(lang, title, endpoint_after)
             else:
-                match_before = pivot_window.get("before_timestamp", before_ts)
-                match_after = pivot_window.get("after_timestamp", after_ts)
-                before = _fetch_lead_revision(lang, title, match_before)
-                after = _fetch_lead_revision(lang, title, match_after, after=True)
+                before = _fetch_lead_revision(lang, title, before_ts)
+                after = _fetch_lead_revision(lang, title, after_ts, after=True)
             if before:
                 snapshots["before"][lang] = before
             if after:
