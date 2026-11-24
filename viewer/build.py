@@ -1458,14 +1458,48 @@ def _pivot_link_indexes(pivots):
     return by_window, by_rev
 
 
-def _resolve_pivot_index(pivots, *, window=None, before_revid=None, after_revid=None):
-    """Resolve a redline page index from a candidate window and/or revision pair."""
-    by_window, by_rev = _pivot_link_indexes(pivots)
+def _lookup_pivot_index(by_window, by_rev, *, window=None, before_revid=None, after_revid=None):
     if window and window in by_window:
         return by_window[window]
     if before_revid is not None and after_revid is not None:
         return by_rev.get((before_revid, after_revid))
     return None
+
+
+def _resolve_pivot_index(pivots, *, window=None, before_revid=None, after_revid=None):
+    """Resolve a redline page index from a candidate window and/or revision pair."""
+    return _lookup_pivot_index(
+        *_pivot_link_indexes(pivots),
+        window=window,
+        before_revid=before_revid,
+        after_revid=after_revid,
+    )
+
+
+def _candidate_window_bounds(record):
+    start, end = record.get("candidate_start"), record.get("candidate_end")
+    return (start, end) if start and end else None
+
+
+def _confirmed_episode_for_window(episodes, window):
+    if not window:
+        return {}
+    return next((
+        item for item in episodes
+        if window == (item.get("candidate_start"), item.get("candidate_end"))
+    ), {})
+
+
+def _redline_revision_ids(candidate, episode):
+    """Prefer exact receipt revids, then the matching confirmed episode, then coarse window."""
+    return (
+        candidate.get("exact_before_revid")
+        or episode.get("before_revid")
+        or candidate.get("candidate_before_revid"),
+        candidate.get("exact_after_revid")
+        or episode.get("after_revid")
+        or candidate.get("candidate_after_revid"),
+    )
 
 
 def _redline_evidence_link(slug, pivot_index, aria_label):
@@ -1484,9 +1518,7 @@ def _confirmation_episode_row(episode, pivots=None, slug=None):
     after = _revision_link(after_revid, episode.get("after_timestamp"), "After")
     drop = 100 * (episode.get("durable_spine_drop") or 0)
     duration = _format_duration(episode.get("duration_seconds"))
-    window = (episode.get("candidate_start"), episode.get("candidate_end"))
-    if not window[0] or not window[1]:
-        window = None
+    window = _candidate_window_bounds(episode)
     pivot_index = _resolve_pivot_index(
         pivots,
         window=window,
@@ -1563,28 +1595,19 @@ def _candidate_evaluations_receipt(confirmation, pivots=None, slug=None, episode
     )
     episodes = episodes or []
     required_drop = (confirmation.get("thresholds") or {}).get("confirm_drop", 0.2)
+    pivot_by_window, pivot_by_rev = _pivot_link_indexes(pivots)
     rows = []
     for candidate in candidates:
         source = "rolling second pass" if candidate.get("source") == "rolling" else "coarse interval"
-        window = (candidate.get("candidate_start"), candidate.get("candidate_end"))
-        episode = next((
-            item for item in episodes
-            if window[0]
-            and window == (item.get("candidate_start"), item.get("candidate_end"))
-        ), {})
-        pivot_index = _resolve_pivot_index(
-            pivots,
+        window = _candidate_window_bounds(candidate)
+        episode = _confirmed_episode_for_window(episodes, window)
+        before_revid, after_revid = _redline_revision_ids(candidate, episode)
+        pivot_index = _lookup_pivot_index(
+            pivot_by_window,
+            pivot_by_rev,
             window=window,
-            before_revid=(
-                candidate.get("exact_before_revid")
-                or episode.get("before_revid")
-                or candidate.get("candidate_before_revid")
-            ),
-            after_revid=(
-                candidate.get("exact_after_revid")
-                or episode.get("after_revid")
-                or candidate.get("candidate_after_revid")
-            ),
+            before_revid=before_revid,
+            after_revid=after_revid,
         )
         window_label = f'{candidate.get("candidate_start")} to {candidate.get("candidate_end")}'
         evidence = _redline_evidence_link(
