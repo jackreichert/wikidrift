@@ -901,7 +901,7 @@ class ShortExactPairGuard(unittest.TestCase):
             )
 
         self.assertIsNotNone(result)
-        before, after, interval_drop, pair_drop = result
+        before, after, interval_drop, _pair_drop = result
         self.assertEqual((before[0], after[0]), (52, 53))
         self.assertGreaterEqual(interval_drop, drift.CONFIRM_DROP)
 
