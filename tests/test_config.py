@@ -71,6 +71,8 @@ class NormalizeArticleArg(unittest.TestCase):
             "durable_quantile": config.DURABLE_Q,
             "min_cohort": config.MIN_COHORT,
             "magnitude_floor": config.MAG_FLOOR,
+            "min_pair_seconds": config.MIN_PAIR_SECONDS,
+            "min_coarse_span_seconds": config.MIN_COARSE_SPAN_SECONDS,
             "rolling_window_months": config.ROLLING_WINDOW_MONTHS,
             "rolling_tolerance_days": config.ROLLING_TOLERANCE_DAYS,
             "rolling_drop": config.ROLLING_DROP,

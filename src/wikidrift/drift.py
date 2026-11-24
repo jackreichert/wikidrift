@@ -38,8 +38,10 @@ from .config import (
     GAIN_FLOOR,
     MAG_FLOOR,
     MASS_FLOOR,
+    MIN_COARSE_SPAN_SECONDS,
     MIN_COHORT,
     MIN_MATURE,
+    MIN_PAIR_SECONDS,
     RECENT_YEARS,
     REPLACEMENT_FLOOR,
     REVIEW_MASS_FLOOR,
@@ -403,7 +405,23 @@ def _rsnap_refine(members, idx_of_rev, peak, cohort, cut):
     print(f"\n  rsnap fallback on durable spine |C|={len(cohort):,} (w≥{cut}): "
           f"{f_start * 100:.0f}% → {f_end * 100:.0f}%  (interval decline {interval_drop * 100:.0f} pts)")
     print(f"  ⇒ snapshot endpoints rev {before[0]} ({d0}) and rev {after[0]} ({d1})")
-    return before, after, interval_drop
+    return before, after, interval_drop, interval_drop
+
+
+def _coarse_span_seconds(start_date, end_date):
+    """Calendar span between coarse candidate snapshot dates (inclusive day endpoints)."""
+    start = dt.datetime.fromisoformat(start_date)
+    end = dt.datetime.fromisoformat(end_date)
+    return max(0, int((end - start).total_seconds()))
+
+
+def _revision_pair_span_seconds(revisions, lo, hi):
+    return (_timestamp(revisions[hi][1]) - _timestamp(revisions[lo][1])).total_seconds()
+
+
+def _localized_pair_unresolvable(coarse_start, coarse_end, pair_span_seconds):
+    coarse_span = _coarse_span_seconds(coarse_start, coarse_end)
+    return coarse_span >= MIN_COARSE_SPAN_SECONDS and pair_span_seconds < MIN_PAIR_SECONDS
 
 
 def refine(article, con, snaps, members, present, idx_of_rev, peak):
@@ -446,8 +464,18 @@ def refine(article, con, snaps, members, present, idx_of_rev, peak):
     print(f"\n  binary search on durable spine |C|={len(cohort):,} (w≥{cut}): "
           f"{f_start*100:.0f}% → {f_end*100:.0f}%  (interval decline {interval_drop*100:.0f} pts)")
     print("  path: " + " ".join(f"{d}:{v*100:.0f}%" for d, v in path))
+    pair_drop = flo - fhi
+    pair_span = _revision_pair_span_seconds(revs, lo, hi)
+    if _localized_pair_unresolvable(d0, d1, pair_span):
+        coarse_span = _coarse_span_seconds(d0, d1)
+        print(
+            f"  (exact pair spans {pair_span:.0f}s inside a {coarse_span / 86400:.0f}d coarse window "
+            f"— cannot localize meaningfully)"
+        )
+        return None
     print(f"  ⇒ dominant drop between rev {revs[lo][0]} ({revs[lo][1][:10]}) and rev {revs[hi][0]} ({revs[hi][1][:10]})")
-    return revs[lo], revs[hi], interval_drop
+    print(f"    localized pair drop {pair_drop * 100:.0f} pts across {pair_span:.0f}s")
+    return revs[lo], revs[hi], interval_drop, pair_drop
 
 
 def removal_attribution(article, con, peak):
@@ -836,15 +864,16 @@ def _candidate_evaluation(candidate, confirmation):
             "rejection_reason": "insufficient_revision_evidence",
         }
 
-    before, after, decline = confirmation
-    confirmed = decline >= CONFIRM_DROP
+    before, after, interval_drop, pair_drop = confirmation
+    confirmed = interval_drop >= CONFIRM_DROP
     return {
         **evaluation,
         "exact_before_revid": before[0],
         "exact_before_timestamp": before[1],
         "exact_after_revid": after[0],
         "exact_after_timestamp": after[1],
-        "durable_spine_drop": round(decline, 6),
+        "durable_spine_drop": round(interval_drop, 6),
+        "exact_pair_drop": round(pair_drop, 6),
         "decision": "confirmed" if confirmed else "rejected",
         "rejection_reason": None if confirmed else "durable_spine_drop_below_threshold",
     }

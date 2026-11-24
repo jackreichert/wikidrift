@@ -8,6 +8,8 @@ MIN_COHORT = 500        # refine: min durable-spine tokens needed to binary-sear
 MIN_MATURE = 1000       # exact-check floor: top persistence half can still satisfy MIN_COHORT
 MAG_FLOOR = 25.0        # min persistence-weighted loss % in an interval to consider a PIVOT
 CONFIRM_DROP = 0.20     # binary search must confirm the durable spine declined by >= this fraction
+MIN_PAIR_SECONDS = 300  # exact pair must span at least this long inside a coarse multi-week window
+MIN_COARSE_SPAN_SECONDS = 30 * 86400  # coarse window length that triggers the pair-span floor
 CREEP_MEAN = 8.0        # sustained mean weighted-loss above this (no single pivot) = CREEP
 DURABLE_Q = 0.50        # refine cohort = tokens present at interval start above this persistence quantile
 RECENT_YEARS = 3.0      # episodes ending within this of the horizon are tagged "recent" (else "standing")
@@ -42,6 +44,8 @@ def confirmation_thresholds():
 		"durable_quantile": DURABLE_Q,
 		"min_cohort": MIN_COHORT,
 		"magnitude_floor": MAG_FLOOR,
+		"min_pair_seconds": MIN_PAIR_SECONDS,
+		"min_coarse_span_seconds": MIN_COARSE_SPAN_SECONDS,
 		"rolling_window_months": ROLLING_WINDOW_MONTHS,
 		"rolling_tolerance_days": ROLLING_TOLERANCE_DAYS,
 		"rolling_drop": ROLLING_DROP,
