@@ -2175,13 +2175,16 @@ def _framing_result_available(fr):
 
 
 def _framing_tab_has_content(fr):
-    """Whether the framing tab should render (including honest insufficient receipts)."""
-    if not fr:
+    """Whether framing_tab would render (insufficient episode receipts count; failures do not)."""
+    if not fr or fr.get("error"):
         return False
-    return any(
-        record.get("analysis_status", "available") == "available"
-        for record in _framing_records(fr)
-    )
+    episodes = fr.get("episodes")
+    if isinstance(episodes, list):
+        return any(
+            record.get("analysis_status", "available") == "available" and not record.get("error")
+            for record in episodes
+        )
+    return _framing_result_available(fr)
 
 
 def _framing_divergences(fr):
