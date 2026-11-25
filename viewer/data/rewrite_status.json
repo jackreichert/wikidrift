@@ -1,6 +1,290 @@
 {
+  "Abortion": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Ainu people": {
+    "state": "unavailable",
+    "reason": "artifact withheld: stable endpoint receipt is missing"
+  },
+  "Anti-Zionism": {
+    "state": "unavailable",
+    "reason": "artifact withheld: current endpoint is unstable"
+  },
+  "Bar Kokhba Revolt": {
+    "state": "unavailable",
+    "reason": "artifact withheld: stable endpoint receipt is missing"
+  },
+  "Boris Johnson": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
   "Brontosaurus": {
-    "state": "finding",
-    "reason": "candidate redlines available"
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "COVID-19 lab leak theory": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Capitalism": {
+    "state": "unavailable",
+    "reason": "artifact withheld: stable endpoint receipt is missing"
+  },
+  "Catholic Church": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Che Guevara": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Chess": {
+    "state": "unavailable",
+    "reason": "artifact withheld: current endpoint is unstable"
+  },
+  "Christopher Columbus": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Climate change": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Collaboration in German-occupied Poland": {
+    "state": "unavailable",
+    "reason": "artifact withheld: stable endpoint receipt is missing"
+  },
+  "Democratic Party (United States)": {
+    "state": "unavailable",
+    "reason": "artifact withheld: stable endpoint receipt is missing"
+  },
+  "Democratic Party of the United States": {
+    "state": "unavailable",
+    "reason": "artifact withheld: stable endpoint receipt is missing"
+  },
+  "Democratic Socialists of America": {
+    "state": "unavailable",
+    "reason": "artifact withheld: stable endpoint receipt is missing"
+  },
+  "Elizabeth Warren": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "ExxonMobil": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Falun Gong": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Fascism and ideology": {
+    "state": "unavailable",
+    "reason": "artifact withheld: stable endpoint receipt is missing"
+  },
+  "Gaza genocide": {
+    "state": "unavailable",
+    "reason": "artifact withheld: stable endpoint receipt is missing"
+  },
+  "Gaza war": {
+    "state": "unavailable",
+    "reason": "artifact withheld: stable endpoint receipt is missing"
+  },
+  "Genetic studies of Jews": {
+    "state": "unavailable",
+    "reason": "artifact withheld: stable endpoint receipt is missing"
+  },
+  "Genetically modified food controversies": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Genocide of indigenous peoples": {
+    "state": "unavailable",
+    "reason": "artifact withheld: stable endpoint receipt is missing"
+  },
+  "Hamas": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "History of Zionism": {
+    "state": "unavailable",
+    "reason": "artifact withheld: stable endpoint receipt is missing"
+  },
+  "Holodomor": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Ilhan Omar": {
+    "state": "unavailable",
+    "reason": "artifact withheld: stable endpoint receipt is missing"
+  },
+  "Islam": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Israeli–Palestinian conflict": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Jair Bolsonaro": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Jedwabne pogrom": {
+    "state": "unavailable",
+    "reason": "artifact withheld: stable endpoint receipt is missing"
+  },
+  "Jeremy Corbyn": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Jupiter": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Kashmir conflict": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Luiz Inácio Lula da Silva": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Marjorie Taylor Greene": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Mitochondria": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Nagorno-Karabakh conflict": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Nakba": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Naliboki massacre": {
+    "state": "unavailable",
+    "reason": "artifact withheld: stable endpoint receipt is missing"
+  },
+  "Narendra Modi": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Nuclear power debate": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Palestine": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Palestinian political violence": {
+    "state": "unavailable",
+    "reason": "artifact withheld: stable endpoint receipt is missing"
+  },
+  "Photosynthesis": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Purdue Pharma": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Pythagorean theorem": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Racial conceptions of Jewish identity in Zionism": {
+    "state": "unavailable",
+    "reason": "artifact withheld: stable endpoint receipt is missing"
+  },
+  "Rafah offensive": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Rahul Gandhi": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Republican Party (United States)": {
+    "state": "unavailable",
+    "reason": "artifact withheld: stable endpoint receipt is missing"
+  },
+  "Republican Party of the United States": {
+    "state": "unavailable",
+    "reason": "artifact withheld: stable endpoint receipt is missing"
+  },
+  "Rescue of Jews by Poles during the Holocaust": {
+    "state": "unavailable",
+    "reason": "artifact withheld: stable endpoint receipt is missing"
+  },
+  "Russo-Ukrainian war (2022–present)": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Scientology": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Socialism": {
+    "state": "unavailable",
+    "reason": "artifact withheld: stable endpoint receipt is missing"
+  },
+  "Ted Cruz": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Tesla, Inc.": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "The Troubles": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "UNRWA": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "United Nations General Assembly observers": {
+    "state": "unavailable",
+    "reason": "artifact withheld: stable endpoint receipt is missing"
+  },
+  "Unmoved mover": {
+    "state": "unavailable",
+    "reason": "artifact withheld: stable endpoint receipt is missing"
+  },
+  "Violin": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Warsaw concentration camp": {
+    "state": "unavailable",
+    "reason": "artifact withheld: stable endpoint receipt is missing"
+  },
+  "Water": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Western Sahara conflict": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Winston Churchill": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
+  },
+  "Xi Jinping": {
+    "state": "unavailable",
+    "reason": "artifact withheld: stable endpoint receipt is missing"
+  },
+  "Zionism": {
+    "state": "unavailable",
+    "reason": "stale exact confirmation"
   }
 }

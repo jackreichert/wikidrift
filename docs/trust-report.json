@@ -1,13 +1,29 @@
 {
   "counts": {
-    "legacy_incompatible": 221,
-    "published": 46,
+    "legacy_incompatible": 217,
+    "published": 62,
     "quarantined": 0,
     "stale": 0,
     "unstable": 6,
-    "withheld": 227
+    "withheld": 223
   },
   "published": [
+    {
+      "article": "Abortion",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Abortion.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Zionism",
+      "artifact_kind": "lexical",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Zionism.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
     {
       "article": "Abortion",
       "artifact_kind": "lexical",
@@ -21,6 +37,118 @@
       "artifact_kind": "lexical",
       "endpoint_policy_version": "stable-endpoint-v1",
       "path": "Elizabeth_Warren.lexical.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Genetically modified food controversies",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Genetically_modified_food_controversies.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Luiz In\u00e1cio Lula da Silva",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Luiz_In\u00e1cio_Lula_da_Silva.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Boris Johnson",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Boris_Johnson.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Abortion",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Abortion.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Islam",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Islam.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Scientology",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Scientology.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Zionism",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Zionism.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Tesla, Inc.",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Tesla,_Inc..l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "ExxonMobil",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "ExxonMobil.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Winston Churchill",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Winston_Churchill.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Jeremy Corbyn",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Jeremy_Corbyn.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Narendra Modi",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Narendra_Modi.l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "Russo-Ukrainian war (2022\u2013present)",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "Russo-Ukrainian_war_(2022\u2013present).l1-confirmation.json",
+      "reason": null,
+      "status": "published"
+    },
+    {
+      "article": "The Troubles",
+      "artifact_kind": "l1-confirmation",
+      "endpoint_policy_version": "stable-endpoint-v1",
+      "path": "The_Troubles.l1-confirmation.json",
       "reason": null,
       "status": "published"
     },
@@ -423,7 +551,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Zionism.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -615,7 +743,7 @@
       "artifact_kind": "stance",
       "endpoint_policy_version": null,
       "path": "Abortion.stance.json",
-      "reason": "stable endpoint receipt is missing",
+      "reason": "stance artifact lacks revision evidence",
       "status": "legacy_incompatible"
     },
     {
@@ -1187,14 +1315,6 @@
       "status": "legacy_incompatible"
     },
     {
-      "article": "Abortion",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Abortion.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
       "article": "Gaza genocide",
       "artifact_kind": "lexical",
       "endpoint_policy_version": null,
@@ -1247,14 +1367,6 @@
       "artifact_kind": "lexical",
       "endpoint_policy_version": null,
       "path": "Hamas.lexical.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Zionism",
-      "artifact_kind": "lexical",
-      "endpoint_policy_version": null,
-      "path": "Zionism.lexical.json",
       "reason": "stable endpoint receipt is missing",
       "status": "legacy_incompatible"
     },
@@ -1779,14 +1891,6 @@
       "status": "legacy_incompatible"
     },
     {
-      "article": "Abortion",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Abortion.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
       "article": "Photosynthesis",
       "artifact_kind": "l1-confirmation",
       "endpoint_policy_version": null,
@@ -1855,14 +1959,6 @@
       "artifact_kind": "l1-confirmation",
       "endpoint_policy_version": null,
       "path": "Collaboration_in_German-occupied_Poland.l1-confirmation.json",
-      "reason": "stable endpoint receipt is missing",
-      "status": "legacy_incompatible"
-    },
-    {
-      "article": "Zionism",
-      "artifact_kind": "l1-confirmation",
-      "endpoint_policy_version": null,
-      "path": "Zionism.l1-confirmation.json",
       "reason": "stable endpoint receipt is missing",
       "status": "legacy_incompatible"
     },
