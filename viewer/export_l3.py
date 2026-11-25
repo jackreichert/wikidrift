@@ -31,8 +31,53 @@ DIFF = {"Warsaw concentration camp": "2018-06-01"}
 BLAME = ["Zionism"]
 
 
+def _load_confirmation_artifact(findings_dir, article):
+    """Load an L1 confirmation from *findings_dir*, or {} if missing/unreadable."""
+    path = pathlib.Path(findings_dir) / drift.confirmation_name(article)
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+
+def _confirmation_preference_score(confirmation):
+    """Rank a confirmation for export: threshold contract first, then run_ts, then schema."""
+    if not confirmation:
+        return (0, "", 0)
+    thresholds = confirmation.get("thresholds") or {}
+    contract_match = 1 if thresholds == config.confirmation_thresholds() else 0
+    run_ts = confirmation.get("run_ts") or ""
+    schema = confirmation.get("schema_version") or 0
+    return (contract_match, run_ts, schema)
+
+
+def _prefer_fresher_source(article, options):
+    """Choose findings_dir by fresher confirmation; keep a usable shard DB when present."""
+    databases = [opt["database"] for opt in options if opt["database"].is_file()]
+    database = databases[-1] if databases else options[-1]["database"]
+
+    best = options[0]
+    best_score = _confirmation_preference_score(
+        _load_confirmation_artifact(best["findings_dir"], article)
+    )
+    for option in options[1:]:
+        score = _confirmation_preference_score(
+            _load_confirmation_artifact(option["findings_dir"], article)
+        )
+        if score > best_score:
+            best = option
+            best_score = score
+    return {"findings_dir": best["findings_dir"], "database": database}
+
+
 def published_article_sources(findings_dir=None, articles_dir=None):
-    """Return each exportable article's owning paths; article shards override legacy findings."""
+    """Return each exportable article's owning paths.
+
+    When both canonical findings and an article shard exist, prefer the *fresher*
+    L1 confirmation (threshold contract match, then newer ``run_ts``) rather than
+    blindly preferring the shard — stale shards previously caused export to mark
+    rewrite unavailable and delete pivots.
+    """
     use_default_shards = findings_dir is None and articles_dir is None
     findings_dir = pathlib.Path(findings_dir or config.FINDINGS)
     directories = [findings_dir]
@@ -47,7 +92,7 @@ def published_article_sources(findings_dir=None, articles_dir=None):
                 if article_dir.is_dir() and article_dir.name != "_shared"
             )
 
-    sources = {}
+    locations = {}
     for directory in directories:
         if not directory.exists():
             continue
@@ -59,10 +104,14 @@ def published_article_sources(findings_dir=None, articles_dir=None):
             except (OSError, json.JSONDecodeError):
                 continue
             if article:
-                sources[article] = {
+                locations.setdefault(article, []).append({
                     "findings_dir": directory,
                     "database": directory.parent / "provenance.duckdb",
-                }
+                })
+    sources = {
+        article: _prefer_fresher_source(article, options)
+        for article, options in locations.items()
+    }
     return dict(sorted(sources.items()))
 
 
@@ -258,7 +307,12 @@ def _candidate_pivots(article, confirmation, database=None):
 
 
 def _unavailable_export(output, article, state, reason):
-    output.unlink(missing_ok=True)
+    """Record rewrite status without deleting existing pivots.
+
+    Stale/withheld confirmations used to ``unlink`` ``*.pivots.json``, which wiped
+    production redlines when a stale shard beat a fresher canonical confirmation.
+    UI already withholds via ``rewrite_status``; keep the pivots file for recovery.
+    """
     print(f"  pivots {article}: {state} (L1={reason})")
     return {"state": state, "reason": reason}
 
@@ -315,11 +369,7 @@ def _export_legacy_coarse_pivots(article, output):
 def _load_confirmation(article, findings_dir=None):
     if findings_dir is None:
         return drift.load_confirmation(article)
-    path = pathlib.Path(findings_dir) / drift.confirmation_name(article)
-    try:
-        return json.loads(path.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError):
-        return {}
+    return _load_confirmation_artifact(findings_dir, article)
 
 
 def export_pivots(article, findings_dir=None, database=None):
