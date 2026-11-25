@@ -42,6 +42,50 @@ class PublishedArticleDiscovery(unittest.TestCase):
             self.assertEqual(sources["Shard Only"]["findings_dir"], shard_findings)
             self.assertEqual(sources["Shard Only"]["database"], shard_database)
 
+    def test_prefers_fresher_canonical_confirmation_over_stale_shard(self):
+        """Stale shard thresholds must not beat a fresher canonical confirmation."""
+        with tempfile.TemporaryDirectory() as tmp:
+            root = pathlib.Path(tmp)
+            findings = root / "findings"
+            findings.mkdir()
+            articles = root / "articles"
+            shard = articles / "Abortion"
+            shard_findings = shard / "findings"
+            shard_findings.mkdir(parents=True)
+            shard_database = shard / "provenance.duckdb"
+            shard_database.touch()
+
+            stale_thresholds = {
+                key: value
+                for key, value in export_l3.config.confirmation_thresholds().items()
+                if key not in {"min_pair_seconds", "min_coarse_span_seconds"}
+            }
+            fresh = {
+                "article": "Abortion",
+                "status": "confirmed",
+                "run_ts": "2026-11-24T15:21:55Z",
+                "schema_version": 2,
+                "thresholds": export_l3.config.confirmation_thresholds(),
+            }
+            stale = {
+                "article": "Abortion",
+                "status": "confirmed",
+                "run_ts": "2026-11-24T10:21:20Z",
+                "schema_version": 2,
+                "thresholds": stale_thresholds,
+            }
+            (findings / "Abortion.l1-confirmation.json").write_text(
+                json.dumps(fresh), encoding="utf-8",
+            )
+            (shard_findings / "Abortion.l1-confirmation.json").write_text(
+                json.dumps(stale), encoding="utf-8",
+            )
+
+            sources = published_article_sources(findings, articles)
+
+            self.assertEqual(sources["Abortion"]["findings_dir"], findings)
+            self.assertEqual(sources["Abortion"]["database"], shard_database)
+
 
 class CandidatePivotExport(unittest.TestCase):
     def test_confirmed_export_uses_coarse_candidate_pair(self):
@@ -290,7 +334,7 @@ class CandidatePivotExport(unittest.TestCase):
         self.assertEqual(exported["pivots"][0]["after_rev"], 102)
         self.assertEqual(exported["pivots"][0]["start"], "2024-01-01")
 
-    def test_withheld_confirmation_removes_existing_export(self):
+    def test_withheld_confirmation_keeps_existing_export(self):
         confirmation = {"article": "Example", "status": "confirmed"}
         with tempfile.TemporaryDirectory() as temp_dir, \
                 mock.patch.object(export_l3, "DATA", pathlib.Path(temp_dir)), \
@@ -300,13 +344,120 @@ class CandidatePivotExport(unittest.TestCase):
                 }), \
                 mock.patch.object(export_l3.provenance, "tokens_at") as tokens_at:
             output = pathlib.Path(temp_dir) / "Example.pivots.json"
-            output.write_text("stale", encoding="utf-8")
+            output.write_text("keep-me", encoding="utf-8")
 
             status = export_l3.export_pivots("Example")
 
-        self.assertEqual(status["state"], "unavailable")
-        self.assertFalse(output.exists())
-        tokens_at.assert_not_called()
+            self.assertEqual(status["state"], "unavailable")
+            self.assertTrue(output.exists())
+            self.assertEqual(output.read_text(encoding="utf-8"), "keep-me")
+            tokens_at.assert_not_called()
+
+    def test_stale_confirmation_keeps_existing_export(self):
+        confirmation = {
+            "article": "Example",
+            "status": "confirmed",
+            "corpus_horizon": {"snapshot_date": "2026-01-01", "snapshot_revid": 900},
+            "thresholds": {
+                key: value
+                for key, value in export_l3.config.confirmation_thresholds().items()
+                if key not in {"min_pair_seconds", "min_coarse_span_seconds"}
+            },
+            "evaluated_candidates": [{
+                "candidate_start": "2024-01-01",
+                "candidate_end": "2025-01-01",
+                "candidate_before_revid": 90,
+                "candidate_after_revid": 110,
+                "decision": "confirmed",
+            }],
+        }
+        with tempfile.TemporaryDirectory() as temp_dir, \
+                mock.patch.object(export_l3, "DATA", pathlib.Path(temp_dir)), \
+                mock.patch.object(export_l3.drift, "load_confirmation", return_value=confirmation), \
+                mock.patch.object(export_l3, "_confirmation_trust", return_value={
+                    "status": "published", "reason": None,
+                }), \
+                mock.patch.object(export_l3, "_current_horizon", return_value=("2026-01-01", 900)), \
+                mock.patch.object(export_l3.provenance, "tokens_at") as tokens_at:
+            output = pathlib.Path(temp_dir) / "Example.pivots.json"
+            output.write_text("prior-pivots", encoding="utf-8")
+
+            status = export_l3.export_pivots("Example")
+
+            self.assertEqual(status["state"], "unavailable")
+            self.assertEqual(status["reason"], "stale exact confirmation")
+            self.assertTrue(output.exists())
+            self.assertEqual(output.read_text(encoding="utf-8"), "prior-pivots")
+            tokens_at.assert_not_called()
+    def test_fresher_canonical_source_exports_pivots_despite_stale_shard(self):
+        """End-to-end: discovery picks canonical; export creates pivots from fresh confirmation."""
+        with tempfile.TemporaryDirectory() as tmp:
+            root = pathlib.Path(tmp)
+            findings = root / "findings"
+            findings.mkdir()
+            articles = root / "articles"
+            shard = articles / "Abortion"
+            shard_findings = shard / "findings"
+            shard_findings.mkdir(parents=True)
+            (shard / "provenance.duckdb").touch()
+
+            stale_thresholds = {
+                key: value
+                for key, value in export_l3.config.confirmation_thresholds().items()
+                if key not in {"min_pair_seconds", "min_coarse_span_seconds"}
+            }
+            fresh = {
+                "article": "Abortion",
+                "status": "confirmed",
+                "run_ts": "2026-11-24T15:21:55Z",
+                "schema_version": 2,
+                "corpus_horizon": {"snapshot_date": "2026-01-01", "snapshot_revid": 900},
+                "thresholds": export_l3.config.confirmation_thresholds(),
+                "evaluated_candidates": [{
+                    "candidate_start": "2024-01-01",
+                    "candidate_end": "2025-01-01",
+                    "candidate_before_revid": 90,
+                    "candidate_after_revid": 110,
+                    "decision": "confirmed",
+                    "durable_spine_drop": 0.75,
+                    "peak_pct": 42.0,
+                    "pwr_mass": 500,
+                }],
+            }
+            stale = {
+                "article": "Abortion",
+                "status": "confirmed",
+                "run_ts": "2026-11-24T10:21:20Z",
+                "schema_version": 2,
+                "corpus_horizon": {"snapshot_date": "2026-01-01", "snapshot_revid": 900},
+                "thresholds": stale_thresholds,
+                "evaluated_candidates": fresh["evaluated_candidates"],
+            }
+            (findings / "Abortion.l1-confirmation.json").write_text(
+                json.dumps(fresh), encoding="utf-8",
+            )
+            (shard_findings / "Abortion.l1-confirmation.json").write_text(
+                json.dumps(stale), encoding="utf-8",
+            )
+
+            sources = published_article_sources(findings, articles)
+            self.assertEqual(sources["Abortion"]["findings_dir"], findings)
+
+            with mock.patch.object(export_l3, "DATA", root / "viewer-data"), \
+                    mock.patch.object(export_l3, "_confirmation_trust", return_value={
+                        "status": "published", "reason": None,
+                    }), \
+                    mock.patch.object(export_l3, "_current_horizon", return_value=("2026-01-01", 900)), \
+                    mock.patch.object(export_l3.provenance, "tokens_at", return_value=[]), \
+                    mock.patch.object(export_l3, "prose_at", side_effect=lambda revision: f"text {revision}"), \
+                    mock.patch.object(export_l3, "_revision_authors", return_value={}):
+                status = export_l3.export_pivots("Abortion", **sources["Abortion"])
+                exported = json.loads(
+                    (root / "viewer-data" / "Abortion.pivots.json").read_text(encoding="utf-8")
+                )
+
+            self.assertEqual(status["state"], "finding")
+            self.assertEqual(exported["pivots"][0]["before_rev"], 90)
 
 
 if __name__ == "__main__":

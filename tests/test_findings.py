@@ -1,20 +1,30 @@
 """The findings-output layer: modules must persist viewer-shaped JSON into config.FINDINGS."""
+import json
 import pathlib
 import tempfile
 import unittest
 
 from wikidrift import config
 from wikidrift import l5_crosslingual as xl
+from wikidrift.config import storage
 
 
 class FindingsIO(unittest.TestCase):
     def setUp(self):
-        self._orig = config.FINDINGS
+        self._orig_findings = storage.FINDINGS
+        self._orig_articles = storage.ARTICLES_DIR
         self._tmp = tempfile.TemporaryDirectory()
-        config.FINDINGS = pathlib.Path(self._tmp.name)
+        root = pathlib.Path(self._tmp.name)
+        storage.FINDINGS = root / "findings"
+        storage.ARTICLES_DIR = root / "articles"
+        config.FINDINGS = storage.FINDINGS
+        config.ARTICLES_DIR = storage.ARTICLES_DIR
 
     def tearDown(self):
-        config.FINDINGS = self._orig
+        storage.FINDINGS = self._orig_findings
+        storage.ARTICLES_DIR = self._orig_articles
+        config.FINDINGS = self._orig_findings
+        config.ARTICLES_DIR = self._orig_articles
         self._tmp.cleanup()
 
     def test_write_load_roundtrip(self):
@@ -24,6 +34,28 @@ class FindingsIO(unittest.TestCase):
     def test_load_missing_returns_default(self):
         self.assertEqual(config.load_findings("nope.json"), {})
         self.assertEqual(config.load_findings("nope.json", {"static": {}}), {"static": {}})
+
+    def test_write_mirrors_into_existing_article_shard(self):
+        shard = storage.ARTICLES_DIR / "Abortion"
+        shard.mkdir(parents=True)
+        payload = {"article": "Abortion", "status": "confirmed", "run_ts": "2026-11-24T15:21:55Z"}
+        config.write_findings("Abortion.l1-confirmation.json", payload)
+
+        mirrored = shard / "findings" / "Abortion.l1-confirmation.json"
+        self.assertTrue(mirrored.is_file())
+        self.assertEqual(json.loads(mirrored.read_text(encoding="utf-8")), payload)
+        self.assertEqual(config.load_findings("Abortion.l1-confirmation.json"), payload)
+
+    def test_write_does_not_create_shard_when_absent(self):
+        config.write_findings("Abortion.l1-confirmation.json", {"article": "Abortion"})
+        self.assertFalse((storage.ARTICLES_DIR / "Abortion").exists())
+        self.assertTrue((storage.FINDINGS / "Abortion.l1-confirmation.json").is_file())
+
+    def test_write_skips_shared_artifacts_without_slug(self):
+        storage.ARTICLES_DIR.mkdir(parents=True)
+        config.write_findings("divergence.json", {"static": {}})
+        self.assertTrue((storage.FINDINGS / "divergence.json").is_file())
+        self.assertEqual(list(storage.ARTICLES_DIR.iterdir()), [])
 
     def test_emit_findings_writes_viewer_shapes(self):
         meta = {"en": {"present": True, "revid": 11, "title": "A",
