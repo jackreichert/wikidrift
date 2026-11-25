@@ -1,7 +1,7 @@
 {
   "Abortion": {
-    "state": "unavailable",
-    "reason": "stale exact confirmation"
+    "state": "finding",
+    "reason": "candidate redlines available"
   },
   "Ainu people": {
     "state": "unavailable",
@@ -16,8 +16,8 @@
     "reason": "artifact withheld: stable endpoint receipt is missing"
   },
   "Boris Johnson": {
-    "state": "unavailable",
-    "reason": "stale exact confirmation"
+    "state": "finding",
+    "reason": "candidate redlines available"
   },
   "Brontosaurus": {
     "state": "unavailable",
@@ -284,7 +284,7 @@
     "reason": "artifact withheld: stable endpoint receipt is missing"
   },
   "Zionism": {
-    "state": "unavailable",
-    "reason": "stale exact confirmation"
+    "state": "finding",
+    "reason": "candidate redlines available"
   }
 }
