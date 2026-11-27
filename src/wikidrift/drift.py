@@ -41,6 +41,7 @@ from .config import (
     MIN_COARSE_SPAN_SECONDS,
     MIN_COHORT,
     MIN_MATURE,
+    MIN_PAIR_DROP_SHARE,
     MIN_PAIR_SECONDS,
     RECENT_YEARS,
     REPLACEMENT_FLOOR,
@@ -424,6 +425,15 @@ def _localized_pair_unresolvable(coarse_start, coarse_end, pair_span_seconds):
     return coarse_span >= MIN_COARSE_SPAN_SECONDS and pair_span_seconds < MIN_PAIR_SECONDS
 
 
+def _pair_share_too_small(coarse_start, coarse_end, pair_drop, interval_drop):
+    """True when the exact pair carries too little of a long window's drop to be called its localisation."""
+    if _coarse_span_seconds(coarse_start, coarse_end) < MIN_COARSE_SPAN_SECONDS:
+        return False
+    if interval_drop is None or interval_drop <= 0:
+        return False
+    return (pair_drop or 0) / interval_drop < MIN_PAIR_DROP_SHARE
+
+
 def refine(article, con, snaps, members, present, idx_of_rev, peak):
     d0, r0, d1, r1, _ = peak
     k = idx_of_rev.get(r0)
@@ -466,15 +476,24 @@ def refine(article, con, snaps, members, present, idx_of_rev, peak):
     print("  path: " + " ".join(f"{d}:{v*100:.0f}%" for d, v in path))
     pair_drop = flo - fhi
     pair_span = _revision_pair_span_seconds(revs, lo, hi)
-    if _localized_pair_unresolvable(d0, d1, pair_span):
+    micro_span = _localized_pair_unresolvable(d0, d1, pair_span)
+    low_share = not micro_span and _pair_share_too_small(d0, d1, pair_drop, interval_drop)
+    if micro_span or low_share:
         coarse_span = _coarse_span_seconds(d0, d1)
-        print(
-            f"  (exact pair spans {pair_span:.0f}s inside a {coarse_span / 86400:.0f}d coarse window "
-            f"— cannot localize meaningfully)"
-        )
-        # Keep the measured micro-pair drop on the receipt even though we refuse confirmation.
+        if micro_span:
+            print(
+                f"  (exact pair spans {pair_span:.0f}s inside a {coarse_span / 86400:.0f}d coarse window "
+                f"— cannot localize meaningfully)"
+            )
+        else:
+            print(
+                f"  (exact pair carries {100 * pair_drop / interval_drop:.1f}% of the "
+                f"{coarse_span / 86400:.0f}d window drop — cannot localize meaningfully)"
+            )
+        # Keep the measured pair drop on the receipt even though we refuse confirmation.
         return {
             "unresolvable": True,
+            "localisation_failure": "pair_span" if micro_span else "pair_share",
             "before": revs[lo],
             "after": revs[hi],
             "interval_drop": interval_drop,
@@ -880,6 +899,7 @@ def _candidate_evaluation(candidate, confirmation):
             "exact_after_timestamp": after[1],
             "durable_spine_drop": round(confirmation["interval_drop"], 6),
             "exact_pair_drop": round(confirmation["pair_drop"], 6),
+            "localisation_failure": confirmation.get("localisation_failure", "pair_span"),
             "decision": "rejected",
             "rejection_reason": "insufficient_revision_evidence",
         }

@@ -617,7 +617,9 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertIn("240,130", out)
         self.assertIn('href="../glossary.html#persistence-weighted-loss"', out)
         self.assertIn("Rejected candidate window", out)
-        self.assertIn("Measured: no anomaly threshold crossed", out)
+        self.assertIn("Loss below the 15% elevated floor; gain not recorded", out)
+        self.assertNotIn("no anomaly threshold crossed", out)
+        self.assertIn("not recorded", out)
         self.assertIn("2024-01-01 → 2024-07-01", out)
         self.assertIn("10.0% durable-spine drop", out)
         self.assertIn("below the required 20.0%", out)
@@ -1059,7 +1061,7 @@ class ArticlePageRendering(unittest.TestCase):
         self.assertNotIn("No candidate rewrite window was confirmed", out)
         self.assertIn('class="drift-axis"', out)
         self.assertIn('class="drift-row drift-row-missing"', out)
-        self.assertIn("25% candidate floor", out)
+        self.assertNotIn("candidate floor", out)
 
     def test_profile_discloses_snapshot_horizon(self):
         profile = {
@@ -1658,6 +1660,183 @@ class SiteRouting(unittest.TestCase):
         self.assertIn('[data-episode-control]', runtime)
         self.assertIn("matchingControl", runtime)
         self.assertIn("view.dataset.episodeView !== episodeId", runtime)
+
+
+class IntervalChartQaRegression(unittest.TestCase):
+    """Synthetic Bar Kokhba-shaped receipts: loss display, withheld verdicts, pair localisation."""
+
+    @staticmethod
+    def _row(**overrides):
+        row = {
+            "start": "2026-01-01", "end": "2026-07-01", "size": 41015,
+            "pwr_loss": 61.0, "pwr_removed": 117205, "confirmable": True,
+        }
+        row.update(overrides)
+        return row
+
+    def test_recorded_added_pwr_is_shown(self):
+        out = build._interval_profile_chart({
+            "status": "not_confirmed",
+            "interval_profile": [self._row(
+                pwr_gain=8.8, pwr_added=16959, anomaly_types=["loss", "gain"],
+            )],
+        })
+
+        self.assertIn("16,959 added PWR", out)
+        self.assertNotIn("not recorded", out)
+
+    def test_recorded_zero_added_pwr_is_shown_as_zero(self):
+        out = build._interval_profile_chart({
+            "status": "not_confirmed",
+            "interval_profile": [self._row(pwr_gain=0.0, pwr_added=0, anomaly_types=["loss"])],
+        })
+
+        self.assertIn("0 added PWR", out)
+
+    def test_legacy_interval_without_gain_fields_says_not_recorded(self):
+        out = build._interval_profile_chart({
+            "status": "unavailable",
+            "interval_profile": [self._row()],
+        })
+
+        self.assertIn("added PWR not recorded", out)
+        self.assertNotIn("0 added PWR", out)
+        self.assertIn("added not recorded persistence-weighted units", out)
+        self.assertIn("Gain not recorded", out)
+
+    def test_elevated_loss_never_says_no_anomaly_threshold_crossed(self):
+        for status in ("not_confirmed", "confirmed", "unavailable"):
+            for loss in (15.0, 28.5, 61.0):
+                with self.subTest(status=status, loss=loss):
+                    out = build._interval_profile_chart({
+                        "status": status,
+                        "interval_profile": [self._row(pwr_loss=loss)],
+                    })
+
+                    self.assertNotIn("no anomaly threshold crossed", out)
+                    self.assertNotIn("Measured: no anomaly", out)
+
+    def test_loss_just_below_elevated_with_recorded_gain_keeps_neutral_label(self):
+        out = build._interval_profile_chart({
+            "status": "not_confirmed",
+            "interval_profile": [self._row(
+                pwr_loss=14.9, pwr_gain=2.0, pwr_added=100, anomaly_types=[],
+            )],
+        })
+
+        self.assertIn("Measured: no anomaly threshold crossed", out)
+
+    def test_elevated_row_in_withheld_candidate_window_is_labelled_withheld(self):
+        out = build._interval_profile_chart({
+            "status": "unavailable",
+            "reason": "artifact withheld: stable endpoint receipt is missing",
+            "interval_profile": [self._row(anomaly_types=["loss"])],
+            "evaluated_candidates": [{
+                "candidate_start": "2025-01-01", "candidate_end": "2026-07-01",
+                "decision": "confirmed",
+            }],
+        })
+
+        self.assertIn("Elevated loss in candidate window: 2025-01-01 → 2026-07-01; exact verdict withheld", out)
+        self.assertIn("exact verdict withheld", out)
+        self.assertNotIn("Confirmed candidate window", out)
+
+    def test_axis_has_no_contradictory_candidate_floor_label(self):
+        out = build._interval_profile_chart({"status": "not_confirmed", "interval_profile": [self._row()]})
+
+        self.assertNotIn("25% candidate floor", out)
+        self.assertIn("<span>25%</span>", out)
+
+    def test_chart_explains_interval_is_not_an_edit_nor_durable_spine_drop(self):
+        out = build._interval_profile_chart({"status": "not_confirmed", "interval_profile": [self._row()]})
+
+        self.assertIn("181-day interval", out)
+        self.assertIn("not a single edit", out)
+        self.assertIn("durable-spine drop", out)
+
+    def test_withheld_chart_and_panel_header_are_consistent(self):
+        confirmation = {
+            "status": "unavailable",
+            "reason": "artifact withheld: stable endpoint receipt is missing",
+            "coarse_verdict": "PIVOT?",
+            "interval_profile": [self._row()],
+            "confirmed_episodes": [],
+        }
+
+        out = build.confirmation_section(confirmation)
+
+        self.assertIn("Exact rewrite verdict is withheld", out)
+        self.assertIn("stable endpoint receipt is missing", out)
+        self.assertIn("The interval chart below shows measured loss", out)
+        self.assertIn("they neither confirm nor rule out a rewrite", out)
+        self.assertIn("not a finding that no rewrite occurred", out)
+        self.assertNotIn("Rewrite analysis is not available", out)
+
+    def test_withheld_without_intervals_does_not_mention_a_chart(self):
+        title, note = build._unavailable_rewrite_copy("artifact withheld: current endpoint is unstable")
+
+        self.assertEqual(title, "Exact rewrite verdict is withheld")
+        self.assertNotIn("chart", note)
+        self.assertIn("current endpoint is unstable", note)
+
+    def test_micro_pair_in_long_window_is_flagged_not_localised(self):
+        candidate = {
+            "candidate_start": "2025-01-01", "candidate_end": "2026-07-01",
+            "decision": "confirmed", "durable_spine_drop": 0.8766, "exact_pair_drop": 0.004,
+            "exact_before_revid": 1300661489, "exact_before_timestamp": "2025-07-15T17:38:17Z",
+            "exact_after_revid": 1300666578, "exact_after_timestamp": "2025-07-15T18:22:34Z",
+            "peak_pct": 60.96, "pwr_mass": 311631,
+        }
+
+        out = build._candidate_evaluations_receipt({"evaluated_candidates": [candidate]})
+
+        self.assertIn("Pair carries only 0.5% of the window drop; not a localisation", out)
+        self.assertNotIn("Exact pair:", out)
+
+    def test_legacy_pair_without_pair_drop_in_long_window_is_unverified(self):
+        candidate = {
+            "candidate_start": "2025-01-01", "candidate_end": "2026-07-01",
+            "decision": "confirmed", "durable_spine_drop": 0.8766,
+            "exact_before_revid": 11, "exact_after_revid": 12,
+            "peak_pct": 60.96, "pwr_mass": 311631,
+        }
+
+        out = build._candidate_evaluations_receipt({"evaluated_candidates": [candidate]})
+
+        self.assertIn("Pair drop not recorded; not verified", out)
+
+    def test_meaningful_pair_and_short_window_keep_exact_pair_label(self):
+        long_window = {
+            "candidate_start": "2025-01-01", "candidate_end": "2026-07-01",
+            "decision": "confirmed", "durable_spine_drop": 0.5, "exact_pair_drop": 0.4,
+            "exact_before_revid": 11, "exact_after_revid": 12,
+            "peak_pct": 40.0, "pwr_mass": 100,
+        }
+        short_window = {
+            **long_window, "candidate_start": "2026-06-01", "candidate_end": "2026-06-20",
+            "exact_pair_drop": 0.0001,
+        }
+
+        for candidate in (long_window, short_window):
+            with self.subTest(window=candidate["candidate_start"]):
+                out = build._candidate_evaluations_receipt({"evaluated_candidates": [candidate]})
+
+                self.assertIn("Exact pair:", out)
+                self.assertNotIn("not a localisation", out)
+
+    def test_pair_share_rejection_is_described_and_marks_pair_unlocalised(self):
+        candidate = {
+            "candidate_start": "2025-01-01", "candidate_end": "2026-07-01",
+            "decision": "rejected", "rejection_reason": "insufficient_revision_evidence",
+            "localisation_failure": "pair_share", "durable_spine_drop": 0.8766,
+            "exact_pair_drop": 0.004, "exact_before_revid": 11, "exact_after_revid": 12,
+            "peak_pct": 60.96, "pwr_mass": 311631,
+        }
+
+        out = build._candidate_evaluations_receipt({"evaluated_candidates": [candidate]})
+
+        self.assertIn("no exact pair carries a meaningful share", out)
+        self.assertIn("Closest pair found; not a localisation of the window loss", out)
 
 
 if __name__ == "__main__":
