@@ -228,6 +228,7 @@ h2.subhead{font-size:1rem;margin:1.4em 0 .45em}
   font-size:.82rem;font-variant-numeric:tabular-nums;
 }
 .drift-date{font-weight:600}
+.drift-span{display:block;font-weight:400;color:var(--dim);font-size:.7rem}
 .drift-track{
   position:relative;height:.65rem;background:var(--chrome);overflow:hidden;
   background-image:linear-gradient(to right,transparent 24.8%,var(--line-strong) 25%,transparent 25.2%,

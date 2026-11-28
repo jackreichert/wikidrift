@@ -7,6 +7,7 @@ Run:    python viewer/build.py
 Deploy: GitHub Pages serves `/docs`; CNAME = wikidrift.encyclopediae.org
 """
 import argparse
+import datetime as dt
 import difflib
 import html
 import itertools
@@ -21,6 +22,7 @@ import duckdb
 import markdown as _md
 
 from wikidrift import pipeline, trust
+from wikidrift.config import ELEVATED, MIN_COARSE_SPAN_SECONDS, MIN_PAIR_DROP_SHARE
 from wikidrift.corpus import Corpus
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -1038,7 +1040,18 @@ def _rewrite_state(article, f):
     return _rewrite_info(article, f)[0]
 
 
-def _unavailable_rewrite_copy(reason):
+def _unavailable_rewrite_copy(reason, has_intervals=False):
+    if reason and reason.startswith("artifact withheld"):
+        detail = reason.partition(":")[2].strip() or "trust requirements were not met"
+        lead = (
+            "The interval chart below shows measured loss. The exact revision-level verdict"
+            if has_intervals else "The exact revision-level verdict"
+        )
+        return (
+            "Exact rewrite verdict is withheld",
+            f"{lead} is withheld ({detail}). This is missing receipts, not a finding that no "
+            "rewrite occurred and not a confirmation of one.",
+        )
     if reason == "too few snapshots":
         return (
             "Too few snapshots for rewrite analysis",
@@ -1551,8 +1564,33 @@ def _candidate_decision(candidate, required_drop):
             f'below the required {100 * required_drop:.1f}%'
         )
     if reason == "insufficient_revision_evidence":
+        if candidate.get("localisation_failure") == "pair_share":
+            return "Rejected: no exact pair carries a meaningful share of the window's durable-spine drop"
         return "Rejected: insufficient revision evidence to resolve an exact pair"
     return f'Rejected: {str(reason or "exact threshold not met").replace("_", " ")}'
+
+
+def _pair_localisation_note(candidate):
+    """Say when an exact pair should not be read as where a long window's loss happened."""
+    start, end = candidate.get("candidate_start"), candidate.get("candidate_end")
+    try:
+        span = (dt.date.fromisoformat(str(end)[:10]) - dt.date.fromisoformat(str(start)[:10])).days
+    except ValueError:
+        return ""
+    if span * 86400 < MIN_COARSE_SPAN_SECONDS:
+        return ""
+    if candidate.get("localisation_failure"):
+        return "Closest pair found; not a localisation of the window loss"
+    pair_drop = candidate.get("exact_pair_drop")
+    window_drop = candidate.get("durable_spine_drop")
+    if not isinstance(pair_drop, (int, float)) or not isinstance(window_drop, (int, float)):
+        return "Pair drop not recorded; not verified as where the window loss happened"
+    if window_drop > 0 and pair_drop / window_drop < MIN_PAIR_DROP_SHARE:
+        return (
+            f"Pair carries only {100 * max(pair_drop, 0) / window_drop:.1f}% of the window drop; "
+            "not a localisation"
+        )
+    return ""
 
 
 def _candidate_exact_pair(candidate, episodes):
@@ -1578,6 +1616,12 @@ def _candidate_exact_pair(candidate, episodes):
     after = _revision_link(after_revid, after_timestamp, "After")
     duration = _format_duration(episode.get("duration_seconds"))
     duration_text = f" · {esc(duration)}" if duration != "unknown" else ""
+    note = _pair_localisation_note(candidate)
+    if note:
+        return (
+            f'<span class="candidate-pair">Pair: {before} → {after}{duration_text}'
+            f'<span class="candidate-pair-note"> · {esc(note)}</span></span>'
+        )
     return f'<span class="candidate-pair">Exact pair: {before} → {after}{duration_text}</span>'
 
 
@@ -1732,17 +1776,31 @@ def _rewrite_analysis_path(confirmation, interval_count):
     )
 
 
+def _interval_span_note(start, end):
+    """Show that a bar covers the span between two snapshots rather than a single edit."""
+    try:
+        days = (dt.date.fromisoformat(str(end)[:10]) - dt.date.fromisoformat(str(start)[:10])).days
+    except ValueError:
+        return ""
+    if days <= 0:
+        return ""
+    return f'<small class="drift-span">{days}-day interval</small>'
+
+
 def _interval_profile_chart(confirmation, nested=False):
     intervals = confirmation.get("interval_profile") or []
     candidates = confirmation.get("evaluated_candidates") or []
     episodes = confirmation.get("confirmed_episodes") or []
     axis = (
         '<div class="drift-axis" aria-hidden="true"><span>0%</span>'
-        '<span>25% candidate floor</span><span>50%</span><span>75%</span><span>100%</span></div>'
+        '<span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>'
     )
+    withheld = confirmation.get("status") == "unavailable" and bool(intervals)
     rows = []
     for interval in intervals:
         loss = float(interval.get("pwr_loss") or 0)
+        gain_recorded = interval.get("pwr_gain") is not None
+        added_recorded = interval.get("pwr_added") is not None
         gain = float(interval.get("pwr_gain") or 0)
         replacement = float(interval.get("replacement_candidate") or 0)
         confirmable = bool(interval.get("confirmable", interval.get("mature")))
@@ -1775,17 +1833,28 @@ def _interval_profile_chart(confirmation, nested=False):
             else ""
         )
         is_candidate = candidate is not None or episode is not None
-        state = (
-            "Excluded: missing source coverage" if not eligible
-            else {
+        elevated = loss >= ELEVATED or "loss" in anomaly_types
+        if not eligible:
+            state = "Excluded: missing source coverage"
+        elif is_candidate and withheld:
+            state = f"Elevated loss in candidate window{candidate_range}; exact verdict withheld"
+        elif is_candidate:
+            state = {
                 "confirmed": f"Confirmed candidate window{candidate_range}",
                 "rejected": f"Rejected candidate window{candidate_range}",
-            }.get(candidate_decision, f"Candidate exact check pending{candidate_range}") if is_candidate
-            else "Descriptive anomaly: below exact-check floor"
-            if anomaly_types and not confirmable
-            else "Measured anomaly: exact check pending"
-            if anomaly_types else "Measured: no anomaly threshold crossed"
-        )
+            }.get(candidate_decision, f"Candidate exact check pending{candidate_range}")
+        elif withheld and (elevated or anomaly_types):
+            state = "Measured anomaly: exact verdict withheld, not a finding of no rewrite"
+        elif anomaly_types and not confirmable:
+            state = "Descriptive anomaly: below exact-check floor"
+        elif anomaly_types:
+            state = "Measured anomaly: exact check pending"
+        elif elevated:
+            state = f"Elevated loss (at or above {ELEVATED:g}%): no exact-check result recorded"
+        elif not gain_recorded:
+            state = f"Loss below the {ELEVATED:g}% elevated floor; gain not recorded"
+        else:
+            state = "Measured: no anomaly threshold crossed"
         classes = ["drift-row"]
         if is_candidate:
             classes.append("candidate")
@@ -1795,22 +1864,27 @@ def _interval_profile_chart(confirmation, nested=False):
             classes.append("excluded")
         if anomaly_types and not confirmable:
             classes.append("descriptive")
+        added = int(interval.get("pwr_added") or 0)
+        added_text = f"{added:,} added PWR" if added_recorded else "added PWR not recorded"
+        added_label = f"{added:,} added" if added_recorded else "added not recorded"
         metrics = [f"Loss {loss:.1f}%"]
         if "gain" in anomaly_types or gain:
             metrics.append(f"Gain {gain:.1f}%")
+        elif not gain_recorded:
+            metrics.append("Gain not recorded")
         if "replacement" in anomaly_types or replacement:
             metrics.append(f"Replacement lead {replacement:.1f}%")
         rows.append(
             f'<li class="{" ".join(classes)}">'
-            f'<span class="drift-date">{esc(interval.get("end"))}</span>'
+            f'<span class="drift-date" title="Interval {esc(interval_start)} → {esc(interval_end)}">'
+            f'{esc(interval_end)}{_interval_span_note(interval_start, interval_end)}</span>'
             '<span class="drift-track" aria-hidden="true">'
             f'<span class="drift-bar" style="width:{min(max(loss, 0), 100):.2f}%"></span></span>'
             f'<span class="drift-value">{esc(", ".join(metrics))}</span>'
             f'<span class="drift-mass" aria-label="'
-            f'{int(interval.get("pwr_removed") or 0):,} removed, '
-            f'{int(interval.get("pwr_added") or 0):,} added persistence-weighted units">'
-            f'{int(interval.get("pwr_removed") or 0):,} removed · '
-            f'{int(interval.get("pwr_added") or 0):,} added PWR</span>'
+            f'{int(interval.get("pwr_removed") or 0):,} removed, {added_label} '
+            'persistence-weighted units">'
+            f'{int(interval.get("pwr_removed") or 0):,} removed · {added_text}</span>'
             f'<span class="drift-state">{esc(state)}</span></li>'
         )
     if rows:
@@ -1836,6 +1910,11 @@ def _interval_profile_chart(confirmation, nested=False):
             '<strong class="drift-state">Data missing: verdict unavailable</strong></li></ul>'
             f'<p class="drift-missing-reason">{esc(empty_detail)}</p>'
         )
+    withheld_note = (
+        ' The exact verdict for this article is withheld, so these bars show measured loss only: '
+        'they neither confirm nor rule out a rewrite.'
+        if withheld else ""
+    )
     heading_tag = "h4" if nested else "h3"
     return (
         '<figure class="drift-profile" aria-labelledby="drift-profile-title">'
@@ -1847,7 +1926,11 @@ def _interval_profile_chart(confirmation, nested=False):
         'Below-floor anomalies remain descriptive evidence but cannot receive exact confirmation. '
         'A coverage gap is shown descriptively but excluded from detector decisions. '
         'Candidate-window labels report the exact revision-level decision for the broader window '
-        'containing that interval.</p></figcaption>'
+        'containing that interval. '
+        f'Each bar is the loss across one snapshot interval, not a single edit; loss at or above '
+        f'{ELEVATED:g}% is elevated, and consecutive elevated intervals form a candidate window. '
+        'This differs from the durable-spine drop, which measures a whole candidate window.'
+        f'{withheld_note}</p></figcaption>'
         f'{_rewrite_analysis_path(confirmation, len(intervals))}{plot}'
         '</figure>'
     )
@@ -1994,8 +2077,10 @@ def _durable_spine_explanation():
         'start of a candidate interval. The drop is the percentage-point decline in how much of '
         'that wording survives across the whole candidate window. The linked before-and-after '
         'revision pair locates the dominant step within that window; the percentage still measures '
-        'the whole window. It measures established wording loss, not whether the resulting text is '
-        'better, worse, more neutral, or less neutral.</p></aside>'
+        'the whole window. It is a different measure from the per-interval loss bars, each of which '
+        'covers one snapshot interval. A pair that carries only a tiny share of the window drop is '
+        'flagged rather than treated as the localisation. It measures established wording loss, not '
+        'whether the resulting text is better, worse, more neutral, or less neutral.</p></aside>'
     )
 
 
@@ -2007,7 +2092,7 @@ def confirmation_section(confirmation, pivots=None, slug=None):
         reason = reason or confirmation.get("reason")
         if not reason and confirmation.get("coarse_verdict") == "SKIP":
             reason = "too few snapshots"
-        title, note = _unavailable_rewrite_copy(reason)
+        title, note = _unavailable_rewrite_copy(reason, bool(confirmation.get("interval_profile")))
         return (
             f'<h2>{esc(title)}</h2><p class="missing-note">{esc(note)}</p>'
             f'{_durable_spine_explanation()}{_interval_profile_chart(confirmation)}'

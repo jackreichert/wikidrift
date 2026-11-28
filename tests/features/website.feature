@@ -152,7 +152,7 @@ Feature: WikiDrift public research website
       Given an article page is generated
       When the reader opens Rewrite
       Then the Persistence-weighted change by interval figure is present
-      And the axis includes 0%, the 25% candidate floor, 50%, 75%, and 100%
+      And the axis includes 0%, 25%, 50%, 75%, and 100%
       And the detector path explains coarse scan, interval scoring, and exact checking
 
     Scenario: Measured intervals render measured values
@@ -162,6 +162,19 @@ Feature: WikiDrift public research website
       And a sub-floor anomaly is marked descriptive rather than excluded or healthy
       And a replacement lead is not presented as confirmed semantic replacement
       And a candidate row reports whether exact checking confirmed or rejected it
+
+    Scenario: Interval rows never contradict their measured loss
+      Given an interval has PWR loss at or above the elevated floor
+      When the chart is rendered
+      Then the row is not labelled "no anomaly threshold crossed"
+      And missing gain fields read "not recorded" rather than "0 added PWR"
+      And a withheld exact verdict is labelled as withheld, not as no finding
+
+    Scenario: A micro exact pair is not presented as the window localisation
+      Given a candidate window of at least 30 days
+      And its exact pair carries under 5% of the window durable-spine drop
+      When the candidate outcomes are rendered
+      Then the pair is flagged as not a localisation
 
     Scenario: Missing interval receipts remain inside the chart
       Given no interval profile receipt exists

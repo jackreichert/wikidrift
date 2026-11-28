@@ -2,6 +2,7 @@
 in CI without the (gitignored, ~850 MB) real DuckDB. Golden-verdict tests need the real corpus and auto-skip;
 these don't — they build a tiny deterministic fixture and assert exact outputs.
 """
+import datetime as dt
 import json
 import os
 import pathlib
@@ -899,6 +900,60 @@ class ShortExactPairGuard(unittest.TestCase):
         self.assertGreater(evaluation["exact_pair_drop"], 0)
         self.assertEqual(evaluation["exact_before_revid"], 13)
         self.assertEqual(evaluation["exact_after_revid"], 14)
+
+    def test_pair_share_boundaries(self):
+        cases = [
+            ("2010-01-01", "2012-01-01", 0.004, 0.877, True),
+            ("2010-01-01", "2012-01-01", 0.0438, 0.877, True),
+            ("2010-01-01", "2012-01-01", 0.0439, 0.877, False),
+            ("2010-01-01", "2012-01-01", 0.5, 0.877, False),
+            ("2010-01-01", "2010-01-29", 0.0, 0.877, False),
+            ("2010-01-01", "2010-01-31", 0.0, 0.877, True),
+            ("2010-01-01", "2012-01-01", -0.1, 0.877, True),
+            ("2010-01-01", "2012-01-01", 0.0, 0.0, False),
+            ("2010-01-01", "2012-01-01", 0.0, None, False),
+        ]
+        for start, end, pair_drop, interval_drop, expected in cases:
+            with self.subTest(pair_drop=pair_drop, interval_drop=interval_drop, end=end):
+                self.assertEqual(
+                    drift._pair_share_too_small(start, end, pair_drop, interval_drop),
+                    expected,
+                )
+
+    def test_long_pair_carrying_tiny_share_of_window_drop_is_insufficient(self):
+        step_revs = [100 + index for index in range(26)]
+        self.con.execute("DELETE FROM revisions")
+        self.con.executemany("INSERT INTO revisions VALUES (?,?,?,?)", [
+            ("A", rev, (dt.datetime(2010, 2, 1) + dt.timedelta(days=20 * index)).strftime(
+                "%Y-%m-%dT%H:%M:%SZ"), "u")
+            for index, rev in enumerate(step_revs)
+        ])
+        kept = {rev: set(range(1 + 3 * index, 101)) for index, rev in enumerate(step_revs)}
+
+        def fake_tokens_at(art, rev, io=False):
+            return [{"token_id": token} for token in kept[rev]]
+
+        members = [set(range(1, 101))]
+        present = {token: [0] for token in range(1, 101)}
+        with mock.patch.object(provenance, "tokens_at", fake_tokens_at), \
+             mock.patch.object(drift, "MIN_COHORT", 3):
+            result = drift.refine(
+                "A", self.con, [], members, present, {10: 0},
+                ("2010-01-01", 10, "2012-01-01", 20, 64.0),
+            )
+
+        self.assertIsInstance(result, dict)
+        self.assertTrue(result.get("unresolvable"))
+        self.assertEqual(result["localisation_failure"], "pair_share")
+        self.assertGreater(result["interval_drop"], 0.7)
+        evaluation = drift._candidate_evaluation(
+            {"start": ("2010-01-01", 10), "end": ("2012-01-01", 20), "abs": 42000, "peak": 64.0},
+            result,
+        )
+        self.assertEqual(evaluation["decision"], "rejected")
+        self.assertEqual(evaluation["rejection_reason"], "insufficient_revision_evidence")
+        self.assertEqual(evaluation["localisation_failure"], "pair_share")
+        self.assertIn("exact_pair_drop", evaluation)
 
     def test_short_pair_same_day_coarse_window_still_resolves(self):
         peak = ("2015-09-24", 10, "2015-09-25", 20, 72.0)

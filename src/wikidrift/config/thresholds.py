@@ -10,6 +10,12 @@ MAG_FLOOR = 25.0        # min persistence-weighted loss % in an interval to cons
 CONFIRM_DROP = 0.20     # binary search must confirm the durable spine declined by >= this fraction
 MIN_PAIR_SECONDS = 300  # exact pair must span at least this long inside a coarse multi-week window
 MIN_COARSE_SPAN_SECONDS = 30 * 86400  # coarse window length that triggers the pair-span floor
+# Inside a coarse window of at least MIN_COARSE_SPAN_SECONDS, the exact pair found by the binary search must
+# carry at least this share of the window's durable-spine drop to be reported as its localisation. A pair
+# holding less (e.g. a +87 byte, 44 minute step inside an 18-month window) is a mid-window artifact, not
+# where the loss happened. Deliberately NOT in confirmation_thresholds(): adding it would mark every saved
+# receipt stale; receipts carrying exact_pair_drop are re-checked against it at display time instead.
+MIN_PAIR_DROP_SHARE = 0.05
 CREEP_MEAN = 8.0        # sustained mean weighted-loss above this (no single pivot) = CREEP
 DURABLE_Q = 0.50        # refine cohort = tokens present at interval start above this persistence quantile
 RECENT_YEARS = 3.0      # episodes ending within this of the horizon are tagged "recent" (else "standing")
