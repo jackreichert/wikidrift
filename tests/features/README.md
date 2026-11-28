@@ -16,6 +16,7 @@ The suite describes behavior, not implementation detail. Cucumber automation is 
 ### Website
 
 - `website.feature` — build, discovery, article pages, evidence tabs, trust states, accessibility, and responsive behavior.
+- `topic_review.feature` — what a reader sees and is told on one topic's article page: Rewrite, Framing and Overview agreeing with the confirmation, rewrite_status, pivot, framing and other artifacts; withheld versus no-finding states; interval metrics; counts; and dead links. Executable in `tests/test_topic_review_acceptance.py`.
 
 ### Tool
 
@@ -56,6 +57,9 @@ Supporting instruments such as pre-ranking, M-score, trust resolution, pipeline 
 - `@offline` — must not make network or LLM calls.
 - `@gap` — accepted requirement not fully implemented or not adequately tested.
 - `@website` / `@tool` — product surface.
+- `@bug` — the scenario states intended behavior that the current build does not meet. It is executed, and an assertion failure is reported as a skip naming the open bug; if it starts passing the test fails until the tag is removed. Never weaken a `@bug` scenario to make it pass.
+- `@topic-review` — scenarios about one topic's article page.
+- `@smell_<id>` — links a scenario to a mechanical smell in `docs/article-qa-checklist.md` section 11 (`confirmed_without_pivots`, `framing_langs_mismatch`, `framing_claims_confirmed_while_rewrite_withheld`, `framing_mode_mismatch`, `withheld_copy_mismatch`).
 
 ## Shared Domain Language
 
